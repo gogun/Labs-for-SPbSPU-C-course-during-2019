@@ -1,6 +1,6 @@
-#include "reactangle.hpp"
+#include "rectangle.hpp"
 
-Reactangle::Reactangle(point_t center, float width, float height)
+Rectangle::Rectangle(point_t center, float width, float height)
 {
   this->center = center;
   this->width = width;
@@ -9,24 +9,24 @@ Reactangle::Reactangle(point_t center, float width, float height)
   this->frameRect = {width, height, center};
 }
 
-float Reactangle::getArea()
+float Rectangle::getArea()
 {
   return this->area;
 }
 
-reactangle_t Reactangle::getFrameRect()
+reactangle_t Rectangle::getFrameRect()
 {
   return this->frameRect;
 }
 
-void Reactangle::move(float x, float y)
+void Rectangle::move(float x, float y)
 {
   this->center.x += x;
   this->center.y += y;
   this->frameRect.pos = this->center;
 }
 
-void Reactangle::moveTo(float x, float y)
+void Rectangle::moveTo(float x, float y)
 {
   this->center = {x, y};
   this->frameRect.pos = this->center;

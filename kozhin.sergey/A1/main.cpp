@@ -1,5 +1,5 @@
 #include "circle.hpp"
-#include "reactangle.hpp"
+#include "rectangle.hpp"
 #include <iostream>
 
 int main()
@@ -15,7 +15,7 @@ int main()
   std::cout << "\tCenter: " << testRect.pos.x << ' ' << testRect.pos.y << std::endl;
   std::cout << std::endl;
 
-  Reactangle fRect({10.5, -1.5}, 15, 6);
+  Rectangle fRect({10.5, -1.5}, 15, 6);
   float testAreaR = fRect.getArea();
   reactangle_t testRectR = fRect.getFrameRect();
 

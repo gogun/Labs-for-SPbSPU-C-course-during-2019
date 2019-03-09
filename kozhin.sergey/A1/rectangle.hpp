@@ -1,8 +1,8 @@
-#ifndef REACTANGLE_HPP
-#define REACTANGLE_HPP
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 #include "shape.hpp"
 
-class Reactangle : public Shape
+class Rectangle : public Shape
 {
 private:
   point_t center;
@@ -12,11 +12,11 @@ private:
   reactangle_t frameRect;
 
 public:
-  Reactangle(point_t center, float width, float height);
+  Rectangle(point_t center, float width, float height);
   float getArea();
   reactangle_t getFrameRect();
   void move(float x, float y);
   void moveTo(float x, float y);
 };
 
-#endif // REACTANGLE_HPP
+#endif // RECTANGLE_HPP
