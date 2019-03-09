@@ -12,8 +12,8 @@ private:
 
 public:
   Circle(point_t center, double radius);
-  double getArea();
-  rectangle_t getFrameRect();
+  double getArea() const;
+  rectangle_t getFrameRect() const;
   void move(double x, double y);
   void moveTo(double x, double y);
 };

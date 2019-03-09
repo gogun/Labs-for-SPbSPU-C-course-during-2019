@@ -9,12 +9,12 @@ Circle::Circle(point_t center, double radius)
   this->frameRect = {2 * radius, 2 * radius, center};
 }
 
-double Circle::getArea()
+double Circle::getArea() const
 {
   return this->area;
 }
 
-rectangle_t Circle::getFrameRect()
+rectangle_t Circle::getFrameRect() const
 {
   return this->frameRect;
 }
