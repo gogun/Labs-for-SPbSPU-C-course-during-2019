@@ -3,14 +3,14 @@
 
 struct point_t
 {
-  float x;
-  float y;
+  double x;
+  double y;
 };
 
-struct reactangle_t
+struct rectangle_t
 {
-  float width;
-  float heigth;
+  double width;
+  double heigth;
   point_t pos;
 };
 

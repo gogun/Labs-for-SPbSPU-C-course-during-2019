@@ -6,17 +6,17 @@ class Rectangle : public Shape
 {
 private:
   point_t center;
-  float width;
-  float height;
-  float area;
-  reactangle_t frameRect;
+  double width;
+  double height;
+  double area;
+  rectangle_t frameRect;
 
 public:
-  Rectangle(point_t center, float width, float height);
-  float getArea();
-  reactangle_t getFrameRect();
-  void move(float x, float y);
-  void moveTo(float x, float y);
+  Rectangle(point_t center, double width, double height);
+  double getArea();
+  rectangle_t getFrameRect();
+  void move(double x, double y);
+  void moveTo(double x, double y);
 };
 
 #endif // RECTANGLE_HPP
