@@ -11,7 +11,7 @@ int main()
   std::cout << "Test circle area is " << testArea << std::endl;
   std::cout << "Test circle frame rect params are: " << std::endl;
   std::cout << "\tWidth: " << testRect.width << std::endl;
-  std::cout << "\tHeight: " << testRect.heigth << std::endl;
+  std::cout << "\tHeight: " << testRect.height << std::endl;
   std::cout << "\tCenter: " << testRect.pos.x << ' ' << testRect.pos.y << std::endl;
   std::cout << std::endl;
 
@@ -22,7 +22,7 @@ int main()
   std::cout << "Test reactangle area is " << testAreaR << std::endl;
   std::cout << "Test reactangle frame rect params are: " << std::endl;
   std::cout << "\tWidth: " << testRectR.width << std::endl;
-  std::cout << "\tHeight: " << testRectR.heigth << std::endl;
+  std::cout << "\tHeight: " << testRectR.height << std::endl;
   std::cout << "\tCenter: " << testRectR.pos.x << ' ' << testRectR.pos.y << std::endl;
   return 0;
 }
