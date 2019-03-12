@@ -5,23 +5,23 @@
 
 int main(int argc, char* argv[])
 {
-    Shape* shapes[2];
+  Shape* shapes[2];
   try {
-      shapes[0] = new Rectangle{ {10, 10}, 20, 40 };
-      shapes[1] = new Circle{ {100, 100}, 10 };
-      for(auto& sh : shapes) {
-          sh->printData(std::cout);
-          sh->move({ 5, 5 });
-          sh->printData(std::cout);
-      }
+    shapes[0] = new Rectangle{{10, 10}, 20, 40};
+    shapes[1] = new Circle{{100, 100}, 10};
+    for (auto& sh : shapes) {
+      sh->printData(std::cout);
+      sh->move({5, 5});
+      sh->printData(std::cout);
+    }
   }
   catch (std::invalid_argument& exp) {
-      std::cerr << exp.what();
-      return 1;
+    std::cerr << exp.what();
+    return 1;
   }
   catch (...) {
-      std::cerr << "Internal error.\n";
-      return 2;
+    std::cerr << "Internal error.\n";
+    return 2;
   }
   return 0;
 }

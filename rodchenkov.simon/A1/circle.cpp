@@ -18,17 +18,17 @@ Circle::Circle(const point_t pos, const float radius) :
 
 float Circle::getArea() const noexcept
 {
-    return pow(radius_, 2) * PI;
+  return pow(radius_, 2) * PI;
 }
 
 rectangle_t Circle::getFrameRect() const noexcept
 {
-    return  frame_rect_;
+  return frame_rect_;
 }
 
 void Circle::printData(std::ostream& stream) const
 {
-  stream << "radius : " << radius_ 
+  stream << "radius : " << radius_
       << "\nframe rect height : " << frame_rect_.height
       << "\nframe rect width : " << frame_rect_.width
       << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
@@ -36,13 +36,13 @@ void Circle::printData(std::ostream& stream) const
 
 void Circle::move(const point_t point) noexcept
 {
-    frame_rect_.pos = point;
+  frame_rect_.pos = point;
 }
 
 void Circle::move(const float dx, const float dy) noexcept
 {
-    frame_rect_.pos.x += dx;
-    frame_rect_.pos.y += dy;
+  frame_rect_.pos.x += dx;
+  frame_rect_.pos.y += dy;
 }
 
 
