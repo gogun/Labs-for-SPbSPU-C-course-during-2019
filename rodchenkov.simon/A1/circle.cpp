@@ -1,5 +1,7 @@
 #include "circle.hpp"
+
 #include <stdexcept>
+#include <cmath>
 
 const float PI = atan(1) * 4;
 

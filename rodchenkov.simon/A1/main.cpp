@@ -3,7 +3,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-int main(int argc, char* argv[])
+int main()
 {
   Shape* shapes[2];
   try {
