@@ -14,13 +14,16 @@ int main()
       sh->move({5, 5});
       sh->printData(std::cout);
     }
+    delete[] shapes;
   }
   catch (std::invalid_argument& exp) {
     std::cerr << exp.what();
+    delete[] shapes;
     return 1;
   }
   catch (...) {
     std::cerr << "Internal error.\n";
+    delete[] shapes;
     return 2;
   }
   return 0;

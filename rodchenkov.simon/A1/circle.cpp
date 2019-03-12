@@ -9,7 +9,7 @@ Circle::Circle() :
   radius_(0),
   frame_rect_({0, 0, {0, 0}}) {}
 
-Circle::Circle(const point_t pos, const float radius) :
+Circle::Circle(const point_t& pos, const float radius) :
   radius_(radius),
   frame_rect_({radius * 2, radius * 2, pos})
 {
@@ -36,7 +36,7 @@ void Circle::printData(std::ostream& stream) const
       << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
 }
 
-void Circle::move(const point_t point) noexcept
+void Circle::move(const point_t& point) noexcept
 {
   frame_rect_.pos = point;
 }

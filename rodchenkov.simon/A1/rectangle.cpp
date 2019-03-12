@@ -6,7 +6,7 @@ Rectangle::Rectangle() :
   width_(0),
   frame_rect_({0, 0, {0, 0}}) {}
 
-Rectangle::Rectangle(const point_t pos, const float height, const float width) :
+Rectangle::Rectangle(const point_t& pos, const float height, const float width) :
   height_(height),
   width_(width),
   frame_rect_({height, width, pos})
@@ -35,7 +35,7 @@ void Rectangle::printData(std::ostream& stream) const
       << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
 }
 
-void Rectangle::move(const point_t point) noexcept
+void Rectangle::move(const point_t& point) noexcept
 {
   frame_rect_.pos = point;
 }
