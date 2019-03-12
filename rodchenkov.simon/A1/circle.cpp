@@ -3,13 +3,13 @@
 #include <stdexcept>
 #include <cmath>
 
-const float PI = atan(1) * 4;
+const double PI = atan(1) * 4;
 
 Circle::Circle() :
   radius_(0),
   frame_rect_({0, 0, {0, 0}}) {}
 
-Circle::Circle(const point_t& pos, const float radius) :
+Circle::Circle(const point_t& pos, const double radius) :
   radius_(radius),
   frame_rect_({radius * 2, radius * 2, pos})
 {
@@ -18,7 +18,7 @@ Circle::Circle(const point_t& pos, const float radius) :
   }
 }
 
-float Circle::getArea() const noexcept
+double Circle::getArea() const noexcept
 {
   return pow(radius_, 2) * PI;
 }
@@ -41,7 +41,7 @@ void Circle::move(const point_t& point) noexcept
   frame_rect_.pos = point;
 }
 
-void Circle::move(const float dx, const float dy) noexcept
+void Circle::move(const double dx, const double dy) noexcept
 {
   frame_rect_.pos.x += dx;
   frame_rect_.pos.y += dy;

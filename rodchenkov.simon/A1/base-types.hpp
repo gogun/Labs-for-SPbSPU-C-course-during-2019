@@ -3,14 +3,14 @@
 
 struct point_t final
 {
-  float x;
-  float y;
+  double x;
+  double y;
 };
 
 struct rectangle_t final
 {
-  float   height;
-  float   width;
+  double   height;
+  double   width;
   point_t pos;
 };
 

@@ -6,7 +6,7 @@ Rectangle::Rectangle() :
   width_(0),
   frame_rect_({0, 0, {0, 0}}) {}
 
-Rectangle::Rectangle(const point_t& pos, const float height, const float width) :
+Rectangle::Rectangle(const point_t& pos, const double height, const double width) :
   height_(height),
   width_(width),
   frame_rect_({height, width, pos})
@@ -16,7 +16,7 @@ Rectangle::Rectangle(const point_t& pos, const float height, const float width) 
   }
 }
 
-float Rectangle::getArea() const noexcept
+double Rectangle::getArea() const noexcept
 {
   return height_ * width_;
 }
@@ -40,7 +40,7 @@ void Rectangle::move(const point_t& point) noexcept
   frame_rect_.pos = point;
 }
 
-void Rectangle::move(const float dx, const float dy) noexcept
+void Rectangle::move(const double dx, const double dy) noexcept
 {
   frame_rect_.pos.x += dx;
   frame_rect_.pos.y += dy;
