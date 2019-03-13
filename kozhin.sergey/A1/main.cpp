@@ -26,6 +26,7 @@ int main()
   std::cout << "\tCenter: " << testRectR.pos.x << ' ' << testRectR.pos.y << std::endl;
 
   fRect.moveTo(5.8, 9.15);
+  testRectR = fRect.getFrameRect();
 
   std::cout << " New test reactangle frame rect params are: " << std::endl;
   std::cout << "\tWidth: " << testRectR.width << std::endl;
