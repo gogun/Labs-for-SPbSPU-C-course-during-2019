@@ -15,6 +15,16 @@ int main()
   std::cout << "\tCenter: " << testRect.pos.x << ' ' << testRect.pos.y << std::endl;
   std::cout << std::endl;
 
+  fCircle.move(1.5, 6.3);
+  testRect = fCircle.getFrameRect();
+
+  std::cout << "New test circle frame rect params are: " << std::endl;
+  std::cout << "\tWidth: " << testRect.width << std::endl;
+  std::cout << "\tHeight: " << testRect.height << std::endl;
+  std::cout << "\tCenter: " << testRect.pos.x << ' ' << testRect.pos.y << std::endl;
+  std::cout << std::endl;
+
+
   Rectangle fRect({10.5, -1.5}, 15, 6);
   double testAreaR = fRect.getArea();
   rectangle_t testRectR = fRect.getFrameRect();
