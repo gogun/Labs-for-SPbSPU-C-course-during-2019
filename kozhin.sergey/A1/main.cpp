@@ -24,5 +24,13 @@ int main()
   std::cout << "\tWidth: " << testRectR.width << std::endl;
   std::cout << "\tHeight: " << testRectR.height << std::endl;
   std::cout << "\tCenter: " << testRectR.pos.x << ' ' << testRectR.pos.y << std::endl;
+
+  fRect.moveTo(5.8, 9.15);
+
+  std::cout << " New test reactangle frame rect params are: " << std::endl;
+  std::cout << "\tWidth: " << testRectR.width << std::endl;
+  std::cout << "\tHeight: " << testRectR.height << std::endl;
+  std::cout << "\tCenter: " << testRectR.pos.x << ' ' << testRectR.pos.y << std::endl;
+
   return 0;
 }
