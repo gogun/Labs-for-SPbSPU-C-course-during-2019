@@ -7,7 +7,7 @@ using namespace std;
 
 int main() {
 
-  Shape* shape[5];
+  Shape* shape[4];
 
   shape[0] = new Circle({0, 0}, 3);
   cout << "New circle:\n";
@@ -49,7 +49,9 @@ int main() {
   shape[3]->writeInfo();
 
 
-  delete[] shape;
+  for (int i = 0; i < 4; ++i)
+    delete shape[i];
+
 
   return 0;
 }
