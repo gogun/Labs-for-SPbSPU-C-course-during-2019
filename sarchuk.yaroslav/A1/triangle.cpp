@@ -71,4 +71,3 @@ void Triangle::move(const double dx, const double dy) {
   third_.x += dx;
   third_.y += dy;
 }
-

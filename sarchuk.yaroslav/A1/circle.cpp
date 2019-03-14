@@ -37,4 +37,3 @@ void Circle::move(const double dx, const double dy) {
 rectangle_t Circle::getFrameRect() const {
   return {pos_, 2 * radius_, 2 * radius_};
 }
-

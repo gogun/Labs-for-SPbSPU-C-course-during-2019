@@ -47,5 +47,3 @@ void Rectangle::move(const double dx, const double dy) {
   pos_.x += dx;
   pos_.y += dy;
 }
-
-
