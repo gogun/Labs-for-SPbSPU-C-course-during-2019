@@ -33,7 +33,7 @@ int main() {
   shape->move(2, 2);
   shape->writeInfo();
 
-  delete(shape);
+  delete[] shape;
   cout << "New Triangle\n";
   shape = new Triangle({0, 0}, {0, 3}, {9, 0});
   shape->writeInfo();
@@ -44,11 +44,12 @@ int main() {
   cout << "Move to 2,2\n";
   shape->move(2, 2);
   shape->writeInfo();
-  delete(shape);
+  delete[] shape;
   shape = new Rectangle(shape->getFrameRect());
   cout << "Rectangle around triangle\n";
   shape->writeInfo();
 
-  delete(shape);
+  delete[] shape;
+
   return 0;
 }
