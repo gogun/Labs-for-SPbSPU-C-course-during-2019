@@ -5,7 +5,7 @@
 #ifndef A1_RECTANGLE_HPP
 #define A1_RECTANGLE_HPP
 
-#include "Shape.hpp"
+#include "shape.hpp"
 
 class Rectangle : public Shape {
 public:

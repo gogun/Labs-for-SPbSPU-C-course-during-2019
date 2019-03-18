@@ -5,7 +5,7 @@
 #ifndef A1_CIRCLE_HPP
 #define A1_CIRCLE_HPP
 
-#include "Shape.hpp"
+#include "shape.hpp"
 
 class Circle : public Shape {
 public:
