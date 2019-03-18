@@ -2,7 +2,7 @@
 // Created by Артур on 18.03.2019.
 //
 
-#include "Circle.hpp"
+#include "circle.hpp"
 
 Circle::Circle(const point_t &point, const double &radius)
 {

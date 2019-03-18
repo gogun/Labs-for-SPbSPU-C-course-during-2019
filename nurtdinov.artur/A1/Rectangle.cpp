@@ -2,7 +2,7 @@
 // Created by Артур on 18.03.2019.
 //
 
-#include "Rectangle.hpp"
+#include "rectangle.hpp"
 
 Rectangle::Rectangle(const point_t &point, const double &width, const double &height)
 {
