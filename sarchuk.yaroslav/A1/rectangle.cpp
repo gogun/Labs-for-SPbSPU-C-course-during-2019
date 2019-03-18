@@ -1,27 +1,26 @@
 #include <cassert>
 #include <iostream>
+
 #include "rectangle.hpp"
 
 Rectangle::Rectangle(const point_t &position, const double width, const double height) :
-    pos_(position),
-    width_(width),
-    height_(height)
-{
+  pos_(position),
+  width_(width),
+  height_(height) {
   assert(width > 0 && height > 0);
 }
 
 Rectangle::Rectangle(const rectangle_t &info) :
-    pos_(info.pos),
-    width_(info.width),
-    height_(info.height)
-{
-  assert(width_ > 0 && height_ > 0);
+  pos_(info.pos),
+  width_(info.width),
+  height_(info.height) {
+  assert(info.width > 0 && info.height > 0);
 }
 
 Rectangle::Rectangle() :
-    pos_({0, 0}),
-    width_(1),
-    height_(1) {}
+  pos_({0, 0}),
+  width_(0),
+  height_(0) {}
 
 double Rectangle::getArea() const {
   return width_ * height_;

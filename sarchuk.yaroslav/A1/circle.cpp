@@ -1,18 +1,19 @@
 #include <cmath>
 #include <cassert>
 #include <iostream>
+
 #include "circle.hpp"
 
 Circle::Circle(const point_t &position, const double radius) :
-    pos_(position),
-    radius_(radius)
-{
+  pos_(position),
+  radius_(radius) {
   assert(radius > 0);
 }
 
 Circle::Circle() :
-    pos_({0,0}),
-    radius_(1) {}
+  pos_({0, 0}),
+  radius_(1) {}
+
 double Circle::getArea() const {
   return (M_PI * radius_ * radius_);
 }
