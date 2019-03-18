@@ -19,7 +19,6 @@ double Circle::getArea() const {
 }
 
 void Circle::writeInfo() const {
-
   std::cout << "Circle info:\n"
             << "Radius - " << radius_ << "\n"
             << "Center position: x = " << pos_.x << ", y = " << pos_.y << "\n"
