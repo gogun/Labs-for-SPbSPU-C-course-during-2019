@@ -2,7 +2,8 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-int main() {
+int main()
+{
 
   point_t point1 = {5, 5};
   Rectangle rectangle(3, 3, point1);
