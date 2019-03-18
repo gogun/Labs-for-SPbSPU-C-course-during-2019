@@ -37,3 +37,5 @@ int main()
   std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
   std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
 }
+
+
