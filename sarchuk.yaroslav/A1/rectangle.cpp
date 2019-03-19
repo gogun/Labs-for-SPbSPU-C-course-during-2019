@@ -1,6 +1,5 @@
 #include <cassert>
 #include <iostream>
-
 #include "rectangle.hpp"
 
 Rectangle::Rectangle(const point_t &position, const double width, const double height) :
@@ -28,10 +27,10 @@ double Rectangle::getArea() const {
 
 void Rectangle::writeInfo() const {
   std::cout << "Rectangle info:\n"
-            << "Width - " << width_ << "\n"
-            << "Height - " << height_ << "\n"
-            << "Center position: x = " << pos_.x << ", y = " << pos_.y << "\n"
-            << "Area - " << getArea() << "\n\n";
+    << "Width - " << width_ << "\n"
+    << "Height - " << height_ << "\n"
+    << "Center position: x = " << pos_.x << ", y = " << pos_.y << "\n"
+    << "Area - " << getArea() << "\n\n";
 }
 
 rectangle_t Rectangle::getFrameRect() const {
