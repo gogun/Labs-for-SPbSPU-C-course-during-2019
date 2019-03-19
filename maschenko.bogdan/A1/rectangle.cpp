@@ -9,6 +9,7 @@ Rectangle::Rectangle(const point_t &center, double width, double height) :
     throw "Invalid width or height of rectangle.";
   }
 }
+}
 
 double Rectangle::getArea() const
 {
