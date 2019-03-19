@@ -3,7 +3,6 @@
 #include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
-#include "triangle.hpp"
 
 int main()
 {
@@ -39,24 +38,6 @@ int main()
   std::cout << "Rectangle frame moved for ("
     << finishFrame.pos.x - startingFrame.pos.x << ";"
     << finishFrame.pos.y - startingFrame.pos.y  << ") unit points" << std::endl;
-
-  point_t point1 { 20, 20 };
-  point_t point2 { 30, 12 };
-  point_t point3 { 43, 55 };
-  Triangle triangle(point1, point2, point3);
-  std::cout << "Centre of triangle is ("
-    << triangle.getCentre().x<< ";"
-    << triangle.getCentre().y << ")" << std::endl;
-
-  try
-  {
-    Triangle invalidTriangle(centre, centre, centre);
-  }
-  catch (std::invalid_argument& e)
-  {
-    std::cerr << e.what() << std::endl;
-    return 2;
-  }
 
   return 0;
 }
