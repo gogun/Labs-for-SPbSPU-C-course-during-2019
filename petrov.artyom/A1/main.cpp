@@ -20,23 +20,23 @@ int main()
   shape->move(50, 40);
   auto finishFrame = shape->getFrameRect();
   std::cout << "Shape frame moved for ("
-    << finishFrame.pos.x - startingFrame.pos.x << ";"
-    << finishFrame.pos.y - startingFrame.pos.y  << ") unit points" << std::endl;
+            << finishFrame.pos.x - startingFrame.pos.x << ";"
+            << finishFrame.pos.y - startingFrame.pos.y  << ") unit points" << std::endl;
 
   centre = point_t { 30, 50 };
   Circle circle(centre, 20);
   std::cout << "Area of circle of centre ("
-    << circle.getCentre().x << ";" << circle.getCentre().y
-    << ") and raidus " << circle.getRadius()
-    << " is " << circle.getArea() << std::endl;
+            << circle.getCentre().x << ";" << circle.getCentre().y
+            << ") and raidus " << circle.getRadius()
+            << " is " << circle.getArea() << std::endl;
 
   Rectangle rectangle(polymorphicRectangle);
   startingFrame = rectangle.getFrameRect();
   rectangle.move(point_t { 100, 200 });
   finishFrame = rectangle.getFrameRect();
   std::cout << "Rectangle frame moved for ("
-    << finishFrame.pos.x - startingFrame.pos.x << ";"
-    << finishFrame.pos.y - startingFrame.pos.y  << ") unit points" << std::endl;
+            << finishFrame.pos.x - startingFrame.pos.x << ";"
+            << finishFrame.pos.y - startingFrame.pos.y  << ") unit points" << std::endl;
 
   return 0;
 }
