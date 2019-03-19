@@ -2,7 +2,6 @@
 #include <string>
 #include "rectangle.hpp"
 #include "circle.hpp"
-#include "triangle.hpp"
 
 int main()
 {
@@ -37,26 +36,6 @@ int main()
     std::cout << "move Rectangle at the dx = 7, dy = 0" << std::endl;
     rectangle.move(7, 0);
     rectangle.writeInfo();
-  }
-  catch (std::string message)
-  {
-    std::cout << message << std::endl;
-    return 2;
-  }
-
-  std::cout << "-------------------------------------------------------------" << std::endl << std::endl;
-
-  std::cout << "new Triangle with side a: (0;0), side b: (0;34), side c: (15;25)" << std::endl;
-  try
-  {
-    Triangle triangle({0, 0}, {0, 34}, {15, 25});
-    triangle.writeInfo();
-    std::cout << "move Triangle in point with center (-12,87)" << std::endl;
-    triangle.move({-12, -87});
-    triangle.writeInfo();
-    std::cout << "move Triangle at the dx = 10, dy = 10" << std::endl;
-    triangle.move(10, 10);
-    triangle.writeInfo();
   }
   catch (std::string message)
   {
