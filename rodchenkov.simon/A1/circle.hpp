@@ -9,7 +9,7 @@ public:
   Circle();
   Circle(const point_t& pos, const double radius);
 
-  double       getArea() const noexcept override;
+  double      getArea() const noexcept override;
   rectangle_t getFrameRect() const noexcept override;
   void        printData(std::ostream& stream) const override;
 
