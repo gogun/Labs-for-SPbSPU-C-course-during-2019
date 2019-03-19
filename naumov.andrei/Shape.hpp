@@ -11,7 +11,10 @@ public:
   virtual void move(point_t & newCentre) = 0;
   virtual void move(float newX, float newY) = 0;
 
-  const point_t & getCentre() { return centre_; }
+  const point_t & getCentre() 
+  { 
+    return centre_; 
+  }
 protected:
   point_t centre_;
 private:
