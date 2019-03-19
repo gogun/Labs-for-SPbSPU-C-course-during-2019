@@ -9,7 +9,6 @@ Rectangle::Rectangle(const point_t &center, double width, double height) :
     throw "Invalid width or height of rectangle.";
   }
 }
-}
 
 double Rectangle::getArea() const
 {
@@ -27,9 +26,9 @@ void Rectangle::move(double dx, double dy)
   rectangle_.center.x += dx;
 }
 
-void Rectangle::move(const point_t &centr)
+void Rectangle::move(const point_t &center)
 {
-  rectangle_.center = centr;
+  rectangle_.center = center;
 }
 
 void Rectangle::writeInfo() const
