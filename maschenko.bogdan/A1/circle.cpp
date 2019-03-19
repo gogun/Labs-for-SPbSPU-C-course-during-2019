@@ -42,10 +42,10 @@ void Circle::writeInfo() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << std::endl
-            << "Circle with center: (" << center_.x
-            << ";" << center_.y << ")" << std::endl
-            << "radius = " << radius_ << std::endl
-            << "Frame rectangle width = " << rectangle.width
-            << ", height = " << rectangle.height << std::endl
-            << "Area = " << getArea() << std::endl << std::endl;
+    << "Circle with center: (" << center_.x
+    << ";" << center_.y << ")" << std::endl
+    << "radius = " << radius_ << std::endl
+    << "Frame rectangle width = " << rectangle.width
+    << ", height = " << rectangle.height << std::endl
+    << "Area = " << getArea() << std::endl << std::endl;
 }

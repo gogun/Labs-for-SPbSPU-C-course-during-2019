@@ -36,10 +36,9 @@ void Rectangle::move(const point_t &centr)
 void Rectangle::writeInfo() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << std::endl
-            << "Rectangle with center: (" << rectangle_.center.x
-            << ";" << rectangle_.center.y << ")" << std::endl
-            << "Frame rectangle width = "	<< rectangle.width
-            << ", height = " << rectangle.height << std::endl
-            << "Area = " << getArea() << std::endl << std::endl;
+  std::cout << std::endl << "Rectangle with center: (" << rectangle_.center.x
+    << ";" << rectangle_.center.y << ")" << std::endl
+    << "Frame rectangle width = "	<< rectangle.width
+    << ", height = " << rectangle.height << std::endl
+    << "Area = " << getArea() << std::endl << std::endl;
 }
