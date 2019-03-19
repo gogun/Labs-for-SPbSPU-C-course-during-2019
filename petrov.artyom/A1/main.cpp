@@ -7,7 +7,6 @@
 
 int main()
 {
-
   point_t centre = point_t { 20, 40 };
 
   Rectangle polymorphicRectangle = Rectangle(centre, 100, 100);
@@ -60,5 +59,4 @@ int main()
   }
 
   return 0;
-
 }
