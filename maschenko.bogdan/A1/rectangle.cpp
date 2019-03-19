@@ -2,9 +2,7 @@
 #include <iostream>
 
 Rectangle::Rectangle(const point_t &center, double width, double height) :
-  rectangle_({center,
-             width,
-             height})
+  rectangle_({center, width, height})
 {
   if ((rectangle_.width <= 0) || (rectangle_.height <= 0))
   {
