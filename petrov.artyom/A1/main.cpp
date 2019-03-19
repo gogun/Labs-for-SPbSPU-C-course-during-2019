@@ -30,7 +30,6 @@ int main()
     << ") and raidus " << circle.getRadius()
     << " is " << circle.getArea() << std::endl;
 
-  rectangle_t rect { 40, 40, centre };
   Rectangle rectangle(polymorphicRectangle);
   startingFrame = rectangle.getFrameRect();
   rectangle.move(point_t { 100, 200 });
