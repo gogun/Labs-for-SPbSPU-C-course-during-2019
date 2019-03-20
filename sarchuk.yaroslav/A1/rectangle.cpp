@@ -7,7 +7,7 @@ Rectangle::Rectangle(const point_t &position, const double width, const double h
   width_(width),
   height_(height)
 {
-  assert(width > 0 && height > 0);
+  assert((width) > 0 && (height > 0));
 }
 
 Rectangle::Rectangle(const rectangle_t &info) :
@@ -15,7 +15,7 @@ Rectangle::Rectangle(const rectangle_t &info) :
   width_(info.width),
   height_(info.height)
 {
-  assert(info.width > 0 && info.height > 0);
+  assert((info.width) > 0 && (info.height > 0));
 }
 
 Rectangle::Rectangle() :
