@@ -44,4 +44,4 @@ int main() {
             << rect_c4.width << "x" << rect_c4.height << '\n'
             << "Area: " << c4.getArea() << "\n\n";
   return 0;
-}
+} // Дальше идет пустая строка. UTF-8. LF.
