@@ -43,9 +43,8 @@ int main()
   try {
     Circle invalidCirce(centre, -5);
   }
-  catch (std::invalid_argument&) {
-    std::cerr << "Circle radius is less than 0";
-    return  -2;
+  catch (std::invalid_argument& e) {
+    std::cerr << e.what() << std::endl;
   }
 
   return 0;
