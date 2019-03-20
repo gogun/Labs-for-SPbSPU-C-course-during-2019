@@ -8,7 +8,7 @@ int main()
   std::cout << "new Circle with center: (14;56) and radius = 5" << std::endl;
   try
   {
-    Circle circle({14, 56}, -5);
+    Circle circle({14, 56}, 5);
     circle.writeInfo();
     std::cout << "move Circle in point with center: (-34,32)" << std::endl;
     circle.move({-34, 32});
@@ -20,7 +20,6 @@ int main()
   catch (std::string message)
   {
     std::cout << message << std::endl;
-    return 2;
   }
 
   std::cout << "-------------------------------------------------------------" << std::endl << std::endl;
@@ -40,6 +39,5 @@ int main()
   catch (std::string message)
   {
     std::cout << message << std::endl;
-    return 2;
   }
 }

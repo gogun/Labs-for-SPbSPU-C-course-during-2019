@@ -2,11 +2,11 @@
 #include <iostream>
 
 Rectangle::Rectangle(const point_t &center, double width, double height) :
-        rectangle_({center, width, height})
+  rectangle_({center, width, height})
 {
   if ((rectangle_.width <= 0) || (rectangle_.height <= 0))
   {
-    throw "Invalid width or height of rectangle.";
+    throw "Invalid width of height of rectangle.";
   }
 }
 
@@ -36,7 +36,7 @@ void Rectangle::writeInfo() const
   rectangle_t rectangle = getFrameRect();
   std::cout << std::endl << "Rectangle with center: (" << rectangle_.center.x
             << ";" << rectangle_.center.y << ")" << std::endl
-            << "Frame rectangle width = "	<< rectangle.width
+            << "Frame rectangle width = " << rectangle.width
             << ", height = " << rectangle.height << std::endl
             << "Area = " << getArea() << std::endl << std::endl;
 }
