@@ -1,17 +1,15 @@
+#include "circle.hpp"
 #include <cmath>
 #include <stdexcept>
-#include "circle.hpp"
 
 Circle::Circle(double radius, point_t center) :
   radius_(radius),
   center_(center)
 {
-
   if (radius_ < 0.0)
   {
     throw std::invalid_argument("Invalid radius");
   }
-
 }
 
 double Circle::getArea() const noexcept
@@ -21,8 +19,8 @@ double Circle::getArea() const noexcept
 
 rectangle_t Circle::getFrameRect() const noexcept
 {
-  rectangle_t frame = {2 * radius_, 2 * radius_, center_};
-  return frame;
+  rectangle_t frameRect = {2 * radius_, 2 * radius_, center_};
+  return frameRect;
 }
 
 void Circle::move(double dx, double dy) noexcept

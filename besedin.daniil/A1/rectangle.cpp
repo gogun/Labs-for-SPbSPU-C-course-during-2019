@@ -1,17 +1,15 @@
-#include <stdexcept>
 #include "rectangle.hpp"
+#include <stdexcept>
 
 Rectangle::Rectangle(double width, double height, point_t center) :
   width_(width),
   height_(height),
   center_(center)
 {
-
   if (width_ < 0.0 || height < 0.0)
   {
     throw std::invalid_argument("Invalid parameters");
   }
-
 }
 
 double Rectangle::getArea() const noexcept
@@ -21,8 +19,8 @@ double Rectangle::getArea() const noexcept
 
 rectangle_t Rectangle::getFrameRect() const noexcept
 {
-  rectangle_t frame = {width_, height_, center_};
-  return frame;
+  rectangle_t frameRect = {width_, height_, center_};
+  return frameRect;
 }
 
 void Rectangle::move(double dx, double dy) noexcept
