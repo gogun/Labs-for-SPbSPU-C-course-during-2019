@@ -18,7 +18,7 @@ Rectangle::Rectangle(point_t pos, double a) : Rectangle(pos, a, a)
 Rectangle::Rectangle(double x, double y, double a) : Rectangle({x, y}, a, a)
 { }
 
-Rectangle::Rectangle() : Rectangle({0, 0}, 0)
+Rectangle::Rectangle() : center_({0, 0}), width_(0), height_(0)
 { }
 
 void Rectangle::move(point_t point)
