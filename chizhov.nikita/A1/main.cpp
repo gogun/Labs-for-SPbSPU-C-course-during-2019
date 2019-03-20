@@ -35,7 +35,7 @@ int main() {
     i++;
   }
 
-  // Заведомо некорректная фигура. Выводится ошибка в cerr
+  /* Заведомо некорректная фигура. Выводится ошибка в cerr
   Circle c4  = Circle({0, 5}, -2);
   rectangle_t rect_c4 = c4.getFrameRect();
 
@@ -43,6 +43,7 @@ int main() {
             << rect_c4.pos.x << ";" << rect_c4.pos.y << ")\nDim: "
             << rect_c4.width << "x" << rect_c4.height << '\n'
             << "Area: " << c4.getArea() << "\n\n";
+  */
 
   // Чистим хвосты
   for (Shape * shape : shapes) {
