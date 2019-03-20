@@ -5,7 +5,7 @@
 
 Circle::Circle(point_t pos, double r) : center_(pos), radius_(r)
 {
-  if (radius_ < 0) {
+  if (radius_ <= 0) {
     std::cerr << "Circle: Invalid dimensions\n";
   }
 }
