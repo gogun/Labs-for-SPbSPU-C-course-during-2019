@@ -5,14 +5,15 @@
 Rectangle::Rectangle() :
   height_(0),
   width_(0),
-  frame_rect_({0, 0, {0, 0}}) {}
+  frame_rect_({0, 0, {0, 0}}) 
+  {}
 
 Rectangle::Rectangle(const point_t& pos, const double height, const double width) :
   height_(height),
   width_(width),
   frame_rect_({height, width, pos})
 {
-  if (height < 0 || width < 0) {
+  if ((height < 0) || (width < 0)) {
     throw std::invalid_argument("Area of rectangle is negative.");
   }
 }
@@ -30,10 +31,10 @@ rectangle_t Rectangle::getFrameRect() const noexcept
 void Rectangle::printData(std::ostream& stream) const
 {
   stream << "height : " << height_
-    << "\nwidth : " << width_
-    << "\nframe rect height : " << frame_rect_.height
-    << "\nframe rect width : " << frame_rect_.width
-    << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
+      << "\nwidth : " << width_
+      << "\nframe rect height : " << frame_rect_.height
+      << "\nframe rect width : " << frame_rect_.width
+      << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
 }
 
 void Rectangle::move(const point_t& point) noexcept

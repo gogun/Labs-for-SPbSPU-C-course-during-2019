@@ -32,9 +32,9 @@ rectangle_t Circle::getFrameRect() const noexcept
 void Circle::printData(std::ostream& stream) const
 {
   stream << "radius : " << radius_
-    << "\nframe rect height : " << frame_rect_.height
-    << "\nframe rect width : " << frame_rect_.width
-    << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
+      << "\nframe rect height : " << frame_rect_.height
+      << "\nframe rect width : " << frame_rect_.width
+      << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
 }
 
 void Circle::move(const point_t& point) noexcept
