@@ -2,7 +2,7 @@
 #include "Circle.hpp"
 #include "Rectangle.hpp"
 
-int main(int argc, char *argv[])
+int main()
 {
   Rectangle rectangle_test;
   Circle circle_test;
