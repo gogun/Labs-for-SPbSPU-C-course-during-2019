@@ -22,20 +22,20 @@ rectangle_t Rectangle::getFrameRect() const
 
 void Rectangle::move(double dx, double dy)
 {
-  rectangle_.center.y += dy;
-  rectangle_.center.x += dx;
+  rectangle_.pos.y += dy;
+  rectangle_.pos.x += dx;
 }
 
 void Rectangle::move(const point_t &center)
 {
-  rectangle_.center = center;
+  rectangle_.pos = center;
 }
 
 void Rectangle::writeInfo() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << std::endl << "Rectangle with center: (" << rectangle_.center.x
-            << ";" << rectangle_.center.y << ")" << std::endl
+  std::cout << std::endl << "Rectangle with center: (" << rectangle_.pos.x
+            << ";" << rectangle_.pos.y << ")" << std::endl
             << "Frame rectangle width = " << rectangle.width
             << ", height = " << rectangle.height << std::endl
             << "Area = " << getArea() << std::endl << std::endl;
