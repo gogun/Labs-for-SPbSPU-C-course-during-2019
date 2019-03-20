@@ -5,7 +5,7 @@
 #include "rectangle.hpp"
 #include "shape.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
   point_t posRect, posCircle;
   posRect.x = 50;
