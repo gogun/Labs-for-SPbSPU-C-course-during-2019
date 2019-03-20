@@ -43,5 +43,11 @@ int main() {
             << rect_c4.pos.x << ";" << rect_c4.pos.y << ")\nDim: "
             << rect_c4.width << "x" << rect_c4.height << '\n'
             << "Area: " << c4.getArea() << "\n\n";
+
+  // Чистим хвосты
+  for (Shape * shape : shapes) {
+    delete(shape);
+  }
+
   return 0;
 } // Дальше идет пустая строка. UTF-8. LF.
