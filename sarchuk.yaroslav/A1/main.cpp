@@ -2,10 +2,11 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-int main() {
-  Circle circle({1,0},2);
+int main()
+{
+  Circle circle({1, 0}, 2);
   Rectangle rectangle({2, 5}, 4, 4);
-  Shape * const shape[2] = {&circle, &rectangle};
+  Shape *const shape[2] = {&circle, &rectangle};
   std::cout << "New circle:\n";
   shape[0]->writeInfo();
   Rectangle rect(shape[0]->getFrameRect());
