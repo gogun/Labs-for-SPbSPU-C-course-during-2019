@@ -20,6 +20,6 @@ int main(int argc, char **argv)
   a -> move(-5, -5);
   b -> move(-5, -5);
   std::cout << "Square of rectangle: " << a -> getArea() << std::endl
-    << "Square of circle: " << b -> getArea() << std::endl;
+  std::cout << "Square of circle: " << b -> getArea() << std::endl;
 	return 0;
 }
