@@ -44,7 +44,7 @@ int main()
     Circle invalidCirce(centre, -5);
   }
   catch (std::invalid_argument& e) {
-    std::cerr << e.what() << std::endl;
+    std::cout << e.what() << std::endl;
   }
 
   return 0;
