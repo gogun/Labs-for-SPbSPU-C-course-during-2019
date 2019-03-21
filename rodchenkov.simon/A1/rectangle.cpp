@@ -6,7 +6,8 @@ Rectangle::Rectangle() :
   height_(0),
   width_(0),
   frame_rect_({0, 0, {0, 0}}) 
-  {}
+{
+}
 
 Rectangle::Rectangle(const point_t& pos, const double height, const double width) :
   height_(height),
@@ -30,11 +31,11 @@ rectangle_t Rectangle::getFrameRect() const noexcept
 
 void Rectangle::printData(std::ostream& stream) const
 {
-  stream << "height : " << height_
-      << "\nwidth : " << width_
-      << "\nframe rect height : " << frame_rect_.height
-      << "\nframe rect width : " << frame_rect_.width
-      << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
+  stream << "Shape : Rectangle\n"
+      << "Position : (" <<  frame_rect_.pos.x << ", " << frame_rect_.pos.y <<")\n"
+      << "Width : " << width_ << "\n"
+      << "Height : " << height_ << "\n"
+      << "Area : " << getArea() << "\n"; 
 }
 
 void Rectangle::move(const point_t& point) noexcept

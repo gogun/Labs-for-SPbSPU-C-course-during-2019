@@ -8,7 +8,8 @@ const double PI = atan(1) * 4;
 Circle::Circle() :
   radius_(0),
   frame_rect_({0, 0, {0, 0}}) 
-  {}
+{
+}
 
 Circle::Circle(const point_t& pos, const double radius) :
   radius_(radius),
@@ -31,10 +32,10 @@ rectangle_t Circle::getFrameRect() const noexcept
 
 void Circle::printData(std::ostream& stream) const
 {
-  stream << "radius : " << radius_
-      << "\nframe rect height : " << frame_rect_.height
-      << "\nframe rect width : " << frame_rect_.width
-      << "\nposition : (" << frame_rect_.pos.x << ", " << frame_rect_.pos.y << ")\n";
+  stream << "Shape : Circle\n"
+      << "Position : (" <<  frame_rect_.pos.x << ", " << frame_rect_.pos.y <<")\n"
+      << "Raius : " << radius_ << "\n"
+      << "Area : " << getArea() << "\n"; 
 }
 
 void Circle::move(const point_t& point) noexcept

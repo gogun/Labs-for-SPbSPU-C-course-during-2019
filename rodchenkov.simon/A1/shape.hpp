@@ -1,5 +1,5 @@
-#ifndef SHAPES_HPP
-#define SHAPES_HPP
+#ifndef SHAPE_HPP
+#define SHAPE_HPP
 
 #include <ostream>
 
@@ -17,4 +17,4 @@ public:
   virtual void        move(const double   dx, const double dy) noexcept = 0;
 };
 
-#endif
+#endif // SHAPE_HPP

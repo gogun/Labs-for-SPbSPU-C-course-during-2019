@@ -16,8 +16,8 @@ public:
   void        move(const double   dx, const double dy) noexcept override;
 
 private:
-  double       radius_;
+  double      radius_;
   rectangle_t frame_rect_;
 };
 
-#endif
+#endif // CIRCLE_HPP

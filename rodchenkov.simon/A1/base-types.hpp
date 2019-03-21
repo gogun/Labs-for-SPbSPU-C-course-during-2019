@@ -9,9 +9,9 @@ struct point_t final
 
 struct rectangle_t final
 {
-  double   height;
-  double   width;
+  double  height;
+  double  width;
   point_t pos;
 };
 
-#endif
+#endif // BASE_TYPES_HPP
