@@ -2,30 +2,36 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
+void moveAndWrite(Shape *shape, const point_t &pos)
+{
+  std::cout << "Move to point" << pos.x << "," << pos.y << "\n";
+  shape->move(pos);
+  shape->writeInfo();
+}
+
+void moveAndWrite(Shape *shape, const double dx, const double dy)
+{
+  std::cout << "Add to X " << dx << ", Add to Y " << dy << "\n";
+  shape->move(dx, dy);
+  shape->writeInfo();
+}
+
 int main()
 {
   Circle circle({1, 0}, 2);
-  Rectangle rectangle({2, 5}, 4, 4);
-  Shape *const shape[2] = {&circle, &rectangle};
   std::cout << "New circle:\n";
-  shape[0]->writeInfo();
-  Rectangle rect(shape[0]->getFrameRect());
+  circle.writeInfo();
+  Rectangle rect(circle.getFrameRect());
   std::cout << "Rectangle around circle\n";
   rect.writeInfo();
-  std::cout << "Move to point 8,8\n";
-  shape[0]->move({8, 8});
-  shape[0]->writeInfo();
-  std::cout << "Move to 2,2\n";
-  shape[0]->move(2, 2);
-  shape[0]->writeInfo();
+  moveAndWrite(&circle, {8, 8});
+  moveAndWrite(&circle, 2, 2);
+
+  Rectangle rectangle({2, 5}, 4, 4);
   std::cout << "New Rectangle\n";
-  shape[1]->writeInfo();
-  std::cout << "Move to point 8,8\n";
-  shape[1]->move({8, 8});
-  shape[1]->writeInfo();
-  std::cout << "Move to 2,2\n";
-  shape[1]->move(2, 2);
-  shape[1]->writeInfo();
+  rectangle.writeInfo();
+  moveAndWrite(&rectangle, {8, 8});
+  moveAndWrite(&rectangle, 2, 2);
 
   return 0;
 }

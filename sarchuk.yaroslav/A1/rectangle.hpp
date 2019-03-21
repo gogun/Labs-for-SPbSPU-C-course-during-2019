@@ -3,12 +3,12 @@
 
 #include "shape.hpp"
 
-class Rectangle final : public Shape
+class Rectangle : public Shape
 {
 public:
+  Rectangle();
   Rectangle(const point_t &position, const double width, const double height);
   Rectangle(const rectangle_t &info);
-  Rectangle();
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;

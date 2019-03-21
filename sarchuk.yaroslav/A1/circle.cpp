@@ -18,7 +18,7 @@ Circle::Circle() :
 
 double Circle::getArea() const
 {
-  return (M_PI * radius_ * radius_);
+  return M_PI * radius_ * radius_;
 }
 
 void Circle::writeInfo() const
