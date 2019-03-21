@@ -8,12 +8,10 @@ int main()
 {
   point_t centre = point_t { 20, 40 };
 
-  // Смысл polymorphicRectangle раскрывается на строку ниже, когда мы приводим Rectangle к Shape
-  Rectangle polymorphicRectangle = Rectangle(centre, 100, 100);
-  Shape * shape = &polymorphicRectangle;
+  Rectangle rectangle = Rectangle(centre, 100, 100);
+  Shape * shape = &rectangle;
   std::cout << "Area of rectangle 100*100 is " << shape->getArea() << std::endl;
 
-  // Аналогично, Circle приводится к Shape
   Circle polymorphicCircle(centre, 10);
   shape = &polymorphicCircle;
   std::cout << "Area of circle of raidus 10 is " << shape->getArea() << std::endl;
@@ -32,10 +30,10 @@ int main()
             << ") and raidus " << circle.getRadius()
             << " is " << circle.getArea() << std::endl;
 
-  Rectangle rectangle(polymorphicRectangle);
-  startingFrame = rectangle.getFrameRect();
-  rectangle.move(point_t { 100, 200 });
-  finishFrame = rectangle.getFrameRect();
+  Rectangle rectangleToMove(rectangle);
+  startingFrame = rectangleToMove.getFrameRect();
+  rectangleToMove.move(point_t { 100, 200 });
+  finishFrame = rectangleToMove.getFrameRect();
   std::cout << "Rectangle frame moved for ("
             << finishFrame.pos.x - startingFrame.pos.x << ";"
             << finishFrame.pos.y - startingFrame.pos.y  << ") unit points" << std::endl;
