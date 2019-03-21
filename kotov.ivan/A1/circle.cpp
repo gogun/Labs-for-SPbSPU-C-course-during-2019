@@ -1,10 +1,13 @@
 #include "circle.hpp"
 #include <cmath>
 
-Circle::Circle(const point_t &pos, const double radius)
+Circle::Circle(const point_t &pos, const double radius) : m_pos(pos)
 {
-  m_pos = pos;
-  m_radius = radius;
+  if(radius<0) {
+    m_radius = -radius;
+  } else {
+    m_radius = radius;
+  }
 }
 
          
