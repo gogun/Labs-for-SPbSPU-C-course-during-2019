@@ -17,8 +17,6 @@ int main()
   shape->move(2, -4);
   shape->writeInfo();
 
-  Circle wrong_circle({14, 56}, -5);
-
   std::cout << "-------------------------------------------------------------" << std::endl << std::endl;
 
   std::cout << "new Rectangle with center (-5;32) and width 2, height = 7" << std::endl;
@@ -32,8 +30,6 @@ int main()
   std::cout << "move Rectangle at the dx = 7, dy = 0" << std::endl;
   shape->move(7, 0);
   shape->writeInfo();
-
-  Rectangle wrong_rectangle({-5, 32}, 2, -7);
-
+  
   return 0;
 }
