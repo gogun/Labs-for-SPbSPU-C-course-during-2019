@@ -2,7 +2,7 @@
 #include <cmath>
 #include <stdexcept>
 
-Circle::Circle(double radius, point_t center) :
+Circle::Circle(double radius, const point_t &center) :
   radius_(radius),
   center_(center)
 {
@@ -19,8 +19,7 @@ double Circle::getArea() const noexcept
 
 rectangle_t Circle::getFrameRect() const noexcept
 {
-  rectangle_t frameRect = {2 * radius_, 2 * radius_, center_};
-  return frameRect;
+  return {2 * radius_, 2 * radius_, center_};
 }
 
 void Circle::move(double dx, double dy) noexcept
@@ -29,7 +28,7 @@ void Circle::move(double dx, double dy) noexcept
   center_.y += dy;
 }
 
-void Circle::move(point_t newPos) noexcept
+void Circle::move(const point_t &newPos) noexcept
 {
   center_ = newPos;
 }

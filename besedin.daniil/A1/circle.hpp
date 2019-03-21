@@ -3,14 +3,14 @@
 
 #include "shape.hpp"
 
-class Circle : public Shape
+class Circle: public Shape
 {
 public:
-  Circle(double radius, point_t center);
+  Circle(double radius, const point_t &center);
   double getArea() const noexcept override;
   rectangle_t getFrameRect() const noexcept override;
   void move(double dx, double dy) noexcept override;
-  void move(point_t newPos) noexcept override;
+  void move(const point_t &newPos) noexcept override;
 
 private:
   double radius_;

@@ -24,10 +24,10 @@ void printCenter(const Shape &shape)
 
 int main()
 {
-  point_t point1 = {5, 5};
-  Rectangle rectangle(3, 3, point1);
-  Circle circle(7, point1);
-  point_t point2 = {15, 15};
+  point_t pointCenter = {5, 5};
+  Rectangle rectangle(3, 3, pointCenter);
+  Circle circle(7, pointCenter);
+  point_t pointNewCenter = {15, 15};
 
   printFrameRect(rectangle, "Rectangle");
   printArea(rectangle);
@@ -37,7 +37,7 @@ int main()
 
   printFrameRect(circle, "Circle");
   printArea(circle);
-  circle.move(point2);
+  circle.move(pointNewCenter);
   printCenter(circle);
   std::cout << std::endl;
 
