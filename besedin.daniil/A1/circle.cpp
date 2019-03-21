@@ -2,7 +2,7 @@
 #include <cmath>
 #include <stdexcept>
 
-Circle::Circle(double radius, const point_t &center) :
+Circle::Circle(const double radius, const point_t &center) :
   radius_(radius),
   center_(center)
 {
