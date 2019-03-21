@@ -9,7 +9,7 @@ public:
   Rectangle(double width, double height, const point_t &center);
   double getArea() const noexcept override;
   rectangle_t getFrameRect() const noexcept override;
-  void move(double dx, double dy) noexcept override;
+  void move(const double dx, const double dy) noexcept override;
   void move(const point_t &newPos) noexcept override;
 
 private:

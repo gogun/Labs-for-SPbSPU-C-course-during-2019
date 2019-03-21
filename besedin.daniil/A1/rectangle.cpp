@@ -22,7 +22,7 @@ rectangle_t Rectangle::getFrameRect() const noexcept
   return {width_, height_, center_};
 }
 
-void Rectangle::move(double dx, double dy) noexcept
+void Rectangle::move(const double dx, const double dy) noexcept
 {
   center_.x += dx;
   center_.y += dy;

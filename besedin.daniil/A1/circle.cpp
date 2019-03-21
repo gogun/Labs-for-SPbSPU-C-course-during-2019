@@ -22,7 +22,7 @@ rectangle_t Circle::getFrameRect() const noexcept
   return {2 * radius_, 2 * radius_, center_};
 }
 
-void Circle::move(double dx, double dy) noexcept
+void Circle::move(const double dx, const double dy) noexcept
 {
   center_.x += dx;
   center_.y += dy;
