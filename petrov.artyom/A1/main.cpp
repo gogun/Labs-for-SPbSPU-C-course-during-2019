@@ -40,10 +40,30 @@ int main()
             << finishFrame.pos.x - startingFrame.pos.x << ";"
             << finishFrame.pos.y - startingFrame.pos.y  << ") unit points" << std::endl;
 
-  try {
+  try
+  {
     Circle invalidCirce(centre, -5);
   }
-  catch (std::invalid_argument& e) {
+  catch (std::invalid_argument& e)
+  {
+    std::cout << e.what() << std::endl;
+  }
+
+  try
+  {
+    Rectangle invalidWidthRectangle(centre, -5, 9);
+  }
+  catch (std::invalid_argument& e)
+  {
+    std::cout << e.what() << std::endl;
+  }
+
+  try
+  {
+    Rectangle invalidHeightRectangle(centre, 5, -9);
+  }
+  catch (std::invalid_argument& e)
+  {
     std::cout << e.what() << std::endl;
   }
 
