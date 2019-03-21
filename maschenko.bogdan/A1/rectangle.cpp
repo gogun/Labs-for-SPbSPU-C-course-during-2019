@@ -1,12 +1,13 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <stdexcept>
 
 Rectangle::Rectangle(const point_t &center, double width, double height) :
   rectangle_({center, width, height})
 {
   if ((rectangle_.width <= 0) || (rectangle_.height <= 0))
   {
-    throw "Invalid width of height of rectangle.";
+    throw std::invalid_argument("Invalid width of height of rectangle.");
   }
 }
 
