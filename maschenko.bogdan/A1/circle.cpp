@@ -2,7 +2,6 @@
 #include "circle.hpp"
 #include <cmath>
 #include <iostream>
-#include <stdexcept>
 
 Circle::Circle(const point_t &center, double radius) :
   center_(center),
@@ -10,7 +9,7 @@ Circle::Circle(const point_t &center, double radius) :
 {
   if (radius_ <= 0)
   {
-    throw std::invalid_argument("Invalid radius of circle.");
+    std::cerr << "Invalid radius of circle." << std::endl;
   }
 }
 

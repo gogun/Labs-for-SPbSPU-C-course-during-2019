@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdexcept>
 #include <string>
 #include "rectangle.hpp"
 #include "circle.hpp"
@@ -18,14 +17,7 @@ int main()
   shape->move(2, -4);
   shape->writeInfo();
 
-  try
-  {
-    Circle wrong_circle({14, 56}, -5);
-  }
-  catch (std::invalid_argument ia)
-  {
-    std::cout << ia.what() << std::endl;
-  }
+  Circle wrong_circle({14, 56}, -5);
 
   std::cout << "-------------------------------------------------------------" << std::endl << std::endl;
 
@@ -41,14 +33,7 @@ int main()
   shape->move(7, 0);
   shape->writeInfo();
 
-  try
-  {
-    Rectangle wrong_rectangle({-5, 32}, 2, -7);
-  }
-  catch (std::invalid_argument ia)
-  {
-    std::cout << ia.what() << std::endl;
-  }
+  Rectangle wrong_rectangle({-5, 32}, 2, -7);
 
   return 0;
 }
