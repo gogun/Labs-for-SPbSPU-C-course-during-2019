@@ -1,4 +1,4 @@
-#include "Rectangle.hpp"
+#include "rectangle.hpp"
 
 float Rectangle::getArea() const
 {
