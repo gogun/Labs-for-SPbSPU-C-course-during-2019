@@ -43,7 +43,7 @@ int main()
 
   try
   {
-    Rectangle rectangle({-5, 32}, 2, -7);
+    Rectangle wrong_rectangle({-5, 32}, 2, -7);
   }
   catch (std::invalid_argument ia)
   {
