@@ -4,7 +4,7 @@
 #include <iostream>
 
 Circle::Circle(point_t pos, double r) : center_(pos),
-    radius_(r),
+    radius_(r)
 {
   if (radius_ <= 0) {
     std::cerr << "Circle: Invalid dimensions\n";
@@ -36,6 +36,5 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t tmp = {radius_ * 2, radius_ * 2, center_};
-  return tmp;
+  return {radius_ * 2, radius_ * 2, center_};
 }
