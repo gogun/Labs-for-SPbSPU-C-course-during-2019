@@ -38,8 +38,3 @@ point_t Rectangle::getCenter() const
 {
   return rect_.pos;
 };
-
-Rectangle::~Rectangle()
-{
-  std::cout << "Rectangle was delete" << std::endl;
-};

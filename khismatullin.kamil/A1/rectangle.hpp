@@ -5,8 +5,6 @@ class Rectangle : public Shape {
 public:
   Rectangle(const point_t &pos, const double height, const double width);
 
-  ~Rectangle();
-
   double getArea() const;
 
   rectangle_t getFrameRect() const;

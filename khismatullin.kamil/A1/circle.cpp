@@ -42,8 +42,3 @@ double Circle::getRadius() const
 {
   return radius_;
 };
-
-Circle::~Circle()
-{
-  std::cout << "Circle was delete" << std::endl;
-};

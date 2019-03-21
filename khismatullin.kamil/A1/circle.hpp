@@ -5,8 +5,6 @@ class Circle : public Shape {
 public:
   Circle(const point_t &pos, const double radius);
 
-  ~Circle();
-
   double getArea() const;
 
   rectangle_t getFrameRect() const;
