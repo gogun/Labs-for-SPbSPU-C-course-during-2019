@@ -1,9 +1,9 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
+
 #include "shape.hpp"
 
-class Rectangle:
-  public Shape
+class Rectangle : public Shape
 {
 
 public:
@@ -20,11 +20,11 @@ public:
   
 private:
 
-  point_t m_pos;
+  point_t m_pos {0, 0};
   
-  double m_width;
+  double m_width = 0;
   
-  double m_height;
+  double m_height = 0;
   
 };
 

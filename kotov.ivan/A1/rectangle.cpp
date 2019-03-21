@@ -2,15 +2,15 @@
 
 Rectangle::Rectangle(const point_t &pos, const double width, const double height): m_pos(pos)
 {
-  if(width<0) {
-    m_width=-width;
+  if(width < 0) {
+    m_width = -width;
   } else {
-    m_width=width;
+    m_width = width;
   }
-  if(height<0) {
-    m_height=-height;
+  if(height < 0) {
+    m_height = -height;
   } else {
-    m_height=height;
+    m_height = height;
   }
 }
 

@@ -4,8 +4,7 @@
 #include "base-types.hpp"
 #include "shape.hpp"
 
-class Circle:
-  public Shape
+class Circle : public Shape
 {
   
 public:
@@ -22,9 +21,9 @@ public:
   
 private:
 
-  point_t m_pos;
+  point_t m_pos {0, 0};
   
-  double m_radius;
+  double m_radius = 0;
   
 };
 

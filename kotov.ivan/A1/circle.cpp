@@ -3,7 +3,7 @@
 
 Circle::Circle(const point_t &pos, const double radius) : m_pos(pos)
 {
-  if(radius<0) {
+  if(radius < 0) {
     m_radius = -radius;
   } else {
     m_radius = radius;

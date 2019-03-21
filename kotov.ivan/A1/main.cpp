@@ -19,7 +19,7 @@ int main()
   b = &circle;
   a -> move(-5, -5);
   b -> move(-5, -5);
-  std::cout << "Square of rectangle: " << a -> getArea() << std::endl;
-  std::cout << "Square of circle: " << b -> getArea() << std::endl;
+  std::cout << "Area of rectangle: " << a -> getArea() << std::endl;
+  std::cout << "Area of circle: " << b -> getArea() << std::endl;
   return 0;
 }
