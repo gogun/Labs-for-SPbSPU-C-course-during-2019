@@ -1,6 +1,7 @@
+#define _USE_MATH_DEFINES
 #include "circle.hpp"
 #include <iostream>
-#include <corecrt_math_defines.h>
+#include <math.h>
 
 
 Circle::Circle(double radius, point_t dot):
