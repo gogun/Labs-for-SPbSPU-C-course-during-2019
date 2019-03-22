@@ -2,7 +2,7 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
-float Circle::getArea() const
+double Circle::getArea() const
 {
   return radius_ * radius_ * M_PI;
 }
@@ -21,13 +21,13 @@ void Circle::move(const point_t & newCentre)
   centre_ = newCentre;
 }
 
-void Circle::move(float newX, float newY)
+void Circle::move(double newX, double newY)
 {
   centre_.x = newX;
   centre_.y = newY;
 }
 
-void Circle::setRadius(float newRadius)
+void Circle::setRadius(double newRadius)
 {
   radius_ = newRadius;
 }

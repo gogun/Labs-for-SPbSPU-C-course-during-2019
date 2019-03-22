@@ -8,10 +8,10 @@ class Shape
 public:
   virtual ~Shape() = default;
 
-  virtual float getArea() const  = 0;
+  virtual double getArea() const  = 0;
   virtual rectangle_t getFrameRect() const = 0;
   virtual void move(const point_t & newCentre) = 0;
-  virtual void move(float newX, float newY) = 0;
+  virtual void move(double newX, double newY) = 0;
 
   const point_t & getCentre() const
   { 

@@ -1,6 +1,6 @@
 #include "rectangle.hpp"
 
-float Rectangle::getArea() const
+double Rectangle::getArea() const
 {
   return width_ * height_;
 }
@@ -19,18 +19,18 @@ void Rectangle::move(const point_t & newCentre)
   centre_ = newCentre;
 }
 
-void Rectangle::move(float newX, float newY)
+void Rectangle::move(double newX, double newY)
 {
   centre_.x = newX;
   centre_.y = newY;
 }
 
-void Rectangle::setWidth(float newWidth)
+void Rectangle::setWidth(double newWidth)
 {
   width_ = newWidth;
 }
 
-void Rectangle::setHeight(float newHeight)
+void Rectangle::setHeight(double newHeight)
 {
   height_ = newHeight;
 }

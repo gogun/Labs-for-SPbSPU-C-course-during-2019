@@ -6,14 +6,14 @@
 class Circle: public Shape
 {
 public:
-  float getArea() const;
+  double getArea() const;
   rectangle_t getFrameRect() const;
   void move(const point_t & newCentre);
-  void move(float newX, float newY);
+  void move(double newX, double newY);
   
-  void setRadius(float newRadius);
+  void setRadius(double newRadius);
 protected:
-  float radius_;
+  double radius_;
 private:
 };
 
