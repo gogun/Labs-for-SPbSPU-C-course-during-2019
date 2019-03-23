@@ -1,6 +1,6 @@
-#ifndef AP_BASE-TYPES
+#ifndef AP_BASE_TYPES
 
-#define AP_BASE-TYPES
+#define AP_BASE_TYPES
 
 struct point_t
 {
@@ -13,4 +13,4 @@ struct rectangle_t
   double width;
   double height;
 };
-#endif // AP_BASE-TYPES
+#endif // AP_BASE_TYPES
