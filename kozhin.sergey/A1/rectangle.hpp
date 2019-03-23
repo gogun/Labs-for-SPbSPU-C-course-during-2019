@@ -4,19 +4,19 @@
 
 class Rectangle : public Shape
 {
-private:
-  point_t center;
-  double width;
-  double height;
-  double area;
-  rectangle_t frameRect;
-
 public:
-  Rectangle(point_t center, double width, double height);
+  Rectangle(const point_t &, double, double);
   double getArea() const;
   rectangle_t getFrameRect() const;
-  void move(double x, double y);
-  void moveTo(double x, double y);
+  void move(double, double);
+  void move(const point_t &);
+
+private:
+  point_t center_;
+  double width_;
+  double height_;
+  double area_;
+  rectangle_t frameRect_;
 };
 
 #endif // RECTANGLE_HPP

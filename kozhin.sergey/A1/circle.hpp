@@ -4,18 +4,18 @@
 
 class Circle : public Shape
 {
-private:
-  point_t center;
-  double radius;
-  double area;
-  rectangle_t frameRect;
-
 public:
-  Circle(point_t center, double radius);
+  Circle(const point_t &, double);
   double getArea() const;
   rectangle_t getFrameRect() const;
   void move(double x, double y);
-  void moveTo(double x, double y);
+  void move(const point_t &);
+
+private:
+  point_t center_;
+  double radius_;
+  double area_;
+  rectangle_t frameRect_;
 };
 
 #endif // CIRCLE_HPP

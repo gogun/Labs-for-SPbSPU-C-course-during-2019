@@ -1,33 +1,33 @@
 #include "circle.hpp"
 #include <cmath>
 
-Circle::Circle(point_t center, double radius)
+Circle::Circle(const point_t &center, double radius)
 {
-  this->center = center;
-  this->radius = radius;
-  this->area = static_cast<double>(M_PI * std::pow(radius, 2));
-  this->frameRect = {2 * radius, 2 * radius, center};
+  this->center_ = center;
+  this->radius_ = radius;
+  this->area_ = (M_PI * radius * radius);
+  this->frameRect_ = {2 * radius, 2 * radius, center};
 }
 
 double Circle::getArea() const
 {
-  return this->area;
+  return this->area_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return this->frameRect;
+  return this->frameRect_;
 }
 
 void Circle::move(double x, double y)
 {
-  this->center.x += x;
-  this->center.y += y;
-  this->frameRect.pos = this->center;
+  this->center_.x += x;
+  this->center_.y += y;
+  this->frameRect_.pos = this->center_;
 }
 
-void Circle::moveTo(double x, double y)
+void Circle::move(const point_t &point)
 {
-  this->center = {x, y};
-  this->frameRect.pos = this->center;
+  this->center_ = point;
+  this->frameRect_.pos = this->center_;
 }
