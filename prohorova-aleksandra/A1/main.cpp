@@ -7,6 +7,7 @@
 #include "circle.hpp"
 #define AP_A1_CIRCLE
 #endif
+
 int main()
 {
   Shape* correctFigures[] = {new Circle(point_t{1,2},4), new Rectangle(point_t{3,4},2,3),

@@ -2,15 +2,17 @@
 #include "base-types.hpp"
 #define AP_A1_BASE_TYPES
 #endif
+
 class Shape
 {
 public:
-	virtual ~Shape() = default;
+  virtual ~Shape() = default;
   virtual double getArea() const = 0;
   virtual rectangle_t  getFrameRect() const = 0;
   virtual void move(const point_t&) = 0;
   virtual void move(double,double) = 0;
   virtual void show() const = 0;
+  
 protected:
-	virtual void check() const = 0;
+  virtual void check() const = 0;
 };

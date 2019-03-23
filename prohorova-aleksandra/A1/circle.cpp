@@ -4,17 +4,18 @@
 #endif
 #include <iostream>
 #include <cmath>
+
 Circle::Circle(double posX,double posY,double radius):
   pos_(point_t{posX,posY}),
-	radius_(radius)
+  radius_(radius)
 {
-	check();
+  check();
 }
 Circle::Circle(const point_t &pos,double radius):
   pos_(pos),
   radius_(radius)
 {
-	check();
+  check();
 }
 double Circle::getArea() const
 {
@@ -26,11 +27,11 @@ rectangle_t Circle::getFrameRect() const
 }
 void Circle::move(const point_t &newPos)
 {
-	pos_ = newPos;
+  pos_ = newPos;
 }
 void Circle::move(double dx,double dy)
 {
-	pos_ = point_t{getPos().x+dx,getPos().y + dy};
+  pos_ = point_t{getPos().x+dx,getPos().y + dy};
 }
 void Circle::show() const
 {
@@ -51,8 +52,8 @@ double Circle::getRadius() const
 }
 void Circle::check() const
 {
-	if(radius_ <= 0)
-	{
-		std::cout << "Radius of circle must be a positive number.\n";
+  if(radius_ <= 0)
+  {
+    std::cout << "Radius of circle must be a positive number.\n";
 	}
 }

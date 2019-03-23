@@ -3,10 +3,11 @@
 #define AP_A1_RECTANGLE
 #endif
 #include <iostream>
+
 Rectangle::Rectangle(double posX,double posY,double width,double height):
   rect_(rectangle_t{point_t{posX,posY},width,height})
 {
-	check();
+  check();
 }
 Rectangle::Rectangle(const point_t &pos,double width,double height):
   rect_(rectangle_t{pos,width,height})
@@ -34,9 +35,9 @@ void Rectangle::show() const
   std::cout << "Rectangle. Width = " << getWidth() << ", height = " << getHeight();
   std::cout << ", position of centre = (" << getPos().x << " , " << getPos().y << "), ";
   std::cout << "area = " << getArea();
-	rectangle_t frame = getFrameRect();
-	std::cout << "\n\tFrame rectangle: centre(" << frame.pos.x << ", " << frame.pos.y << ")";
-	std::cout << ", width = " << frame.width << ", height = " << frame.width << ".\n";
+  rectangle_t frame = getFrameRect();
+  std::cout << "\n\tFrame rectangle: centre(" << frame.pos.x << ", " << frame.pos.y << ")";
+  std::cout << ", width = " << frame.width << ", height = " << frame.width << ".\n";
 }
 double Rectangle::getWidth() const
 {
@@ -52,12 +53,12 @@ point_t Rectangle::getPos() const
 }
 void Rectangle::check() const
 {
-	if(rect_.width <= 0)
-	{
-		std::cout << "Width of rectangle must be a positive number.\n";
-	}
-	if(rect_.height <= 0)
-	{
-		std::cout << "Height of rectangle must be a positive number.\n";
-	}
+  if(rect_.width <= 0)
+  {
+    std::cout << "Width of rectangle must be a positive number.\n";
+  }
+  if(rect_.height <= 0)
+  {
+    std::cout << "Height of rectangle must be a positive number.\n";
+  }
 }
