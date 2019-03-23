@@ -17,4 +17,4 @@ class Circle : public Shape
     point_t pos_;
 };
 
-#endif 
+#endif
