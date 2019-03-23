@@ -1,7 +1,7 @@
-#ifndef AP_A1_SHAPE
+#ifndef AP_A1_RECTANGLE
+#define AP_A1_RECTANGLE
 #include "shape.hpp"
-#define AP_A1_SHAPE
-#endif
+
 class Rectangle:public Shape
 {
 public:
@@ -22,3 +22,4 @@ private:
   rectangle_t rect_;
   void check() const override;
 };
+#endif

@@ -1,7 +1,4 @@
-#ifndef AP_A1_CIRCLE
 #include "circle.hpp"
-#define AP_A1_CIRCLE
-#endif
 #include <iostream>
 #include <cmath>
 

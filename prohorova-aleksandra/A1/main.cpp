@@ -1,12 +1,6 @@
 #include <iostream>
-#ifndef AP_A1_RECTANGLE
 #include "rectangle.hpp"
-#define AP_A1_RECTANGLE
-#endif
-#ifndef AP_A1_CIRCLE
 #include "circle.hpp"
-#define AP_A1_CIRCLE
-#endif
 
 int main()
 {

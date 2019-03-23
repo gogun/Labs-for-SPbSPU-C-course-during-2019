@@ -1,7 +1,6 @@
-#ifndef AP_A1_BASE_TYPES
+#ifndef AP_A1_SHAPE
+#define AP_A1_SHAPE
 #include "base-types.hpp"
-#define AP_A1_BASE_TYPES
-#endif
 
 class Shape
 {
@@ -16,3 +15,4 @@ public:
 protected:
   virtual void check() const = 0;
 };
+#endif

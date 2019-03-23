@@ -1,7 +1,4 @@
-#ifndef AP_A1_RECTANGLE
 #include "rectangle.hpp"
-#define AP_A1_RECTANGLE
-#endif
 #include <iostream>
 
 Rectangle::Rectangle(double posX,double posY,double width,double height):

@@ -1,7 +1,6 @@
-#ifndef AP_A1_SHAPE
+#ifndef AP_A1_CIRCLE
+#define AP_A1_CIRCLE
 #include "shape.hpp"
-#define AP_A1_SHAPE
-#endif
 
 class Circle:public Shape
 {
@@ -24,3 +23,4 @@ private:
 
   void check() const override;
 };
+#endif
