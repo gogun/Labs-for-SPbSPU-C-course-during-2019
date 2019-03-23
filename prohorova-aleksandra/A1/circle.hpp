@@ -23,4 +23,4 @@ private:
 
   void check() const override;
 };
-#endif
+#endif // AP_A1_CIRCLE

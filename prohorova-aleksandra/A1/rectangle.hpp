@@ -22,4 +22,4 @@ private:
   rectangle_t rect_;
   void check() const override;
 };
-#endif
+#endif // AP_A1_RECTANGLE

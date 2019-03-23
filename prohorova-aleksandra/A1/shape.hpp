@@ -15,4 +15,4 @@ public:
 protected:
   virtual void check() const = 0;
 };
-#endif
+#endif // AP_A1_SHAPE
