@@ -55,5 +55,5 @@ void Circle::check() const
   if(radius_ <= 0)
   {
     std::cout << "Radius of circle must be a positive number.\n";
-	}
+  }
 }
