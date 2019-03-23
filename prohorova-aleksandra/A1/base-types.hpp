@@ -1,4 +1,5 @@
 #ifndef AP_BASE-TYPES
+
 #define AP_BASE-TYPES
 
 struct point_t

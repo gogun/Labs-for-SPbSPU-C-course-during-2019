@@ -1,5 +1,7 @@
 #ifndef AP_A1_RECTANGLE
+
 #define AP_A1_RECTANGLE
+
 #include "shape.hpp"
 
 class Rectangle:public Shape
