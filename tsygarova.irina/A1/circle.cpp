@@ -5,8 +5,8 @@
 #include <cmath>
 
 Circle::Circle(double r, const point_t & position):
-  r_(r),
-  pos_(position)
+  r_{r},
+  pos_{position}
 {
   if (r_ <= 0)
   {

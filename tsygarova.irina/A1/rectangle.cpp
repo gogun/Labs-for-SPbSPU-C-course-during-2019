@@ -4,9 +4,9 @@
 #include <stdexcept>
 
 Rectangle::Rectangle(double width, double height, const point_t & position):
-  width_(width),
-  height_(height),
-  pos_(position)
+  width_{width},
+  height_{height},
+  pos_{position}
 {
   if (width_ <= 0 || height_ <= 0)
   {
