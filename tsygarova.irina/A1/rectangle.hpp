@@ -1,18 +1,20 @@
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 
 #include "shape.hpp"
 
-class Rectangle : public Shape
+class Rectangle: public Shape
 {
 public:
-  Rectangle(double width, double height, const point_t & position);
-  double getArea() const override;
-  rectangle_t getFrameRect() const override;
-  void move(double dx, double dy) override;
-  void move(const point_t & p) override;
+  Rectangle(const rectangle_t & rect);
+  double getArea() const noexcept override;
+  rectangle_t getFrameRect() const noexcept override;
+  void move(const point_t & point) noexcept override;
+  void move(const double dx, const double dy) noexcept override;
   void print() const override;
+
 private:
   rectangle_t rect_;
 };
-#endif 
+
+#endif

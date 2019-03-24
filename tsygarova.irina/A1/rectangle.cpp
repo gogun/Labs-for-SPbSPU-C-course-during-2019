@@ -1,43 +1,43 @@
 #include "rectangle.hpp"
 
-#include <iostream>
 #include <stdexcept>
 
-Rectangle::Rectangle(double width, double height, const point_t & position):
-rect_({width, height, position})
+Rectangle::Rectangle(const rectangle_t & rect):
+  rect_(rect)
 {
-  if (width <= 0 || height <= 0)
+  if ((rect_.height < 0.0) || (rect_.width < 0.0))
   {
-   throw std::invalid_argument("Invalid rectangle parameters");
+    throw std::invalid_argument("Error. Invalid height or width of rectangle.");
   }
 }
 
-double Rectangle:: getArea() const
+double Rectangle::getArea() const noexcept
 {
-  return rect_.width_ * rect_.height_;
+  return (rect_.width * rect_.height);
 }
 
-rectangle_t Rectangle::getFrameRect () const
+rectangle_t Rectangle::getFrameRect() const noexcept
 {
   return rect_;
 }
 
-void Rectangle::move(double dx, double dy)
+void Rectangle::move(const point_t & point) noexcept
 {
-  rect_.pos.x_ += dx;
-  rect_.pos.y_ += dy;
+  rect_.pos = point;
 }
 
-void Rectangle::move(const point_t & p)
+void Rectangle::move(const double dx, const double dy) noexcept
 {
-  rect_.pos = p;
+  rect_.pos.x += dx;
+  rect_.pos.y += dy;
 }
 
 void Rectangle::print() const
 {
   std::cout << "Area of rectangle: " << getArea() << std::endl;
-  std::cout << "Width of frame rectangle: " << rect_.width_ << std::endl;
-  std::cout << "Height of frame rectangle: " << rect_.height_ << std::endl;
-  std::cout << "Center point of frame rectangle: (" << rect_.pos.x_
-            << "; " << rect_.pos.y_ << ")" << std::endl;
+  std::cout << "Width of frame rectangle: " << rect_.width << std::endl;
+  std::cout << "Height of frame rectangle: " << rect_.height << std::endl;
+  std::cout << "Center point of frame rectangle: (" << rect_.pos.x
+            << "; " << rect_.pos.y << ")" << std::endl;
 }
+

@@ -1,45 +1,45 @@
 #include "circle.hpp"
 
-#include <iostream>
 #include <stdexcept>
 #include <cmath>
 
-Circle::Circle(double r, const point_t & position):
-  r_{r},
-  pos_{position}
+Circle::Circle(const double radius, const point_t & center):
+  radius_(radius),
+  center_(center)
 {
-  if (r_ <= 0)
+  if (radius_ < 0.0) 
   {
-   throw std::invalid_argument("Invalid circle radius");
+    throw std::invalid_argument("Error. Invalid radius of circle.");
   }
 }
 
-double Circle::getArea() const
+double Circle::getArea() const noexcept
 {
-  return (M_PI * r_ * r_);
+  return (M_PI * radius_ * radius_);
 }
 
-rectangle_t Circle:: getFrameRect() const
+rectangle_t Circle::getFrameRect() const noexcept
 {
-  return {2 * r_, 2 * r_, pos_};
+  return {2 * radius_, 2 * radius_, center_};
 }
 
-void Circle::move(double dx, double dy)
+void Circle::move(const point_t & point) noexcept
 {
-  pos_.x_ += dx;
-  pos_.y_ += dy;
+  center_ = point;
 }
 
-void Circle::move(const point_t & p)
+void Circle::move(const double dx, const double dy) noexcept
 {
-  pos_ = p;
+  center_.x += dx;
+  center_.y += dy;
 }
 
 void Circle::print() const
 {
   std::cout << "Area of circle: " << getArea() << std::endl;
-  std::cout << "Width of frame rectangle: " << getFrameRect().width_<< std::endl;
-  std::cout << "Height of frame rectangle: " << getFrameRect().height_<< std::endl;
-  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x_
-            << "; " << getFrameRect().pos.y_ << ")" << std::endl;
+  std::cout << "Width of frame rectangle: " << getFrameRect().width << std::endl;
+  std::cout << "Height of frame rectangle: " << getFrameRect().height << std::endl;
+  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x
+            << "; " << getFrameRect().pos.y << ")" << std::endl;
 }
+
