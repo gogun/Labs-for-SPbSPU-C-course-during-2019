@@ -1,5 +1,5 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef CIRCLE_H
+#define CIRCLE_H
 
 #include "shape.hpp"
 
@@ -19,4 +19,4 @@ private:
   point_t pos_;
 };
 
-#endif /* CIRCLE_HPP */
+#endif

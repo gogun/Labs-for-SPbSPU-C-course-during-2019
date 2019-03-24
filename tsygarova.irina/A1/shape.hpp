@@ -1,5 +1,5 @@
-#ifndef SHAPE_HPP
-#define SHAPE_HPP
+#ifndef SHAPE_H
+#define SHAPE_H
 
 #include "base-types.hpp"
 
@@ -15,4 +15,4 @@ public:
   virtual void print() const = 0;
 };
 
-#endif /* SHAPE_HPP */
+#endif
