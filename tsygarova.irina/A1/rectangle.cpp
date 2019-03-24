@@ -6,7 +6,7 @@
 Rectangle::Rectangle(double width, double height, const point_t & position):
   width_(width),
   height_(height),
-  pos_(position)
+  pos(position)
 {
   if (width_ <= 0 || height_ <= 0)
   {
@@ -21,23 +21,23 @@ double Rectangle:: getArea() const
 
 rectangle_t Rectangle::getFrameRect () const
 {
-  return {width_, height_, pos_};
+  return {width_, height_, pos};
 }
 
 void Rectangle::move(double dx, double dy)
 {
-  pos_.x += dx;
-  pos_.y += dy;
+  pos.x += dx;
+  pos.y += dy;
 }
 
 void Rectangle::move(const point_t & p)
 {
-  pos_ = p;
+  pos = p;
 }
 
 point_t Rectangle::Center() const
 {
-  return pos_;
+  return pos;
 }
 
 void Rectangle::print() const
@@ -45,6 +45,6 @@ void Rectangle::print() const
   std::cout << "Area of rectangle: " << getArea() << std::endl;
   std::cout << "Width of frame rectangle: " << getFrameRect().width_ << std::endl;
   std::cout << "Height of frame rectangle: " << getFrameRect().height_ << std::endl;
-  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos_.x
-            << "; " << getFrameRect().pos_.y << ")" << std::endl;
+  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x
+            << "; " << getFrameRect().pos.y << ")" << std::endl;
 }
