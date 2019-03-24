@@ -15,7 +15,7 @@ void Rectangle::move(const point_t &pos)
   m_figure.pos = pos;
 };
 
-void Rectangle::move(const float dltX, const float dltY)
+void Rectangle::move(const double dltX, const double dltY)
 {
   m_figure.pos.x += dltX;
   m_figure.pos.y += dltY;

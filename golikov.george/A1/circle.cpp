@@ -2,14 +2,14 @@
 #include <cmath> 
 #include <iostream> 
 
-/* Circle::Circle(float centerX, float centerY, float radius)
+/* Circle::Circle(double centerX, double centerY, double radius)
 { 
 m_center.x = centerX; 
 m_center.y = centerY; 
 m_radius = radius; 
 } */
 
-/*Circle::Circle(point_t& center, float radius)
+/*Circle::Circle(point_t& center, double radius)
 { 
 if (radius <= 0) 
 { 
@@ -35,7 +35,7 @@ void Circle::move(const point_t &pos)
   m_center = pos;
 }
 
-void Circle::move(const float dltX, const float dltY)
+void Circle::move(const double dltX, const double dltY)
 {
   m_center.x += dltX;
   m_center.y += dltY;

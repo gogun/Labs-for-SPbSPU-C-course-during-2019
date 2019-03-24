@@ -8,7 +8,7 @@
 int main()
 {
   Circle mycircle; // создание экземпляра класса "Круг"
-  mycircle.m_center = {6.0,6.0}; // инициализация центра окружности
+  mycircle.m_center = {5.0,5.0}; // инициализация центра окружности
   std::cout << "The center of the circle is: (" << mycircle.m_center.x << ";" << mycircle.m_center.y << ")" << '\n';
   mycircle.m_radius = 3.0; // задание её радиуса
   std::cout << "The radius of the circle is: " << mycircle.m_radius << '\n';
