@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-Rectangle::Rectangle(double width_, double height_, const point_t & position):
+Rectangle::Rectangle(double width, double height, const point_t & position):
   width_(width),
   height_(height),
   pos_(position)

@@ -21,7 +21,7 @@ double Circle::getArea() const
 
 rectangle_t Circle:: getFrameRect() const
 {
-  return {2 * r_, 2 * r_, pos};
+  return {2 * r_, 2 * r_, pos_};
 }
 
 point_t Circle::Center() const
