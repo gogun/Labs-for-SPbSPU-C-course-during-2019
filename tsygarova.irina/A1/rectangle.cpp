@@ -1,17 +1,9 @@
-//
-//  rectangle.cpp
-//  A1
-//
-//  Created by Ирина on 23.03.2019.
-//  Copyright © 2019 Ирина. All rights reserved.
-//
-
 #include "rectangle.hpp"
 
 #include <iostream>
 #include <stdexcept>
 
-Rectangle::Rectangle(double width,double height, const point_t &position):
+Rectangle::Rectangle(double width, double height, const point_t & position):
   width_(width),
   height_(height),
   pos_(position)
@@ -29,18 +21,18 @@ double Rectangle:: getArea() const
 
 rectangle_t Rectangle::getFrameRect () const
 {
-  return {width_,height_,pos_};
+  return {width_, height_, pos_};
 }
 
 void Rectangle::move(double dx, double dy)
 {
-  pos_.x+=dx;
-  pos_.y+=dy;
+  pos_.x += dx;
+  pos_.y += dy;
 }
 
-void Rectangle::move(const point_t &p)
+void Rectangle::move(const point_t & p)
 {
-  pos_=p;
+  pos_ = p;
 }
 
 point_t Rectangle::Center() const
@@ -50,9 +42,9 @@ point_t Rectangle::Center() const
 
 void Rectangle::print() const
 {
-  std::cout << "Area of rectangle: " << getArea()<< std::endl;
-  std::cout << "Width of frame rectangle: " << getFrameRect().width_<< std::endl;
-  std::cout << "Height of frame rectangle: " << getFrameRect().height_<< std::endl;
+  std::cout << "Area of rectangle: " << getArea() << std::endl;
+  std::cout << "Width of frame rectangle: " << getFrameRect().width_ << std::endl;
+  std::cout << "Height of frame rectangle: " << getFrameRect().height_ << std::endl;
   std::cout << "Center point of frame rectangle: (" << getFrameRect().pos_.x
             << "; " << getFrameRect().pos_.y << ")" << std::endl;
 }

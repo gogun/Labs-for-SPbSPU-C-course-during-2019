@@ -1,13 +1,5 @@
-//
-//  base-types.hpp
-//  A1
-//
-//  Created by Ирина on 23.03.2019.
-//  Copyright © 2019 Ирина. All rights reserved.
-//
-
-#ifndef base_types_h
-#define base_types_h
+#ifndef BASETYPES_HPP
+#define BASETYPES_HPP
 
 struct point_t
 {
@@ -20,4 +12,4 @@ struct rectangle_t
   double height_;
   point_t pos_;
 };
-#endif /* base_types_hpp */
+#endif /* BASETYPES_HPP */
