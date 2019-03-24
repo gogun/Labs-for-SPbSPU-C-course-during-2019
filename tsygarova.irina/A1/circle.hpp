@@ -16,7 +16,7 @@ public:
 
 private:
   double r_;
-  point_t pos_;
+  point_t pos;
 };
 
 #endif /* CIRCLE_HPP */

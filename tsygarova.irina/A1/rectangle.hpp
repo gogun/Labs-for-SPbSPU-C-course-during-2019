@@ -17,6 +17,6 @@ public:
 private:
   double width_;
   double height_;
-  point_t pos_;
+  point_t pos;
 };
 #endif /* RECTANGLE_HPP */
