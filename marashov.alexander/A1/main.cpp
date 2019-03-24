@@ -1,13 +1,12 @@
 #include <iostream>
 #include <iomanip>
-
 #include "circle.hpp"
 #include "rectangle.hpp"
 
 // Вспомогательная функция, позволяющая продемоснтрировать полиморфизм:
 // getArea принимает объект типа Shape, но, в зависимости от настоящего типа,
 // будет вызван соответствующий метод нахождения площади
-float getArea(Shape &shape)
+double getArea(Shape &shape)
 {
   return shape.getArea();
 }

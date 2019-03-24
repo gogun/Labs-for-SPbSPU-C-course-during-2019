@@ -1,7 +1,7 @@
 #include "rectangle.hpp"
 #include <iostream>
 
-Rectangle::Rectangle(float posX, float posY, float width, float height)
+Rectangle::Rectangle(double posX, double posY, double width, double height)
 {
   if (width <= 0 || height <= 0)
   {
@@ -14,14 +14,14 @@ Rectangle::Rectangle(float posX, float posY, float width, float height)
   m_figure.pos.y = posY;
 }
 
-Rectangle::Rectangle(const point_t &pos, float width, float height)
+Rectangle::Rectangle(const point_t &pos, double width, double height)
 {
   m_figure.height = height;
   m_figure.width = width;
   m_figure.pos = pos;
 }
 
-float Rectangle::getArea() const
+double Rectangle::getArea() const
 {
   return m_figure.width * m_figure.height;
 }
@@ -42,7 +42,7 @@ void Rectangle::move(const point_t& pos)
   m_figure.pos.y = pos.y;
 }
 
-void Rectangle::move(float dltX, float dltY)
+void Rectangle::move(double dltX, double dltY)
 {
   m_figure.pos.x += dltX;
   m_figure.pos.y += dltY;

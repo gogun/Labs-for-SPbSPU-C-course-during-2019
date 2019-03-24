@@ -2,7 +2,7 @@
 #include <cmath>
 #include <iostream>
 
-Circle::Circle(float centerX, float centerY, float radius)
+Circle::Circle(double centerX, double centerY, double radius)
 {
   if (radius <= 0)
   {
@@ -14,7 +14,7 @@ Circle::Circle(float centerX, float centerY, float radius)
   m_radius = radius;
 }
 
-Circle::Circle(const point_t& center, float radius)
+Circle::Circle(const point_t& center, double radius)
 {
   if (radius <= 0)
   {
@@ -25,9 +25,9 @@ Circle::Circle(const point_t& center, float radius)
   m_radius = radius;
 }
 
-float Circle::getArea() const
+double Circle::getArea() const
 {
-  return ((float) M_PI) * m_radius * m_radius;
+  return M_PI * m_radius * m_radius;
 }
 
 rectangle_t Circle::getFrameRect() const
@@ -45,7 +45,7 @@ void Circle::move(const point_t& pos)
   m_center = pos;
 }
 
-void Circle::move(float dltX, float dltY)
+void Circle::move(double dltX, double dltY)
 {
   m_center.x += dltX;
   m_center.y += dltY;
