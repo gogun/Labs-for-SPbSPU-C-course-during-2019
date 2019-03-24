@@ -2,6 +2,7 @@
 #define CIRCLE_H
 
 #include "shape.hpp"
+#include "base-types.hpp"
 
 class Circle : public Shape
 {

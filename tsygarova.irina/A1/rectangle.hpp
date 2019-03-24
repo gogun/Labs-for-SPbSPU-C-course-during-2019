@@ -2,6 +2,7 @@
 #define RECTANGLE_H
 
 #include "shape.hpp"
+#include "base-types.hpp"
 
 class Rectangle : public Shape
 {
