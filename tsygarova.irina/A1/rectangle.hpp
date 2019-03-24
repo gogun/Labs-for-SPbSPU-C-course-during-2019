@@ -9,7 +9,7 @@
 #ifndef rectangle_h
 #define rectangle_h
 
-#include "Shape.hpp"
+#include "shape.hpp"
 
 class Rectangle : public Shape
 {
