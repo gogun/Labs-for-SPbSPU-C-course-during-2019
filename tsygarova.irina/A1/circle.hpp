@@ -12,7 +12,6 @@ public:
   rectangle_t getFrameRect() const override;
   void move(double dx, double dy) override;
   void move(const point_t &p) override;
-  point_t Center() const override;
   void print() const override;
 
 private:

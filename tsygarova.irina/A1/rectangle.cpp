@@ -4,11 +4,9 @@
 #include <stdexcept>
 
 Rectangle::Rectangle(double width, double height, const point_t & position):
-  width_{width},
-  height_{height},
-  pos_{position}
+rect_({width, height, position})
 {
-  if (width_ <= 0 || height_ <= 0)
+  if (width <= 0 || height <= 0)
   {
    throw std::invalid_argument("Invalid rectangle parameters");
   }
@@ -16,35 +14,30 @@ Rectangle::Rectangle(double width, double height, const point_t & position):
 
 double Rectangle:: getArea() const
 {
-  return width_ * height_;
+  return rect_.width_ * rect_.height_;
 }
 
 rectangle_t Rectangle::getFrameRect () const
 {
-  return {width_, height_, pos_};
-}
-
-point_t Rectangle::Center() const
-{
-    return pos_;
+  return rect_;
 }
 
 void Rectangle::move(double dx, double dy)
 {
-  pos_.x_ += dx;
-  pos_.y_ += dy;
+  rect_.pos.x_ += dx;
+  rect_.pos.y_ += dy;
 }
 
 void Rectangle::move(const point_t & p)
 {
-  pos_ = p;
+  rect_.pos = p;
 }
 
 void Rectangle::print() const
 {
   std::cout << "Area of rectangle: " << getArea() << std::endl;
-  std::cout << "Width of frame rectangle: " << getFrameRect().width_ << std::endl;
-  std::cout << "Height of frame rectangle: " << getFrameRect().height_ << std::endl;
-  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x_
-            << "; " << getFrameRect().pos.y_ << ")" << std::endl;
+  std::cout << "Width of frame rectangle: " << rect_.width_ << std::endl;
+  std::cout << "Height of frame rectangle: " << rect_.height_ << std::endl;
+  std::cout << "Center point of frame rectangle: (" << rect_.pos.x_
+            << "; " << rect_.pos.y_ << ")" << std::endl;
 }

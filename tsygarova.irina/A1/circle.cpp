@@ -24,11 +24,6 @@ rectangle_t Circle:: getFrameRect() const
   return {2 * r_, 2 * r_, pos_};
 }
 
-point_t Circle::Center() const
-{
-  return pos_;
-}
-
 void Circle::move(double dx, double dy)
 {
   pos_.x_ += dx;
