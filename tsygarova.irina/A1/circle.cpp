@@ -6,7 +6,7 @@
 
 Circle::Circle(double r, const point_t & position):
   r_(r),
-  pos(position)
+  pos_(position)
 {
   if (r_ <= 0)
   {
@@ -26,18 +26,18 @@ rectangle_t Circle:: getFrameRect() const
 
 point_t Circle::Center() const
 {
-  return pos;
+  return pos_;
 }
 
 void Circle::move(double dx, double dy)
 {
-  pos.x += dx;
-  pos.y += dy;
+  pos_.x_ += dx;
+  pos_.y_ += dy;
 }
 
 void Circle::move(const point_t & p)
 {
-  pos = p;
+  pos_ = p;
 }
 
 void Circle::print() const
@@ -45,6 +45,6 @@ void Circle::print() const
   std::cout << "Area of circle: " << getArea() << std::endl;
   std::cout << "Width of frame rectangle: " << getFrameRect().width_<< std::endl;
   std::cout << "Height of frame rectangle: " << getFrameRect().height_<< std::endl;
-  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x
-            << "; " << getFrameRect().pos.y << ")" << std::endl;
+  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x_
+            << "; " << getFrameRect().pos.y_ << ")" << std::endl;
 }
