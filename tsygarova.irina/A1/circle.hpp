@@ -11,7 +11,7 @@ public:
   rectangle_t getFrameRect() const noexcept override;
   void move(const point_t & point) noexcept override;
   void move(const double dx, const double dy) noexcept override;
-  void print() const override;
+  void print() const noexcept override;
 
 private:
   double radius_;

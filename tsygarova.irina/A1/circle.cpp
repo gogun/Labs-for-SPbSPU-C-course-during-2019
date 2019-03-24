@@ -1,5 +1,6 @@
 #include "circle.hpp"
 
+#include <iostream>
 #include <stdexcept>
 #include <cmath>
 
@@ -34,7 +35,7 @@ void Circle::move(const double dx, const double dy) noexcept
   center_.y += dy;
 }
 
-void Circle::print() const
+void Circle::print() const noexcept
 {
   std::cout << "Area of circle: " << getArea() << std::endl;
   std::cout << "Width of frame rectangle: " << getFrameRect().width << std::endl;

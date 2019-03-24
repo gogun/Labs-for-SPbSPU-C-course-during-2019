@@ -7,7 +7,7 @@ int main()
 {
   try
   {
-    Rectangle rectangle(4, 2, {1, 3});
+    Rectangle rectangle({4, 2, {1, 3}});
     Shape * shapePtr = &rectangle;
     std::cout << "FOR RECTANGLE\n";
     shapePtr -> print();

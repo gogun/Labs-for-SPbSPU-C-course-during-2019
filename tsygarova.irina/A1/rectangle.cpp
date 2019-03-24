@@ -1,5 +1,6 @@
 #include "rectangle.hpp"
 
+#include <iostream>
 #include <stdexcept>
 
 Rectangle::Rectangle(const rectangle_t & rect):
@@ -32,7 +33,7 @@ void Rectangle::move(const double dx, const double dy) noexcept
   rect_.pos.y += dy;
 }
 
-void Rectangle::print() const
+void Rectangle::print() const noexcept
 {
   std::cout << "Area of rectangle: " << getArea() << std::endl;
   std::cout << "Width of frame rectangle: " << rect_.width << std::endl;
