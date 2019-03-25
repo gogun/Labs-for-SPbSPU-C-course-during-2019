@@ -1,24 +1,6 @@
-#include "circle.hpp" 
-#include <cmath> 
-#include <iostream> 
-
-/* Circle::Circle(double centerX, double centerY, double radius)
-{ 
-m_center.x = centerX; 
-m_center.y = centerY; 
-m_radius = radius; 
-} */
-
-/*Circle::Circle(point_t& center, double radius)
-{ 
-if (radius <= 0) 
-{ 
-std::cerr << "Circle: radius must be positive";
-exit(1); 
-} 
-m_center = center; 
-m_radius = radius; 
-} */
+#include "circle.hpp"
+#include <iostream>
+#include <cmath>
 
 double Circle::getArea() const
 {
@@ -35,8 +17,8 @@ void Circle::move(const point_t &pos)
   m_center = pos;
 }
 
-void Circle::move(const double dltX, const double dltY)
+void Circle::move(double dx, double dy)
 {
-  m_center.x += dltX;
-  m_center.y += dltY;
+  m_center.x += dx;
+  m_center.y += dy;
 }
