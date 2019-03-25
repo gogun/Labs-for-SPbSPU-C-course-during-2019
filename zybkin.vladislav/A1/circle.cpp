@@ -45,3 +45,4 @@ void Circle::move(const double &shift_x, const double &shift_y)
   center_.x += shift_x;
   center_.y += shift_y;
 }
+
