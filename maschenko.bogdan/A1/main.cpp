@@ -30,6 +30,6 @@ int main()
   std::cout << "move Rectangle at the dx = 7, dy = 0" << std::endl;
   shape->move(7, 0);
   shape->writeInfo();
-  
+
   return 0;
 }
