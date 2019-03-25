@@ -7,7 +7,7 @@
 
 int main()
 {
-  Rectangle rect({55, 55}, -10, 10);
+  Rectangle rect({55, 55}, 10, 10);
   Circle circle({25, 25}, 5);
   Shape * a, * b;
   a = &rect;
