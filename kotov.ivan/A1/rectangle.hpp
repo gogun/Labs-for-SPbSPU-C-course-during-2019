@@ -8,27 +8,24 @@ class Rectangle : public Shape
 
 public:
 
-  Rectangle(const point_t & pos, double width, double height);
+  Rectangle(const point_t &pos, double width, double height);
 
   double getArea() const override;
 
   rectangle_t getFrameRect() const override;
-  
-  void move(const point_t & pos) override;
-  
+
+  void move(const point_t &pos) override;
+
   void move(double dispX, double dispY) override;
-  
+
 private:
 
-  point_t m_pos {
-    0, 
-    0
-  };
-  
-  double m_width = 0;
-  
-  double m_height = 0;
-  
+  point_t m_pos;
+
+  double m_width;
+
+  double m_height;
+
 };
 
 #endif // RECTANGLE_HPP

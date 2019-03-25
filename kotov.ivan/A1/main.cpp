@@ -7,19 +7,14 @@
 
 int main()
 {
-  point_t posRect, posCircle;
-  posRect.x = 50;
-  posRect.y = 50;
-  posCircle.x = 25;
-  posCircle.y = 25;
-  Rectangle rect(posRect, 10, 10);
-  Circle circle(posCircle, 5);
+  Rectangle rect({55, 55}, -10, 10);
+  Circle circle({25, 25}, 5);
   Shape * a, * b;
-  a = & rect;
-  b = & circle;
-  a -> move(-5, -5);
-  b -> move(-5, -5);
-  std::cout << "Area of rectangle: " << a -> getArea() << std::endl;
-  std::cout << "Area of circle: " << b -> getArea() << std::endl;
+  a = &rect;
+  b = &circle;
+  a->move(-5, -5);
+  b->move(-5, -5);
+  std::cout << "Area of rectangle: " << a->getArea() << std::endl;
+  std::cout << "Area of circle: " << b->getArea() << std::endl;
   return 0;
 }
