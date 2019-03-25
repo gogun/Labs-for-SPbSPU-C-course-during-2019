@@ -16,11 +16,6 @@ Circle::Circle(double x, double y, double r) :
     Circle({x, y}, r)
 { }
 
-Circle::Circle() :
-    center_({0, 0}),
-    radius_(0)
-{ }
-
 void Circle::move(double dx, double dy)
 {
   center_.x += dx;

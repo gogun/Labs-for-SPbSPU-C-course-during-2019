@@ -3,7 +3,6 @@
 
 class Rectangle : public Shape {
 public:
-  Rectangle();
   Rectangle(point_t pos, double w, double h);
   Rectangle(double x, double y, double w, double h);
   Rectangle(point_t pos, double a);

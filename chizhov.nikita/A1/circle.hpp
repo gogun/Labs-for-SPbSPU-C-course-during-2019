@@ -3,7 +3,6 @@
 
 class Circle : public Shape {
 public:
-  Circle();
   Circle(point_t pos, double r);
   Circle(double x, double y, double r);
 
