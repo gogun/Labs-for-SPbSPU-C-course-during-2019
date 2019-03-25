@@ -5,15 +5,9 @@
 
 const double PI = atan(1) * 4;
 
-Circle::Circle() :
-  radius_(0),
-  frame_rect_({0, 0, {0, 0}}) 
-{
-}
-
 Circle::Circle(const point_t& pos, const double radius) :
-  radius_(radius),
-  frame_rect_({radius * 2, radius * 2, pos})
+    radius_(radius),
+    frame_rect_({radius * 2, radius * 2, pos})
 {
   if (radius < 0) {
     throw std::invalid_argument("Area of circle is negative.");

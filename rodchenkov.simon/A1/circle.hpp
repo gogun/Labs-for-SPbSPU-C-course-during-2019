@@ -3,17 +3,16 @@
 
 #include "shape.hpp"
 
-class Circle final : public Shape
+class Circle : public Shape
 {
 public:
-  Circle();
-  Circle(const point_t& pos, const double radius);
+  Circle(const point_t&, double);
 
   double      getArea() const noexcept override;
   rectangle_t getFrameRect() const noexcept override;
-  void        printData(std::ostream& stream) const override;
-  void        move(const point_t& point) noexcept override;
-  void        move(const double   dx, const double dy) noexcept override;
+  void        printData(std::ostream&) const override;
+  void        move(const point_t&) noexcept override;
+  void        move(double, double) noexcept override;
 
 private:
   double      radius_;
