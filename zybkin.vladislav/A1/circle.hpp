@@ -21,4 +21,3 @@ protected:
 };
 
 #endif /* CIRCLE_HPP */
-
