@@ -27,10 +27,5 @@ int main()
     correctFigures[i]->move(point_t{0,0});
     correctFigures[i]->show();
   }
-  std::cout << "\nTrying to create figures with incorrect parameters:\n";
-  Circle circle3{point_t{3,4},0};
-  Circle circle4{{1,1},-5};
-  Rectangle rectangle3{point_t{-10.5,-20.4},0,2};
-  Rectangle rectangle4{2,2,-1,-1};
   return 0;
 }
