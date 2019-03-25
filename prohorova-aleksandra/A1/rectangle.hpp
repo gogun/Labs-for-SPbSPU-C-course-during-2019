@@ -22,6 +22,5 @@ public:
 
 private:
   rectangle_t rect_;
-  void check() const override;
 };
 #endif // AP_A1_RECTANGLE

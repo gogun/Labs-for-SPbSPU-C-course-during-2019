@@ -22,7 +22,5 @@ public:
 private:
   point_t pos_;
   double radius_;
-
-  void check() const override;
 };
 #endif // AP_A1_CIRCLE

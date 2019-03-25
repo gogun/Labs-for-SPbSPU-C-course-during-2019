@@ -6,13 +6,14 @@ Circle::Circle(double posX,double posY,double radius):
   pos_(point_t{posX,posY}),
   radius_(radius)
 {
-  check();
+  if(radius_ <= 0)
+  {
+    std::cerr << "Radius of circle must be a positive number.\n";
+  }
 }
 Circle::Circle(const point_t &pos,double radius):
-  pos_(pos),
-  radius_(radius)
+  Circle(pos.x, pos.y, radius)
 {
-  check();
 }
 double Circle::getArea() const
 {
@@ -46,11 +47,4 @@ const point_t& Circle::getPos() const
 double Circle::getRadius() const
 {
   return radius_;
-}
-void Circle::check() const
-{
-  if(radius_ <= 0)
-  {
-    std::cout << "Radius of circle must be a positive number.\n";
-  }
 }

@@ -4,12 +4,18 @@
 Rectangle::Rectangle(double posX,double posY,double width,double height):
   rect_(rectangle_t{point_t{posX,posY},width,height})
 {
-  check();
+  if(rect_.width <= 0)
+  {
+    std::cerr << "Width of rectangle must be a positive number.\n";
+  }
+  if(rect_.height <= 0)
+  {
+    std::cerr << "Height of rectangle must be a positive number.\n";
+  }
 }
 Rectangle::Rectangle(const point_t &pos,double width,double height):
-  rect_(rectangle_t{pos,width,height})
+  Rectangle(pos.x,pos.y, width, height)
 {
-  check();
 }
 double Rectangle::getArea() const
 {
@@ -47,15 +53,4 @@ double Rectangle::getHeight() const
 point_t Rectangle::getPos() const
 {
   return rect_.pos;
-}
-void Rectangle::check() const
-{
-  if(rect_.width <= 0)
-  {
-    std::cout << "Width of rectangle must be a positive number.\n";
-  }
-  if(rect_.height <= 0)
-  {
-    std::cout << "Height of rectangle must be a positive number.\n";
-  }
 }
