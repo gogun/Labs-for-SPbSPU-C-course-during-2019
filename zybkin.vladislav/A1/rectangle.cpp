@@ -1,14 +1,13 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(const point_t &position, const double &width, const double &height) :
   height_(height),
   width_(width),
   center_(position)
 {
-  if ((height_ <= 0) || (width_ <= 0)) {
-    std::cerr << "Height and width have to be positive!\n";
-  }
+  assert((width_ > 0) && (height_ > 0));
 }
 
 double Rectangle::getArea() const
@@ -18,7 +17,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return {width_, height_, center_};;
+  return {width_, height_, center_};
 }
 
 void Rectangle::printInfo() const

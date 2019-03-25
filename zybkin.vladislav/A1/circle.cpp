@@ -7,9 +7,7 @@ Circle::Circle(const point_t &position, const double & radius) :
   radius_(radius),
   center_(position)
 {
-  if (radius_ < 0) {
-    std::cerr << "Radius hasn't to be negative!\n";
-  }
+  assert(radius_ >= 0);
 }
 
 double Circle::getArea() const
