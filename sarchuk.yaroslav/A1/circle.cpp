@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(const point_t &position, const double radius) :
+Circle::Circle(const point_t &position, double radius) :
   pos_(position),
   radius_(radius)
 {
@@ -28,7 +28,7 @@ void Circle::move(const point_t &pos)
   pos_ = pos;
 }
 
-void Circle::move(const double dx, const double dy)
+void Circle::move(double dx, double dy)
 {
   pos_.x += dx;
   pos_.y += dy;

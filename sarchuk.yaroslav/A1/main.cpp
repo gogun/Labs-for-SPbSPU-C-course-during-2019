@@ -9,7 +9,7 @@ void moveAndWrite(Shape *shape, const point_t &pos)
   shape->writeInfo();
 }
 
-void moveAndWrite(Shape *shape, const double dx, const double dy)
+void moveAndWrite(Shape *shape, double dx, double dy)
 {
   std::cout << "Add to X " << dx << ", Add to Y " << dy << "\n";
   shape->move(dx, dy);
