@@ -1,10 +1,11 @@
 #include "circle.hpp"
 #include <cmath>
 
-Circle::Circle(const point_t &pos, const double radius) : m_pos(pos)
+Circle::Circle(const point_t & pos, double radius) : 
+  m_pos(pos)
 {
   if(radius < 0) {
-    m_radius = -radius;
+    m_radius = - radius;
   } else {
     m_radius = radius;
   }
@@ -18,15 +19,19 @@ double Circle::getArea() const
   
 rectangle_t Circle::getFrameRect() const
 {
-  return rectangle_t {2 * m_radius, 2 * m_radius, m_pos};
+  return rectangle_t {
+    2 * m_radius, 
+    2 * m_radius, 
+    m_pos
+  };
 }
   
-void Circle::move(const point_t &pos)  
+void Circle::move(const point_t & pos)  
 {
   m_pos = pos;
 }
   
-void Circle::move(const double dispX, const double dispY)  
+void Circle::move(double dispX, double dispY)  
 {
   m_pos.x += dispX;
   m_pos.y += dispY;

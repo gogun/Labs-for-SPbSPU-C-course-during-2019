@@ -13,9 +13,9 @@ public:
   
   virtual rectangle_t getFrameRect() const = 0;
   
-  virtual void move(const point_t &pos) = 0;
+  virtual void move(const point_t & pos) = 0;
   
-  virtual void move(const double dispX, const double dispY) = 0;
+  virtual void move(double dispX, double dispY) = 0;
   
 };
 

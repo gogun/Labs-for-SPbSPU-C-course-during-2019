@@ -1,14 +1,15 @@
 #include "rectangle.hpp"
 
-Rectangle::Rectangle(const point_t &pos, const double width, const double height): m_pos(pos)
+Rectangle::Rectangle(const point_t & pos, double width, double height): 
+  m_pos(pos)
 {
   if(width < 0) {
-    m_width = -width;
+    m_width = - width;
   } else {
     m_width = width;
   }
   if(height < 0) {
-    m_height = -height;
+    m_height = - height;
   } else {
     m_height = height;
   }
@@ -21,15 +22,19 @@ double Rectangle::getArea() const
   
 rectangle_t Rectangle::getFrameRect() const 
 {
-  return rectangle_t {m_width, m_height, m_pos};
+  return rectangle_t {
+    m_width, 
+    m_height, 
+    m_pos
+  };
 }
   
-void Rectangle::move(const point_t &pos)  
+void Rectangle::move(const point_t & pos)  
 {
   m_pos = pos;
 }
   
-void Rectangle::move(const double dispX, const double dispY)  
+void Rectangle::move(double dispX, double dispY)  
 {
   m_pos.x += dispX;
   m_pos.y += dispY;
