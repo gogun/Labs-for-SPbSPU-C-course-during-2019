@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Rectangle.hpp"
-#include "Circle.hpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 void getInfo(const Shape *figure)
 {
@@ -14,7 +14,7 @@ int main()
   circle1.move(3,7.7);
   getInfo(&circle1);
   std::cout << "Circle Area is: " << circle1.getArea() << std::endl;
-  std::cout << "Rect around Circ: \n";
+  std::cout << "Rect around Circle: \n";
   std::cout << "X: " << circle1.getFrameRect().pos.x << std::endl;
   std::cout << "Y: " << circle1.getFrameRect().pos.y << std::endl;
   std::cout << "Width: " << circle1.getFrameRect().width << " Height: " << circle1.getFrameRect().height;
