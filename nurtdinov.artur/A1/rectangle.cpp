@@ -2,13 +2,23 @@
 // Created by Артур on 18.03.2019.
 //
 
+#include <iostream>
+#include <assert.h>
 #include "rectangle.hpp"
 
-Rectangle::Rectangle(const point_t &point, const double &width, const double &height)
+Rectangle::Rectangle(const point_t &point, const double &width, const double &height) :
+  position_(point),
+  width_(width),
+  height_(height)
 {
-  width_ = width;
-  position_ = point;
-  height_ = height;
+  if (width <= 0)
+  {
+    std::cerr << "Invalid value of width";
+  }
+  if (height <= 0)
+  {
+    std::cerr << "Invalid value of height";
+  }
 }
 
 double Rectangle::getArea() const
@@ -18,8 +28,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  rectangle_t rectangle = {width_, height_, position_};
-  return rectangle;
+  return {width_, height_, position_};
 }
 
 void Rectangle::move(const point_t &point)

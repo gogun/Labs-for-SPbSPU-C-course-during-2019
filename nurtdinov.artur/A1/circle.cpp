@@ -2,12 +2,17 @@
 // Created by Артур on 18.03.2019.
 //
 
+#include <iostream>
 #include "circle.hpp"
 
-Circle::Circle(const point_t &point, const double &radius)
+Circle::Circle(const point_t &point, const double &radius):
+  position_(point),
+  radius_(radius)
 {
-  position_ = point;
-  radius_ = radius;
+  if (radius <= 0)
+  {
+    std::cerr<<"Invalid value of radius";
+  }
 }
 
 double Circle::getArea() const
@@ -17,8 +22,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t rectangle = {2 * radius_, 2 * radius_, position_};
-  return rectangle;
+  return {2 * radius_, 2 * radius_, position_};
 }
 
 void Circle::move(const point_t &point)

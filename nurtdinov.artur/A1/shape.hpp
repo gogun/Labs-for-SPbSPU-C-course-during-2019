@@ -19,6 +19,8 @@ public:
   virtual void move(const point_t &point) = 0;
 
   virtual void move(const double &dx, const double &dy) = 0;
+
+  virtual point_t getPosition() const = 0;
 };
 
 #endif //A1_SHAPE_HPP

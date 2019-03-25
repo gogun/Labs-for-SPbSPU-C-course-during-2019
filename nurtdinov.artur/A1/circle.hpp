@@ -11,7 +11,7 @@ class Circle : public Shape {
 public:
   Circle(const point_t &point, const double &radius);
 
-  point_t getPosition() const;
+  point_t getPosition() const override;
 
   double getArea() const override;
 
