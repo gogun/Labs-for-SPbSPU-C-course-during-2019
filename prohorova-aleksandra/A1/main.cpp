@@ -4,9 +4,12 @@
 
 int main()
 {
-  Shape* correctFigures[] = {new Circle(point_t{1,2},4), new Rectangle(point_t{3,4},2,3),
-                             new Circle(-2.1234, 3.4567, 1), new Rectangle(1.2,-2.3,1,1)};
-  int size = sizeof(correctFigures)/sizeof(Shape*);
+  Circle circle1{point_t{1,2},4};
+  Circle circle2{-2.1234, 3.4567, 1};
+  Rectangle rectangle1{point_t{3,4},2,3};
+  Rectangle rectangle2{1.2,-2.3,1,1};
+  Shape* correctFigures[] = {&circle1, &circle2, &rectangle1, &rectangle2};
+  int size = sizeof(correctFigures)/sizeof(Shape);
   std::cout << "Starting values: \n";
   for(int i = 0;i < size;i++)
   {
@@ -24,17 +27,10 @@ int main()
     correctFigures[i]->move(point_t{0,0});
     correctFigures[i]->show();
   }
-  for(int i = 0;i<size;i++)
-  {
-    delete correctFigures[i];
-  }
   std::cout << "\nTrying to create figures with incorrect parameters:\n";
-  Shape* incorrectFigures[] = {new Rectangle(2,2,-1,-1),new Circle(3,4,0),
-                               new Rectangle(-10.5,-20.4, 0,2), new Circle(1,1,-5)};
-  size = sizeof(incorrectFigures)/sizeof(Shape*);
-  for(int i = 0;i < size;i++)
-  {
-    delete incorrectFigures[i];
-  }
+  Circle circle3{point_t{3,4},0};
+  Circle circle4{{1,1},-5};
+  Rectangle rectangle3{point_t{-10.5,-20.4},0,2};
+  Rectangle rectangle4{2,2,-1,-1};
   return 0;
 }
