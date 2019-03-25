@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-Rectangle::Rectangle(point_t pos, double w, double h) : center_(pos),
+Rectangle::Rectangle(point_t pos, double w, double h) :
+    center_(pos),
     width_(w),
     height_(h)
 {
@@ -11,16 +12,20 @@ Rectangle::Rectangle(point_t pos, double w, double h) : center_(pos),
   }
 }
 
-Rectangle::Rectangle(double x, double y, double w, double h) : Rectangle({x, y}, w, h)
+Rectangle::Rectangle(double x, double y, double w, double h) :
+    Rectangle({x, y}, w, h)
 { }
 
-Rectangle::Rectangle(point_t pos, double a) : Rectangle(pos, a, a)
+Rectangle::Rectangle(point_t pos, double a) :
+    Rectangle(pos, a, a)
 { }
 
-Rectangle::Rectangle(double x, double y, double a) : Rectangle({x, y}, a, a)
+Rectangle::Rectangle(double x, double y, double a) :
+    Rectangle({x, y}, a, a)
 { }
 
-Rectangle::Rectangle() : center_({0, 0}),
+Rectangle::Rectangle() :
+    center_({0, 0}),
     width_(0),
     height_(0)
 { }

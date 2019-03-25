@@ -3,7 +3,8 @@
 #include <math.h>
 #include <iostream>
 
-Circle::Circle(point_t pos, double r) : center_(pos),
+Circle::Circle(point_t pos, double r) :
+    center_(pos),
     radius_(r)
 {
   if (radius_ <= 0) {
@@ -11,10 +12,12 @@ Circle::Circle(point_t pos, double r) : center_(pos),
   }
 }
 
-Circle::Circle(double x, double y, double r) : Circle({x, y}, r)
+Circle::Circle(double x, double y, double r) :
+    Circle({x, y}, r)
 { }
 
-Circle::Circle() : center_({0, 0}),
+Circle::Circle() :
+    center_({0, 0}),
     radius_(0)
 { }
 
