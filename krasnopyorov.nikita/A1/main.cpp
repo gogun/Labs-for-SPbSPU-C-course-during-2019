@@ -16,31 +16,32 @@ void writeFrameRect(const rectangle_t &frameRect)
 int main()
 {
   Circle objCirc(1.0, {0, 0});
-  Shape &Link = objCirc;
+  Shape *link = &objCirc;
   double dx = 2.1, dy = 3.3;
   point_t dot = {0, 0};
 
   std::cout << "Square of circle:" << std::endl;
-  std::cout << Link.getArea() << std::endl;
+  std::cout << link->getArea() << std::endl;
   rectangle_t frameRect = objCirc.getFrameRect();
   writeFrameRect(frameRect);
-  Link.move(dx, dy);
+  link->move(dx, dy);
   objCirc.writeChanges();
-  Link.move(dot);
+  link->move(dot);
   objCirc.writeChanges();
 
   std::cout << std::endl;
   std::cout << std::endl;
 
   Rectangle objRect({2.5, 1.0, {0, 0}});
+  link = &objRect;
 
   std::cout << "Square of rectangle:" << std::endl;
-  std::cout << objRect.getArea() << std::endl;
-  frameRect = objRect.getFrameRect();
+  std::cout << link->getArea() << std::endl;
+  frameRect = link->getFrameRect();
   writeFrameRect(frameRect);
-  objRect.move(dx, dy);
+  link->move(dx, dy);
   objRect.writeChanges();
-  objRect.move(dot);
+  link->move(dot);
   objRect.writeChanges();
 
   std::cout << std::endl;

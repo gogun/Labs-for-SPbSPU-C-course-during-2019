@@ -1,15 +1,13 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(rectangle_t characteristics):
   characteristics_(characteristics)
 {
-  if ((characteristics_.height <= 0) || (characteristics_.width <= 0))
-  {
-    std::cout << "Incorrect values" << std::endl;
-    exit(0);
+  assert((characteristics_.height > 0) && ("Incorrect height value"));
+  assert((characteristics_.width > 0) && ("Incorrect width value"));
   }
-}
 
 double Rectangle::getArea() const
 {

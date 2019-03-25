@@ -2,17 +2,13 @@
 #include "circle.hpp"
 #include <iostream>
 #include <math.h>
-
+#include <cassert>
 
 Circle::Circle(double radius, point_t dot):
   centre_(dot),
   r_(radius)
 {
-  if (r_ <= 0)
-  {
-    std::cout << "Incorrect values" << std::endl;
-    exit(0);
-  }
+  assert((r_ > 0) && ("Incorrect radius value"));
 }
 
 double Circle::getArea() const

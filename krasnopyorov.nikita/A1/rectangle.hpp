@@ -7,11 +7,11 @@ class Rectangle: public Shape
 {
 public:
   Rectangle(rectangle_t characteristics);
-  void move(const point_t &dot);
-  void move(double deltax, double deltay);
-  double getArea() const;
+  void move(const point_t &dot) override;
+  void move(double deltax, double deltay) override;
+  double getArea() const override;
   void writeChanges() const;
-  rectangle_t getFrameRect() const;
+  rectangle_t getFrameRect() const override;
 private:
   rectangle_t characteristics_;
 };
