@@ -10,12 +10,6 @@ Circle::Circle(const point_t &position, const double radius) :
   assert(radius > 0);
 }
 
-Circle::Circle() :
-  pos_({0, 0}),
-  radius_(1)
-{
-}
-
 double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
@@ -25,7 +19,7 @@ void Circle::writeInfo() const
 {
   std::cout << "Circle info:\n"
     << "Radius - " << radius_ << "\n"
-    << "Center position: x = " << pos_.x << ", y = " << pos_.y << "\n"
+    << "Center position - x = " << pos_.x << ", y = " << pos_.y << "\n"
     << "Area - " << getArea() << "\n\n";
 }
 

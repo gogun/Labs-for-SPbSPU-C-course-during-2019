@@ -6,7 +6,6 @@
 class Rectangle : public Shape
 {
 public:
-  Rectangle();
   Rectangle(const point_t &position, const double width, const double height);
   Rectangle(const rectangle_t &info);
 

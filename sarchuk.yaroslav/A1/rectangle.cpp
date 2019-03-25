@@ -18,13 +18,6 @@ Rectangle::Rectangle(const rectangle_t &info) :
   assert((info.width > 0) && (info.height > 0));
 }
 
-Rectangle::Rectangle() :
-  pos_({0, 0}),
-  width_(0),
-  height_(0)
-{
-}
-
 double Rectangle::getArea() const
 {
   return width_ * height_;
@@ -35,7 +28,7 @@ void Rectangle::writeInfo() const
   std::cout << "Rectangle info:\n"
     << "Width - " << width_ << "\n"
     << "Height - " << height_ << "\n"
-    << "Center position: x = " << pos_.x << ", y = " << pos_.y << "\n"
+    << "Center position - x = " << pos_.x << ", y = " << pos_.y << "\n"
     << "Area - " << getArea() << "\n\n";
 }
 
