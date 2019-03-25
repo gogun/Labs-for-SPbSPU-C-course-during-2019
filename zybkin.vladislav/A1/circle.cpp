@@ -1,4 +1,4 @@
-#include "Circle.hpp"
+#include "circle.hpp"
 #include <iostream>
 
 const double PI = 3.14159265;
