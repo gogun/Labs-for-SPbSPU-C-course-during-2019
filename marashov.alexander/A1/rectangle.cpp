@@ -1,49 +1,48 @@
 #include "rectangle.hpp"
 #include <iostream>
 
-Rectangle::Rectangle(double posX, double posY, double width, double height)
+Rectangle::Rectangle(const point_t & pos, double width, double height) :
+  center_(pos),
+  width_(width),
+  height_(height)
 {
   if (width <= 0 || height <= 0)
   {
     std::cerr << "Rectangle: width and height must be positive";
     exit(1);
   }
-  m_figure.height = height;
-  m_figure.width = width;
-  m_figure.pos.x = posX;
-  m_figure.pos.y = posY;
 }
 
-Rectangle::Rectangle(const point_t &pos, double width, double height)
-{
-  m_figure.height = height;
-  m_figure.width = width;
-  m_figure.pos = pos;
-}
+Rectangle::Rectangle(double posX, double posY, double width, double height) :
+  Rectangle({posX, posY}, width, height)
+{ }
 
 double Rectangle::getArea() const
 {
-  return m_figure.width * m_figure.height;
+  return width_ * height_;
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return m_figure;
+  return {width_, height_, center_};
 }
 
-point_t Rectangle::getCenter() const
+void Rectangle::move(const point_t & pos)
 {
-  return m_figure.pos;
+  center_ = pos;
 }
 
-void Rectangle::move(const point_t& pos)
+void Rectangle::move(double deltaX, double deltaY)
 {
-  m_figure.pos.x = pos.x;
-  m_figure.pos.y = pos.y;
+  center_.x += deltaX;
+  center_.y += deltaY;
 }
 
-void Rectangle::move(double dltX, double dltY)
+void Rectangle:: writeInfo() const
 {
-  m_figure.pos.x += dltX;
-  m_figure.pos.y += dltY;
+  std::cout << "Rectangle. Center at (" << center_.x << "; " << center_.y << ")"
+          << std::endl << "Width = " << width_
+          << std::endl << "Height = " << height_
+          << std::endl << "Area = " << getArea()
+          << std::endl << std::endl;
 }

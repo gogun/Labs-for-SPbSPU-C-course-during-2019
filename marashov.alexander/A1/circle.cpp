@@ -2,51 +2,46 @@
 #include <cmath>
 #include <iostream>
 
-Circle::Circle(double centerX, double centerY, double radius)
+Circle::Circle(const point_t & center, double radius) :
+  center_(center),
+  radius_(radius)
 {
   if (radius <= 0)
   {
     std::cerr << "Circle: radius must be positive";
     exit(1);
   }
-  m_center.x = centerX;
-  m_center.y = centerY;
-  m_radius = radius;
 }
 
-Circle::Circle(const point_t& center, double radius)
-{
-  if (radius <= 0)
-  {
-    std::cerr << "Circle: radius must be positive";
-    exit(1);
-  }
-  m_center = center;
-  m_radius = radius;
-}
+Circle::Circle(double centerX, double centerY, double radius) :
+  Circle({centerX, centerY}, radius)
+{ }
 
 double Circle::getArea() const
 {
-  return M_PI * m_radius * m_radius;
+  return M_PI * radius_ * radius_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {m_radius * 2, m_radius * 2, m_center};
+  return {radius_ * 2, radius_ * 2, center_};
 }
 
-point_t Circle::getCenter() const
+void Circle::move(const point_t & pos)
 {
-  return m_center;
+  center_ = pos;
 }
 
-void Circle::move(const point_t& pos)
+void Circle::move(double deltaX, double deltaY)
 {
-  m_center = pos;
+  center_.x += deltaX;
+  center_.y += deltaY;
 }
 
-void Circle::move(double dltX, double dltY)
+void Circle:: writeInfo() const
 {
-  m_center.x += dltX;
-  m_center.y += dltY;
+  std::cout << "Circle. Center at (" << center_.x << "; " << center_.y << ")"
+            << std::endl << "Radius = " << radius_
+            << std::endl << "Area = " << getArea()
+            << std::endl << std::endl;
 }
