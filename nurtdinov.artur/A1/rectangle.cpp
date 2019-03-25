@@ -6,10 +6,7 @@
 #include <assert.h>
 #include "rectangle.hpp"
 
-Rectangle::Rectangle(const point_t &point, const double &width, const double &height) :
-  position_(point),
-  width_(width),
-  height_(height)
+Rectangle::Rectangle(const point_t &point, const double &width, const double &height)
 {
   if (width <= 0)
   {
@@ -19,6 +16,9 @@ Rectangle::Rectangle(const point_t &point, const double &width, const double &he
   {
     std::cerr << "Invalid value of height";
   }
+  position_ = point;
+  width_ = width;
+  height_ = height;
 }
 
 double Rectangle::getArea() const

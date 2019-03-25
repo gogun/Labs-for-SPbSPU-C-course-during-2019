@@ -5,14 +5,14 @@
 #include <iostream>
 #include "circle.hpp"
 
-Circle::Circle(const point_t &point, const double &radius):
-  position_(point),
-  radius_(radius)
+Circle::Circle(const point_t &point, const double &radius)
 {
   if (radius <= 0)
   {
     std::cerr<<"Invalid value of radius";
   }
+  position_ = point;
+  radius_ = radius;
 }
 
 double Circle::getArea() const
