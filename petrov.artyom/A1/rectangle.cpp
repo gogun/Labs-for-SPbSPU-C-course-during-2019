@@ -7,7 +7,8 @@ Rectangle::Rectangle(rectangle_t rectangle) :
 
 }
 
-Rectangle::Rectangle(point_t centre, double width, double height)
+Rectangle::Rectangle(point_t centre, double width, double height) :
+  Rectangle(rectangle_t { width, height, centre })
 {
   if (width <= 0)
   {
@@ -18,8 +19,6 @@ Rectangle::Rectangle(point_t centre, double width, double height)
   {
     throw std::invalid_argument("Height must be greater than 0");
   }
-
-  rectangle_ = rectangle_t {width, height, centre };
 }
 
 double Rectangle::getArea() const
@@ -41,4 +40,19 @@ void Rectangle::move(double dx, double dy)
 {
   rectangle_.pos.x += dx;
   rectangle_.pos.x += dy;
+}
+
+point_t Rectangle::getCentre() const
+{
+  return rectangle_.pos;
+}
+
+double Rectangle::getWidth() const
+{
+  return rectangle_.width;
+}
+
+double Rectangle::getHeight() const
+{
+  return rectangle_.height;
 }

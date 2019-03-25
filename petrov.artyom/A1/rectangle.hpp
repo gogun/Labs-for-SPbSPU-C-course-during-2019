@@ -14,6 +14,10 @@ public:
   rectangle_t getFrameRect() const override;
   void move(const point_t & centre) override;
   void move(double dx, double dy) override;
+
+  point_t getCentre() const;
+  double getWidth() const;
+  double getHeight() const;
 private:
   rectangle_t rectangle_;
 };
