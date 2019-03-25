@@ -2,10 +2,9 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printFrameRect(const Shape &shape, const std::string &name)
+void printFrameRect(const Shape &shape)
 {
   rectangle_t frameRect = shape.getFrameRect();
-  std::cout << name << std::endl;
   std::cout << "Width: " << frameRect.width << "  ";
   std::cout << "Height: " << frameRect.height << "  ";
   std::cout << "Center: ( " << frameRect.pos.x << " , " << frameRect.pos.y << " )";
@@ -29,13 +28,15 @@ int main()
   Circle circle(7, pointCenter);
   point_t pointNewCenter = {15, 15};
 
-  printFrameRect(rectangle, "Rectangle");
+  std::cout << "Rectangle" << std::endl;
+  printFrameRect(rectangle);
   printArea(rectangle);
   rectangle.move(3, 3);
   printCenter(rectangle);
   std::cout << std::endl << std::endl;
 
-  printFrameRect(circle, "Circle");
+  std::cout << "Circle" << std::endl;
+  printFrameRect(circle);
   printArea(circle);
   circle.move(pointNewCenter);
   printCenter(circle);

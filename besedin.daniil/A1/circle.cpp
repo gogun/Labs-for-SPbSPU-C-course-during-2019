@@ -1,15 +1,12 @@
 #include "circle.hpp"
 #include <cmath>
-#include <stdexcept>
+#include <cassert>
 
 Circle::Circle(const double radius, const point_t &center) :
   radius_(radius),
   center_(center)
 {
-  if (radius_ < 0.0)
-  {
-    throw std::invalid_argument("Invalid radius");
-  }
+  assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const noexcept

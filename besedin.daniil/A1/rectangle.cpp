@@ -1,15 +1,12 @@
 #include "rectangle.hpp"
-#include <stdexcept>
+#include <cassert>
 
 Rectangle::Rectangle(const double width, const double height, const point_t &center) :
   width_(width),
   height_(height),
   center_(center)
 {
-  if ((width_ < 0.0) || (height_ < 0.0))
-  {
-    throw std::invalid_argument("Invalid parameters");
-  }
+  assert((width_ > 0.0) && (height_ > 0.0));
 }
 
 double Rectangle::getArea() const noexcept
