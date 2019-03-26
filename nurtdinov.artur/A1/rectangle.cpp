@@ -3,10 +3,9 @@
 //
 
 #include <iostream>
-#include <assert.h>
 #include "rectangle.hpp"
 
-Rectangle::Rectangle(const point_t &point, const double &width, const double &height)
+Rectangle::Rectangle(const point_t &point, double width, double height)
 {
   if (width <= 0)
   {
@@ -36,7 +35,7 @@ void Rectangle::move(const point_t &point)
   position_ = point;
 }
 
-void Rectangle::move(const double &dx, const double &dy)
+void Rectangle::move(double dx, double dy)
 {
   position_.x += dx;
   position_.y += dy;

@@ -6,7 +6,7 @@
 #include <iostream>
 #include "circle.hpp"
 
-Circle::Circle(const point_t &point, const double &radius)
+Circle::Circle(const point_t &point, double radius)
 {
   if (radius <= 0)
   {
@@ -31,7 +31,7 @@ void Circle::move(const point_t &point)
   position_ = point;
 }
 
-void Circle::move(const double &dx, const double &dy)
+void Circle::move(double dx, double dy)
 {
   position_.x += dx;
   position_.y += dy;

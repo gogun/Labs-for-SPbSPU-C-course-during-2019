@@ -9,7 +9,7 @@
 
 class Circle : public Shape {
 public:
-  Circle(const point_t &point, const double &radius);
+  Circle(const point_t &point, double radius);
 
   point_t getPosition() const override;
 
@@ -19,7 +19,7 @@ public:
 
   void move(const point_t &point) override;
 
-  void move(const double &dx, const double &dy) override;
+  void move(double dx, double dy) override;
 
 private:
   point_t position_;

@@ -9,7 +9,7 @@
 
 class Rectangle : public Shape {
 public:
-  Rectangle(const point_t &point, const double &width, const double &height);
+  Rectangle(const point_t &point, double width, double height);
 
   point_t getPosition() const override;
 
@@ -19,7 +19,7 @@ public:
 
   void move(const point_t &point) override;
 
-  void move(const double &dx, const double &dy) override;
+  void move(double dx, double dy) override;
 
 private:
   double width_, height_;
