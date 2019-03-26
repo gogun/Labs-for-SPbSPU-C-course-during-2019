@@ -1,6 +1,14 @@
 #include "circle.hpp"
 #define _USE_MATH_DEFINES
 #include <cmath>
+#include <cassert>
+
+Circle::Circle(const point_t & Centre, double radius):
+  Shape(Centre),
+  radius_(radius)
+{
+  assert(radius > 0);
+}
 
 double Circle::getArea() const
 {

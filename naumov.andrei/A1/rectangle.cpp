@@ -1,4 +1,13 @@
 #include "rectangle.hpp"
+#include <cassert>
+
+Rectangle::Rectangle(const point_t & Centre, double width, double height):
+  Shape(Centre),
+  width_(width),
+  height_(height)
+{
+  assert((width>0) && (height>0));
+}
 
 double Rectangle::getArea() const
 {

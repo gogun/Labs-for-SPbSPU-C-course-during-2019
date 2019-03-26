@@ -6,16 +6,17 @@
 class Shape
 {
 public:
+  Shape(const point_t& Centre) :
+    centre_(Centre)
+  {}
   virtual ~Shape() = default;
-
   virtual double getArea() const  = 0;
   virtual rectangle_t getFrameRect() const = 0;
   virtual void move(const point_t & newCentre) = 0;
   virtual void move(double newX, double newY) = 0;
-
   const point_t & getCentre() const
   { 
-    return centre_; 
+    return centre_;
   }
 protected:
   point_t centre_;
