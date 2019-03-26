@@ -7,7 +7,7 @@ Rectangle::Rectangle(point_t pos, double width, double height):
   width_(width),
   height_(height)
 {
-  assert((width > 0) || (height > 0));
+  assert((width > 0) && (height > 0));
 }
 
 Rectangle::Rectangle(point_t pos, double width):
