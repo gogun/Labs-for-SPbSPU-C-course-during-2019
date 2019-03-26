@@ -1,16 +1,13 @@
 #include "circle.hpp"
 #include <cmath>
 #include <iostream>
+#include <cassert>
 
 Circle::Circle(const point_t & center, double radius) :
   center_(center),
   radius_(radius)
 {
-  if (radius <= 0)
-  {
-    std::cerr << "Circle: radius must be positive";
-    exit(1);
-  }
+  assert(radius <= 0);
 }
 
 Circle::Circle(double centerX, double centerY, double radius) :

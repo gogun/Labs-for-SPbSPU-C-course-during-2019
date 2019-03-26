@@ -1,16 +1,13 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(const point_t & pos, double width, double height) :
   center_(pos),
   width_(width),
   height_(height)
 {
-  if (width <= 0 || height <= 0)
-  {
-    std::cerr << "Rectangle: width and height must be positive";
-    exit(1);
-  }
+  assert(width <= 0 || height <= 0);
 }
 
 Rectangle::Rectangle(double posX, double posY, double width, double height) :
