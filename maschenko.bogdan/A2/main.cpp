@@ -15,7 +15,7 @@ int main()
   std::cout << "move Circle at the dx = 2, dy = -4" << std::endl;
   p_circle->move(2, -4);
   p_circle->writeInfo();
-  std::cout << "scale circle with coefficient = 3";
+  std::cout << "scale circle with coefficient = 3" << std::endl;
   p_circle->scale(3);
   p_circle->writeInfo();
 
@@ -31,7 +31,7 @@ int main()
   std::cout << "move Rectangle at the dx = 7, dy = 0" << std::endl;
   p_rect->move(7, 0);
   p_rect->writeInfo();
-  std::cout << "scale circle with coefficient = 4";
+  std::cout << "scale circle with coefficient = 4" << std::endl;
   p_rect->scale(4);
   p_rect->writeInfo();
   return 0;
