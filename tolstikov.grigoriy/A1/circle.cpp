@@ -3,8 +3,6 @@
 #include <cassert>
 #include <math.h>
 
-//const double PI = 3.14159265;
-
 Circle::Circle(point_t centre, double radius):
   centre_(centre),
   radius_(radius)

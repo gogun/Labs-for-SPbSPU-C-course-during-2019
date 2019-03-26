@@ -4,7 +4,6 @@
 
 void printInfo(Shape * shape)
 {
-  //double area = shape->getArea();
   rectangle_t frameRect = shape->getFrameRect();
 
   std::cout<<"Area is "<<shape->getArea()<<";\nCentre is ["<<frameRect.pos.x<<","<<frameRect.pos.y<<"];\n";
