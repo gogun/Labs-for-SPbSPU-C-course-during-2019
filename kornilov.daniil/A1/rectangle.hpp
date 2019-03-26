@@ -5,15 +5,16 @@
 
 class Rectangle : public Shape
 {
-  public:
-    Rectangle(double width, double height, double x, double y);
-    rectangle_t getFrameRect() const override;
-    double getArea() const override;
-    void move(const point_t &point) override;
-    void move(const double dx, const double dy) override;
+public:
+  Rectangle(double width, double height, const point_t &centre);
 
-  private:
-    rectangle_t parameters_;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const double dx, const double dy) override;
+  void move(const point_t &point) override;
+
+private:
+  rectangle_t parameters_;
 };
- 
+
 #endif

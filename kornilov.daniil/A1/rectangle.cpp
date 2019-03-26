@@ -1,30 +1,22 @@
 #include "rectangle.hpp"
-#include <iostream>
+#include <cassert>
 
-Rectangle::Rectangle(double width, double height, double x, double y)
+Rectangle::Rectangle(double width, double height, const point_t &centre)
 {
+  assert((height > 0) and (width > 0));
   parameters_.height = height;
   parameters_.width = width;
-  parameters_.pos.x = x;
-  parameters_.pos.y = y;
-  if (parameters_.width <= 0)
-  {
-    throw std::invalid_argument("Invalid rectangle width!");
-  }
-  if (parameters_.height <= 0)
-  {
-    throw std::invalid_argument("Invalid rectangle height!");
-  }
-}
-
-rectangle_t Rectangle::getFrameRect() const
-{
-  return parameters_;
+  parameters_.pos = centre;
 }
 
 double Rectangle::getArea() const
 {
   return parameters_.height*parameters_.width;
+}
+
+rectangle_t Rectangle::getFrameRect() const
+{
+  return parameters_;
 }
 
 void Rectangle::move(const double dx, const double dy)
@@ -33,7 +25,7 @@ void Rectangle::move(const double dx, const double dy)
   parameters_.pos.y += dy;
 }
 
-void Rectangle::move(const point_t &point) 
+void Rectangle::move(const point_t &point)
 {
   parameters_.pos = point;
 }

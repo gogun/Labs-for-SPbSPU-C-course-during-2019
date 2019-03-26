@@ -1,20 +1,21 @@
-#ifndef CIRCLE_H 
+#ifndef CIRCLE_H
 #define CIRCLE_H
 
 #include "shape.hpp"
 
 class Circle : public Shape
 {
-  public:
-    Circle(double radius, double x, double y);
-    rectangle_t getFrameRect() const override;
-    double getArea() const override;
-    void move(const point_t &point) override;
-    void move(const double dx, const double dy) override;
-  
-  private:
-    double radius_;
-    point_t pos_;
+public:
+  Circle(double radius, const point_t &centre);
+
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const double dx, const double dy) override;
+  void move(const point_t &point) override;
+
+private:
+  double radius_;
+  point_t pos_;
 };
 
 #endif
