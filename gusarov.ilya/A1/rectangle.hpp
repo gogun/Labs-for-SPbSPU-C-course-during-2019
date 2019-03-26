@@ -3,17 +3,19 @@
 #include "base-types.hpp"
 #include "shape.hpp"
 
-class Rectangle: public Shape{
+class Rectangle: public Shape
+{
+private:
+  double width_;
+  double height_;
+  point_t center_;
 public:
-  virtual rectangle_t getFrameArea()
-  {
-    rectangle_t framed;
-    framed.width = right_upper.x - left_bottom.x;
-    framed.height = left_upper.y - right_bottom.y;
-    framed.pos.x = (left_bottom.x + right_upper.x)/2;
-    framed.pos.y = (left_bottom.y + right_upper.y)/2;
-    return framed;
-  }
+  Rectangle(const point_t &, double, double);
+  rectangle_t getFrameRect() const override;
+  double getArea() const override;
+  void move(double shiftX, double shiftY) override;
+  void move(point_t newPoint) override;
+  void printInfo();
 };
 
 #endif

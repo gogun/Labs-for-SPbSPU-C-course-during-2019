@@ -1,31 +1,34 @@
 #include <iostream>
 #include "rectangle.hpp"
-#include "shape.hpp"
 #include "base-types.hpp"
 
-int main()
+Rectangle::Rectangle(const point_t &center, double width, double height):
+  width_(width),
+  height_(height),
+  center_(center)
 {
-  Rectangle newShape;
-  Shape &rectangle = newShape;
-  std::cout << "Enter width of rectangle: ";
-  std::cin >> rectangle.data_of_rectangle.width;
-  std::cout << "Enter height of rectangle: ";
-  std::cin >> rectangle.data_of_rectangle.height;
-  std::cout << "Area of rectangle: " << rectangle.getArea(rectangle.data_of_rectangle) << '\n';
 
-  rectangle.left_bottom.x = 1;
-  rectangle.left_bottom.y = 5;
-
-  rectangle.left_upper.x = 3;
-  rectangle.left_upper.y = 7;
-
-  rectangle.right_bottom.x = 5;
-  rectangle.right_bottom.y = 1;
-
-  rectangle.right_upper.x = 7;
-  rectangle.right_upper.y = 3;
-  
-  std::cout << rectangle.getFrameArea().width << ' ' <<rectangle.getFrameArea().height << '\n';
-  std::cout << rectangle.getFrameArea().pos.x << ' ' <<rectangle.getFrameArea().pos.y << '\n';
-  return 0;
+}
+double Rectangle::getArea() const
+{
+  return width_*height_;
+}
+rectangle_t Rectangle::getFrameRect() const
+{
+  return {width_, height_, center_};
+}
+void Rectangle::move(double shiftX, double shiftY)
+{
+  center_.x += shiftX;
+  center_.y += shiftY;
+}
+void Rectangle::move(point_t newPoint)
+{
+  center_ = newPoint;
+}
+void Rectangle::printInfo()
+{
+  std::cout << "Width of rectangle is " << width_ <<'\n'
+            << "Height of rectangle is " << height_ <<'\n'
+            << "Center of rectangle is a point: ("<< center_.x<<";"<<center_.y<<")"<<'\n';
 }
