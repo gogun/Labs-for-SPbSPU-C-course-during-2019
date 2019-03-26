@@ -31,7 +31,7 @@ int main()
   circle.move(25, 10); // x = 5 + 25 = 30, y = 5 + 10 = 15;
   pos = circle.getPosition();
   std::cout << "New position of circle: x = " << pos.x << ", y = " << pos.y << "\n";
-  double areaOfCircle = circle.getArea(); // 5 * 5 = 25;
+  double areaOfCircle = circle.getArea();
   std::cout << "Area of this circle is " << areaOfCircle << "\n";
   frameRect = circle.getFrameRect(); // width = 10, height = 10, pos = 30, 15
   std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
