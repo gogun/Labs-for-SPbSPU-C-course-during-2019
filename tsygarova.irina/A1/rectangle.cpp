@@ -8,32 +8,32 @@ Rectangle::Rectangle(const rectangle_t & rect):
 {
   if ((rect_.height < 0.0) || (rect_.width < 0.0))
   {
-    throw std::invalid_argument("Error. Invalid height or width of rectangle.");
+   std::cerr << "Error. Invalid height or width of rectangle.\n";
   }
 }
 
-double Rectangle::getArea() const noexcept
+double Rectangle::getArea() const
 {
   return (rect_.width * rect_.height);
 }
 
-rectangle_t Rectangle::getFrameRect() const noexcept
+rectangle_t Rectangle::getFrameRect() const
 {
   return rect_;
 }
 
-void Rectangle::move(const point_t & point) noexcept
+void Rectangle::move(const point_t & point)
 {
   rect_.pos = point;
 }
 
-void Rectangle::move(const double dx, const double dy) noexcept
+void Rectangle::move(const double dx, const double dy)
 {
   rect_.pos.x += dx;
   rect_.pos.y += dy;
 }
 
-void Rectangle::print() const noexcept
+void Rectangle::print() const 
 {
   std::cout << "Area of rectangle: " << getArea() << std::endl;
   std::cout << "Width of frame rectangle: " << rect_.width << std::endl;

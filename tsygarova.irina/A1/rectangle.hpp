@@ -7,11 +7,11 @@ class Rectangle: public Shape
 {
 public:
   Rectangle(const rectangle_t & rect);
-  double getArea() const noexcept override;
-  rectangle_t getFrameRect() const noexcept override;
-  void move(const point_t & point) noexcept override;
-  void move(const double dx, const double dy) noexcept override;
-  void print() const noexcept override;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const point_t & point) override;
+  void move(const double dx, const double dy) override;
+  void print() const override;
 
 private:
   rectangle_t rect_;

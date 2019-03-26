@@ -10,32 +10,32 @@ Circle::Circle(const double radius, const point_t & center):
 {
   if (radius_ < 0.0) 
   {
-    throw std::invalid_argument("Error. Invalid radius of circle.");
+   std::cerr << "Error. Invalid radius of circle.\n";
   }
 }
 
-double Circle::getArea() const noexcept
+double Circle::getArea() const
 {
   return (M_PI * radius_ * radius_);
 }
 
-rectangle_t Circle::getFrameRect() const noexcept
+rectangle_t Circle::getFrameRect() const
 {
   return {2 * radius_, 2 * radius_, center_};
 }
 
-void Circle::move(const point_t & point) noexcept
+void Circle::move(const point_t & point)
 {
   center_ = point;
 }
 
-void Circle::move(const double dx, const double dy) noexcept
+void Circle::move(const double dx, const double dy)
 {
   center_.x += dx;
   center_.y += dy;
 }
 
-void Circle::print() const noexcept
+void Circle::print() const 
 {
   std::cout << "Area of circle: " << getArea() << std::endl;
   std::cout << "Width of frame rectangle: " << getFrameRect().width << std::endl;

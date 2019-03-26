@@ -5,8 +5,6 @@
 
 int main()
 {
-  try
-  {
     Rectangle rectangle({4, 2, {1, 3}});
     Shape * shapePtr = &rectangle;
     std::cout << "FOR RECTANGLE\n";
@@ -29,11 +27,5 @@ int main()
     std::cout << "2) Moving to the point (" << 9 << "; " << 3 << ")\n";
     shapePtr -> move({9, 3});
     shapePtr -> print();
-  }
-  catch (std::invalid_argument & error)
-  {
-    std::cerr << error.what() << std::endl;
-    return 1;
-  }
   return 0;
 }
