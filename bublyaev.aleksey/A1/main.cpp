@@ -20,7 +20,7 @@ int main()
 
   Shape *shapes[] = {&circle1, &rectangle1, &circle2, &rectangle2};
   int size = sizeof (shapes)/ sizeof (Shape);
-  for (int i = 0; i<size; i++)
+  for (int i = 0; i < size; i++)
   {
     shapes[i]->printInfo();
     std::cout << std::endl;

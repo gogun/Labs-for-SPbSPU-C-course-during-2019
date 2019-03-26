@@ -20,7 +20,7 @@ rectangle_t Circle::getFrameRect() const
   return {2 * radius_, 2 * radius_, center_};
 }
 
-void Circle::move(point_t newPos)
+void Circle::move(const point_t &newPos)
 {
   center_ = newPos;
 }
