@@ -1,0 +1,4 @@
+#ifndef BASETYPES_HPP
+#define BASETYPES_HPP
+
+#endif // BASETYPES_HPP
