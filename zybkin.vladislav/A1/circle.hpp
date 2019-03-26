@@ -15,7 +15,7 @@ public:
   void move(const point_t & position);
   void move(const double &, const double &);
 
-protected:
+private:
   double radius_;
   point_t center_;
 };
