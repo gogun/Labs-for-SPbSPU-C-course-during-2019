@@ -1,5 +1,5 @@
-#ifndef CN_A1_BASETYPES
-#define CN_A1_BASETYPES
+#ifndef BASE_TYPES_H
+#define BASE_TYPES_H
 
 struct point_t {
   double x;
