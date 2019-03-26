@@ -115,7 +115,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingCenter)
 BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingOnDxAndDy)
 {
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
-  double area = test_rectangle.getRectangle().height;
+  double area = test_rectangle.getArea();
   test_rectangle.move(10, 10);
   BOOST_CHECK_CLOSE(test_rectangle.getArea(), area, inaccuracy);
 }
