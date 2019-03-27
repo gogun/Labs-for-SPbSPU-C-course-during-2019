@@ -30,7 +30,7 @@ double chizhov::Rectangle::getArea() const
   return width_ * height_;
 }
 
-rectangle_t chizhov::Rectangle::getFrameRect() const
+chizhov::rectangle_t chizhov::Rectangle::getFrameRect() const
 {
   return rectangle_t{width_, height_, center_};
 }

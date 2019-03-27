@@ -2,9 +2,9 @@
 #define CN_A2_CIRCLE
 
 #include "shape.hpp"
-#include "base-types.hpp"
 
-namespace chizhov {
+namespace chizhov
+{
   class Circle : public Shape {
   public:
     Circle(point_t, double);

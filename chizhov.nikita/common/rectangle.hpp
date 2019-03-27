@@ -2,9 +2,9 @@
 #define CN_A2_RECTANGLE
 
 #include "shape.hpp"
-#include "base-types.hpp"
 
-namespace chizhov {
+namespace chizhov
+{
   class Rectangle : public Shape {
   public:
     Rectangle(point_t, double, double);

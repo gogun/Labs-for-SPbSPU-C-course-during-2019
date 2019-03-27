@@ -1,14 +1,17 @@
-#ifndef CN_A1_BASETYPES
-#define CN_A1_BASETYPES
+#ifndef CN_A2_BASETYPES
+#define CN_A2_BASETYPES
 
-struct point_t {
-  double x;
-  double y;
-};
+namespace chizhov
+{
+  struct point_t {
+    double x;
+    double y;
+  };
 
-struct rectangle_t {
-  double width;
-  double height;
-  point_t pos;
-};
+  struct rectangle_t {
+    double width;
+    double height;
+    point_t pos;
+  };
+}
 #endif

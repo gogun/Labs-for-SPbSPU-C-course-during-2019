@@ -21,7 +21,7 @@ double chizhov::Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-rectangle_t chizhov::Circle::getFrameRect() const
+chizhov::rectangle_t chizhov::Circle::getFrameRect() const
 {
   return rectangle_t{radius_ * 2, radius_ * 2, center_};
 }

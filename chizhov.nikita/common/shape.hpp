@@ -3,7 +3,8 @@
 
 #include "base-types.hpp"
 
-namespace chizhov {
+namespace chizhov
+{
   class Shape {
   public:
     virtual ~Shape() = default;
