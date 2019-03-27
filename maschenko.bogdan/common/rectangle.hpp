@@ -16,7 +16,6 @@ namespace maschenko
     void move(const point_t &center) override;
     void scale(double coefficient) override;
     void writeInfo() const override;
-    rectangle_t getRectangle() const;
 
   private:
 

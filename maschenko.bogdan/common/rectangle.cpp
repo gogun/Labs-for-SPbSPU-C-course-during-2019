@@ -16,7 +16,7 @@ double maschenko::Rectangle::getArea() const
   return rectangle_.width * rectangle_.height;
 }
 
-maschenko::rectangle_t maschenko::Rectangle::getFrameRect() const
+rectangle_t maschenko::Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
@@ -53,9 +53,4 @@ void maschenko::Rectangle::writeInfo() const
             << "Frame rectangle width = " << rectangle.width
             << ", height = " << rectangle.height << std::endl
             << "Area = " << getArea() << std::endl << std::endl;
-}
-
-maschenko::rectangle_t maschenko::Rectangle::getRectangle() const
-{
-  return rectangle_;
 }
