@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <iostream>
 #include <cmath>
-#define inaccuracy 0.001
+#define INACCURACY 0.001
 
 BOOST_AUTO_TEST_SUITE(TestForCircle)
 
@@ -14,7 +14,7 @@ BOOST_AUTO_TEST_CASE(immutabilityRadiusAfterMovingCenter)
   maschenko::Circle test_circle({15, 15}, 5);
   const double radius = test_circle.getRadius();
   test_circle.move({50, 50});
-  BOOST_CHECK_CLOSE(test_circle.getRadius(), radius, inaccuracy);
+  BOOST_CHECK_CLOSE(test_circle.getRadius(), radius, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityRadiusAfterMovingOnDxAndDy)
@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_CASE(immutabilityRadiusAfterMovingOnDxAndDy)
   maschenko::Circle test_circle({15, 15}, 5);
   const double radius = test_circle.getRadius();
   test_circle.move(10, 10);
-  BOOST_CHECK_CLOSE(test_circle.getRadius(), radius, inaccuracy);
+  BOOST_CHECK_CLOSE(test_circle.getRadius(), radius, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingCenter)
@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingCenter)
   maschenko::Circle test_circle({15, 15}, 5);
   const double area = test_circle.getArea();
   test_circle.move({50, 50});
-  BOOST_CHECK_CLOSE(test_circle.getArea(), area, inaccuracy);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingOnDxAndDy)
@@ -38,7 +38,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingOnDxAndDy)
   maschenko::Circle test_circle({15, 15}, 5);
   const double area = test_circle.getArea();
   test_circle.move(10, 10);
-  BOOST_CHECK_CLOSE(test_circle.getArea(), area, inaccuracy);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(AreaScalingIncrease)
@@ -46,7 +46,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingIncrease)
   maschenko::Circle test_circle {{15, 15}, 5};
   const double area = test_circle.getArea();
   test_circle.scale(3);
-  BOOST_CHECK_CLOSE(test_circle.getArea(), 9 * area, inaccuracy);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), 9 * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
   maschenko::Circle test_circle {{15, 15}, 5};
   const double area = test_circle.getArea();
   test_circle.scale(0.25);
-  BOOST_CHECK_CLOSE(test_circle.getArea(), area / 16, inaccuracy);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), area / 16, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(ThrowExceptionAfterScale)
@@ -77,7 +77,7 @@ BOOST_AUTO_TEST_CASE(immutabilityWidthAfterMovingCenter)
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
   const double width = test_rectangle.getRectangle().width;
   test_rectangle.move({50, 50});
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().width, width, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().width, width, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityWidthAfterMovingOnDxAndDY)
@@ -85,7 +85,7 @@ BOOST_AUTO_TEST_CASE(immutabilityWidthAfterMovingOnDxAndDY)
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
   const double width = test_rectangle.getRectangle().width;
   test_rectangle.move(10, 10);
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().width, width, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().width, width, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityHeightAfterMovingCenter)
@@ -93,7 +93,7 @@ BOOST_AUTO_TEST_CASE(immutabilityHeightAfterMovingCenter)
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
   const double height = test_rectangle.getRectangle().height;
   test_rectangle.move({50, 50});
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().height, height, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().height, height, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityHeightAfterMovingOnDxAndDy)
@@ -101,7 +101,7 @@ BOOST_AUTO_TEST_CASE(immutabilityHeightAfterMovingOnDxAndDy)
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
   const double height = test_rectangle.getRectangle().height;
   test_rectangle.move(10, 10);
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().height, height, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().height, height, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingCenter)
@@ -109,7 +109,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingCenter)
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
   const double area = test_rectangle.getArea();
   test_rectangle.move({50, 50});
-  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingOnDxAndDy)
@@ -117,7 +117,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingOnDxAndDy)
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
   const double area = test_rectangle.getArea();
   test_rectangle.move(10, 10);
-  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(AreaScalingIncrease)
@@ -125,7 +125,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingIncrease)
   maschenko::Rectangle test_rectangle {{10, 10}, 5, 8};
   const double area = test_rectangle.getArea();
   test_rectangle.scale(3);
-  BOOST_CHECK_CLOSE(test_rectangle.getArea(), 9 * area, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getArea(), 9 * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
@@ -133,7 +133,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
   maschenko::Rectangle test_rectangle {{10, 10}, 5, 8};
   const double area = test_rectangle.getArea();
   test_rectangle.scale(0.25);
-  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area / 16, inaccuracy);
+  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area / 16, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(ScaleTest)
