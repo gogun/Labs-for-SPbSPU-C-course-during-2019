@@ -10,7 +10,7 @@ public:
   double getArea() const;
   rectangle_t getFrameRect() const;
   void move(const point_t & newCentre);
-  void move(double newX, double newY);
+  void move(double dX, double dY);
   void setWidth(double newWidth);
   void setHeight(double newHeight);
 protected:

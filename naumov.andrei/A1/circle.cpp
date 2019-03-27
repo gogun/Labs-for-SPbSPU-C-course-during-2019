@@ -3,8 +3,8 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(const point_t & Centre, double radius):
-  Shape(Centre),
+Circle::Circle(const point_t & centre, double radius):
+  Shape(centre),
   radius_(radius)
 {
   assert(radius > 0);
@@ -17,10 +17,9 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t frameRect;
-  frameRect.height = radius_;
-  frameRect.width = radius_;
-  frameRect.pos = centre_;
+  rectangle_t frameRect = { 2 * radius_,
+    2 * radius_ ,
+    centre_, };
   return frameRect;
 }
 
@@ -29,10 +28,10 @@ void Circle::move(const point_t & newCentre)
   centre_ = newCentre;
 }
 
-void Circle::move(double newX, double newY)
+void Circle::move(double dX, double dY)
 {
-  centre_.x = newX;
-  centre_.y = newY;
+  centre_.x += dX;
+  centre_.y += dY;
 }
 
 void Circle::setRadius(double newRadius)
