@@ -46,3 +46,4 @@ void Circle::getInfo() const
   std::cout << "Point y = " << rectangle.pos.y << std::endl;
 }
 #endif
+
