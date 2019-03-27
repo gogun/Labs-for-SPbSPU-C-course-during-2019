@@ -1,8 +1,8 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 
-#include "base-types.hpp"
 #include "shape.hpp"
+#include "base-types.hpp"
 
 class Circle : public Shape
 {
@@ -10,8 +10,7 @@ class Circle : public Shape
 public:
 
   Circle(const point_t &pos, double radius);
-
-
+  
   double getArea() const override;
 
   rectangle_t getFrameRect() const override;

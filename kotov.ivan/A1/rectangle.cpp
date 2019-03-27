@@ -1,43 +1,39 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(const point_t &pos, double width, double height):
-  m_pos(pos),
-  m_width(width),
-  m_height(height)
+  m_rect({pos, width,height})
 {
-  if (m_width <= 0) 
+  if (m_rect.width <= 0) 
   {
     std::cerr << "width must be positive\n";
+    assert(false);
   }
-  if (m_height <= 0) 
+  if (m_rect.height <= 0) 
   {
     std::cerr << "height must be positive\n";
+    assert(false);
   }
 }
 
 double Rectangle::getArea() const
 {
-  return m_width * m_height;
+  return m_rect.height*m_rect.width;
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return rectangle_t 
-  {
-    m_width,
-    m_height,
-    m_pos
-  };
+  return m_rect;
 }
 
 void Rectangle::move(const point_t &pos)
 {
-  m_pos = pos;
+  m_rect.pos = pos;
 }
   
 void Rectangle::move(double dispX, double dispY)
 {
-  m_pos.x += dispX;
-  m_pos.y += dispY;
+  m_rect.pos.x += dispX;
+  m_rect.pos.y += dispY;
 }

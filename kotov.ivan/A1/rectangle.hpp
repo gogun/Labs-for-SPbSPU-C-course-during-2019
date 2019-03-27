@@ -20,11 +20,7 @@ public:
 
 private:
 
-  point_t m_pos;
-
-  double m_width;
-
-  double m_height;
+  rectangle_t m_rect;
 
 };
 
