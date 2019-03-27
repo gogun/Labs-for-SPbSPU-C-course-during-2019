@@ -20,7 +20,7 @@ double maschenko::Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-rectangle_t maschenko::Circle::getFrameRect() const
+maschenko::rectangle_t maschenko::Circle::getFrameRect() const
 {
   return rectangle_t
   {

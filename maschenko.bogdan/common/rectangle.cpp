@@ -16,7 +16,7 @@ double maschenko::Rectangle::getArea() const
   return rectangle_.width * rectangle_.height;
 }
 
-rectangle_t maschenko::Rectangle::getFrameRect() const
+maschenko::rectangle_t maschenko::Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
