@@ -8,7 +8,7 @@ Rectangle::Rectangle(const point_t& pos, const double height, const double width
     frame_rect_({height, width, pos})
 {
   if ((height < 0) || (width < 0)) {
-    throw std::invalid_argument("Area of rectangle is negative.");
+    throw std::invalid_argument("rectangle width and height can\'t be negative");
   }
 }
 

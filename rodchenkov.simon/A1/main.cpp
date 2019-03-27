@@ -17,11 +17,11 @@ int main()
     }
   }
   catch (const std::invalid_argument& exc) {
-    std::cerr << "Error : " << exc.what() << std::endl;
+    std::cerr << "error: invalid parameter \"" << exc.what() << "\"" << std::endl;
     return 1;
   }
   catch (const std::exception& exc) {
-    std::cerr << "Error : " << exc.what() << std::endl;
+    std::cerr << "error: " << exc.what() << std::endl;
     return 2;
   }
   return 0;

@@ -10,7 +10,7 @@ Circle::Circle(const point_t& pos, const double radius) :
     frame_rect_({radius * 2, radius * 2, pos})
 {
   if (radius < 0) {
-    throw std::invalid_argument("Area of circle is negative.");
+    throw std::invalid_argument("circle radius can\'t be negative");
   }
 }
 
