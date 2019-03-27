@@ -65,7 +65,7 @@ void maschenko::Circle::writeInfo() const
             << "Area = " << getArea() << std::endl << std::endl;
 }
 
-point_t maschenko::Circle::getCenter() const
+maschenko::point_t maschenko::Circle::getCenter() const
 {
   return center_;
 }
