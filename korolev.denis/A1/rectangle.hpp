@@ -6,7 +6,7 @@
 class Rectangle : public Shape
 {
 public:
-  Rectangle(const point_t &position, double width, double height);
+  Rectangle(const point_t &center, double width, double height);
   Rectangle(double x, double y, double width, double height);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
@@ -15,8 +15,8 @@ public:
   void printInf() const;
 
 private:
+  point_t center_;
   double width_, height_;
-  point_t position_;
 };
 
 #endif //A1_RECTANGLE_H

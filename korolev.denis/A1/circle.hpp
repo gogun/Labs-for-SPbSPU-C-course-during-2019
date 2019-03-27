@@ -6,7 +6,7 @@
 class Circle : public Shape
 {
 public:
-  Circle(const point_t &position, double radius);
+  Circle(const point_t &center, double radius);
   Circle(double x, double y, double radius);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
@@ -15,8 +15,8 @@ public:
   void printInf() const;
 
 private:
+  point_t center_;
   double radius_;
-  point_t position_;
 };
 
 #endif //A1_CIRCLE_H

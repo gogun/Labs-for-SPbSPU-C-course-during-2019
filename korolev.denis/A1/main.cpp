@@ -14,8 +14,7 @@ int main()
     cir.move({45, 67});
     rectang.move(23,45);
 
-    rectangle_t rect;
-    rect = cir.getFrameRect();
+    rectangle_t rect = cir.getFrameRect();
     std::cout << "Center of circle: (" << rect.position.x << ';'
       <<  rect.position.y << ')' << std::endl;
     rect = rectang.getFrameRect();
