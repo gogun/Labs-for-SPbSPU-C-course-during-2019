@@ -16,12 +16,12 @@ int main()
       testShape(sh, {5, 5});
     }
   }
-  catch (std::invalid_argument& exp) {
-    std::cerr << exp.what();
+  catch (const std::invalid_argument& exc) {
+    std::cerr << "Error : " << exc.what() << std::endl;
     return 1;
   }
-  catch (...) {
-    std::cerr << "Internal error.\n";
+  catch (const std::exception& exc) {
+    std::cerr << "Error : " << exc.what() << std::endl;
     return 2;
   }
   return 0;
