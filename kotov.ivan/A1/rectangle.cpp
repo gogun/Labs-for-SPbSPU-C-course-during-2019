@@ -6,11 +6,13 @@ Rectangle::Rectangle(const point_t &pos, double width, double height):
   m_width(width),
   m_height(height)
 {
-  if(m_width <= 0) {
-    std::cerr<< "width must be positive\n";
+  if (m_width <= 0) 
+  {
+    std::cerr << "width must be positive\n";
   }
-  if(m_height <= 0) {
-    std::cerr<< "height must be positive\n";
+  if (m_height <= 0) 
+  {
+    std::cerr << "height must be positive\n";
   }
 }
 
