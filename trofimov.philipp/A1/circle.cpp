@@ -6,8 +6,8 @@
 #include <math.h>
 
 Circle::Circle(const point_t &pos, double r) :
-  center_(pos),
-  radius_(r)
+  radius_(r),
+  center_(pos)
 {
   if (radius_ <= 0) 
   {
