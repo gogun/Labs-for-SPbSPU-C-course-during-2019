@@ -1,7 +1,9 @@
 #include "rectangle.hpp"
+#include <cassert>
 
 double Rectangle::getArea() const
 {
+  assert( (m_figure.width > 0) || (m_figure.height > 0) );
   return m_figure.width * m_figure.height;
 };
 

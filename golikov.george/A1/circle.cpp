@@ -1,9 +1,11 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 double Circle::getArea() const
 {
+  assert(m_radius > 0); // point is not a case of a null circle
   return  M_PI * m_radius * m_radius;
 }
 
