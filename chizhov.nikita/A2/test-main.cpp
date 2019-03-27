@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(circleConstantAfterMove)
   BOOST_CHECK_CLOSE(areaBefore, areaAfter, 0.01);
 
   dummyCircle.move(5, 5);
-  chizhov::frameAfter = dummyCircle.getFrameRect();
+  frameAfter = dummyCircle.getFrameRect();
   areaAfter = dummyCircle.getArea();
   BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, 0.01);
   BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, 0.01);
@@ -44,7 +44,7 @@ BOOST_AUTO_TEST_CASE(rectangleConstantAfterMove)
   BOOST_CHECK_CLOSE(areaBefore, areaAfter, 0.01);
 
   dummyRectangle.move(5, 5);
-  chizhov::frameAfter = dummyRectangle.getFrameRect();
+  frameAfter = dummyRectangle.getFrameRect();
   areaAfter = dummyRectangle.getArea();
   BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, 0.01);
   BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, 0.01);
