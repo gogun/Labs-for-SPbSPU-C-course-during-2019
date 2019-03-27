@@ -1,7 +1,8 @@
 #include "rectangle.hpp"
-#include "base-types.hpp"
 #include <iostream>
 #include <cassert>
+#include "base-types.hpp"
+
 
 Rectangle::Rectangle(const point_t &center, const double width, const double height):
   width_(width),
