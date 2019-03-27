@@ -14,7 +14,7 @@ public:
   void move(const point_t &point) override;
 
 private:
-  rectangle_t parameters_;
+  rectangle_t rectangle_;
 };
 
 #endif
