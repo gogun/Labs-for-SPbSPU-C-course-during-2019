@@ -20,7 +20,8 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return rectangle_t {
+  return rectangle_t
+  {
     center_,
     2 * radius_,
     2 * radius_

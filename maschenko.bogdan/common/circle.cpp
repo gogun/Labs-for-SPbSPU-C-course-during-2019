@@ -23,11 +23,11 @@ double maschenko::Circle::getArea() const
 maschenko::rectangle_t maschenko::Circle::getFrameRect() const
 {
   return rectangle_t
-    {
-      center_,
-      2 * radius_,
-      2 * radius_
-    };
+  {
+    center_,
+    2 * radius_,
+    2 * radius_
+  };
 }
 
 void maschenko::Circle::move(double dx, double dy)
