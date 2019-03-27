@@ -3,7 +3,7 @@
 #include <cassert>
 #include <iostream>
 
-Rectangle::Rectangle(const point_t &center, const double wight, const double height) :
+Rectangle::Rectangle(const point_t &center, double wight, double height) :
   center_(center),
   width_(wight),
   height_(height)
@@ -11,7 +11,7 @@ Rectangle::Rectangle(const point_t &center, const double wight, const double hei
   assert((width_ > 0.0) && (height_ > 0.0));
 }
 
-Rectangle::Rectangle(const double x, const double y, const double wight, const double height) :
+Rectangle::Rectangle(double x, double y, double wight, double height) :
   center_({x, y}),
   width_(wight),
   height_(height)
@@ -34,7 +34,7 @@ void Rectangle::move(const point_t &position)
   center_ = position;
 }
 
-void Rectangle::move(const double xx, const double yy)
+void Rectangle::move(double xx, double yy)
 {
   center_.x += xx;
   center_.y += yy;
@@ -43,14 +43,9 @@ void Rectangle::move(const double xx, const double yy)
 void Rectangle::printInf() const
 {
   std::cout << "Parameters of rectangle:" << std::endl
-    << "Position of the center: (" << center_.x << ";" << center_.y << ")" << std::endl
-    << "Width and height of the rectangle " << width_ << " , " << height_ << std::endl
-    << "Area of the rectangle: " << getArea() << std::endl
-    << "Parameters of frame rect of rectangle: " << std::endl
-    << "Position of the frame rect: (" << getFrameRect().position.x << ";"
-    << getFrameRect().position.y << ")" << std::endl
-    << "Width of the frame rect: " << getFrameRect().width << std::endl
-    << "Height of the frame rect: " << getFrameRect().height << std::endl << std::endl;
+    << "Center: (" << center_.x << ";" << center_.y << ")" << std::endl
+    << "Width and height: " << width_ << " , " << height_ << std::endl
+    << "Area: " << getArea() << std::endl;
 }
 
 

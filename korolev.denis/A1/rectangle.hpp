@@ -12,7 +12,7 @@ public:
   rectangle_t getFrameRect() const override;
   void move(const point_t &position) override;
   void move(double xx, double yy) override;
-  void printInf() const;
+  void printInf() const override;
 
 private:
   point_t center_;
