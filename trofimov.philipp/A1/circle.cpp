@@ -1,6 +1,6 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
-#include "circle.h"
+#include "circle.hpp"
 #include <iostream>
 #define _USE_MATH_DEFINES
 #include <math.h>

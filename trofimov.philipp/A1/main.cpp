@@ -1,6 +1,8 @@
 #include <iostream>
-#include "rectangle.h"
-#include "circle.h"
+#include "rectangle.hpp"
+#include "circle.hpp"
+#include "base-types.hpp"
+#include "shape.hpp"
 
 int main()
 {

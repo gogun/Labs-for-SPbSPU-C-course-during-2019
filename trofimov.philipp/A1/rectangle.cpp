@@ -1,6 +1,6 @@
 #ifndef RECTANGLE_CPP
 #define RECTANGLE_CPP
-#include "rectangle.h"
+#include "rectangle.hpp"
 #include <iostream>
 
 Rectangle::Rectangle(const point_t &pos, double w, double h) :
