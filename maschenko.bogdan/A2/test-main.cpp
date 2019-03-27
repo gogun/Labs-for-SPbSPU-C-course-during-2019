@@ -75,33 +75,33 @@ BOOST_AUTO_TEST_SUITE(TestForRectangle)
 BOOST_AUTO_TEST_CASE(immutabilityWidthAfterMovingCenter)
 {
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
-  const double width = test_rectangle.getRectangle().width;
+  const double width = test_rectangle.getFrameRect().width;
   test_rectangle.move({50, 50});
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().width, width, INACCURACY);
+  BOOST_CHECK_CLOSE(test_rectangle.getFrameRect().width, width, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityWidthAfterMovingOnDxAndDY)
 {
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
-  const double width = test_rectangle.getRectangle().width;
+  const double width = test_rectangle.getFrameRect().width;
   test_rectangle.move(10, 10);
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().width, width, INACCURACY);
+  BOOST_CHECK_CLOSE(test_rectangle.getFrameRect().width, width, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityHeightAfterMovingCenter)
 {
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
-  const double height = test_rectangle.getRectangle().height;
+  const double height = test_rectangle.getFrameRect().height;
   test_rectangle.move({50, 50});
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().height, height, INACCURACY);
+  BOOST_CHECK_CLOSE(test_rectangle.getFrameRect().height, height, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityHeightAfterMovingOnDxAndDy)
 {
   maschenko::Rectangle test_rectangle({10, 10}, 5, 8);
-  const double height = test_rectangle.getRectangle().height;
+  const double height = test_rectangle.getFrameRect().height;
   test_rectangle.move(10, 10);
-  BOOST_CHECK_CLOSE(test_rectangle.getRectangle().height, height, INACCURACY);
+  BOOST_CHECK_CLOSE(test_rectangle.getFrameRect().height, height, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingCenter)
