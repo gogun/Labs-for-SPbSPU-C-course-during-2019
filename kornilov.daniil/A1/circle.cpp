@@ -7,7 +7,7 @@
 Circle::Circle(double radius, const point_t &centre):
   radius_(radius), pos_(centre)
 {
-  assert(radius > 0);
+  assert(radius_ > 0);
 }
 
 double Circle::getArea() const
