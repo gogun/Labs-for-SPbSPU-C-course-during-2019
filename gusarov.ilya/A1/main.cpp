@@ -7,7 +7,7 @@ int main()
 {
   //прямоугольник
   Rectangle rec({3,5},1,4);
-  Shape &shape = &rec;
+  Shape *shape = &rec;
   shape->printInfo();
   std::cout << "Area of rectangle is " << shape->getArea() <<'\n';
   shape->move(2,3);
