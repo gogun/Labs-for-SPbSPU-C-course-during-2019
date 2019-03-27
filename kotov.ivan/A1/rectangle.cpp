@@ -21,7 +21,8 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return rectangle_t {
+  return rectangle_t 
+  {
     m_width,
     m_height,
     m_pos
