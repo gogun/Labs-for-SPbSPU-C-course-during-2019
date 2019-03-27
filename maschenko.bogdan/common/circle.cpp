@@ -1,4 +1,5 @@
 #define _USE_MATH_DEFINES
+
 #include "circle.hpp"
 #include <cmath>
 #include <iostream>
@@ -8,8 +9,9 @@ maschenko::Circle::Circle(const point_t &center, double radius) :
   center_(center),
   radius_(radius)
 {
-  if (radius_ <= 0) {
-    throw std::invalid_argument ("Invalid radius of circle.");
+  if (radius_ <= 0)
+  {
+    throw std::invalid_argument("Invalid radius of circle.");
   }
 }
 
@@ -20,11 +22,12 @@ double maschenko::Circle::getArea() const
 
 maschenko::rectangle_t maschenko::Circle::getFrameRect() const
 {
-  return rectangle_t{
-    center_,
-    2 * radius_,
-    2 * radius_
-  };
+  return rectangle_t
+    {
+      center_,
+      2 * radius_,
+      2 * radius_
+    };
 }
 
 void maschenko::Circle::move(double dx, double dy)
@@ -46,7 +49,7 @@ void maschenko::Circle::scale(double coefficient)
   }
   else
   {
-    throw std::invalid_argument ("Invalid coefficient for circle");
+    throw std::invalid_argument("Invalid coefficient for circle");
   }
 }
 

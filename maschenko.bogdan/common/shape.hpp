@@ -5,7 +5,8 @@
 
 namespace maschenko
 {
-  class Shape {
+  class Shape
+  {
   public:
     virtual ~Shape() = default;
 

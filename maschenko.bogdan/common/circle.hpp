@@ -2,8 +2,11 @@
 #define CIRCLE_HPP
 
 #include "shape.hpp"
-namespace maschenko {
-  class Circle : public Shape {
+
+namespace maschenko
+{
+  class Circle : public Shape
+  {
   public:
     Circle(const point_t &center, double radius);
 
