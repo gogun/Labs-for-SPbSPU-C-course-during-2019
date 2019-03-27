@@ -19,4 +19,5 @@ int main()
     rect = rectang.getFrameRect();
     std::cout << "Center of rectangle: (" << rect.position.x << ';'
       <<  rect.position.y << ')' << std::endl;
+    return 0;
 }
