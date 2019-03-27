@@ -10,8 +10,10 @@ int main()
     Rectangle rectang(34, 56, 23, 15);
     cir.printInf();
     rectang.printInf();
+
     cir.move({45, 67});
     rectang.move(23,45);
+
     rectangle_t rect;
     rect = cir.getFrameRect();
     std::cout << "Center of circle: (" << rect.position.x << ';'
@@ -19,5 +21,7 @@ int main()
     rect = rectang.getFrameRect();
     std::cout << "Center of rectangle: (" << rect.position.x << ';'
       <<  rect.position.y << ')' << std::endl;
+    
     return 0;
 }
+

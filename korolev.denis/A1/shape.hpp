@@ -14,3 +14,4 @@ public:
 };
 
 #endif //A1_SHAPE_HPP
+

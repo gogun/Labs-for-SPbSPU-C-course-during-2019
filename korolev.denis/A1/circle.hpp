@@ -20,3 +20,4 @@ private:
 };
 
 #endif //A1_CIRCLE_H
+
