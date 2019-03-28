@@ -17,8 +17,8 @@ int main()
   {
     rectangle_t shape_for_test = shape->getFrameRect();
 
-    std::cout << "XY:(" << shape_for_test.pos.x << ";"
-	<< shape_for_test.pos.y << ")\n" << "S = " << shape->getArea() << "\n\n";
+    std::cout << "XY:(" << shape_for_test.pos.x << ";" << shape_for_test.pos.y
+        << ")\n" << "S = " << shape->getArea() << "\n\n";
 
     i++;
   }
