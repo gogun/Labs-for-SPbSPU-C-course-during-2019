@@ -18,13 +18,6 @@ Rectangle::Rectangle(double xx, double yy, double width, double height)
   rect_.width = width;
   rect_.height = height;
 }
-<<<<<<< HEAD
-=======
-/*
-Rectangle::~Rectangle()
-{
-}*/
->>>>>>> 21efff2bf96f287fe3008cc78e0d089cb8fec88f
 
 double Rectangle::getArea() const
 {
