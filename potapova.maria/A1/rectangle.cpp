@@ -6,7 +6,7 @@ Rectangle::Rectangle(const point_t &center, double height, double width):
 {
   if ((rectangle_.height <= 0) || (rectangle_.width <= 0))
   {
-    std::cerr << "Incorrect heigth or weight of rectangle" << std::endl;
+    std::cerr << "Incorrect height or width of rectangle" << std::endl;
   }
 }
 
