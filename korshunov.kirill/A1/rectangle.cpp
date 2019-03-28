@@ -1,7 +1,6 @@
-#include <iostream>
-#include <string>
-#include <cassert>
 #include "rectangle.hpp"
+#include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(const point_t &center, const double width, const double height):
   rectangle_({center, width, height})
