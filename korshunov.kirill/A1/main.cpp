@@ -11,7 +11,8 @@ int main()
   circle.move({31,13});
 
   Shape * shapes[2] = {&rectangle, &circle};
-  const std::string shapename[2] {"Rectangle", "Circle"};
+  std::string shapename[2] {"Rectangle", "Circle"};
+
   int i = 0;
   for (Shape * shape : shapes)
   {
