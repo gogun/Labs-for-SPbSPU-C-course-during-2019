@@ -2,11 +2,11 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-void printInfo(Shape * shapes)
+void printInfo(Shape * shapePointer)
 {
-  rectangle_t frameRect = shapes->getFrameRect();
+  rectangle_t frameRect = shapePointer->getFrameRect();
 
-  std::cout<<"Area is "<<shapes->getArea()<<";\nCentre is ["<<frameRect.pos.x<<","<<frameRect.pos.y<<"];\n";
+  std::cout<<"Area is "<<shapePointer->getArea()<<";\nCentre is ["<<frameRect.pos.x<<","<<frameRect.pos.y<<"];\n";
   std::cout<<"Width of frame rectangle is "<<frameRect.width<<", height is "<<frameRect.height<<";\n";
 }
 
