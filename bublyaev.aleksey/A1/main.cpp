@@ -2,6 +2,11 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
+void printShape (const Shape *shapePtr)
+{
+  shapePtr->printInfo();
+}
+
 int main()
 {
   Circle circle1({56, 10}, 8);
@@ -18,11 +23,11 @@ int main()
   rectangle2.move(0.5, 31);
   std::cout << std::endl;
 
-  Shape *shapes[] = {&circle1, &rectangle1, &circle2, &rectangle2};
-  int size = sizeof (shapes)/ sizeof (Shape);
+  const int size = 4;
+  Shape *shapes[size] = {&circle1, &rectangle1, &circle2, &rectangle2};
   for (int i = 0; i < size; i++)
   {
-    shapes[i]->printInfo();
+    printShape(shapes[i]);
     std::cout << std::endl;
   }
 
