@@ -11,7 +11,7 @@ int main()
   circle.move({31,13});
 
   Shape * shapes[2] = {&rectangle, &circle};
-  const char *shapename[2] = {"Rectangle", "Circle"};
+  const char * shapename[2] = {"Rectangle", "Circle"};
   int i = 0;
   for (Shape * shape : shapes)
   {
