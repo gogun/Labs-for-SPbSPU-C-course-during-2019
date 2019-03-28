@@ -7,7 +7,6 @@ Circle::Circle(const double radius, const point_t pos):
 {
   if (radius <= 0) {
     std::cerr << "Invalid radius. Please input positive value!..";
-    exit(1);
   }
 }
 
