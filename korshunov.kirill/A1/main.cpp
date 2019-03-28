@@ -4,19 +4,24 @@
 
 int main()
 {
-  Rectangle rectangle({-5, 32}, 2, 7);
+  Rectangle rectangle({-5, 32}, 2, 9);
   rectangle.move(5,7);
-  rectangle_t rect_test = rectangle.getFrameRect();
-  std::cout << "before move" << "-5" << ";" << "32" << "\n"
-      << rect_test.pos.x << ";" << rect_test.pos.y << "\n"
-      << "width=" << rect_test.width << " " << "height=" << rect_test.height << "\n"
-      << "S=" << rectangle.getArea() << "\n" << "\n";
 
   Circle circle({10,5}, 13);
-  rectangle_t circle_test = circle.getFrameRect();
-  std::cout << circle_test.pos.x << ";" << circle_test.pos.y << "\n"
-        << "radius=" << circle_test.width/2 << "\n"
-        << "S=" << circle.getArea() << "\n" << "\n";
+  circle.move({31,13});
+
+  Shape * shapes[2] = {&rectangle, &circle};
+  const char *shapename[2] = {"Rectangle", "Circle"};
+  int i = 0;
+  for (Shape * shape : shapes)
+  {
+    rectangle_t shape_for_test = shape->getFrameRect();
+
+    std::cout << shapename[i] << "\n" << "XY:(" << shape_for_test.pos.x << ";"
+	<< shape_for_test.pos.y << ")\n" << "S = " << shape->getArea() << "\n\n";
+
+    i++;
+  }
 
   return 0;
 }

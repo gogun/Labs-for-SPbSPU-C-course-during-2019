@@ -3,7 +3,7 @@
 #include <cassert>
 #include "circle.hpp"
 
-Circle::Circle(const point_t center, const double radius) :
+Circle::Circle(const point_t &center, const double radius) :
   center_(center),
   radius_(radius)
 {
@@ -25,12 +25,12 @@ rectangle_t Circle::getFrameRect() const
   };
 }
 
-void Circle::move(const point_t new_center)
+void Circle::move(const point_t &center)
 {
-  center_ = new_center;
+  center_ = center;
 }
 
-void Circle::move(double dx, double dy)
+void Circle::move(const double dx, const double dy)
 {
   center_.x += dx;
   center_.y += dy;
