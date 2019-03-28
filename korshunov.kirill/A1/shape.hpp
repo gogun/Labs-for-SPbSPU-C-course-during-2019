@@ -1,7 +1,7 @@
 #ifndef SHAPE_HPP_
 #define SHAPE_HPP_
 
-#include "base_types.hpp"
+#include "base-types.hpp"
 
 class Shape
 {
