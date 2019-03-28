@@ -99,6 +99,5 @@ int main()
       << "," << circle_object.getFrameRect().pos.y << std::endl;
   circle_object.showData();
 
-  system("pause > NULL");
   return 0;
 }
