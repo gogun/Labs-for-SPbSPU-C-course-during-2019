@@ -1,5 +1,5 @@
 #include <iostream>
-#include "rectangle.h"
+#include "rectangle.hpp"
 
 Rectangle::Rectangle(double height, double width, const point_t &center) :
   height_(height),
