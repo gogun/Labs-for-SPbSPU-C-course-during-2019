@@ -11,14 +11,22 @@ int main()
   circle.move({31,13});
 
   Shape * shapes[2] = {&rectangle, &circle};
-  std::string shapename[2] {"Rectangle", "Circle"};
 
   int i = 0;
   for (Shape * shape : shapes)
   {
     rectangle_t shape_for_test = shape->getFrameRect();
 
-    std::cout << shapename[i] << "\n" << "XY:(" << shape_for_test.pos.x << ";"
+    if (i == 0)
+    {
+      std::cout << "Rectangle" << "\n";
+    }
+    else
+    {
+      std::cout << "Circle" << "\n";
+    }
+
+    std::cout << "XY:(" << shape_for_test.pos.x << ";"
 	<< shape_for_test.pos.y << ")\n" << "S = " << shape->getArea() << "\n\n";
 
     i++;
