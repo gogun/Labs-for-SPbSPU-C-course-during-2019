@@ -10,7 +10,7 @@ int main()
   Circle circle({10,5}, 13);
   circle.move({31,13});
 
-  Shape * shapes[2] = {&rectangle, &circle};
+  Shape * shapes[2] = {&rectangle, &circle,};
 
   int i = 0;
   for (Shape * shape : shapes)
