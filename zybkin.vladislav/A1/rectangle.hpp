@@ -19,7 +19,6 @@ private:
   double height_;
   double width_;
   point_t center_;
-  rectangle_t frameRectangle_;
 };
 
 #endif /* RECTANGLE_HPP */
