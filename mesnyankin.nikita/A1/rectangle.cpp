@@ -8,7 +8,6 @@ Rectangle::Rectangle(const double width, const double height, const point_t pos)
 {
   if ((width <= 0) || (height <= 0)) {
     std::cerr << "Invalid width or height. Please input positive values next time!..";
-    exit(1);
   }
 }
 
