@@ -7,18 +7,10 @@ Circle::Circle()
 }
 
 Circle::Circle(double xx, double yy, double radius) :
-<<<<<<< HEAD
-=======
-//center_{ xx,yy },
->>>>>>> 21efff2bf96f287fe3008cc78e0d089cb8fec88f
 radius_(radius)
 {
   center_.x = xx;
   center_.y = yy;
-<<<<<<< HEAD
-=======
-  //radius_ = radius;
->>>>>>> 21efff2bf96f287fe3008cc78e0d089cb8fec88f
 }
 
 Circle::Circle(point_t goal, double rad) :
@@ -27,13 +19,6 @@ radius_(rad)
 {
 }
 
-<<<<<<< HEAD
-=======
-/*Circle::~Circle()
-{
-}*/
-
->>>>>>> 21efff2bf96f287fe3008cc78e0d089cb8fec88f
 double Circle::getArea() const
 {
   return M_PI*radius_*radius_;
