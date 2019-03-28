@@ -3,8 +3,8 @@
 #include <stdexcept>
 #include <iostream>
 #include <cmath>
-#include "rectangle.hpp"
 #include "circle.hpp"
+#include "rectangle.hpp"
 #define INACCURACY 0.001
 
 BOOST_AUTO_TEST_SUITE(TestForCircle)
