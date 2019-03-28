@@ -42,6 +42,10 @@ int main()
   std::cout << "Move\n" << std::endl;
   MyCircle.show();
   
+<<<<<<< HEAD
+=======
+  //system("pause");
+>>>>>>> 21efff2bf96f287fe3008cc78e0d089cb8fec88f
   return 0;
 }
 
