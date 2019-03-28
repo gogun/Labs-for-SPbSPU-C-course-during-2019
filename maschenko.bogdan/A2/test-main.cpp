@@ -1,10 +1,10 @@
 #define BOOST_TEST_MODULE A2
 #include <boost/test/included/unit_test.hpp>
-#include "rectangle.hpp"
-#include "circle.hpp"
 #include <stdexcept>
 #include <iostream>
 #include <cmath>
+#include "rectangle.hpp"
+#include "circle.hpp"
 #define INACCURACY 0.001
 
 BOOST_AUTO_TEST_SUITE(TestForCircle)
