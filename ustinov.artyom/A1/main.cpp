@@ -42,7 +42,6 @@ int main()
   std::cout << "Move\n" << std::endl;
   MyCircle.show();
   
-  //system("pause");
   return 0;
 }
 
