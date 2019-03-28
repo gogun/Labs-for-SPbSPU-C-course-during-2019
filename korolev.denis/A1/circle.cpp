@@ -12,7 +12,7 @@ Circle::Circle(const point_t &center, double radius) :
 }
 
 Circle::Circle(double x, double y, double radius) :
-  center_({x,y}),
+  center_({x, y}),
   radius_(radius)
 {
   assert(radius_ > 0.0);
@@ -33,10 +33,10 @@ void Circle::move(const point_t &position)
   center_ = position;
 }
 
-void Circle::move(double xx, double yy)
+void Circle::move(double dx, double dy)
 {
-  center_.x += xx;
-  center_.y += yy;
+  center_.x += dx;
+  center_.y += dy;
 }
 
 void Circle::printInf() const
