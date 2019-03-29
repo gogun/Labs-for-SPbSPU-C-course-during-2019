@@ -17,7 +17,7 @@ int main()
   std::cout << "circle:" << std::endl;
   workWithFigure(&circ);
 
-  std::system("pause");
+  //std::system("pause");
   return 0;
 }
 
