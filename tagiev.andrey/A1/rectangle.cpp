@@ -1,12 +1,13 @@
-#include "base-types.hpp"
 #include "rectangle.hpp"
+#include <cassert>
+#include "base-types.hpp"
 
 Rectangle::Rectangle(const point_t &center, double width, double height):
   center_(center),
   width_(width),
   height_(height)
 {
-
+  assert((height>0) && (width>0));
 }
 double Rectangle::getArea() const
 {

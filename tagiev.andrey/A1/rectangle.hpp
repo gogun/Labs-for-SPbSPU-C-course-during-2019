@@ -4,10 +4,6 @@
 #include "shape.hpp"
 
 class Rectangle: public Shape{
-private:
-  point_t center_;
-  double width_;
-  double height_;
 public:
   Rectangle(const point_t &, double, double);
 
@@ -18,6 +14,10 @@ public:
   void move(double, double) override;
 
   void move(point_t) override;
+private:
+  point_t center_;
+  double width_;
+  double height_;
 };
 
 #endif

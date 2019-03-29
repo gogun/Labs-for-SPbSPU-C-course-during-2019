@@ -4,17 +4,20 @@
 #include "shape.hpp"
 
 class Circle: public Shape{
-private:
-  point_t center_;
-  double radius_;
 public:
   Circle(const point_t &, double);
+
+  rectangle_t getFrameRect() const override;
 
   double getArea() const override;
 
   void move(double, double) override;
 
   void move(point_t) override;
+
+private:
+  point_t center_;
+  double radius_;
 };
 
 #endif
