@@ -27,5 +27,6 @@ int main() {
   Circle circ2(-4, 6, 9); // create circle with coordinates (-4, 6) and radius 9
   std::cout << "2 cercle:" << std::endl;
   printFrameRect(circ2);
+
   return 0;
 }
