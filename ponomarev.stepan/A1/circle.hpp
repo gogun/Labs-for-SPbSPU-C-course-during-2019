@@ -5,10 +5,10 @@
 class Circle :
     public Shape {
 public:
-  
+
   Circle(double radius, const point_t pos);
 
-  void info() const;
+  void info() const override;
   double getArea() const override;
   rectangle_t getFrameRate() const override;
   void move(const pos_t &new_pos) override;
