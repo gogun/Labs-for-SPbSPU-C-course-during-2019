@@ -37,7 +37,7 @@ rectangle_t Rectangle::getFrameRate() const
 void Rectangle::info() const
 {
   std::cout << "--------------------------" << std::endl;
-  std::cout << "Centre:\n" << "x = " << rectangle_.pos.x << "\n" << "y = " << rectangle_.pos.y << std::endl;
+  std::cout << "Centre:\n" << "x = " << rectangle_.pos.x << " " << "y = " << rectangle_.pos.y << std::endl;
 
   std::cout << "Side:\n" << "Width = " << rectangle_.width << "\n" << "Height = " << rectangle_.heigth << std::endl;
 

@@ -40,7 +40,7 @@ rectangle_t Circle::getFrameRate() const
 void Circle::info() const
 {
   std::cout << "--------------------------" << std::endl;
-  std::cout << "Centre:\n" << "x = " << pos_.x << "\n" << "y = " << pos_.y << std::endl;
+  std::cout << "Centre:\n" << "x = " << pos_.x << " " << "y = " << pos_.y << std::endl;
   std::cout << "Radius = " << radius_ << std::endl;
 
   std::cout << "Out rectangle:\n" << "Width = " << getFrameRate().width << "\n" << "Height = " << getFrameRate().heigth << "\n"\
