@@ -1,5 +1,5 @@
-#ifndef LAB1_1_CIRCLE_H
-#define LAB1_1_CIRCLE_H
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
 
 #include "shape.hpp"
 
@@ -16,4 +16,4 @@ private:
     double radius_;
 };
 
-#endif //LAB1_1_CIRCLE_H
+#endif //UNTITLED1_CIRCLE_H

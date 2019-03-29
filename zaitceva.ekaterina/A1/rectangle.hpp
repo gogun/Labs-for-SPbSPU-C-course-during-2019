@@ -1,5 +1,5 @@
-#ifndef LAB1_1_RECTANGLE_H
-#define LAB1_1_RECTANGLE_H
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 
 #include "shape.hpp"
 
@@ -17,4 +17,4 @@ private:
     point_t pos_;
 };
 
-#endif //LAB1_1_RECTANGLE_H
+#endif //UNTITLED1_RECTANGLE_H
