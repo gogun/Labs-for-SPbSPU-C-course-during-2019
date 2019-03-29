@@ -3,21 +3,21 @@
 #include <iostream>
 #include <cmath>
 
-Circle::Circle(double radius, const point_t pos):
-  radius_(radius),
-  pos_(pos)
+Circle::Circle(const point_t pos, double radius):
+  pos_(pos),
+  radius_(radius)
 {
   if (radius <= 0) {
     std::cerr << "Invalid radius" << std::endl;
   }
 }
 
-void Circle::move(const pos_t &new_pos)
+void Circle::move(const point_t &new_pos)
 {
   pos_ = new_pos;
 }
 
-void Circle::move(const doble dx, const double dy)
+void Circle::move(const double dx, const double dy)
 {
   pos_.x += dx;
   pos_.y += dy;
@@ -39,10 +39,13 @@ rectangle_t Circle::getFrameRate() const
 
 void Circle::info() const
 {
+  std::cout << "--------------------------" << std::endl;
   std::cout << "Centre:\n" << "x = " << pos_.x << "\n" << "y = " << pos_.y << std::endl;
+  std::cout << "Radius = " << radius_ << std::endl;
 
-  std::cout << "Out rectangle:\n" << "Width = " << getFrameRate.width << "\n" << "Height = " << getFrameRate.heigth << "\n"\
-      << "Centre: " << "x = " << getFrameRate.pos.x << "\n" << "y = " << getFrameRate.pos.y << std::endl;
+  std::cout << "Out rectangle:\n" << "Width = " << getFrameRate().width << "\n" << "Height = " << getFrameRate().heigth << "\n"\
+      << "Centre: " << "x = " << getFrameRate().pos.x << "\n" << "y = " << getFrameRate().pos.y << std::endl;
 
   std::cout << "Area : " << getArea() << std::endl;
+  std::cout << "--------------------------" << std::endl;
 }

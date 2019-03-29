@@ -8,7 +8,7 @@ class Rectangle :
     public Shape {
 public:
 
-  Rectangle(point_t &new_pos, double width,
+  Rectangle(const point_t &new_pos, double width,
       double heigth);
 
   double getArea() const override;

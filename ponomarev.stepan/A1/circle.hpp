@@ -6,16 +6,16 @@ class Circle :
     public Shape {
 public:
 
-  Circle(double radius, const point_t pos);
+  Circle(const point_t pos, double radius);
 
   void info() const override;
   double getArea() const override;
   rectangle_t getFrameRate() const override;
-  void move(const pos_t &new_pos) override;
-  void move(const doble dx, const double dy) override;
+  void move(const point_t &new_pos) override;
+  void move(const double dx, const double dy) override;
 
 private:
-  double radius_;
   point_t pos_;
+  double radius_;
 };
 #endif //CIRCLE_HPP
