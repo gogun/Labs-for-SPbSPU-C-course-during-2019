@@ -12,7 +12,7 @@ public:
       double heigth);
 
   double getArea() const override;
-  double getFrameRate() const override;
+  rectangle_t getFrameRate() const override;
   void info() const override;
   void move(const point_t &new_pos) override;
   void move(const double dx, const double dy) override;

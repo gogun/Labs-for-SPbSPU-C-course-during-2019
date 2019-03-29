@@ -44,5 +44,5 @@ void Circle::info() const
   std::cout << "Out rectangle:\n" << "Width = " << getFrameRate.width << "\n" << "Height = " << getFrameRate.heigth << "\n"\
       << "Centre: " << "x = " << getFrameRate.pos.x << "\n" << "y = " << getFrameRate.pos.y << std::endl;
 
-  std::count << "Area : " << getArea() << std::endl;
+  std::cout << "Area : " << getArea() << std::endl;
 }

@@ -11,7 +11,7 @@ public:
   virtual rectangle_t getFrameRate() const = 0;
   virtual void info() const = 0;
   virtual void move(const pos_t &new_pos) = 0;
-  virtual void move(const doble dx, const double dy) = 0;
+  virtual void move(const double dx, const double dy) = 0;
 };
 
 #endif // SHAPE_HPP
