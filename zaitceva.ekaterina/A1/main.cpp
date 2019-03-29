@@ -5,8 +5,8 @@
 void printRect (Shape &Shape)
 {
   rectangle_t trngl = Shape.getFrameRect();
-  std::cout << trngl.width << " " << trngl.height << " " << "(" << trngl.pos.x << ","
-    <<trngl.pos.y << ")" << std::endl;
+  std::cout << trngl.width << " " << trngl.height;
+  std::cout << " " << "(" << trngl.pos.x << "," <<trngl.pos.y << ")" << std::endl;
 }
 
 int main ()
