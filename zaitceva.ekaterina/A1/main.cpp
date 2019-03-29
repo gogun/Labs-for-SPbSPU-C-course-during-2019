@@ -31,5 +31,6 @@ int main ()
     printRect (circ);
     circ.move(2,8);
     printRect (circ);
+    std::cout << "dg" << std::endl;
     return 0;
 };
