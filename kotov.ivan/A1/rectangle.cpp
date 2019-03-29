@@ -3,7 +3,7 @@
 #include <cassert>
 
 Rectangle::Rectangle(const point_t &pos, double width, double height):
-  m_rect({pos, width,height})
+  m_rect({pos, width, height})
 {
   if (m_rect.width <= 0) 
   {
@@ -19,7 +19,7 @@ Rectangle::Rectangle(const point_t &pos, double width, double height):
 
 double Rectangle::getArea() const
 {
-  return m_rect.height*m_rect.width;
+  return m_rect.height * m_rect.width;
 }
 
 rectangle_t Rectangle::getFrameRect() const
