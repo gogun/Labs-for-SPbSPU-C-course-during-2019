@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "base_types.hpp"
 
 void printRect (Shape &Shape)
 {

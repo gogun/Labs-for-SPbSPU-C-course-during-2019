@@ -1,5 +1,6 @@
 #ifndef SHAPE_HPP
 #define SHAPE_HPP
+
 #include "base_types.hpp"
 
 class Shape
@@ -11,4 +12,5 @@ public:
   virtual void move (point_t pnt) = 0;
   virtual void move (double abs, double ord) = 0;
 };
+
 #endif // SHAPE_HPP
