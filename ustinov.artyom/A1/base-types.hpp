@@ -1,5 +1,5 @@
-#ifndef base_types_h
-#define base_types_h
+#ifndef base_types_hpp
+#define base_types_hpp
 
 struct point_t
 {
@@ -12,4 +12,4 @@ struct rectangle_t
   double width, height;
 };
 
-#endif /* base_types_h */
+#endif /* base_types_hpp */
