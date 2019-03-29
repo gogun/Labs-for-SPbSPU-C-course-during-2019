@@ -19,6 +19,7 @@ Rectangle::Rectangle(double xx, double yy, double width, double height)
   rect_.height = height;
 }
 
+
 double Rectangle::getArea() const
 {
   return (rect_.width)*(rect_.height);
