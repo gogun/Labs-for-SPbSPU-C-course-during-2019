@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "rectangle.hpp"
 
 Rectangle::Rectangle(double height, double width, const point_t &center) :
@@ -6,14 +7,7 @@ Rectangle::Rectangle(double height, double width, const point_t &center) :
   width_(width),
   center_(center)
 {
-  if (height_ <= 0.0)
-  {
-    std::cerr << "Invalid rectangle height" << std::endl;
-  }
-  if (width_ <= 0.0)
-  {
-    std::cerr << "Invalid rectangle width" << std::endl;
-  }
+  assert((width_ >= 0.0) && (height_ >= 0.0));
 }
 
 double Rectangle::getArea() const

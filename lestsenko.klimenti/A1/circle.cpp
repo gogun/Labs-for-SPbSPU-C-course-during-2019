@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include "circle.hpp"
@@ -7,10 +8,7 @@ Circle::Circle(double radius, const point_t &center) :
   radius_(radius), 
   center_(center)
 {
-  if (radius_ <= 0.0)
-  {
-    std::cerr << "Invalid circle radius" << std::endl;
-  }
+  assert(radius_ >= 0.0);
 }
 
 double Circle::getArea() const
