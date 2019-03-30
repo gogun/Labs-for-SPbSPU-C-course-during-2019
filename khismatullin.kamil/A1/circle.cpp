@@ -1,7 +1,8 @@
-#include <math.h>
-#include <iostream>
-#include "shape.hpp"
 #include "circle.hpp"
+#include <iostream>
+#include <math.h>
+#include "shape.hpp"
+
 
 Circle::Circle(const point_t &pos, const double radius) :
     center_(pos),
