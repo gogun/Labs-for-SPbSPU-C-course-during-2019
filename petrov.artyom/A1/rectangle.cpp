@@ -6,11 +6,11 @@ Rectangle::Rectangle(rectangle_t rectangle) :
 {
   if (rectangle.width <= 0)
   {
-    throw std::invalid_argument("Invalid rectangle: invalid width");
+    throw std::invalid_argument("Invalid rectangle: Width must be greater than 0");
   }
   if (rectangle.height <= 0)
   {
-    throw std::invalid_argument("Invalid rectangle: invalid height");
+    throw std::invalid_argument("Invalid rectangle: Height must be greater than 0");
   }
 }
 
