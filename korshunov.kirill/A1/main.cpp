@@ -12,15 +12,12 @@ int main()
 
   Shape * shapes[2] = {&rectangle, &circle,};
 
-  int i = 0;
   for (Shape * shape : shapes)
   {
     rectangle_t shape_for_test = shape->getFrameRect();
 
     std::cout << "XY:(" << shape_for_test.pos.x << ";" << shape_for_test.pos.y
         << ")\n" << "S = " << shape->getArea() << "\n\n";
-
-    i++;
   }
 
   return 0;
