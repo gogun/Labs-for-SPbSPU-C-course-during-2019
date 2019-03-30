@@ -2,14 +2,13 @@
 #define CIRCLE_HPP
 
 #include "shape.hpp"
-#include "base-types.hpp"
 
 class Circle : public Shape
 {
 
 public:
 
-  Circle(const point_t &pos, double radius);
+  Circle(const point_t & pos, double radius);
   
   double getArea() const override;
 
@@ -21,9 +20,9 @@ public:
 
 private:
 
-  point_t m_pos;
+  point_t m_center_;
 
-  double m_radius;
+  double m_radius_;
 
 };
 

@@ -12,4 +12,4 @@ struct rectangle_t
   double width,height;
 };
 
-#endif
+#endif //BASE_TYPES_HPP

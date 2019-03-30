@@ -3,11 +3,11 @@
 #include <iostream>
 #include <cassert>
 
-Circle::Circle(const point_t &pos, double radius):
-  m_pos(pos),
-  m_radius(radius)
+Circle::Circle(const point_t & center, double radius) :
+  m_center_(center),
+  m_radius_(radius)
 {
-  if (m_radius <= 0)
+  if (m_radius_ <= 0)
   {
     std::cerr << "radius must be positive\n";
     assert(false);
@@ -16,21 +16,21 @@ Circle::Circle(const point_t &pos, double radius):
 
 double Circle::getArea() const
 {
-  return M_PI * m_radius * m_radius;
+  return M_PI * m_radius_ * m_radius_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {m_pos, 2 * m_radius, 2 * m_radius};
+  return {m_center_, 2 * m_radius_, 2 * m_radius_};
 }
 
-void Circle::move(const point_t &pos)
+void Circle::move(const point_t & newCenter)
 {
-  m_pos = pos;
+  m_center_ = newCenter;
 }
 
-void Circle::move(double dispX, double dispY)
+void Circle::move(double dX, double dY)
 {
-  m_pos.x += dispX;
-  m_pos.y += dispY;
+  m_center_.x += dX;
+  m_center_.y += dY;
 }

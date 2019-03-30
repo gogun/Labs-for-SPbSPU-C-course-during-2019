@@ -8,19 +8,19 @@ class Rectangle : public Shape
 
 public:
 
-  Rectangle(const point_t &pos, double width, double height);
+  Rectangle(const point_t & pos, double width, double height);
 
   double getArea() const override;
 
   rectangle_t getFrameRect() const override;
 
-  void move(const point_t &pos) override;
+  void move(const point_t & pos) override;
 
   void move(double dispX, double dispY) override;
 
 private:
 
-  rectangle_t m_rect;
+  rectangle_t m_rect_;
 
 };
 
