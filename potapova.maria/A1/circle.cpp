@@ -1,15 +1,13 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
-Circle::Circle(double radius, const point_t &center):
+Circle::Circle(const point_t &center, double radius):
   center_(center),
   radius_(radius)
 {
-  if (radius<=0)
-  {
-    std::cerr << "Incorrect radius" << std::endl;
-  }
+  assert(radius>=0);
 }
 
 double Circle::getArea() const

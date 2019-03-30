@@ -1,13 +1,11 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(const point_t &center, double height, double width):
   rectangle_({center, height, width})
 {
-  if ((rectangle_.height <= 0) || (rectangle_.width <= 0))
-  {
-    std::cerr << "Incorrect heigth or weight of rectangle" << std::endl;
-  }
+  assert((height > 0) && (width > 0));
 }
 
 double Rectangle::getArea() const

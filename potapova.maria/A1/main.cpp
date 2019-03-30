@@ -4,7 +4,7 @@
 
 int main()
 {
-  Circle circle(3, {5,7});
+  Circle circle({5,7},3);
   Shape *shape = &circle;
   std::cout << "Area: " << shape->getArea() << std::endl;
   shape->move(3,4);
