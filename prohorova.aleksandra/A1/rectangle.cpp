@@ -1,8 +1,8 @@
 #include "rectangle.hpp"
 #include <iostream>
 
-Rectangle::Rectangle(double posX,double posY,double width,double height):
-  rect_(rectangle_t{point_t{posX,posY},width,height})
+Rectangle::Rectangle(const point_t &pos,double width,double height):
+  rect_(rectangle_t{pos,width,height})
 {
   if(rect_.width <= 0)
   {
@@ -13,9 +13,9 @@ Rectangle::Rectangle(double posX,double posY,double width,double height):
     std::cerr << "Height of rectangle must be a positive number.\n";
   }
 }
-Rectangle::Rectangle(const point_t &pos,double width,double height):
-  Rectangle(pos.x,pos.y, width, height)
-{
+Rectangle::Rectangle(double posX,double posY,double width,double height):
+  Rectangle(point_t{posX,posY}, width, height)
+{ 
 }
 double Rectangle::getArea() const
 {

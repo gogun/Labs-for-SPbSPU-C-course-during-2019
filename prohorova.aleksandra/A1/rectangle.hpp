@@ -7,13 +7,13 @@
 class Rectangle:public Shape
 {
 public:
-  Rectangle(double,double,double,double);
-  Rectangle(const point_t&,double,double);
+  Rectangle(const point_t& /*pos*/,double /*width*/,double /*height*/);
+  Rectangle(double /*posX*/, double /*posY*/, double /*width*/,double /*height*/);
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t&) override;
-  void move(double,double) override;
+  void move(const point_t& /*newPos*/) override;
+  void move(double /*dx*/,double /*dy*/) override;
   void show() const override;
 
   double getWidth() const;

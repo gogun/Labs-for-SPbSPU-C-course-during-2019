@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cmath>
 
-Circle::Circle(double posX,double posY,double radius):
-  pos_(point_t{posX,posY}),
+Circle::Circle(const point_t &pos,double radius):
+  pos_(pos),
   radius_(radius)
 {
   if(radius_ <= 0)
@@ -11,8 +11,8 @@ Circle::Circle(double posX,double posY,double radius):
     std::cerr << "Radius of circle must be a positive number.\n";
   }
 }
-Circle::Circle(const point_t &pos,double radius):
-  Circle(pos.x, pos.y, radius)
+Circle::Circle(double posX,double posY,double radius):
+  Circle(point_t{posX,posY}, radius)
 {
 }
 double Circle::getArea() const
