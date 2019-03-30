@@ -1,13 +1,11 @@
 #include "rectangle.hpp"
 #include "iostream"
+#include <cassert>
 
 Rectangle::Rectangle(const point_t &center,double width,double height) :
   rect_({width,height,center})
 {
-  if ((rect_.width <= 0) || (rect_.height <= 0))
-  {
-    std::cerr << "Invalid rectangle params!" << std::endl;
-  }
+  assert((rect_.width > 0) && (rect_.height > 0));
 }
 
 double Rectangle::getArea() const
