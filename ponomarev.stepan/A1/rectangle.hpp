@@ -2,12 +2,11 @@
 #define RECTANGLE_HPP
 #include "shape.hpp"
 
-class Rectangle :
-    public Shape {
+class Rectangle : public Shape {
 public:
 
-  Rectangle(const point_t &new_pos, double width,
-      double heigth);
+  Rectangle(const point_t &new_pos, const double width,
+      const double heigth);
 
   double getArea() const override;
   rectangle_t getFrameRate() const override;

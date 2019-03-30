@@ -5,7 +5,7 @@
 #include <cassert>
 #include <cmath>
 
-Circle::Circle(const point_t pos, double radius):
+Circle::Circle(const point_t pos, const double radius):
   pos_(pos),
   radius_(radius)
 {

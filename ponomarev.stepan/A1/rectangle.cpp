@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const point_t &new_pos, double width,
-    double height):
+Rectangle::Rectangle(const point_t &new_pos, const double width,
+    const double height):
   rectangle_({new_pos, width, height})
 {
   assert((width >= 0.0) && (height >= 0.0));

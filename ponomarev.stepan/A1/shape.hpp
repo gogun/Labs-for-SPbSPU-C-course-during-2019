@@ -5,7 +5,7 @@
 class Shape {
 public:
   virtual ~Shape() = default;
-  
+
   virtual double getArea() const = 0;
   virtual rectangle_t getFrameRate() const = 0;
   virtual void info() const = 0;

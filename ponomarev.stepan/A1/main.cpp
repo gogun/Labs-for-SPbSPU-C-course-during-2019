@@ -6,7 +6,7 @@ int main()
 {
   std::cout << "----Created new circle:----" << std::endl;
   Circle circle({-1.0, 1.0}, 2.0);
-  Shape* shape = &circle;
+  Shape* shape(&circle);
   shape->info();
   std::cout << "-Moving to (22, -13)" << std::endl;
   shape->move({22.0, -13.0});
