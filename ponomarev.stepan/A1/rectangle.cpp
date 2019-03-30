@@ -25,7 +25,7 @@ double Rectangle::getArea() const
   return rectangle_.width * rectangle_.height;
 }
 
-rectangle_t Rectangle::getFrameRate() const
+rectangle_t Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
@@ -33,7 +33,7 @@ rectangle_t Rectangle::getFrameRate() const
 void Rectangle::getInfo() const
 {
 
-  rectangle_t rectangle = getFrameRate();
+  rectangle_t rectangle = getFrameRect();
   std::cout << "--------------------------" << std::endl;
   std::cout << "Centre:\n" << "x = " << rectangle.pos.x << " " << "y = "
       << rectangle.pos.y << std::endl;
