@@ -20,9 +20,9 @@ public:
 
 private:
 
-  point_t m_center_;
+  point_t center_;
 
-  double m_radius_;
+  double radius_;
 
 };
 

@@ -20,7 +20,7 @@ public:
 
 private:
 
-  rectangle_t m_rect_;
+  rectangle_t rect_;
 
 };
 

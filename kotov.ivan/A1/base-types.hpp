@@ -3,13 +3,13 @@
 
 struct point_t
 {
-  double x,y;
+  double x, y;
 };
 
 struct rectangle_t
 {
   point_t pos;
-  double width,height;
+  double width, height;
 };
 
 #endif //BASE_TYPES_HPP
