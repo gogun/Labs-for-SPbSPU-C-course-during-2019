@@ -1,8 +1,8 @@
 #include "rectangle.hpp"
 #include <cassert>
 
-Rectangle::Rectangle(const point_t centre, double width, double height):
-  rectangle_{ centre, width, height }
+Rectangle::Rectangle(const rectangle_t &parameters):
+  rectangle_(parameters)
 {
   assert((rectangle_.height > 0) && (rectangle_.width > 0));
 }

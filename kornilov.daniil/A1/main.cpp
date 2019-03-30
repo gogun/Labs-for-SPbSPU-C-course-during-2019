@@ -23,7 +23,7 @@ int main()
   rect = newCircle.getFrameRect();
   writeFrameRectInfo(rect);
   std::cout << "Area of circle: " << newCircle.getArea() << std::endl;
-  Rectangle newRectangle(pos, width, height );
+  Rectangle newRectangle({pos, width, height});
   rect = newRectangle.getFrameRect();
   writeFrameRectInfo(rect);
   std::cout << "Area of rectangle: " << newRectangle.getArea() << std::endl;
@@ -36,6 +36,7 @@ int main()
   writeFrameRectInfo(rect);
   std::cout << "Area of rectangle: " << newRectangle.getArea() << std::endl;
   pos.x = 20;
+  pos.y = 50;
   newRectangle.move(pos);
   Shape *r = &newRectangle;
   rect = r->getFrameRect();
