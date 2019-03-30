@@ -2,15 +2,14 @@
 #include "circle.hpp"
 
 #include <iostream>
+#include <cassert>
 #include <cmath>
 
 Circle::Circle(const point_t pos, double radius):
   pos_(pos),
   radius_(radius)
 {
-  if (radius <= 0) {
-    std::cerr << "Invalid radius" << std::endl;
-  }
+  assert(radius >= 0.0);
 }
 
 void Circle::move(const point_t &new_pos)
@@ -26,7 +25,7 @@ void Circle::move(const double dx, const double dy)
 
 double Circle::getArea() const
 {
-  return M_PI * (radius_ * radius_);
+  return (M_PI * radius_ * radius_);
 }
 
 rectangle_t Circle::getFrameRate() const
@@ -45,7 +44,7 @@ void Circle::info() const
   std::cout << "Radius = " << radius_ << std::endl;
 
   rectangle_t rectangle = getFrameRate();
-  std::cout << "Out rectangle:\n" << "Width = " << rectangle.width << "\n" << "Height = " << rectangle.heigth << "\n"
+  std::cout << "Out rectangle:\n" << "Width = " << rectangle.width << "\n" << "Height = " << rectangle.height << "\n"
       << "Centre: " << "x = " << rectangle.pos.x << " y = " << rectangle.pos.y << std::endl;
 
   std::cout << "Area : " << getArea() << std::endl;
