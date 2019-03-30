@@ -13,7 +13,7 @@ int main ()
   r.move ({0.0, 0.0});
 
   Circle c (3.0, {2.0, 1.0});
-  std::cout << "Area of a circle: " << c.getArea() << std::endl;
+  std::cout << "Area of a circle: " << c.getArea() << '\n';
   std::cout << "Bounding box options:\n" ;
   std::cout << "Width: " << c.getFrameRect().width << '\n';
   std::cout << "Height: " << c.getFrameRect().height << '\n';
@@ -26,7 +26,7 @@ int main ()
   figures[1] = &c;
   for (int i = 0; i < 2; i++)
   {
-    std::cout << figures[i]->getArea() << std::endl;
+    std::cout << figures[i]->getArea() << '\n';
   }
   return 0;
 };
