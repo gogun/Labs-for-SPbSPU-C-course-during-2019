@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
 {
   maschenko::Circle test_circle {{15, 15}, 5};
   const double area = test_circle.getArea();
-  const double decrease_number = 0.25
+  const double decrease_number = 0.25;
   test_circle.scale(decrease_number);
   BOOST_CHECK_CLOSE(test_circle.getArea(), area * decrease_number * decrease_number, INACCURACY);
 }
@@ -135,7 +135,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
 {
   maschenko::Rectangle test_rectangle {{10, 10}, 5, 8};
   const double area = test_rectangle.getArea();
-  const double decrease_number = 0.25
+  const double decrease_number = 0.25;
   test_rectangle.scale(decrease_number);
   BOOST_CHECK_CLOSE(test_rectangle.getArea(), area * decrease_number * decrease_number, INACCURACY);
 }
