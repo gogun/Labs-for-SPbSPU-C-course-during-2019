@@ -40,6 +40,5 @@ int main()
   std::cout << "new circle`s centre: x" << pcircle->getCentre().x
     << " y " << pcircle->getCentre().y << std::endl;
 
-  std::cin.get();
   return 0;
 }
