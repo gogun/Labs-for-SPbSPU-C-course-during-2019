@@ -4,9 +4,13 @@
 Rectangle::Rectangle(rectangle_t rectangle) :
   rectangle_(rectangle)
 {
-  if (rectangle.width <= 0 || rectangle.height <= 0)
+  if (rectangle.width <= 0)
   {
-    throw std::invalid_argument("Invalid rectangle");
+    throw std::invalid_argument("Invalid rectangle: invalid width");
+  }
+  if (rectangle.height <= 0)
+  {
+    throw std::invalid_argument("Invalid rectangle: invalid height");
   }
 }
 
