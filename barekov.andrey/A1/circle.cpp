@@ -9,7 +9,7 @@ Circle::Circle(const point_t& pos, double radius) :
   centre_(pos),
   radius_(radius)
 {
-  assert (radius_ >= 0.0); //if radius is equal to 0, it is technically a degenerate circle.
+  assert(radius_ >= 0.0); //if radius is equal to 0, it is technically a degenerate circle.
 }
 
 Circle::Circle(double x, double y, double radius) :
@@ -36,8 +36,8 @@ void Circle::move(const point_t& centre)
   centre_ = centre;
 }
 
-void Circle::move(double mx, double my)
+void Circle::move(double deltaX, double deltaY)
 {
-  centre_.x += mx;
-  centre_.y += my;
+  centre_.x += deltaX;
+  centre_.y += deltaY;
 }

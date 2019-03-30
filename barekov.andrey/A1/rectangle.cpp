@@ -34,8 +34,8 @@ void Rectangle::move(const point_t& centre)
   centre_ = centre;
 }
 
-void Rectangle::move(double mx, double my)
+void Rectangle::move(double deltaX, double deltaY)
 {
-  centre_.x += mx;
-  centre_.y += my;
+  centre_.x += deltaX;
+  centre_.y += deltaY;
 }
