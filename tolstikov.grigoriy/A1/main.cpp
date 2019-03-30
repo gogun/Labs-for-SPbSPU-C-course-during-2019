@@ -16,7 +16,7 @@ void printInfo(const Shape * shapePointer)
 int main()
 {
   Circle c({1, 2.4}, 5); // Circle with centre at point [1, 2.4] and radius 5
-  Shape *shape = &c;
+  Shape * shape = &c;
 
   std::cout<<"--------------------Circle--------------------\n";
   printInfo(shape);
