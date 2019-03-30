@@ -44,14 +44,5 @@ int main()
 
   std::cout << "--------------------------------------------------" << std::endl;
 
-  std::cout << "--------------------Invalid rectangle---------------------" << std::endl;
-  Rectangle invalidRect = Rectangle({0,0},-5,17);
-  invalidRect.coutInfo();
-  std::cout << "--------------------------------------------------" << std::endl;
-
-  std::cout << "--------------------Invalid circle---------------------" << std::endl;
-  Circle invalidCircle({-5,11},0);
-  invalidCircle.coutInfo();
-
   return 0;
 }
