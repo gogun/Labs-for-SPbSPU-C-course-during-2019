@@ -1,4 +1,5 @@
 #define _USE_MATH_DEFINES
+
 #include "circle.hpp"
 
 #include <cassert>
@@ -13,7 +14,7 @@ Circle::Circle(const point_t& pos, double radius) :
 
 Circle::Circle(double x, double y, double radius) :
   Circle({x, y}, radius)
-{}
+{ }
 
 double Circle::getArea() const
 {
