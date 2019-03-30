@@ -4,30 +4,30 @@
 #include <cmath>
 
 
-Circle::Circle(const point_t & position, double radius_) :
-    center(position),
-    radius(radius_)
+Circle::Circle(const point_t & position,const double &radius) :
+    center_(position),
+    radius_(radius)
 {
-    assert(radius > 0.0);
+    assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const
 {
-    return (M_PI * radius * radius);
+    return (M_PI * radius_ * radius_);
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-    return {2 * radius, 2 * radius, center};
+    return {2 * radius_, 2 * radius_, center_};
 }
 
-void Circle::move(double shift_x, double shift_y)
+void Circle::move(const double &shift_x,const double &shift_y)
 {
-    center.x += shift_x;
-    center.y += shift_y;
+    center_.x += shift_x;
+    center_.y += shift_y;
 }
 
 void Circle::move(const point_t & position)
 {
-    center = position;
+    center_ = position;
 }
