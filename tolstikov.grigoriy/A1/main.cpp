@@ -1,9 +1,12 @@
 #include <iostream>
+#include <cassert>
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-void printInfo(Shape * shapePointer)
+void printInfo(const Shape * shapePointer)
 {
+  assert(shapePointer);
+
   rectangle_t frameRect = shapePointer->getFrameRect();
 
   std::cout<<"Area is "<<shapePointer->getArea()<<";\nCentre is ["<<frameRect.pos.x<<","<<frameRect.pos.y<<"];\n";
@@ -13,7 +16,7 @@ void printInfo(Shape * shapePointer)
 int main()
 {
   Circle c({1, 2.4}, 5); // Circle with centre at point [1, 2.4] and radius 5
-  Shape * shape = &c;
+  Shape *shape = &c;
 
   std::cout<<"--------------------Circle--------------------\n";
   printInfo(shape);
