@@ -14,7 +14,7 @@ void printInfo(Shape *shape)
 
 int main()
 {
-    Rectangle rect({5.3,3.4}, 10.0, 15.0); //Rectangle with center is (5.3,3.4) , width 10 , height 15
+    Rectangle rect({2.6,4.4}, 15.0, 20.0); //Rectangle with center is (2.6,4.4) , width 15 , height 20
     Shape * shape = &rect;
 
     std::cout << "-----Rectangle-----\n";

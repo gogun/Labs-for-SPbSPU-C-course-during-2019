@@ -1,8 +1,8 @@
 #include "circle.hpp"
 
 #include <cassert>
+#include <cmath>
 
-const double pi = 3.14159265;
 
 Circle::Circle(const point_t & position, double radius_) :
     center(position),
@@ -13,7 +13,7 @@ Circle::Circle(const point_t & position, double radius_) :
 
 double Circle::getArea() const
 {
-    return (pi * radius * radius);
+    return (M_PI * radius * radius);
 }
 
 rectangle_t Circle::getFrameRect() const
