@@ -45,16 +45,18 @@ BOOST_AUTO_TEST_CASE(AreaScalingIncrease)
 {
   maschenko::Circle test_circle {{15, 15}, 5};
   const double area = test_circle.getArea();
-  test_circle.scale(3);
-  BOOST_CHECK_CLOSE(test_circle.getArea(), 9 * area, INACCURACY);
+  const double increase_number = 3;
+  test_circle.scale(increase_number);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), increase_number * increase_number * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
 {
   maschenko::Circle test_circle {{15, 15}, 5};
   const double area = test_circle.getArea();
-  test_circle.scale(0.25);
-  BOOST_CHECK_CLOSE(test_circle.getArea(), area / 16, INACCURACY);
+  const double decrease_number = 0.25
+  test_circle.scale(decrease_number);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), area * decrease_number * decrease_number, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(ThrowExceptionAfterScale)
@@ -124,16 +126,18 @@ BOOST_AUTO_TEST_CASE(AreaScalingIncrease)
 {
   maschenko::Rectangle test_rectangle {{10, 10}, 5, 8};
   const double area = test_rectangle.getArea();
-  test_rectangle.scale(3);
-  BOOST_CHECK_CLOSE(test_rectangle.getArea(), 9 * area, INACCURACY);
+  const double increase_number = 3;
+  test_rectangle.scale(increase_number);
+  BOOST_CHECK_CLOSE(test_rectangle.getArea(), increase_number * increase_number * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
 {
   maschenko::Rectangle test_rectangle {{10, 10}, 5, 8};
   const double area = test_rectangle.getArea();
-  test_rectangle.scale(0.25);
-  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area / 16, INACCURACY);
+  const double decrease_number = 0.25
+  test_rectangle.scale(decrease_number);
+  BOOST_CHECK_CLOSE(test_rectangle.getArea(), area * decrease_number * decrease_number, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(ScaleTest)
