@@ -13,7 +13,7 @@ class Rectangle : public Shape
 public:
   Rectangle(const point_t &point, double width, double height);
 
-  point_t getPosition() const override;
+  point_t getCenter() const override;
 
   double getArea() const override;
 

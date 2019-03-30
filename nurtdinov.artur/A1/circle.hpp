@@ -13,7 +13,7 @@ class Circle : public Shape
 public:
   Circle(const point_t &point, double radius);
 
-  point_t getPosition() const override;
+  point_t getCenter() const override;
 
   double getArea() const override;
 

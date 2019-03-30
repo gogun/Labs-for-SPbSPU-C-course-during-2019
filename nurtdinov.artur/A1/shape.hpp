@@ -21,7 +21,7 @@ public:
 
   virtual void move(double dx, double dy) = 0;
 
-  virtual point_t getPosition() const = 0;
+  virtual point_t getCenter() const = 0;
 };
 
 #endif //A1_SHAPE_HPP

@@ -42,7 +42,7 @@ void Rectangle::move(double dx, double dy)
   position_.y += dy;
 }
 
-point_t Rectangle::getPosition() const
+point_t Rectangle::getCenter() const
 {
   return position_;
 }
