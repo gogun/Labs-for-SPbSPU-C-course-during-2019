@@ -1,5 +1,6 @@
 #include "circle.hpp"
 #include <iostream>
+#include <cassert>
 #include <math.h>
 #include "shape.hpp"
 
@@ -8,9 +9,7 @@ Circle::Circle(const point_t &pos, const double radius) :
     center_(pos),
     radius_(radius)
 {
-  if (radius <= 0) {
-    std::cerr << "Radius less or equal zero" << std::endl;
-  }
+  assert(radius > 0);
 }
 
 double Circle::getArea() const

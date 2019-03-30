@@ -1,16 +1,13 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 #include "shape.hpp"
 
 Rectangle::Rectangle(const point_t &pos, const double height, const double width) :
     rect_{pos, width, height}
 {
-  if (height <= 0) {
-    std::cerr << "Height less or equal zero" << std::endl;
-  }
-  if (width <= 0) {
-    std::cerr << "Width less or equal zero" << std::endl;
-  }
+  assert(rect_.height > 0.0);
+  assert(rect_.width > 0.0);
 }
 
 double Rectangle::getArea() const
