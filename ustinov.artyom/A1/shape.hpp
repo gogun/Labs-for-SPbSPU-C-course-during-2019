@@ -10,6 +10,8 @@ public:
   virtual rectangle_t getFrameRect() const = 0;
   virtual void move(point_t goal) = 0;
   virtual void move(double dx, double dy) = 0;
+  virtual void show() const=0;
+
 };
 
 #endif /* Shape_hpp */

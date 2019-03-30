@@ -5,43 +5,29 @@
 
 int main()
 {
-  double dx = 10;
-  double dy = 20;
-  point_t xpoint;
-  xpoint.x = 333;
-  xpoint.y = 555;
-  Rectangle MyRectangle(100, 200, 123, 57);
-  Circle MyCircle(111, 222, 45);
-  Rectangle OgRectangle;
-  MyRectangle.show();
-  MyCircle.show();
-  std::cout << "Rectangle area = " << MyRectangle.getArea() << std::endl;
-  std::cout << "Circle area =  " << MyCircle.getArea() << std::endl;
+  std::cout << "Circle" << std::endl;
+  Circle circle(7, 19, 3);
+  Shape * shp = &circle;
+  shp->show();
+  std::cout << "move Circle" << std::endl;
+  shp->move(-10, 12);
+  shp->show();
+  std::cout << "move Circle" << std::endl;
+  shp->move(1, -2);
+  shp->show();
   
-  OgRectangle = MyRectangle.getFrameRect();
-  std::cout << "Rectangle border:" << std::endl;
-  OgRectangle.show();
+  std::cout << "new Rectangle " << std::endl;
   
-  OgRectangle = MyCircle.getFrameRect();
-  std::cout << "Circle border:\n" << std::endl;
-  OgRectangle.show();
-  
-  MyRectangle.move(dx, dy);
-  std::cout << "Move" << std::endl;
-  MyRectangle.show();
-  
-  MyCircle.move(dx, dy);
-  std::cout << "Move\n" << std::endl;
-  MyCircle.show();
-  
-  MyRectangle.move(xpoint);
-  std::cout << "Move\n" << std::endl;
-  MyRectangle.show();
-  
-  MyCircle.move(xpoint);
-  std::cout << "Move\n" << std::endl;
-  MyCircle.show();
-  
+  Rectangle rectangle(2, 12, 3, 6);
+  shp = &rectangle;
+  shp->show();
+  std::cout << "move Rectangle" << std::endl;
+  shp->move({-30, -30});
+  shp->show();
+  std::cout << "move Rectangle" << std::endl;
+  shp->move(2, 3);
+  shp->show();
+
   return 0;
 }
 

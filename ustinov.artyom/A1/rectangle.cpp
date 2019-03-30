@@ -2,13 +2,11 @@
 #include <iostream>
 #include <stdexcept>
 
-Rectangle::Rectangle()
-{
-}
-
 Rectangle::Rectangle(rectangle_t in_rect) :
 rect_(in_rect)
 {
+  assert((rect_.height > 0) && (rect_.width > 0));
+
 }
 
 Rectangle::Rectangle(double xx, double yy, double width, double height)
@@ -22,7 +20,7 @@ Rectangle::Rectangle(double xx, double yy, double width, double height)
 
 double Rectangle::getArea() const
 {
-  return (rect_.width)*(rect_.height);
+  return (rect_.width) * (rect_.height);
 }
 
 rectangle_t Rectangle::getFrameRect() const
@@ -43,6 +41,12 @@ void Rectangle::move(double dx, double dy)
 
 void Rectangle::show() const
 {
-  std::cout << "\nRectangle center: " << rect_.pos.x << " , " << rect_.pos.y << std::endl;
-  std::cout << "Width:" << rect_.width << "\nHeight: " << rect_.height << std::endl;
+  rectangle_t rectangle = getFrameRect();
+  std::cout << std::endl << "Coordinates of centre Rect :(" << rect_.pos.x
+  << ";" << rect_.pos.y << ")" << std::endl
+  << "Frame rectangle width = " << rectangle.width
+  << ", height = " << rectangle.height << std::endl
+  << "Area = " << getArea() << std::endl;
 }
+   
+   
