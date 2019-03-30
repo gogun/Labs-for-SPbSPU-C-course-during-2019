@@ -16,14 +16,14 @@ int main()
   point_t pos;
   pos.x = 0;
   pos.y = 0;
-  double width = 10;
-  double height = 10;
+  double width = 50;
+  double height = 40;
   double radius = 10;
-  Circle newCircle(radius, pos);
+  Circle newCircle(pos, radius);
   rect = newCircle.getFrameRect();
   writeFrameRectInfo(rect);
   std::cout << "Area of circle: " << newCircle.getArea() << std::endl;
-  Rectangle newRectangle({ width, height, pos });
+  Rectangle newRectangle(pos, width, height );
   rect = newRectangle.getFrameRect();
   writeFrameRectInfo(rect);
   std::cout << "Area of rectangle: " << newRectangle.getArea() << std::endl;
