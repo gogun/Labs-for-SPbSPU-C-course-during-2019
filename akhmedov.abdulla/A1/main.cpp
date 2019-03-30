@@ -4,6 +4,7 @@
 
 void getInfo(const Shape *figure)
 {
+  assert(figure != nullptr);
   figure->getInfo();
 }
 
