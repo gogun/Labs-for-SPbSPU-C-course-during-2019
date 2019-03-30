@@ -9,6 +9,8 @@
 
 BOOST_AUTO_TEST_SUITE(chizhovA2TestSuite)
 
+const double EPSILON = 0.01;
+
 BOOST_AUTO_TEST_CASE(circleConstantAfterMove)
 {
   chizhov::Circle dummyCircle({5, 5}, 4);
@@ -18,16 +20,16 @@ BOOST_AUTO_TEST_CASE(circleConstantAfterMove)
   dummyCircle.move({0, 0});
   chizhov::rectangle_t frameAfter = dummyCircle.getFrameRect();
   double areaAfter = dummyCircle.getArea();
-  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, 0.01);
-  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, 0.01);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, 0.01);
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
 
   dummyCircle.move(5, 5);
   frameAfter = dummyCircle.getFrameRect();
   areaAfter = dummyCircle.getArea();
-  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, 0.01);
-  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, 0.01);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, 0.01);
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleConstantAfterMove)
@@ -39,16 +41,16 @@ BOOST_AUTO_TEST_CASE(rectangleConstantAfterMove)
   dummyRectangle.move({0, 0});
   chizhov::rectangle_t frameAfter = dummyRectangle.getFrameRect();
   double areaAfter = dummyRectangle.getArea();
-  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, 0.01);
-  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, 0.01);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, 0.01);
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
 
   dummyRectangle.move(5, 5);
   frameAfter = dummyRectangle.getFrameRect();
   areaAfter = dummyRectangle.getArea();
-  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, 0.01);
-  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, 0.01);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, 0.01);
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(circleScale)
@@ -59,7 +61,7 @@ BOOST_AUTO_TEST_CASE(circleScale)
   const int scaleMultiplier = 2;
   dummyCircle.scale(scaleMultiplier);
   double areaAfter = dummyCircle.getArea();
-  BOOST_CHECK_CLOSE(areaBefore * scaleMultiplier * scaleMultiplier, areaAfter, 0.01);
+  BOOST_CHECK_CLOSE(areaBefore * scaleMultiplier * scaleMultiplier, areaAfter, EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleScale)
@@ -70,7 +72,7 @@ BOOST_AUTO_TEST_CASE(rectangleScale)
   const int scaleMultiplier = 2;
   dummyRectangle.scale(scaleMultiplier);
   double areaAfter = dummyRectangle.getArea();
-  BOOST_CHECK_CLOSE(areaBefore * scaleMultiplier * scaleMultiplier, areaAfter, 0.01);
+  BOOST_CHECK_CLOSE(areaBefore * scaleMultiplier * scaleMultiplier, areaAfter, EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(throwingExceptions)
