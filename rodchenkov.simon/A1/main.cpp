@@ -4,7 +4,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void testShape(std::unique_ptr<Shape>& s, const point_t& p);
+void testShape(const std::unique_ptr<Shape>& s, const point_t& p);
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
   return 0;
 }
 
-void testShape(std::unique_ptr<Shape>& s, const point_t& p)
+void testShape(const std::unique_ptr<Shape>& s, const point_t& p)
 {
   std::cout << "Before moving :\n";
   s->printData(std::cout);
