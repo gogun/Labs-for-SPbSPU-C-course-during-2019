@@ -1,5 +1,6 @@
 #define _USE_MATH_DEFINES
 #include "circle.hpp"
+
 #include <iostream>
 #include <cmath>
 
@@ -40,11 +41,12 @@ rectangle_t Circle::getFrameRate() const
 void Circle::info() const
 {
   std::cout << "--------------------------" << std::endl;
-  std::cout << "Centre:\n" << "x = " << pos_.x << " " << "y = " << pos_.y << std::endl;
+  std::cout << "Centre:\n" << "x = " << pos_.x << " y = " << pos_.y << std::endl;
   std::cout << "Radius = " << radius_ << std::endl;
 
-  std::cout << "Out rectangle:\n" << "Width = " << getFrameRate().width << "\n" << "Height = " << getFrameRate().heigth << "\n"\
-      << "Centre: " << "x = " << getFrameRate().pos.x << "\n" << "y = " << getFrameRate().pos.y << std::endl;
+  rectangle_t rectangle = getFrameRate();
+  std::cout << "Out rectangle:\n" << "Width = " << rectangle.width << "\n" << "Height = " << rectangle.heigth << "\n"
+      << "Centre: " << "x = " << rectangle.pos.x << " y = " << rectangle.pos.y << std::endl;
 
   std::cout << "Area : " << getArea() << std::endl;
   std::cout << "--------------------------" << std::endl;

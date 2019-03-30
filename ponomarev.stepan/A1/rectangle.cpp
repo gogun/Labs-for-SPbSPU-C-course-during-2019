@@ -36,10 +36,14 @@ rectangle_t Rectangle::getFrameRate() const
 
 void Rectangle::info() const
 {
-  std::cout << "--------------------------" << std::endl;
-  std::cout << "Centre:\n" << "x = " << rectangle_.pos.x << " " << "y = " << rectangle_.pos.y << std::endl;
 
-  std::cout << "Side:\n" << "Width = " << rectangle_.width << "\n" << "Height = " << rectangle_.heigth << std::endl;
+  rectangle_t rectangle = getFrameRate();
+  std::cout << "--------------------------" << std::endl;
+  std::cout << "Centre:\n" << "x = " << rectangle.pos.x << " " << "y = "
+      << rectangle.pos.y << std::endl;
+
+  std::cout << "Side:\n" << "Width = " << rectangle.width << "\n" << "Height = "
+      << rectangle.heigth << std::endl;
 
   std::cout << "Area : " << getArea() << std::endl;
   std::cout << "--------------------------" << std::endl;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "base-types.hpp"
 
 int main()
 {
@@ -16,6 +17,7 @@ int main()
   shape->info();
 
   std::cout << "\n";
+
   std::cout << "----Created new rectangle:----" << std::endl;
   Rectangle rectangle({121, 31}, 200, 1);
   shape = &rectangle;
