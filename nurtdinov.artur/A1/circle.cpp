@@ -1,16 +1,17 @@
 //
 // Created by Артур on 18.03.2019.
 //
-#define M_PI            3.14159265358979323846
-
-#include <iostream>
 #include "circle.hpp"
+
+#include <math.h>
+#include <iostream>
+
 
 Circle::Circle(const point_t &point, double radius)
 {
   if (radius <= 0)
   {
-    std::cerr<<"Invalid value of radius";
+    std::cerr << "Invalid value of radius";
   }
   position_ = point;
   radius_ = radius;

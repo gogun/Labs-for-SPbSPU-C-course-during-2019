@@ -6,8 +6,10 @@
 #define A1_CIRCLE_HPP
 
 #include "shape.hpp"
+#include "base-types.hpp"
 
-class Circle : public Shape {
+class Circle : public Shape
+{
 public:
   Circle(const point_t &point, double radius);
 

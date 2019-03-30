@@ -6,8 +6,10 @@
 #define A1_RECTANGLE_HPP
 
 #include "shape.hpp"
+#include "base-types.hpp"
 
-class Rectangle : public Shape {
+class Rectangle : public Shape
+{
 public:
   Rectangle(const point_t &point, double width, double height);
 

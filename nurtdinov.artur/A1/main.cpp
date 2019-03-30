@@ -1,5 +1,6 @@
 #include <iostream>
 #include "base-types.hpp"
+#include "shape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 
