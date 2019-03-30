@@ -1,10 +1,14 @@
 #include <iostream>
+#include <cassert>
 #include "rectangle.hpp"
 #include "circle.hpp"
 
 void printShape (const Shape *shapePtr)
 {
+  assert (shapePtr);
+
   shapePtr->printInfo();
+  std::cout << std::endl;
 }
 
 int main()
@@ -23,12 +27,10 @@ int main()
   rectangle2.move(0.5, 31);
   std::cout << std::endl;
 
-  const int size = 4;
-  Shape *shapes[size] = {&circle1, &rectangle1, &circle2, &rectangle2};
-  for (int i = 0; i < size; i++)
+  Shape * shapes[4] = {&circle1, &rectangle1, &circle2, &rectangle2};
+  for (Shape * shape : shapes)
   {
-    printShape(shapes[i]);
-    std::cout << std::endl;
+    printShape(shape);
   }
 
   return 0;
