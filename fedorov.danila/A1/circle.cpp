@@ -26,11 +26,10 @@ double Circle::getArea() const
 void Circle::printInfo() const
 {
   Shape::printInfo();
-  std::cout << "\t radius: " << radius_ << std::endl;
-  std::cout << "\t area: " << getArea() << std::endl;
-
-  std::cout << "\t frame:" << std::endl;
-  std::cout << "\t\tcenter: (" << getFrameRect().pos.x << ";" << getFrameRect().pos.y << ")" << std::endl;
-  std::cout << "\t\twidth: " << getFrameRect().width << "\theight: " << getFrameRect().height << std::endl;
-  std::cout << std::endl;
+  std::cout << "\t radius: " << radius_ << std::endl
+            << "\t area: " << getArea() << std::endl
+            << "\t frame:" << std::endl
+            << "\t\tcenter: (" << getFrameRect().pos.x << ";" << getFrameRect().pos.y << ")" << std::endl
+            << "\t\twidth: " << getFrameRect().width << "\theight: " << getFrameRect().height << std::endl
+            << std::endl;
 }
