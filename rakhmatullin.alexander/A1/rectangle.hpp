@@ -1,6 +1,7 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
 
+#include "base-types.hpp"
 #include "shape.hpp"
 
 class Rectangle : public Shape
