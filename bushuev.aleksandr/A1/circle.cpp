@@ -3,19 +3,13 @@
 #include "iostream"
 #include <math.h>
 
-Circle::Circle(const point_t &center,double radius)
+Circle::Circle(const point_t &center,double radius) :
+  center_(center),
+  radius_(radius)
 {
-  Circle(center.x,center.y,radius);
-}
-
-Circle::Circle(double center_x,double center_y,double radius)
-{
-  center_.x = center_x;
-  center_.y = center_y;
-  radius_ = radius;
-  if (radius<=0)
+  if (radius_ <=0)
   {
-    std::cerr << "Radius must be > 0";
+    std::cerr << "Invalid radius!" << std::endl;
   }
 }
 

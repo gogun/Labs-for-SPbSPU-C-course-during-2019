@@ -6,9 +6,7 @@
 class Rectangle : Shape
 {
   public:
-    Rectangle(const rectangle_t&);
-    Rectangle(double,double,const point_t&);
-    Rectangle(double,double,double,double);
+    Rectangle(const point_t &center,double width,double height);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;

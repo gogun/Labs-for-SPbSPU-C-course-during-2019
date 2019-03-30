@@ -8,26 +8,26 @@ int main()
 
   std::cout << "--------------------Rectangle---------------------" << std::endl;
 
-  Rectangle rect(15,15,15,15);
-  rect.coutInfo();
+  Rectangle rectTest({25,-11},10,8);
+  rectTest.coutInfo();
 
-  rectangle_t frame = rect.getFrameRect();
+  rectangle_t frame = rectTest.getFrameRect();
   std::cout << "Frame at:" << "("<<frame.pos.x << "," << frame.pos.y << ")" << std::endl;
   std::cout << "Width: " << frame.width << ", " << "height: " << frame.height << std::endl;
 
   std::cout << "Rectangle moved on:" << "("<< 11 << "," << 15 << ")" << std::endl;
-  rect.move(11,15);
-  rect.coutInfo();
+  rectTest.move(11,15);
+  rectTest.coutInfo();
 
   std::cout << "Rectangle moved to:" << "("<< movePoint.x << "," << movePoint.y << ")" << std::endl;
-  rect.move(movePoint);
-  rect.coutInfo();
+  rectTest.move(movePoint);
+  rectTest.coutInfo();
 
   std::cout << "--------------------------------------------------" << std::endl;
 
   std::cout << "--------------------Circle------------------------" << std::endl;
 
-  Circle circleTest(10,10,10);
+  Circle circleTest({10,10},10);
   circleTest.coutInfo();
 
   frame = circleTest.getFrameRect();
@@ -43,6 +43,15 @@ int main()
   circleTest.coutInfo();
 
   std::cout << "--------------------------------------------------" << std::endl;
+
+  std::cout << "--------------------Invalid rectangle---------------------" << std::endl;
+  Rectangle invalidRect = Rectangle({0,0},-5,17);
+  invalidRect.coutInfo();
+  std::cout << "--------------------------------------------------" << std::endl;
+
+  std::cout << "--------------------Invalid circle---------------------" << std::endl;
+  Circle invalidCircle({-5,11},0);
+  invalidCircle.coutInfo();
 
   return 0;
 }
