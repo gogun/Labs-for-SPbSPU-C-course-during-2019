@@ -5,9 +5,9 @@
 void writeFrameRectInfo(rectangle_t &rect)
 {
   std::cout << "Frame Rectangle: "
-    << "Width: " << rect.width << " Height: " << rect.height
-    << " Centre: " << '(' << rect.pos.x << ", " << rect.pos.y << ')'
-    << std::endl;
+            << "Width: " << rect.width << " Height: " << rect.height
+            << " Centre: " << '(' << rect.pos.x << ", " << rect.pos.y << ')'
+            << std::endl;
 }
 
 int main()
