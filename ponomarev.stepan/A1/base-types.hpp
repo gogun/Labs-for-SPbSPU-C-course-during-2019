@@ -1,15 +1,15 @@
-#ifndef A1_BASE_TYPES_HPP
-#define A1_BASE_TYPES_HPP
-struct point_t
-{
+#ifndef BASE_TYPES
+#define BASE_TYPES
+
+struct point_t {
   double x;
   double y;
 };
 
-struct rectangle_t
-{
+struct rectangle_t {
+  point_t pos;
   double width;
   double height;
-  point_t pos;
 };
-#endif //A1_BASE_TYPES_HPP
+
+#endif //BASE_TYPES

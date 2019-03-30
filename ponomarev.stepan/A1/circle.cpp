@@ -1,27 +1,52 @@
+#define _USE_MATH_DEFINES
 #include "circle.hpp"
-#include <cmath>
+
+#include <iostream>
 #include <cassert>
+#include <cmath>
 
-Circle::Circle(point_t dot, double rad):
-  center_(dot),
-  radius_(rad)
+Circle::Circle(const point_t pos, const double radius):
+  pos_(pos),
+  radius_(radius)
 {
-  assert(radius_>=0.0);
+  assert(radius > 0.0);
 }
 
-double Circle::getArea() const {
-  return M_PI*radius_*radius_;
+void Circle::move(const point_t &new_pos)
+{
+  pos_ = new_pos;
 }
 
-rectangle_t Circle::getFrameRect() const {
-  return {radius_*2,radius_*2,center_};
+void Circle::move(const double dx, const double dy)
+{
+  pos_.x += dx;
+  pos_.y += dy;
 }
 
-void Circle::move(double dx, double dy) {
-  center_.x+=dx;
-  center_.y+=dy;
+double Circle::getArea() const
+{
+  return (M_PI * radius_ * radius_);
 }
 
-void Circle::move(point_t point) {
-  center_=point;
+rectangle_t Circle::getFrameRate() const
+{
+  return rectangle_t {
+    pos_,
+    radius_ * 2,
+    radius_ * 2,
+  };
+}
+
+void Circle::getInfo() const
+{
+  std::cout << "--------------------------" << std::endl;
+  std::cout << "Centre:\n" << "x = " << pos_.x << " y = " << pos_.y << std::endl;
+  std::cout << "Radius = " << radius_ << std::endl;
+
+  rectangle_t rectangle = getFrameRate();
+  std::cout << "Out rectangle:\n" << "Width = " << rectangle.width << "\n" << "Height = " << rectangle.height << "\n"
+      << "Centre: " << "x = " << rectangle.pos.x << " y = " << rectangle.pos.y << std::endl;
+
+  std::cout << "Area : " << getArea() << std::endl;
+  std::cout << "--------------------------" << std::endl;
 }
