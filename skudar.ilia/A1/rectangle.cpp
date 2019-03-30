@@ -7,12 +7,6 @@ Rectangle::Rectangle(point_t pos, double w, double h):
   width_(w),
   height_(h)
 {
-  /*if (width_ <= 0) {
-    std::cerr << "Invalid rectangle width" << std::endl;
-  }
-  if (height_ <= 0) {
-    std::cerr << "invalid rectangle height" << std::endl;
-  } */
   assert((width_ > 0) && (height_ > 0));
 }
 

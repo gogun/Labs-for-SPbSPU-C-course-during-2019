@@ -8,9 +8,6 @@ Circle::Circle(point_t pos, double r):
   center_(pos),
   radius_(r)
 {
-/*  if (r <= 0) {
-    std::cerr << "Invalid radius of circle" << std::endl;
-  }*/
   assert(r > 0);
 }
 
