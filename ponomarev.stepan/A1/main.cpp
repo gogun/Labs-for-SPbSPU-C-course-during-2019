@@ -2,31 +2,26 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-int main()
-{
-  std::cout << "----Created new circle:----" << std::endl;
-  Circle circle({-1.0, 1.0}, 2.0);
-  Shape* shape(&circle);
-  shape->info();
-  std::cout << "-Moving to (22, -13)" << std::endl;
-  shape->move({22.0, -13.0});
-  shape->info();
-  std::cout << "-Coords X += 1, y += 26" << std::endl;
-  shape->move(1.0, 26.0);
-  shape->info();
+int main() {
+  Rectangle r1({1.0,1.0}, 3.0, 3.0);
+  std::cout<<r1.getArea()<<std::endl;
 
-  std::cout << "\n";
+  Rectangle r2({2.0,2.0}, 1.0, 4.0);
+  r2.move(1.0,2.0);
 
-  std::cout << "----Created new rectangle:----" << std::endl;
-  Rectangle rectangle({121, 31}, 200, 1);
-  shape = &rectangle;
-  shape->info();
-  std::cout << "-Moving to (81, -42)" << std::endl;
-  shape->move({81, -42});
-  shape->info();
-  std::cout << "-Coords X -= 81, y += 42" << std::endl;
-  shape->move(-81, 42);
-  shape->info();
+  Circle c1({3.0,1.0}, 3.0);
+  std::cout<<c1.getArea()<<std::endl;
+
+  Circle c2({1.0,2.0}, 4.0);
+  c2.move({3.0,5.0});
+
+  Shape *circP = &c2;
+  rectangle_t tempRect = circP->getFrameRect();
+  std::cout<<tempRect.pos.x<<" "<<tempRect.pos.y<<" "<<tempRect.width<<" "<<tempRect.height<<std::endl;
+
+  Shape *rectP = &r2;
+  tempRect = rectP->getFrameRect();
+  std::cout<<tempRect.pos.x<<" "<<tempRect.pos.y<<" "<<tempRect.width<<" "<<tempRect.height<<std::endl;
 
   return 0;
 }

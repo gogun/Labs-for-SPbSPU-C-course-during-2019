@@ -1,46 +1,31 @@
 #include "rectangle.hpp"
-#include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const point_t &new_pos, const double width,
-    const double height):
-  rectangle_({new_pos, width, height})
+Rectangle::Rectangle(point_t dot, double width, double height):
+  center_(dot),
+  width_(width),
+  height_(height)
 {
-  assert((width >= 0.0) && (height >= 0.0));
-}
-
-void Rectangle::move(const double dx, const double dy)
-{
-  rectangle_.pos.x += dx;
-  rectangle_.pos.y += dy;
-}
-
-void Rectangle::move(const point_t &new_pos)
-{
-  rectangle_.pos = new_pos;
+  assert((width_>=0.0)and(height_>=0.0));
 }
 
 double Rectangle::getArea() const
 {
-  return rectangle_.width * rectangle_.height;
+  return width_ * height_;
 }
 
-rectangle_t Rectangle::getFrameRate() const
+rectangle_t Rectangle::getFrameRect() const
 {
-  return rectangle_;
+  return {width_,height_,center_};
 }
 
-void Rectangle::info() const
+void Rectangle::move(point_t point)
 {
+  center_ = point;
+}
 
-  rectangle_t rectangle = getFrameRate();
-  std::cout << "--------------------------" << std::endl;
-  std::cout << "Centre:\n" << "x = " << rectangle.pos.x << " " << "y = "
-      << rectangle.pos.y << std::endl;
-
-  std::cout << "Side:\n" << "Width = " << rectangle.width << "\n" << "Height = "
-      << rectangle.height << std::endl;
-
-  std::cout << "Area : " << getArea() << std::endl;
-  std::cout << "--------------------------" << std::endl;
+void Rectangle::move(double dx, double dy)
+{
+  center_.x += dx;
+  center_.y += dy;
 }
