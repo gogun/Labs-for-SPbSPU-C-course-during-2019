@@ -1,5 +1,5 @@
-#ifndef Shape_hpp
-#define Shape_hpp
+#ifndef shape_hpp
+#define shape_hpp
 #include "base-types.hpp"
 
 class Shape

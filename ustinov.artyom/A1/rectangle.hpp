@@ -1,6 +1,6 @@
-#ifndef Rectangle_hpp
-#define Rectangle_hpp
-#include "Shape.hpp"
+#ifndef rectangle_hpp
+#define rectangle_hpp
+#include "shape.hpp"
 
 class Rectangle : public Shape
 {
