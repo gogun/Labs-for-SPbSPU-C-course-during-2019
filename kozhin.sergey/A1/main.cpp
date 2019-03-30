@@ -21,29 +21,23 @@ int main()
   Circle testCircle({10.0, -5.5}, 5.0);
   Rectangle testRect({10.5, -1.5}, 15, 6);
 
-  // Using testShape to work with circle
-  Shape *testShape = &testCircle;
-
   // Printing initial circle info
   std::cout << "Initial test circle params: \n";
-  printShapeInfo(testShape);
+  printShapeInfo(&testCircle);
 
   // Moving circle relatively and printing new info
   testCircle.move({-5.2, 6.8});
   std::cout << "Moved circle to point -5.2 6.8: \n";
-  printShapeInfo(testShape);
-
-  // Now using testShape to work with rectangle
-  testShape = &testRect;
+  printShapeInfo(&testCircle);
 
   // Priniting initial rectangle info
   std::cout << "Initial test rectangle params: \n";
-  printShapeInfo(testShape);
+  printShapeInfo(&testRect);
 
   // Moving rectangle absolutely and print new info
   testRect.move(3.1, -5.6);
   std::cout << "Changed rectangle postion by 3.1 -5.6: \n";
-  printShapeInfo(testShape);
+  printShapeInfo(&testRect);
 
   return 0;
 }
