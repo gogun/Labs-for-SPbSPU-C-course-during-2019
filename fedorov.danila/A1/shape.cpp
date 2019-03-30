@@ -3,14 +3,11 @@
 #include <iostream>
 #include <cassert>
 
-Shape::Shape()
-{}
+
 
 Shape::Shape(const point_t &position) :
   position_(position)
-{
-  assert(position_.x > 0 && position_.y > 0);
-}
+{}
 
 void Shape::printInfo() const
 {

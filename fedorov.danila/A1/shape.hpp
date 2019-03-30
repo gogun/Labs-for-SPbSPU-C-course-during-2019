@@ -6,7 +6,6 @@
 class Shape
 {
 public:
-  Shape();
   Shape(const point_t &position);
   virtual ~Shape() = default;
 
