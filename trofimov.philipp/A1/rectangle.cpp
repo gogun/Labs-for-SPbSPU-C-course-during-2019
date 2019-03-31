@@ -2,6 +2,7 @@
 #define RECTANGLE_CPP
 #include "rectangle.h"
 #include <iostream>
+#include <assert.h> 
 
 Rectangle::Rectangle(const point_t &pos, double w, double h) :
   rectangle_({ pos, w, h })

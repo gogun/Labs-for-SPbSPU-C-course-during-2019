@@ -4,6 +4,7 @@
 #include <iostream>
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <assert.h> 
 
 Circle::Circle(const point_t &pos, double r) :
   center_(pos),
