@@ -1,11 +1,11 @@
 #include <iostream>
-#include "rectangle.h"
-#include "circle.h"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 int main()
 {
   /*Rectangle*/
-  Rectangle rectangle({ 5,10 }, -3, 20);
+  Rectangle rectangle({ 5,10 }, 6, 20);
   Shape *figure = &rectangle;
   figure->getInfo();
   std::cout << "Move rectangle on dx = 3 and dy = 4" << std::endl;

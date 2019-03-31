@@ -1,6 +1,6 @@
 #ifndef RECTANGLE_CPP
 #define RECTANGLE_CPP
-#include "rectangle.h"
+#include "rectangle.hpp"
 #include <iostream>
 #include <assert.h> 
 
