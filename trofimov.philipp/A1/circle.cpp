@@ -7,11 +7,10 @@
 #include <assert.h> 
 
 Circle::Circle(const point_t &pos, double r) :
-  center_(pos),
   radius_(r)
-
+  center_(pos),
 {
-  assert (radius_ >= 0)
+  assert(radius_ >= 0);
 }
 
 double Circle::getArea() const
