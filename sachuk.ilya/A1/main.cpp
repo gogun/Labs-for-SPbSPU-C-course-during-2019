@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
+
 int main()
 {
   Circle c1({2,3},10);//Создание круга

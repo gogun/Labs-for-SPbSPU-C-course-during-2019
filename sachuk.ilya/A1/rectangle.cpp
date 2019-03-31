@@ -1,5 +1,4 @@
 #include "rectangle.hpp"
-
 #include <iostream>
 #include <cassert>
 

@@ -1,7 +1,7 @@
 #ifndef RECTANGLE_HPP
 #define RECTANGLE_HPP
-
 #include "shape.hpp"
+
 class Rectangle:public Shape{
 public:
   Rectangle(point_t point, double w, double h);
