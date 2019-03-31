@@ -1,0 +1,46 @@
+#include "circle.hpp"
+
+#include <iostream>
+#include <cmath>
+#include <cassert>
+
+Circle::Circle(point_t point, double rad):
+center_(point),radius_(rad)
+{
+  assert(radius_>0);
+}
+
+double Circle::getArea() const
+{
+  return radius_ * radius_ * M_PI;
+}
+
+void Circle::move(point_t point)
+{
+  center_ = point;
+}
+
+void Circle::move(double xx, double yy)
+{
+  center_.x += xx;
+  center_.y += yy;
+}
+
+rectangle_t Circle::getFrameRect() const
+{
+  return {2 * radius_, 2* radius_, center_};
+}
+
+void Circle::printInfo() const
+{
+  std::cout << "Circle:" << std::endl;
+  std::cout << "Radius:" << radius_ << std::endl;
+  std::cout << "X=" << center_.x << ";";
+  std::cout << "Y=" << center_.y << std::endl;
+  std::cout << "Area=" << getArea() << std::endl;
+  std::cout << "Frame Rect:" << std::endl;
+  std::cout << "Width" << getFrameRect().width << ";";
+  std::cout << "Height" << getFrameRect().height << std::endl;
+  std::cout << "X=" << getFrameRect().pos.x << ";";
+  std::cout << "Y=" << getFrameRect().pos.y << std::endl << std::endl;
+}
