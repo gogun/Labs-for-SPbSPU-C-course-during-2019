@@ -1,6 +1,7 @@
 #include "circle.hpp"
 #include <iostream>
-#include <cassert>  
+#include <cassert>
+#include <cmath>
 
 Circle::Circle(point_t centre, double radius) :
 
