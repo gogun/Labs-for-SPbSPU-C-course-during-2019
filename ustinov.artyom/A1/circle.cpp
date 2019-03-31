@@ -17,7 +17,6 @@ radius_(rad)
   assert(radius_ >= 0);
 }
 
-
 double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
