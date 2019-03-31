@@ -28,6 +28,5 @@ int main()
   figure->getInfo();
   std::cout << "Circle area = " << figure->getArea() << std::endl;
 
- system("pause");
   return 0;
 }
