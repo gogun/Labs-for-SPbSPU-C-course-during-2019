@@ -1,8 +1,6 @@
 #ifndef CircleHPP
 #define CircleHPP
 
-#include <iostream>
-#include "base-types.hpp"
 #include "shape.hpp"
 
 class Circle : public Shape

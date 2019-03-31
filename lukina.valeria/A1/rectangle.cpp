@@ -1,6 +1,6 @@
-#include <iostream>
-#include <cassert>
 #include "rectangle.hpp"
+#include <cassert>
+
 
 Rectangle:: Rectangle(double w, double h, point_t c):
   width_(w),

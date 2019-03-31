@@ -1,8 +1,6 @@
 #ifndef BaseTypes
 #define BaseTypes
 
-#include <iostream>
-
 struct point_t
 {
   double x;
