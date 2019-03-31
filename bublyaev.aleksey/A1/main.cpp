@@ -3,7 +3,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printShape (const Shape *shapePtr)
+void printShape(const Shape * shapePtr)
 {
   assert (shapePtr);
 

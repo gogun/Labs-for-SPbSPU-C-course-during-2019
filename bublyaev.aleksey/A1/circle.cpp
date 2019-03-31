@@ -3,7 +3,7 @@
 #include <cassert>
 #include <math.h>
 
-Circle::Circle (const point_t &center, double radius) :
+Circle::Circle(const point_t &center, double radius):
   center_(center),
   radius_(radius)
 {
