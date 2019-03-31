@@ -2,21 +2,21 @@
 #include <iostream>
 #include <cassert> 
 
-Rectangle::Rectangle(point_t centre, double widh, double height):
+Rectangle::Rectangle(point_t centre, double width, double height):
 
   centre_(centre), 
-  widh_(widh),
+  witdh_(width),
   height_(height)
 {
-  assert(widh_ > 0 && "widh of rectangle can't be <= 0");
+  assert(width_ > 0 && "width of rectangle can't be <= 0");
   assert(height_ > 0 && "height of rectangle can't be <= 0");
 }
 
-Rectangle::Rectangle(double x, double y, double widh, double height) :
-  widh_(widh),
+Rectangle::Rectangle(double x, double y, double width, double height) :
+  width_(width),
   height_(height)
 {
-  assert(widh_ > 0 && "widh of rectangle can't be <= 0");
+  assert(width_ > 0 && "width of rectangle can't be <= 0");
   assert(height_ > 0 && "height of rectangle can't be <= 0");
   centre_.x = x;
   centre_.y = y;
@@ -27,9 +27,9 @@ point_t Rectangle::getPos() const
   return centre_;
 }
 
-double Rectangle::getWidh() const
+double Rectangle::getWidth() const
 {
-  return widh_;
+  return width_;
 }
 
 double Rectangle::getHeight() const
@@ -39,12 +39,12 @@ double Rectangle::getHeight() const
 
 double Rectangle::getArea() const 
 {
-  return (widh_*height_);
+  return (width_*height_);
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return {centre_, widh_, height_};
+  return {centre_, width_, height_};
 }
 
 void Rectangle::move(double dx, double dy)

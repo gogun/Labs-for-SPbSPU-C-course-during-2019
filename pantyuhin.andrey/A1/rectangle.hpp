@@ -7,11 +7,11 @@ class Rectangle : public Shape
 {
 public:
   
-  Rectangle(point_t centre, double widh, double height);
-  Rectangle(double x, double y, double widh, double height);
+  Rectangle(point_t centre, double width, double height);
+  Rectangle(double x, double y, double width, double height);
 
   point_t getPos() const;
-  double getWidh() const;
+  double getWidth() const;
   double getHeight() const;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
@@ -21,7 +21,7 @@ public:
 private:
 
   point_t centre_;
-  double widh_;
+  double width_;
   double height_;
 
 };
