@@ -29,13 +29,7 @@ int main()
   rect.move(17, 34);
   std::cout << "Parameters of rectangle after move: " << std::endl;
   rect.printInf();
-
-  // Square around circle
-  rectangle_t rec = cir.getFrameRect();
-  Rectangle rect2({rec.pos.x, rec.pos.y}, rec.width, rec.height );
-  rect2.printInf();
-    
+  
   return 0;
 }
-
 

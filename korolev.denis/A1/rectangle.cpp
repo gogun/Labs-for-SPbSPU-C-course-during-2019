@@ -42,7 +42,7 @@ void Rectangle::move(double dx, double dy)
 
 void Rectangle::printInf() const
 {
-  std::cout << "Parameters of rectangle:" << std::endl
+  std::cout << "Parameters of rectangle: " << std::endl
     << "Center: (" << center_.x << ";" << center_.y << ")" << std::endl
     << "Width and height: " << width_ << " , " << height_ << std::endl
     << "Area: " << getArea() << std::endl;

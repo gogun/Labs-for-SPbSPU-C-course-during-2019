@@ -41,7 +41,7 @@ void Circle::move(double dx, double dy)
 
 void Circle::printInf() const
 {
-  std::cout << "Parameters of circle:" << std::endl
+  std::cout << "Parameters of circle: " << std::endl
     << "Center: (" << center_.x << ";" << center_.y << ")" << std::endl
     << "Radius: " << radius_ << std::endl
     << "Area: " << getArea() << std::endl;
