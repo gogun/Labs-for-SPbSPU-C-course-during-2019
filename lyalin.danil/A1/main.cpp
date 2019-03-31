@@ -17,12 +17,12 @@ int main() {
 
   Shape *circPtr = &c2;
   rectangle_t tmpRect = circPtr->getFrameRect();
-  std::cout << tmpRect.position.x << " " << tmpRect.position.y << " " << tmpRect.width << " " << tmpRect.height
+  std::cout << tmpRect.pos.x << " " << tmpRect.pos.y << " " << tmpRect.width << " " << tmpRect.height
     << std::endl;
 
   Shape *rectPtr = &r2;
   tmpRect = rectPtr->getFrameRect();
-  std::cout << tmpRect.position.x << " " << tmpRect.position.y << " " << tmpRect.width << " " << tmpRect.height
+  std::cout << tmpRect.pos.x << " " << tmpRect.pos.y << " " << tmpRect.width << " " << tmpRect.height
     << std::endl;
   return 0;
 }
