@@ -1,13 +1,11 @@
 #include <iostream>
-#include "rectangle.hpp"
-#include "circle.hpp"
-#include "base-types.hpp"
-#include "shape.hpp"
+#include "rectangle.h"
+#include "circle.h"
 
 int main()
 {
   /*Rectangle*/
-  Rectangle rectangle({ 5,10 }, 15, 20);
+  Rectangle rectangle({ 5,10 }, -3, 20);
   Shape *figure = &rectangle;
   figure->getInfo();
   std::cout << "Move rectangle on dx = 3 and dy = 4" << std::endl;
@@ -30,7 +28,7 @@ int main()
   figure->getInfo();
   std::cout << "Circle area = " << figure->getArea() << std::endl;
 
+ system("pause");
   return 0;
 }
-
 

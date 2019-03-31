@@ -1,15 +1,13 @@
 #ifndef RECTANGLE_CPP
 #define RECTANGLE_CPP
-#include "rectangle.hpp"
+#include "rectangle.h"
 #include <iostream>
 
 Rectangle::Rectangle(const point_t &pos, double w, double h) :
   rectangle_({ pos, w, h })
+
 {
-  if ((rectangle_.height <= 0.0) || (rectangle_.width <= 0.0)) 
-  {
-    std::cerr << "Invalid data" << std::endl;
-  }
+  assert((rectangle_.height > 0) && (rectangle_.width > 0));
 }
 
 double Rectangle::getArea() const

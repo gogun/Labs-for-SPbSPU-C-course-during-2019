@@ -1,18 +1,16 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
-#include "circle.hpp"
+#include "circle.h"
 #include <iostream>
 #define _USE_MATH_DEFINES
 #include <math.h>
 
 Circle::Circle(const point_t &pos, double r) :
-  radius_(r),
-  center_(pos)
+  center_(pos),
+  radius_(r)
+
 {
-  if (radius_ <= 0) 
-  {
-    std::cerr << "Invalid radius" << std::endl;
-  }
+  assert (radius_ >= 0)
 }
 
 double Circle::getArea() const
@@ -46,4 +44,3 @@ void Circle::getInfo() const
   std::cout << "Point y = " << rectangle.pos.y << std::endl;
 }
 #endif
-
