@@ -6,33 +6,32 @@ int main()
 {
   Circle circle1(5, { 1, 2 });
 
-  std::cout << "Circle1 first pos: " << circle1.getPos().x << "," << circle1.getPos().y
-      << "\nCircle1 area: " << circle1.getArea()
-      << "\nRectangle surrounding Circle1: h: " << circle1.getFrameRect().height
-      << ", w: " << circle1.getFrameRect().width
-      << ", x: " << circle1.getFrameRect().pos.x
-      << ", y: " << circle1.getFrameRect().pos.y;
+  Shape *figure = &circle1;
 
-  circle1.move({ 3,4 });
-  
-  std::cout << "\nCircle1 second pos: " << circle1.getPos().x << ", " << circle1.getPos().y;
+  std::cout << "Circle1 first pos: " << figure->getPos().x << "," << figure->getPos().y
+      << "\nCircle1 area: " << figure->getArea()
+      << "\nRectangle surrounding Circle1: h: " << figure->getFrameRect().height
+      << ", w: " << figure->getFrameRect().width
+      << ", x: " << figure->getFrameRect().pos.x
+      << ", y: " << figure->getFrameRect().pos.y;
 
-  circle1.move(5, 6);
-  
-  std::cout << "\nCircle1 third pos: " << circle1.getPos().x << ", " << circle1.getPos().y;
+  figure->move({ 3,4 }); figure->getPos().y;
+
+  figure->move(5, 6);
+  std::cout << "\nCircle1 third pos: " << figure->getPos().x << ", " << figure->getPos().y;
 
   Rectangle rectangle1(3, 4, { 5,6 });
 
-  std::cout << "\n\nRectangle1 first pos: " << rectangle1.getPos().x << ", " << rectangle1.getPos().y
-      << "\nRectangle1 area: " << rectangle1.getArea();
-
-  rectangle1.move({ 3,4 });
+  figure = &rectangle1;
   
-  std::cout << "\nRectangle1 second pos: " << rectangle1.getPos().x << ", " << rectangle1.getPos().y;
+  std::cout << "\n\nRectangle1 first pos: " << figure->getPos().x << ", " << figure->getPos().y
+      << "\nRectangle1 area: " << figure->getArea();
 
-  rectangle1.move(5, 6);
-  
-  std::cout << "\nRectangle1 third pos: " << rectangle1.getPos().x << ", " << rectangle1.getPos().y << std::endl;
+  figure->move({ 3,4 });
+  std::cout << "\nRectangle1 second pos: " << figure->getPos().x << ", " << figure->getPos().y;
+
+  figure->move(5, 6);
+  std::cout << "\nRectangle1 third pos: " << figure->getPos().x << ", " << figure->getPos().y << std::endl;
   
   return 0;
 }
