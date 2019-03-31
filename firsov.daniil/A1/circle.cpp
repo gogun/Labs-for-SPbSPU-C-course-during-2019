@@ -41,4 +41,3 @@ void Circle::printShapeInfo() const
   std::cout << "Width: " << frame.width << std::endl;
   std::cout << "Height: " << frame.height << "\n\n";
 }
-

@@ -44,4 +44,3 @@ void Rectangle::printShapeInfo() const
   std::cout << "Height: " << frame.height << "\n\n";
 
 }
-
