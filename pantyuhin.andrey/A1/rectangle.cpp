@@ -5,7 +5,7 @@
 Rectangle::Rectangle(point_t centre, double width, double height):
 
   centre_(centre), 
-  witdh_(width),
+  width_(width),
   height_(height)
 {
   assert(width_ > 0 && "width of rectangle can't be <= 0");
