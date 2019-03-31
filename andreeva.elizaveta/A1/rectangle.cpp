@@ -9,6 +9,11 @@ height_(height)
   assert((width_>=0.0)&&(height_>=0.0));
 }
 
+Rectangle::Rectangle(double x, double y, double width, double height):
+  Rectangle::Rectangle({x,y},width,height)
+{}
+
+
 double Rectangle::getArea() const
 {
   return width_ * height_;

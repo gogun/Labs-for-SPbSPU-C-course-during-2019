@@ -9,6 +9,10 @@ radius_(rad)
   assert(radius_>=0.0);
 }
 
+Circle::Circle(double x, double y, double rad):
+  Circle::Circle({x,y},rad)
+{}
+
 double Circle::getArea() const {
   return M_PI*radius_*radius_;
 }
