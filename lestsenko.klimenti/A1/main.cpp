@@ -15,7 +15,8 @@ int main()
       << ", x: " << figure->getFrameRect().pos.x
       << ", y: " << figure->getFrameRect().pos.y;
 
-  figure->move({ 3,4 }); figure->getPos().y;
+  figure->move({ 3,4 }); 
+  std::cout << "\nCircle1 second pos: " << figure->getPos().x << ", " << figure->getPos().y;
 
   figure->move(5, 6);
   std::cout << "\nCircle1 third pos: " << figure->getPos().x << ", " << figure->getPos().y;
