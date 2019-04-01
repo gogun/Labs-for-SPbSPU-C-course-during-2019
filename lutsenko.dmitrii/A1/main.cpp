@@ -32,7 +32,7 @@ int main()
   show(circle);
   circle.move(10.0, 10.0);
   show(circle);
-  Circle circle2(5.0, {1.0, 1.0});
+  Circle circle2(15.0, {1.0, 1.0});
   show(circle2);
   return 0;
 }
