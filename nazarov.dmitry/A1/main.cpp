@@ -7,7 +7,7 @@ int main()
   Rectangle rect({ 0, 0 }, 20, 10); 
   Circle circle({ 10, 10 }, 10); 
   Shape * shapes[2] = { &rect, &circle };
-	
+
   rect.move(10, 20); 
   circle.move(5, 6); 
 
@@ -21,7 +21,7 @@ int main()
 
   std::cout << "FIGURES WERE MOVED BY COORDINATE\n\n";
   for (Shape * shape : shapes) {
-		shape->printData();
+    shape->printData();
   }
 
   return 0;
