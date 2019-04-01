@@ -1,6 +1,6 @@
 #ifndef CIRCLE_HPP_INCLUDED
 #define CIRCLE_HPP_INCLUDED
-#include "Shape.hpp"
+#include "shape.hpp"
 
 class Circle : public Shape
 {
