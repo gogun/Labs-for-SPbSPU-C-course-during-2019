@@ -5,12 +5,12 @@
 Rectangle::Rectangle(const point_t & center, double widht, double heigth) :
   rect_({center, widht, heigth})
 {
-  assert((rect_.widht > 0) && (rect_.heigth > 0));
+  assert((rect_.width > 0) && (rect_.height > 0));
 }
 
 double Rectangle::getArea() const
 {
-  return rect_.heigth * rect_.widht;
+  return rect_.height * rect_.width;
 }
 
 rectangle_t Rectangle::getFrameRect() const
