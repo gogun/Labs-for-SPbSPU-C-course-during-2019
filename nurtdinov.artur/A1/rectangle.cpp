@@ -7,9 +7,9 @@
 #include <cassert>
 
 Rectangle::Rectangle(const point_t &point, double width, double height) :
-  position_(point),
   width_(width),
-  height_(height)
+  height_(height),
+  position_(point)
 {
   assert(width_ > 0.0 && height_ > 0.0);
 }
