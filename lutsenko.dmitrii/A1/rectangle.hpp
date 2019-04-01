@@ -4,12 +4,12 @@
 class Rectangle :public Shape
 {
 public:
-	Rectangle(const rectangle_t & rect);
-	double getArea() const override;
-	rectangle_t getFrameRect() const;
-	void move(double dx, double dy) override;
-	void move(const point_t & point) override;
+  Rectangle(const rectangle_t & rect);
+  double getArea() const override;
+  rectangle_t getFrameRect() const;
+  void move(double dx, double dy) override;
+  void move(const point_t & point) override;
 private:
-	rectangle_t rect_;
+  rectangle_t rect_;
 };
 #endif
