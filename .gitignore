@@ -11,3 +11,6 @@ out
 # Test configuration
 .config
 .config.cache
+vyacheslav.seleznev/A1/.vscode/
+vyacheslav.seleznev/A1/build/
+vyacheslav.seleznev/A1/CMakeLists.txt
