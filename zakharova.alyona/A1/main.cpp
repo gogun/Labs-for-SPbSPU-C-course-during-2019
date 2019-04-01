@@ -19,6 +19,5 @@ int main()
   Circle circ(5, { 5,5 });
   Shape * figure2 = &circ;
   demo(figure2);
-  system("pause");
   return 0;
 }
