@@ -4,11 +4,11 @@
 
 void demo(Shape* figure)
 {
-	figure->getInfo();
-	figure->move(10, 15);
-	figure->getInfo();
-	figure->move({ 0,0 });
-	figure->getInfo();
+  figure->getInfo();
+  figure->move(10, 15);
+  figure->getInfo();
+  figure->move({ 0,0 });
+  figure->getInfo();
 }
 
 int main()
@@ -19,6 +19,6 @@ int main()
   Circle circ(5, { 5,5 });
   Shape * figure2 = &circ;
   demo(figure2);
-	system("pause");
+  system("pause");
   return 0;
 }

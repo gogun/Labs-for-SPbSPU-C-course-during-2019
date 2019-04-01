@@ -11,7 +11,7 @@ public:
   virtual rectangle_t getFrameRect() const = 0;
   virtual void move(double dx, double dy) = 0;
   virtual void move(point_t newpos) = 0;
-	virtual void getInfo() const = 0;
+  virtual void getInfo() const = 0;
 };
 
 #endif // SHAPE_HPP

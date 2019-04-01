@@ -17,7 +17,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-	return {width_, height_, pos_};
+  return {width_, height_, pos_};
 }
 
 void Rectangle::move(double dx, double dy)
@@ -35,7 +35,7 @@ void Rectangle::getInfo() const
 {
   std::cout << "Rectangle with width: " << width_ << ", height: " << height_
             << ", centre at point: (" <<pos_.x << ";" << pos_.y << ")" << std::endl;
-	std::cout << "Rectangle area: " << getArea() << std::endl;
+  std::cout << "Rectangle area: " << getArea() << std::endl;
   std::cout << "Frame width: " << getFrameRect().width
             << ", height: " << getFrameRect().height
             << ", centre: (" << getFrameRect().pos.x << ";"
