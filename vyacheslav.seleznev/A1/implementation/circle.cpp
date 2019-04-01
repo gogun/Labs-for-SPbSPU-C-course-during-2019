@@ -20,6 +20,6 @@ double Circle::getArea()
 
 rectangle_t Circle::getFrameRect()
 {
-  double diametr = 2*this->radius;
+  double diametr = 2 * this->radius;
   return rectangle_t(diametr, diametr, this->centre);
 }
