@@ -23,8 +23,8 @@ int main()
 
 void workWithFigure(Shape* figure)
 {
-  assert(shape != nullptr)
-  
+  assert(figure != nullptr)
+
   figure->printInfo();
 
   figure->move(2.1, -1.2);
