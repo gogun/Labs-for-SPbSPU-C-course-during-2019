@@ -1,4 +1,5 @@
 #include <iostream>
+#include "base-types.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 
@@ -9,11 +10,13 @@ int main()
   Shape *figure = &circle1;
 
   std::cout << "Circle1 first pos: " << figure->getPos().x << "," << figure->getPos().y
-      << "\nCircle1 area: " << figure->getArea()
-      << "\nRectangle surrounding Circle1: h: " << figure->getFrameRect().height
-      << ", w: " << figure->getFrameRect().width
-      << ", x: " << figure->getFrameRect().pos.x
-      << ", y: " << figure->getFrameRect().pos.y;
+      << "\nCircle1 area: " << figure->getArea();
+  
+  rectangle_t temp_rect = figure->getFrameRect();
+  std::cout << "\nRectangle surrounding Circle1: h: " << temp_rect.height
+      << ", w: " << temp_rect.width
+      << ", x: " << temp_rect.pos.x
+      << ", y: " << temp_rect.pos.y;
 
   figure->move({ 3,4 }); 
   std::cout << "\nCircle1 second pos: " << figure->getPos().x << ", " << figure->getPos().y;
