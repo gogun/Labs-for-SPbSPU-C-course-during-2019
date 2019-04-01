@@ -23,15 +23,15 @@ void printFrameRect(const Shape &S)
 void printRectangleParameters(const Rectangle &R)
 {
   point_t point = R.getPos();
-  std::cout << "rectangle: x=" << point.x << ", y=" << point.y << ", width=" <<
-    R.getWidth() << ", height=" << R.getHeight() << std::endl << std::endl;
+  std::cout << "rectangle: x=" << point.x << ", y=" << point.y << ", width="
+      << R.getWidth() << ", height=" << R.getHeight() << std::endl << std::endl;
 }
 
 void printCircleParameters(const Circle &C)
 {
   point_t point = C.getPos();
-  std::cout << "circle: x=" << point.x << ", y=" << point.y << ", rad=" <<
-     C.getRadius() << std::endl << std::endl;
+  std::cout << "circle: x=" << point.x << ", y=" << point.y << ", rad="
+      << C.getRadius() << std::endl << std::endl;
 }
 
 

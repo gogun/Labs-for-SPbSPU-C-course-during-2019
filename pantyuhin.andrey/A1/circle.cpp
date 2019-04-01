@@ -31,7 +31,7 @@ double Circle::getRadius() const
 
 double Circle::getArea() const
 {
-  return (3.14*pow(radius_, 2));
+  return (M_PI*pow(radius_, 2));
 }
 
 rectangle_t Circle::getFrameRect() const
