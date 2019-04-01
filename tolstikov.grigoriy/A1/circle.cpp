@@ -1,5 +1,4 @@
 #include "circle.hpp"
-#include <iostream>
 #include <cassert>
 #include <math.h>
 
