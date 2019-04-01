@@ -1,7 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
-	
+
 void showRectangle(rectangle_t rect)
 {
   std::cout << "width: " << rect.width << ", height: " << rect.height;
@@ -35,4 +35,4 @@ int main()
   Circle circle2(5.0, {1.0, 1.0});
   show(circle2);
   return 0;
-};
+}
