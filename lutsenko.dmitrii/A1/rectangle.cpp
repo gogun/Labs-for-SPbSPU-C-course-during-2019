@@ -27,4 +27,4 @@ void Rectangle::move(double x, double y)
 {
   rect_.pos.x += x;
   rect_.pos.y += y;
-};
+}
