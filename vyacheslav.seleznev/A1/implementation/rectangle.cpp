@@ -21,5 +21,5 @@ double Rectangle::getArea()
 
 rectangle_t Rectangle::getFrameRect()
 {
-    return rectangle_t(this->width, this->height, centre);
+  return rectangle_t(this->width, this->height, centre);
 }
