@@ -8,8 +8,8 @@ struct point_t
 
 struct rectangle_t
 {
-  point_t pos;
-  double width, height;
+  point_t center;
+  double widht, heigth;
 };
 
 #endif //BASE_TYPES_HPP
