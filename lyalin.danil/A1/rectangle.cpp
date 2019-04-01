@@ -5,7 +5,7 @@ Rectangle::Rectangle(point_t position, double width, double height) :
   center_(position),
   width_(width),
   height_(height) {
-  assert((width_ >= 0.0) and (height_ >= 0.0));
+  assert((width_ >= 0.0) && (height_ >= 0.0));
 }
 
 Rectangle::Rectangle(double x, double y, double width, double height) :
