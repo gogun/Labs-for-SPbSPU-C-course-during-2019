@@ -24,7 +24,7 @@ public:
   void move(double dx, double dy) override;
 
 private:
-  point_t position_;
+  point_t position_{};
   double radius_;
 };
 

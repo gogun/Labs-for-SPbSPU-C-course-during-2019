@@ -3,18 +3,16 @@
 //
 #include "circle.hpp"
 
+#include <cassert>
 #include <math.h>
-#include <iostream>
 
 
-Circle::Circle(const point_t &point, double radius)
+
+Circle::Circle(const point_t &point, double radius) :
+  position_(point),
+  radius_(radius)
 {
-  if (radius <= 0)
-  {
-    std::cerr << "Invalid value of radius";
-  }
-  position_ = point;
-  radius_ = radius;
+  assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const

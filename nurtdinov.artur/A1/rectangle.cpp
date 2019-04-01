@@ -4,21 +4,14 @@
 
 #include "rectangle.hpp"
 
-#include <iostream>
+#include <cassert>
 
-Rectangle::Rectangle(const point_t &point, double width, double height)
+Rectangle::Rectangle(const point_t &point, double width, double height) :
+  position_(point),
+  width_(width),
+  height_(height)
 {
-  if (width <= 0)
-  {
-    std::cerr << "Invalid value of width";
-  }
-  if (height <= 0)
-  {
-    std::cerr << "Invalid value of height";
-  }
-  position_ = point;
-  width_ = width;
-  height_ = height;
+  assert(width_ > 0.0 && height_ > 0.0);
 }
 
 double Rectangle::getArea() const

@@ -25,7 +25,7 @@ public:
 
 private:
   double width_, height_;
-  point_t position_;
+  point_t position_{};
 };
 
 #endif //A1_RECTANGLE_HPP
