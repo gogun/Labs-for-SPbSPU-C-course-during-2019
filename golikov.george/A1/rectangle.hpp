@@ -3,14 +3,18 @@
 
 #include "shape.hpp"
 
-class Rectangle : public Shape
+class Rectangle:
+    public Shape
 {
 public:
-  rectangle_t m_figure;
+  Rectangle(const rectangle_t & figure);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t &pos) override;
+  void move(const point_t & pos) override;
   void move(double dx, double dy) override;
+  void showParams() const override;
+private:
+  rectangle_t m_figure;
 };
 
 #endif
