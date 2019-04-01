@@ -4,7 +4,7 @@
 #include <math.h>
 #include <cassert>
 
-Circle::Circle(double radius, point_t dot) :
+Circle::Circle(point_t dot, double radius) :
   centre_(dot), radius_(radius)
 {
   assert((radius_ > 0.0));
