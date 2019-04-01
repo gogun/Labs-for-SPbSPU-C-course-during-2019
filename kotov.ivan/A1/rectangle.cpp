@@ -20,11 +20,11 @@ rectangle_t Rectangle::getFrameRect() const
 
 void Rectangle::move(const point_t & newCenter)
 {
-  rect_.center = newCenter;
+  rect_.pos = newCenter;
 }
   
 void Rectangle::move(double dX, double dY)
 {
-  rect_.center.x += dX;
-  rect_.center.y += dY;
+  rect_.pos.x += dX;
+  rect_.pos.y += dY;
 }

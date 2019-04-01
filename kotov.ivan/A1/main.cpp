@@ -13,9 +13,9 @@ int main()
   shapeB->move(-5, -5);
   std::cout << "Area of rectangle: " << shapeA->getArea() << std::endl;
   std::cout << "Area of circle: " << shapeB->getArea() << std::endl;
-  std::cout << "position of rect: " << shapeA->getFrameRect().center.x 
-      << ", " << shapeA->getFrameRect().center.y << std::endl;
-  std::cout << "position of circle: " << shapeB->getFrameRect().center.x 
-      << ", " << shapeB->getFrameRect().center.y << std::endl;
+  std::cout << "position of rect: " << shapeA->getFrameRect().pos.x 
+      << ", " << shapeA->getFrameRect().pos.y << std::endl;
+  std::cout << "position of circle: " << shapeB->getFrameRect().pos.x 
+      << ", " << shapeB->getFrameRect().pos.y << std::endl;
   return 0;
 }
