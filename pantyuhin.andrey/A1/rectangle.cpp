@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert> 
 
-Rectangle::Rectangle(point_t centre, double width, double height):
+Rectangle::Rectangle(point_t centre, double width, double height) :
 
   centre_(centre), 
   width_(width),
