@@ -35,7 +35,7 @@ void Circle::move(double dx, double dy)
   m_center.y += dy;
 }
 
-void Circle::showParams()
+void Circle::showParams() const
 {
   std::cout << "Circle: center - {" << m_center.x << ","
             << m_center.y << "}\n" << "Radius - " << m_radius

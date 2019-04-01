@@ -1,4 +1,5 @@
 #include "rectangle.hpp"
+#include <iostream>
 #include <cassert>
 
 Rectangle::Rectangle(const rectangle_t & figure):
@@ -28,7 +29,7 @@ void Rectangle::move(double dx, double dy)
   m_figure.pos.y += dy;
 }
 
-void Rectangle::showParams()
+void Rectangle::showParams() const
 {
   std::cout << "Rectangle: center - {" << m_figure.pos.x << ","
             << m_figure.pos.y << "}\n" << "Width - " << m_figure.width
