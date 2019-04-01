@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "base-types.hpp"
 #include "shape.hpp"
 #include "circle.hpp"
@@ -6,6 +7,9 @@
 
 void printShapeInfo(const Shape *shape)
 {
+  // Check for null pointer
+  assert(shape != nullptr);
+  // Print info about shape
   double shapeArea = shape->getArea();
   rectangle_t shapeFrameRect = shape->getFrameRect();
   std::cout << "Shape area is " << shapeArea << '\n';
