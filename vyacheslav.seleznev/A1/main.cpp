@@ -6,12 +6,12 @@
 
 std::ostream& operator<<(std::ostream& out , const rectangle_t rect)
 {
-    out << "Frame rect width = " << rect.width << " " <<
-        "height = " << rect.height << " " <<
-        "centreX = " << rect.pos.x << " " <<
-        "centreY = " << rect.pos.y << std::endl;
+  out << "Frame rect width = " << rect.width << " " <<
+    "height = " << rect.height << " " <<
+    "centreX = " << rect.pos.x << " " <<
+    "centreY = " << rect.pos.y << std::endl;
 
-    return out;
+  return out;
 }
 
 int main()
@@ -47,6 +47,9 @@ int main()
 
   std::cout << "Circle " << circle->getFrameRect();
   std::cout << "Rectangle " << rectangle->getFrameRect();
+
+  delete circle;
+  delete rectangle;
 
   return 0;
 }

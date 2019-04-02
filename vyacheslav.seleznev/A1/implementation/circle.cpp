@@ -1,8 +1,7 @@
-#define _USE_MATH_DEFINES
-
-#include <math.h>
-#include <stdexcept>
 #include "../include/circle.hpp"
+
+#include <cmath>
+#include <stdexcept>
 
 Circle::Circle(double radius, const point_t pos)
 {

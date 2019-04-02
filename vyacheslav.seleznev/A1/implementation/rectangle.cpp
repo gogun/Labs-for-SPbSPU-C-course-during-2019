@@ -1,5 +1,6 @@
-#include <stdexcept>
 #include "../include/rectangle.hpp"
+
+#include <stdexcept>
 
 Rectangle::Rectangle(double width, double height, point_t pos)
 {
