@@ -1,4 +1,4 @@
-#include "SHAPE.HPP"
+#include "shape.hpp"
 
 Shape::Shape(const point_t &center):
   center_(center)

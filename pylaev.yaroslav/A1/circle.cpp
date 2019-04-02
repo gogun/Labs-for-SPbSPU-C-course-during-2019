@@ -1,4 +1,4 @@
-#include "CIRCLE.HPP"
+#include "circle.hpp"
 #include <cassert>
 #define _USE_MATH_DEFINES
 #include <cmath>

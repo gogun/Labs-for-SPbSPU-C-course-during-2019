@@ -1,6 +1,6 @@
 #include <iostream>
-#include "RECTANGLE.HPP"
-#include "CIRCLE.HPP"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 int main(int, char *[])
 {
