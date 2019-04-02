@@ -1,7 +1,6 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
-#include <cassert>
 
 Circle::Circle(point_t goal, double rad) :
 center_(goal),

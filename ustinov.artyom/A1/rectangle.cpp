@@ -1,6 +1,5 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cassert>
 
 Rectangle::Rectangle(rectangle_t in_rect) :
 rect_(in_rect)
