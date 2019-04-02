@@ -2,8 +2,8 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-int main() {
-
+int main()
+{
   Rectangle rec{{0, 0}, 10, 20}; //прямоугольник с центом в точке (0, 0), шириной 10 и высотой 20
   Shape *shape_r = &rec;
   Circle circle{{1, 1}, 2}; //окружность с центром в точке (1, 1) и радиусом 2
@@ -22,7 +22,7 @@ int main() {
   shape_c->printParams();
 
   shape_r->move({-1, -1});
-  std::cout << "PARAMETERS OF THE RECTANGLE AFTER MOVE TO (-1,-1):\n";
+  std::cout << "PARAMETERS OF THE RECTANGLE AFTER MOVE TO (-1, -1):\n";
   shape_r->printParams();
   shape_c->move({-1, -1});
   std::cout << "PARAMETERS OF THE CIRCLE AFTER MOVE TO (-1, 1):\n";

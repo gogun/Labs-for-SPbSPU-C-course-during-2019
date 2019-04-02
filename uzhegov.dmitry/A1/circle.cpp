@@ -3,7 +3,7 @@
 #include <cassert>
 #include <math.h>
 
-Circle::Circle(const point_t &center, double radius):
+Circle::Circle(const point_t &center, double radius) :
   center_(center),
   radius_(radius)
 {
@@ -21,17 +21,6 @@ rectangle_t Circle::getFrameRect() const
   return {center_, radius, radius};
 }
 
-void Circle::move(double dx, double dy)
-{
-  center_.x += dx;
-  center_.y += dy;
-}
-
-void Circle::move(const point_t &point)
-{
-  center_ = point;
-}
-
 void Circle::printParams() const
 {
   std::cout << "-Coordination of the center (" << center_.x << "," << center_.y << ")\n";
@@ -41,4 +30,15 @@ void Circle::printParams() const
   std::cout << "-Parameters of FrameRect\n";
   std::cout << "--Coordination of the center (" << frameRect.pos.x << "," << frameRect.pos.y << ")\n";
   std::cout << "--Width = " << frameRect.width << ", Height = " << frameRect.height << '\n';
+}
+
+void Circle::move(double dx, double dy)
+{
+  center_.x += dx;
+  center_.y += dy;
+}
+
+void Circle::move(const point_t &point)
+{
+  center_ = point;
 }
