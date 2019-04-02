@@ -1,9 +1,8 @@
 #include "rectangle.hpp"
-
 #include <cassert>
 #include <iostream>
 
-Rectangle::Rectangle(const point_t &center, double wight, double height) :
+Rectangle::Rectangle(const point_t &center, double wight, double height):
   center_(center),
   width_(wight),
   height_(height)
@@ -11,7 +10,7 @@ Rectangle::Rectangle(const point_t &center, double wight, double height) :
   assert((width_ > 0.0) && (height_ > 0.0));
 }
 
-Rectangle::Rectangle(double x, double y, double wight, double height) :
+Rectangle::Rectangle(double x, double y, double wight, double height):
   center_({x, y}),
   width_(wight),
   height_(height)

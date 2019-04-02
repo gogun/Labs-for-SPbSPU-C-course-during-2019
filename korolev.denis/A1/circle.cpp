@@ -1,17 +1,16 @@
 #include "circle.hpp"
-
 #include <cassert>
 #include <iostream>
 #include <cmath>
 
-Circle::Circle(const point_t &center, double radius) :
+Circle::Circle(const point_t &center, double radius):
   center_(center),
   radius_(radius)
 {
   assert(radius_ > 0.0);
 }
 
-Circle::Circle(double x, double y, double radius) :
+Circle::Circle(double x, double y, double radius):
   center_({x, y}),
   radius_(radius)
 {

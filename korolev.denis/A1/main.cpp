@@ -1,34 +1,32 @@
 #include <iostream>
-
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include "base-types.hpp"
 
 int main()
 {
-  Circle cir({12, 12}, 12);
-  cir.printInf();
+  Circle circle({12, 12}, 12);
+  circle.printInf();
   // Move to point{23,45}
-  cir.move({23, 45});
+  circle.move({23, 45});
   std::cout << "Parameters of circle after move: " << std::endl;
-  cir.printInf();
+  circle.printInf();
 
   // Move to x = 45, y = 12
-  cir.move(45, 12);
+  circle.move(45, 12);
   std::cout << "Parameters of circle after move: " << std::endl;
-  cir.printInf();
+  circle.printInf();
 
-  Rectangle rect(12, 34, 23 , 56);
-  rect.printInf();
+  Rectangle rectangle(12, 34, 23 , 56);
+  rectangle.printInf();
   // Move to point{67,78}
-  rect.move({67, 78});
+  rectangle.move({67, 78});
   std::cout << "Parameters of rectangle after move: " << std::endl;
-  rect.printInf();
+  rectangle.printInf();
 
   // Move to x = 17, y = 34
-  rect.move(17, 34);
+  rectangle.move(17, 34);
   std::cout << "Parameters of rectangle after move: " << std::endl;
-  rect.printInf();
+  rectangle.printInf();
   
   return 0;
 }
