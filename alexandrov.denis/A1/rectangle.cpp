@@ -5,7 +5,7 @@
 Rectangle::Rectangle(const rectangle_t & rect):
   rect_(rect)
 {
-  assert(rect_.height > 0.0 || rect_.width > 0.0);
+  assert((rect_.height > 0.0) && (rect_.width > 0.0));
 }
 
 void Rectangle::move(const point_t & newPoint)
