@@ -4,10 +4,8 @@
 Rectangle::Rectangle(rectangle_t in_rect) :
   rect_(in_rect)
 {
-  if ((rect_.width <= 0) || (rect_.height <= 0))
-  {
-    std::cerr << "Invalid width of height of rectangle." << std::endl;
-  }
+  assert((rect_.height > 0) && ("Incorrect height value"));
+  assert((rect_.width > 0) && ("Incorrect width value"));
 }
 
 Rectangle::Rectangle(double posX, double posY, double width, double height)
@@ -48,4 +46,3 @@ void Rectangle::show() const
   << ", height = " << rectangle.height << std::endl
   << "Area = " << getArea() << std::endl;
 }
-
