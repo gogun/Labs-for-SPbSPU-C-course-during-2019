@@ -25,8 +25,8 @@ public:
 private:
   //in local space (O(0,0) = pos)
   //храня локальные координаты получаем возможность не менять их при передвижение, масштабиповороте и повороте фигуры
-  point_t rightUp = {0, 0};
-  point_t leftDown = {0, 0};
+  point_t rightUp;
+  point_t leftDown;
 };
 
 

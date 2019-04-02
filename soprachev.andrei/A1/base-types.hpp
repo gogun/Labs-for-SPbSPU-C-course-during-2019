@@ -44,9 +44,9 @@ struct point_t
 
 struct rectangle_t
 {
-  double width = 0;
-  double height = 0;
-  point_t pos = {0, 0};
+  double width;
+  double height;
+  point_t pos;
 };
 
 

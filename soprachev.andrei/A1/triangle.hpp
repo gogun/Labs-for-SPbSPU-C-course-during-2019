@@ -23,9 +23,9 @@ public:
 
 private:
   //in local space
-  point_t vertice0 = {0, 0};
-  point_t vertice1 = {0, 0};
-  point_t vertice2 = {0, 0};
+  point_t vertice0;
+  point_t vertice1;
+  point_t vertice2;
 };
 
 
