@@ -12,7 +12,9 @@ Circle::Circle(point_t pos, double r):
 
 Circle::Circle(double x, double y, double r):
   Circle({x, y}, r)
-{ }
+{
+  assert(r > 0);
+}
 
 double Circle::getArea() const
 {

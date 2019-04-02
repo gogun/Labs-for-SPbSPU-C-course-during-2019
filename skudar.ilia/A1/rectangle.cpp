@@ -12,7 +12,9 @@ Rectangle::Rectangle(point_t pos, double w, double h):
 
 Rectangle::Rectangle(double x, double y, double w, double h):
   Rectangle({x, y}, w, h)
-{ }
+{
+  assert((width_ > 0) && (height_ > 0));
+}
 
 void Rectangle::move(point_t point)
 {
