@@ -3,7 +3,7 @@
 #include <cassert>
 #include <cmath>
 
-Circle::Circle(point_t centre, double radius) :
+Circle::Circle(point_t centre, double radius):
 
   centre_(centre),
   radius_(radius)
@@ -11,7 +11,7 @@ Circle::Circle(point_t centre, double radius) :
   assert(radius_ > 0 && "radius of circle can't be <=0");
 }
 
-Circle::Circle(double x, double y, double radius) :
+Circle::Circle(double x, double y, double radius):
   radius_(radius)
 {
   assert(radius_ > 0 && "radius of circle can't be <=0");

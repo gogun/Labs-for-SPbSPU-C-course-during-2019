@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert> 
 
-Rectangle::Rectangle(point_t centre, double width, double height) :
+Rectangle::Rectangle(point_t centre, double width, double height):
 
   centre_(centre), 
   width_(width),
@@ -12,7 +12,7 @@ Rectangle::Rectangle(point_t centre, double width, double height) :
   assert(height_ > 0 && "height of rectangle can't be <= 0");
 }
 
-Rectangle::Rectangle(double x, double y, double width, double height) :
+Rectangle::Rectangle(double x, double y, double width, double height):
   width_(width),
   height_(height)
 {
