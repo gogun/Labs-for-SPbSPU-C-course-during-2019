@@ -17,6 +17,6 @@ int main() {
   point_t tomove = {10,20};
   shape2->move(tomove);
   std::cout << "Width of rectangle: " <<frame.width << "\nHeight of rectangle: " << frame.height <<'\n';
-  
+
   return 0;
 }
