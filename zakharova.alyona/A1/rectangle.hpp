@@ -7,7 +7,7 @@ class Rectangle:
     public Shape
 {
 public:
-  Rectangle(const double w, const double h, point_t p);
+  Rectangle(const double width, const double height, point_t pos);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(double dx, double dy) override;

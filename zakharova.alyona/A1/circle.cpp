@@ -1,13 +1,13 @@
+#include "circle.hpp"
 #include <cassert>
 #include <cmath>
 #include <iostream>
-#include "circle.hpp"
 
-Circle::Circle(const double r, point_t p):
-  radius_(r),
-  pos_(p)
+Circle::Circle(const double radius, point_t pos):
+  radius_(radius),
+  pos_(pos)
 {
-  assert(r > 0);
+  assert(radius > 0);
 }
 
 rectangle_t Circle::getFrameRect() const

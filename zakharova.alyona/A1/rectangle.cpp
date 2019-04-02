@@ -1,13 +1,13 @@
+#include "rectangle.hpp"
 #include <cassert>
 #include <iostream>
-#include "rectangle.hpp"
 
-Rectangle::Rectangle (const double w, const double h, point_t p):
-  width_(w),
-  height_(h),
-  pos_(p)
+Rectangle::Rectangle (const double width, const double height, point_t pos):
+  width_(width),
+  height_(height),
+  pos_(pos)
 {
-  assert(w > 0 && h > 0);
+  assert(width > 0 && height > 0);
 }
 
 double Rectangle::getArea() const
