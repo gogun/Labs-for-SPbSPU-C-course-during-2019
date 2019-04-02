@@ -2,12 +2,12 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const point_t &pos, double height, double wigth) :
+Rectangle::Rectangle(double height, double wigth, const point_t &pos) :
   pos_(pos),
   height_(height),
   wigth_(wigth)
 {
-  assert((height_ > 0.0 ) && (wigth_ > 0.0));
+  assert((height_ > 0.0) && (wigth_ > 0.0));
 }
 
 double Rectangle::getArea() const

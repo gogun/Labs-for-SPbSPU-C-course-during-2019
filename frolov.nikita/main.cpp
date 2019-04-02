@@ -17,7 +17,7 @@ int main()
   std::cout << "Center on x-axis=" << frame.pos.x << "\n";
   std::cout << "Center on y-axis=" << frame.pos.y << "\n";
 
-  Rectangle rect({3,4},4,3);
+  Rectangle rect(4,3,{3,4});
   std::cout << "Area: " << rect.getArea() << "\n";
   rect.move(5,8);
   std::cout << "After change point";
@@ -33,7 +33,7 @@ int main()
   std::cout << "Center on x-axis=" << frame_.pos.x << "\n";
   std::cout << "Center on y-axis=" << frame_.pos.y << "\n";
 
-  Rectangle srect({9,4},4,4);
+  Rectangle srect(4,4,{9,5});
   Shape* shape = &srect;
   rectangle_t sframe_ = shape->getFrameRect();
   std::cout << "Wigth= " << sframe_.wigth << "\n";
