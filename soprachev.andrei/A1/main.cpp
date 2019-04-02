@@ -36,30 +36,25 @@ int main()
   //треугольник по трём точкам
   Triangle triangleByWorldVert = Triangle(point_t{4, 5}, point_t{-1, 9}, point_t{0, 3});
 
-  Shape *shape[6];
-  shape[0] = &rectangleByPosWH;
-  shape[1] = &rectangleByLeftDownRightUp;
-  shape[2] = &circle;
-  shape[3] = &triangleByPosAndLocalVert;
-  shape[4] = &triangleByWorldVert;
+  Shape * shapes[5] = {&rectangleByPosWH, &rectangleByLeftDownRightUp, &circle, &triangleByPosAndLocalVert,
+                       &triangleByWorldVert};
 
-
-  for (int i = 0; shape[i] != nullptr; i++)
+  for (Shape * shape : shapes)
   {
-    std::cout << shapeToString(shape[i]) << "\n\n";
+    std::cout << shapeToString(shape) << "\n\n";
   }
 
-  shape[0]->move(1, 2); //перемещение на вектор
-  shape[1]->move(point_t{1, 1}); //перемещение в точку
-  shape[2]->move(-1, -3); //перемещение на вектор
-  shape[3]->move(1, 2); //перемещение на вектор
-  shape[4]->move(point_t{1, 1}); //перемещение в точку
+  shapes[0]->move(1, 2); //перемещение на вектор
+  shapes[1]->move(point_t{1, 1}); //перемещение в точку
+  shapes[2]->move(-1, -3); //перемещение на вектор
+  shapes[3]->move(1, 2); //перемещение на вектор
+  shapes[4]->move(point_t{1, 1}); //перемещение в точку
 
   std::cout <<  "after move: \n\n";
 
-  for (int i = 0; shape[i] != nullptr; i++)
+  for (Shape * shape : shapes)
   {
-    std::cout << shapeToString(shape[i]) << "\n\n";
+    std::cout << shapeToString(shape) << "\n\n";
   }
 
   return 0;
