@@ -10,4 +10,5 @@ public:
   virtual void move(double dx, double dy) = 0;
   virtual void move(const point_t & point) = 0;
 };
+
 #endif
