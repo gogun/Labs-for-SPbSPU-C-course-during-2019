@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "./include/base_types.hpp"
-#include "./include/rectangle.hpp"
-#include "./include/circle.hpp"
+#include "base_types.hpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 std::ostream& operator<<(std::ostream& out , const rectangle_t rect)
 {
