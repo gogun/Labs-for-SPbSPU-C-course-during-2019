@@ -16,17 +16,17 @@ Rectangle::Rectangle(double x, double y, double side) :
   Rectangle({x, y}, side, side) {
 }
 
-Rectangle::Rectangle(point_t position, double a) :
-  Rectangle(position, a, a) {
+Rectangle::Rectangle(point_t position, double side) :
+  Rectangle(position, side, side) {
 }
 
 void Rectangle::move(point_t position) {
   center_ = position;
 }
 
-void Rectangle::move(double dx, double dy) {
-  center_.x = dx;
-  center_.y = dy;
+void Rectangle::move(double newx, double newy) {
+  center_.x = newx;
+  center_.y = newy;
 }
 
 double Rectangle::getArea() const {
