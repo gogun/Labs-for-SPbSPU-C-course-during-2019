@@ -1,8 +1,5 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
 #include "circle.hpp"
 #include <iostream>
-#define _USE_MATH_DEFINES
 #include <math.h>
 #include <assert.h> 
 
@@ -43,4 +40,3 @@ void Circle::getInfo() const
   std::cout << "Point x = " << rectangle.pos.x << std::endl;
   std::cout << "Point y = " << rectangle.pos.y << std::endl;
 }
-#endif

@@ -1,5 +1,3 @@
-#ifndef RECTANGLE_CPP
-#define RECTANGLE_CPP
 #include "rectangle.hpp"
 #include <iostream>
 #include <assert.h> 
@@ -40,4 +38,3 @@ void Rectangle::getInfo() const
   std::cout << "Point x = " << rec_.pos.x << std::endl;
   std::cout << "Point y = " << rec_.pos.y << std::endl;
 }
-#endif
