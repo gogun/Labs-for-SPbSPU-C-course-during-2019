@@ -3,8 +3,8 @@
 #include <cmath>
 
 Circle::Circle(point_t goal, double rad) :
-center_(goal),
-radius_(rad)
+  center_(goal),
+  radius_(rad)
 {
   if (radius_ <= 0)
   {

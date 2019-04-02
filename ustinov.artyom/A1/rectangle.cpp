@@ -2,7 +2,7 @@
 #include <iostream>
 
 Rectangle::Rectangle(rectangle_t in_rect) :
-rect_(in_rect)
+  rect_(in_rect)
 {
   if ((rect_.width <= 0) || (rect_.height <= 0))
   {
@@ -10,10 +10,10 @@ rect_(in_rect)
   }
 }
 
-Rectangle::Rectangle(double xx, double yy, double width, double height)
+Rectangle::Rectangle(double posX, double posY, double width, double height)
 {
-  rect_.pos.x = xx;
-  rect_.pos.y = yy;
+  rect_.pos.x = posX;
+  rect_.pos.y = posY;
   rect_.width = width;
   rect_.height = height;
 }
