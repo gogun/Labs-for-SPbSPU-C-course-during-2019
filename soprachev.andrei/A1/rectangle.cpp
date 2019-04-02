@@ -5,24 +5,6 @@
 #include "rectangle.hpp"
 #include <cassert> //need for assetr
 
-
-Rectangle::Rectangle(const point_t &leftDown, const point_t &rightUp) :
-  Shape
-    (
-      point_t
-        {
-          leftDown.x + (rightUp.x - leftDown.x)/2,
-          leftDown.y + (rightUp.y - leftDown.y)/2
-        }
-    ),
-  leftDown(leftDown - pos),
-  rightUp(rightUp - pos)
-{
-  assert(rightUp.x > leftDown.x);
-  assert(rightUp.y > leftDown.y);
-}
-
-
 Rectangle::Rectangle(const point_t &pos, double width, double height) :
   Shape(pos),
 
@@ -49,6 +31,22 @@ Rectangle::Rectangle(const point_t &pos, double width, double height) :
 
 }
 
+Rectangle::Rectangle(const point_t &leftDown, const point_t &rightUp) :
+  Shape
+    (
+      point_t
+        {
+          leftDown.x + (rightUp.x - leftDown.x) / 2,
+          leftDown.y + (rightUp.y - leftDown.y) / 2
+        }
+    ),
+  leftDown(leftDown - pos),
+  rightUp(rightUp - pos)
+{
+  assert(rightUp.x > leftDown.x);
+  assert(rightUp.y > leftDown.y);
+}
+
 
 double Rectangle::getArea() const
 {
@@ -69,7 +67,11 @@ double Rectangle::getHeight() const
   return (rightUp.y - leftDown.y);
 }
 
+
 double Rectangle::getWidth() const
 {
   return (rightUp.x - leftDown.x);
 }
+
+
+
