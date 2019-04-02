@@ -1,13 +1,14 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <stdexcept>
 #include <cassert>
 
 Rectangle::Rectangle(rectangle_t in_rect) :
 rect_(in_rect)
 {
-  assert((rect_.height > 0) && (rect_.width > 0));
-
+  if ((rect_.width <= 0) || (rect_.height <= 0))
+  {
+    std::cerr << "Invalid width of height of rectangle." << std::endl;
+  }
 }
 
 Rectangle::Rectangle(double xx, double yy, double width, double height)
@@ -48,5 +49,4 @@ void Rectangle::show() const
   << ", height = " << rectangle.height << std::endl
   << "Area = " << getArea() << std::endl;
 }
-   
-   
+

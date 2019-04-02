@@ -3,18 +3,14 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(double xx, double yy, double radius) :
-radius_(radius)
-{
-  center_.x = xx;
-  center_.y = yy;
-}
-
 Circle::Circle(point_t goal, double rad) :
 center_(goal),
 radius_(rad)
 {
-  assert(radius_ >= 0);
+  if (radius_ <= 0)
+  {
+    std::cerr << "Invalid radius of circle." << std::endl;
+  }
 }
 
 double Circle::getArea() const

@@ -6,7 +6,7 @@
 int main()
 {
   std::cout << "Circle" << std::endl;
-  Circle objcircle(7, 19, 3);
+  Circle objcircle({7, 19}, 3);
   Shape * shp = &objcircle;
   shp->show();
   std::cout << "move Circle" << std::endl;
@@ -27,7 +27,6 @@ int main()
   std::cout << "move Rectangle" << std::endl;
   shp->move(2, 3);
   shp->show();
-
+  
   return 0;
 }
-
