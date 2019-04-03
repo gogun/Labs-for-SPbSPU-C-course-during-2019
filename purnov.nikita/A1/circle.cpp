@@ -12,8 +12,8 @@
 #include <cmath>
 
 Circle::Circle(const double radius, const point_t & pos) :
-radius_(radius),
-pos_(pos)
+  radius_(radius),
+  pos_(pos)
 {
     if (radius <= 0.0) {
         std::cerr << "Invalid circle radius, shall be greater than 0.0, is: " << radius << std::endl;

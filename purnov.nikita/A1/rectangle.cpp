@@ -11,7 +11,7 @@
 #include <iostream>
 
 Rectangle::Rectangle(const double width, const double height, const point_t & pos) :
-rect_ (rectangle_t {.width = width, .height = height, .pos = pos})
+  rect_ (rectangle_t {.width = width, .height = height, .pos = pos})
 {
     
     if (width <= 0.0) {
