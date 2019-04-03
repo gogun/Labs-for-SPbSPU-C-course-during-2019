@@ -8,7 +8,7 @@ rect_ (rectangle_t { .width = width, .height = height, .pos = pos })
   {
     std::cerr << " Invalid rectangle width, shall be greater than 0.0, is: " << width << std::endl;
   }
-  
+
   if (height <= 0.0)
   {
     std::cerr << "Invalid rectangle height, shall be greater than 0.0, is: " << height << std::endl;

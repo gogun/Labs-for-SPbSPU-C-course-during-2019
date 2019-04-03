@@ -11,7 +11,7 @@ public:
   rectangle_t getFrameRect() const override;
   void move(const point_t & pos) override; // смещение в заданную точку
   void move(double x, double y) override; // смещение по осям
-  
+
 private:
   double radius_;
   point_t pos_;

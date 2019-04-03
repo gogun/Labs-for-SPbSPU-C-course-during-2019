@@ -38,7 +38,7 @@ int main()
   showresult(rect);
   std::cout << std::endl;
   std::cout << std::endl;
-  
+
   Circle circle (5.0, {.x = 2.0, .y = 3.0});
   std::cout << "Circle" << std::endl;
   showpos(circle);
@@ -46,7 +46,6 @@ int main()
   circle.move(3,5);
   showresult(circle);
   std::cout << std::endl;
-  
+
   return 0;
 }
-
