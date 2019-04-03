@@ -30,15 +30,15 @@ int main()
     << "X (center): " << boundedRectCircle.pos.x <<std::endl
       << "Y (center): " << boundedRectCircle.pos.y <<std::endl
         << "Width: " << boundedRectCircle.width <<std::endl
-          << "Height: " << boundedRectCircle.heigh << std::endl << std::endl;
+          << "Height: " << boundedRectCircle.height << std::endl << std::endl;
 
-    //Получение ограничивающего прямоугольника для прямоугольника
+  //Получение ограничивающего прямоугольника для прямоугольника
   const rectangle_t boundedRectRectangle = shRect->getFrameRect();
   std::cout << std::fixed << "Bounded rectangle for Rectangle has" << std::endl
     << "X (center): " << boundedRectRectangle.pos.x <<std::endl
       << "Y (center): " << boundedRectRectangle.pos.y <<std::endl
         << "Width: " << boundedRectRectangle.width <<std::endl
-          << "Height: " << boundedRectRectangle.heigh << std::endl;
+          << "Height: " << boundedRectRectangle.height << std::endl;
 
   return 0;
 }
