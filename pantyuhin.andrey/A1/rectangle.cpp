@@ -3,7 +3,6 @@
 #include <cassert> 
 
 Rectangle::Rectangle(point_t centre, double width, double height):
-
   centre_(centre), 
   width_(width),
   height_(height)
