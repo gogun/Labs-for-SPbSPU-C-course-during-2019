@@ -4,7 +4,7 @@
 
 class Rectangle : public Shape {
 public:
-  Rectangle(point_t, double, double );
+  Rectangle(point_t, double, double);
   Rectangle(double, double, double, double);
 
   double getArea() const override;

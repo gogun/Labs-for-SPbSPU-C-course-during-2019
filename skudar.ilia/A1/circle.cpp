@@ -3,17 +3,17 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(point_t pos, double r):
+Circle::Circle(point_t pos, double radius):
   center_(pos),
-  radius_(r)
+  radius_(radius)
 {
-  assert(r > 0);
+  assert(radius_ > 0.0);
 }
 
-Circle::Circle(double x, double y, double r):
-  Circle({x, y}, r)
+Circle::Circle(double x, double y, double radius):
+  Circle({x, y}, radius)
 {
-  assert(r > 0);
+  assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const
