@@ -19,8 +19,8 @@ double Circle::getArea() const
 }
 
 rectangle_t Circle::getFrameRect() const
-{
 
+{
   return rectangle_t { .width = 2 * radius_,.height = 2 * radius_,.pos = pos_ };
 }
 
