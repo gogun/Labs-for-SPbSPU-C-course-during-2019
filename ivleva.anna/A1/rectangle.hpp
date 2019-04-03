@@ -5,18 +5,14 @@
 
 class Rectangle : public Shape
 {
-public:
-  Rectangle(const point_t &center, double width, double height);
-
-  double getArea() const override;
-  rectangle_t getFrameRect() const override;
-  void move(double dx, double dy) override;
-  void move(const point_t &center) override;
-  void writeInfo() const override;
-
+public:	
+	Rectangle(const double width, const double height, const point_t & pos); 
+	virtual double getArea() const;
+	virtual rectangle_t getFrameRect() const;
+	virtual void move(const point_t & pos); 
+	virtual void move(double x, double y); 
 private:
-
-  rectangle_t rectangle_;
+	rectangle_t rect_;		
 };
 
-#endif // RECTANGLE_HPP
+#endif 

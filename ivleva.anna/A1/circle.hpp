@@ -5,19 +5,14 @@
 
 class Circle : public Shape
 {
-public:
-  Circle(const point_t &center, double radius);
-
-  double getArea() const override;
-  rectangle_t getFrameRect() const override;
-  void move(double dx, double dy) override;
-  void move(const point_t &center) override;
-  void writeInfo() const override;
-
+public:	
+	Circle(const double radius, const point_t & pos); 	virtual double getArea() const;
+	virtual rectangle_t getFrameRect() const;
+	virtual void move(const point_t & pos); 
+	virtual void move(double x, double y); 
 private:
-
-  point_t center_;
-  double radius_;
+	double radius_;
+	point_t pos_;		
 };
 
-#endif // CIRCLE_HPP
+#endif 
