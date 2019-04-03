@@ -15,8 +15,8 @@ public:
   void move(const point_t &pos) override;
 
 private: 
-  double width_, height_;
   point_t pos_;
+  double width_, height_;
 };
 
 #endif
