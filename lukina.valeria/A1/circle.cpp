@@ -11,12 +11,12 @@ Circle::Circle(point_t center, double radius):
 
 double Circle::getArea() const
 {
-  return M_PI*radius_*radius_;
+  return M_PI * radius_ * radius_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {center_, radius_*2, radius_*2};
+  return {center_, radius_ * 2, radius_ * 2};
 }
 
 void Circle::move(double dx, double dy)
