@@ -1,3 +1,6 @@
+#ifndef SHAPE_HPP
+#define SHAPE_HPP
+
 #include "base-types.hpp"
 
 class Shape
@@ -12,3 +15,4 @@ class Shape
   private:
     point_t pos_;
 };
+#endif
