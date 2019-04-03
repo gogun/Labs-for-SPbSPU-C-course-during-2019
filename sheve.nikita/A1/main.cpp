@@ -1,7 +1,7 @@
 #include <iostream>
 #include "shape.hpp"
-#include "Rectangle.hpp"
-#include "Circle.hpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 void printParams(const Shape &s)
 {
