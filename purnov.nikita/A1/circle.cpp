@@ -4,8 +4,8 @@
 #include <cmath>
 
 Circle::Circle(const double radius, const point_t & pos) :
-  radius_(radius),
-  pos_(pos)
+radius_(radius),
+pos_(pos)
 {
   assert(radius > 0);
 }
