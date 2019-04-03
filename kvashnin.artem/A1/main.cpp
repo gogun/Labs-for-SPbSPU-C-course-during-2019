@@ -2,7 +2,8 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-int main() {
+int main() 
+{
   std::cout << "Create a circle with a radius of 1 at the origin." << std::endl;
   Circle cir = Circle({0, 0}, 1);
 
