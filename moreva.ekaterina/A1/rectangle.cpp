@@ -31,10 +31,10 @@ void Rectangle::move(const point_t & pos)
     center_ = pos;
 }
 
-void Rectangle::move(const double newX, const double newY)
+void Rectangle::move(const double deltaX, const double deltaY)
 {
-  center_.x += newX;
-  center_.y += newY;
+  center_.x += deltaX;
+  center_.y += deltaY;
 }
 
 void Rectangle::printInfo() const

@@ -29,10 +29,10 @@ void Circle::move(const point_t & pos)
   center_ = pos;
 }
 
-void Circle::move(double newX, double newY)
+void Circle::move(double deltaX, double deltaY)
 {
-  center_.x += newX;
-  center_.y += newY;
+  center_.x += deltaX;
+  center_.y += deltaY;
 }
 
 void Circle:: printInfo() const
