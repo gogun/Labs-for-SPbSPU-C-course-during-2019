@@ -7,9 +7,10 @@ Circle::Circle(const double radius, const point_t & pos) :
   radius_(radius),
   pos_(pos)
 {
-  if (radius <= 0.0) {
+  if (radius <= 0.0) 
+  {
    std::cerr << "Invalid circle radius, should be greater than 0.0, is: " << radius << std::endl;
-	}
+  }
 }
 
 double Circle::getArea() const
@@ -33,4 +34,3 @@ void Circle::move(double x, double y)
   pos_.x += x;
   pos_.y += y;
 }
-

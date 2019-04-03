@@ -10,9 +10,10 @@ public:
   virtual double getArea() const;
   virtual rectangle_t getFrameRect() const;
   virtual void move(const point_t & pos); 
-  virtual void move(double x, double y); 
+  virtual void move(double x, double y);
+ 
 private:
-	rectangle_t rect_;		
+  rectangle_t rect_;		
 };
 
 #endif 
