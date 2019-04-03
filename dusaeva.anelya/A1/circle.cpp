@@ -42,3 +42,4 @@ void Circle::printInfo() const
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << std::endl;
   std::cout << std::endl;
 }
+
