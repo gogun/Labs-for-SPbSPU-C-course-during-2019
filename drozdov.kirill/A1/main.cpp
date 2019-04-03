@@ -8,32 +8,32 @@ int main()
 {
   /*test on example Rectangle:*/
   Rectangle rect1(7.2, 5.7, {5, -2.4});
-  Shape * r1 = & rect1;
+  Shape * ptrRect = & rect1;
 
   std::cout << "Rectangle: ";
-  r1->displayData();
-  std::cout << "\nArea: " << r1->getArea() << std::endl;
+  ptrRect->displayData();
+  std::cout << "\nArea: " << ptrRect->getArea() << std::endl;
 
-  rectangle_t frameRect = r1->getFrameRect();
+  rectangle_t frameRect = ptrRect->getFrameRect();
   showFrame(frameRect);
-  r1->move(2.5, -4.1);
+  ptrRect->move(2.5, -4.1);
   std::cout << "\n==============================After move -> +2.5, -4.1==============================";
-  r1->displayData();
+  ptrRect->displayData();
 
   /*test on example Circle:*/
-  Circle circ1(5);
-  Shape *c1 = &circ1;
+  Circle cirptrCirc(5);
+  Shape *ptrCirc = &cirptrCirc;
 
   std::cout << std::endl << "\nCircle: ";
-  c1->displayData();
-  std::cout << "\nArea: " << c1->getArea() << std::endl;
+  ptrCirc->displayData();
+  std::cout << "\nArea: " << ptrCirc->getArea() << std::endl;
 
-  frameRect = c1->getFrameRect();
+  frameRect = ptrCirc->getFrameRect();
   showFrame(frameRect);
   point_t position = {-1.8, 2.4};
-  c1->move(position);
+  ptrCirc->move(position);
   std::cout << "\n==============================After move to (-1.8, 2.4)==============================";
-  c1->displayData();
+  ptrCirc->displayData();
 
   std::cout << std::endl;
   return 0;
