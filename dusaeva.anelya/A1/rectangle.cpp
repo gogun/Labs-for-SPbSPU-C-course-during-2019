@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cassert>
-#include <iostream>
 #include "base-types.hpp"
 #include "rectangle.hpp"
 
