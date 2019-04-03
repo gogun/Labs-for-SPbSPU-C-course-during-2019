@@ -12,7 +12,7 @@ class Shape
     virtual void displayData() const = 0;
     void move (double dx, double dy);
     void move (point_t dot);
-  private:
+  protected:
     point_t pos_;
 };
 #endif
