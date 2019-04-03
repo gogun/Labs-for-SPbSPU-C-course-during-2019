@@ -3,7 +3,9 @@
 #include <cassert>
 
 Rectangle::Rectangle(point_t point, double w, double h):
-center_(point),width_(w),height_(h)
+  center_(point),
+  width_(w),
+  height_(h)
 {
   assert((width_ > 0) && (height_ > 0));
 }
@@ -13,15 +15,15 @@ double Rectangle::getArea() const
   return width_ * height_;
 }
 
- void Rectangle::move(point_t point)
- {
-   center_ = point;
- }
-
-void Rectangle::move(double xx, double yy)
+void Rectangle::move(point_t point)
 {
-  center_.x += xx;
-  center_.y += yy;
+  center_ = point;
+}
+
+void Rectangle::move(double dx, double dy)
+{
+  center_.x += dx;
+  center_.y += dy;
 }
 
 rectangle_t Rectangle::getFrameRect() const

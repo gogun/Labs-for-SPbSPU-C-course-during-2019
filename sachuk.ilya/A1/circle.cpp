@@ -4,9 +4,10 @@
 #include <cassert>
 
 Circle::Circle(point_t point, double rad):
-center_(point),radius_(rad)
+  center_(point),
+  radius_(rad)
 {
-  assert(radius_>0);
+  assert(radius_ > 0);
 }
 
 double Circle::getArea() const
@@ -19,15 +20,15 @@ void Circle::move(point_t point)
   center_ = point;
 }
 
-void Circle::move(double xx, double yy)
+void Circle::move(double dx, double dy)
 {
-  center_.x += xx;
-  center_.y += yy;
+  center_.x += dx;
+  center_.y += dy;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {2 * radius_, 2* radius_, center_};
+  return {2 * radius_, 2 * radius_, center_};
 }
 
 void Circle::printInfo() const
