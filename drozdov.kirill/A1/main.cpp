@@ -17,14 +17,14 @@ int main()
   rectangle_t frameRect = r1->getFrameRect();
   showFrame(frameRect);
   r1->move(2.5, -4.1);
-  std::cout << "\n==============================After move -> +2.5, -4.1==============================" << std::endl;
+  std::cout << "\n==============================After move -> +2.5, -4.1==============================";
   r1->displayData();
 
   /*test on example Circle:*/
   Circle circ1(5);
   Shape *c1 = &circ1;
 
-  std::cout << "\nCircle: ";
+  std::cout << std::endl << "\nCircle: ";
   c1->displayData();
   std::cout << "\nArea: " << c1->getArea() << std::endl;
 
