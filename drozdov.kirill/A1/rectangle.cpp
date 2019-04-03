@@ -14,16 +14,16 @@ Rectangle::Rectangle (double width, double height, point_t pos):
 void Rectangle::displayData() const
 {
   std::cout << "\nWidth: " << width_ << std::endl
-    <<"Height: " << height;
+    <<"Height: " << height_;
   Shape::displayData();
 }
 
 double Rectangle::getArea() const
 {
-  return (width_ * height);
+  return (width_ * height_);
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return rectangle_t{width_, height, {m_pos.x, m_pos.y}};
+  return rectangle_t{width_, height_, {pos_.x, pos_.y}};
 }
