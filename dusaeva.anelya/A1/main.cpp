@@ -18,6 +18,7 @@ int main()
   std::cout << "Point shift:" << std::endl;
   shape->printInfo();
   std::cout << std::endl;
+
   //Circle
   Circle objCirc({1.0, 5.0}, 6.0);
   Shape *shapeC = &objCirc;
