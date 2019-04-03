@@ -6,26 +6,18 @@ Rectangle::Rectangle(rectangle_t rectangle) :
 {
   if (rectangle.width <= 0)
   {
-    throw std::invalid_argument("Invalid rectangle: Width must be greater than 0");
+    throw std::invalid_argument("Width must be greater than 0");
   }
   if (rectangle.height <= 0)
   {
-    throw std::invalid_argument("Invalid rectangle: Height must be greater than 0");
+    throw std::invalid_argument("Height must be greater than 0");
   }
 }
 
 Rectangle::Rectangle(point_t centre, double width, double height) :
-  rectangle_(rectangle_t {width, height, centre})
+  Rectangle({width, height, centre})
 {
-  if (width <= 0)
-  {
-    throw std::invalid_argument("Width must be greater than 0");
-  }
 
-  if (height <= 0)
-  {
-    throw std::invalid_argument("Height must be greater than 0");
-  }
 }
 
 double Rectangle::getArea() const
