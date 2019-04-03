@@ -1,6 +1,6 @@
+#include "rectangle.hpp"
 #include <iostream>
 #include <cassert>
-#include "rectangle.hpp"
 
 Rectangle::Rectangle(const point_t &pos, const double &width, const double &height) : Shape(pos), width_(width), height_(height)
 {

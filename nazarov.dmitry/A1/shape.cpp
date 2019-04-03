@@ -1,5 +1,5 @@
-#include <iostream>
 #include "shape.hpp"
+#include <iostream>
 
 Shape::Shape(const point_t &pos) : pos_(pos)
 {}

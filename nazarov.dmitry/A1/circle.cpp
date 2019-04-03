@@ -1,6 +1,6 @@
+#include "circle.hpp"
 #include <cassert>
 #include <iostream>
-#include "circle.hpp"
 
 const double PI = 3.14159265;
 
