@@ -1,6 +1,7 @@
+#include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include <iostream>
+
 
 int main() {
   Rectangle r1({ 4.2, 6.2 },4.0, 5.5);
@@ -34,7 +35,5 @@ int main() {
 	
   std::cout << "New Position = " << "(X = " << data_c.pos.x << ";";
   std::cout	<< "Y=" << data_c.pos.y << ")" 	;
-
   return 0;
-
 }
