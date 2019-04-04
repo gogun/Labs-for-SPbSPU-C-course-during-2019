@@ -2,7 +2,6 @@
 // Created by Andrei Soprachev on 2019-04-01.
 //
 
-#include <iostream>
 #include "triangle.hpp"
 #include "math.h"
 

@@ -5,6 +5,7 @@
 #include "rectangle.hpp"
 #include <cassert> //need for assetr
 
+//Прямоугольник по центру, ширине и высоте
 Rectangle::Rectangle(const point_t &pos, double width, double height) :
   Shape(pos),
 
@@ -31,6 +32,7 @@ Rectangle::Rectangle(const point_t &pos, double width, double height) :
 
 }
 
+//прямоугольник по левому нижнему и правому верхнему углам
 Rectangle::Rectangle(const point_t &leftDown, const point_t &rightUp) :
   Shape
     (
