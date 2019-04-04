@@ -13,7 +13,7 @@ public:
   void getInfo() const override;
   void move(const point_t &new_pos) override;
   void move(const double dx, const double dy) override;
-
+  
 private:
   rectangle_t rectangle_;
 };
