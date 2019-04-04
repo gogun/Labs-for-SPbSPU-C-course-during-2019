@@ -6,18 +6,15 @@
 class Circle : public Shape
 {
 public:
-	Ciecle(point_t pos, double radius);
+  Circle(point_t pos, double radius);
 
-	double getArea() const override;
-	rectangle_t getFrameRect() const override;
-	void move(double x, double y) override;
-	void move(point_t poit) override;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(double x, double y) override;
+  void move(point_t poit) override;
 
 private:
-	double m_radius;
-	point_t m_pos;
+  double m_radius;
+  point_t m_pos;
 };
-
 #endif
-
-
