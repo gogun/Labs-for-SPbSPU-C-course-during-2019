@@ -3,9 +3,7 @@
 #include <iostream>
 
 Rectangle::Rectangle(double width, double height, point_t pos):
-  options_.width(width),
-  options_.height(height),
-  options.pos(pos)
+  options_({width, height, pos})
 {
   assert(options_.width > 0.0);
   assert(options_.height > 0.0);
@@ -24,7 +22,7 @@ rectangle_t Rectangle::getFrameRect() const
 void Rectangle::displayData() const
 {
   std::cout << "Width: " << options_.width
-    << "\nHeight: " << options_.height
+    << "\tHeight: " << options_.height
     << "\nPosition: (" << options_.pos.x << ';' << options_.pos.y << ')';
 }
 
