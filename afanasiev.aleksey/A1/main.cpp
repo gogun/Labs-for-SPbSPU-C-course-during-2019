@@ -8,8 +8,8 @@ void viewInfo(const Shape &figure)
   std::cout << "Coordinates of position: (";
   std::cout << frameRect.pos.x << ", ";
   std::cout << frameRect.pos.y << ")" << std::endl;
-  std::cout << "Width: " << frameRect.width << std::endl;
-  std::cout << "Height: " << frameRect.height << std::endl;
+  std::cout << "Frame Width: " << frameRect.width << std::endl;
+  std::cout << "Frame Height: " << frameRect.height << std::endl;
 }
 
 void viewArea(const Shape &figure)

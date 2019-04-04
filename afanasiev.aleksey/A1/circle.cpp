@@ -1,9 +1,8 @@
 #include "circle.hpp"
 #include <cassert>
+#include <cmath>
 
-const double Pi = 3.1415926535;
-
-Circle::Circle(point_t position, double radius):
+Circle::Circle(const point_t &position, double radius):
   position_(position),
   radius_(radius)
 {
@@ -12,7 +11,7 @@ Circle::Circle(point_t position, double radius):
 
 double Circle::getArea() const
 {
-  return Pi * radius_ * radius_;
+  return M_PI * radius_ * radius_;
 }
 
 rectangle_t Circle::getFrameRect() const
@@ -20,7 +19,7 @@ rectangle_t Circle::getFrameRect() const
   return {position_, radius_ * 2, radius_ * 2};
 }
 
-void Circle::move(point_t newPosition)
+void Circle::move(const point_t &newPosition)
 {
   position_ = newPosition;
 }
