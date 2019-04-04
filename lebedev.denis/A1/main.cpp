@@ -11,7 +11,8 @@ int main() {
   rectangle_t position_r = r1.getFrameRect();
   std::cout<<"Height = "<<position_r.height<<'\n';
   std::cout<<"Width = "<<position_r.width <<'\n';
-  std::cout<<"Position = "<<position_r.pos.x<<";"<<position_r.pos.y<<'\n';
+  std::cout <<"Position = "<<"(X = "<<position_r.pos.x << ";";
+  std::cout <<"Y = "<<position_r.pos.y<<")";
   r1.move(3.0, -1.5);
   rectangle_t data_r = r1.getFrameRect();
   std::cout<<"New Position = "<<data_r.pos.x<<";"<<data_r.pos.y<<'\n';
