@@ -1,33 +1,45 @@
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include "base-types.hpp"
+
+void printInf(const Shape &shape)
+{
+  rectangle_t frameRect = shape.getFrameRect();
+  std::cout << "Center: (" << frameRect.pos.x << ";" << frameRect.pos.y << ")" << std::endl
+    << "Width: " << frameRect.width << std::endl
+    << "Height: " << frameRect.height << std::endl
+    << "Area: " << shape.getArea() << std::endl;
+}
+
+void movePoint(Shape &shape, double x, double y)
+{
+  std::cout << "Parameters of frame rectangle: " << std::endl;
+  printInf(shape);
+  shape.move({x, y});
+  std::cout << "Parameters of frame rectangle after move: " << std::endl;
+  printInf(shape);
+}
+
+void moveXY(Shape &shape, double dx, double dy)
+{
+  std::cout << "Parameters of frame rectangle: " << std::endl;
+  printInf(shape);
+  shape.move(dx, dy);
+  std::cout << "Parameters of frame rectangle after move: " << std::endl;
+  printInf(shape);
+}
 
 int main()
 {
   Circle circle({12, 12}, 12);
-  circle.printInf();
-  // Move to point{23,45}
-  circle.move({23, 45});
-  std::cout << "Parameters of circle after move: " << std::endl;
-  circle.printInf();
-
-  // Move to x = 45, y = 12
-  circle.move(45, 12);
-  std::cout << "Parameters of circle after move: " << std::endl;
-  circle.printInf();
+  movePoint(circle, 23, 45);
+  moveXY(circle, 45, 12);
 
   Rectangle rectangle(12, 34, 23 , 56);
-  rectangle.printInf();
-  // Move to point{67,78}
-  rectangle.move({67, 78});
-  std::cout << "Parameters of rectangle after move: " << std::endl;
-  rectangle.printInf();
+  movePoint(rectangle, 67, 78);
+  moveXY(rectangle, 17, 34);
 
-  // Move to x = 17, y = 34
-  rectangle.move(17, 34);
-  std::cout << "Parameters of rectangle after move: " << std::endl;
-  rectangle.printInf();
-  
   return 0;
 }
 
