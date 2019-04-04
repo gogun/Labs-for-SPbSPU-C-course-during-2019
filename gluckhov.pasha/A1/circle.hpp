@@ -4,7 +4,7 @@ class Circle: public Shape
 {
 public:
   Rectangle(double radius_, point_t pos = {0.0, 0.0});
-  double void getArea() const override;
+  double getArea() const override;
   rectangle_t getFrameRect() const override;
   void displayData() const override;
   void move(double dx, double dy) override;
