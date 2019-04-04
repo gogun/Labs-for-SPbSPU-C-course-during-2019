@@ -1,12 +1,11 @@
 #include "circle.hpp"
 
 #include <cmath>
-#include <stdexcept>
+#include <cassert>
 
 Circle::Circle(double radius, const point_t pos)
 {
-  if (radius <= 0)
-    throw std::out_of_range("Radius is out of range");
+  assert(radius > 0);
 
   this->radius = radius;
   this->centre = pos;

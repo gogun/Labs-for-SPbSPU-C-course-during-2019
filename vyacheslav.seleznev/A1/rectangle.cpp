@@ -1,14 +1,11 @@
 #include "rectangle.hpp"
 
-#include <stdexcept>
+#include <cassert>
 
 Rectangle::Rectangle(double width, double height, point_t pos)
 {
-  if (width <= 0)
-    throw std::out_of_range("Width is out of range");
-
-  if (height <= 0)
-    throw std::out_of_range("Height is out of range");
+  assert(width > 0);
+  assert(height > 0);
 
   this->width = width;
   this->height = height;
