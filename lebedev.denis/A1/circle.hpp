@@ -12,6 +12,8 @@ public:
   void move(point_t poit) override;
 private:
   double  m_radius;
+  
+  
   point_t m_position;
 };
 #endif
