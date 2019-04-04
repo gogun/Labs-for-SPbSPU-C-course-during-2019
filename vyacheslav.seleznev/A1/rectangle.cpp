@@ -15,12 +15,12 @@ Rectangle::Rectangle(double width, double height, point_t pos)
   this->centre = pos;
 }
 
-double Rectangle::getArea()
+double Rectangle::getArea() const
 {
   return this->width * height;
 }
 
-rectangle_t Rectangle::getFrameRect()
+rectangle_t Rectangle::getFrameRect() const
 {
   return rectangle_t(this->width, this->height, centre);
 }
