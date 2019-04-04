@@ -2,18 +2,15 @@
 #define RECTANGLE_HPP
 #include "shape.hpp"
 
-class Rectangle:
-  public Shape
+class Rectangle : public Shape
 {
 public:
-  Rectangle(const point_t &position, const double width, const double height);
-
-  double getArea() const override;
-  rectangle_t getFrameRect() const override;
-  void move(const point_t &pos) override;
-  void move(const double dx, const double dy) override;
-  void printInfo() const override;
-
+  Rectangle(const double width, const double height, const point_t & pos);
+  virtual double getArea() const;
+  virtual rectangle_t getFrameRect() const;
+  virtual void move(const point_t & pos);
+  virtual void move(double x, double y);
+  
 private:
   rectangle_t rect_;
 };

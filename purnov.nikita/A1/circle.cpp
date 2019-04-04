@@ -1,49 +1,32 @@
 #include "circle.hpp"
-#include <cmath>
 #include <iostream>
-#include <cassert>
+#include <cmath>
 
-Circle::Circle(const point_t &position, const double radius):
-  pos_(position),
-  radius_(radius)
+Circle::Circle(const double radius, const point_t & pos) :
+  radius_(radius),
+  pos_(pos)
 {
   assert(radius > 0);
 }
 
 double Circle::getArea() const
 {
-  return(M_PI * radius_ * radius_);
-}
-
-void Circle::move(const point_t &pos)
-{
-  pos_ = pos;
-}
-
-void Circle::move(const double dx, const double dy)
-{
-  pos_.x += dx;
-  pos_.y += dy;
+  return (M_PI * radius_ * radius_);
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return rectangle_t
-  {
-    pos_,
-    2 * radius_,
-    2 * radius_
-  };
+  return rectangle_t { .width = 2 * radius_, .height = 2 * radius_, .pos = pos_ };
 }
 
-void Circle::printInfo() const
+void Circle::move(const point_t & pos)
 {
-  rectangle_t FrameRectData = getFrameRect();
-  std::cout << "Circle:" << std::endl
-            << "  coordinates (X; Y): (" << pos_.x
-            << "; " << pos_.y << ")" << std::endl
-            << "  area: " << getArea() << std::endl
-            << "  radius: " << radius_ << std::endl
-            << "  Frame rectangle width: " << FrameRectData.width
-            << "; height: " << FrameRectData.height << std::endl;
+  pos_.x = pos.x;
+  pos_.y = pos.y;
+}
+
+void Circle::move(double x, double y)
+{
+  pos_.x += x;
+  pos_.y += y;
 }
