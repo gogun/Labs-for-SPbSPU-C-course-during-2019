@@ -16,5 +16,4 @@ private:
   double  m_radius;
   point_t m_position;
 };
-
 #endif
