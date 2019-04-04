@@ -1,29 +1,29 @@
 #include "rectangle.hpp"
 
 Rectangle::Rectangle(double width, double height, point_t pos):
-  width_(width),
-  height_(height),
-  pos_(height)
+  options_.width(width),
+  options_.height(height),
+  options.pos(height)
 {}
 
 double Rectangle::getArea() const
 {
-  return (width_ * height_);
+  return (options_.width * options_.height);
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  rectangle_t frameRect = {width_, height_, {pos_.x, pos_.y}};
+  rectangle_t frameRect = {options_.width, options_.height, {options_.pos.x, options_.pos.y}};
   return frameRect;
 }
 
 void Rectangle::move (double dx, double dy)
 {
-  pos_.x += dx;
-  pos_.y += dy;
+  options_.pos.x += dx;
+  options_.pos.y += dy;
 }
 
 void Rectangle::move (point_t newPos)
 {
-  pos_ = newPos;
+  options_.pos = newPos;
 }
