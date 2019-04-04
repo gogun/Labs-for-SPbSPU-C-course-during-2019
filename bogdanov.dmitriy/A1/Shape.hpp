@@ -1,5 +1,5 @@
-#ifndef LABS_SHAPE_HPP
-#define LABS_SHAPE_HPP
+#ifndef SHAPE_HPP
+#define SHAPE_HPP
 
 #include "base-types.hpp"
 

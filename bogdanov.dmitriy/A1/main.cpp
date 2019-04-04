@@ -1,6 +1,6 @@
 #include <iostream>
-#include "rectangle.hpp"
-#include "circle.hpp"
+#include "Rectangle.hpp"
+#include "Circle.hpp"
 
 void printInfo(const Shape &shape)
 {

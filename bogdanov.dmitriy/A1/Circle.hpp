@@ -1,6 +1,5 @@
-#ifndef A1_CIRCLE_HPP
-#define A1_CIRCLE_HPP
-
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
 
 #include "Shape.hpp"
 

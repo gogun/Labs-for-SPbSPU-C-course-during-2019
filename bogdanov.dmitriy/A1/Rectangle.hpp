@@ -1,6 +1,5 @@
-#ifndef A1_RECTANGLE_HPP
-#define A1_RECTANGLE_HPP
-
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 
 #include "base-types.hpp"
 #include "Shape.hpp"
@@ -19,7 +18,6 @@ public:
 private:
   rectangle_t rectangle_;
 };
-
 
 #endif
 
