@@ -1,5 +1,4 @@
 #include <iostream>
-
 #include "rectangle.hpp"
 #include "circle.hpp"
 
@@ -16,7 +15,7 @@ int main()
     shapePtr -> move({4, 3});
     shapePtr -> print();
     std::cout << std::endl;
-
+    
     Circle circle(6, {2, 3});
     shapePtr = &circle;
     std::cout << "Circle movement\n";
@@ -27,5 +26,5 @@ int main()
     std::cout << "2) Moving to the point (" << 6 << "; " << 3 << ")\n";
     shapePtr -> move({6, 3});
     shapePtr -> print();
-  return 0;
+    return 0;
 }
