@@ -9,7 +9,5 @@ public:
   void move(double dx, double dy) override;
   voit move(point newPos);
 protected:
-  double width_;
-  double height_;
-  point_t pos_;
+  rectangle_t options_;
 };
