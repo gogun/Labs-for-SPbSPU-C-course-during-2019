@@ -7,7 +7,8 @@ void displayFrameRect (rectangle_t);
 int main()
 {
   // Rectangle TEST
-  Shape *ptrRec = &Rectangle (5.2, 4, {2.4, -3});
+  Rectangle rec1(5.2, 4, {2.4, -3});
+  Shape *ptrRec = &rec1;
   std::cout << "Rectangle: ";
   ptrRec->displayData();
 
@@ -15,7 +16,8 @@ int main()
   displayFrameRect(frameRect);
   //END RECTANGLE TEST
   // CIRCLE TEST
-  Shape *ptrCir = &Circle (4, {3.2, 2.4});
+  Circle circ1(4, {3.2, 2.4});
+  Shape *ptrCir = &circ1;
   std::cout << "\nCircle: ";
   ptrCir->displayData();
 
