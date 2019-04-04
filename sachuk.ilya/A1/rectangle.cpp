@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(point_t point, double w, double h):
+Rectangle::Rectangle(const point_t & point, double w, double h):
   center_(point),
   width_(w),
   height_(h)
@@ -15,7 +15,7 @@ double Rectangle::getArea() const
   return width_ * height_;
 }
 
-void Rectangle::move(point_t point)
+void Rectangle::move(const point_t & point)
 {
   center_ = point;
 }

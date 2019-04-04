@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(point_t point, double rad):
+Circle::Circle(const point_t & point, double rad):
   center_(point),
   radius_(rad)
 {
@@ -15,7 +15,7 @@ double Circle::getArea() const
   return radius_ * radius_ * M_PI;
 }
 
-void Circle::move(point_t point)
+void Circle::move(const point_t & point)
 {
   center_ = point;
 }
