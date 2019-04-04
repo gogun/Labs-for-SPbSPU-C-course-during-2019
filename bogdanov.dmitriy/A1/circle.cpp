@@ -22,8 +22,8 @@ void Circle::move(const point_t &newCenter)
 
 void Circle::move(double dx, double dy)
 {
-  center_.x_ += dx;
-  center_.y_ += dy;
+  center_.x += dx;
+  center_.y += dy;
 }
 
 rectangle_t Circle::getFrameRect() const
@@ -36,8 +36,8 @@ void Circle::writeInfo() const
   rectangle_t rectangleExp = getFrameRect();
   std::cout << "Information about the Circle: \n";
   std::cout << "Radius: " << radius_ << "\n";
-  std::cout << "Center: (" << center_.x_ << "," << center_.y_ << ") \n";
+  std::cout << "Center: (" << center_.x << "," << center_.y << ") \n";
   std::cout << "Area: " << getArea() << "\n";
-  std::cout << "Frame Rectangle: width = " << rectangleExp.width_ << ", heigth = " << rectangleExp.heigth_ << std::endl
+  std::cout << "Frame Rectangle: width = " << rectangleExp.width << ", height = " << rectangleExp.height << std::endl
             << std::endl;
 }
