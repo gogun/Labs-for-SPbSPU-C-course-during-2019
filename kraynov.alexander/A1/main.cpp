@@ -16,7 +16,7 @@ void printFrameRect(const Shape* ref)
   rectangle_t frameRect = ref->getFrameRect();
   cout << "Object's frame Width is " << frameRect.width << endl;
   cout << "Object's frame Height is: " << frameRect.height << endl;
-  cout << "Object's frame Center is positioned at " << frameRect.pos.x << " , " << frameRect.pos.y << endl;
+  cout << "Object's frame Center is positioned at " << frameRect.center.x << " , " << frameRect.center.y << endl;
 }
 
 int main()
