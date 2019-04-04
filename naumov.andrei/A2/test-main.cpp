@@ -3,8 +3,8 @@
 #include <boost/test/included/unit_test.hpp>
 #include <iostream>
 #include <stdexcept>
-#include "Circle.hpp"
-#include "Rectangle.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
 
 
 BOOST_AUTO_TEST_SUITE(rectangleTest);
