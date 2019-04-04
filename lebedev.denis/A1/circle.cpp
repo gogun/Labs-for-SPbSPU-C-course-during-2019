@@ -30,4 +30,4 @@ void Circle::move(point_t point)
 {
   m_position = point;
 }
- 
+
