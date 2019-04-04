@@ -1,6 +1,5 @@
-#include "rectangle.hpp"
+#include "Rectangle.hpp"
 #include <stdlib.h>
-#include <iostream>
 #include <math.h>
 
 Rectangle::Rectangle(const point_t &p, double w, double h):
@@ -41,6 +40,6 @@ void Rectangle::move (const point_t &p)
 
 void Rectangle::move (const double dx, const double dy)
 {
-  pos.x+=dx;
-  pos.y+=dy;
+  pos.x += dx;
+  pos.y += dy;
 }

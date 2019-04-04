@@ -1,4 +1,4 @@
-#include "circle.hpp"
+#include "Circle.hpp"
 #define _USE_MATH_DEFINES
 #include <math.h>
 
@@ -37,6 +37,6 @@ void Circle::move (const point_t &p)
 
 void Circle::move (const double dx, const double dy)
 {
-  pos.x+=dx;
-  pos.y+=dy;
+  pos.x += dx;
+  pos.y += dy;
 }

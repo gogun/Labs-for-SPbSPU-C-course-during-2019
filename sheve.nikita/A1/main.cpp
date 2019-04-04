@@ -1,7 +1,7 @@
 #include <iostream>
 #include "shape.hpp"
-#include "rectangle.hpp"
-#include "circle.hpp"
+#include "Rectangle.hpp"
+#include "Circle.hpp"
 
 void printParams(const Shape &s)
 {
@@ -18,10 +18,10 @@ int main()
   Shape *rectp = &rect;
   printParams(rect);
   std::cout << "Moving rectangle to point x=-27, y=52" << std::endl;
-  rectp -> move ({-27,52});
+  rectp->move ({-27,52});
   printParams(rect);
   std::cout << "Moving rectangle by dx=10, dy=-30" << std::endl;
-  rectp -> move (10,-30);
+  rectp->move (10,-30);
   printParams(rect);
 
   std::cout << "Creating Circle x=20, y=30, r=13" << std::endl;
@@ -32,7 +32,7 @@ int main()
   circp->move({ 32, -6 });
   printParams(circ);
   std::cout << "Moving circle by dx=-12, dy=9" << std::endl;
-  circp -> move (-12,9);
+  circp->move (-12,9);
   printParams(circ);
 
   return 0;
