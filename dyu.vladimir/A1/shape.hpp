@@ -6,10 +6,10 @@
 class Shape
 {
 public:
-  virtual ~Shape() = default; //дестркутор
+  virtual ~Shape() = default;
   virtual double getArea() const = 0;
   virtual rectangle_t getFrameRect() const = 0;
-  virtual void move(const point_t & pos) = 0; // для pos используем ссылку, так как это - структура
+  virtual void move(const point_t & pos) = 0; //
   virtual void move(double x, double y) = 0;
 };
 
