@@ -1,5 +1,6 @@
 #include "rectangle.hpp"
 #include <cassert>
+#include <iostream>
 
 Rectangle::Rectangle(double width, double height, point_t pos):
   options_.width(width),
@@ -18,6 +19,13 @@ double Rectangle::getArea() const
 rectangle_t Rectangle::getFrameRect() const
 {
   return options_;
+}
+
+void Rectangle::displayData() const
+{
+  std::cout << "Width: " << options_.width
+    << "\nHeight: " << options_.height
+    << "\nPosition: (" << options_.pos.x << ';' << options_.pos.y << ')';
 }
 
 void Rectangle::move (double dx, double dy)

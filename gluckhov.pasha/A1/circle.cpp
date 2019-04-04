@@ -1,6 +1,7 @@
 #include "circle.hpp"
 #include <cmath>
 #include <cassert>
+#include <iostream>
 
 Circle::Circle(double radius, point_t pos):
   radius_(radius)
@@ -20,6 +21,12 @@ Circle_t Circle::getFrameRect() const
   frameCirc.height = frameCirc.width = radius_ * 2;
   frameCirc.pos = pos_;
   return frameCirc;
+}
+
+void Circle::displayData() const
+{
+  std::cout << "Radius: " << radius_
+    << "\nPosition: (" << options_.pos.x << ';' << options_.pos.y << ')';
 }
 
 void Circle::move (double dx, double dy)
