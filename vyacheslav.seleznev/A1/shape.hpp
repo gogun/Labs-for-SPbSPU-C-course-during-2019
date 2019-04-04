@@ -1,14 +1,14 @@
 #ifndef SHAPE_HPP
 #define SHAPE_HPP
 
-#include "base_types.hpp"
+#include "base-types.hpp"
 
 class Shape
 {
   public:
   virtual ~Shape() = default;
-  virtual double getArea() = 0;
-  virtual rectangle_t getFrameRect() = 0;
+  virtual double getArea() const = 0;
+  virtual rectangle_t getFrameRect() const = 0;
   void move(const point_t newPoint)
   {
     this->centre = newPoint;
