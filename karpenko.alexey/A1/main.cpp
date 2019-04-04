@@ -43,6 +43,6 @@ int main()
   std::cout << "Moving to point...\n";
   circle.move({3, 3});
   printCircle(circle);
-  std::cout << "End program for Circle;\n"; system("pause");
+  std::cout << "End program for Circle;\n";
   return 0;
 }
