@@ -35,9 +35,9 @@ int main()
 
     testCircle.getInformation();
   }
-  catch (char* error)
+  catch (std::invalid_argument error)
   {
-    std::cerr << error;
+    std::cerr << error.what();
     return 1;
   }
   return 0;

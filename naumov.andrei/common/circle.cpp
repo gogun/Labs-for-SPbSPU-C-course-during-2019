@@ -1,6 +1,7 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
+#include <stdexcept>
 
 naumov::Circle::Circle(const point_t & centre, double radius) :
   Shape(centre),
@@ -8,7 +9,7 @@ naumov::Circle::Circle(const point_t & centre, double radius) :
 {
   if (radius <= 0)
   {
-    throw (char*) "Invalid circle's parameter";
+    throw std::invalid_argument("Invalid circle's parameter");
   }
 }
 
@@ -43,7 +44,7 @@ void naumov::Circle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-    throw (char*) "Invalid coefficient";
+    throw std::invalid_argument("Invalid coefficient");
   }
   radius_ *= coefficient;
 }

@@ -1,5 +1,6 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <stdexcept>
 
 naumov::Rectangle::Rectangle(const point_t & centre, double width, double height) :
   Shape(centre),
@@ -8,7 +9,7 @@ naumov::Rectangle::Rectangle(const point_t & centre, double width, double height
 {
   if ((width <= 0) || (height <= 0))
   {
-    throw (char*) "Invalid rectangle's parameters";
+    throw std::invalid_argument ("Invalid rectangle's parameters");
   }
 }
 
@@ -48,7 +49,7 @@ void naumov::Rectangle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-    throw (char*) "Invalid coefficient";
+    throw std::invalid_argument ("Invalid coefficient");
   }
   width_ *= coefficient;
   height_ *= coefficient;

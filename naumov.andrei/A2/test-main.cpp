@@ -2,8 +2,10 @@
 
 #include <boost\test\included\unit_test.hpp>
 #include <iostream>
+#include <stdexcept>
 #include "Circle.hpp"
 #include "Rectangle.hpp"
+
 
 BOOST_AUTO_TEST_SUITE(rectangleTest);
 BOOST_AUTO_TEST_CASE(widthImmutabilityAfterMovingToPoint)
@@ -60,18 +62,18 @@ BOOST_AUTO_TEST_CASE(scuareChangeOfAreaAfterScaling)
 
 BOOST_AUTO_TEST_CASE(inncorrectWidth)
 {
-  BOOST_CHECK_THROW(naumov::Rectangle rectangle({ 0.11,0.11 }, -3.4, 6), char*);
+  BOOST_CHECK_THROW(naumov::Rectangle rectangle({ 0.11,0.11 }, -3.4, 6), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(inncorrectHeight)
 {
-  BOOST_CHECK_THROW(naumov::Rectangle rectangle({ 0.11,0.11 }, 3.4, -6), char*);
+  BOOST_CHECK_THROW(naumov::Rectangle rectangle({ 0.11,0.11 }, 3.4, -6), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(inncorrectCoefficient)
 {
   naumov::Rectangle rectangle({ 0.11,0.11 }, 3.4, 6);
-  BOOST_CHECK_THROW(rectangle.scale(0), char*);
+  BOOST_CHECK_THROW(rectangle.scale(0), std::invalid_argument);
 }
 BOOST_AUTO_TEST_SUITE_END(rectangleTest);
 
@@ -118,12 +120,12 @@ BOOST_AUTO_TEST_CASE(scuareChangeOfAreaAfterScaling)
 
 BOOST_AUTO_TEST_CASE(inncorrectRadius)
 {
-  BOOST_CHECK_THROW(naumov::Circle circle({ 0.11,0.11 }, -3.4), char*);
+  BOOST_CHECK_THROW(naumov::Circle circle({ 0.11,0.11 }, -3.4), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(inncorrectCoefficient)
 {
   naumov::Circle circle({ 0.11,0.11 }, 3.4);
-  BOOST_CHECK_THROW(circle.scale(0), char*);
+  BOOST_CHECK_THROW(circle.scale(0), std::invalid_argument);
 }
 BOOST_AUTO_TEST_SUITE_END(cirleTest);
