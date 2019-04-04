@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Rectangle.hpp"
-#include "Circle.hpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 void printInfo(const Shape &shape)
 {
@@ -11,7 +11,7 @@ int main()
 {
   point_t pointCenter = {1.0, 1.0};
   Circle circle(pointCenter, 10.0);
-  Rectangle rectangle(pointCenter, 20.0, 30.0);
+  Rectangle  rectangle(pointCenter, 20.0, 30.0);
   printInfo(circle);
   printInfo(rectangle);
 

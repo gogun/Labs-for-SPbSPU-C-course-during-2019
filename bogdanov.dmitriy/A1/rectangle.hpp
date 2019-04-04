@@ -1,12 +1,13 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 
-#include "Shape.hpp"
+#include "base-types.hpp"
+#include "shape.hpp"
 
-class Circle : public Shape
+class Rectangle: public Shape
 {
 public:
-  Circle(const point_t &center, double radius);
+  Rectangle(const point_t &center, double width, double height);
 
   void move(const point_t &newCenter) override;
   void move(double dx, double dy) override;
@@ -15,8 +16,8 @@ public:
   void writeInfo() const override;
 
 private:
-  double radius_;
-  point_t center_;
+  rectangle_t rectangle_;
 };
 
 #endif
+
