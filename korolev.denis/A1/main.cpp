@@ -6,7 +6,8 @@
 void printInf(const Shape &shape)
 {
   rectangle_t frameRect = shape.getFrameRect();
-  std::cout << "Center: (" << frameRect.pos.x << ";" << frameRect.pos.y << ")" << std::endl
+  std::cout << "Parameters of frame rectangle: " << std::endl
+    << "Center: (" << frameRect.pos.x << ";" << frameRect.pos.y << ")" << std::endl
     << "Width: " << frameRect.width << std::endl
     << "Height: " << frameRect.height << std::endl
     << "Area: " << shape.getArea() << std::endl;
@@ -14,7 +15,6 @@ void printInf(const Shape &shape)
 
 void movePoint(Shape &shape, double x, double y)
 {
-  std::cout << "Parameters of frame rectangle: " << std::endl;
   printInf(shape);
   shape.move({x, y});
   std::cout << "Parameters of frame rectangle after move: " << std::endl;
@@ -23,7 +23,6 @@ void movePoint(Shape &shape, double x, double y)
 
 void moveXY(Shape &shape, double dx, double dy)
 {
-  std::cout << "Parameters of frame rectangle: " << std::endl;
   printInf(shape);
   shape.move(dx, dy);
   std::cout << "Parameters of frame rectangle after move: " << std::endl;
