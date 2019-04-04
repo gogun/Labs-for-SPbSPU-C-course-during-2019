@@ -1,10 +1,13 @@
 #include "circle.hpp"
 #include <cmath>
+#include <cassert>
 
 Circle::Circle(double radius, point_t pos):
   radius_(radius)
   pos_(height)
-{}
+{
+  assert(radius_ > 0.0);
+}
 
 double Circle::getArea() const
 {
