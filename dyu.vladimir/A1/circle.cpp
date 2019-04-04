@@ -1,5 +1,5 @@
 #include "circle.hpp"
-
+#include <cassert>
 #include <iostream>
 #include <cmath>
 
