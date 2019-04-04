@@ -5,7 +5,7 @@
 
 Circle::Circle(double radius, point_t pos):
   radius_(radius)
-  pos_(height)
+  pos_(pos)
 {
   assert(radius_ > 0.0);
 }
