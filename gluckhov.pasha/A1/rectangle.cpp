@@ -13,8 +13,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  rectangle_t frameRect = {options_.width, options_.height, {options_.pos.x, options_.pos.y}};
-  return frameRect;
+  return options_;
 }
 
 void Rectangle::move (double dx, double dy)
