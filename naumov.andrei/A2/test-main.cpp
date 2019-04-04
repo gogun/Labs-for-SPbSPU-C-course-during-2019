@@ -7,7 +7,7 @@
 #include "rectangle.hpp"
 
 
-BOOST_AUTO_TEST_SUITE(rectangleTest);
+BOOST_AUTO_TEST_SUITE(rectangleTest)
 BOOST_AUTO_TEST_CASE(widthImmutabilityAfterMovingToPoint)
 {
   naumov::Rectangle rectangle({-1,1},3,4);
@@ -75,11 +75,11 @@ BOOST_AUTO_TEST_CASE(inncorrectCoefficient)
   naumov::Rectangle rectangle({ 0.11,0.11 }, 3.4, 6);
   BOOST_CHECK_THROW(rectangle.scale(0), std::invalid_argument);
 }
-BOOST_AUTO_TEST_SUITE_END(rectangleTest);
+BOOST_AUTO_TEST_SUITE_END()
 
 
 
-BOOST_AUTO_TEST_SUITE(circleTest);
+BOOST_AUTO_TEST_SUITE(circleTest)
 BOOST_AUTO_TEST_CASE(radiusImmutabilityAfterMovingToPoint)
 {
   naumov::Circle circle({ -1,1 }, 3);
@@ -128,4 +128,4 @@ BOOST_AUTO_TEST_CASE(inncorrectCoefficient)
   naumov::Circle circle({ 0.11,0.11 }, 3.4);
   BOOST_CHECK_THROW(circle.scale(0), std::invalid_argument);
 }
-BOOST_AUTO_TEST_SUITE_END(cirleTest);
+BOOST_AUTO_TEST_SUITE_END()
