@@ -8,7 +8,7 @@ public:
   Circle(point_t pos, double radius);
   
   double getArea() const override;
-  virtual rectangle_t getFrameRect() const override;
+  rectangle_t getFrameRect() const override;
   void move(double x, double y) override;
   void move(point_t poit) override;
   
