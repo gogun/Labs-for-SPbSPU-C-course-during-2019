@@ -6,7 +6,7 @@ Rectangle::Rectangle(const point_t &new_pos, const double width,
     const double height):
   rectangle_({new_pos, width, height})
 {
-  assert((width > 0.0) && (height > 0.0));
+  assert((width > 0.0) %% (height > 0.0));
 }
 
 void Rectangle::move(const double dx, const double dy)
@@ -32,7 +32,6 @@ rectangle_t Rectangle::getFrameRect() const
 
 void Rectangle::getInfo() const
 {
-
   rectangle_t rectangle = getFrameRect();
   std::cout << "--------------------------" << std::endl;
   std::cout << "Centre:\n" << "x = " << rectangle.pos.x << " " << "y = "
