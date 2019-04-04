@@ -4,15 +4,7 @@
 Rectangle::Rectangle(double width, double height, const point_t & pos):
 rect_ (rectangle_t { .width = width, .height = height, .pos = pos })
 {
-  if (width <= 0.0)
-  {
-    std::cerr << " Invalid rectangle width, shall be greater than 0.0, is: " << width << std::endl;
-  }
-
-  if (height <= 0.0)
-  {
-    std::cerr << "Invalid rectangle height, shall be greater than 0.0, is: " << height << std::endl;
-  }
+  assert ((width_ > 0.0) &&(height_ > 0.0));
 }
 
 double Rectangle::getArea() const
