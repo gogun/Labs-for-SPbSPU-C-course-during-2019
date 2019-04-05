@@ -1,9 +1,11 @@
-#ifndef Rectangle_hpp
+#ifndef rectangle_hpp
 
-#define Rectangle_hpp
+#define rectangle_hpp
 
 
-#include "Shape.hpp"
+
+#include "shape.hpp"
+
 
 
 class Rectangle : public Shape
@@ -12,10 +14,11 @@ class Rectangle : public Shape
 
 public:
 
-  point_t center_;
+  double height_;
 
   double width_;
-  double height_;
+
+  point_t center_;
 
   Rectangle(const point_t &center, double width, double height);
 
@@ -28,6 +31,7 @@ public:
   void move(double dx, double dy);
 
 };
+
 
 
 #endif
