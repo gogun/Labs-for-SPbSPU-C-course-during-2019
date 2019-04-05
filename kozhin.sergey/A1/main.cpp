@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cassert>
-#include "base-types.hpp"
-#include "shape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 
@@ -10,8 +8,8 @@ void printShapeInfo(const Shape *shape)
   // Check for null pointer
   assert(shape != nullptr);
   // Print info about shape
-  double shapeArea = shape->getArea();
-  rectangle_t shapeFrameRect = shape->getFrameRect();
+  const double shapeArea = shape->getArea();
+  const rectangle_t shapeFrameRect = shape->getFrameRect();
   std::cout << "Shape area is " << shapeArea << '\n';
   std::cout << "Shape frame rect params are: \n";
   std::cout << "\tWidth: " << shapeFrameRect.width << '\n';
@@ -21,9 +19,8 @@ void printShapeInfo(const Shape *shape)
 
 int main()
 {
-  // Initializing test circle and rectangle
+  // Initializing test circle
   Circle testCircle({10.0, -5.5}, 5.0);
-  Rectangle testRect({10.5, -1.5}, 15, 6);
 
   // Printing initial circle info
   std::cout << "Initial test circle params: \n";
@@ -33,6 +30,9 @@ int main()
   testCircle.move({-5.2, 6.8});
   std::cout << "Moved circle to point -5.2 6.8: \n";
   printShapeInfo(&testCircle);
+
+  // Initializing test rectangle
+  Rectangle testRect({10.5, -1.5}, 15, 6);
 
   // Priniting initial rectangle info
   std::cout << "Initial test rectangle params: \n";
