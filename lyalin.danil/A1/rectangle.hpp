@@ -2,19 +2,25 @@
 #define A1_RECTANGLE_HPP
 
 #include "shape.hpp"
-#include "base-types.hpp"
 
-class Rectangle : public Shape {
+class Rectangle : public Shape
+{
 public:
   Rectangle(point_t position, double width, double height);
+
   Rectangle(double x, double y, double width, double height);
+
   Rectangle(point_t position, double side);
+
   Rectangle(double x, double y, double side);
 
   double getArea() const override;
+
   rectangle_t getFrameRect() const override;
+
   void move(double dx, double dy) override;
-  void move(point_t position) override;
+
+  void move(const point_t &position) override;
 
 private:
   point_t center_;

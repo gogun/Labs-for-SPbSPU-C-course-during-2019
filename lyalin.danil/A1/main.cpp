@@ -2,7 +2,8 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-int main() {
+int main()
+{
   Rectangle r1({1.3, 3.7}, 15.0);
   std::cout << r1.getArea() << std::endl;
 
