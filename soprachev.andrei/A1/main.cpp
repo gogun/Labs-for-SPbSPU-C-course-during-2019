@@ -1,15 +1,14 @@
 #include <iostream>
 #include <cassert> //need for assetr
+#include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
 #include "triangle.hpp"
-#include "shape.hpp"
-
 
 std::string rectToString(rectangle_t rectangle)
 {
-  return "pos = (" + std::to_string(rectangle.pos.x) + "; " + std::to_string(rectangle.pos.y) + ")\nwidth = " +
-         std::to_string(rectangle.width) + "\nheight = " + std::to_string(rectangle.height);
+  return "pos: " + rectangle.pos.toString() + "\nwidth = " + std::to_string(rectangle.width) +
+         "\nheight = " + std::to_string(rectangle.height);
 }
 
 std::string shapeToString(Shape *shape)

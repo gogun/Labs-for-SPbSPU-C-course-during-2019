@@ -14,23 +14,21 @@ struct point_t
 {
   double x;
   double y;
-  std::string toString() const;
-  double magnitude() const;
 
-  friend point_t operator+(const point_t &lhs, const point_t &rhs)
+  point_t operator+(point_t rhs) const
   {
-    return point_t{lhs.x + rhs.x, lhs.y + rhs.y};
+    return point_t{this->x + rhs.x, this->y + rhs.y};
   }
 
-  friend point_t operator-(const point_t &lhs, const point_t &rhs)
+  point_t operator-(point_t rhs) const
   {
-    return point_t{lhs.x - rhs.x, lhs.y - rhs.y};
+    return point_t{this->x - rhs.x, this->y - rhs.y};
   }
 
-  friend point_t operator/(const point_t &lhs, const double &rhs)
+  point_t operator/(const double &rhs) const
   {
     assert(rhs != 0);
-    return point_t{lhs.x / rhs, lhs.y / rhs};
+    return point_t{this->x / rhs, this->y / rhs};
   }
 
   point_t &operator+=(const point_t &rhs)
@@ -39,6 +37,9 @@ struct point_t
     this->y += rhs.y;
     return *this;
   }
+
+  std::string toString() const;
+  double magnitude() const;
 
 };
 
