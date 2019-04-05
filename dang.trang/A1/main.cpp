@@ -1,43 +1,41 @@
-#include "base-types.hpp"
-#include "shape.hpp"
-#include "circle.hpp"
-#include "rectangle.hpp"
-#include "triangle.hpp"
 #include <iostream>
+#include "Shape.hpp"
+#include "Rectangle.hpp"
+#include "Circle.hpp"
+#include "Triangle.hpp"
+using namespace std;
 
 int main()
 {
-  point_t center = {1,4};
-  std::cout << "Rectangle \n";
-  Rectangle rectangle(center,2,6);
-  rectangle.prInf();
-  rectangle.getArea();
-  point_t newPoint;
-  newPoint.x = 3;
-  newPoint.y = 8;
-  rectangle.move(3,5);
-  rectangle.move(newPoint);
-  rectangle.getFrameRect();
-  rectangle.prInf();
-  std::cout << '\n';
-  std::cout << "Circle \n";
-  Circle circle(center,3);
-  circle.prInf();
-  circle.getArea();
-  circle.move(2,2);
-  circle.move(newPoint);
-  circle.getFrameRect();
-  circle.prInf();
-  std::cout<<"\n";
-  std::cout << "Triangle \n";
-  point_t A = { 2,2 }, B = { 3,4 }, C = { 5,3 };
-  Triangle triangle(A,B,C);
-  triangle.prInf();
-  triangle.center(A,B,C);
-  triangle.getArea();
-  triangle.move(2,3);
-  triangle.move(newPoint);
-  triangle.getFrameRect();
-  triangle.prInf();
+  Rectangle rectangle1({{25,25},8,20});
+  Circle circle1({50,50},12);
+  Triangle triangle1({5,5},{0,10},{10,10});
+
+  rectangle1.print();
+  circle1.print();
+  triangle1.print();
+
+  cout<<"\n";
+  cout<<" New shapes: \n";
+
+  rectangle1.move(20,20);
+  rectangle1.move({40,70});
+  cout<<"Move rectangle to: \n";
+  rectangle1.print();
+
+  cout<<"\n";
+
+  circle1.move({40,40});
+  circle1.move(10,10);
+  cout<<"Move circle to: \n";
+  circle1.print();
+
+  cout<<"\n";
+
+  triangle1.move(10,5);
+  triangle1.move({30,20});
+  cout<<"Move triangle to: \n";
+  triangle1.print();
+
   return 0;
 }
