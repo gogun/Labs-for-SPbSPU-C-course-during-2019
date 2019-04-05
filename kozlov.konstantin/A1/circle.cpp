@@ -13,7 +13,7 @@ Circle::Circle(const double radius, const point_t & center):
 
 double Circle::getArea() const
 {
-  return (M_PI * pow(radius_,2));
+  return (M_PI * pow(radius_, 2));
 }
 
 rectangle_t Circle::getFrameRect() const
