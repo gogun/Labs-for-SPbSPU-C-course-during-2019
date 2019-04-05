@@ -1,5 +1,5 @@
-#ifndef SPBSPU_LABS_2019_BASE_TYPES_HPP
-#define SPBSPU_LABS_2019_BASE_TYPES_HPP
+#ifndef BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 struct point_t {
   double x, y;
