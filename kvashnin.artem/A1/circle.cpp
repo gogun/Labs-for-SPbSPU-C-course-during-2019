@@ -13,7 +13,7 @@ Circle::Circle(const point_t &position, const double radius):
 
 double Circle::getArea() const
 {
-  return(M_PI * radius_ * radius_);
+  return M_PI * radius_ * radius_;
 }
 
 void Circle::move(const point_t &pos)

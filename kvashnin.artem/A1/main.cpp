@@ -36,5 +36,12 @@ int main()
   rec.printInfo();
   std::cout << std::endl;
 
+  std::cout << "Move the object." << std::endl;
+  rec.move(2, 4);
+
+  std::cout << "Check the new coordinates." << std::endl;
+  rec.printInfo();
+  std::cout << std::endl;
+
   return 0;
 }
