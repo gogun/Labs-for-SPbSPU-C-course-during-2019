@@ -1,5 +1,5 @@
-#include "rectangle.cpp"
-#include "circle.cpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 #include <iostream>
 

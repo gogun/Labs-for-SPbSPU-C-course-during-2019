@@ -45,5 +45,4 @@ void Rectangle::printInfo() const
   std::cout << "Height is: " << getFrameRect().height << "\n";
   std::cout << "Center point on OX: " << getFrameRect().pos.x << "\n";
   std::cout << "Center point on OY: " << getFrameRect().pos.y << "\n\n";
-
 }
