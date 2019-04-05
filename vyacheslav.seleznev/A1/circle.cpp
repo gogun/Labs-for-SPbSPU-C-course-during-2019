@@ -19,5 +19,5 @@ double Circle::getArea() const
 rectangle_t Circle::getFrameRect() const
 {
   double diametr = 2 * this->radius;
-  return rectangle_t(diametr, diametr, this->centre);
+  return {diametr, diametr, this->centre};
 }

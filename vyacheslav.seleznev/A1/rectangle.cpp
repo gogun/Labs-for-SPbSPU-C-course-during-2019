@@ -19,5 +19,5 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return rectangle_t(this->width, this->height, centre);
+  return {this->width, this->height, centre};
 }
