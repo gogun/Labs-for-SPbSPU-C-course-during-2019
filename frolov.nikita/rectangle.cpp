@@ -2,18 +2,17 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(double height, double wigth, const point_t &pos) :
+Rectangle::Rectangle(double height, double width, const point_t &pos) :
   pos_(pos),
   height_(height),
-  wigth_(wigth)
+  width_(width)
 {
-  assert((height_ > 0.0) && (wigth_ > 0.0));
+  assert((height_ > 0.0) && (width_ > 0.0));
 }
 
 double Rectangle::getArea() const
 {
-  double area = height_ * wigth_;
-  return area;
+  return height_ * width_;
 }
 
 void Rectangle::move(double dx, double dy)
@@ -32,7 +31,7 @@ rectangle_t Rectangle::getFrameRect() const
 {
   rectangle_t frame;
   frame.height = height_;
-  frame.wigth = wigth_;
+  frame.width = width_;
   frame.pos = pos_;
   return frame;
 }

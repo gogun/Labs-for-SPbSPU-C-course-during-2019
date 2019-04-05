@@ -12,8 +12,7 @@ Circle::Circle(double radius, const point_t &center) :
 
 double Circle::getArea() const
 {
-  double area = M_PI * radius_ * radius_;
-  return area;
+  return M_PI * radius_ * radius_;
 }
 
 void Circle::move(double dx, double dy)
@@ -31,7 +30,7 @@ void Circle::move(const point_t &center)
 rectangle_t Circle::getFrameRect() const
 {
   rectangle_t frame;
-  frame.wigth = radius_ * 2;
+  frame.width = radius_ * 2;
   frame.height = radius_ * 2;
   frame.pos = center_;
   return frame;

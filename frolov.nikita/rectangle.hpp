@@ -3,10 +3,10 @@
 
 #include "shape.hpp"
 
-class Rectangle :public Shape
+class Rectangle: public Shape
 {
 public:
-  Rectangle(double height, double wigth, const point_t &center);
+  Rectangle(double height, double width, const point_t &center);
   double getArea() const override;
   void move(double dx, double dy) override;
   void move(const point_t &center) override;
@@ -15,7 +15,7 @@ public:
 private:
   point_t pos_;
   double height_;
-  double wigth_;
+  double width_;
 };
 
 #endif
