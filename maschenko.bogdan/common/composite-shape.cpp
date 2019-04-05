@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <cmath>
 
-CompositeShape::CompositeShape(maschenko::Shape *shape) :
+maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
   //присваиваю здесь центр с координатами (0;0) так как shape может быть null
   pos_({0, 0}),
   shape_quantity_(1),
@@ -17,7 +17,7 @@ CompositeShape::CompositeShape(maschenko::Shape *shape) :
   pos_ = shape_array_[0]->getFrameRect().pos;
 }
 
-double CompositeShape::getArea() const
+double maschenko::CompositeShape::getArea() const
 {
   double sum_shapes_area = 0;
   for (int i = 0; i < shape_quantity_; ++i)
@@ -27,7 +27,7 @@ double CompositeShape::getArea() const
   return sum_shapes_area;
 }
 
-maschenko::rectangle_t CompositeShape::getFrameRect() const
+maschenko::rectangle_t maschenko::CompositeShape::getFrameRect() const
 {
   double max_y = shape_array_[0]->getFrameRect().pos.y + shape_array_[0]->getFrameRect().height / 2;
   double min_y = shape_array_[0]->getFrameRect().pos.y - shape_array_[0]->getFrameRect().height / 2;
@@ -63,7 +63,7 @@ maschenko::rectangle_t CompositeShape::getFrameRect() const
   };
 }
 
-void CompositeShape::move(double dx, double dy)
+void maschenko::CompositeShape::move(double dx, double dy)
 {
   for (int i = 0; i < shape_quantity_; ++i)
   {
@@ -73,7 +73,7 @@ void CompositeShape::move(double dx, double dy)
   pos_.y += dy;
 }
 
-void CompositeShape::move(const maschenko::point_t &center)
+void maschenko::CompositeShape::move(const maschenko::point_t &center)
 {
   double dx = center.x - pos_.x;
   double dy = center.y - pos_.y;
@@ -84,7 +84,7 @@ void CompositeShape::move(const maschenko::point_t &center)
   }
 }
 
-void CompositeShape::scale(double coefficient)
+void maschenko::CompositeShape::scale(double coefficient)
 {
   if (coefficient > 0)
   {
@@ -104,7 +104,7 @@ void CompositeShape::scale(double coefficient)
   }
 }
 
-void CompositeShape::writeInfo() const
+void maschenko::CompositeShape::writeInfo() const
 {
   std::cout << std::endl
             << "Quantity shape in CompositeShape = " << shape_quantity_
@@ -116,17 +116,17 @@ void CompositeShape::writeInfo() const
             << getFrameRect().pos.y << ") " << std::endl << std::endl;
 }
 
-maschenko::point_t CompositeShape::getCenter() const
+maschenko::point_t maschenko::CompositeShape::getCenter() const
 {
   return pos_;
 }
 
-int CompositeShape::getShapeQuantity() const
+int maschenko::CompositeShape::getShapeQuantity() const
 {
   return shape_quantity_;
 }
 
-void CompositeShape::addShape(maschenko::Shape *shape)
+void maschenko::CompositeShape::addShape(maschenko::Shape *shape)
 {
   if (shape == nullptr)
   {

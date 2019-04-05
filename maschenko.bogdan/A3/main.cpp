@@ -28,7 +28,7 @@ int main()
   maschenko::Shape *p_rect2 = &rectangle2;
   maschenko::Shape *p_rect3 = &rectangle3;
 
-  CompositeShape composite_shape(p_circle1);
+  maschenko::CompositeShape composite_shape(p_circle1);
   composite_shape.addShape(p_rect1);
   composite_shape.addShape(p_circle2);
   composite_shape.addShape(p_rect2);

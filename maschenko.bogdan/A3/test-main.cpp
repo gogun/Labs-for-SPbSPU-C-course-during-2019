@@ -14,7 +14,7 @@ BOOST_AUTO_TEST_CASE(testWorkingConstructor)
 {
   maschenko::Rectangle rectangle({5, 5}, 10, 5);
   maschenko::Shape *p_rect = &rectangle;
-  CompositeShape composite_shape(p_rect);
+  maschenko::CompositeShape composite_shape(p_rect);
   BOOST_CHECK_CLOSE(composite_shape.getFrameRect().pos.y, rectangle.getFrameRect().pos.y, INACCURACY);
 }
 
@@ -26,7 +26,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingCentre)
   maschenko::Shape *p_circle = &circle;
   maschenko::Shape *p_rect = &rectangle;
 
-  CompositeShape composite_shape(p_circle);
+  maschenko::CompositeShape composite_shape(p_circle);
   composite_shape.addShape(p_rect);
 
   const double area = composite_shape.getArea();
@@ -42,7 +42,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingOnDxAndDy)
   maschenko::Shape *p_circle = &circle;
   maschenko::Shape *p_rect = &rectangle;
 
-  CompositeShape composite_shape(p_circle);
+  maschenko::CompositeShape composite_shape(p_circle);
   composite_shape.addShape(p_rect);
 
   const double area = composite_shape.getArea();
@@ -53,7 +53,7 @@ BOOST_AUTO_TEST_CASE(immutabilityAreaAfterMovingOnDxAndDy)
 BOOST_AUTO_TEST_CASE(throwExceptionDuaEntryNull)
 {
   maschenko::Shape *shape = nullptr;
-  BOOST_CHECK_THROW(CompositeShape composite_shape(shape), std::invalid_argument);
+  BOOST_CHECK_THROW(maschenko::CompositeShape composite_shape(shape), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(throwExceptionDuaAddNull)
@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(throwExceptionDuaAddNull)
   maschenko::Shape *p_rect = &rectangle;
   maschenko::Shape *shape = nullptr;
 
-  CompositeShape composite_shape(p_circle);
+  maschenko::CompositeShape composite_shape(p_circle);
   composite_shape.addShape(p_rect);
   BOOST_CHECK_THROW(composite_shape.addShape(shape), std::invalid_argument);
 }
@@ -78,7 +78,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingIncrease)
   maschenko::Shape *p_circle = &circle;
   maschenko::Shape *p_rect = &rectangle;
 
-  CompositeShape composite_shape(p_circle);
+  maschenko::CompositeShape composite_shape(p_circle);
   composite_shape.addShape(p_rect);
 
   const double area = composite_shape.getArea();
@@ -95,7 +95,7 @@ BOOST_AUTO_TEST_CASE(AreaScalingDecrease)
   maschenko::Shape *p_circle = &circle;
   maschenko::Shape *p_rect = &rectangle;
 
-  CompositeShape composite_shape(p_circle);
+  maschenko::CompositeShape composite_shape(p_circle);
   composite_shape.addShape(p_rect);
 
   const double area = composite_shape.getArea();
@@ -112,7 +112,7 @@ BOOST_AUTO_TEST_CASE(throwExceptionDuaIncorrectCoefficient)
   maschenko::Shape *p_circle = &circle;
   maschenko::Shape *p_rect = &rectangle;
 
-  CompositeShape composite_shape(p_circle);
+  maschenko::CompositeShape composite_shape(p_circle);
   composite_shape.addShape(p_rect);
   BOOST_CHECK_THROW(composite_shape.scale(-10), std::invalid_argument);
 }
