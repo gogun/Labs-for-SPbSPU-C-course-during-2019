@@ -1,20 +1,18 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cassert>
-
-const double PI = 3.14159265;
+#include <cmath>
 
 Circle::Circle(const point_t &pos, const double &radius) :
   pos_(pos),
   radius_(radius)
 {
   assert((radius > 0));
-  std::cout << "Circle was created\n\n";
 }
 
 double Circle::getArea()const
 {
-  return PI * radius_ * radius_;
+  return M_PI * radius_ * radius_;
 }
 
 rectangle_t Circle::getFrameRect() const

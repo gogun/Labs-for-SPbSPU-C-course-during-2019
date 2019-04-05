@@ -8,7 +8,6 @@ Rectangle::Rectangle(const point_t &pos, const double &width, const double &heig
   height_(height)
 {
   assert((width_ >= 0.0) && (height >= 0.0));
-  std::cout << "Rectangle was created\n\n";
 }
 
 double Rectangle::getArea()const
