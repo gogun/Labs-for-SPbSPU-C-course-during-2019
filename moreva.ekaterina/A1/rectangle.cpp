@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cassert>
 
-
 Rectangle::Rectangle(const point_t & pos,double width,double height) :
   center_(pos),
   width_(width),

@@ -12,12 +12,12 @@ public:
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t & pos) override;
-  void move(double dX, double Y) override;
+  void move(double dX, double dY) override;
   void printInfo() const override;
 
 private:
   point_t center_;
   double radius_;
-  };
+};
 
 #endif // CIRCLE_HPP

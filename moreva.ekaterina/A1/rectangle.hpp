@@ -18,6 +18,6 @@ public:
 private:
   point_t center_;
   double width_, height_;
- };
+};
 
 #endif //RECTANGLE_HPP

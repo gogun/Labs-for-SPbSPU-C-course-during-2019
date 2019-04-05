@@ -29,10 +29,10 @@ void Circle::move(const point_t & pos)
   center_ = pos;
 }
 
-void Circle::move(double dX, double dY)
+void Circle::move(double deltaX, double deltaY)
 {
-  center_.x += dX;
-  center_.y += dY;
+  center_.x += deltaX;
+  center_.y += deltaY;
 }
 
 void Circle:: printInfo() const
@@ -41,5 +41,4 @@ void Circle:: printInfo() const
             << std::endl << "Radius is : " << radius_
             << std::endl << "Area is : " << getArea()
             << std::endl << std::endl;
-
 }
