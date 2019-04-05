@@ -1,14 +1,16 @@
 #include "Rectangle.hpp"
 #include <stdexcept>
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(double setWidth, double setHeight, const point_t& setCenter) :
   width_(setWidth),
   height_(setHeight),
   center_(setCenter)
 {
-  if ((width_ <= 0) && (height_ <= 0)) {
-    throw std::invalid_argument("invalid width/heigt");
+  assert (width_ >= 0);
+  assert  (height_ >= 0);
+}
   }
 }
 
