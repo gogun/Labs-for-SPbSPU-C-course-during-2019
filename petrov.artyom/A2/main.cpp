@@ -1,7 +1,7 @@
 #include <iostream>
-#include "../Common/shape.hpp"
-#include "../Common/rectangle.hpp"
-#include "../Common/circle.hpp"
+#include "../common/shape.hpp"
+#include "../common/rectangle.hpp"
+#include "../common/circle.hpp"
 
 int main()
 {
@@ -37,7 +37,6 @@ int main()
       << "after scaling " << areaAfterScaling << std::endl
       << "intended area scale factor: " << scaleFactor * scaleFactor << std::endl
       << "actual area scale factor: " << areaAfterScaling / areaBeforeScaling << std::endl;
-
 
   return 0;
 }
