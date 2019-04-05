@@ -9,7 +9,7 @@ public:
   rectangle_t getFrameRect() const override;
   void move(double dx, double dy) override;
   void move(const point_t & point) override;
-  private:
+private:
   double radius_;
   point_t pos_;
 };
