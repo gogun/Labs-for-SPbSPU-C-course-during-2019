@@ -2,6 +2,10 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 88285cbc9e7fb8678fba0deb06bb01127088a644
 void printRectangle(const Shape &shape)
 {
   rectangle_t fRect = shape.getFrameRect();
