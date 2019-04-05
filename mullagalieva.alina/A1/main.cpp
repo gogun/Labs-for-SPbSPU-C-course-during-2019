@@ -8,7 +8,7 @@ int main()
   Circle circle1{ point_t{4.12, 6.7}, 3.5 };
   Circle circle2{ 1.23, 5.67, 134.3 };
   Rectangle rectangle1{ point_t{5.86, 9.06}, 4.5, 3.21 };
-  Rectangle rectangle2{ point_t{7.65, 3.65}, 8.91, 13.01 };
+  Rectangle rectangle2{ 7.65, 3.65, 8.91, 13.01 };
 
   Shape* figures[] = { &circle1, &circle2, &rectangle1, &rectangle2 };
   int size = sizeof(figures) / sizeof(Shape);
@@ -35,13 +35,13 @@ int main()
     figures[0]->getPos().y << ")" << "\n";
 
   std::cout << "Position of the third figure: (" << // moving circle
-    figures[3]->getPos().x << "; " <<
-    figures[3]->getPos().y << ")" << "\n";
+    figures[2]->getPos().x << "; " <<
+    figures[2]->getPos().y << ")" << "\n";
   std::cout << "Moving dx = 6.1, dy = 5" << "\n";
-  figures[0]->move({ 6.1, 5 });
+  figures[2]->move({ 6.1, 5 });
   std::cout << "New position of the third figure: (" <<
-    figures[3]->getPos().x << "; " <<
-    figures[3]->getPos().y << ")" << "\n";
+    figures[2]->getPos().x << "; " <<
+    figures[2]->getPos().y << ")" << "\n";
 
   return 0;
 }
