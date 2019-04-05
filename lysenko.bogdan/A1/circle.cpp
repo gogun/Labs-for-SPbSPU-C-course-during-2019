@@ -38,5 +38,5 @@ void Circle::print() const
   std::cout << "Width of frame rectangle: " << getFrameRect().width << "\n";
   std::cout << "Height of frame rectangle: " << getFrameRect().height << "\n";
   std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x
-	        << "; " << getFrameRect().pos.y << ")" << "\n";
+            << "; " << getFrameRect().pos.y << ")" << "\n";
 }
