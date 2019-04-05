@@ -11,6 +11,7 @@ struct rectangle_t
 {
   double width, height;
   point_t pos;
+
 };
 
 #endif //BASE_TYPES_HPP

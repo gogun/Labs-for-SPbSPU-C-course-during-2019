@@ -15,7 +15,7 @@ public:
   void move(const double dX, const double dY) override;
   void printInfo() const override;
 
- private:
+private:
   point_t center_;
   double width_, height_;
  };

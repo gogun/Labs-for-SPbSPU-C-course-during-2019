@@ -13,32 +13,47 @@ int main()
   circle1.printInfo();
   rectangle1.printInfo();
 
-  //Демонстрация перемещения фигур
-  Shape * shCircle = &circle1;
-  shCircle->move({10,10});
+  Shape * shape = &circle1;
 
-  Shape * shRect = &rectangle1;
-  shRect->move({10,0});
+  //Демонстрация перемещения фигуры
+  //смещение в заданную точку
+  shape->move({12,12});
+  std::cout << "After moving 1" << std::endl;
+  shape->printInfo();
 
-  std::cout << "After moving " << std::endl;
-  shCircle->printInfo();
-  shRect->printInfo();
+  //смещение центра
+  shape->move(10,10);
+  std::cout << "After moving 2" << std::endl;
+  shape->printInfo();
 
-  //Получение ограничивающего прямоугольника для круга
-  const rectangle_t boundedRectCircle = shCircle->getFrameRect();
-  std::cout << std::fixed << "Bounded rectangle for Circle has " << std::endl
-    << "X (center): " << boundedRectCircle.pos.x <<std::endl
-      << "Y (center): " << boundedRectCircle.pos.y <<std::endl
-        << "Width: " << boundedRectCircle.width <<std::endl
-          << "Height: " << boundedRectCircle.height << std::endl << std::endl;
+  //Получение ограничивающего квадрата для круга
+  const rectangle_t boundedRectCircle = shape->getFrameRect();
+  std::cout <<"Bounded rectangle for Circle has " << std::endl
+            << "X (center): " << boundedRectCircle.pos.x <<std::endl
+            << "Y (center): " << boundedRectCircle.pos.y <<std::endl
+            << "Width: " << boundedRectCircle.width <<std::endl
+            << "Height: " << boundedRectCircle.height << std::endl << std::endl;
+
+  shape = &rectangle1;
+
+  //Демонстрация перемещения фигуры
+  //смещение в заданную точку
+  shape->move(15,15);
+  std::cout << "After moving 1" << std::endl;
+  shape->printInfo();
+
+  //смещение центра
+  shape->move(20,20);
+  std::cout << "After moving 2" << std::endl;
+  shape->printInfo();
 
   //Получение ограничивающего прямоугольника для прямоугольника
-  const rectangle_t boundedRectRectangle = shRect->getFrameRect();
-  std::cout << std::fixed << "Bounded rectangle for Rectangle has" << std::endl
-    << "X (center): " << boundedRectRectangle.pos.x <<std::endl
-      << "Y (center): " << boundedRectRectangle.pos.y <<std::endl
-        << "Width: " << boundedRectRectangle.width <<std::endl
-          << "Height: " << boundedRectRectangle.height << std::endl;
+  const rectangle_t boundedRectRectangle = shape->getFrameRect();
+  std::cout <<"Bounded rectangle for Rectangle has" << std::endl
+            << "X (center): " << boundedRectRectangle.pos.x <<std::endl
+            << "Y (center): " << boundedRectRectangle.pos.y <<std::endl
+            << "Width: " << boundedRectRectangle.width <<std::endl
+            << "Height: " << boundedRectRectangle.height << std::endl;
 
   return 0;
 }
