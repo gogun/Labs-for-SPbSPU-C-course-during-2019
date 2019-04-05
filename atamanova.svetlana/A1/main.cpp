@@ -7,14 +7,10 @@
 void printFrameRect(const Shape& shape)
 {
   rectangle_t frameRect = shape.getFrameRect();
-  std::cout << frameRect.pos.x
-            << " "
-            << frameRect.pos.y
-            << " "
-            << frameRect.width
-            << " "
-            << frameRect.height
-            << std::endl;
+  std::cout << frameRect.pos.x << " "
+      << frameRect.pos.y << " "
+      << frameRect.width << " "
+      << frameRect.height << std::endl;
 }
 
 int main() {
