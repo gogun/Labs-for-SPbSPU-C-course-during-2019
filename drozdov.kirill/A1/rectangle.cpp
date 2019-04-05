@@ -13,8 +13,7 @@ Rectangle::Rectangle (double width, double height, const point_t &pos):
 
 void Rectangle::displayData() const
 {
-  std::cout << "\nWidth: " << width_ << std::endl
-    <<"Height: " << height_
+  std::cout << "\nWidth: " << width_ << "\tHeight: " << height_
       << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';
 }
 
