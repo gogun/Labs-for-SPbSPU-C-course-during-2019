@@ -23,7 +23,7 @@ int main()
 
   std::cout << "Move the first object on X = 5 and Y = 10. Info:" << std::endl;
   shape_1->move(5, 10);
-  circle_1->printInfo();
+  circle_1.printInfo();
   std::cout << std::endl;
 
   std::cout << "Setting the new coordinates X = 1 and Y = 1 for the first object. Info:" << std::endl;
@@ -33,7 +33,7 @@ int main()
 
   std::cout << "Move the second object on X = 5 and Y = 0. Info:" << std::endl;
   shape_2->move(5, 0);
-  rectangle_1->printInfo();
+  rectangle_1.printInfo();
   std::cout << std::endl;
 
   std::cout << "Setting the new coordinates X = 10 and Y = 10  for the second object. Info:" << std::endl;
