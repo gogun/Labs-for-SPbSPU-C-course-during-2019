@@ -30,19 +30,19 @@ void showpos(const Shape & shape)
 
 int main()
 {
-  Rectangle rect (3.0, 6.0, {.x = 10.0, .y = 10.0});
+  Rectangle rect(3.0, 6.0, {.x = 10.0, .y = 10.0});
   std::cout << "Rectangle" << std::endl;
   showpos(rect);
-  rect.move ({.x = 0, .y = 0});
+  rect.move({.x = 0, .y = 0});
   rect.move(2,2);
   showresult(rect);
   std::cout << std::endl;
   std::cout << std::endl;
 
-  Circle circle (2.0, {.x = 2.0, .y = 3.0});
+  Circle circle(3.0, {.x = 2.0, .y = 3.0});
   std::cout << "Circle" << std::endl;
   showpos(circle);
-  circle.move ({.x = 0, .y = 0});
+  circle.move({.x = 0, .y = 0});
   circle.move(3,5);
   showresult(circle);
   std::cout << std::endl;

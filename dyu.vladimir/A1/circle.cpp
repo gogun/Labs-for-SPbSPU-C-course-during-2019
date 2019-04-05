@@ -7,9 +7,7 @@ Circle::Circle(const double radius, const point_t & pos) :
 radius_(radius),
 pos_(pos)
 {
-  {
-    assert(radius_ > 0.0);
-  }
+  assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const
@@ -20,7 +18,7 @@ double Circle::getArea() const
 rectangle_t Circle::getFrameRect() const
 
 {
-  return rectangle_t { .width = 2 * radius_,.height = 2 * radius_,.pos = pos_ };
+  return rectangle_t { 2 * radius_ , 2 * radius_ , pos_ };
 }
 
 void Circle::move(const point_t & pos)
