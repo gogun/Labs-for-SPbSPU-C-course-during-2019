@@ -14,11 +14,11 @@ class Rectangle : public Shape
 
 public:
 
-  double height_;
+  point_t center_;
 
   double width_;
 
-  point_t center_;
+  double height_;
 
   Rectangle(const point_t &center, double width, double height);
 
