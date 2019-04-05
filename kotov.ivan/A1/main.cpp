@@ -25,6 +25,6 @@ int main()
       << ", " << shapes[0]->getFrameRect().pos.y << std::endl;
   std::cout << "position of " + shapes[1]->getShapeName() + " after moving: " << shapes[1]->getFrameRect().pos.x
       << ", " << shapes[1]->getFrameRect().pos.y << std::endl;
-  delete shapes;
+  delete[] shapes;
   return 0;
 }
