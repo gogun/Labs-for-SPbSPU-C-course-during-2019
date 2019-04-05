@@ -2,7 +2,9 @@
 
 #define Shape_hpp
 
+
 #include "base_types.hpp"
+
 
 class Shape
 
@@ -21,5 +23,6 @@ public:
   virtual void move(double dx, double dy) = 0;
 
 };
+
 
 #endif
