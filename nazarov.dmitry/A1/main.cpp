@@ -4,22 +4,21 @@
 
 int main()
 {
-  Rectangle rect({ 0, 0 }, 20, 10); 
-  Circle circle({ 10, 10 }, 10); 
-  Shape * shapes[2] = { &rect, &circle };
+  Rectangle rect_1({ 0, 0 }, 20, 10), rect_2({ 5, 5 }, 15, 20);
+  Circle circle_1({ 10, 10 }, 10), circle_2({ 20, 20 }, 15);
+  Shape * shapes[4] = { &rect_1, &circle_1, &rect_2, &circle_2 };
 
-  rect.move(10, 20); 
-  circle.move(5, 6); 
-
-  std::cout << "FIGURES WERE MOVED BY DX AND DY\n\n";
+  std::cout << "Figures are at default positions\n\n";
   for (Shape * shape : shapes) {
     shape->printData();
   }
 
-  rect.move({ 4, 5 }); 
-  circle.move({ 0, 0 }); 
+  rect_1.move(10, 20); 
+  rect_2.move({ 4, 5 });
+  circle_1.move(5, 6); 
+  circle_2.move({ 0, 0 });
 
-  std::cout << "FIGURES WERE MOVED BY COORDINATE\n\n";
+  std::cout << "Figures were moved to new positions\n\n";
   for (Shape * shape : shapes) {
     shape->printData();
   }
