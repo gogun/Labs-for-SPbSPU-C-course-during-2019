@@ -1,43 +1,32 @@
-#include "Circle.hpp"
+#define _USE_MATH_DEFINES
+
+#include "circle.hpp"
 #include <iostream>
-#include <stdexcept>
+#include <math.h>
 
-using namespace std;
+Circle::Circle(point_t point, const double radius):Shape(point),radius_(radius)
+{
+}
 
-const double M_PI= 3.14;
-
-Circle::Circle(const point_t &pos,const double radius):
-  center_(pos),
-  radius_(radius)
-{
-  if(radius_ <= 0)
-  {
-    throw std::invalid_argument("Invalid circle parameters!");
-  }
-}
-void Circle::move(const double dx,const double dy)
-{
-  center_.x += dx;
-  center_.y += dy;
-}
-void Circle::move(const point_t &new_p)
-{
-  center_ = new_p;
-}
 double Circle::getArea() const
 {
-  return M_PI*radius_*radius_;
+  double area=0;
+  area = (M_PI *(radius_*radius_));
+  return area;
 }
+
 rectangle_t Circle::getFrameRect() const
 {
-  return {center_,2*radius_,2*radius_};
+  rectangle_t frame={ 1,1,{0,0} };
+  frame.height = radius_;
+  frame.width = radius_;
+  frame.pos.x = center_.x;
+  frame.pos.y = center_.y;
+  return frame;
 }
-void Circle::print() const
+
+void Circle::prInf() const
 {
-  cout<<"----Circle: \n";
-  cout<<"  center: ("<<center_.x<<", "<<center_.y<<") \n";
-  cout<<"  radius = "<<radius_<<endl;
-  cout<<"  Area = "<<getArea()<<endl;
-  cout<<"  FrameRect for Circle: \n";
-  cout<<"     center: ("<<getFrameRect().pos.x<<", "<<getFrameRect().pos.y<<") width= "<<getFrameRect().width<<"  height= "<<getFrameRect().height<<endl;
+  std::cout << "Centre on Ox " << center_.x << " centre on Oy " << center_.y<<std::endl;
+  std::cout << "Circle radius = "<<radius_<<std::endl;
 }
