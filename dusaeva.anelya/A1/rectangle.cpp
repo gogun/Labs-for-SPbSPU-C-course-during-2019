@@ -35,10 +35,7 @@ rectangle_t Rectangle::getFrameRect() const
 void Rectangle::printInfo() const
 {
   rectangle_t info = getFrameRect();
-  std::cout << "Width = " << width_ << std::endl;
-  std::cout << "Height = " << height_ << std::endl;
   std::cout << "Area = " << getArea() << std::endl;
-  std::cout << "Central coordinates (" << position_.x << ", " << position_.y << ")" << std::endl;
   std::cout << "Central coordinates of frame rectangle: (" << info.pos.x << ", " << info.pos.y << ")" << std::endl;
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << std::endl;
   std::cout << std::endl;
