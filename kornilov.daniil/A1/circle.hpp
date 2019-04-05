@@ -13,7 +13,7 @@ public:
   void move(const point_t &point) override;
 
 private:
-  point_t centre_;
+  point_t pos_;
   double radius_;
 };
 

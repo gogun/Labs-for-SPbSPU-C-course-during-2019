@@ -5,7 +5,7 @@
 void writeFrameRectInfo(const Shape &shape)
 {
   rectangle_t frameRect = shape.getFrameRect();
-  std::cout << "Frame Rectangle: " << "Centre: " << '(' << frameRect.centre.x << ", " << frameRect.centre.y << ')'
+  std::cout << "Frame Rectangle: " << "Centre: " << '(' << frameRect.pos.x << ", " << frameRect.pos.y << ')'
             << " Width: " << frameRect.width << " Height: " << frameRect.height << std::endl;
 }
 

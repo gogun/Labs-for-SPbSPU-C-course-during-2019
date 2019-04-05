@@ -3,7 +3,7 @@
 #include <cassert>
 
 Circle::Circle(const point_t &centre, double radius):
-  centre_(centre),
+  pos_(centre),
   radius_(radius)
 {
   assert(radius_ > 0);
@@ -16,16 +16,16 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {centre_, radius_ * 2, radius_ * 2};
+  return {pos_, radius_ * 2, radius_ * 2};
 }
 
 void Circle::move(const double dx, const double dy)
 {
-  centre_.x += dx;
-  centre_.y += dy;
+  pos_.x += dx;
+  pos_.y += dy;
 }
 
 void Circle::move(const point_t &point)
 {
-  centre_ = point;
+  pos_ = point;
 }

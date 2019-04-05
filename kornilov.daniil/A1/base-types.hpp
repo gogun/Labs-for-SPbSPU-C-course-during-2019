@@ -8,7 +8,7 @@ struct point_t
 
 struct rectangle_t
 {
-  point_t centre;
+  point_t pos;
   double width, height;
 };
 
