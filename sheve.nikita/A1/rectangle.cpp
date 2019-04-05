@@ -10,11 +10,9 @@ Rectangle::Rectangle(const point_t &p, double w, double h):
   if (width <= 0)
   {
     std::cerr << "Invalid rectangle width.\n";
-    exit(1);
   }
   if (height <= 0){
     std::cerr << "Invalid rectangle height.\n";
-    exit(1);
   }
 }
 

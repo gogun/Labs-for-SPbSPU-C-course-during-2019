@@ -10,7 +10,6 @@ Circle::Circle(const point_t &p, double r):
   if (radius <= 0)
   {
     std::cerr << "Invalid circle radius."<< std::endl;
-    exit(1);
   }
 }
 
