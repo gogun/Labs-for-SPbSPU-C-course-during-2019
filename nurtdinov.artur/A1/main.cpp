@@ -1,6 +1,4 @@
 #include <iostream>
-#include "base-types.hpp"
-#include "shape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 
@@ -65,6 +63,6 @@ int main()
   std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
   frameRect = shape->getFrameRect();
   std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
-  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
+  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y;
 }
 

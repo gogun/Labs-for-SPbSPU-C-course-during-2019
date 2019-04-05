@@ -7,7 +7,6 @@
 #include <math.h>
 
 
-
 Circle::Circle(const point_t &point, double radius) :
   position_(point),
   radius_(radius)

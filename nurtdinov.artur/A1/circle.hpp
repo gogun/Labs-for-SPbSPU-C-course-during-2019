@@ -6,7 +6,6 @@
 #define A1_CIRCLE_HPP
 
 #include "shape.hpp"
-#include "base-types.hpp"
 
 class Circle : public Shape
 {
@@ -24,7 +23,7 @@ public:
   void move(double dx, double dy) override;
 
 private:
-  point_t position_{};
+  point_t position_;
   double radius_;
 };
 
