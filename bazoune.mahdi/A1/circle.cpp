@@ -1,11 +1,10 @@
 #include "Circle.hpp"
 #define _USE_MATH_DEFINES
 #include <cmath>
-// #include <stdexcept>
 #include <iostream>
 #include <cassert>
 Circle::Circle(double r, const point_t& center) :
- r_(r),
+  r_(r),
   center_(center)
 {
 	assert(r>0); 

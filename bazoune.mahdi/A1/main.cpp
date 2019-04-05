@@ -25,7 +25,6 @@ int main()
 	std::cout << "move the rectangle with (3,4)"<< std:: endl;
 	std::cout << "\n";
 	myRect.print();
-	//std::cout << '\n';
 	std::cout << "rectangle area = "<<myRect.getArea()<<std::endl;
 	std::cout << '\n';
 	return 0;
