@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Circle.hpp"
 #include "Rectangle.hpp"
+
 int main()
 {
   point_t dot = {3, 4};
@@ -29,5 +30,6 @@ int main()
   rectangle1.move(7.0, 8.0);
   std::cout << "Rectangle moved to: x:" << rectangle1.center_.x 
   << ", y:" << rectangle1.center_.y << std::endl;
+
   return 0;
 }
