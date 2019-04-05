@@ -17,7 +17,7 @@ int main()
   std::cout << '\n';
   std::cout << "frame rect.x= " << myCircle.getFrameRect().pos.x << '\n';
   std::cout << "frame rect.y= " << myCircle.getFrameRect().pos.y << '\n';
-  myCircle -> move(myPoint);
+  myCircle.move(myPoint);
   std::cout << '\n';
 
   Rectangle myRect(3, 4, { 2, 2 });

@@ -39,4 +39,3 @@ void Circle::move(double dx, double dy)
   center_.x += dx;
   center_.y += dy;
 }
-
