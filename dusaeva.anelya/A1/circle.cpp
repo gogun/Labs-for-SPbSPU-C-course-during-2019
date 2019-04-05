@@ -35,8 +35,6 @@ void Circle::move(const point_t &position)
 void Circle::printInfo() const
 {
   rectangle_t info = getFrameRect();
-  std::cout << "Radius = " << radius_ << std::endl;
-  std::cout << "Central coordinates (" << position_.x << ", " << position_.y << ")" << std::endl;
   std::cout << "Area = " << getArea() << std::endl;
   std::cout << "Central coordinates of frame: (" << info.pos.x << ", " << info.pos.y << ")" << std::endl;
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << std::endl;
