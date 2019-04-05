@@ -4,16 +4,16 @@
 #include <cassert>
 
 Circle::Circle (double radius, point_t pos):
-  Shape(pos),
-  radius_(radius)
+  radius_(radius),
+  pos_(pos)
 {
   assert(radius > 0.0);
 }
 
 void Circle::displayData() const
 {
-  std::cout << "\nRadius: " << radius_;
-  Shape::displayData();
+  std::cout << "\nRadius: " << radius_
+    << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';
 }
 
 double Circle::getArea() const
@@ -24,4 +24,15 @@ double Circle::getArea() const
 rectangle_t Circle::getFrameRect() const
 {
   return rectangle_t{radius_ * 2, radius_ * 2, {pos_.x, pos_.y}};
+}
+
+void Circle::move(double dx, double dy)
+{
+  pos_.x += dx;
+  pos_.y += dy;
+}
+
+void Circle::move(point_t dot)
+{
+  pos_ = dot;
 }
