@@ -5,6 +5,7 @@ struct point_t { //_t - if structure contains only data fields
   double x;
   double y;
 };
+
 struct rectangle_t {
   double width;
   double height;
