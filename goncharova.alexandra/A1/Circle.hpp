@@ -2,10 +2,7 @@
 
 #define Circle_hpp
 
-
-
 #include "Shape.hpp"
-
 
 
 class Circle: public Shape
@@ -29,7 +26,5 @@ public:
   void move(double dx, double dy);
 
 };
-
-
 
 #endif

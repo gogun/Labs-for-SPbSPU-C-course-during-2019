@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Circle.hpp"
 #include "Rectangle.hpp"
-
 int main()
 {
   point_t dot = {3, 4};
@@ -20,14 +19,15 @@ int main()
 
   Rectangle rectangle1(dot, 10, 10);
   std::cout << "Area of rectangle1: " << rectangle1.getArea() << std::endl;
-  std::cout << "Height of frame rectangle: " << rectangle1.getFrameRect().height << std::endl;
-  std::cout << "Width of frame rectangle: " << rectangle1.getFrameRect().width << std::endl;
+  std::cout << "Height of frame rectangle: " << rectangle1.getFrameRect().height
+  << std::endl;
+  std::cout << "Width of frame rectangle: " << rectangle1.getFrameRect().width
+  << std::endl;
   rectangle1.move(movePoint);
   std::cout << "Rectangle moved to: x:" << rectangle1.center_.x 
   << ", y:" << rectangle1.center_.y << std::endl;
   rectangle1.move(7.0, 8.0);
   std::cout << "Rectangle moved to: x:" << rectangle1.center_.x 
   << ", y:" << rectangle1.center_.y << std::endl;
-
   return 0;
 }

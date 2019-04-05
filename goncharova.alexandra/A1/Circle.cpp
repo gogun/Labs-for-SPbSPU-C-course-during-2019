@@ -1,7 +1,5 @@
 #define _USE_MATH_DEFINES
 
-
-
 #include "Circle.hpp"
 
 #include <cmath>
@@ -9,8 +7,6 @@
 #include <cassert>
 
 #include <iostream>
-
-
 
 Circle::Circle(const point_t &center, const double radius) :
 
@@ -25,7 +21,6 @@ Circle::Circle(const point_t &center, const double radius) :
 }
 
 
-
 rectangle_t Circle::getFrameRect() const
 
 {
@@ -33,8 +28,6 @@ rectangle_t Circle::getFrameRect() const
   return { center_, radius_ * 2, radius_ * 2 };
 
 }
-
-
 
 double Circle::getArea() const
 
@@ -45,7 +38,6 @@ double Circle::getArea() const
 }
 
 
-
 void Circle::move(const double dx, const double dy)
 
 {
@@ -54,8 +46,6 @@ void Circle::move(const double dx, const double dy)
   center_.y = center_.y + dy;
 
 }
-
-
 
 void Circle::move(const point_t &newPoint)
 

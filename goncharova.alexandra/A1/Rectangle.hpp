@@ -2,11 +2,7 @@
 
 #define Rectangle_hpp
 
-
-
 #include "Shape.hpp"
-
-
 
 class Rectangle : public Shape
 
@@ -31,7 +27,5 @@ public:
   void move(double dx, double dy);
 
 };
-
-
 
 #endif
