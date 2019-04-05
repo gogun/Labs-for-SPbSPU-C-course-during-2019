@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cassert>
 #include <math.h>
-#include "shape.hpp"
 
 
 Circle::Circle(const point_t &pos, const double radius) :
@@ -41,4 +40,14 @@ point_t Circle::getCenter() const
 double Circle::getRadius() const
 {
   return radius_;
+}
+
+void Circle::show() const
+{
+  std::cout << "[Circle]:\n";
+  std::cout << "Center : (" << getCenter().x << ", " << getCenter().y << ")\n";
+  std::cout << "Radius : " << getRadius() << "\n";
+  std::cout << "Height of frame rectangle : " << getFrameRect().height << "\n";
+  std::cout << "Width of frame rectangle  : " << getFrameRect().width << "\n";
+  std::cout << "Area   : " << getArea() << "\n";
 }
