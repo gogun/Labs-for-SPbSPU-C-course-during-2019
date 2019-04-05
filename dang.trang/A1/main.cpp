@@ -1,41 +1,35 @@
 #include <iostream>
-#include "Shape.hpp"
-#include "Rectangle.hpp"
-#include "Circle.hpp"
-#include "Triangle.hpp"
-using namespace std;
+#include "rectangle.hpp"
+#include "circle.hpp"
 
 int main()
 {
-  Rectangle rectangle1({{25,25},8,20});
-  Circle circle1({50,50},12);
-  Triangle triangle1({5,5},{0,10},{10,10});
+  Rectangle shape_1({0, 0}, 30, 15);
+  Shape *rectangle = &shape_1;
+  std::cout << "rectangle created\n\n";
 
-  rectangle1.print();
-  circle1.print();
-  triangle1.print();
+  rectangle -> printData();
 
-  cout<<"\n";
-  cout<<" New shapes: \n";
+  double dx = 15;
+  double dy = 30;
 
-  rectangle1.move(20,20);
-  rectangle1.move({40,70});
-  cout<<"Move rectangle to: \n";
-  rectangle1.print();
+  rectangle -> move(dx, dy);
+  std::cout << "\nrectangle is moved on (" << dx << ", " << dy << ")\n\n";
 
-  cout<<"\n";
+  rectangle -> printData();
 
-  circle1.move({40,40});
-  circle1.move(10,10);
-  cout<<"Move circle to: \n";
-  circle1.print();
+  Circle shape_2({15, 15}, 15);
+  Shape * circle = &shape_2;
+  std::cout << "\ncircle created\n\n";
 
-  cout<<"\n";
+  circle -> printData();
 
-  triangle1.move(10,5);
-  triangle1.move({30,20});
-  cout<<"Move triangle to: \n";
-  triangle1.print();
+  point_t pos = {0, 0};
+
+  circle -> move(pos);
+  std::cout << "\ncircle is moved on (" << pos.x << ", " << pos.y << ")" << "\n\n";
+
+  circle -> printData();
 
   return 0;
 }

@@ -1,19 +1,23 @@
-#ifndef SHAPE_H
-#define SHAPE_H
-#include "Base-types.hpp"
+#ifndef SHAPE_HPP_INCLUDED
+#define SHAPE_HPP_INCLUDED
+#include "base-types.hpp"
 
 class Shape
 {
-  public:
-    virtual ~Shape() =default ;
+public:
+  Shape(const point_t &);
 
-    virtual void move(const double dx,const double dy) =0;
-    virtual void move(const point_t &new_p) =0;
+  virtual double printArea() const = 0;
+  virtual rectangle_t printFrameRect() const = 0;
+  virtual void printFeatures() const = 0;
 
-    virtual double getArea() const=0;
-    virtual rectangle_t getFrameRect() const=0;
+  void printData() const;
 
-    virtual void print() const=0;
+  virtual void move(const double &, const double &) = 0;
+  virtual void move(const point_t &) = 0;
+
+protected:
+  point_t m_pos;
 };
 
-#endif
+#endif // SHAPE_HPP_INCLUDED
