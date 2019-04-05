@@ -2,8 +2,8 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(point_t pos, double width, double height):
-  center_(pos),
+Rectangle::Rectangle(point_t position, double width, double height):
+  center_(position),
   width_(width),
   height_(height)
 {

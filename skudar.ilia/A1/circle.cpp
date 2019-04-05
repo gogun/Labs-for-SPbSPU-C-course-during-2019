@@ -3,8 +3,8 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(point_t pos, double radius):
-  center_(pos),
+Circle::Circle(point_t position, double radius):
+  center_(position),
   radius_(radius)
 {
   assert(radius_ > 0.0);

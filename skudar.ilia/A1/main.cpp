@@ -9,7 +9,7 @@ void printFrameRect(const Shape &shape)
             << rect_tmp.pos.y << ")" << std::endl
             << "Height = " << rect_tmp.height << std::endl
             << "Width = " << rect_tmp.width << std::endl
-            <<"Area = " << shape.getArea() << std::endl; // changed from rect_tmp to shape
+            <<"Area = " << shape.getArea() << std::endl;
 }
 
 int main() {
