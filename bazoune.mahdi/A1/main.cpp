@@ -9,9 +9,9 @@ int main()
   std::cout << '\n';
 
   Circle myCircle(2, myPoint);
-  myCircle -> print();
+  myCircle.print();
   std::cout << "circle area " << myCircle.getArea() << '\n';
-  myCircle -> move(1, 2);
+  myCircle.move(1, 2);
   std::cout <<'\n';
   std::cout << "move the circle with (1, 2)" << '\n';
   std::cout << '\n';
@@ -21,12 +21,12 @@ int main()
   std::cout << '\n';
 
   Rectangle myRect(3, 4, { 2, 2 });
-  myRect -> print();
-  myRect -> move(3, 4);
+  myRect.print();
+  myRect.move(3, 4);
   std::cout << '\n';
   std::cout << "move the rectangle with (3,4)"« '\n';
   std::cout << '\n';
-  myRect -> print();
+  myRect.print();
   std::cout << "rectangle area = " << myRect.getArea() << '\n';
   std::cout << '\n';
 
