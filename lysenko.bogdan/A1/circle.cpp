@@ -34,11 +34,11 @@ void Circle::move(const double dx, const double dy)
   center_.y += dy;
 }
 
-void Circle::print() const 
+void Circle::print() const
 {
   std::cout << "Area of circle: " << getArea() << "\n";
   std::cout << "Width of frame rectangle: " << getFrameRect().width << "\n";
   std::cout << "Height of frame rectangle: " << getFrameRect().height << "\n";
-  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x 
+  std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x
 	        << "; " << getFrameRect().pos.y << ")" << "\n";
 }
