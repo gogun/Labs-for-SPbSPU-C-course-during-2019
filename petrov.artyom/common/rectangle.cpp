@@ -38,7 +38,7 @@ void petrov::Rectangle::move(const point_t & centre)
 void petrov::Rectangle::move(double dx, double dy)
 {
   rectangle_.pos.x += dx;
-  rectangle_.pos.x += dy;
+  rectangle_.pos.y += dy;
 }
 
 void petrov::Rectangle::scale(double scaleCoef)

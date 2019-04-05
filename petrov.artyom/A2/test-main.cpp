@@ -1,7 +1,11 @@
+#define BOOST_TEST_MODULE labs
 #include <boost/test/included/unit_test.hpp>
 
-#include "../common/circle.hpp"
-#include "../common/rectangle.hpp"
+#include <stdexcept>
+#include <iostream>
+
+#include "circle.hpp"
+#include "rectangle.hpp"
 
 #define INACCURACY 0.0001
 
@@ -13,7 +17,7 @@ BOOST_AUTO_TEST_SUITE(CircleTest)
     BOOST_CHECK_THROW(petrov::Circle({5, 5}, -0), std::invalid_argument);
   }
 
-  BOOST_AUTO_TEST_CASE(move_worksCorrectly)
+  BOOST_AUTO_TEST_CASE(move_WorksCorrectly)
   {
     petrov::point_t centre{10, 20};
     double radius = 15;
@@ -72,7 +76,7 @@ BOOST_AUTO_TEST_SUITE(CircleTest)
 BOOST_AUTO_TEST_SUITE_END()
 
 
-BOOST_AUTO_TEST_SUITE(RectangleTest)
+BOOST_AUTO_TEST_SUITE(TestRect)
 
   BOOST_AUTO_TEST_CASE(constructor_ThrowsOnInvalidRadius)
   {
@@ -80,7 +84,7 @@ BOOST_AUTO_TEST_SUITE(RectangleTest)
     BOOST_CHECK_THROW(petrov::Rectangle({5, 5}, 10, -20), std::invalid_argument);
   }
 
-  BOOST_AUTO_TEST_CASE(move_worksCorrectly)
+  BOOST_AUTO_TEST_CASE(move_WorksCorrectly)
   {
     petrov::point_t centre{10, 20};
     double width = 10;
@@ -99,8 +103,8 @@ BOOST_AUTO_TEST_SUITE(RectangleTest)
     petrov::point_t destinationPoint {x, y};
     rectangle.move(destinationPoint);
 
-    BOOST_CHECK_EQUAL(centre.x, rectangle.getCentre().x);
-    BOOST_CHECK_EQUAL(centre.y, rectangle.getCentre().y);
+    BOOST_CHECK_EQUAL(destinationPoint.x, rectangle.getCentre().x);
+    BOOST_CHECK_EQUAL(destinationPoint.y, rectangle.getCentre().y);
   }
 
   BOOST_AUTO_TEST_CASE(move_DoesNotChangeDimentions)
