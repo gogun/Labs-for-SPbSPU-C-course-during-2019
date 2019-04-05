@@ -1,9 +1,11 @@
+#include <cassert>
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
 
 void demo(Shape* figure)
 {
+  assert(figure != nullptr);
   figure->getInfo();
   figure->move(10, 15);
   figure->getInfo();
@@ -13,11 +15,9 @@ void demo(Shape* figure)
 
 int main()
 {
-  Rectangle rect(15, 10, { 5,5 });
-  Shape * figure1 = &rect;
-  demo(figure1);
-  Circle circ(5, { 5,5 });
-  Shape * figure2 = &circ;
-  demo(figure2);
+  Rectangle rectangle(15, 10, { 5,5 });
+  demo(&rectangle);
+  Circle circle(5, { 5,5 });
+  demo(&circle);
   return 0;
 }
