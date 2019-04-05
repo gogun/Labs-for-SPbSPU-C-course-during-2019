@@ -12,7 +12,7 @@ int main()
     << "\n*******************";
   viewShape(&rect1);
 
-  double dx = 2.5, dy = -4.1;
+  const double dx = 2.5, dy = -4.1;
   rect1.move(dx, dy);
   std::cout << "\n===After move: + (" << dx << ';' << dy << ")===";
   rect1.displayData();
@@ -24,7 +24,7 @@ int main()
     << "\n*******************";
   viewShape(&circ1);
 
-  point_t position = {-1.8, 2.4};
+  const point_t position = {-1.8, 2.4};
   circ1.move(position);
   std::cout << "\n===After move to (-1.8, 2.4)===";
   circ1.displayData();
