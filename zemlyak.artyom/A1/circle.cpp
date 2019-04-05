@@ -28,22 +28,17 @@ void Circle::move(const double dx, const double dy)
 
 rectangle_t Circle::getFrameRect() const
 {
-  return rectangle_t
-  {
-    pos_,
-    2 * radius_,
-    2 * radius_
-  };
+  return {pos_, 2 * radius_, 2 * radius_};
 }
 
 void Circle::printInfo() const
 {
   rectangle_t FrameRectData = getFrameRect();
-  std::cout << "Circle:" << std::endl
-            << "  coordinates (X; Y): (" << pos_.x
-            << "; " << pos_.y << ")" << std::endl
-            << "  area: " << getArea() << std::endl
-            << "  radius: " << radius_ << std::endl
-            << "  Frame rectangle width: " << FrameRectData.width
-            << "; height: " << FrameRectData.height << std::endl;
+  std::cout << "Circle:" << std::endl;
+  std::cout << "  coordinates (X; Y): (" << pos_.x;
+  std::cout << "; " << pos_.y << ")" << std::endl;
+  std::cout << "  area: " << getArea() << std::endl;
+  std::cout << "  radius: " << radius_ << std::endl;
+  std::cout << "  Frame rectangle width: " << FrameRectData.width;
+  std::cout << "; height: " << FrameRectData.height << std::endl;
 }
