@@ -17,6 +17,4 @@ private:
   double m_height;
   point_t m_pos;
 };
-
 #endif
-
