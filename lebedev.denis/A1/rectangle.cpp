@@ -12,7 +12,7 @@ Rectangle::Rectangle(point_t pos, double width, double height) :
 
 double Rectangle::getArea() const
 {
-  return  (m_width*m_height);
+  return  (m_width * m_height);
 }
 
 rectangle_t Rectangle::getFrameRect() const
