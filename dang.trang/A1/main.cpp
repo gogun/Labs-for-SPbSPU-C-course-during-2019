@@ -1,35 +1,37 @@
-#include <iostream>
+#include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "triangle.hpp"
+#include "base-types.hpp"
 
 int main()
 {
-  Rectangle shape_1({0, 0}, 30, 15);
-  Shape *rectangle = &shape_1;
-  std::cout << "rectangle created\n\n";
+  point_t point = {534,348};
 
-  rectangle -> printData();
+  Rectangle rectangle(300,200,500,300);
+  Shape *RC = &rectangle;
+  RC -> dataoutput();
+  RC -> move(40,30);
+  RC -> move(point);
+  RC -> dataoutput();
 
-  double dx = 15;
-  double dy = 30;
+  point = {765,395};
 
-  rectangle -> move(dx, dy);
-  std::cout << "\nrectangle is moved on (" << dx << ", " << dy << ")\n\n";
+  Circle circle(7,{30,40});
+  Shape *CR = &circle;
+  CR -> dataoutput();
+  CR -> move(-15,-70);
+  CR -> move(point);
+  CR -> dataoutput();
 
-  rectangle -> printData();
+  point = {543,123};
 
-  Circle shape_2({15, 15}, 15);
-  Shape * circle = &shape_2;
-  std::cout << "\ncircle created\n\n";
-
-  circle -> printData();
-
-  point_t pos = {0, 0};
-
-  circle -> move(pos);
-  std::cout << "\ncircle is moved on (" << pos.x << ", " << pos.y << ")" << "\n\n";
-
-  circle -> printData();
+  Triangle triangle({10,10},{20,40},{50,18});
+  Shape *TR = &triangle;
+  TR -> dataoutput();
+  TR -> move(-18,-39);
+  TR -> move(point);
+  TR -> dataoutput();
 
   return 0;
 }

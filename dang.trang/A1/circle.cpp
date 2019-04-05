@@ -1,35 +1,38 @@
+#include "shape.hpp"
+#include "base-types.hpp"
 #include "circle.hpp"
-#define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>
-
-Circle::Circle(const point_t & pos, const double & radius):
-  Shape(pos),
-  m_radius(radius)
-{}
-
-double Circle::printArea() const
+#include <stdexcept>
+Circle::Circle (double Rcircle, point_t cpoint):
+  cR(Rcircle),
+  pos(cpoint)
 {
-  return M_PI * m_radius * m_radius;
+  if (cR <= 0)
+  throw std::invalid_argument("radius of circle <= 0");
 }
-
-rectangle_t Circle::printFrameRect() const
+double Circle::getArea() const
 {
-  return {m_pos, 2 * m_radius, 2 * m_radius};
+  return M_PI*cR*cR;
 }
-
-void Circle::printFeatures() const
+rectangle_t Circle::getFrameRect() const
 {
-  std::cout << "radius: " << m_radius << "\n";
+  return {cR,cR,pos.x,pos.y};
 }
-
-void Circle::move(const double & dx, const double & dy)
+void Circle::move(const double mX,const double mY)
 {
-  m_pos.x += dx;
-  m_pos.y += dy;
+  pos.x += mX;
+  pos.y += mY;
 }
-
-void Circle::move(const point_t & pos)
+void Circle::move(const point_t point)
 {
-  m_pos = pos;
+  pos.x = point.x;
+  pos.y = point.y;
+}
+void Circle::dataoutput() const
+{
+  std::cout<<"area_of_circle_="<<getArea()<<std::endl;
+  std::cout<<"framerect_width_height_X_Y_="<<getFrameRect().width<<" "<<getFrameRect().height<<" ";
+  std::cout<<getFrameRect().pos.x<<" "<<getFrameRect().pos.y<<std::endl;
+  std::cout<<"position_X_Y_"<<pos.x<<" "<<pos.y<<std::endl;
 }

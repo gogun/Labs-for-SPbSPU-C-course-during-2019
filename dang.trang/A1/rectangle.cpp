@@ -1,35 +1,32 @@
-#include <iostream>
+#include "shape.hpp"
+#include "base-types.hpp"
 #include "rectangle.hpp"
-
-Rectangle::Rectangle(const point_t & pos, const double & width, const double & height):
-  Shape(pos),
-  m_width(width),
-  m_height(height)
-{}
-
-double Rectangle::printArea() const
+#include <iostream>
+Rectangle::Rectangle(double Wid, double Hei, double xrect, double yrect):
+  rrect{Wid,Hei,{xrect,yrect}}
+  {}
+double Rectangle::getArea() const
 {
-  return m_width * m_height;
+  return rrect.height*rrect.width;
 }
-
-rectangle_t Rectangle::printFrameRect() const
+rectangle_t Rectangle::getFrameRect() const
 {
-  return {m_pos, m_width, m_height};
+  return {rrect.height , rrect.width , rrect.pos.x , rrect.pos.y};
 }
-
-void Rectangle::printFeatures() const
+void Rectangle::move(const double mX,const double mY)
 {
-  std::cout << "width: " << m_width << "\n"
-    << "height: " << m_height << "\n";
+  rrect.pos.x += mX;
+  rrect.pos.y += mY;
 }
-
-void Rectangle::move(const double & dx, const double & dy)
+void Rectangle::move(const point_t point)
 {
-  m_pos.x += dx;
-  m_pos.y += dy;
+  rrect.pos.x = point.x;
+  rrect.pos.y = point.y;
 }
-
-void Rectangle::move(const point_t & pos)
+void Rectangle::dataoutput() const
 {
-  m_pos = pos;
+  std::cout<<"area_of_rectangle_="<<getArea()<<std::endl;
+  std::cout<<"framerect_width_height_X_Y_="<<getFrameRect().width<<" "<<getFrameRect().height<<" ";
+  std::cout<<getFrameRect().pos.x<<" "<<getFrameRect().pos.y<<std::endl;
+  std::cout<<"position_X_Y_"<<rrect.pos.x<<" "<<rrect.pos.y<<std::endl;
 }
