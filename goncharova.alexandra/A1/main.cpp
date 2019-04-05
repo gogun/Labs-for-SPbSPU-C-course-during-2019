@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Circle.hpp"
 #include "Rectangle.hpp"
+#include "base-types.hpp"
 
 int main()
 {
