@@ -5,7 +5,7 @@
 Rectangle::Rectangle(const point_t &position, const double width, const double height):
   rect_({position, width, height})
 {
-  assert(width > 0 && height > 0);
+  assert((width > 0) && (height > 0);
 }
 
 double Rectangle::getArea() const
@@ -32,9 +32,9 @@ void Rectangle::move(const double dx, const double dy)
 void Rectangle::printInfo() const
 {
   rectangle_t FrameRectData = getFrameRect();
-  std::cout << "Rectangle coordinates: X: " << rect_.pos.x
-            << "; Y: " << rect_.pos.y << std::endl
-            << "Rectangle area: " << getArea() << std::endl
-            << "Rectangle frame width: " << FrameRectData.width
-            << "; height: " << FrameRectData.height << std::endl;
+  std::cout << "Rectangle coordinates: X: " << rect_.pos.x;
+  std::cout << "; Y: " << rect_.pos.y << std::endl;
+  std::cout << "Rectangle area: " << getArea() << std::endl;
+  std::cout << "Rectangle frame width: " << FrameRectData.width;
+  std::cout << "; height: " << FrameRectData.height << std::endl;
 }
