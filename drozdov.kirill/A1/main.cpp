@@ -2,7 +2,7 @@
 #include "circle.hpp"
 #include <iostream>
 
-void showFrame(const rectangle_t frame);
+void viewShape(const Shape *shape);
 
 int main()
 {
@@ -11,38 +11,37 @@ int main()
   Shape * ptrShape = & rect1;
 
   std::cout << "Rectangle: ";
-  ptrShape->displayData();
-  std::cout << "\nArea: " << ptrShape->getArea() << std::endl;
+  viewShape(ptrShape);
 
-  rectangle_t frameRect = ptrShape->getFrameRect();
-  showFrame(frameRect);
-  ptrShape->move(2.5, -4.1);
-  std::cout << "\n==============================After move -> +2.5, -4.1==============================";
+  double dx = 2.5, dy = -4.1;
+  ptrShape->move(dx, dy);
+  std::cout << "\n============After move: + (" << dx << ';' << dy << ")============";
   ptrShape->displayData();
-
+  
+  std::cout << std::endl;
   /*test on example Circle:*/
   Circle cirptrShape(5);
   ptrShape = &cirptrShape;
 
-  std::cout << std::endl << "\nCircle: ";
-  ptrShape->displayData();
-  std::cout << "\nArea: " << ptrShape->getArea() << std::endl;
+  std::cout << "\nCircle: ";
+  viewShape(ptrShape);
 
-  frameRect = ptrShape->getFrameRect();
-  showFrame(frameRect);
   point_t position = {-1.8, 2.4};
   ptrShape->move(position);
-  std::cout << "\n==============================After move to (-1.8, 2.4)==============================";
+  std::cout << "\n============After move to (-1.8, 2.4)============";
   ptrShape->displayData();
 
   std::cout << std::endl;
   return 0;
 }
 
-void showFrame(const rectangle_t frame)
+void viewShape(const Shape *shape)
 {
-  std::cout << "Frame Rectangle:" << std::endl
-    << "Width: " << frame.width
-    << "\nHeight: " << frame.height
-    << "\nPosition: (" << frame.pos.x << ';' << frame.pos.y << ')';
+  shape->displayData();
+  std::cout << "\nArea: " << shape->getArea() << std::endl;
+  rectangle_t frameRect = shape->getFrameRect();
+  std::cout << "***Frame Rectangle:" << std::endl
+    << "Width: " << frameRect.width
+      << "\nHeight: " << frameRect.height
+        << "\nPosition: (" << frameRect.pos.x << ';' << frameRect.pos.y << ')';
 }
