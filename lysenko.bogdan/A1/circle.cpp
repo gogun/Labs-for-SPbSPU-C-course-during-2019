@@ -42,4 +42,3 @@ void Circle::print() const
   std::cout << "Center point of frame rectangle: (" << getFrameRect().pos.x 
 	        << "; " << getFrameRect().pos.y << ")" << "\n";
 }
-

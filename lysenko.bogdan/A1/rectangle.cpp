@@ -43,4 +43,3 @@ void Rectangle::print() const
   std::cout << "Center point of frame rectangle: (" << rect_.pos.x
             << "; " << rect_.pos.y << ")" << "\n";
 }
-
