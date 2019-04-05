@@ -1,7 +1,8 @@
 #ifndef A1_CIRCLE_HPP
 #define A1_CIRCLE_HPP
 #include "shape.hpp"
-class Circle: public Shape
+
+class Circle : public Shape
 {
 public:
   Circle (const double, const point_t &);
@@ -14,4 +15,4 @@ private:
   double radius_;
   point_t center_;
 };
-#endif //A1_CIRCLE_HPP
+#endif

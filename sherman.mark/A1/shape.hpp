@@ -1,6 +1,7 @@
 #ifndef A1_SHAPE_HPP
 #define A1_SHAPE_HPP
 #include "base-types.hpp"
+
 class Shape
 {
 public:
@@ -12,4 +13,4 @@ public:
   virtual void printInformation() const = 0;
 };
 
-#endif //A1_SHAPE_HPP
+#endif
