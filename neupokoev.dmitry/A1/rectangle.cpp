@@ -5,8 +5,8 @@
 Rectangle::Rectangle(rectangle_t parameters) :
   parameters_(parameters)
 {
-  assert((parameters_.height > 0.0));
-  assert((parameters_.width > 0.0));
+  assert((parameters_.height > 0.0) && ("Incorrect height value"));
+  assert((parameters_.width > 0.0) && ("Incorrect width value"));
 }
 
 double Rectangle::getArea() const
@@ -33,7 +33,9 @@ void Rectangle::move(double moveX, double moveY)
 void Rectangle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << "Rectangle centre is (" << parameters_.pos.x << "," << parameters_.pos.y << ")\n";
-  std::cout << "Frame rectangle width = " << rectangle.width << ", height = " << rectangle.height << "\n";
+  std::cout << "Rectangle centre is (" << parameters_.pos.x << ",";
+  std::cout << parameters_.pos.y << ")\n";
+  std::cout << "Frame rectangle width = " << rectangle.width;
+  std::cout << ", height = " << rectangle.height << "\n";
   std::cout << "Area = " << getArea() << "\n\n";
 }

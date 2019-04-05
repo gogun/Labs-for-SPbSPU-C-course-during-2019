@@ -5,9 +5,10 @@
 #include <cassert>
 
 Circle::Circle(point_t dot, double radius) :
-  centre_(dot), radius_(radius)
+  centre_(dot),
+  radius_(radius)
 {
-  assert((radius_ > 0.0));
+  assert((radius_ > 0.0) && ("Incorrect radius value"));
 }
 
 double Circle::getArea() const
@@ -38,7 +39,10 @@ void Circle::move(const point_t &point)
 void Circle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << "Circle radius is (" << radius_ << ") Centre is (" << centre_.x << "," << centre_.y << ")\n";
-  std::cout << "Frame rectangle width = " << rectangle.width << ", height = " << rectangle.height << "\n";
+  std::cout << "Circle radius is (" << radius_;
+  std::cout << ") Centre is (" << centre_.x << ",";
+  std::cout << centre_.y << ")\n";
+  std::cout << "Frame rectangle width = " << rectangle.width;
+  std::cout << ", height = " << rectangle.height << "\n";
   std::cout << "Area = " << getArea() << "\n\n";
 }
