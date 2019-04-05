@@ -34,8 +34,8 @@ void Rectangle::move(double dx, double dy)
 void Rectangle::showParameters() const
 {
   std::cout << "Rectangle Parameters:\n"
-  			<< "Center - {" << m_center.x << ", " << m_center.y << "}\n"
-  			<< "Width - " << m_width << '\n'
-  			<< "Height - " << m_height << '\n'
-        << "Area - " << getArea() << "\n\n";
+      << "Center - {" << m_center.x << ", "<< m_center.y << "}\n"
+      << "Width - " << m_width << '\n'
+      << "Height - " << m_height << '\n'
+      << "Area - " << getArea() << "\n\n";
 }

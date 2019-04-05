@@ -39,7 +39,7 @@ void Circle::move(double dx, double dy)
 void Circle::showParameters() const
 {
   std::cout << "Circle Parameters:\n"
-  			<< "Center - {" << m_center.x << ", " << m_center.y << "}\n"
-  			<< "Radius - " << m_radius << '\n'
-  			<< "Area - " << getArea() << "\n\n";
+      << "Center - {" << m_center.x << ", " << m_center.y << "}\n"
+      << "Radius - " << m_radius << '\n'
+      << "Area - " << getArea() << "\n\n";
 }
