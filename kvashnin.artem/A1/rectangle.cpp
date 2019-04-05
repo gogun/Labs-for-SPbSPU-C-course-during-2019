@@ -37,5 +37,4 @@ void Rectangle::printInfo() const
             << "Rectangle area: " << getArea() << std::endl
             << "Rectangle frame width: " << FrameRectData.width
             << "; height: " << FrameRectData.height << std::endl;
-
 }

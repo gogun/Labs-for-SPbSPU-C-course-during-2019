@@ -2,7 +2,7 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-int main() 
+int main()
 {
   std::cout << "Create a circle with a radius of 1 at the origin." << std::endl;
   Circle cir = Circle({0, 0}, 1);
@@ -11,7 +11,6 @@ int main()
   Shape *shp = &cir;
   shp->printInfo();
   std::cout << std::endl;
-
 
   std::cout << "Move the object and check the data about the object." << std::endl;
   shp->move(15, 10);
@@ -36,6 +35,6 @@ int main()
   std::cout << "Check the new coordinates." << std::endl;
   rec.printInfo();
   std::cout << std::endl;
-  
+
   return 0;
 }
