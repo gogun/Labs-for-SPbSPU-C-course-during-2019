@@ -27,6 +27,6 @@ void Rectangle::move (point_t point)
 
 void Rectangle::move (double abs, double ord)
 {
-  pos_.x = pos_.x+abs;
+  pos_.x = pos_.x + abs;
   pos_.y = pos_.y + ord;
 }

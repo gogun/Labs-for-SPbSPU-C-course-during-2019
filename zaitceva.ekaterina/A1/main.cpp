@@ -4,9 +4,9 @@
 
 void printRect (Shape &Shape)
 {
-  rectangle_t rectangle = Shape.getFrameRect();
-  std::cout << rectnagle.width << " " << rectangle.height;
-  std::cout << " " << "(" << rectangle.pos.x << "," <<rectangle.pos.y << ")" << std::endl;
+  rectangle_t rectangle1 = Shape.getFrameRect();
+  std::cout << rectangle1.width << " " << rectangle1.height;
+  std::cout << " " << "(" << rectangle1.pos.x << "," <<rectangle1.pos.y << ")" << std::endl;
 }
 
 int main ()
@@ -14,19 +14,16 @@ int main ()
   std::cout << "Rectangle" << std::endl;
   Rectangle rectangle (6,9,{3,4});
   printRect (rectangle);
-  double s = rectangle.getArea();
-  std::cout << s << std::endl;
-  point_t point = {2,1};
-  rect.move(point);
+  std::cout << "Area = " << rectangle.getArea() << std::endl;
+  rectangle.move({2,1});
   printRect (rectangle);
-  rect.move(2,8);
+  rectangle.move(2,8);
   printRect (rectangle);
 
   std::cout << "Circle" << std::endl;
   Circle circle ({5,5},4);
   printRect (circle);
-  s = circle.getArea();
-  std::cout << s << std::endl;
+  std::cout << "Area = " << circle.getArea() << std::endl;
   circle.move({1,1});
   printRect (circle);
   circle.move(2,8);

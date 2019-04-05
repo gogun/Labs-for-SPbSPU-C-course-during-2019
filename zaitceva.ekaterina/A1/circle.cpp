@@ -4,7 +4,7 @@
 
 Circle::Circle(point_t centre, double radius):
   pos_(centre),
-  radius_(rad)
+  radius_(radius)
 
 {
   assert (radius_ > 0.0);
@@ -15,9 +15,9 @@ double Circle::getArea () const
   return M_PI*radius_*radius_;
 }
 
-void Circle::move(point_t point)
+void Circle::move(point_t pnt)
 {
-  pos_ = point;
+  pos_ = pnt;
 }
 
 void Circle::move(double abs, double ord)
