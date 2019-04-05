@@ -1,6 +1,8 @@
 #ifndef base_types_hpp
 
+
 #define base_types_hpp
+
 
 struct point_t
 
@@ -12,6 +14,7 @@ struct point_t
 
 };
 
+
 struct rectangle_t
 
 {
@@ -22,5 +25,6 @@ struct rectangle_t
   double height;
 
 };
+
 
 #endif
