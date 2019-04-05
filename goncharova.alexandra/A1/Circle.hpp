@@ -13,9 +13,9 @@ class Circle: public Shape
 
 public:
 
-  double radius_;
-
   point_t center_;
+
+  double radius_;
 
   Circle(const point_t &center, double radius);
 
