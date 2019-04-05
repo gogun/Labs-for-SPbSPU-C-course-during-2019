@@ -2,10 +2,10 @@
 #include "iostream"
 #include <cassert>
 
-Rectangle::Rectangle(const point_t &center,double width,double height) :
+Rectangle::Rectangle(const point_t &center,const double width,const double height) :
   rect_({width,height,center})
 {
-  assert((rect_.width > 0) && (rect_.height > 0));
+  assert((rect_.width > 0.0) && (rect_.height > 0.0));
 }
 
 double Rectangle::getArea() const
@@ -18,14 +18,14 @@ rectangle_t Rectangle::getFrameRect() const
   return rect_;
 }
 
-void Rectangle::coutInfo() const
+void Rectangle::printInfo() const
 {
   std::cout << "Rectangle at " << "("<< rect_.pos.x << "," << rect_.pos.y << ")" << std::endl;
   std::cout << "Width: " << rect_.width << ", " << "height: " << rect_.height << std::endl;
   std::cout << "Area: " << getArea() << std::endl;
 }
 
-void Rectangle::move(double x,double y)
+void Rectangle::move(const double x,const double y)
 {
   rect_.pos.x+=x;
   rect_.pos.y+=y;
