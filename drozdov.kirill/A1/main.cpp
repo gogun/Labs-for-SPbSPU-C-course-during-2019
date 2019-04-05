@@ -6,7 +6,6 @@ void viewShape(const Shape *shape);
 
 int main()
 {
-  /*test on example Rectangle:*/
   Rectangle rect1(7.2, 5.7, {5, -2.4});
   std::cout << "Rectangle:"
     << "\n*******************";
@@ -16,9 +15,8 @@ int main()
   rect1.move(dx, dy);
   std::cout << "\n===After move: + (" << dx << ';' << dy << ")===";
   rect1.displayData();
-
   std::cout << std::endl;
-  /*test on example Circle:*/
+
   Circle circ1(5);
   std::cout << "\nCircle:"
     << "\n*******************";
