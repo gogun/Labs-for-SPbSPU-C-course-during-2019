@@ -25,7 +25,7 @@ double petrov::Rectangle::getArea() const
   return rectangle_.height * rectangle_.width;
 }
 
-rectangle_t petrov::Rectangle::getFrameRect() const
+petrov::rectangle_t petrov::Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
@@ -41,7 +41,13 @@ void petrov::Rectangle::move(double dx, double dy)
   rectangle_.pos.x += dy;
 }
 
-point_t petrov::Rectangle::getCentre() const
+void petrov::Rectangle::scale(double scaleCoef)
+{
+  rectangle_.width *= scaleCoef;
+  rectangle_.height *= scaleCoef;
+}
+
+petrov::point_t petrov::Rectangle::getCentre() const
 {
   return rectangle_.pos;
 }

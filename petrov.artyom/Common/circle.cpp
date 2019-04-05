@@ -17,7 +17,7 @@ double petrov::Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-rectangle_t petrov::Circle::getFrameRect() const
+petrov::rectangle_t petrov::Circle::getFrameRect() const
 {
   return rectangle_t {radius_ * 2, radius_ * 2, centre_};
 }
@@ -33,7 +33,12 @@ void petrov::Circle::move(double dx, double dy)
   centre_.y += dy;
 }
 
-point_t petrov::Circle::getCentre() const
+void petrov::Circle::scale(double scaleCoef)
+{
+  radius_ *= scaleCoef;
+}
+
+petrov::point_t petrov::Circle::getCentre() const
 {
   return centre_;
 }

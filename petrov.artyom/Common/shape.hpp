@@ -19,6 +19,8 @@ namespace petrov
     virtual void move(const point_t & centre) = 0;
 
     virtual void move(double dx, double dy) = 0;
+
+    virtual void scale(double scaleCoef) = 0;
   };
 
 }

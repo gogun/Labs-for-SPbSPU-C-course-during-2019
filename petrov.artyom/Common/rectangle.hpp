@@ -22,6 +22,8 @@ namespace petrov
 
     void move(double dx, double dy) override;
 
+    void scale(double scaleCoef) override;
+
     point_t getCentre() const;
 
     double getWidth() const;
