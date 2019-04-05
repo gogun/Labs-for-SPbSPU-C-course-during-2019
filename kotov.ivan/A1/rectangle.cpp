@@ -8,6 +8,11 @@ Rectangle::Rectangle(const point_t & center, double widht, double heigth) :
   assert((rect_.width > 0) && (rect_.height > 0));
 }
 
+std::string Rectangle::getShapeName() const
+{
+  return "rectangle";
+}
+
 double Rectangle::getArea() const
 {
   return rect_.height * rect_.width;

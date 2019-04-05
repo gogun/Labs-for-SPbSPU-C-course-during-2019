@@ -10,6 +10,11 @@ Circle::Circle(const point_t & center, double radius) :
   assert(radius_ > 0);
 }
 
+std::string Circle::getShapeName() const
+{
+  return "circle";
+}
+
 double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;

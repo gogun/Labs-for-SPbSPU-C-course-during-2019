@@ -8,20 +8,23 @@ int main()
 {
   Rectangle rect({55, 55}, 10, 10);
   Circle circle({25, 25}, 5);
-  Shape * shapeA = & rect, * shapeB = & circle;
-  std::cout << "Area of rectangle: " << shapeA->getArea() << std::endl;
-  std::cout << "Area of circle: " << shapeB->getArea() << std::endl;
-  std::cout << "position of rect: " << shapeA->getFrameRect().pos.x 
-      << ", " << shapeA->getFrameRect().pos.y << std::endl;
-  std::cout << "position of circle: " << shapeB->getFrameRect().pos.x 
-      << ", " << shapeB->getFrameRect().pos.y << std::endl;
-  shapeA->move(-5, -5);
-  shapeB->move({5, 5});
-  std::cout << "Area of rectangle after moving: " << shapeA->getArea() << std::endl;
-  std::cout << "Area of circle after moving: " << shapeB->getArea() << std::endl;
-  std::cout << "position of rect after moving: " << shapeA->getFrameRect().pos.x 
-      << ", " << shapeA->getFrameRect().pos.y << std::endl;
-  std::cout << "position of circle after moving: " << shapeB->getFrameRect().pos.x 
-      << ", " << shapeB->getFrameRect().pos.y << std::endl;
+  Shape ** shapes = new Shape*[2];
+  shapes[0] = & rect; 
+  shapes[1] = & circle;
+  std::cout << "Area of " + shapes[0]->getShapeName() + ": " << shapes[0]->getArea() << std::endl;
+  std::cout << "Area of " + shapes[1]->getShapeName() + ": " << shapes[1]->getArea() << std::endl;
+  std::cout << "position of " + shapes[0]->getShapeName() + ": " << shapes[0]->getFrameRect().pos.x 
+      << ", " << shapes[0]->getFrameRect().pos.y << std::endl;
+  std::cout << "position of " + shapes[1]->getShapeName() + ": " << shapes[1]->getFrameRect().pos.x 
+      << ", " << shapes[1]->getFrameRect().pos.y << std::endl;
+  shapes[0]->move(-5, -5);
+  shapes[1]->move({5, 5});
+  std::cout << "Area of " + shapes[0]->getShapeName() + " after moving: " << shapes[0]->getArea() << std::endl;
+  std::cout << "Area of " + shapes[1]->getShapeName() + " after moving: " << shapes[1]->getArea() << std::endl;
+  std::cout << "position of " + shapes[0]->getShapeName() + " after moving: " << shapes[0]->getFrameRect().pos.x
+      << ", " << shapes[0]->getFrameRect().pos.y << std::endl;
+  std::cout << "position of " + shapes[1]->getShapeName() + " after moving: " << shapes[1]->getFrameRect().pos.x
+      << ", " << shapes[1]->getFrameRect().pos.y << std::endl;
+  delete shapes;
   return 0;
 }
