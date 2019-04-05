@@ -2,73 +2,39 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void writeFrameRectInfo(rectangle_t &rect)
+void writeFrameRectInfo(const Shape &shape)
 {
-  std::cout << "Frame Rectangle: "
-            << "Width: " << rect.width << " Height: " << rect.height
-            << " Centre: " << '(' << rect.pos.x << ", " << rect.pos.y << ')'
-            << std::endl;
+  rectangle_t frameRect = shape.getFrameRect();
+  std::cout << "Frame Rectangle: " << "Centre: " << '(' << frameRect.centre.x << ", " << frameRect.centre.y << ')'
+            << " Width: " << frameRect.width << " Height: " << frameRect.height << std::endl;
+}
+
+void writeArea(const Shape &shape)
+{
+  std::cout << "Area is " << shape.getArea() << std::endl;
 }
 
 int main()
 {
-  rectangle_t rect;
-  point_t pos;
-  //setting dot(pos) coordinates
-  pos.x = 0;
-  pos.y = 0;
-  //setting width and height of rectangle
-  double width = 50;
-  double height = 40;
-  //setting radius of circle
-  double radius = 10;
-  //creating circle and writing info
-  Circle circle(pos, radius);
-  rect = circle.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of circle: " << circle.getArea() << std::endl;
-  //creating rectangle and writing info
-  Rectangle rectangle({pos, width, height});
-  rect = rectangle.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of rectangle: " << rectangle.getArea() << std::endl;
-  //moving circle and rectangle
-  rectangle.move(10, 10);
-  circle.move(10, 10);
-  //writing info about circle
-  rect = circle.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of circle: " << circle.getArea() << std::endl;
-  //writing info about rectangle
-  rect = rectangle.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of rectangle: " << rectangle.getArea() << std::endl;
-  //new coordinates of dot(pos)
-  pos.x = 20;
-  pos.y = 50;
-  //moving rectangle to dot(pos)
-  rectangle.move(pos);
-  //demonstrating polymorphism
-  Shape &shape1 = rectangle;
-  rect = shape1.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of rectangle: " << shape1.getArea() << std::endl;
-  //moving rectangle to another position and writing info
-  shape1.move(10, 20);
-  rect = shape1.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of rectangle: " << shape1.getArea() << std::endl;
-  //moving circle to dot(pos) and writing info
-  circle.move(pos);
-  Shape &shape2 = circle;
-  rect = shape2.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of circle: " << shape2.getArea() << std::endl;
-  //moving circle to another position and writing info
-  shape2.move(10, 20);
-  rect = shape2.getFrameRect();
-  writeFrameRectInfo(rect);
-  std::cout << "Area of circle: " << shape2.getArea() << std::endl;
+  std::cout << "Rectangle with centre (0, 0), width = 10 and height = 10" << std::endl;
+  Rectangle rectangle({{0, 0}, 10, 10});
+  writeArea(rectangle);
+  writeFrameRectInfo(rectangle);
+
+  std::cout << "Circle with centre (0, 0) and radius = 10" << std::endl;
+  Circle circle({0, 0}, 10);
+  writeArea(circle);
+  writeFrameRectInfo(circle);
+  
+  std::cout << "Moving rectangle along Ox and Oy (dx = 30 and dy = 30)" << std::endl;
+  rectangle.move(30, 30);
+  writeArea(rectangle);
+  writeFrameRectInfo(rectangle);
+
+  std::cout << "Moving circle to the point (20, 20)" << std::endl;
+  circle.move({20, 20});
+  writeArea(circle);
+  writeFrameRectInfo(circle);
 
   return 0;
 }
