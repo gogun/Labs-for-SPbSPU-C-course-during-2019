@@ -25,4 +25,5 @@ struct rectangle_t
   double height;
 
 };
+
 #endif
