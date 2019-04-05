@@ -6,10 +6,10 @@ void printFrameRect(const Shape &shape)
 {
   rectangle_t rect_tmp = shape.getFrameRect();
   std::cout << "Center: (" << rect_tmp.pos.x << ", "
-            << rect_tmp.pos.y << ")" << std::endl
-            << "Height = " << rect_tmp.height << std::endl
-            << "Width = " << rect_tmp.width << std::endl
-            <<"Area = " << shape.getArea() << std::endl;
+      << rect_tmp.pos.y << ")" << std::endl
+      << "Height = " << rect_tmp.height << std::endl
+      << "Width = " << rect_tmp.width << std::endl
+      << "Area = " << shape.getArea() << std::endl;
 }
 
 int main() {
