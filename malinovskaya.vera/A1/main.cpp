@@ -4,8 +4,8 @@
 
 int main()
 {
-  Circle oCircle({ 4.0, 2.0 }, 3.0);
-  Shape *pointer = &oCircle;
+  Circle objectCircle({ 4.0, 2.0 }, 3.0);
+  Shape *pointer = &objectCircle;
   std::cout << "Circle:" << std::endl;
   std::cout << std::endl;
   std::cout << "Area: " << pointer->getArea() << std::endl;
@@ -24,8 +24,8 @@ int main()
   std::cout << std::endl;
   std::cout << std::endl;
 
-  Rectangle oRectangle({ 3.0, 4.0, { 5.0, 8.0 } });
-  pointer = &oRectangle;
+  Rectangle objectRectangle({ 3.0, 4.0, { 5.0, 8.0 } });
+  pointer = &objectRectangle;
   std::cout << "Rectangle:" << std::endl;
   std::cout << std::endl;
   std::cout << "Area: " << pointer->getArea() << std::endl;
