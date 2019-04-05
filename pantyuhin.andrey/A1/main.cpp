@@ -39,7 +39,7 @@ int main()
 {
   std::cout << "----------Rectangles----------" << std::endl;
   std::cout << "creating rectangle x=-1, y=3, w=2, h=4" << std::endl;
-  Rectangle Rect1({ -1, 3 }, 2, 4);
+  Rectangle Rect1({-1, 3}, 2, 4);
   printRectangleParameters(Rect1);
 
   std::cout << "creating rectangle (2nd constructor)" << std::endl;
@@ -58,7 +58,7 @@ int main()
 
   std::cout << "-----------Circles------------" << std::endl;
   std::cout << "creating circle x=-1, y=3, r=4" << std::endl;
-  Circle Circ1({ -1, 3 }, 4);
+  Circle Circ1({-1, 3}, 4);
   printCircleParameters(Circ1);
 
   std::cout << "creating circle (2nd constructor)" << std::endl;
@@ -72,7 +72,7 @@ int main()
   printCircleParameters(Circ2);
 
   std::cout << "moving circle to x = 4, y = 5" << std::endl;
-  Circ2.move({ 4, 5 });
+  Circ2.move({4, 5});
   printCircleParameters(Circ2);
 
   return 0;
