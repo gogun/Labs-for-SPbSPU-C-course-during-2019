@@ -4,8 +4,8 @@
 #include <math.h>
 
 Circle::Circle(const point_t &center, double radius):
-    radius_(radius),
-    center_(center)
+  radius_(radius),
+  center_(center)
 {
   assert(radius > 0.0);
 }
@@ -38,6 +38,6 @@ void Circle::writeInfo() const
   std::cout << "Radius: " << radius_ << "\n";
   std::cout << "Center: (" << center_.x << "," << center_.y << ") \n";
   std::cout << "Area: " << getArea() << "\n";
-  std::cout << "Frame Rectangle: width = " << rectangleExp.width << ", height = " << rectangleExp.height << std::endl
+  std::cout << "Frame Rectangle: width = " << rectangleExp.width << ", height = " << rectangleExp.height << "\n"
             << std::endl;
 }

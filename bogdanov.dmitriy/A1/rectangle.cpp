@@ -3,7 +3,7 @@
 #include <cassert>
 
 Rectangle::Rectangle(const point_t &center, double width, double height):
-    rectangle_({center, width, height})
+  rectangle_({center, width, height})
 {
   assert((width > 0.0) && (height > 0.0));
 }
@@ -37,6 +37,6 @@ void Rectangle::writeInfo() const
   std::cout << "Heigth: " << rectangle.height << "\n";
   std::cout << "Center: (" << rectangle.pos.x << "," << rectangle.pos.y << ") \n";
   std::cout << "Area: " << getArea() << "\n";
-  std::cout << "Frame Rectangle: width = " << rectangle.width << " ,height = " << rectangle.height << std::endl
+  std::cout << "Frame Rectangle: width = " << rectangle.width << " ,height = " << rectangle.height << "\n"
             << std::endl;
 }
