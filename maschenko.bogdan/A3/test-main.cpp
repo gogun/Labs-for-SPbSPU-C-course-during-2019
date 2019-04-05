@@ -1,9 +1,9 @@
-#define BOOST_TEST_MODULE A2
+#define BOOST_TEST_MODULE A3
 #include <boost/test/included/unit_test.hpp>
 #include <stdexcept>
 #include <iostream>
 #include <cmath>
-#include "CompositeShape.hpp"
+#include "composite-shape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 #define INACCURACY 0.001

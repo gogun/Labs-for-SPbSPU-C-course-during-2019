@@ -1,7 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
-#include "CompositeShape.hpp"
+#include "composite-shape.hpp"
 
 int main()
 {
