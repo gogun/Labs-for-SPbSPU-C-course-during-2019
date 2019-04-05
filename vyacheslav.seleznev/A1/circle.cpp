@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(double radius, const point_t pos)
+Circle::Circle(double radius, point_t pos)
 {
   assert(radius > 0);
 
