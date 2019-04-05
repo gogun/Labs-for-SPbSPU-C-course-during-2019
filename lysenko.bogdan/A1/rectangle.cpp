@@ -1,17 +1,12 @@
 #include <iostream>
+#include <cassert>
 #include "rectangle.hpp"
 
 Rectangle::Rectangle(const rectangle_t & rect):
   rect_(rect)
 {
-  if (rect_.height <= 0.0)
-  {
-   std::cerr << "Error. Incorrect height of rectangle.\n";
-  }
-  if (rect_.width <= 0.0)
-  {
-   std::cerr << "Error. Incorrect width of rectangle.\n";
-  }
+  assert((rect_.width > 0) && ("Error. Incorrect width of rectangle."));
+  assert((rect_.height > 0) && ("Error. Incorrect height of rectangle."));
 }
 
 double Rectangle::getArea() const
