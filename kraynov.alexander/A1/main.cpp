@@ -1,45 +1,48 @@
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-using namespace std;
-void moveBothToPos(Shape* first, Shape * second,const point_t &pos)
+#include <cassert>
+
+void moveBothToPos(Shape *first, Shape *second, const point_t &pos)
 {
+  assert((first != nullptr) && (second != nullptr) && "null pointer passed as an argument");
   first->move(pos);
   second->move(pos);
 }
-bool hasGreaterArea(const Shape* first, const Shape * second)
+
+bool hasGreaterArea(const Shape *first, const Shape *second)
 {
-  return first->getArea()>second->getArea();
+  assert((first != nullptr) && (second != nullptr) && "null pointer passed as an argument");
+  return first->getArea() > second->getArea();
 }
-void printFrameRect(const Shape* ref)
+
+void printFrameRect(const Shape *ref)
 {
+  assert((ref != nullptr) && "null pointer passed as an argument");
   rectangle_t frameRect = ref->getFrameRect();
-  cout << "Object's frame Width is " << frameRect.width << endl;
-  cout << "Object's frame Height is: " << frameRect.height << endl;
-  cout << "Object's frame Center is positioned at " << frameRect.pos.x << " , " << frameRect.pos.y << endl;
+  std::cout << "Object's frame Width is " << frameRect.width << std::endl;
+  std::cout << "Object's frame Height is: " << frameRect.height << std::endl;
+  std::cout << "Object's frame Center is positioned at " << frameRect.pos.x << " , " << frameRect.pos.y << std::endl;
 }
 
 int main()
 {
-  Circle a({1,1},2);
-  Rectangle b({2,2},1,1);
-  cout << "Shape a position is " << a.getCenter().x << " , " << a.getCenter().y << endl;
-  cout << "Shape b position is " << b.getPos().x << " , " << b.getPos().y << endl;
-  moveBothToPos(&a, &b,{9,9});
+  Circle a({1, 1}, 2);
+  Rectangle b({2, 2}, 1, 1);
+  std::cout << "Shape a position is " << a.getPos().x << " , " << a.getPos().y << std::endl;
+  std::cout << "Shape b position is " << b.getPos().x << " , " << b.getPos().y << std::endl;
+  moveBothToPos(&a, &b, {9, 9});
   
-  cout << "Shape a position is " << a.getCenter().x<<" , " << a.getCenter().y << endl;
-  cout << "Shape b position is " << b.getPos().x << " , " << b.getPos().y<<endl;
-  if(hasGreaterArea(&a, &b))
-  {
-    cout << "a has area greater then b" << endl;
+  std::cout << "Shape a position is " << a.getPos().x << " , " << a.getPos().y << std::endl;
+  std::cout << "Shape b position is " << b.getPos().x << " , " << b.getPos().y << std::endl;
+  if (hasGreaterArea(&a, &b)) {
+    std::cout << "a has area greater then b" << std::endl;
+  } else {
+    std::cout << "a has area not greater then shape b" << std::endl;
   }
-  else
-  {
-    cout << "a has area not greater then shape b" << endl;
-  }
-  cout << "Printing Frame for object a" << endl;
+  std::cout << "Printing Frame for object a" << std::endl;
   printFrameRect(&a);
-  cout << "Printing Frame for object b" << endl;
+  std::cout << "Printing Frame for object b" << std::endl;
   printFrameRect(&b);
   
   return 0;

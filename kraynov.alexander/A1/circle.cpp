@@ -6,10 +6,10 @@ Circle::Circle(const point_t &pos, double radius) :
   center_(pos),
   radius_(radius)
 {
-  assert((radius > 0) && "radius is less than zero");
+  assert((radius > 0) && "radius is less or equal to zero");
 }
 
-point_t Circle::getCenter() const
+point_t Circle::getPos() const
 {
   return  center_;
 }

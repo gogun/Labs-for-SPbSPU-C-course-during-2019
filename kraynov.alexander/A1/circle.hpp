@@ -8,7 +8,7 @@ class Circle : public Shape
 public:
   Circle(const point_t &pos, double radius);
   
-  point_t getCenter() const;
+  point_t getPos() const override;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t &dest) override;
@@ -19,4 +19,4 @@ private:
   double radius_;
 };
 
-#endif //A1_CIRCLE_HPP
+#endif

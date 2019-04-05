@@ -9,7 +9,7 @@ class Rectangle : public Shape
 public:
   Rectangle(const point_t &pos, double width, double height);
   
-  point_t getPos() const;
+  point_t getPos() const override;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t &pos) override;
@@ -21,4 +21,4 @@ private:
   double height_;
 };
 
-#endif //A1_RECTANGLE_HPP
+#endif
