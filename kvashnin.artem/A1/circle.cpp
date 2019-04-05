@@ -35,10 +35,10 @@ rectangle_t Circle::getFrameRect() const
 void Circle::printInfo() const
 {
   rectangle_t FrameRectData = getFrameRect();
-  std::cout << "Circle coordinates: X: " << pos_.x;
-  std::cout << "; Y: " << pos_.y << std::endl;
-  std::cout << "Circle area: " << getArea() << std::endl;
-  std::cout << "Circle radius: " << radius_ << std::endl;
-  std::cout << "Rectangle frame width: " << FrameRectData.width;
-  std::cout << "; height: " << FrameRectData.height << std::endl;
+  std::cout << "Circle coordinates: X: " << pos_.x
+            << "; Y: " << pos_.y << std::endl
+            << "Circle area: " << getArea() << std::endl
+            << "Circle radius: " << radius_ << std::endl
+            << "Rectangle frame width: " << FrameRectData.width
+            << "; height: " << FrameRectData.height << std::endl;
 }
