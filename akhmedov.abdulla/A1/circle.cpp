@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(const point_t &pos, double radius) :
+Circle::Circle(const point_t &pos, double radius):
   pos_(pos),
   radius_(radius)
 {
@@ -17,7 +17,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {pos_, 2 * radius_, 2 * radius_};
+  return { pos_, 2 * radius_, 2 * radius_ };
 }
 
 void Circle::move(const point_t &pos)

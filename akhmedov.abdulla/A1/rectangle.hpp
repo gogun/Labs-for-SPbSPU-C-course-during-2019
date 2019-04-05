@@ -1,6 +1,5 @@
 #ifndef A1_RECTANGLE_HPP
 #define A1_RECTANGLE_HPP
-
 #include "shape.hpp"
 
 class Rectangle : public Shape
@@ -19,4 +18,4 @@ class Rectangle : public Shape
     double width_, height_;
 };
 
-#endif //A1_RECTANGLE_HPP
+#endif

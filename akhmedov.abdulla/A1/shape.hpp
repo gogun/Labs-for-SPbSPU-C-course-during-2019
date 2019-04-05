@@ -1,6 +1,5 @@
 #ifndef A1_SHAPE_HPP
 #define A1_SHAPE_HPP
-
 #include "base-types.hpp"
 
 class Shape
