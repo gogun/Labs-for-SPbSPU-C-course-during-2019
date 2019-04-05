@@ -1,7 +1,7 @@
 #include <boost/test/included/unit_test.hpp>
 
-#include "circle.hpp"
-#include "rectangle.hpp"
+#include "../Common/circle.hpp"
+#include "../Common/rectangle.hpp"
 
 #define INACCURACY 0.0001
 
