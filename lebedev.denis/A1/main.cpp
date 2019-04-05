@@ -2,7 +2,6 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-
 void showRectangle_t(rectangle_t data)
 {
   std::cout<<"Width = "<<data.width<<"\n";
@@ -23,13 +22,11 @@ int main()
   std::cout<<"Rectangle."<<"\n";
 	
   showAll(r1);
-  r1.move( { .x = 7.00, .y = 8.00 });
+  r1.move({ .x = 7.00, .y = 8.00 });
   
   std::cout<<"After move"<<"\n";
   showAll(r1);
-
-	
-	
+ 
   Circle c1({ 1.00, 3.00 }, 3.00);
   std::cout<<"Circle."<<"\n";
   
