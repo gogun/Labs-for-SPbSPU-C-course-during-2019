@@ -29,4 +29,3 @@ void Circle::move(point_t point)
 {
   m_pos = point;
 }
-
