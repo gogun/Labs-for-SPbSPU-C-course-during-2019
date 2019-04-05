@@ -2,12 +2,12 @@
 #include <cassert>
 #include "rectangle.hpp"
 #include "circle.hpp"
-#include "shape.hpp"
 
-void printInfo(Shape *shape)
+
+void printInfo(const Shape *shape)
 {
   assert(shape != nullptr);
-  rectangle_t tempRect = shape->getFrameRect();
+  const rectangle_t tempRect = shape->getFrameRect();
 
   std::cout << "Width: " << tempRect.width << '\n';
   std::cout << "Height: " << tempRect.height << '\n';
