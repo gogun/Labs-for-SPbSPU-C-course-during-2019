@@ -15,4 +15,5 @@ private:
   double radius_;
   point_t center_;
 };
+
 #endif
