@@ -1,16 +1,11 @@
-#ifndef POINT_T_HPP
-#define POINT_T_HPP
+#ifndef BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 struct point_t
 {
   double x;
   double y;
 };
-
-#endif // !POINT_T_HPP
-
-#ifndef RECTANGLE_T_HPP
-#define RECTANGLE_T_HPP
 
 struct rectangle_t
 {
@@ -19,4 +14,4 @@ struct rectangle_t
   point_t pos;
 };
 
-#endif // !RECTANGLE_T_HPP
+#endif // !BASE_TYPES_HPP

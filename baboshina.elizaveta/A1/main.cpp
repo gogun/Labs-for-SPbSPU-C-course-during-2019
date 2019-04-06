@@ -13,7 +13,6 @@ int main()
   circle.getInfo();
   circle.move(4, 5);
   circle.getInfo();
-
   Rectangle rectangle({ 5,5 }, 20, 5);
   rectangle.getInfo();
   std::cout << "The area of rectangle is: " << rectangle.getArea() << std::endl;
@@ -23,6 +22,5 @@ int main()
   rectangle.getInfo();
   rectangle.move(-1, 1);
   rectangle.getInfo();
-  system("pause");
   return 0;
 }
