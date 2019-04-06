@@ -4,6 +4,7 @@
 #include <cmath>
 #include <iostream>
 #include <stdexcept>
+
 Circle::Circle (double Rcircle, point_t cpoint):
   cR(Rcircle),
   pos(cpoint)
