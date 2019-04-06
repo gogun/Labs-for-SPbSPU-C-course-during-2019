@@ -14,7 +14,7 @@ public:
   void getInfo() const override;
 
 private:
-  double radius_;
   point_t center_;
+  double radius_;
 };
 #endif
