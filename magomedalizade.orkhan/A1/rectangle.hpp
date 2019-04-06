@@ -1,6 +1,5 @@
 #ifndef Rectangle_hpp
 #define Rectangle_hpp
-
 #include "base-types.hpp"
 #include "Shape.hpp"
 

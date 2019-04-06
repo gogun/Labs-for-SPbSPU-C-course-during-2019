@@ -7,11 +7,11 @@ Rectangle::Rectangle(const point_t &place, const double width, const double heig
   width_(width),
   height_(height)
 {
-  if (width<=0) 
+  if (width <= 0) 
   {
     throw std::invalid_argument("negative width");
   };
-  if (height<=0) 
+  if (height <= 0) 
   {
     throw std::invalid_argument("negative height");
   };
@@ -19,19 +19,19 @@ Rectangle::Rectangle(const point_t &place, const double width, const double heig
 
 double Rectangle::getArea() const
 {
-  return width_*height_;
+  return width_ * height_;
 };
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return{place_,width_,height_};
+  return{ place_, width_, height_ };
 };
 
 void Rectangle::getInfo() const
 {
-  std::cout<<"Placement of the rectangle: "<<place_.x<<" "<<place_.y<<"\n";
-  std::cout<<"Width: "<<width_<<"\n";
-  std::cout<<"Height: "<<height_<<"\n";
+  std::cout << "Placement of the rectangle: " << place_.x << " " << place_.y << "\n";
+  std::cout << "Width: " << width_ << "\n";
+  std::cout << "Height: " << height_ << "\n";
 };
 
 point_t Rectangle::getPlace() const
@@ -51,13 +51,13 @@ double Rectangle::getHeight() const
 
 void Rectangle::scale(const double scoping)
 {
-  if (scoping<=0) 
+  if (scoping <= 0)
   {
     throw std::invalid_argument("negative scoping");
   }
   else 
   {
-    width_=width_*scoping;
-    height_=height_*scoping;
+    width_ = width_ * scoping;
+    height_ = height_ * scoping;
   }
 };
