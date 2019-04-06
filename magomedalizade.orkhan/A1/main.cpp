@@ -46,6 +46,6 @@ int main()
   rt = r.getFrameRect();
   cout << "Limiting rectangle ";
   cout << "Center of FrameRect " << rt.pos.x << " " << rt.pos.y << " and width, height: " << rt.width << rt.height << endl;
-  system("Pause");
+
  return 0;
 }
