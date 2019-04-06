@@ -1,14 +1,14 @@
 #ifndef base_types_hpp
 #define base_types_hpp
+
 struct point_t
-  {
-  double x;
-  double y;
-  };
+{
+  double x, y;
+};
+
 struct rectangle_t
-  {
-  double width;
-  double height;
+{
+  double width, height;
   point_t pos;
-  };
+};
 #endif

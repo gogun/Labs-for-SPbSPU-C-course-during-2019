@@ -20,10 +20,10 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {cR,cR,pos.x,pos.y};
+  return {cR, cR, pos.x, pos.y};
 }
 
-void Circle::move(const double mX,const double mY)
+void Circle::move(const double mX, const double mY)
 {
   pos.x += mX;
   pos.y += mY;
