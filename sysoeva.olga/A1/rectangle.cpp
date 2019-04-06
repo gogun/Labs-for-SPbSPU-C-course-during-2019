@@ -2,7 +2,7 @@
 
 Rectangle::Rectangle(const point_t & point, const double height, const double width)
 {
-  assert((height_ > 0.0) && (width_ > 0.0));
+  assert((height > 0.0) && (width > 0.0));
   rect_.pos = point;
   rect_.height = height;
   rect_.width = width;
