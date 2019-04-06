@@ -33,8 +33,8 @@ void Rectangle::printInfo() const
 {
   rectangle_t FrameRectData = getFrameRect();
   std::cout << "Rectangle coordinates: X: " << rect_.pos.x
-            << "; Y: " << rect_.pos.y << std::endl
-            << "Rectangle area: " << getArea() << std::endl
-            << "Rectangle frame width: " << FrameRectData.width
-            << "; height: " << FrameRectData.height << std::endl;
+      << "; Y: " << rect_.pos.y << std::endl
+      << "Rectangle area: " << getArea() << std::endl
+      << "Rectangle frame width: " << FrameRectData.width
+      << "; height: " << FrameRectData.height << std::endl;
 }
