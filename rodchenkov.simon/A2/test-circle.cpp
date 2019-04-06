@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE 
+#define BOOST_TEST_MODULE A2_TEST_CIRCLE
 
 #include "boost/test/included/unit_test.hpp"
 #include "circle.hpp"
