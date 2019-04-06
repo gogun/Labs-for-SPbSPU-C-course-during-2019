@@ -16,25 +16,25 @@ Rectangle::Rectangle(double locX, double locY, double width, double height):
 
   double Rectangle::getArea() const
   {
-    return getHight() * getWidth();
+    return getHeight() * getWidth();
   }
 
-  rectangle_t Rectangle::getFrameRect()
+  rectangle_t Rectangle::getFrameRect() const
   {
     return rectCl_;
   }
 
-  void Rectangle::move(const point_t newPos)
+  void Rectangle::move(const point_t newPos) const
   {
     rectCl_.pos = newPos;
   }
 
-  void Rectangle::move(double newX, double newY)
+  void Rectangle::move(double newX, double newY) const
   {
     rectCl_.pos = point_t{getPosition().locX + newX, getPosition().locY + newY};
   }
 
-  double Rectangle::getPosition() const
+  point_t Rectangle::getPosition() const
   {
     return rectCl_.pos;
   }
@@ -50,7 +50,7 @@ Rectangle::Rectangle(double locX, double locY, double width, double height):
   }
 
 
-  void Rectangle::print()
+  void Rectangle::print() const
   {
     std::cout << "Here is rectangle. Width = " << getWidth() << ", height = " << getHight() << ".\n";
     std::cout << "Coordinates of centre: (" << getPosition().locX << ", " << getPosition().locY << "), ";

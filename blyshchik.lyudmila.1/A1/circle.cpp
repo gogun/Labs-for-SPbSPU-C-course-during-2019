@@ -12,7 +12,7 @@ Circle::Circle(const point_t locO, double radius):
   assert (radius_ > 0.0);
 }
 Circle::Circle(double locX, double locY, double radius):
-        Circle(point_t{locX, locY}, radius)
+  Circle(point_t{locX, locY}, radius)
 {
 }
 
@@ -26,12 +26,12 @@ rectangle_t Circle::getFrameRect() const
   return {getPosition(), getRadius() * 2, getRadius() * 2};
 }
 
-void Circle::move(point_t newCentre)
+void Circle::move(const point_t newCentre) const
 {
   circ_ = newCentre;
 }
 
-void Circle::move(double newX, double newY)
+void Circle::move(double newX, double newY) const
 {
   circ_ = point_t{getPosition().locX + newX, getPosition().locY + newY};
 }

@@ -14,7 +14,7 @@ public:
   void move(double, double) const override;
 
   void print() const override;
-  double getPosition() const;
+  point_t getPosition() const;
   double getHeight() const;
   double getWidth() const;
 
