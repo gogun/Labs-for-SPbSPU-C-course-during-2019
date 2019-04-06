@@ -26,4 +26,3 @@ private:
 } // namespace rodchenkov
 
 #endif // CIRCLE_HPP
-

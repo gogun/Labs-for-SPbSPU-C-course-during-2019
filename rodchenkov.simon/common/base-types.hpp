@@ -19,4 +19,3 @@ struct rectangle_t
 } // namespace rodchenkov
 
 #endif // BASE_TYPES_HPP
-

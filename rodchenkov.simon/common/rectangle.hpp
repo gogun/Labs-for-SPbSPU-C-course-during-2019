@@ -28,4 +28,3 @@ private:
 } // namespace rodchenkov
 
 #endif // RECTANGLE_HPP
-
