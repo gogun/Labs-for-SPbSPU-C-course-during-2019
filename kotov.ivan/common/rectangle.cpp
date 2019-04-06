@@ -11,7 +11,7 @@ kotov::Rectangle::Rectangle(const kotov::point_t & center, double widht, double 
   }
 }
 
-char* kotov::Rectangle::getShapeName() const
+const char* kotov::Rectangle::getShapeName() const
 {
   return "rectangle";
 }
