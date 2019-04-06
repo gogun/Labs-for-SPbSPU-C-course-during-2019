@@ -18,13 +18,13 @@ rectangle_t Rectangle::getFrameRect() const
   return rect_;
 }
 
-void Rectangle::move(double dx, double dy)
-{
-  rect_.pos.x += dx;
-  rect_.pos.y += dy;
-}
-
 void Rectangle::move(const point_t & point)
 {
   rect_.pos = point;
+}
+
+void Rectangle::move(double dx, double dy)
+{
+	rect_.pos.x += dx;
+	rect_.pos.y += dy;
 }

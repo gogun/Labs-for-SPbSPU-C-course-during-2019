@@ -5,20 +5,15 @@
 #include "circle.hpp"
 
 Circle::Circle(const point_t & center, const double radius):
-  radius_(radius),
-  center_(center)
+  center_(center),
+  radius_(radius)
 {
   assert(radius_ >= 0.0);
 }
 
-rectangle_t Circle::getFrameRect() const
+void Circle::move(const point_t & point)
 {
-  return { radius_ * 2, radius_ * 2, center_ };
-}
-
-double Circle::getArea() const
-{
-  return M_PI * radius_ * radius_;
+  center_ = point;
 }
 
 void Circle::move(double dx, double dy)
@@ -27,8 +22,13 @@ void Circle::move(double dx, double dy)
   center_.y += dy;
 }
 
-void Circle::move(const point_t & point)
+double Circle::getArea() const
 {
-  center_ = point;
+  return M_PI * radius_ * radius_;
+}
+
+rectangle_t Circle::getFrameRect() const
+{
+  return { radius_ * 2, radius_ * 2, center_ };
 }
 
