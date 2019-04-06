@@ -14,4 +14,4 @@ struct rectangle_t
   point_t pos;
 };
 
-#endif
+#endif 

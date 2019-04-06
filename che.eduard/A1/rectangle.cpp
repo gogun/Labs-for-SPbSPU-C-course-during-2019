@@ -1,6 +1,5 @@
-#include <cassert>
-
 #include "rectangle.hpp"
+#include <cassert>
 
 Rectangle::Rectangle(const rectangle_t & rect):
   rect_(rect)
@@ -18,13 +17,14 @@ rectangle_t Rectangle::getFrameRect() const
   return rect_;
 }
 
-void Rectangle::move(const point_t & point)
-{
-  rect_.pos = point;
-}
-
 void Rectangle::move(double dx, double dy)
 {
   rect_.pos.x += dx;
   rect_.pos.y += dy;
 }
+
+void Rectangle::move(const point_t & point)
+{
+  rect_.pos = point;
+}
+

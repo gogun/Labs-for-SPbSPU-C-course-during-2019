@@ -1,9 +1,8 @@
-#include <iostream>
-
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include <iostream>
 
-void ShapeWork (Shape & shape1)
+void showShapeWork (Shape & shape1)
 {
   std::cout << "Area:" << shape1.getArea() << std::endl;
   std::cout << "Frame : Ox = " << shape1.getFrameRect().pos.x;
@@ -24,11 +23,11 @@ int main()
 {
   std::cout << "Circle:" << std::endl;
   Circle circle1({0,0},3);
-  ShapeWork(circle1);
+  showShapeWork(circle1);
   std::cout << "Rectangle:" << std::endl;
 
   Rectangle rectangle1({2,2,{10,10}});
-  ShapeWork(rectangle1);
+  showShapeWork(rectangle1);
+  system("pause>NULL");
   return 0;
 }
-
