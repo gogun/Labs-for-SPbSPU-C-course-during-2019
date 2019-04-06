@@ -143,6 +143,34 @@ Boost
 Accepted Labs
 =============
 
-| Name                    | A1 | A2 | A3 | A4 | B1 | B2 | B3 | B4 | B5 | B6 | B7 | B8 |
-|-------------------------|----|----|----|----|----|----|----|----|----|----|----|----|
-| __Total__               |   0|   0|   0|   0|   0|   0|   0|   0|   0|   0|   0|   0|
+| Name                 | A1 | A2 | A3 | A4 | B1 | B2 | B3 | B4 | B5 | B6 | B7 | B8 |
+|----------------------|----|----|----|----|----|----|----|----|----|----|----|----|
+| Afanasiev Aleksey    | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Alexandrov Denis     | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Barekov Andrey       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Besedin Daniil       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Chizhov Nikita       | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Chugaynov Valeriy    | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Firsov Daniil        | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Golikov George       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Gusarov Ilya         | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Konev Ivan           | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Korolev Denis        | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Krasnopyorov Nikita  | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Kuznetsov Svyatoslav | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Lestsenko Klimenti   | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Marashov Alexander   | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Maschenko Bogdan     | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Moskovskaya Polina   | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Naumov Andrei        | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Petrov Artyom        | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Ponomarev Stepan     | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Prohorova Aleksandra | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Sachuk Ilya          | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Sarchuk Yaroslav     | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Shestakova Alina     | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Tolstikov Grigoriy   | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Tsygarova Irina      | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Uzhegov Dmitry       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Zybkin Vladislav     | *  |    |    |    |    |    |    |    |    |    |    |    |
+| __Total__            |  28|   3|   0|   0|   0|   0|   0|   0|   0|   0|   0|   0|
