@@ -15,8 +15,8 @@ public:
   void move(const point_t & center_) override;
   void move(const double dx, const double dy) override;
 private:
-  double radius;
   point_t center;
+  double radius;
 };
 
 #endif

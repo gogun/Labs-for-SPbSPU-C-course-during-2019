@@ -1,6 +1,4 @@
-#include
-
-"rectangle.hpp"
+#include "rectangle.hpp"
 
 Rectangle::Rectangle(const point_t & point, const double height_, const double width_)
 {
