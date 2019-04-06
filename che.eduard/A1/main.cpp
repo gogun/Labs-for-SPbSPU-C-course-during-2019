@@ -28,6 +28,5 @@ int main()
 
   Rectangle rectangle1({2,2,{10,10}});
   showShapeWork(rectangle1);
-  system("pause>NULL");
   return 0;
 }
