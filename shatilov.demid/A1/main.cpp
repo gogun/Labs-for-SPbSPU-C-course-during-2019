@@ -2,6 +2,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
+
 void show(rectangle_t rect)
 {
   std::cout << "width = " << rect.width;

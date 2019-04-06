@@ -1,8 +1,8 @@
 #include "circle.hpp"
-
 #include <iostream>
 #include <cmath>
 #include <cassert>
+
 
 Circle::Circle(const double radius, const point_t & pos) :
   radius_(radius),

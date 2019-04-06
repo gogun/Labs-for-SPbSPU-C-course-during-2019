@@ -1,11 +1,8 @@
-//
-// Created by Demid on 03.04.2019.
-//
-
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 
 #include "shape.hpp"
+
 
 class Circle : public Shape
 {
