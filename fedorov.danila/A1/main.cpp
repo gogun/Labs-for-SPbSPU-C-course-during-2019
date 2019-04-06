@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cassert>
 
-#include "shape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 
@@ -12,7 +11,6 @@ int main()
   Rectangle rect({ 1.5, 2.5 }, 5.5, 4.5);
   std::cout << "rectangle:" << std::endl;
   workWithFigure(&rect);
-
 
   Circle circ({ 3.4, 5.3 }, 2.0);
   std::cout << "circle:" << std::endl;
