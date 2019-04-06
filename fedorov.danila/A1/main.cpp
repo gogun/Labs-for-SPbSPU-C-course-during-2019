@@ -8,13 +8,13 @@ void workWithFigure(Shape* figure);
 
 int main()
 {
-  Rectangle rect({ 1.5, 2.5 }, 5.5, 4.5);
   std::cout << "rectangle:" << std::endl;
-  workWithFigure(&rect);
+  Rectangle rectangle({ 1.5, 2.5 }, 5.5, 4.5);
+  workWithFigure(&rectangle);
 
-  Circle circ({ 3.4, 5.3 }, 2.0);
   std::cout << "circle:" << std::endl;
-  workWithFigure(&circ);
+  Circle circle({ 3.4, 5.3 }, 2.0);
+  workWithFigure(&circle);
 
   return 0;
 }
