@@ -8,9 +8,9 @@ void printInfo(const chizhov::Shape& shape, const char* name = "Shape")
 {
   chizhov::rectangle_t rectTmp = shape.getFrameRect();
   std::cout << name << ":\nPos: ("
-          << rectTmp.pos.x << ";" << rectTmp.pos.y << ")\nDim: "
-          << rectTmp.width << "x" << rectTmp.height << '\n'
-          << "Area: " << shape.getArea() << "\n\n";
+      << rectTmp.pos.x << ";" << rectTmp.pos.y << ")\nDim: "
+      << rectTmp.width << "x" << rectTmp.height << '\n'
+      << "Area: " << shape.getArea() << "\n\n";
 }
 
 int main()
