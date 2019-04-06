@@ -18,7 +18,7 @@ int main()
   std::cout <<"S=" << rect1.getArea() << std::endl;
 
   rect1.move(2.1, 4.0);
-  1
+
   Shape *rectPointer = &rect1;
   temp_rect = rectPointer->getFrameRect();
   std::cout << "x=" << temp_rect.pos.x << " y=" << temp_rect.pos.y 
