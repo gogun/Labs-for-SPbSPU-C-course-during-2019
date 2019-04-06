@@ -1,8 +1,8 @@
-#include "rectangle.hpp"
-#include "circle.hpp"
 #include <iostream>
+#include "circle.hpp"
+#include "rectangle.hpp"
 
-void printRect(const Shape &shape)
+void printRect(const Shape & shape)
 {
   std::cout << "Frame rectangle: x = " << shape.getFrameRect().pos.x;
   std::cout << " y = " << shape.getFrameRect().pos.y;
@@ -10,7 +10,7 @@ void printRect(const Shape &shape)
   std::cout << " width = " << shape.getFrameRect().width << '\n';
 }
 
-void showProgramWork(Shape &shape)
+void showProgramWork(Shape & shape)
 {
   std::cout << "Area = " << shape.getArea() << '\n';
   printRect(shape);

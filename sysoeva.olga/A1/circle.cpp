@@ -1,33 +1,33 @@
 #include "circle.hpp"
 
-Circle::Circle(const point_t & center_, const double rad):
-  center(center_),
-  radius(rad)
+Circle::Circle(const point_t & center, const double radius):
+  center_(center),
+  radius_(radius)
 {
-  assert(radius > 0.0);
+  assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const
 {
-  return M_PI * radius * radius;
+  return M_PI * radius_ * radius_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
   rectangle_t rect;
-  rect.width = radius * 2;
-  rect.height = radius * 2;
-  rect.pos = center;
+  rect.width = radius_ * 2;
+  rect.height = radius_ * 2;
+  rect.pos = center_;
   return rect;
 }
 
-void Circle::move(const point_t & center_)
+void Circle::move(const point_t & center)
 {
-  center = center_;
+  center_ = center;
 }
 
 void Circle::move(const double dx, const double dy)
 {
-  center.x += dx;
-  center.y += dy;
+  center_.x += dx;
+  center_.y += dy;
 }
