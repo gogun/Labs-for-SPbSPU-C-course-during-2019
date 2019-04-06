@@ -19,13 +19,11 @@ BOOST_AUTO_TEST_CASE(invariabilityAfterMovingCircle)
   const double InitialArea = testCircle.getArea();
 
   testCircle.move({1.9, 1.9});
-  barekov::rectangle_t movedFrameRect = testCircle.getFrameRect();
   BOOST_CHECK_CLOSE(InitialFrameRect.width, testCircle.getFrameRect().width, ErrorValue);
   BOOST_CHECK_CLOSE(InitialFrameRect.height, testCircle.getFrameRect().height, ErrorValue);
   BOOST_CHECK_CLOSE(InitialArea, testCircle.getArea(), ErrorValue);
 
   testCircle.move(5, -7);
-  movedFrameRect = testCircle.getFrameRect();
   BOOST_CHECK_CLOSE(InitialFrameRect.width, testCircle.getFrameRect().width, ErrorValue);
   BOOST_CHECK_CLOSE(InitialFrameRect.height, testCircle.getFrameRect().height, ErrorValue);
   BOOST_CHECK_CLOSE(InitialArea, testCircle.getArea(), ErrorValue);
@@ -38,13 +36,11 @@ BOOST_AUTO_TEST_CASE(invariabilityAfterMovingRectangle)
   const double InitialArea = testRectangle.getArea();
 
   testRectangle.move({1.9, 1.9});
-  barekov::rectangle_t movedFrameRect = testRectangle.getFrameRect();
   BOOST_CHECK_CLOSE(InitialFrameRect.width, testRectangle.getFrameRect().width, ErrorValue);
   BOOST_CHECK_CLOSE(InitialFrameRect.height, testRectangle.getFrameRect().height, ErrorValue);
   BOOST_CHECK_CLOSE(InitialArea, testRectangle.getArea(), ErrorValue);
 
   testRectangle.move(5, -7);
-  movedFrameRect = testRectangle.getFrameRect();
   BOOST_CHECK_CLOSE(InitialFrameRect.width, testRectangle.getFrameRect().width, ErrorValue);
   BOOST_CHECK_CLOSE(InitialFrameRect.height, testRectangle.getFrameRect().height, ErrorValue);
   BOOST_CHECK_CLOSE(InitialArea, testRectangle.getArea(), ErrorValue);
