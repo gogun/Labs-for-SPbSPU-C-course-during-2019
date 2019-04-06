@@ -17,4 +17,5 @@ private:
   double radius_;
 };
 
-#endif // CIRCLE_HPP
+#endif
+
