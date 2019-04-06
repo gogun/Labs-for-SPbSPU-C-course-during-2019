@@ -12,7 +12,7 @@ Circle::Circle(const point_t & center, double radius):
 
 Circle::Circle (double centerX, double centerY, double radius):
   Circle({centerX,centerY},radius)
-{ }
+{}
 
 double Circle::getArea() const
 {
