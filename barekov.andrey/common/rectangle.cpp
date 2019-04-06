@@ -1,7 +1,7 @@
 #include "rectangle.hpp"
 
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 barekov::Rectangle::Rectangle(const point_t& pos, double width, double height) :
   centre_(pos),

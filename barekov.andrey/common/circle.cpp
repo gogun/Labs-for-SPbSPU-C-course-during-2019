@@ -3,7 +3,7 @@
 #include "circle.hpp"
 
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 #include <cmath>
 
 barekov::Circle::Circle(const point_t& pos, double radius) :
