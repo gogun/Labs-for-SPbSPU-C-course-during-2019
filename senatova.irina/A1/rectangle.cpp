@@ -3,9 +3,9 @@
 #include <cassert>
 
 Rectangle::Rectangle(const point_t pos, double height, double width):
-  width_(width),
+  pos_(pos),
   height_(height),
-  pos_(pos)
+  width_(width)
 {
   assert((height > 0.0) && (width > 0.0));
 }
