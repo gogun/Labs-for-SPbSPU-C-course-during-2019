@@ -6,7 +6,7 @@
 
 Circle::Circle(const point_t & center, double radius):
   center_(center),
-  radius_(radius),
+  radius_(radius)
 {
   assert(radius_ >= 0.0);
 }
