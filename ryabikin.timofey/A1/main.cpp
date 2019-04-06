@@ -2,30 +2,33 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
+void showRectangle_t(rectangle_t data)
+{
+  std::cout<<"Width = "<<data.width<<"\n";
+  std::cout<<"Height = "<<data.height<<"\n";
+  std::cout<<"(X = "<<data.pos.x<<";";
+  std::cout<<"Y = "<<data.pos.y<<")"<<"\n";
+}
 
-int main() {
-  Rectangle r1({ 4.2, 6.2 },4.0, 5.5);
-  Circle c1({ 3.2, 7.2 }, 4.0);
-  std::cout<<"Rectangle\n";
-  std::cout<<"Area = "<<r1.getArea()<<'\n';
-  rectangle_t position_r = r1.getFrameRect();
-  std::cout<<"Height = "<<position_r.height<<'\n';
-  std::cout<<"Width = "<<position_r.width <<'\n';
-  std::cout <<"Position = "<<"(X = "<<position_r.pos.x << ";";
-  std::cout <<"Y = "<<position_r.pos.y<<")";
-  r1.move(3.0, -1.5);
-  rectangle_t data_r = r1.getFrameRect();
-  std::cout<<"New Position = "<<data_r.pos.x<<";"<<data_r.pos.y<<'\n';
-  std::cout<<"Circle\n";
-  std::cout<<"Area = "<<c1.getArea()<<'\n';
-  rectangle_t position_c = c1.getFrameRect();
-  std::cout<<"Height = "<<position_c.height<<'\n';
-  std::cout<<"Width = "<<position_c.width<<'\n';
-  std::cout<<"Position = "<<"(X = "<<position_c.pos.x<<";";
-  std::cout<<"Y = "<<position_c.pos.y<<")";
-  c1.move(4.0, 1.5);
-  rectangle_t data_c = c1.getFrameRect();
-  std::cout<<"New Position = "<<"(X = "<<data_c.pos.x<<";";
-  std::cout<<"Y="<<data_c.pos.y<<")";
+void showAll(const Shape & shape)
+{
+  std::cout<<"Area = "<<shape.getArea()<<"\n";
+  showRectangle_t(shape.getFrameRect());
+}
+
+int main()
+{
+  Rectangle r1({ 5.00, 10.00 }, 3.00, 4.00);
+  std::cout<<"Rectangle."<<"\n";
+  showAll(r1);
+  r1.move({ .x = 7.00, .y = 8.00 });
+  std::cout<<"After move"<<"\n";
+  showAll(r1);
+  Circle c1({ 1.00, 3.00 }, 3.00);
+  std::cout<<"Circle."<<"\n";
+  showAll(c1);
+  c1.move(3.00, -1.5);
+  std::cout<<"After move"<<"\n";
+  showAll(c1);
   return 0;
 }
