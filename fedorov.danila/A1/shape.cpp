@@ -3,9 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-
-
-Shape::Shape(const point_t &position) :
+Shape::Shape(const point_t &position):
   position_(position)
 {}
 
@@ -17,12 +15,10 @@ void Shape::printInfo() const
 void Shape::move(const point_t &point)
 {
   position_ = point;
-  assert(position_.x > 0 && position_.y > 0);
 }
 
-void Shape::move(double dx, double dy)
+void Shape::move(const double dx, const double dy)
 {
   position_.x += dx;
   position_.y += dy;
-  assert(position_.x > 0 && position_.y > 0);
 }

@@ -14,7 +14,7 @@ public:
 
   virtual void printInfo() const;
   void move(const point_t &point);
-  void move(double dx, double dy);
+  void move(const double dx, const double dy);
 
 protected:
   point_t position_;
