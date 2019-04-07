@@ -1,8 +1,7 @@
+#include "circle.hpp"
 #include <iostream>
 #include <cassert>
-#include "circle.hpp"
-
-const double PI = 3.14159;
+#include<math.h>
 
 Circle::Circle(const double & radius, const point_t & point) :
   radius_(radius),
@@ -11,16 +10,14 @@ Circle::Circle(const double & radius, const point_t & point) :
   assert(radius > 0.0);
 }
 
-void Circle::showInfo() const
-{
-  std::cout << "Information about circle\n";
-  showCords();
-  std::cout << "Area: " << getArea() << "\n";
-}
-
 double Circle::getArea() const
 {
-  return (PI * (radius_ * radius_));
+  return (M_PI * (radius_ * radius_));
+}
+
+rectangle_t Circle::getFrameRect() const
+{
+  return {radius_ * 2, radius_ * 2, pos_};
 }
 
 void Circle::move(const double & dX, const double & dY)
@@ -34,9 +31,18 @@ void Circle::move(const point_t & point)
   pos_ = point;
 }
 
-rectangle_t Circle::getFrameRect() const
+void Circle::showInfo() const
 {
-  return {radius_ * 2, radius_ * 2, pos_};
+  std::cout << "Information about circle\n";
+  showCords();
+  std::cout << "Area: " << getArea() << "\n";
+}
+
+void Circle::showCords() const
+{
+  std::cout << "Center: ";
+  std::cout << "\n X: " << pos_.x;
+  std::cout << "\n Y: " << pos_.y << "\n";
 }
 
 void Circle::showFrameRect() const
@@ -46,11 +52,4 @@ void Circle::showFrameRect() const
   std::cout << "\nWidth: " << rect.width;
   std::cout << "\nHeight: " << rect.height << "\n";
   showCords();
-}
-
-void Circle::showCords() const
-{
-  std::cout << "Center: ";
-  std::cout << "\n X: " << pos_.x;
-  std::cout << "\n Y: " << pos_.y << "\n";
 }
