@@ -30,19 +30,19 @@ int main()
       << figures[0]->getPos().x << "; "
           << figures[0]->getPos().y << ")\n";
   std::cout << "\nMoving first circle to a point of (1.47; 4.54)";
-  figures[0]->move({1.47, 4.54});
+  figures[0]->move({ 1.47, 4.54 });
   std::cout << "\nThe position of the first circle is ("
       << figures[0]->getPos().x << "; "
           << figures[0]->getPos().y << ")\n";
 
   std::cout << "\nThe position of the second rectangle is ("
       << figures[3]->getPos().x << "; "
-          << figures[3]->getPos().y << ")\n";
+        << figures[3]->getPos().y << ")\n";
   std::cout << "\nMoving second rectangle, dx = -1.234, dy = 5.67";
   figures[3]->move(-1.234, 5.67);
   std::cout << "\nThe position of the second rectangle is ("
       << figures[3]->getPos().x << "; "
           << figures[3]->getPos().y << ")\n";
 
-	return 0;
+  return 0;
 }
