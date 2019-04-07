@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const point_t & center, const double width, const double height):
+Rectangle::Rectangle(const point_t &center, const double width, const double height):
   center_(center),
   width_(width),
   height_(height)
@@ -22,7 +22,7 @@ void Rectangle::move(const double moveX, const double moveY)
   center_.x += moveX;
   center_.y += moveY;
 }
-void Rectangle::move(const point_t & new_center)
+void Rectangle::move(const point_t &new_center)
 {
   center_ = new_center;
 }
