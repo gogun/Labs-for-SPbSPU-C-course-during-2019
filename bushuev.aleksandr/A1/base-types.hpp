@@ -1,5 +1,5 @@
-#ifndef BASETYPES
-#define BASETYPES
+#ifndef BASETYPES_HPP
+#define BASETYPES_HPP
 
 struct point_t
 {
@@ -12,4 +12,4 @@ struct rectangle_t
   point_t pos;
 };
 
-#endif // BASETYPES
+#endif // BASETYPES_HPP
