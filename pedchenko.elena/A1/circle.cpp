@@ -15,9 +15,9 @@ double Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-void Circle::move(const point_t &newCenter)
+void Circle::move(const point_t &centerPoint)
 {
-  center_ = newCenter;
+  center_ = centerPoint;
 }
 
 void Circle::move(double dx, double dy)
