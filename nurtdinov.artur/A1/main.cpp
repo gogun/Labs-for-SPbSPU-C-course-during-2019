@@ -1,70 +1,36 @@
 #include <iostream>
-#include "base-types.hpp"
-#include "shape.hpp"
+#include <cassert>
 #include "circle.hpp"
 #include "rectangle.hpp"
 
+void printInfoAboutShape(const Shape *shape)
+{
+  assert(shape != nullptr);
+  const double area = shape->getArea();
+  const rectangle_t frameRect = shape->getFrameRect();
+  std::cout << "Shape area is " << area;
+  std::cout << "\nShape frame rectangle width and height:";
+  std::cout << "\nWidth: " << frameRect.width;
+  std::cout << "\nHeight: " << frameRect.height;
+  std::cout << "\nPosition of rectangle: x = " << frameRect.pos.x << "\ty = " << frameRect.pos.y << "\n\n";
+}
+
 int main()
 {
-  //Rectangle
-  nurtdinov::Rectangle rectangle({5, 5}, 10, 5);
-  nurtdinov::point_t pos = rectangle.getCenter();
-  std::cout << "Position of rectangle: x = " << pos.x << ", y = " << pos.y << "\n";
-  rectangle.move({15, 50});
-  pos = rectangle.getCenter();
-  std::cout << "New position of rectangle: x = " << pos.x << ", y = " << pos.y << "\n";
-  rectangle.move(25, 10); // x = 15 + 25 = 40, y = 50 + 10 = 60
-  pos = rectangle.getCenter();
-  std::cout << "New position of rectangle: x = " << pos.x << ", y = " << pos.y << "\n";
-  double areaOfRectangle = rectangle.getArea(); // 10 * 5 = 50;
-  std::cout << "Area of this rectangle is " << areaOfRectangle << "\n";
-  nurtdinov::rectangle_t frameRect = rectangle.getFrameRect(); // width = 10, height = 5, pos = 40, 60
-  std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
-  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
+  Circle circle({15.5, 5.3}, 3);
+  printInfoAboutShape(&circle);
+  circle.move({3.5, 14.4});
+  printInfoAboutShape(&circle);
+  circle.move(5.2, -4.3);
+  printInfoAboutShape(&circle);
 
-  //Circle
-  nurtdinov::Circle circle({0, 0}, 5);
-  pos = circle.getCenter();
-  std::cout << "Position of circle: x = " << pos.x << ", y = " << pos.y << "\n";
-  circle.move({5, 5});
-  pos = circle.getCenter();
-  std::cout << "New position of circle: x = " << pos.x << ", y = " << pos.y << "\n";
-  circle.move(25, 10); // x = 5 + 25 = 30, y = 5 + 10 = 15;
-  pos = circle.getCenter();
-  std::cout << "New position of circle: x = " << pos.x << ", y = " << pos.y << "\n";
-  double areaOfCircle = circle.getArea();
-  std::cout << "Area of this circle is " << areaOfCircle << "\n";
-  frameRect = circle.getFrameRect(); // width = 10, height = 10, pos = 30, 15
-  std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
-  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
+  Rectangle rectangle({14.3, 15.2}, 5, 4);
+  printInfoAboutShape(&rectangle);
+  rectangle.move({5.4, 3.3});
+  printInfoAboutShape(&rectangle);
+  rectangle.move(3.6, 7.7);
+  printInfoAboutShape(&rectangle);
 
-  //we have 2 objects : circle({30, 15}, 5) and rectangle({40, 60}, 10 , 5)
-  nurtdinov::Shape *shape = &circle;
-  //Now using *shape, we will work with circle
-  std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
-  std::cout << "Area of this shape = " << shape->getArea() << "\n";
-  //Now moving this shape from {30, 15} to {50, 65}
-  shape->move({50, 65});
-  std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
-  //Let's move this shape by dx on -30 and by dy on 15
-  shape->move(-30, 15);
-  std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
-  frameRect = shape->getFrameRect();
-  std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
-  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
-  //we have got circle's frame rectangle with position 20,80 (we changed it)
-  //Now work with rectangle
-  shape = &rectangle;
-  std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
-  std::cout << "Area of this shape = " << shape->getArea() << "\n";
-  //Now moving this shape from {40, 60} to {100, 100}
-  shape->move({100, 100});
-  std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
-  //Let's move this shape by dx on -50 and by dy on -15
-  shape->move(-50, -15);
-  std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
-  frameRect = shape->getFrameRect();
-  std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
-  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
+  return 0;
 }
 
