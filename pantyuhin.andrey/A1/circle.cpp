@@ -11,12 +11,8 @@ Circle::Circle(point_t centre, double radius):
 }
 
 Circle::Circle(double x, double y, double radius):
-  radius_(radius)
-{
-  assert(radius_ > 0 && "radius of circle can't be <=0");
-  centre_.x = x;
-  centre_.y = y;
-}
+  Circle({x, y}, radius)
+{ }
 
 point_t Circle::getPos() const
 {
