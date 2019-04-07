@@ -2,7 +2,8 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-int main() {
+int main()
+{
   Circle demCircle1{point_t{2, 3}, 4};
   Circle demCircle2{3, 6, 9};
   Rectangle demRect1{point_t{7, 2}, 5, 4};

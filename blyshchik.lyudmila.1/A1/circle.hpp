@@ -18,7 +18,7 @@ public:
   double getRadius() const;
 
 private:
-  point_t circ_;
+  point_t circCentre_;
   double radius_;
 };
 #endif //A1_CIRCLE_HPP

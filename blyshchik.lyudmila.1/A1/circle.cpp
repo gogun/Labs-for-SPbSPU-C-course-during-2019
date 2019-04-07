@@ -6,10 +6,10 @@
 #include <cmath>
 
 Circle::Circle(const point_t locO, double radius):
-  circ_(locO),
+  circCentre_(locO),
   radius_(radius)
 {
-  assert (radius_ > 0.0);
+  assert(radius_ > 0.0);
 }
 Circle::Circle(double x, double y, double radius):
   Circle(point_t{x, y}, radius)
@@ -23,22 +23,22 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {getPosition(), getRadius() * 2, getRadius() * 2};
+  return {circCentre_, radius_ * 2, radius_ * 2};
 }
 
 void Circle::move(const point_t newCentre)
 {
-  circ_ = newCentre;
+  circCentre_ = newCentre;
 }
 
 void Circle::move(double newX, double newY)
 {
-  circ_ = point_t{getPosition().x + newX, getPosition().y + newY};
+  circCentre_ = point_t{circCentre_.x + newX, circCentre_.y + newY};
 }
 
 point_t Circle::getPosition() const
 {
-  return circ_;
+  return circCentre_;
 }
 
 double Circle::getRadius() const
@@ -48,8 +48,8 @@ double Circle::getRadius() const
 
 void Circle::print() const
 {
-  std::cout << "Here is circle. Radius = " << getRadius() << ", coordinates (";
-  std::cout << getPosition().x << ", " << getPosition().y << "), its area = ";
+  std::cout << "Here is circle. Radius = " << radius_ << ", coordinates of centre (";
+  std::cout << circCentre_.x << ", " << circCentre_.y << "), its area = ";
   std::cout << getArea() << ".\n Frame of circle: centre coordinates (";
   std::cout << getFrameRect().pos.x << ", " << getFrameRect().pos.y << ", ";
   std::cout << "width = " << getFrameRect().width << ", height = " << getFrameRect().height << ". \n\n";
