@@ -20,13 +20,12 @@ int main()
   Shape *circlePointer = &circ;
   circlePointer->showResults();
   std::cout << "Area of circle is " << circlePointer->getArea() << std::endl << std::endl;
-  std::cout << std::endl << "Moving for 3 by x and 4 by y: " << std::endl;
+  std::cout << "Moving for 3 by x and 4 by y: " << std::endl;
   circlePointer->move(3, 4);
   circlePointer->showResults();
   std::cout << std::endl << "Moving to the (-1;0) " << std::endl;
   circlePointer->move({ -1,0 });
   circlePointer->showResults();
 
-  system("pause");
   return 0;
 }
