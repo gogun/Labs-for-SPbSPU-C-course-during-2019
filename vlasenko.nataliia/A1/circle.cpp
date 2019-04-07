@@ -1,14 +1,14 @@
 #define _USE_MATH_DEFINES
 
-#include <iostream>
+#include "circle.hpp"
+
 #include <cassert>
 #include <math.h>
-#include "circle.hpp"
-#include "shape.hpp"
+#include <iostream>
 
-Circle::Circle(const point_t &position, const double radius) :
+Circle::Circle(const point_t &position, const double radius):
   radius_(radius),
-  center_(position)
+    center_(position)
 {
   assert(radius_ > 0);
 }
