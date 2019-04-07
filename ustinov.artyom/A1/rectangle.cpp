@@ -2,13 +2,6 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(rectangle_t in_rect) :
-  rect_(in_rect)
-{
-  assert((rect_.height > 0) && ("Incorrect height value"));
-  assert((rect_.width > 0) && ("Incorrect width value"));
-}
-
 Rectangle::Rectangle(double posX, double posY, double width, double height)
 {
   assert((height > 0) && ("Incorrect height value"));
@@ -44,8 +37,8 @@ void Rectangle::show() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << std::endl << "Coordinates of centre Rect :(" << rect_.pos.x
-            << ";" << rect_.pos.y << ")" << std::endl
-            << "Frame rectangle width = " << rectangle.width
-            << ", height = " << rectangle.height << std::endl
-            << "Area = " << getArea() << std::endl;
+  << ";" << rect_.pos.y << ")" << std::endl
+  << "Frame rectangle width = " << rectangle.width
+  << ", height = " << rectangle.height << std::endl
+  << "Area = " << getArea() << std::endl;
 }
