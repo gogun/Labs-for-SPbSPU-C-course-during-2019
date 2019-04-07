@@ -1,7 +1,3 @@
-//
-// Created by Артур on 18.03.2019.
-//
-
 #ifndef A1_CIRCLE_HPP
 #define A1_CIRCLE_HPP
 
@@ -11,13 +7,9 @@ class Circle : public Shape
 {
 public:
   Circle(const point_t &point, double radius);
-
   double getArea() const override;
-
   rectangle_t getFrameRect() const override;
-
   void move(const point_t &point) override;
-
   void move(double dx, double dy) override;
 
 private:

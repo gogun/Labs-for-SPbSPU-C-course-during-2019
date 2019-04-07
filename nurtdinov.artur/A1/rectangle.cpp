@@ -1,17 +1,13 @@
-//
-// Created by Артур on 18.03.2019.
-//
-
 #include "rectangle.hpp"
 
 #include <cassert>
 
 Rectangle::Rectangle(const point_t &point, double width, double height) :
+  position_(point),
   width_(width),
-  height_(height),
-  position_(point)
+  height_(height)
 {
-  assert(width_ > 0.0 && height_ > 0.0);
+  assert((width_ > 0.0) && (height_ > 0.0));
 }
 
 double Rectangle::getArea() const
@@ -34,5 +30,3 @@ void Rectangle::move(double dx, double dy)
   position_.x += dx;
   position_.y += dy;
 }
-
-

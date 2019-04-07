@@ -1,7 +1,3 @@
-//
-// Created by Артур on 18.03.2019.
-//
-
 #ifndef A1_RECTANGLE_HPP
 #define A1_RECTANGLE_HPP
 
@@ -11,13 +7,9 @@ class Rectangle : public Shape
 {
 public:
   Rectangle(const point_t &point, double width, double height);
-
   double getArea() const override;
-
   rectangle_t getFrameRect() const override;
-
   void move(const point_t &point) override;
-
   void move(double dx, double dy) override;
 
 private:
