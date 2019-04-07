@@ -80,4 +80,3 @@ void Circle::printInfo() const
 		<< getFrameRect().pos.y << ")\n";
 	std::cout << "**********************\n";
 }
-

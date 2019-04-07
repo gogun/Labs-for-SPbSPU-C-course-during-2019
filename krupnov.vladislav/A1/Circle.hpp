@@ -8,7 +8,7 @@ class Circle : public Shape
 public:
 	Circle(const double &x, const double &y, const double &R);
 	double getArea() const;
-	double getRadius() const;
+  double getRadius() const;
 	point_t getCenter() const;
 	rectangle_t getFrameRect() const;
 	void setRadius(const double &R);
