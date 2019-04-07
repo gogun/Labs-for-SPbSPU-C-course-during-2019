@@ -2,8 +2,8 @@
 #define A1_BASE_TYPES_HPP
 
 struct point_t {
-  double locX;
-  double locY;
+  double x;
+  double y;
 };
 
 struct rectangle_t {

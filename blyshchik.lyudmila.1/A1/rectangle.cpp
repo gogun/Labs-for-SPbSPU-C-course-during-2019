@@ -8,8 +8,8 @@ Rectangle::Rectangle(const point_t pos, double width, double height):
     assert((width > 0.0) && (height > 0.0));
     std::cout << "Constructor with assert done. \n";
 }
-Rectangle::Rectangle(double locX, double locY, double width, double height):
-  Rectangle(point_t{locX, locY}, width, height)
+Rectangle::Rectangle(double x, double y, double width, double height):
+  Rectangle(point_t{x, y}, width, height)
   {
     std::cout << "Constructor done. \n";
 }
@@ -31,7 +31,7 @@ Rectangle::Rectangle(double locX, double locY, double width, double height):
 
   void Rectangle::move(double newX, double newY)
   {
-    rectCl_.pos = point_t{getPosition().locX + newX, getPosition().locY + newY};
+    rectCl_.pos = point_t{getPosition().x + newX, getPosition().y + newY};
   }
 
   point_t Rectangle::getPosition() const
@@ -53,9 +53,9 @@ Rectangle::Rectangle(double locX, double locY, double width, double height):
   void Rectangle::print() const
   {
     std::cout << "Here is rectangle. Width = " << getWidth() << ", height = " << getHeight() << ".\n";
-    std::cout << "Coordinates of centre: (" << getPosition().locX << ", " << getPosition().locY << "), ";
+    std::cout << "Coordinates of centre: (" << getPosition().x << ", " << getPosition().y << "), ";
     std::cout << "its area = " << getArea() << "\n";
-    std::cout << "Frame of rectangle: centre coordinates (" << getFrameRect().pos.locX << ", ";
-    std::cout << getFrameRect().pos.locY << "), width = " << getFrameRect().width;
+    std::cout << "Frame of rectangle: centre coordinates (" << getFrameRect().pos.x << ", ";
+    std::cout << getFrameRect().pos.y << "), width = " << getFrameRect().width;
     std::cout << ", height = " << getFrameRect().height << ". \n\n";
   }
