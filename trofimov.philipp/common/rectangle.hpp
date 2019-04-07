@@ -12,6 +12,7 @@ public:
   void move(const point_t &point) override;
   void move(double dx, double dy) override;
   void getInfo() const override;
+  void scale(double cScaling) override;
 private:
   rectangle_t rectangle_;
 
