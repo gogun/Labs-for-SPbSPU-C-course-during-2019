@@ -5,24 +5,24 @@
 #include <memory>
 namespace maschenko
 {
-  class CompositeShape : public maschenko::Shape
+  class CompositeShape : public Shape
   {
   public:
     CompositeShape(maschenko::Shape *shape);
 
     double getArea() const override;
-    maschenko::rectangle_t getFrameRect() const override;
+    rectangle_t getFrameRect() const override;
     void move(double dx, double dy) override;
     void move(const maschenko::point_t &center) override;
     void scale(double coefficient) override;
     void writeInfo() const override;
     int getShapeQuantity() const;
-    void addShape(maschenko::Shape *shape);
+    void addShape(Shape *shape);
 
   private:
-    maschenko::point_t pos_;
+    point_t pos_;
     int shape_quantity_;
-    std::unique_ptr<maschenko::Shape *[]> shape_array_;
+    std::unique_ptr<Shape *[]> shape_array_;
   };
 }
 
