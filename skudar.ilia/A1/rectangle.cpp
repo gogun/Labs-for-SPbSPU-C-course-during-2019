@@ -16,7 +16,7 @@ Rectangle::Rectangle(double x, double y, double width, double height) :
   assert((width_ > 0.0) && (height_ > 0.0));
 }
 
-void Rectangle::move(const point_t &point)
+void Rectangle::move(point_t point)
 {
   center_ = point;
 }
