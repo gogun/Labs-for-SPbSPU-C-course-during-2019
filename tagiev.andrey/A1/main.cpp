@@ -14,8 +14,8 @@ void printInfo(const Shape *shape)
   std::cout << "Center: " << frame.pos.x << ", " << frame.pos.y << "\n\n";
 }
 
-int main() {
-
+int main()
+{
   Rectangle rectangle({123, 100}, 5, 3);
   printInfo(&rectangle);
   point_t tomove = {1, 2};
