@@ -18,11 +18,13 @@ double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
 }
+
 void Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
 }
+
 void Circle::move(const point_t &newPoint)
 {
   center_ = newPoint;
