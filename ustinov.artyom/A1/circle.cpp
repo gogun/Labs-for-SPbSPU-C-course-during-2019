@@ -17,7 +17,6 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  
   rectangle_t rectmp;
   rectmp.width = 2 * radius_;
   rectmp.height = 2 * radius_;
@@ -41,10 +40,10 @@ void Circle::show() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << std::endl
-            << "Coordinates of centre circle (" << center_.x
-            << ";" << center_.y << ")" << std::endl
-            << "radius = " << radius_ << std::endl
-            << "Frame rectangle width = " << rectangle.width
-            << ", height = " << rectangle.height << std::endl
-            << "Area = " << getArea() << std::endl << std::endl;
+      << "Coordinates of centre circle (" << center_.x
+      << ";" << center_.y << ")" << std::endl
+      << "radius = " << radius_ << std::endl
+      << "Frame rectangle width = " << rectangle.width
+      << ", height = " << rectangle.height << std::endl
+      << "Area = " << getArea() << std::endl << std::endl;
 }

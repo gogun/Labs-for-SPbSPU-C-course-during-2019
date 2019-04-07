@@ -1,5 +1,5 @@
-#ifndef circle_hpp
-#define circle_hpp
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
 #include "shape.hpp"
 
 class Circle: public Shape
@@ -11,6 +11,7 @@ public:
   void move(point_t goal) override;
   void move(double dx, double dy) override;
   void show() const override;
+
 private:
   point_t center_;
   double radius_;
