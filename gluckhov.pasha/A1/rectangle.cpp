@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-Rectangle::Rectangle(double width, double height, point_t pos):
+Rectangle::Rectangle(double width, double height, const point_t &pos):
   options_({width, height, pos})
 {
   assert(options_.width > 0.0);
@@ -21,8 +21,7 @@ rectangle_t Rectangle::getFrameRect() const
 
 void Rectangle::displayData() const
 {
-  std::cout << "Width: " << options_.width
-    << "\tHeight: " << options_.height
+  std::cout << "Width: " << options_.width << "\tHeight: " << options_.height
     << "\nPosition: (" << options_.pos.x << ';' << options_.pos.y << ')';
 }
 
@@ -32,7 +31,7 @@ void Rectangle::move (double dx, double dy)
   options_.pos.y += dy;
 }
 
-void Rectangle::move (point_t newPos)
+void Rectangle::move (const point_t &newPos)
 {
   options_.pos = newPos;
 }

@@ -3,13 +3,13 @@
 class Circle: public Shape
 {
 public:
-  Circle(double radius_, point_t pos = {0.0, 0.0});
+  Circle(double radius, const point_t &pos = {0.0, 0.0});
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void displayData() const override;
   void move(double dx, double dy) override;
-  void move(point_t newPos);
-protected:
+  void move(const point_t &newPos);
+private:
   double radius_;
   point_t pos_;
 };

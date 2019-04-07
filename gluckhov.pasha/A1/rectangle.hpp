@@ -3,12 +3,12 @@
 class Rectangle: public Shape
 {
 public:
-  Rectangle(double width, double height, point_t pos = {0.0, 0.0});
+  Rectangle(double width, double height, const point_t &pos = {0.0, 0.0});
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void displayData() const override;
   void move(double dx, double dy) override;
-  void move(point_t newPos);
-protected:
+  void move(const point_t &newPos);
+private:
   rectangle_t options_;
 };

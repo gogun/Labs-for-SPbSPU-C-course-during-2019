@@ -3,7 +3,7 @@
 #include <cassert>
 #include <iostream>
 
-Circle::Circle(double radius, point_t pos):
+Circle::Circle(double radius, const point_t &pos):
   radius_(radius),
   pos_(pos)
 {
@@ -35,7 +35,7 @@ void Circle::move (double dx, double dy)
   pos_.y += dy;
 }
 
-void Circle::move (point_t newPos)
+void Circle::move (const point_t &newPos)
 {
   pos_ = newPos;
 }
