@@ -21,7 +21,7 @@ int main()
   printInfoAboutShape(&circle);
   circle.move({3.5, 14.4});
   printInfoAboutShape(&circle);
-  circle.move(5.2, -4.3);
+  circle.move(5.2, 4.3);
   printInfoAboutShape(&circle);
 
   Rectangle rectangle({14.3, 15.2}, 5.1, 4.3);
