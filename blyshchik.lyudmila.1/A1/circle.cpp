@@ -26,12 +26,12 @@ rectangle_t Circle::getFrameRect() const
   return {getPosition(), getRadius() * 2, getRadius() * 2};
 }
 
-void Circle::move(const point_t newCentre) const
+void Circle::move(const point_t newCentre)
 {
   circ_ = newCentre;
 }
 
-void Circle::move(double newX, double newY) const
+void Circle::move(double newX, double newY)
 {
   circ_ = point_t{getPosition().locX + newX, getPosition().locY + newY};
 }

@@ -24,12 +24,12 @@ Rectangle::Rectangle(double locX, double locY, double width, double height):
     return rectCl_;
   }
 
-  void Rectangle::move(const point_t newPos) const
+  void Rectangle::move(const point_t newPos)
   {
     rectCl_.pos = newPos;
   }
 
-  void Rectangle::move(double newX, double newY) const
+  void Rectangle::move(double newX, double newY)
   {
     rectCl_.pos = point_t{getPosition().locX + newX, getPosition().locY + newY};
   }
@@ -52,7 +52,7 @@ Rectangle::Rectangle(double locX, double locY, double width, double height):
 
   void Rectangle::print() const
   {
-    std::cout << "Here is rectangle. Width = " << getWidth() << ", height = " << getHight() << ".\n";
+    std::cout << "Here is rectangle. Width = " << getWidth() << ", height = " << getHeight() << ".\n";
     std::cout << "Coordinates of centre: (" << getPosition().locX << ", " << getPosition().locY << "), ";
     std::cout << "its area = " << getArea() << "\n";
     std::cout << "Frame of rectangle: centre coordinates (" << getFrameRect().pos.locX << ", ";
