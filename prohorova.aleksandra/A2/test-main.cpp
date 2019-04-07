@@ -4,6 +4,10 @@
 
 #define ACCURACY 1e-10
 
+#ifndef BOOST_TEST_MAIN
+#define BOOST_TEST_MAIN
+#endif
+
 BOOST_AUTO_TEST_SUITE(figureRectangle)
 
   BOOST_AUTO_TEST_CASE(RectangleInvariantParametersAfterMove)
