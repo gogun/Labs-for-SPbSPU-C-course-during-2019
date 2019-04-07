@@ -4,8 +4,8 @@
 #include <cassert>
 
 Circle::Circle(double r, point_t p):
-  radius_(r),
-  Shape(p)
+  Shape(p),
+  radius_(r)
 {
   assert(radius_ > 0);
 }

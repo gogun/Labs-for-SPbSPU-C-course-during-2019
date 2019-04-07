@@ -3,9 +3,9 @@
 #include <cassert>
 
 Rectangle::Rectangle(double w, double h, point_t p):
+  Shape(p),
   width_(w),
-  height_(h),
-  Shape(p)
+  height_(h)
 {
   assert(width_ > 0);
   assert(height_ > 0);
