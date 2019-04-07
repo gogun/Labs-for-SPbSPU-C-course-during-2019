@@ -18,15 +18,15 @@ int main()
 {
   Rectangle rectangle({123, 100}, 5, 3);
   printInfo(&rectangle);
-  point_t tomove = {1, 2};
-  rectangle.move(tomove);
+  point_t newCenter = {1, 2};
+  rectangle.move(newCenter);
   rectangle.move(10, 20);
   printInfo(&rectangle);
 
   Circle circle({11.1, 12.2}, 4.4);
   printInfo(&circle);
-  tomove = {10, 20};
-  circle.move(tomove);
+  newCenter = {10, 20};
+  circle.move(newCenter);
   circle.move(1, 2);
   printInfo(&circle);
 
