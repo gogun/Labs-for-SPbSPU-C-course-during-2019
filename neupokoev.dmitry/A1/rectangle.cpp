@@ -19,9 +19,9 @@ rectangle_t Rectangle::getFrameRect() const
   return parameters_;
 }
 
-void Rectangle::move(const point_t &dot)
+void Rectangle::move(const point_t &point)
 {
-  parameters_.pos = dot;
+  parameters_.pos = point;
 }
 
 void Rectangle::move(double moveX, double moveY)
