@@ -9,7 +9,7 @@ int main()
   Rectangle rectangle1(dot, 10, 10);
 
   std::cout << "Area of circle1: ";
-  srd::cout << circle1.getArea() << "\n";
+  std::cout << circle1.getArea() << "\n";
   std::cout << "Height of frame rectangle: ";
   std::cout << circle1.getFrameRect().height << "\n";
   std::cout << "Width of frame rectangle: ";
