@@ -8,7 +8,7 @@ public:
   rectangle_t getFrameRect() const override;
   void displayData() const override;
   void move(double dx, double dy) override;
-  void move(const point_t &newPos);
+  void move(const point_t &newPos) override;
 private:
   rectangle_t options_;
 };
