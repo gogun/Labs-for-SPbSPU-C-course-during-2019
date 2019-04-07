@@ -18,8 +18,7 @@ int main(int, char *[])
   std::cout << " After moving by " << dx << "; " << dy << std::endl;
   shapePtr->printSpec();
   shapePtr->move(newPoint); //move to the point
-  std::cout << " After moving to the point (" << newPoint.x << "; "
-      << newPoint.y << ")\n";
+  std::cout << " After moving to the point (" << newPoint.x << "; " << newPoint.y << ")\n";
   shapePtr->printSpec();
 
   std::cout << std::endl;
@@ -33,8 +32,7 @@ int main(int, char *[])
   std::cout << " After moving by " << dx << "; " << dy << std::endl;
   shapePtr->printSpec();
   shapePtr->move(newPoint);
-  std::cout << " After moving to the point (" << newPoint.x << "; "
-      << newPoint.y << ")\n";
+  std::cout << " After moving to the point (" << newPoint.x << "; " << newPoint.y << ")\n";
   shapePtr->printSpec();
 
   return 0;
