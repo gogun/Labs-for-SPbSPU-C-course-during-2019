@@ -2,8 +2,6 @@
 #include <iostream>
 #include <cmath>
 
-double const M_PI = 3.14159265358;
-
 Circle::Circle(const double radius, const point_t &center) :
     radius_(radius),
     pos_(center)
