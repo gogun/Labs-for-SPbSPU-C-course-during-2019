@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(point_t &centre, double radius):
+Circle::Circle(const point_t &centre, double radius):
   pos_(centre),
   radius_(radius)
 
@@ -20,7 +20,7 @@ rectangle_t Circle::getFrameRect() const
   return {2*radius_, 2*radius_, pos_};
 }
 
-void Circle::move(point_t &point)
+void Circle::move(const point_t &point)
 {
   pos_ = point;
 }
