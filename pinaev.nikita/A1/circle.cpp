@@ -1,4 +1,3 @@
-#define _USE_MATH_DEFINES
 #include "circle.hpp"
 #include "base-types.hpp"
 #include <iostream>
