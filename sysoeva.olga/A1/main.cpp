@@ -1,5 +1,5 @@
-#include "rectangle.hpp"
 #include "circle.hpp"
+#include "rectangle.hpp"
 #include <iostream>
 
 void printRect(const Shape & shape)

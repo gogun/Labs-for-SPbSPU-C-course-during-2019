@@ -1,11 +1,11 @@
 #include "rectangle.hpp"
 
-Rectangle::Rectangle(const point_t & point, const double height_, const double width_)
+Rectangle::Rectangle(const point_t & point, const double height, const double width)
 {
-  assert((height_ > 0.0) && (width_ > 0.0));
+  assert((height > 0.0) && (width > 0.0));
   rect.pos = point;
-  rect.height = height_;
-  rect.width = width_;
+  rect.height = height;
+  rect.width = width;
 }
 
 double Rectangle::getArea() const
