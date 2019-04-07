@@ -2,13 +2,13 @@
 
 struct point_t
 {
-	double x;
-	double y;
+  double x;
+  double y;
 };
 
 struct rectangle_t
 {
-	double width;
-	double height;
-	point_t pos;
+  double width;
+  double height;
+  point_t pos;
 };
