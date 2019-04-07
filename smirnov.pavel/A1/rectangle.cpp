@@ -38,7 +38,7 @@ void Rectangle::getInfo() const
       << getArea() << "\n";
   std::cout << "Width of rectangle is "
       << width_ << "\n";
-  std::cout << "Heigth of rectangle is "
+  std::cout << "Height of rectangle is "
       << heigth_ << "\n";
   std::cout << "Center of rectangle is ("
       << center_.x << ";" << center_.y << ")\n";
