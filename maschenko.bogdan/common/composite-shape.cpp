@@ -88,9 +88,12 @@ void maschenko::CompositeShape::scale(double coefficient)
 {
   if (coefficient > 0)
   {
-    double dx = 0;
-    double dy = 0;
-    for (int i = 0; i < shape_quantity_; ++i)
+    double dx = shape_array_[0]->getFrameRect().pos.x - pos_.x;
+    double dy = shape_array_[0]->getFrameRect().pos.x - pos_.y;
+    shape_array_[0]->move((coefficient - 1) * dx, (coefficient - 1) * dy);
+    shape_array_[0]->scale(coefficient);
+
+    for (int i = 1; i < shape_quantity_; ++i)
     {
       dx = shape_array_[i]->getFrameRect().pos.x - pos_.x;
       dy = shape_array_[i]->getFrameRect().pos.x - pos_.y;
@@ -114,11 +117,6 @@ void maschenko::CompositeShape::writeInfo() const
             << ", height = " << getFrameRect().height
             << ", and with centre (" << getFrameRect().pos.x << ";"
             << getFrameRect().pos.y << ") " << std::endl << std::endl;
-}
-
-maschenko::point_t maschenko::CompositeShape::getCenter() const
-{
-  return pos_;
 }
 
 int maschenko::CompositeShape::getShapeQuantity() const

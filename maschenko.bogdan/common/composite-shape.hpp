@@ -16,7 +16,6 @@ namespace maschenko
     void move(const maschenko::point_t &center) override;
     void scale(double coefficient) override;
     void writeInfo() const override;
-    maschenko::point_t getCenter() const;
     int getShapeQuantity() const;
     void addShape(maschenko::Shape *shape);
 
