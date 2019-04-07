@@ -1,4 +1,5 @@
-#pragma once
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 
 #include "shape.hpp"
 
@@ -17,3 +18,5 @@ private:
   double width_, height_;
   point_t centre_;
 };
+
+#endif //RECTANGLE_HPP

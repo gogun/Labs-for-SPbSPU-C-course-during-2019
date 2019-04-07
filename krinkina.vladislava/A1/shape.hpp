@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SHAPE_HPP
+#define SHAPE_HPP
 
 #include "base-types.hpp"
 
@@ -12,3 +13,5 @@ public:
   virtual void move(const double dx, const double dy) = 0;
   virtual void move(const point_t &centre) = 0;
 };
+
+#endif // SHAPE_HPP

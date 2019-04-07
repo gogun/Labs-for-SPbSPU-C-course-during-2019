@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 struct point_t
 {
@@ -12,3 +13,5 @@ struct rectangle_t
   double height;
   point_t pos;
 };
+
+#endif //BASE_TYPES_HPP

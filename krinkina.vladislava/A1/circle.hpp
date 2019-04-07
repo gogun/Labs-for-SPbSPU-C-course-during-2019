@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
 
 #include "shape.hpp"
 
@@ -17,3 +18,5 @@ private:
   double radius_;
   point_t centre_;
 };
+
+#endif //CIRCLE_HPP
