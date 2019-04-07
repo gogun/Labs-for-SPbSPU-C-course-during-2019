@@ -20,22 +20,24 @@ rectangle_t Circle::getFrameRect() const
   return rectangle_t{ r_ * 2, r_ * 2, center_ };
 }
 
-// void Circle::print() const
-//{
-  //std::cout << "Circle :  " <<std:: endl;
-  //std::cout<<"\n";
-  //std::cout<<"center X = "<< center_.x << std:: endl; 
-  //std::cout<<"center y = " <<center_.y<<std:: endl;
-  //std::cout <<"circle ray = " << r_<< std:: endl;
-//}
+ void Circle::print() const
+{
+  std::cout << "Circle :  " <<std:: endl;
+  std::cout<<"\n";
+  std::cout<<"center X = "<< center_.x << std:: endl; 
+  std::cout<<"center y = " <<center_.y<<std:: endl;
+  std::cout <<"circle ray = " << r_<< std:: endl;
+}
 
 point_t Circle::move(const point_t& point)
 {
   center_ = point;
+  return{center_};
 }
 
 point_t Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
+  return{center_.x,center_.y};
 }
