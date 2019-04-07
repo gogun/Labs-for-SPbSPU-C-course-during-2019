@@ -1,15 +1,22 @@
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
+
 #include "shape.hpp"
 
-class Rectangle : public Shape
-{
+class Rectangle : public Shape {
 public:
-  Rectangle(const point_t &pos, const double width, const double height);
-  double getArea();
-  const rectangle_t getFrameRect();
-  void move(const point_t &NewCentre);
-  void move(const double dx, const double dy);
-  void print();
+  Rectangle(const double width, const double height, const point_t &center);
+
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const point_t &point) override;
+  void move(const double dx, const double dy) override;
+  void printInfo() const override;
+
 private:
   double width_;
   double height_;
+  point_t pos_;
 };
+
+#endif //RECTANGLE_HPP

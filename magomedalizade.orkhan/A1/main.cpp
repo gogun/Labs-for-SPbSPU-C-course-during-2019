@@ -1,50 +1,44 @@
-﻿#define _USE_MATH_DEFINES
+#include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include <iostream>
-#include <cmath> 
-using namespace std;
 
-int main()
+int main(int, char *[])
 {
-  double dx = 2, dy = 2, height = 14, width = 20;
-  point_t pos = { 5, 5 };
+  Rectangle rectangle = {5.0, 3.5, {-1.0, -2.0}};
+  Circle circle = {2.5, {3.14, 2.71}};
 
-  Circle d(pos, 25);
-  d.print();
-  
-  cout << "Area " << d.getArea() << endl;
-  rectangle_t rt = d.getFrameRect();
-  cout << "Limiting rectangle ";
-  cout << "Center of FrameRect " << rt.pos.x << " " << rt.pos.y << " and width, height: " << rt.width << rt.height << endl;
-  cout << "Move the center to a new point...\n";
+  std::cout << "That's what we have:\n";
+  rectangle.printInfo();
+  circle.printInfo();
 
-  point_t NewCentre = { 75, 15 };
-  d.move(NewCentre);
-  d.move(dx, dy);
-  d.print();
-  cout << "Area " << d.getArea() << endl;
-  rt = d.getFrameRect();
-  cout << "Limiting rectangle ";
-  cout << "Center of FrameRect " << rt.pos.x << " " << rt.pos.y << " and width, height: " << rt.width << rt.height << endl;
-  
-  Rectangle r(pos, height, width);
-  r.print();
+  std::cout << "Let's move the shapes 2 units left and 7.77 units up.\n";
+  rectangle.move(-2.0, 7.77);
+  rectangle.printInfo();
+  circle.move(-2.0, 7.77);
+  circle.printInfo();
 
-  cout << "Area " << r.getArea() << endl;
-  rt = r.getFrameRect();
-  cout << "Limiting rectangle ";
-  cout << "Center of FrameRect " << rt.pos.x << " " << rt.pos.y << " and width, height: " << rt.width << rt.height << endl;
-  cout << "Move the center to a new point...\n";
+  std::cout << "Now we will move the shapes to a specific point (3, 4).\n";
+  rectangle.move({3.0, 4.0});
+  rectangle.printInfo();
+  circle.move({3.0, 4.0});
+  circle.printInfo();
 
-  NewCentre = { 100, 50 };
-  r.move(NewCentre);
-  r.move(dx, dy);
-  r.print();
-  cout << "Area " << r.getArea() << endl;
-  rt = r.getFrameRect();
-  cout << "Limiting rectangle ";
-  cout << "Center of FrameRect " << rt.pos.x << " " << rt.pos.y << " and width, height: " << rt.width << rt.height << endl;
 
- return 0;
+  rectangle_t rectangleFrame = rectangle.getFrameRect();
+  std::cout << "Frame rectangle for the rectangle:"
+            << "\n  Width: " << rectangleFrame.width
+            << "\n  Height: " << rectangleFrame.height
+            << "\n  Position:"
+            << "\n    x: " << rectangleFrame.pos.x
+            << "\n    y: " << rectangleFrame.pos.y << "\n\n";
+
+  rectangle_t circleFrame = circle.getFrameRect();
+  std::cout << "Frame rectangle for the circle:"
+            << "\n  Width: " << circleFrame.width
+            << "\n  Height: " << circleFrame.height
+            << "\n  Position:"
+            << "\n    x: " << circleFrame.pos.x
+            << "\n    y: " << circleFrame.pos.y << std::endl;
+
+  return 0;
 }

@@ -1,29 +1,31 @@
-#define _USE_MATH_DEFINES
 #include "circle.hpp"
 #include <iostream>
-#include <cmath> 
-using namespace std;
+#include <cmath>
 
-Circle::Circle(const point_t &pos, const double radius_) :
-  Shape(pos),
-  radius_(radius_)
+double const M_PI = 3.14159265358;
+
+Circle::Circle(const double radius, const point_t &center) :
+    radius_(radius),
+    pos_(center)
 {
+  if (radius <= 0) {
+    std::cerr << "Invalid circle radius. Radius must be above zero.\n";
+  }
 }
 
-double Circle::getArea()
+double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
 }
 
-const rectangle_t Circle::getFrameRect()
+rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t cur = { radius_ * 2, radius_ * 2, pos_ };
-  return cur;
+  return {2.0 * radius_, 2.0 * radius_, pos_};
 }
 
-void Circle::move(const point_t &NewCentre)
+void Circle::move(const point_t &point)
 {
-  pos_ = NewCentre;
+  pos_ = point;
 }
 
 void Circle::move(const double dx, const double dy)
@@ -32,7 +34,12 @@ void Circle::move(const double dx, const double dy)
   pos_.y += dy;
 }
 
-void Circle::print()
+void Circle::printInfo() const
 {
-  cout << "Circle with the center ( " << pos_.x << pos_.y << " ) and Radius = " << radius_ << endl;
+  std::cout << "Circle:"
+            << "\n  Radius: " << radius_
+            << "\n  Position:"
+            << "\n    x: " << pos_.x
+            << "\n    y: " << pos_.y
+            << "\n  Area: " << this->getArea() << "\n\n";
 }
