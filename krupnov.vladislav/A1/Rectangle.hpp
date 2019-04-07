@@ -6,16 +6,16 @@
 class Rectangle : public Shape
 {
 public:
-	Rectangle(const point_t &p, const double &w, const double &h);
-	double getArea() const;
-	rectangle_t getFrameRect() const;
-	void setWidth(const double &w);
-	void setHeight(const double &h);
-	void move(const point_t &p);
-	void move(const double &x, const double &y);
-	void printInfo() const;
+  Rectangle(const point_t &p, const double &w, const double &h);
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void setWidth(const double &w);
+  void setHeight(const double &h);
+  void move(const point_t &p) override;
+  void move(const double &x, const double &y) override;
+  void printInfo() const;
 private:
-	double width_;
-	double height_;
+  double width_;
+  double height_;
 };
 #endif
