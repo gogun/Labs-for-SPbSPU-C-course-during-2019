@@ -3,7 +3,7 @@
 #include <cassert>
 
 Rectangle::Rectangle(const double width, const double height, const point_t & pos) :
-  rect_ (rectangle_t {2 * radius_ , 2 * radius_ , pos_})
+  rect_ (rectangle_t {width, height, pos})
 {
   assert((width > 0) && (height > 0));
 }
