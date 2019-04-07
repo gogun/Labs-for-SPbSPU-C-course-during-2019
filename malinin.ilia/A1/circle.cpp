@@ -4,7 +4,7 @@
 
 const double PI = 3.14159;
 
-Circle::Circle(double radius, point_t point) :
+Circle::Circle(const double & radius, const point_t & point) :
   radius_(radius),
   pos_(point)
 {
@@ -15,7 +15,7 @@ void Circle::showInfo() const
 {
   std::cout << "Information about circle\n";
   showCords();
-  std::cout << "Area: " << getArea() << std::endl;
+  std::cout << "Area: " << getArea() << "\n";
 }
 
 double Circle::getArea() const
@@ -23,13 +23,13 @@ double Circle::getArea() const
   return (PI * (radius_ * radius_));
 }
 
-void Circle::move(double dX, double dY)
+void Circle::move(const double & dX, const double & dY)
 {
   pos_.x += dX;
   pos_.y += dY;
 }
 
-void Circle::move(point_t point)
+void Circle::move(const point_t & point)
 {
   pos_ = point;
 }

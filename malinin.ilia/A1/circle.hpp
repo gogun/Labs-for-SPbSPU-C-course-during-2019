@@ -6,19 +6,20 @@
 
 class Circle : public Shape
 {
-  public:
-    Circle(double radius, point_t point);
-    double getArea() const override;
-    rectangle_t getFrameRect() const override;
-    void move(double x, double y) override;
-    void move(point_t point) override;
-    void showCords() const override;
-    void showFrameRect() const override;
-    void showInfo() const override;
+public:
+  Circle(const double & radius, const point_t & point);
 
-  private:
-    double radius_;
-    point_t pos_;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const double & dX, const double & dY) override;
+  void move(const point_t & point) override;
+  void showCords() const override;
+  void showFrameRect() const override;
+  void showInfo() const override;
+
+private:
+  double radius_;
+  point_t pos_;
 };
 
 #endif
