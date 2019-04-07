@@ -4,8 +4,8 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(point_t dot, double radius) :
-  centre_(dot),
+Circle::Circle(point_t point, double radius) :
+  centre_(point),
   radius_(radius)
 {
   assert((radius_ > 0.0) && ("Incorrect radius value"));
