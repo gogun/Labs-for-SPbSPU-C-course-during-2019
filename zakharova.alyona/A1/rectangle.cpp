@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-Rectangle::Rectangle (const double width, const double height, point_t pos):
+Rectangle::Rectangle(const double width, const double height, point_t pos):
   width_(width),
   height_(height),
   pos_(pos)
