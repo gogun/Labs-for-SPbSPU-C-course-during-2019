@@ -12,7 +12,7 @@ class Circle : public Shape
   rectangle_t getFrameRect() const override;
 
   private:
-  double radius;
+  double radius_;
 };
 
 #endif

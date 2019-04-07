@@ -12,8 +12,8 @@ class Rectangle : public Shape
   rectangle_t getFrameRect() const override;
 
   private:
-  double width;
-  double height;
+  double width_;
+  double height_;
 };
 
 #endif

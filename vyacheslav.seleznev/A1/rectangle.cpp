@@ -2,22 +2,21 @@
 
 #include <cassert>
 
-Rectangle::Rectangle(double width, double height, point_t pos)
+Rectangle::Rectangle(double w, double h, point_t p):
+  width_(w),
+  height_(h),
+  Shape(p)
 {
-  assert(width > 0);
-  assert(height > 0);
-
-  this->width = width;
-  this->height = height;
-  this->centre = pos;
+  assert(width_ > 0);
+  assert(height_ > 0);
 }
 
 double Rectangle::getArea() const
 {
-  return this->width * height;
+  return width_ * height_;
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return {this->width, this->height, centre};
+  return {width_, height_, centre_};
 }
