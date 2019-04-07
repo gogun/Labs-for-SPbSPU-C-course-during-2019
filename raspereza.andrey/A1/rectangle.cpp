@@ -1,3 +1,4 @@
+#include <iostream>
 #include "rectangle.hpp"
 #include <cassert>
 
@@ -12,6 +13,11 @@ Rectangle::Rectangle(point_t dot, double width, double height):
 double Rectangle::getArea() const
 {
   return width_ * height_;
+}
+
+void Rectangle::printInfo() const
+{
+  std::cout << "Center= " << center_.x << ";" << center_.y << " Width= " << width_ << " Height= " << height_ << "\n";
 }
 
 rectangle_t Rectangle::getFrameRect() const

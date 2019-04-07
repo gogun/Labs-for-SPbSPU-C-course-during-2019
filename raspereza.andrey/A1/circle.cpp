@@ -1,3 +1,4 @@
+#include <iostream>
 #include "circle.hpp"
 #include <cassert>
 #include <cmath>
@@ -12,6 +13,11 @@ Circle::Circle(point_t dot, double radius):
 double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
+}
+
+void Circle::printInfo() const
+{
+  std::cout << "Center= " << center_.x << ";" << center_.y << " Radius= " << radius_ << "\n";
 }
 
 rectangle_t Circle::getFrameRect() const
