@@ -46,8 +46,8 @@ void Circle::getInfo() const
 void trofimov::Circle::scale(double cScaling)
 {
   if (cScaling <= 0)
-    {
-	  throw std::invalid_argument("Not positive parametrs");
-	}
+  {
+    throw std::invalid_argument("Not positive parametrs");
+  }
   radius_ *= cScaling;
 }

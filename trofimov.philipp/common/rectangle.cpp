@@ -44,9 +44,9 @@ void Rectangle::getInfo() const
 void trofimov::Rectangle::scale(double cScaling)
 {
   if (cScaling <= 0)
-    {
-	  throw std::invalid_argument("Not positive parametrs");
-	}
+  {
+    throw std::invalid_argument("Not positive parametrs");
+  }
   rectangle_.height *= cScaling;
   rectangle_.width *= cScaling;
 }
