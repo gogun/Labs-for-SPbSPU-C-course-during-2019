@@ -6,15 +6,9 @@ Rectangle::Rectangle(const point_t &p, double w, double h):
   pos (p),
   width (w),
   height (h)
-{
-  if (width <= 0)
   {
-    std::cerr << "Invalid rectangle width.\n";
+    assert((width > 0.0) && (height > 0.0));
   }
-  if (height <= 0){
-    std::cerr << "Invalid rectangle height.\n";
-  }
-}
 
 double Rectangle::getArea() const
 {

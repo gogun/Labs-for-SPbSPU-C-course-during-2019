@@ -6,12 +6,9 @@
 Circle::Circle(const point_t &p, double r):
   pos (p),
   radius (r)
-{
-  if (radius <= 0)
   {
-    std::cerr << "Invalid circle radius."<< std::endl;
+    assert(radius > 0.0);
   }
-}
 
 double Circle::getArea() const
 {
