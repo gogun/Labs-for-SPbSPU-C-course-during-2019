@@ -13,7 +13,8 @@ void printFrameRect(const Shape& shape)
       << frameRect.height << std::endl;
 }
 
-int main() {
+int main()
+{
   Circle c1({4, 5}, 6);
   c1.move(2, 2);
   std::cout << c1.getArea() << std::endl;
