@@ -3,8 +3,7 @@
 
 struct point_t
 {
-  double x;
-  double y;
+  double x, y;
 };
 
 struct rectangle_t
