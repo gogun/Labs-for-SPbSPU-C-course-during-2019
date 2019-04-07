@@ -9,7 +9,7 @@ int main()
   std::cout << "Bounding box options:\n";
   std::cout << "Width: " << rec.getFrameRect().width << std::endl;
   std::cout << "Height: " << rec.getFrameRect().height << std::endl;
-  std::cout << "Center: " <<rec.getFrameRect().pos.x << " , " << rec.getFrameRect().pos.y << std::endl;
+  std::cout << "Center: " << rec.getFrameRect().pos.x << " , " << rec.getFrameRect().pos.y << std::endl;
   rec.move({0.0, 0.0});
 
   Circle cir({2.0, 1.0}, 3.0);
