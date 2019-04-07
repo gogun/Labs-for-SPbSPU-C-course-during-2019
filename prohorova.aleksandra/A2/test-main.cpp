@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_SUITE(figureRectangle)
     BOOST_REQUIRE_EQUAL(testRectangle.getWidth(), width);
     BOOST_REQUIRE_EQUAL(testRectangle.getHeight(), height);
     BOOST_REQUIRE_EQUAL(testRectangle.getArea(), area);
-}	
+}
 
   BOOST_AUTO_TEST_CASE(RectangleChangeOfParametersAfterScale)
   {
