@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(point_t goal, double rad) :
+Circle::Circle(const point_t &goal, double rad) :
   center_(goal),
   radius_(rad)
 {
@@ -25,7 +25,7 @@ rectangle_t Circle::getFrameRect() const
   return rectmp;
 }
 
-void Circle::move(point_t goal)
+void Circle::move(const point_t &goal)
 {
   center_ = goal;
 }

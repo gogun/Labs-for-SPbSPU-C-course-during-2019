@@ -22,7 +22,7 @@ rectangle_t Rectangle::getFrameRect() const
   return rect_;
 }
 
-void Rectangle::move(point_t goal)
+void Rectangle::move(const point_t &goal)
 {
   rect_.pos = goal;
 }
