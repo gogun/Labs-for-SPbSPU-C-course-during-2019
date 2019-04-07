@@ -6,7 +6,7 @@ Rectangle::Rectangle(const point_t &pos, double width, double height) :
   width_(width),
   height_(height)
 {
-  assert((width > 0) && (height > 0)&&("width or height is less or equal to zero"));
+  assert((width > 0) && (height > 0) && ("width or height is less or equal to zero"));
 }
 
 point_t Rectangle::getPos() const

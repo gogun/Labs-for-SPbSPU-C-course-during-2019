@@ -16,7 +16,7 @@ point_t Circle::getPos() const
 
 double Circle::getArea() const
 {
-  return  M_PI*pow(radius_,2);
+  return  M_PI * pow(radius_,2);
 }
 
 void Circle::move(const point_t &dest)
