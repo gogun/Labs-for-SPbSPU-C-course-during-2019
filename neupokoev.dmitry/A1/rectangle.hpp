@@ -8,10 +8,10 @@ class Rectangle : public Shape
 public:
   Rectangle(rectangle_t parameters);
   void move(const point_t &point) override;
-  void move(double moveY, double moveX) override;
-  void writeParameters() const override;
+  void move(double moveX, double moveY) override;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
+  void writeParameters() const override;
 
 private:
   rectangle_t parameters_;

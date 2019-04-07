@@ -9,16 +9,6 @@ Rectangle::Rectangle(rectangle_t parameters) :
   assert((parameters_.width > 0.0) && ("Incorrect width value"));
 }
 
-double Rectangle::getArea() const
-{
-  return parameters_.width * parameters_.height;
-}
-
-rectangle_t Rectangle::getFrameRect() const
-{
-  return parameters_;
-}
-
 void Rectangle::move(const point_t &point)
 {
   parameters_.pos = point;
@@ -28,6 +18,16 @@ void Rectangle::move(double moveX, double moveY)
 {
   parameters_.pos.x += moveX;
   parameters_.pos.y += moveY;
+}
+
+double Rectangle::getArea() const
+{
+  return parameters_.width * parameters_.height;
+}
+
+rectangle_t Rectangle::getFrameRect() const
+{
+  return parameters_;
 }
 
 void Rectangle::writeParameters() const

@@ -11,6 +11,17 @@ Circle::Circle(point_t point, double radius) :
   assert((radius_ > 0.0) && ("Incorrect radius value"));
 }
 
+void Circle::move(const point_t &point)
+{
+  centre_ = point;
+}
+
+void Circle::move(double moveX, double moveY)
+{
+  centre_.x += moveX;
+  centre_.y += moveY;
+}
+
 double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
@@ -23,17 +34,6 @@ rectangle_t Circle::getFrameRect() const
   frameRect.height = 2 * radius_;
   frameRect.pos = centre_;
   return frameRect;
-}
-
-void Circle::move(double moveX, double moveY)
-{
-  centre_.x += moveX;
-  centre_.y += moveY;
-}
-
-void Circle::move(const point_t &point)
-{
-  centre_ = point;
 }
 
 void Circle::writeParameters() const
