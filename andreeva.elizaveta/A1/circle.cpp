@@ -1,12 +1,12 @@
+#include "circle.hpp"
 #include <cmath>
 #include <cassert>
-#include "circle.hpp"
 
-Circle::Circle(point_t point, double rad):
-center_(point),
-radius_(rad)
+Circle::Circle(const point_t &point, double rad):
+  center_(point),
+  radius_(rad)
 {
-  assert(radius_ >= 0.0);
+  assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const
@@ -19,13 +19,13 @@ rectangle_t Circle::getFrameRect() const
   return {radius_ * 2, radius_ * 2, center_};
 }
 
-void Circle::move(const double dx, const double dy)
+void Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
 }
 
-void Circle::move(const point_t point)
+void Circle::move(const point_t &point)
 {
   center_ = point;
 }
