@@ -12,7 +12,8 @@ void printFrameRect(const Shape &shape)
       << "Area = " << shape.getArea() << std::endl;
 }
 
-int main() {
+int main()
+{
   Rectangle rect1({4, 4}, 3, 2); // create rectangle with center point (4, 4), width 3, height 2
   rect1.move({0, 0}); // move center of rect1 to point (0, 0)
   std::cout << "1 rectangle:" << std::endl;
