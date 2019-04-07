@@ -1,7 +1,8 @@
-#define _USE_MATH_DEFINES
 #include "circle.hpp"
-#include <cassert>
+#define _USE_MATH_DEFINES
 #include <cmath>
+#include <cassert>
+
 
 Circle::Circle(const double radius, const point_t &center) :
   radius_(radius),
@@ -12,12 +13,12 @@ Circle::Circle(const double radius, const point_t &center) :
 
 double Circle::getArea() const
 {
-  return  M_PI * radius_ * radius_;
+  return M_PI * radius_ * radius_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {radius_ * 2, radius_ * 2 ,center_};
+  return { radius_ * 2, radius_ * 2 ,center_ };
 }
 
 void Circle::move(const double dx, const double dy)
