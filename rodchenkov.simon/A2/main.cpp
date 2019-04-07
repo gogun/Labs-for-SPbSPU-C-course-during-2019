@@ -15,12 +15,10 @@ int main()
     for (auto& sh : shapes) {
       testShape(sh, {5, 5}, 2);
     }
-  }
-  catch (const std::invalid_argument& exc) {
+  } catch (const std::invalid_argument& exc) {
     std::cerr << "error: invalid parameter \"" << exc.what() << "\"" << std::endl;
     return 1;
-  }
-  catch (const std::exception& exc) {
+  } catch (const std::exception& exc) {
     std::cerr << "error: " << exc.what() << std::endl;
     return 2;
   }
