@@ -17,12 +17,12 @@ void Rectangle::move(double dx, double dy)
 
 void Rectangle::move(const point_t &center)
 {
-  rectangle_.pos = point;
+  rectangle_.pos = center;
 }
 
 double Rectangle::getArea() const
 {
-  return rectangle_.height * rect_.width;
+  return rectangle_.height * rectangle_.width;
 }
 
 rectangle_t Rectangle::getFrameRect() const

@@ -3,27 +3,27 @@
 #include <cassert>
 #include <math.h>
 
-Circle::Circle(const point_t & center, double radius):
-  center_(center),
-  radius_(radius)
+Circle::Circle(const point_t &center, double radius):
+  radius_(radius),
+  center_(center)
 {
   assert(radius > 0.0);
+}
+
+double Circle::getArea() const
+{
+  return M_PI * radius_ * radius_;
+}
+
+void Circle::move(const point_t &newCenter)
+{
+  center_ = newCenter;
 }
 
 void Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
-}
-
-void Circle::move(const point_t & newCenter)
-{
-  center_ = newCenter;
-}
-
-double Circle::getArea() const
-{
-  return M_PI * radius_ * radius_;
 }
 
 
