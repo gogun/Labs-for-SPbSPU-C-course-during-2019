@@ -3,7 +3,7 @@
 #include <cassert>
 
 Rectangle::Rectangle(rectangle_t in_rect) :
-rect_(in_rect)
+  rect_(in_rect)
 {
   assert((rect_.height > 0) && ("Incorrect height value"));
   assert((rect_.width > 0) && ("Incorrect width value"));
