@@ -36,10 +36,10 @@ void Rectangle::getInfo() const
 {
   std::cout << "Area of rectangle is "
       << getArea() << "\n";
-	std::cout << "Width of rectangle is "
+  std::cout << "Width of rectangle is "
       << width_ << "\n";
-	std::cout << "Heigth of rectangle is "
+  std::cout << "Heigth of rectangle is "
       << heigth_ << "\n";
-	std::cout << "Center of rectangle is ("
+  std::cout << "Center of rectangle is ("
       << center_.x << ";" << center_.y << ")\n";
 }

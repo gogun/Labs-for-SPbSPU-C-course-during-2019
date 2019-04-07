@@ -5,8 +5,8 @@
 #include <cmath>
 
 Circle::Circle(double radius, const point_t & center) :
-	radius_(radius),
-	center_(center)
+  radius_(radius),
+  center_(center)
 {
   assert(radius > 0);
 }

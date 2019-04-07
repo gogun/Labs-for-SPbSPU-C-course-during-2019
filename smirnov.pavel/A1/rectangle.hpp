@@ -14,9 +14,9 @@ public:
   void getInfo() const override;
 
 private:
-	double width_;
-	double heigth_;
-	point_t center_;
+  double width_;
+  double heigth_;
+  point_t center_;
 };
 
 
