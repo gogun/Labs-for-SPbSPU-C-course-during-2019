@@ -3,8 +3,16 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printShape(const Shape *shape);
-
+void printShape(const Shape *shape)
+{
+  assert(shape != nullptr);
+  shape->printData();
+  std::cout << "\nArea: " << shape->getArea() << std::endl;
+  rectangle_t frameRect = shape->getFrameRect();
+  std::cout << "***Frame Rectangle:" << std::endl
+    << "Width: " << frameRect.width  << "\tHeight: " << frameRect.height
+        << "\nPosition: (" << frameRect.pos.x << ';' << frameRect.pos.y << ')';
+}
 int main()
 {
   Rectangle rect1(7.2, 5.7, {5, -2.4});
