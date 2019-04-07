@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 
-Rectangle::Rectangle(const point_t pos, const double width, const double height):
+Rectangle::Rectangle(const point_t pos, const double width, const double height) :
   pos_(pos),
   width_(width),
   height_(height)
@@ -43,7 +43,7 @@ void Rectangle::move(const double dx, const double dy)
 void Rectangle::printInformation() const
 {
   std::cout << "Width - " << getFrameRect().width << ", height - " << getFrameRect().height << std::endl
-            << "Position - (" << pos_.x << ", " << pos_.y << ")" << std::endl
-            << "Area : " << getArea() << std::endl
-            << "Frame Rectangle is : " << getFrameRect().width << ", " << getFrameRect().height << std::endl;
+      << "Position - (" << pos_.x << ", " << pos_.y << ")" << std::endl
+      << "Area : " << getArea() << std::endl
+      << "Frame Rectangle is : " << getFrameRect().width << ", " << getFrameRect().height << std::endl;
 }
