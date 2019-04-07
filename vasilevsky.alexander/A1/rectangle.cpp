@@ -16,6 +16,11 @@ double Rectangle::getArea() const
   return (height_ * width_);
 }
 
+rectangle_t Rectangle::getFrameRect() const
+{
+  return {width_, height_, center_};
+}
+
 void Rectangle::move(const double &dx, const double &dy)
 {
   center_.x += dx;
@@ -25,11 +30,6 @@ void Rectangle::move(const double &dx, const double &dy)
 void Rectangle::move(const point_t &point)
 {
   center_ = point;
-}
-
-rectangle_t Rectangle::getFrameRect() const
-{
-  return {width_, height_, center_};
 }
 
 void Rectangle::printInfo() const

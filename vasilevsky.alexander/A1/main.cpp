@@ -1,7 +1,7 @@
+#include <iostream>
+
 #include "rectangle.hpp"
 #include "circle.hpp"
-
-#include <iostream>
 
 int main()
 {
@@ -34,6 +34,18 @@ int main()
   circle.move({7.0, 12.2});
   std::cout << "After moving to a point with coordinates {7, 12.2}: \n";
   circle.printInfo();
+
+  std::cout << "New circle \n";
+  Circle shapeCircle(6.1, {2.0, 10.5});
+  shape = &shapeCircle;
+  shape->getFrameRect();
+  shape->printInfo();
+  shape->move(5.1, 4.0);
+  std::cout << "After moving dx = 5.1, dy = 4.0: \n";
+  shape->printInfo();
+  shape->move({10.1, 1.9});
+  std::cout << "After moving to a point with coordinates {10.1, 1.9}: \n";
+  shape->printInfo();
 
   return 0;
 }
