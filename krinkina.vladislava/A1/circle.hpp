@@ -1,6 +1,8 @@
 #pragma once
+
 #include "shape.hpp"
-class Circle :public Shape
+
+class Circle : public Shape
 {
 public:
 	Circle(const point_t &centre, double radius);
@@ -10,6 +12,7 @@ public:
 	void printInfo() const override;
 	void move(const point_t &centre) override;
 	void move(double dx, double dy) override;
+
 private:
 	double radius_;
 	point_t centre_;

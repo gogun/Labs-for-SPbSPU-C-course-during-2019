@@ -1,5 +1,7 @@
 #pragma once
+
 #include "base-types.hpp"
+
 class Shape
 {
 public:
