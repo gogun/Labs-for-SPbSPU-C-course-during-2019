@@ -1,10 +1,10 @@
-#include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include <iostream>
 
 int main()
 {
-  Circle circle(6, { 0, 4 });
+  Circle circle(6, {0, 4});
   Shape * figure = &circle;
   std::cout << "---CIRCLE:---\n";
   figure->print();
@@ -15,7 +15,7 @@ int main()
   figure->move({ -8, 6 });
   figure->print();
 
-  Rectangle rectangle({ 4, 6, { 4, 3 } });
+  Rectangle rectangle({4, 6, {4, 3}});
   figure = &rectangle;
   std::cout << "\n---RECTANGLE:---\n";
   figure-> print();
