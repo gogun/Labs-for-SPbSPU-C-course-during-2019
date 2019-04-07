@@ -1,6 +1,7 @@
-#include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
+
+#include <iostream>
 
 int main()
 {
