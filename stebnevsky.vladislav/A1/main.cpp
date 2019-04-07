@@ -5,15 +5,13 @@
 void printInfo(const Shape & shape)
 {
   rectangle_t temp_rect = shape.getFrameRect();
-  std::cout << "------------------------------------------------------" << std::endl;
   std::cout << "Area: " << shape.getArea() << std::endl;
-  std::cout << "      Center:" << std::endl;
-  std::cout << "           x = " << temp_rect.pos.x << std::endl;
-  std::cout << "           y = " << temp_rect.pos.y << std::endl;
-  std::cout << "      Other Info:" << std::endl;
-  std::cout << "           width = " << temp_rect.width << std::endl;
-  std::cout << "           height = " << temp_rect.height << std::endl;
-  std::cout << "------------------------------------------------------" << std::endl;
+  std::cout << "Center:" << std::endl;
+  std::cout << "x = " << temp_rect.pos.x << std::endl;
+  std::cout << "y = " << temp_rect.pos.y << std::endl;
+  std::cout << "Other Info:" << std::endl;
+  std::cout << "width = " << temp_rect.width << std::endl;
+  std::cout << "height = " << temp_rect.height << std::endl;
 }
 
 int main()

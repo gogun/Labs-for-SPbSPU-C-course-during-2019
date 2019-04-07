@@ -3,7 +3,8 @@
 #include <cassert>
 
 Circle::Circle(const point_t & center, double radius):
-  m_center(center), m_radius(radius)
+  m_center(center),
+  m_radius(radius)
 {
   assert(m_radius > 0.0);
 }
