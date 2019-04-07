@@ -3,7 +3,9 @@
 #include <cmath>
 #include <iostream>
 
-Circle::Circle(const point_t &pos, const double &radius) : Shape(pos), radius_(radius)
+Circle::Circle(const point_t &pos, const double &radius) : 
+  Shape(pos), 
+  radius_(radius)
 {
   assert(radius >= 0.0);
 }
