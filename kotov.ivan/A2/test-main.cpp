@@ -74,8 +74,8 @@ BOOST_AUTO_TEST_CASE(movingInPositionTest)
 
 BOOST_AUTO_TEST_CASE(invalidArgumentsTest)
 {
-    BOOST_CHECK_THROW(kotov::Circle({0, 0}, 0), std::invalid_argument);
-    BOOST_CHECK_THROW(kotov::Circle({0, 0}, -1), std::invalid_argument);
+  BOOST_CHECK_THROW(kotov::Circle({0, 0}, 0), std::invalid_argument);
+  BOOST_CHECK_THROW(kotov::Circle({0, 0}, -1), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
