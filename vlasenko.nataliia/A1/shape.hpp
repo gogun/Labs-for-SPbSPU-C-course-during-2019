@@ -14,5 +14,4 @@ public:
   virtual void move(const point_t &) = 0;
   virtual void move(const double &, const double &) = 0;
 };
-
 #endif
