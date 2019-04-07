@@ -1,6 +1,7 @@
 #include "circle.hpp"
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <cassert>
 
 
 Circle::Circle(const point_t &p, double r):

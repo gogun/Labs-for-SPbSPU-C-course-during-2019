@@ -1,6 +1,7 @@
 #include "rectangle.hpp"
 #include <stdlib.h>
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(const point_t &p, double w, double h):
   pos (p),
