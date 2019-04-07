@@ -1,12 +1,14 @@
 #include <iostream>
+#include "base-types.hpp"
+#include "shape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
 
 int main()
 {
   //Rectangle
-  Rectangle rectangle({5, 5}, 10, 5);
-  point_t pos = rectangle.getCenter();
+  nurtdinov::Rectangle rectangle({5, 5}, 10, 5);
+  nurtdinov::point_t pos = rectangle.getCenter();
   std::cout << "Position of rectangle: x = " << pos.x << ", y = " << pos.y << "\n";
   rectangle.move({15, 50});
   pos = rectangle.getCenter();
@@ -16,12 +18,12 @@ int main()
   std::cout << "New position of rectangle: x = " << pos.x << ", y = " << pos.y << "\n";
   double areaOfRectangle = rectangle.getArea(); // 10 * 5 = 50;
   std::cout << "Area of this rectangle is " << areaOfRectangle << "\n";
-  rectangle_t frameRect = rectangle.getFrameRect(); // width = 10, height = 5, pos = 40, 60
+  nurtdinov::rectangle_t frameRect = rectangle.getFrameRect(); // width = 10, height = 5, pos = 40, 60
   std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
   std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
 
   //Circle
-  Circle circle({0, 0}, 5);
+  nurtdinov::Circle circle({0, 0}, 5);
   pos = circle.getCenter();
   std::cout << "Position of circle: x = " << pos.x << ", y = " << pos.y << "\n";
   circle.move({5, 5});
@@ -37,7 +39,7 @@ int main()
   std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
 
   //we have 2 objects : circle({30, 15}, 5) and rectangle({40, 60}, 10 , 5)
-  Shape *shape = &circle;
+  nurtdinov::Shape *shape = &circle;
   //Now using *shape, we will work with circle
   std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
   std::cout << "Area of this shape = " << shape->getArea() << "\n";
@@ -63,6 +65,6 @@ int main()
   std::cout << "Position of shape: x = " << shape->getCenter().x << " y = " << shape->getCenter().y << "\n";
   frameRect = shape->getFrameRect();
   std::cout << "Width of frame = " << frameRect.width << ", height = " << frameRect.height << "\n";
-  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y;
+  std::cout << "Position of frame: x = " << frameRect.pos.x << ", y = " << frameRect.pos.y << "\n\n";
 }
 

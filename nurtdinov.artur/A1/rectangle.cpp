@@ -6,7 +6,7 @@
 
 #include <cassert>
 
-Rectangle::Rectangle(const point_t &point, double width, double height) :
+nurtdinov::Rectangle::Rectangle(const nurtdinov::point_t &point, double width, double height) :
   width_(width),
   height_(height),
   position_(point)
@@ -14,28 +14,35 @@ Rectangle::Rectangle(const point_t &point, double width, double height) :
   assert(width_ > 0.0 && height_ > 0.0);
 }
 
-double Rectangle::getArea() const
+double nurtdinov::Rectangle::getArea() const
 {
   return width_ * height_;
 }
 
-rectangle_t Rectangle::getFrameRect() const
+nurtdinov::rectangle_t nurtdinov::Rectangle::getFrameRect() const
 {
   return {width_, height_, position_};
 }
 
-void Rectangle::move(const point_t &point)
+void nurtdinov::Rectangle::move(const nurtdinov::point_t &point)
 {
   position_ = point;
 }
 
-void Rectangle::move(double dx, double dy)
+void nurtdinov::Rectangle::move(double dx, double dy)
 {
   position_.x += dx;
   position_.y += dy;
 }
 
-point_t Rectangle::getCenter() const
+nurtdinov::point_t nurtdinov::Rectangle::getCenter() const
 {
   return position_;
+}
+
+void nurtdinov::Rectangle::scale(double rate)
+{
+  assert(rate > 0.0);
+  width_ *= rate;
+  height_ *= rate;
 }
