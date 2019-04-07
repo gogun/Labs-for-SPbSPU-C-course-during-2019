@@ -1,30 +1,24 @@
-﻿
-#include "pch.h"
-#include <iostream>
-#include "base-types.hpp"
-#include "shape.hpp"
-#include "Circle.hpp"
-#include "Rectangle.hpp"
+﻿#include "rectangle.hpp"
+#include "circle.hpp"
 
 int main()
 {
-	Rectangle Rectangle{ 4, 6, 5, 5 };
-	std::cout << "Get Area" << std::endl;
-	Rectangle.getArea();
-	std::cout << "Move by point" << std::endl;
-	Rectangle.move(3, 7);
-	std::cout << "Move by shift" << std::endl;
-	Rectangle.move({ 3, 7 });
-	Rectangle.getFrameRect();
-	std::cout << "--------------------------" << std::endl;
-	Circle Circle{ 4, 2, 5, 6 };
-	std::cout << "Get Area" << std::endl;
-	Circle.getArea();
-	std::cout << "Move by point" << std::endl;
-	Circle.move(3, 3);
-	std::cout << "Move by shift" << std::endl;
-	Circle.move({ 4, 5 });
-	Circle.getFrameRect();
+	Circle circle(1, 1, 9);
+	circle.printInfo();
+
+	circle.setRadius(7);
+	point_t p = { -10,2 };
+	circle.move(p);
+	circle.move(12, -10);
+	circle.printInfo();
+
+	Rectangle rect(p, 2, 9);
+	rect.printInfo();
+
+	rect.setWidth(12);
+	rect.setHeight(0.5);
+	rect.move({ -9,7 });
+	rect.move(3, -4);
+	rect.printInfo();
 	return 0;
 }
-
