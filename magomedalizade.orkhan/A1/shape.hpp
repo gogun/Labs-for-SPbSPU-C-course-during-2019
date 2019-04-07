@@ -10,6 +10,7 @@ public:
   virtual void move(const point_t &NewCentre) = 0;
   virtual void move(const double dx, const double dy) = 0;
   virtual void print() = 0;
+  virtual ~Shape() = default;
 protected:
   Shape(const point_t &pos);
   point_t pos_;

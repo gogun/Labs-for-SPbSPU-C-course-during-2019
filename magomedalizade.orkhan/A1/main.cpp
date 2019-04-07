@@ -12,6 +12,7 @@ int main()
 
   Circle d(pos, 25);
   d.print();
+  
   cout << "Area " << d.getArea() << endl;
   rectangle_t rt = d.getFrameRect();
   cout << "Limiting rectangle ";
