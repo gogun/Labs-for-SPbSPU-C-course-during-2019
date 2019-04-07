@@ -10,7 +10,7 @@ Circle::Circle (double radius, const point_t &pos):
   assert(radius > 0.0);
 }
 
-void Circle::displayData() const
+void Circle::printData() const
 {
   std::cout << "\nRadius: " << radius_ << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';
 }

@@ -4,8 +4,8 @@ class Rectangle: public Shape
 {
   public:
     Rectangle(double width, double height, const point_t &pos = {0,0});
-    
-    void displayData() const override;
+
+    void printData() const override;
     double getArea() const override;
     rectangle_t getFrameRect() const override;
 

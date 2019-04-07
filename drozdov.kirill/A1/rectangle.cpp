@@ -11,7 +11,7 @@ Rectangle::Rectangle (double width, double height, const point_t &pos):
   assert(height > 0.0);
 }
 
-void Rectangle::displayData() const
+void Rectangle::printData() const
 {
   std::cout << "\nWidth: " << width_ << "\tHeight: " << height_
       << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';

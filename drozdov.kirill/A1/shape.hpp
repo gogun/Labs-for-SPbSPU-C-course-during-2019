@@ -8,7 +8,7 @@ class Shape
   public:
     virtual ~Shape() = default;
 
-    virtual void displayData() const = 0;
+    virtual void printData() const = 0;
     virtual double getArea() const = 0;
     virtual rectangle_t getFrameRect() const = 0;
 
