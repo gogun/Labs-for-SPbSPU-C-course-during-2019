@@ -2,7 +2,6 @@
 #define RECTANGLE_HPP
 
 #include "shape.hpp"
-#include "base-types.hpp"
 
 class Rectangle : public Shape
 {
@@ -20,5 +19,4 @@ private:
   double width_;
   point_t center_;
 };
-
 #endif
