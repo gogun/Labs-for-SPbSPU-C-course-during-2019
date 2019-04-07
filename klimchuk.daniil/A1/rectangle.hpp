@@ -3,20 +3,21 @@
 
 #include "shape.hpp"
 
-class Rectangle : public Shape {
+class Rectangle : public Shape
+{
 public:
-    Rectangle(const double width, const double height, const point_t &center);
+  Rectangle(double width, double height, const point_t &center);
 
-    double getArea() const override;
-    rectangle_t getFrameRect() const override;
-    void move(const point_t &point) override;
-    void move(const double dx, const double dy) override;
-    void printInfo() const override;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const point_t &point) override;
+  void move(double dx, double dy) override;
+  void printInfo() const override;
 
 private:
-    double width_;
-    double height_;
-    point_t pos_;
+  double width_;
+  double height_;
+  point_t pos_;
 };
 
 #endif //RECTANGLE_HPP
