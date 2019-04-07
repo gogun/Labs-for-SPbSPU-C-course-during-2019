@@ -13,9 +13,9 @@ public:
   void move(double dx, double dy) override;
 
 private:
+  point_t position_;
   double width_;
   double height_;
-  point_t position_;
 };
 
 #endif //A1_RECTANGLE_HPP
