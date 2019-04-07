@@ -21,8 +21,8 @@ rectangle_t Rectangle::getFrameRect() const
 
 void Rectangle::displayData() const
 {
-  std::cout << "Width: " << options_.width << "\tHeight: " << options_.height
-    << "\nPosition: (" << options_.pos.x << ';' << options_.pos.y << ')';
+  std::cout << "Width: " << options_.width << "\tHeight: " << options_.height;
+  std::cout << "\nPosition: (" << options_.pos.x << ';' << options_.pos.y << ')';
 }
 
 void Rectangle::move (double dx, double dy)
