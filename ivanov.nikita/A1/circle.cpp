@@ -1,8 +1,8 @@
-#define _USE_MATH_DEFINES
-#include <iostream>
-#include <cassert>
-#include <math.h>
 #include "circle.hpp"
+#include <iostream>
+#define _USE_MATH_DEFINES
+#include <math.h>
+#include <cassert>
 
 Circle::Circle(const double radius, const point_t &center):
   radius_(radius),
@@ -13,15 +13,15 @@ Circle::Circle(const double radius, const point_t &center):
 
 double Circle::getArea() const
 {
-  return (radius_ * radius_* M_PI);
+  return (radius_ * radius_ * M_PI);
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {radius_ * 2, radius_ *2 , center_};
+  return {radius_ * 2, radius_ * 2, center_};
 }
 
-void Circle::move(const point_t & point)
+void Circle::move(const point_t &point)
 {
   center_ = point;
 }

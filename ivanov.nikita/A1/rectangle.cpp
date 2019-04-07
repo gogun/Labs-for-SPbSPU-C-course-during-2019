@@ -1,6 +1,6 @@
+#include "rectangle.hpp"
 #include <iostream>
 #include <cassert>
-#include "rectangle.hpp"
 
 Rectangle::Rectangle(const rectangle_t &rect):
   rect_(rect)
