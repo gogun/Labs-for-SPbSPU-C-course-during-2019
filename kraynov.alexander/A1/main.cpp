@@ -1,7 +1,7 @@
+#include <cassert>
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include <cassert>
 
 void moveBothToPos(Shape *first, Shape *second, const point_t &pos)
 {
