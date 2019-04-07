@@ -15,6 +15,7 @@ int main()
   std::cout << std::endl << "Moving to the (0;-1) " << std::endl;
   rectPointer->move({ 0,-1 });
   rectPointer->showResults();
+
   std::cout << std::endl  << "Circle" << std::endl << std::endl;
   Circle circ({ 1,1 }, 5);
   Shape *circlePointer = &circ;
