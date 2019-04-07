@@ -1,12 +1,9 @@
+#define BOOST_TEST_MODULE A2
 #include "boost/test/included/unit_test.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
 
 #define ACCURACY 1e-10
-
-#ifndef BOOST_TEST_MAIN
-#define BOOST_TEST_MAIN
-#endif
 
 BOOST_AUTO_TEST_SUITE(figureRectangle)
 
