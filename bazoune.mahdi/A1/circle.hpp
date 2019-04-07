@@ -8,7 +8,7 @@ public:
   Circle(double r, const point_t& Center);
   void print() const override;
   double getArea() const override;
-  void move(const point_t& move) override;
+  void move(const point_t& point) override;
   void move(double dx, double dy) override;
   rectangle_t getFrameRect() const override;
 private:

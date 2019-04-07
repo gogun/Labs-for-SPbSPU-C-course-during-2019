@@ -29,9 +29,9 @@ void Circle::print() const
   std::cout <<"circle ray = " << r_<< std:: endl;
 }
 
-void Circle::move(const point_t& tmp)
+void Circle::move(const point_t& point)
 {
-  center_ = tmp;
+  center_ = point;
 }
 
 void Circle::move(double dx, double dy)
