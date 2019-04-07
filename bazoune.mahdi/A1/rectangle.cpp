@@ -8,8 +8,7 @@ Rectangle::Rectangle(double setWidth, double setHeight, const point_t& setCenter
   height_(setHeight),
   center_(setCenter)
 {
-  assert(width_ >= 0);
-  assert(height_ >= 0);
+  assert(width_ >= 0 && height_ >= 0 && "invalide paramaters");
 }
 
 double Rectangle::getArea() const
