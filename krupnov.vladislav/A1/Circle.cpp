@@ -1,9 +1,11 @@
 #include "circle.hpp"
 #include <iostream>
 
+
+
 const double M_PI = 3.14;
 
-Circle::Circle(const double &x, const double &y, const double &R) :
+Circle::Circle(const double &x, const double &y, const double &R):
 	Shape({ x,y }),
 	r_(R)
 {
