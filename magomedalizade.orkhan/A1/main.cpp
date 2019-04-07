@@ -27,7 +27,6 @@ int main()
   cout << "Limiting rectangle ";
   cout << "Center of FrameRect " << rt.pos.x << " " << rt.pos.y << " and width, height: " << rt.width << rt.height << endl;
   
-  // то же самое для прямоугольника
   Rectangle r(pos, height, width);
   r.print();
 
