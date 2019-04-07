@@ -7,8 +7,8 @@
 
 std::string rectToString(rectangle_t rectangle)
 {
-  return "pos: " + rectangle.pos.toString() + "\nwidth = " + std::to_string(rectangle.width) +
-         "\nheight = " + std::to_string(rectangle.height);
+  return "pos: (" + std::to_string(rectangle.pos.x) + "; " +std::to_string(rectangle.pos.y) + ")\nwidth = " +
+          std::to_string(rectangle.width) + "\nheight = " + std::to_string(rectangle.height);
 }
 
 std::string shapeToString(Shape *shape)

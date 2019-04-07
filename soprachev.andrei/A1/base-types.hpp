@@ -38,7 +38,6 @@ struct point_t
     return *this;
   }
 
-  std::string toString() const;
   double magnitude() const;
 
 };
