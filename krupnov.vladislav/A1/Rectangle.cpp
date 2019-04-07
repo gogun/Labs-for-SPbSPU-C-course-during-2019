@@ -1,7 +1,7 @@
 #include "rectangle.hpp"
 #include <iostream>
 
-Rectangle::Rectangle(const point_t &p, const double &w, const double &h) :
+Rectangle::Rectangle(const point_t &p, const double &w, const double &h):
 	Shape(p),
 	width_(w),
 	height_(h)
