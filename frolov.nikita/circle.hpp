@@ -13,8 +13,8 @@ public:
   rectangle_t getFrameRect() const override;
   void showPoint() const override;
 private:
-  point_t center_;
   double radius_;
+  point_t center_;
 };
 
 #endif

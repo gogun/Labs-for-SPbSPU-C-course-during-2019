@@ -29,10 +29,7 @@ void Circle::move(const point_t &center)
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t frame;
-  frame.width = radius_ * 2;
-  frame.height = radius_ * 2;
-  frame.pos = center_;
+  rectangle_t frame={radius_ * 2, radius_ * 2, {center_.x, center_.y}};
   return frame;
 }
 

@@ -13,9 +13,9 @@ public:
   rectangle_t getFrameRect() const override;
   void showPoint() const override;
 private:
-  point_t pos_;
   double height_;
   double width_;
+  point_t pos_;
 };
 
 #endif
