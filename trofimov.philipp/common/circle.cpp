@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert> 
 
-Circle::Circle(const point_t &pos, double r) :
+trofimov::Circle::Circle(const point_t &pos, double r) :
   center_(pos),
   radius_(r)
 {
@@ -13,28 +13,28 @@ Circle::Circle(const point_t &pos, double r) :
   }
 }
 
-double Circle::getArea() const
+double trofimov::Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
 }
 
-rectangle_t Circle::getFrameRect() const
+rectangle_t trofimov::Circle::getFrameRect() const
 {
   return { center_, 2 * radius_, 2 * radius_ };
 }
 
-void Circle::move(double dx, double dy)
+void trofimov::Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
 }
 
-void Circle::move(const point_t &point)
+void trofimov::Circle::move(const point_t &point)
 {
   center_ = point;
 }
 
-void Circle::getInfo() const
+void trofimov::Circle::getInfo() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << "Rectangle height = " << rectangle.height << std::endl;
