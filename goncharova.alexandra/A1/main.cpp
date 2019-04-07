@@ -24,7 +24,7 @@ int main()
   std::cout << "Circle moved to: x:" << circle1.center_.x;
   std::cout << ", y:" << circle1.center_.y << "\n";
 
-  std::cout << "---" << "\n";
+  std::cout << "-----" << "\n";
 
   std::cout << "Area of rectangle1: ";
   std::cout << rectangle1.getArea() << "\n";
