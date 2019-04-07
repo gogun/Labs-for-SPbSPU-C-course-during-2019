@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-#include "rectangle.hpp"
-#include "circle.hpp"
-
->>>>>>> 8b73dd0dfd665a3fbfd58ca13ab9ece3d33c884d
 #include <iostream>
 
 #include "rectangle.hpp"
