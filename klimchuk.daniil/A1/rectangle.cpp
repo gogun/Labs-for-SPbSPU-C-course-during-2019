@@ -7,10 +7,10 @@ Rectangle::Rectangle(double width, double height, const point_t &center) :
   pos_(center)
 {
   if (width <= 0) {
-    std::cerr << "Invalid rectangle width. Width must be above zero.\n";
+    std::cerr << "Invalid rectangle width. Width must be above zero." << std::endl;
   }
   if (height <= 0) {
-    std::cerr << "Invalid rectangle height. Height must be above zero.\n";
+    std::cerr << "Invalid rectangle height. Height must be above zero." << std::endl;
   }
 }
 
@@ -38,10 +38,11 @@ void Rectangle::move(double dx, double dy)
 void Rectangle::printInfo() const
 {
   std::cout << "Rectangle:"
-      << "\n  Width: " << width_
-        << "\n  Height: " << height_
-          << "\n  Position:"
-            << "\n    x: " << pos_.x
-              << "\n    y: " << pos_.y
-                << "\n  Area: " << this->getArea() << "\n\n";
+            << std::endl << "  Width: " << width_
+            << std::endl << "  Height: " << height_
+            << std::endl << "  Position: "
+            << std::endl << "    x: " << pos_.x
+            << std::endl << "    y: " << pos_.y
+            << std::endl << "  Area: " << this->getArea()
+            << std::endl << std::endl;
 }
