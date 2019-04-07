@@ -36,8 +36,8 @@ void Circle::getInfo() const
 {
   std::cout << "Area of circle is "
       << getArea() << "\n";
-	std::cout << "Radius of circle is "
+  std::cout << "Radius of circle is "
       << radius_ << "\n";
-	std::cout << "Center of circle is "
+  std::cout << "Center of circle is "
       << center_.x << ";" << center_.y << "\n";
 }
