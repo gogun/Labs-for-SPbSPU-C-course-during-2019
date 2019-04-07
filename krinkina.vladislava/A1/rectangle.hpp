@@ -15,8 +15,8 @@ public:
   void printInfo() const override;
 
 private:
-  double width_, height_;
   point_t centre_;
+  double width_, height_;
 };
 
 #endif //RECTANGLE_HPP
