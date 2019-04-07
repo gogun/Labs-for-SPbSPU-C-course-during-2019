@@ -12,7 +12,6 @@ struct rectangle_t
   point_t pos;
   double width;
   double height;
-
 };
 
 #endif
