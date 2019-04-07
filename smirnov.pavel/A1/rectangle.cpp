@@ -8,7 +8,7 @@ Rectangle::Rectangle(double width, double
   height_(height),
   center_(center)
 {
-  assert((width_ > 0) && (heigth_ > 0));
+  assert((width_ > 0) && (height_ > 0));
 }
 
 double Rectangle::getArea() const
@@ -39,7 +39,7 @@ void Rectangle::getInfo() const
   std::cout << "Width of rectangle is "
       << width_ << "\n";
   std::cout << "Height of rectangle is "
-      << heigth_ << "\n";
+      << height_ << "\n";
   std::cout << "Center of rectangle is ("
       << center_.x << ";" << center_.y << ")\n";
 }
