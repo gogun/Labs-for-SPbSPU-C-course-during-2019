@@ -1,44 +1,39 @@
 #include <iostream>
-#include "circle.hpp"
+#include <cassert>
+#include "base-types.hpp"
+#include "shape.hpp"
 #include "rectangle.hpp"
+#include "circle.hpp"
 
-int main(int, char *[])
+void printRectFrames(const Shape *shape)
 {
-  Rectangle rectangle = {5.0, 3.5, {-1.0, -2.0}};
-  Circle circle = {2.5, {3.14, 2.71}};
+  assert(shape != nullptr);
+  rectangle_t frameRect = shape->getFrameRect();
+  std::cout << "{" << frameRect.pos.x << ","
+    << frameRect.pos.y << "},"
+    << frameRect.width << ","
+    << frameRect.height << "\n";
+}
 
-  std::cout << "That's what we have:\n";
-  rectangle.printInfo();
-  circle.printInfo();
+int main()
+{
+  Rectangle rec1({ 3, 2 }, 1, 8);
+  rec1.move({ 5, 8 });
+  std::cout << rec1.getArea() << "\n";
 
-  std::cout << "Let's move the shapes 2 units left and 7.77 units up.\n";
-  rectangle.move(-2.0, 7.77);
-  rectangle.printInfo();
-  circle.move(-2.0, 7.77);
-  circle.printInfo();
+  Rectangle rec2({ 2, 1 }, 4, 2);
+  rec2.move({ 2, 1 });
 
-  std::cout << "Now we will move the shapes to a specific point (3, 4).\n";
-  rectangle.move({3.0, 4.0});
-  rectangle.printInfo();
-  circle.move({3.0, 4.0});
-  circle.printInfo();
+  printRectFrames(&rec2);
 
+  Circle cir1({ 1, 7 }, 5);
+  cir1.move(3, 5);
+  std::cout << cir1.getArea() << "\n";
 
-  rectangle_t rectangleFrame = rectangle.getFrameRect();
-  std::cout << "Frame rectangle for the rectangle:"
-            << "\n  Width: " << rectangleFrame.width
-            << "\n  Height: " << rectangleFrame.height
-            << "\n  Position:"
-            << "\n    x: " << rectangleFrame.pos.x
-            << "\n    y: " << rectangleFrame.pos.y << "\n\n";
+  Circle cir2({ 8, 4 }, 4);
+  cir2.move(4, 3);
 
-  rectangle_t circleFrame = circle.getFrameRect();
-  std::cout << "Frame rectangle for the circle:"
-            << "\n  Width: " << circleFrame.width
-            << "\n  Height: " << circleFrame.height
-            << "\n  Position:"
-            << "\n    x: " << circleFrame.pos.x
-            << "\n    y: " << circleFrame.pos.y << std::endl;
+  printRectFrames(&cir2);
 
   return 0;
 }

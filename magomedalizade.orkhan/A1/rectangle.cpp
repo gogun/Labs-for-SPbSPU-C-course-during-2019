@@ -1,17 +1,13 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 
-Rectangle::Rectangle(double width, double height, const point_t &center) :
-    width_(width),
-    height_(height),
-    pos_(center)
+Rectangle::Rectangle(const point_t &center, double width, double height) :
+  center_(center),
+  width_(width),
+  height_(height)
 {
-  if (width <= 0) {
-    std::cerr << "Invalid rectangle width. Width must be above zero." << std::endl;
-  }
-  if (height <= 0) {
-    std::cerr << "Invalid rectangle height. Height must be above zero." << std::endl;
-  }
+  assert((width_ > 0) && (height_ > 0));
 }
 
 double Rectangle::getArea() const
@@ -21,27 +17,17 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return { width_, height_, pos_ };
+  return { width_, height_, center_ };
 }
 
-void Rectangle::move(const point_t &point)
+void Rectangle::move(double dx, double dy)
 {
-  pos_ = point;
+  center_.x += dx;
+  center_.y += dy;
 }
 
-void Rectangle::move(const double dx, const double dy)
+void Rectangle::move(const point_t &newCenter)
 {
-  pos_.x += dx;
-  pos_.y += dy;
+  center_ = newCenter;
 }
 
-void Rectangle::printInfo() const
-{
-  std::cout << "Rectangle:"
-            << "\n  Width: " << width_
-            << "\n  Height: " << height_
-            << "\n  Position:"
-            << "\n    x: " << pos_.x
-            << "\n    y: " << pos_.y
-            << "\n  Area: " << this->getArea() << "\n\n";
-}

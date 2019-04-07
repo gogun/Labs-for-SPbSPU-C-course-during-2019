@@ -1,14 +1,25 @@
+#define _USE_MATH_DEFINES
 #include "circle.hpp"
 #include <iostream>
+#include <cassert>
 #include <cmath>
 
-Circle::Circle(const double radius, const point_t &center) :
-    radius_(radius),
-    pos_(center)
+Circle::Circle(const point_t &newCenter, double radius) :
+  center_(newCenter),
+  radius_(radius)
 {
-  if (radius <= 0) {
-    std::cerr << "Invalid circle radius. Radius must be above zero.\n";
-  }
+  assert(radius_ > 0);
+}
+
+void Circle::move(double dx, double dy)
+{
+  center_.x += dx;
+  center_.y += dy;
+}
+
+void Circle::move(const point_t &newCenter)
+{
+  center_ = newCenter;
 }
 
 double Circle::getArea() const
@@ -18,26 +29,5 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {2.0 * radius_, 2.0 * radius_, pos_};
-}
-
-void Circle::move(const point_t &point)
-{
-  pos_ = point;
-}
-
-void Circle::move(const double dx, const double dy)
-{
-  pos_.x += dx;
-  pos_.y += dy;
-}
-
-void Circle::printInfo() const
-{
-  std::cout << "Circle:"
-            << "\n  Radius: " << radius_
-            << "\n  Position:"
-            << "\n    x: " << pos_.x
-            << "\n    y: " << pos_.y
-            << "\n  Area: " << this->getArea() << "\n\n";
+  return { 2 * radius_, 2 * radius_, center_ };
 }
