@@ -10,6 +10,10 @@ Circle::Circle(const point_t &pos, const double &radius) :
   assert(radius >= 0.0);
 }
 
+Circle::Circle(const double &x, const double &y, const double &radius) :
+  Circle({x, y}, radius)
+{ }
+
 double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
@@ -17,7 +21,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return { pos_, 2 * radius_, 2 * radius_ };
+  return {pos_, 2 * radius_, 2 * radius_};
 }
 
 void Circle::printFeatures() const

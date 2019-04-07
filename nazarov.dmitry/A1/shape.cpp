@@ -3,7 +3,7 @@
 
 Shape::Shape(const point_t &pos) : 
   pos_(pos)
-{}
+{ }
 
 void Shape::printData() const
 {

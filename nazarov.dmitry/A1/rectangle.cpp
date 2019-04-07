@@ -10,6 +10,10 @@ Rectangle::Rectangle(const point_t &pos, const double &width, const double &heig
   assert((width_ >= 0.0) && (height >= 0.0));
 }
 
+Rectangle::Rectangle(const double &x, const double &y, const double &width, const double &height) :
+  Rectangle({x, y}, width, height)
+{ }
+
 double Rectangle::getArea() const
 {
   return width_ * height_;
@@ -17,7 +21,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return { pos_, width_, height_ };
+  return {pos_, width_, height_};
 }
 
 void Rectangle::printFeatures() const
