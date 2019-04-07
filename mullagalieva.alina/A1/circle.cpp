@@ -11,7 +11,7 @@ Circle::Circle(const point_t& pos, double radius) :
 }
 
 Circle::Circle(double x, double y, double radius) :
-  centre_({ x, y }),
+  centre_({x, y}),
   radius_(radius)
 {
   assert(radius_ >= 0.0 && "Invalid circle radius");
@@ -24,7 +24,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return { radius_ * 2, radius_ * 2, centre_ };
+  return {radius_ * 2, radius_ * 2, centre_};
 }
 
 void Circle::move(const point_t& point)
