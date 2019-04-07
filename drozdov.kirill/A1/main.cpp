@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 #include "rectangle.hpp"
 #include "circle.hpp"
 
@@ -33,6 +34,7 @@ int main()
 
 void viewShape(const Shape *shape)
 {
+  assert(shape != nullptr);
   shape->displayData();
   std::cout << "\nArea: " << shape->getArea() << std::endl;
   rectangle_t frameRect = shape->getFrameRect();
