@@ -35,7 +35,3 @@ void Circle::move(double dx, double dy)
   position_.y += dy;
 }
 
-point_t Circle::getCenter() const
-{
-  return position_;
-}
