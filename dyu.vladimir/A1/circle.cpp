@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-Circle::Circle(double radius, const point_t &pos) :
+Circle::Circle(const double radius, const point_t &pos) :
   radius_(radius),
   pos_(pos)
 {
