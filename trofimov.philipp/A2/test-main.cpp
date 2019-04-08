@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_CASE(immutabilityOfMeasurements)
 
   circle.move({ 3, 5 });
   circleFrameAfterMoving = circle.getFrameRect();
-  double areaAfterMoving = circle.getArea();
+  areaAfterMoving = circle.getArea();
   BOOST_CHECK_CLOSE(circleFrameBeforeMoving.height, circleFrameAfterMoving.height, accuracy);
   BOOST_CHECK_CLOSE(circleFrameBeforeMoving.width, circleFrameAfterMoving.width, accuracy);
   BOOST_CHECK_CLOSE(areaBeforeMoving, areaAfterMoving, accuracy);
