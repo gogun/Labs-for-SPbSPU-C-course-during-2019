@@ -8,8 +8,6 @@ struct point_t
   double y;
 };
 
-std::ostream & operator <<(std::ostream& os, const point_t& r);
-
 struct rectangle_t
 {
   double width;
@@ -17,5 +15,4 @@ struct rectangle_t
   point_t pos;
 };
 
-std::ostream & operator <<(std::ostream& os, const rectangle_t& r);
 #endif
