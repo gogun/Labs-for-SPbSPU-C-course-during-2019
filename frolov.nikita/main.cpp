@@ -48,5 +48,20 @@ int main()
   std::cout << "After change point \n";
   shape->showPoint();
 
+  Circle scirc(5,{1,5});
+  shape = &scirc;
+  sframe_ = shape->getFrameRect();
+  std::cout << "Width= " << sframe_.width << "\n";
+  std::cout << "Height= " << sframe_.height << "\n";
+  std::cout << "Center on x-axis= " << sframe_.pos.x << "\n";
+  std::cout << "Center on y-axis= " << sframe_.pos.y << "\n";
+  std::cout << "Area: " << shape->getArea()<< "\n";
+  shape->move(18,20);
+  std::cout << "After change point \n";
+  shape->showPoint();
+  shape->move({2,3});
+  std::cout << "After change point \n";
+  shape->showPoint();
+
   return 0;
 }
