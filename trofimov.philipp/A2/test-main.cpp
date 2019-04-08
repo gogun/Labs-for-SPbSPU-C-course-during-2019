@@ -30,9 +30,9 @@ BOOST_AUTO_TEST_CASE(immutabilityOfMeasurements)
 
 BOOST_AUTO_TEST_CASE(squareChangeOfArea)
 {
-  trofimov::Rectangle rectangle({ 5, 10 }, 2, 3);
+  trofimov::Rectangle rectangle({ 5, 10 }, 2, 2);
   const double areaBeforeScaling = rectangle.getArea();
-  rectangle.scale(1.5);
+  rectangle.scale(2);
   const double areaAfterScaling = rectangle.getArea();
   BOOST_CHECK_CLOSE(areaBeforeScaling * areaBeforeScaling, areaAfterScaling, accuracy);
 }
@@ -70,9 +70,9 @@ BOOST_AUTO_TEST_CASE(immutabilityOfMeasurements)
 
 BOOST_AUTO_TEST_CASE(squareChangeOfArea)
 {
-  trofimov::Circle circle({ 13, 15 }, 6);
+  trofimov::Circle circle({ 13, 15 }, 2);
   const double areaBeforeScaling = circle.getArea();
-  circle.scale(1.3);
+  circle.scale(2);
   double areaAfterScaling = circle.getArea();
   BOOST_CHECK_CLOSE(areaBeforeScaling * areaBeforeScaling, areaAfterScaling, accuracy);
 }
@@ -81,7 +81,7 @@ BOOST_AUTO_TEST_CASE(availabilityAndProcessingOfIncorrectParameters)
 {
   BOOST_CHECK_THROW(trofimov::Circle circle({ 11, 3 }, 4), std::invalid_argument);
   trofimov::Circle circle({ 2, 3 }, 7);
-  BOOST_CHECK_THROW(circle.scale(-1), std::invalid_argument);
+  BOOST_CHECK_THROW(circle.scale(2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
