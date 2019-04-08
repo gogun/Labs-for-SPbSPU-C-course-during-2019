@@ -13,7 +13,7 @@ Circle::Circle(const point_t& pos, double radius) :
 }
 
 Circle::Circle(double x, double y, double radius) :
-  Circle({x, y}, radius)
+Circle({x, y}, radius)
 {
   assert(radius_ >= 0.0);
 }
