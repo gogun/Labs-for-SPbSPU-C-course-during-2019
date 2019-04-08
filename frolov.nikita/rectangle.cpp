@@ -29,8 +29,7 @@ void Rectangle::move(const point_t &center)
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  rectangle_t frame={height_, width_, {pos_.x, pos_.y}};
-  return frame;
+  return {height_, width_, {pos_.x, pos_.y}};
 }
 
 void Rectangle::showPoint() const
