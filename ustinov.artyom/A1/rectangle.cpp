@@ -4,8 +4,7 @@
 
 Rectangle::Rectangle(double posX, double posY, double width, double height)
 {
-  assert((height > 0) && ("Incorrect height value"));
-  assert((width > 0) && ("Incorrect width value"));
+  assert((height > 0) && (width > 0));
   rect_.pos.x = posX;
   rect_.pos.y = posY;
   rect_.width = width;
@@ -14,7 +13,7 @@ Rectangle::Rectangle(double posX, double posY, double width, double height)
 
 double Rectangle::getArea() const
 {
-  return (rect_.width) * (rect_.height);
+  return rect_.width * rect_.height;
 }
 
 rectangle_t Rectangle::getFrameRect() const

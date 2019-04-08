@@ -15,9 +15,9 @@ int main()
   std::cout << "move Circle" << std::endl;
   shp->move(1, -2);
   shp->show();
-  
+
   std::cout << "new Rectangle " << std::endl;
-  
+
   Rectangle objrectangle(2, 12, 3, 6);
   shp = &objrectangle;
   shp->show();
@@ -27,6 +27,6 @@ int main()
   std::cout << "move Rectangle" << std::endl;
   shp->move(2, 3);
   shp->show();
-  
+
   return 0;
 }

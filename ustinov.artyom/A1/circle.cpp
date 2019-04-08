@@ -3,11 +3,11 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(const point_t &goal, double rad) :
+Circle::Circle(const point_t &goal, double rad):
   center_(goal),
   radius_(rad)
 {
-  assert((radius_ > 0) && ("Incorrect radius value"));
+  assert(radius_ > 0);
 }
 
 double Circle::getArea() const
@@ -17,12 +17,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t rectmp;
-  rectmp.width = 2 * radius_;
-  rectmp.height = 2 * radius_;
-  rectmp.pos = center_;
-  
-  return rectmp;
+  return {center_, 2 * radius_, 2 * radius_};
 }
 
 void Circle::move(const point_t &goal)
