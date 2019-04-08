@@ -1,8 +1,8 @@
 #include "rectangle.hpp"
 #include <cassert>
 
-Rectangle::Rectangle(const point_t &center, double height, double width) :
-  center_(center),
+Rectangle::Rectangle(const point_t &pos, double height, double width) :
+  center_(pos),
   height_(height),
   width_(width)
 {
@@ -19,9 +19,9 @@ rectangle_t Rectangle::getFrameRect() const
   return { center_, height_, width_ };
 }
 
-void Rectangle::move(const point_t &newCenter)
+void Rectangle::move(const point_t &newPos)
 {
-  center_ = newCenter;
+  center_ = newPos;
 }
 
 void Rectangle::move(double dx, double dy)

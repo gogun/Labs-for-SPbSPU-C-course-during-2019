@@ -3,8 +3,8 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-Circle::Circle(const point_t &center, double radius) :
-  center_(center),
+Circle::Circle(const point_t &pos, double radius) :
+  center_(pos),
   radius_(radius)
 {
   assert(radius_ >= 0.0);
@@ -20,9 +20,9 @@ rectangle_t Circle::getFrameRect() const
   return { center_, radius_ * 2, radius_ * 2 };
 }
 
-void Circle::move(const point_t &newCenter)
+void Circle::move(const point_t &newPos)
 {
-  center_ = newCenter;
+  center_ = newPos;
 }
 
 void Circle::move(double dx, double dy)

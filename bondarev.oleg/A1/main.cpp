@@ -11,8 +11,8 @@ void printArea(const Shape &shape)
 void printFrameRect(const Shape &shape)
 {
   rectangle_t frameRect = shape.getFrameRect();
-  std::cout <<  "Centre is " << '(' 
-      << frameRect.center.x << ", " << frameRect.center.y << ')' 
+  std::cout <<  "Center is " << '(' 
+      << frameRect.pos.x << ", " << frameRect.pos.y << ')' 
       << ", Height is " << frameRect.height 
       << ", Width is " << frameRect.width << "\n\n";
 }
@@ -24,7 +24,7 @@ int main()
   printArea(rectangle);
   printFrameRect(rectangle);
 
-  std::cout << "Circle centre  is (5, 6), radiius = 7\n";
+  std::cout << "Circle center  is (5, 6), radiius = 7\n";
   Circle circle({ 5, 6 }, 7);
   printArea(circle);
   printFrameRect(circle);
@@ -38,6 +38,6 @@ int main()
   rectangle.move({ 10, 11 });
   printArea(rectangle);
   printFrameRect(rectangle);
-
+  getchar();
   return 0;
 }
