@@ -14,7 +14,7 @@ public:
   void move(const point_t &p);
   void move(const double &x, const double &y);
   void printInfo() const;
-  void getCenterInfo() const;
+  void getCenterInfo() const override;
 private:
   double r_;
   double posx_;
