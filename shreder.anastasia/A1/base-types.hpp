@@ -13,4 +13,4 @@ struct rectangle_t
   double height;
 };
 
-#endif
+#endif /*BASE_TYPES_HPP*/
