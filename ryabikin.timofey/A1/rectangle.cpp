@@ -1,9 +1,9 @@
 #include "rectangle.hpp"
 #include <cassert>
 
-Rectangle::Rectangle(point_t pos, double width, double height) :
-  m_width(width),
+Rectangle::Rectangle(double height, double width, const point_t &pos):
   m_height(height),
+  m_width(width),
   m_pos(pos)
 {
   assert(m_width > 0.0);
@@ -12,21 +12,21 @@ Rectangle::Rectangle(point_t pos, double width, double height) :
 
 double Rectangle::getArea() const
 {
-  return  (m_width * m_height);
+  return (m_width * m_height);
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return { m_width, m_height, {m_pos.x, m_pos.y} };
+  return {m_width, m_height, {m_pos.x, m_pos.y}};
 }
 
-void Rectangle::move(double x, double y)
+void Rectangle::move(const double x, const double y)
 {
   m_pos.x += x;
   m_pos.y += y;
 }
 
-void Rectangle::move(point_t point)
+void Rectangle::move(const point_t &new_point)
 {
-  m_pos = point;
+  m_pos = new_point;
 }
