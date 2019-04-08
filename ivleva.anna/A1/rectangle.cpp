@@ -4,7 +4,7 @@
 #include <stdexcept>
 
 Rectangle::Rectangle(const rectangle_t & rect):
-rect_(rect)
+  rect_(rect)
 {
   assert((rect.width > 0) && (rect.height > 0));
 }
@@ -24,7 +24,7 @@ void Rectangle::move(const point_t & point)
   rect_.pos = point;
 }
 
-void Rectangle::move(const double dx, const double dy)
+void Rectangle::move(double dx, double dy)
 {
   rect_.pos.x += dx;
   rect_.pos.y += dy;

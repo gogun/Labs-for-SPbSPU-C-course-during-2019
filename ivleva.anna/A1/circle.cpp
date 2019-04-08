@@ -4,13 +4,12 @@
 #include <stdexcept>
 #include <cmath>
 
-Circle::Circle(const double radius, const point_t & center):
-radius_(radius),
-center_(center)
+Circle::Circle(double radius, const point_t & center):
+  radius_(radius),
+  center_(center)
 {
   assert(radius > 0);
 }
-
 
 double Circle::getArea() const
 {
@@ -27,7 +26,7 @@ void Circle::move(const point_t & point)
   center_ = point;
 }
 
-void Circle::move(const double dx, const double dy)
+void Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
