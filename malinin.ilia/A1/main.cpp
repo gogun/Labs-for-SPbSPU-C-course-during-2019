@@ -16,6 +16,9 @@ int main()
   std::cout << "\nMove (to new position using point) X: -7.3, Y: 3.7\n";
   ptr->move({-7.3, 3.7});
   ptr->showCords();
+  std::cout << "\nMove (using coordinates) X: -3.2, Y: 5.9\n";
+  ptr->move(-3.2, 5.9);
+  ptr->showCords();
   ptr->showFrameRect();
 
   std::cout << "\n==================================================\n";
@@ -23,7 +26,10 @@ int main()
   ptr = &circle;
   std::cout << "\nCIRCLE\n";
   ptr->showInfo();
-  std::cout << "\nMove (using coordinates) X: -1, Y: -3\n";
+  std::cout << "\nMove (to new position using point) X: 5.1, Y: -2.2\n";
+  ptr->move({5.1, -2.2});
+  ptr->showCords();
+  std::cout << "\nMove (using coordinates) X: -1.0, Y: 2.0\n";
   ptr->move(-1.0, 2.0);
   ptr->showCords();
   ptr->showFrameRect();
