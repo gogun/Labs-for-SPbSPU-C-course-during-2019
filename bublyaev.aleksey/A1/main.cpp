@@ -5,7 +5,7 @@
 
 void printShape(const Shape * shapePtr)
 {
-  assert (shapePtr);
+  assert(shapePtr);
 
   shapePtr->printInfo();
   std::cout << std::endl;
