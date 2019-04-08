@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include "circle.hpp"
 #include <math.h>
 #include <iostream>
