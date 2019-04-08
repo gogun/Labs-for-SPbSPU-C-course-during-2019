@@ -33,8 +33,7 @@ void Rectangle::move(const double x, const double y)
 
 void Rectangle::getInfo() const
 {
-  std::cout << "\n--Information about rectangle--" << std::endl;
-  std::cout << "Width of rectangle is: " << width_ << std::endl;
+  std::cout << "\nWidth of rectangle is: " << width_ << std::endl;
   std::cout << "Height of rectangle is: " << height_ << std::endl;
   std::cout << "Center of rectangle is: x=" << center_.x << " y=" << center_.y << std::endl;
 }
