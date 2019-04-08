@@ -5,7 +5,6 @@
 int main()
 {
   Rectangle rectangle({ 5, 25 }, 10, 10);
-
   std::cout << "RECTANGLE" << std::endl;
   Shape *figure = &rectangle;
   figure->getInfo();
@@ -16,9 +15,7 @@ int main()
   figure->move({ 7, 7 });
   figure->getInfo();
   std::cout << "Area : " << figure->getArea() << std::endl;
-	
   Circle circle({ 20, 15 }, 6);
-
   std::cout << "CIRCLE" << std::endl;
   figure = &circle;
   figure->getInfo();
@@ -32,3 +29,4 @@ int main()
 
   return 0;
 }
+
