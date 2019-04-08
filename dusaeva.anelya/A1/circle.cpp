@@ -1,8 +1,8 @@
 #define _USE_MATH_DEFINES
+#include "circle.hpp"
+#include <iostream>
 #include <cmath>
 #include <cassert>
-#include <iostream>
-#include "circle.hpp"
 
 Circle::Circle(const point_t &position, double radius):
   position_(position),
@@ -40,4 +40,3 @@ void Circle::printInfo() const
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << std::endl;
   std::cout << std::endl;
 }
-
