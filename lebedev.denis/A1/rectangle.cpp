@@ -1,10 +1,10 @@
 #include "rectangle.hpp"
 #include <cassert>
 
-Rectangle::Rectangle(point_t pos, double width, double height) :
-  m_width(width),
+Rectangle::Rectangle(point_t &pos, double width, double height) :
+  m_width(pos),
   m_height(height),
-  m_pos(pos)
+  m_pos(width)
 {
   assert(m_width > 0.0);
   assert(m_height > 0.0);
@@ -12,15 +12,15 @@ Rectangle::Rectangle(point_t pos, double width, double height) :
 
 double Rectangle::getArea() const
 {
-  return  (m_width * m_height);
+  return (m_width * m_height);
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return { m_width, m_height, {m_pos.x, m_pos.y} };
+  return {m_width, m_height, {m_pos.x, m_pos.y}};
 }
 
-void Rectangle::move(double x, double y)
+void Rectangle::move(const double x, const double y)
 {
   m_pos.x += x;
   m_pos.y += y;
