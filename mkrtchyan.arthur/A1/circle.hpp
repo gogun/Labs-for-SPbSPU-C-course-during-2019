@@ -2,7 +2,8 @@
 #define A1_CIRCLE_HPP
 #include "shape.hpp"
 
-class Circle : public Shape {
+class Circle : public Shape
+{
 public:
   Circle(double radius, point_t pos);
 
