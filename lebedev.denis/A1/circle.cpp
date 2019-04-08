@@ -3,7 +3,7 @@
 #include <math.h>
 #include <cassert>
 
-Circle::Circle(point_t &pos, double radius):
+Circle::Circle(const point_t &pos, double radius):
   m_pos(pos),
   m_radius(radius)
 {
