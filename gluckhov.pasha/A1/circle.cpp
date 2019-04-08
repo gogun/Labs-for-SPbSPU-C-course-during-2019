@@ -2,6 +2,14 @@
 #include <cassert>
 #include <cmath>
 #include <iostream>
+
+Circle::Circle (double radius, const point_t &pos):
+  pos_(pos),
+  radius_(radius)
+{
+  assert(radius > 0.0);
+}
+
 double Circle::getArea() const
 {
   return (M_PI * radius_ * radius_);
@@ -15,7 +23,7 @@ rectangle_t Circle::getFrameRect() const
   return frameCirc;
 }
 
-void Circle::displayData() const
+void Circle::printData() const
 {
   std::cout << "Radius: " << radius_;
   std::cout << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';

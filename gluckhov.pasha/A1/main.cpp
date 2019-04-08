@@ -3,10 +3,10 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void displayShape(const Shape *shape)
+void printShape(const Shape *shape)
 {
   assert(shape != nullptr);
-  shape->displayData();
+  shape->printData();
   std::cout << "\nArea: " << shape->getArea() << std::endl;
   rectangle_t frameRect = shape->getFrameRect();
   std::cout << "***Frame Rectangle:" << std::endl;
@@ -18,23 +18,23 @@ int main()
 {
   Circle circ1(4, {3.2, 2.4});
   std::cout << "\nCircle: \n";
-  displayShape(circ1);
+  printShape(&circ1);
 
   const point_t newPos = {4.2, 3};
   circ1.move(newPos);
   std::cout << "\n===After move: to (" << newPos.x << ';' << newPos.y << ")\n";
-  circ1.displayData();
+  circ1.printData();
 
   std::cout << std::endl;
 
   Rectangle rect1(5.2, 4, {2.4, -3});
-  std::cout << "Rectangle: \n";
-  displayShape(rect1);
+  std::cout << "\nRectangle: \n";
+  printShape(&rect1);
 
   const double dx = 1.6, dy = 4;
   rect1.move(dx, dy);
   std::cout << "\n===After move: + (" << dx << ';' << dy << ")\n";
-  rect1.displayData();
+  rect1.printData();
 
   std::cout << std::endl;
 
