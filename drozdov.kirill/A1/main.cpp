@@ -3,18 +3,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printDataShape(const Shape *shape)
-{
-  assert(shape != nullptr);
-  shape->printData();
-  std::cout << "\nArea: " << shape->getArea() << std::endl;
-
-  rectangle_t frameRect = shape->getFrameRect();
-
-  std::cout << "***Frame Rectangle:";
-  std::cout << "\nWidth: " << frameRect.width  << "\tHeight: " << frameRect.height;
-  std::cout << "\nPosition: (" << frameRect.pos.x << ';' << frameRect.pos.y << ')' << std::endl;
-}
+void printDataShape(const Shape *shape);
 
 int main()
 {
@@ -40,4 +29,17 @@ int main()
 
   std::cout << std::endl;
   return 0;
+}
+
+void printDataShape(const Shape *shape)
+{
+  assert(shape != nullptr);
+  shape->printData();
+  std::cout << "\nArea: " << shape->getArea() << std::endl;
+
+  rectangle_t frameRect = shape->getFrameRect();
+
+  std::cout << "***Frame Rectangle:";
+  std::cout << "\nWidth: " << frameRect.width  << "\tHeight: " << frameRect.height;
+  std::cout << "\nPosition: (" << frameRect.pos.x << ';' << frameRect.pos.y << ')' << std::endl;
 }
