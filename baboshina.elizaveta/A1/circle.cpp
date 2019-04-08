@@ -35,7 +35,6 @@ void Circle::move(const double x, const double y)
 
 void Circle::getInfo() const
 {
-  std::cout << "\n--Information about circle--" << std::endl;
-  std::cout << "Radius of circle is: " << radius_ << std::endl;
+  std::cout << "\nRadius of circle is: " << radius_ << std::endl;
   std::cout << "Center of circle is: x=" << center_.x << " y=" << center_.y << std::endl;
 }
