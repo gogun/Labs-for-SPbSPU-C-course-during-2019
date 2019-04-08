@@ -1,9 +1,9 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cassert>
-#include <math.h>
+#include <cmath>
 
-Circle::Circle(const point_t &center,const double radius) :
+Circle::Circle(const point_t& center, double radius) :
   center_(center),
   radius_(radius)
 {
@@ -12,21 +12,21 @@ Circle::Circle(const point_t &center,const double radius) :
 
 double Circle::getArea() const
 {
-  return M_PI*radius_*radius_;
+  return M_PI * radius_ * radius_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {2*radius_,2*radius_,center_};
+  return {radius_ * 2, radius_ * 2, center_};
 }
 
-void Circle::move(const double dx,const double dy)
+void Circle::move(double dx, double dy)
 {
-  center_.x+=dx;
-  center_.y+=dy;
+  center_.x += dx;
+  center_.y += dy;
 }
 
-void Circle::move(const point_t &newPos)
+void Circle::move(const point_t& newPos)
 {
   center_ = newPos;
 }
