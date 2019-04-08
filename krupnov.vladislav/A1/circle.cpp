@@ -6,8 +6,8 @@
 
 
 
-Circle::Circle(const point_t &p, const double &R):
-  r_(R),
+Circle::Circle(const point_t &p, const double &r):
+  r_(r),
   center_(p)
 {
   assert(r_ > 0);
@@ -28,7 +28,7 @@ rectangle_t Circle::getFrameRect() const
   return { 2 * r_, 2 * r_, center_ };
 }
 
-void Circle::setRadius(const double &R)
+void Circle::setRadius(const double &r)
 {
   assert(R > 0);
   r_ = R;
