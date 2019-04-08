@@ -8,7 +8,7 @@ void getInfo(const Shape *shape1)
 
 int main()
 {
-  Circle circle(1, 1, 9);
+  Circle circle({ 1, 1 }, 9);
   circle.printInfo();
 
   circle.setRadius(7);

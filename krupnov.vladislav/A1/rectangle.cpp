@@ -6,7 +6,7 @@
 Rectangle::Rectangle(const point_t &p, const double &w, const double &h) :
   width_(w),
   height_(h),
-  center(p)
+  center_(p)
 {
   assert(height_ > 0 && width_ > 0);
 }
@@ -56,5 +56,5 @@ void Rectangle::printInfo() const
 
 void Rectangle::getCenterInfo() const
 {
-  std::cout << "Center X: " << center.x << "Center Y: " << center.y;
+  std::cout << "Center X: " << center_.x << "Center Y: " << center_.y;
 }

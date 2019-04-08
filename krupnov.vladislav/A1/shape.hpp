@@ -13,7 +13,5 @@ public:
   virtual void move(const point_t &p) = 0;
   virtual void move(const double &x, const double &y) = 0;
   virtual void getCenterInfo() const = 0;
-protected:
-  point_t center_;
 };
 #endif

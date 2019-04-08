@@ -18,6 +18,6 @@ public:
 private:
   double width_;
   double height_;
-  point_t center;
+  point_t center_;
 };
 #endif
