@@ -7,10 +7,10 @@ class Circle : public Shape
 {
 public:
   Circle(const point_t & center, double radius);
-  virtual double getArea() const override;
-  virtual rectangle_t getFrameRect() const override;
-  virtual void move(const point_t & point) override;
-  virtual void move(double dx, double dy) override;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const point_t & point) override;
+  void move(double dx, double dy) override;
 private:
   point_t m_center;
   double m_radius;
