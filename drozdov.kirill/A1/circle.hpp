@@ -1,3 +1,6 @@
+#ifndef CIRCLE_HPP
+#define CIRCLE_HPP
+
 #include "shape.hpp"
 
 class Circle: public Shape
@@ -15,3 +18,4 @@ class Circle: public Shape
     double radius_;
     point_t pos_;
 };
+#endif
