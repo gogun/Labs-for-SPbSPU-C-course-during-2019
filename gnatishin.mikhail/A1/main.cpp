@@ -22,7 +22,7 @@ int main()
   std::cout << "Position of the center is ("
       << shapePointer->getPosition().x << "; "
       << shapePointer->getPosition().y << ")\n";
-  std::cout << "Move Circle to (0; 10)" << std::endl;
+  std::cout << "Move Circle to (0; 10)" << '\n';
   shapePointer->move({0.0, 10.0});
   std::cout << "Position of the center is ("
       << shapePointer->getPosition().x << "; "
