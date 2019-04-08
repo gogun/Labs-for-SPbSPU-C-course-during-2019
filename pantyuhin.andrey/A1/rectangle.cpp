@@ -1,9 +1,9 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cassert> 
+#include <cassert>
 
 Rectangle::Rectangle(point_t centre, double width, double height):
-  centre_(centre), 
+  centre_(centre),
   width_(width),
   height_(height)
 {
@@ -30,9 +30,9 @@ double Rectangle::getHeight() const
   return height_;
 }
 
-double Rectangle::getArea() const 
+double Rectangle::getArea() const
 {
-  return (width_*height_);
+  return (width_ * height_);
 }
 
 rectangle_t Rectangle::getFrameRect() const

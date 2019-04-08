@@ -5,8 +5,8 @@
 
 class Circle : public Shape
 {
-public:
-  
+public:  
+
   Circle(point_t centre, double radius);
   Circle(double x, double y, double radius);
   
@@ -21,7 +21,6 @@ private:
 
   point_t centre_;
   double radius_;
-
 };
 
 #endif //CIRCLE_HPP
