@@ -10,7 +10,6 @@ Rectangle::Rectangle(const point_t &centr, const double width, const double heig
 {
   assert(height > 0);
   assert(width > 0);
-
 }
 double Rectangle::getArea() const
 {
@@ -32,6 +31,6 @@ void Rectangle::move(const point_t &newPoint)
 void Rectangle::showResults() const
 {
   std::cout << "Width is " << getFrameRect().width << std::endl
-            << "Height is " << getFrameRect().height << std::endl
-            << "Center at: (" << getFrameRect().pos.x << ";" << getFrameRect().pos.y << ")" << std::endl;
+    << "Height is " << getFrameRect().height << std::endl
+    << "Center at: (" << getFrameRect().pos.x << "; " << getFrameRect().pos.y << ")" << std::endl;
 }

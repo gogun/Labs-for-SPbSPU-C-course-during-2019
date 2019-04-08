@@ -12,6 +12,7 @@ public:
   void move(const double, const double) override;
   void move(const point_t &) override;
   void showResults() const override;
+
 private:
   double radius_;
   point_t centr_;
