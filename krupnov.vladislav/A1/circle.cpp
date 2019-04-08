@@ -30,8 +30,8 @@ rectangle_t Circle::getFrameRect() const
 
 void Circle::setRadius(const double &r)
 {
-  assert(R > 0);
-  r_ = R;
+  assert(r > 0);
+  r_ = r;
 }
 
 void Circle::move(const point_t &p)
