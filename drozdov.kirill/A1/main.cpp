@@ -18,7 +18,7 @@ int main()
 
   std::cout << std::endl;
 
-  Circle circ1(5);
+  Circle circ1(5, {6, 7.2});
   std::cout << "Circle:" << "\n*******************";
   printDataShape(&circ1);
 
