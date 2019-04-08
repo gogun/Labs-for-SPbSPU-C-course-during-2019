@@ -4,14 +4,14 @@
 #include "base-types.hpp"
 #include "shape.hpp"
 
-class Rectangle: public Shape
+class Rectangle : public Shape
 {
 public:
-  Rectangle(double height, double  width, const point_t & center);
+  Rectangle(double height, double  width, const point_t &center);
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t & point) override;
+  void move(const point_t &point) override;
   void move(double dx, double dy) override;
 private:
   double height_;

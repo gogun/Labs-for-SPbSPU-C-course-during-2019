@@ -2,7 +2,7 @@
 #include <cmath>
 #include "rectangle.hpp"
 
-Rectangle::Rectangle(double height, double  width, const point_t & center):
+Rectangle::Rectangle(double height, double  width, const point_t &center):
   height_(height),
   width_(width),
   center_(center)
@@ -20,7 +20,7 @@ rectangle_t Rectangle::getFrameRect() const
   return {height_, width_, center_};
 }
 
-void Rectangle::move(const point_t & point)
+void Rectangle::move(const point_t &point)
 {
   center_ = point;
 }
