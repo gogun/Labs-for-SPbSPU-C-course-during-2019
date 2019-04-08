@@ -1,10 +1,7 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
-#define _USE_MATH_DEFINES
 
 #include "shape.hpp"
-#include <cassert>
-#include <cmath>
 
 class Circle : public Shape
 {
