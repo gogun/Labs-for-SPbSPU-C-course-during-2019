@@ -1,6 +1,6 @@
 #include "shape.hpp"
 
-class Circle :
+class circle :
   public Shape
 {
 public:
