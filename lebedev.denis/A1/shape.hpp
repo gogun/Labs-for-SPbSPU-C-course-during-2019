@@ -11,5 +11,4 @@ public:
   virtual void move(const double x, const double y) = 0;
   virtual void move(const point_t &new_dot) = 0;
 };
-
 #endif
