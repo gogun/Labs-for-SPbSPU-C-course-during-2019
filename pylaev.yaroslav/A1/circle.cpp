@@ -34,5 +34,6 @@ void Circle::printSpec() const
   rectangle_t frameRectangle = getFrameRect();
   std::cout << "Frame rectangle width = " << frameRectangle.width << std::endl;
   std::cout << "Frame rectangle height = " << frameRectangle.height << std::endl;
-  std::cout << "Frame rectangle center: (" << frameRectangle.pos.x << "; " << frameRectangle.pos.y << ")\n";
+  std::cout << "Frame rectangle center X: " << frameRectangle.pos.x << "; "
+  std::cout << "Frame rectangle center Y: " << frameRectangle.pos.y << std::endl;
 }
