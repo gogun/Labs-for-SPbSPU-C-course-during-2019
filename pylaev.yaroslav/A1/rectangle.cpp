@@ -35,6 +35,7 @@ void Rectangle::printSpec() const
 {
   std::cout << "Area is " << getArea() << " square units\n";
   rectangle_t frameRectangle = getFrameRect();
-  std::cout << "Center of the frame rectangle with width = " << frameRectangle.width << " and height = " << frameRectangle.height << std::endl;
-  std::cout << " is located in point (" << frameRectangle.pos.x << "; " << frameRectangle.pos.y << ")\n";
+  std::cout << "Frame rectangle width = " << frameRectangle.width << std::endl;
+  std::cout << "Frame rectangle height = " << frameRectangle.height << std::endl;
+  std::cout << "Frame rectangle center: (" << frameRectangle.pos.x << "; " << frameRectangle.pos.y << ")\n";
 }
