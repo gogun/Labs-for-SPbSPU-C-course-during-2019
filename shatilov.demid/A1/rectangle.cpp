@@ -2,11 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-<<<<<<< HEAD
 Rectangle::Rectangle(const double width, const double height, const point_t & pos) :
-=======
-Rectangle::Rectangle(const double width, const double height, const point_t & pos):
->>>>>>> 13e7ceb5efcd10efe2346923835ab550f68ce5df
   rect_ (rectangle_t {width, height, pos})
 {
   assert((height > 0.0) && (width > 0.0));
