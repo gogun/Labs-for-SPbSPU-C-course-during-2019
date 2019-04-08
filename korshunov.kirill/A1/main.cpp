@@ -12,7 +12,7 @@ int main()
 
   Shape * shapes[] = {&rectangle, &circle,};
 
-  for (Shape * shape : shapes)
+  for (const Shape * shape : shapes)
   {
     rectangle_t shape_for_test = shape->getFrameRect();
 
