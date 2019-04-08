@@ -18,7 +18,7 @@ int main()
     std::cout << "Area: " << figures[i]->getArea() << "\n";
     std::cout << "Frame Rectangle centre: ("
         << figures[i]->getFrameRect().pos.x << "; "
-            << figures[i]->getFrameRect().pos.y << ")" << "\n";
+        << figures[i]->getFrameRect().pos.y << ")" << "\n";
     std::cout << "Frame Rectangle width: "
         << figures[i]->getFrameRect().width << "\n";
     std::cout << "Frame Rectangle height: "
@@ -27,21 +27,21 @@ int main()
 
   std::cout << "Position of the first figure: (" // moving circle
       << figures[0]->getPos().x << "; "
-          << figures[0]->getPos().y << ")" << "\n";
+      << figures[0]->getPos().y << ")" << "\n";
   std::cout << "Moving dx = 1, dy = 2.9" << "\n";
   figures[0]->move({1, 2.9});
   std::cout << "New position of the first figure: ("
       << figures[0]->getPos().x << "; "
-          << figures[0]->getPos().y << ")" << "\n";
+      << figures[0]->getPos().y << ")" << "\n";
 
   std::cout << "Position of the third figure: (" // moving rectangle
       << figures[2]->getPos().x << "; "
-          << figures[2]->getPos().y << ")" << "\n";
+      << figures[2]->getPos().y << ")" << "\n";
   std::cout << "Moving dx = 6.1, dy = 5" << "\n";
   figures[2]->move({6.1, 5});
   std::cout << "New position of the third figure: ("
       << figures[2]->getPos().x << "; "
-          << figures[2]->getPos().y << ")" << "\n";
+      << figures[2]->getPos().y << ")" << "\n";
 
   return 0;
 }
