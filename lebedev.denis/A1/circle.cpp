@@ -3,7 +3,7 @@
 #include <math.h>
 #include <cassert>
 
-Circle::Circle(point_t pos, double radius):
+Circle::Circle(point_t &pos, double radius):
   m_pos(pos),
   m_radius(radius)
 {
@@ -20,13 +20,13 @@ rectangle_t Circle::getFrameRect() const
   return {m_radius * 2, m_radius * 2, { m_pos.x, m_pos.y }};
 }
 
-void Circle::move(double x, double y)
+void Circle::move(const double x, const double y)
 {
   m_pos.x += x;
   m_pos.y += y;
 }
 
-void Circle::move(point_t point)
+void Circle::move(point_t &new_point)
 {
   m_pos = point;
 }
