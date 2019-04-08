@@ -2,13 +2,10 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(double posX, double posY, double width, double height)
+Rectangle::Rectangle(const point_t &center, const double width, const double height):
+  rect_({center, width, height})
 {
   assert((height > 0) && (width > 0));
-  rect_.pos.x = posX;
-  rect_.pos.y = posY;
-  rect_.width = width;
-  rect_.height = height;
 }
 
 double Rectangle::getArea() const
