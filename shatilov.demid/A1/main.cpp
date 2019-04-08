@@ -19,16 +19,19 @@ void showArea(const Shape & shape)
 void showPoint(const Shape & shape)
 {
   std::cout << "x = " << shape.getFrameRect().pos.x;
-  std::cout << ", y = " << shape.getFrameRect().pos.y << std::endl <<std::endl;
+  std::cout << ", y = " << shape.getFrameRect().pos.y << std::endl;
 }
 int main()
 {
   Rectangle rect( 25.0, 7.0, {13.0, 13.0});
+  std::cout << "Rectangle:" << std::endl;
   showArea(rect);
   rect.move({-10, -5});
   showPoint(rect);
+  std::cout << std::endl;
 
   Circle circle (5.0, {1.0, 2.0 });
+  std::cout << "Circle:" << std::endl;
   showArea(circle);
   circle.move({10,5});
   showPoint(circle);
