@@ -7,12 +7,12 @@
 class Circle : public Shape
 {
 public:
-  Circle(const double & radius, const point_t & point);
+  Circle(const double &radius, const point_t &point);
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const double & dX, const double & dY) override;
-  void move(const point_t & point) override;
+  void move(const double &dX, const double &dY) override;
+  void move(const point_t &point) override;
   void showInfo() const override;
   void showCords() const override;
   void showFrameRect() const override;

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const double & width, const double & height, const point_t & point) :
+Rectangle::Rectangle(const double &width, const double &height, const point_t & point) :
   rect_({width, height, point})
 {
   assert(height > 0.0);
@@ -19,13 +19,13 @@ rectangle_t Rectangle::getFrameRect() const
   return {rect_.width, rect_.height, rect_.pos};
 }
 
-void Rectangle::move(const double & dX, const double & dY)
+void Rectangle::move(const double &dX, const double &dY)
 {
   rect_.pos.x += dX;
   rect_.pos.y += dY;
 }
 
-void Rectangle::move(const point_t & point)
+void Rectangle::move(const point_t &point)
 {
   rect_.pos = point;
 }
