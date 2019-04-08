@@ -18,7 +18,7 @@ double trofimov::Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-rectangle_t trofimov::Circle::getFrameRect() const
+trofimov::rectangle_t trofimov::Circle::getFrameRect() const
 {
   return { center_, 2 * radius_, 2 * radius_ };
 }

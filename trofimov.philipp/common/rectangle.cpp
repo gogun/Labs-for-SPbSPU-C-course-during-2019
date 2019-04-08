@@ -16,7 +16,7 @@ double trofimov::Rectangle::getArea() const
   return rectangle_.height * rectangle_.width;
 }
 
-rectangle_t trofimov::Rectangle::getFrameRect() const
+trofimov::rectangle_t trofimov::Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
