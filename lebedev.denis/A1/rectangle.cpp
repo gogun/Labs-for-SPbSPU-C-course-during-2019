@@ -1,10 +1,10 @@
 #include "rectangle.hpp"
 #include <cassert>
 
-Rectangle::Rectangle(const point_t &pos, double width, double height) :
-  m_width(pos),
+Rectangle::Rectangle(double height, double width, const point_t &pos):
   m_height(height),
-  m_pos(width)
+  m_width(width),
+  m_pos(pos)
 {
   assert(m_width > 0.0);
   assert(m_height > 0.0);
@@ -26,7 +26,7 @@ void Rectangle::move(const double x, const double y)
   m_pos.y += y;
 }
 
-void Rectangle::move(point_t point)
+void Rectangle::move(const point_t &new_point)
 {
-  m_pos = point;
+  m_pos = new_point;
 }
