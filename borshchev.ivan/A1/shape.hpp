@@ -11,6 +11,6 @@ public:
   virtual void move(double newX, double newY);
   virtual void move(const point_t & point);
   virtual void dataOutput() const;
-}
+};
 
 #endif
