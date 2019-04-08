@@ -1,16 +1,7 @@
 #include "circle.hpp"
-#define _USE_MATH_DEFINES
 #include <cassert>
 #include <cmath>
 #include <iostream>
-
-Circle::Circle(double radius, const point_t &pos):
-  radius_(radius),
-  pos_(pos)
-{
-  assert(radius_ > 0.0);
-}
-
 double Circle::getArea() const
 {
   return (M_PI * radius_ * radius_);
@@ -30,13 +21,13 @@ void Circle::displayData() const
   std::cout << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';
 }
 
-void Circle::move (double dx, double dy)
+void Circle::move(double dx, double dy)
 {
   pos_.x += dx;
   pos_.y += dy;
 }
 
-void Circle::move (const point_t &newPos)
+void Circle::move(const point_t &newPos)
 {
   pos_ = newPos;
 }

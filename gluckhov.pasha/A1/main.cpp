@@ -16,29 +16,27 @@ void displayShape(const Shape *shape)
 
 int main()
 {
-  Rectangle rect1(5.2, 4, {2.4, -3});
-  Shape *ptrShape = &rect1;
-  std::cout << "Rectangle: \n";
-  displayShape(ptrShape);
-
-  const double deltaX = 1.6, deltaY = 4;
-  ptrShape->move(deltaX, deltaY);
-  std::cout << "\n===After move: + (" << deltaX << ';' << deltaY << ")\n";
-  ptrShape->displayData();
-
-  std::cout << std::endl;
-
-
   Circle circ1(4, {3.2, 2.4});
-  ptrShape = &circ1;
   std::cout << "\nCircle: \n";
-  displayShape(ptrShape);
+  displayShape(circ1);
 
-  const point_t position = {4.2, 3};
-  ptrShape->move(position);
-  std::cout << "\n===After move: to (" << position.x << ';' << position.y << ")\n";
-  ptrShape->displayData();
+  const point_t newPos = {4.2, 3};
+  circ1.move(newPos);
+  std::cout << "\n===After move: to (" << newPos.x << ';' << newPos.y << ")\n";
+  circ1.displayData();
 
   std::cout << std::endl;
+
+  Rectangle rect1(5.2, 4, {2.4, -3});
+  std::cout << "Rectangle: \n";
+  displayShape(rect1);
+
+  const double dx = 1.6, dy = 4;
+  rect1.move(dx, dy);
+  std::cout << "\n===After move: + (" << dx << ';' << dy << ")\n";
+  rect1.displayData();
+
+  std::cout << std::endl;
+
   return 0;
 }
