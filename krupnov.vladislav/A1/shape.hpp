@@ -6,7 +6,6 @@
 class Shape
 {
 public:
-  Shape(const point_t &p) : center_(p) {}
   virtual ~Shape() = default;
   virtual double getArea() const = 0;
   virtual rectangle_t getFrameRect() const = 0;

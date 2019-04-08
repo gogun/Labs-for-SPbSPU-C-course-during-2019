@@ -7,7 +7,8 @@
 
 
 Circle::Circle(const double &x, const double &y, const double &R) :
-  Shape({ x,y }),
+  posx_(x),
+  posy_(y),
   r_(R)
 {
   assert(r_ > 0);
