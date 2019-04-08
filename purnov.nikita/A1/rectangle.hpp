@@ -5,7 +5,7 @@
 class Rectangle : public Shape
 {
 public:
-  Rectangle(const double width, const double height, const point_t & pos);
+  Rectangle(double width, double height, const point_t & pos);
   virtual double getArea() const;
   virtual rectangle_t getFrameRect() const;
   virtual void move(const point_t & pos);
