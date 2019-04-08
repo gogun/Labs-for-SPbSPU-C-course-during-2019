@@ -12,7 +12,7 @@ Circle::Circle (double radius, const point_t &pos):
 
 void Circle::printData() const
 {
-  std::cout << "\nRadius: " << radius_ << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';
+  std::cout << "\nRadius: " << radius_ << "\nPosition: (" << pos_.x << ';' << pos_.y << ')' << std::endl;
 }
 
 double Circle::getArea() const

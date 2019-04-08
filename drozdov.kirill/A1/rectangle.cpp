@@ -13,8 +13,8 @@ Rectangle::Rectangle (double width, double height, const point_t &pos):
 
 void Rectangle::printData() const
 {
-  std::cout << "\nWidth: " << width_ << "\tHeight: " << height_
-      << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';
+  std::cout << "\nWidth: " << width_ << "\tHeight: " << height_;
+  std::cout << "\nPosition: (" << pos_.x << ';' << pos_.y << ')' << std::endl;
 }
 
 double Rectangle::getArea() const
