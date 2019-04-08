@@ -15,3 +15,4 @@ public:
 protected:
   point_t center_;
 };
+#endif
