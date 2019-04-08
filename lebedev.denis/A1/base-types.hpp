@@ -13,5 +13,4 @@ struct rectangle_t
   double width;
   point_t pos;
 };
-
 #endif
