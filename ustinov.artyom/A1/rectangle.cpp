@@ -32,9 +32,10 @@ void Rectangle::move(double dx, double dy)
 void Rectangle::show() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << std::endl << "Coordinates of centre Rect :(" << rect_.pos.x
-      << ";" << rect_.pos.y << ")" << std::endl
-      << "Frame rectangle width = " << rectangle.width
-      << ", height = " << rectangle.height << std::endl
-      << "Area = " << getArea() << std::endl;
+  std::cout << std::endl 
+    << "Coordinates of centre Rect :(" << rect_.pos.x
+    << ";" << rect_.pos.y << ")" << std::endl
+    << "Frame rectangle width = " << rectangle.width
+    << ", height = " << rectangle.height << std::endl
+    << "Area = " << getArea() << std::endl;
 }
