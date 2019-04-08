@@ -1,32 +1,14 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
+
 
 Rectangle::Rectangle(const point_t &p, const double &w, const double &h) :
-  Shape(p),
+  center(p),
   width_(w),
   height_(h)
 {
-  if (width_ < 0)
-  {
-    std::cerr << "invalid width, replaced by absolute value \n";
-    width_ = -width_;
-  }
-  else if (width_ == 0)
-  {
-    std::cerr << "invalid width, replaced by 1 \n";
-    width_ = 1;
-  }
-
-  if (height_ < 0)
-  {
-    std::cerr << "invalid height, replaced by absolute value \n";
-    height_ = -height_;
-  }
-  else if (width_ == 0)
-  {
-    std::cerr << "invalid height, replaced by 1 \n";
-    height_ = 1;
-  }
+  assert(height_ > 0 && width_ > 0);
 }
 
 double Rectangle::getArea() const
@@ -41,38 +23,14 @@ rectangle_t Rectangle::getFrameRect() const
 
 void Rectangle::setWidth(const double &w)
 {
-  if (w > 0)
-  {
-    width_ = w;
-  }
-  else if (width_ < 0)
-  {
-    std::cerr << "invalid width, it will be replaced by absolute value \n";
-    width_ = -w;
-  }
-  else if (w == 0)
-  {
-    std::cerr << "invalid width, it will be replaced by 1 \n";
-    width_ = 1;
-  }
+  assert(w > 0);
+  width_ = w;
 }
 
 void Rectangle::setHeight(const double &h)
 {
-  if (h > 0)
-  {
-    height_ = h;
-  }
-  else if (h < 0)
-  {
-    std::cerr << "invalid height, it will be replaced by absolute value \n";
-    height_ = -h;
-  }
-  else if (h == 0)
-  {
-    std::cerr << "invalid height,it will be replaced by 1 \n";
-    height_ = 1;
-  }
+  assert(h > 0);
+  height_ = h;
 }
 
 void Rectangle::move(const point_t &p)
@@ -94,4 +52,9 @@ void Rectangle::printInfo() const
   std::cout << "rectangle info:\ncenter=(" << center_.x << ";" << center_.y << ")\nwidth=" << width_
     << "\nheight=" << height_ << "\nArea=" << getArea();
   std::cout << "\n**********************";
+}
+
+void Rectangle::getCenterInfo() const
+{
+  std::cout << "Center X: " << center.x << "Center Y: " << center.y;
 }
