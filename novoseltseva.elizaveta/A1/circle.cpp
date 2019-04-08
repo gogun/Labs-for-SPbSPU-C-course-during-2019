@@ -1,16 +1,43 @@
-#include <iostream>
 #include "circle.hpp"
+#include <iostream>
+#include <cmath>
+#include <cassert>
 
-Circle::Circle(float width, float height, float x, float y)
+Circle::Circle(double radius, const point_t & center):
+  m_radius(radius),
+  m_center(center)
 {
-  object.width = width; object.height = height;
-  object.pos.x = x; object.pos.y = y;
-  std::cout << "Circle default Param:" << std::endl
-      << "Width = " << object.width << " Height = " << object.width << std::endl
-      << "X = " << object.pos.x << " Y = " << object.pos.y << std::endl;
+  assert(radius > 0);
 }
 
-void Circle::getArea() const
+Circle::Circle(double radius, double center_x, double center_y):
+  Circle(radius, {center_x, center_y})
+{ }
+
+double Circle::getArea() const
 {
-  std::cout << "Space: " << (object.width / 2) * (object.height / 2) * PI << std::endl;
+  return  M_PI * m_radius * m_radius;
+}
+
+rectangle_t Circle::getFrameRect() const
+{
+  return {m_center, m_radius * 2, m_radius * 2};
+}
+
+void Circle::move(const point_t & pos)
+{
+  m_center = pos;
+}
+
+void Circle::move(double dx, double dy)
+{
+  m_center.x += dx;
+  m_center.y += dy;
+}
+
+void Circle::showParams() const
+{
+  std::cout << "Circle: center - {" << m_center.x << ","
+      << m_center.y << "}\n" << "Radius - " << m_radius
+      << '\n' << "Area - " << getArea() << '\n';
 }

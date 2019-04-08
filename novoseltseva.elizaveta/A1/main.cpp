@@ -1,27 +1,25 @@
-﻿#include <iostream>
-#include "base-types.hpp"
-#include "shape.hpp"
+﻿#include "rectangle.hpp"
 #include "circle.hpp"
-#include "rectangle.hpp"
 
 int main()
 {
-  Rectangle Rectangle{ 4, 6, 5, 5 };
-  std::cout << "Get Area" << std::endl;
-  Rectangle.getArea();
-  std::cout << "Move by point" << std::endl;
-  Rectangle.move(3, 7);
-  std::cout << "Move by shift" << std::endl;
-  Rectangle.move({ 3, 7 });
-  Rectangle.getFrameRect();
-  std::cout << "--------------------------" << std::endl;
-  Circle Circle{ 4, 2, 5, 6 };
-  std::cout << "Get Area" << std::endl;
-  Circle.getArea();
-  std::cout << "Move by point" << std::endl;
-  Circle.move(3, 3);
-  std::cout << "Move by shift" << std::endl;
-  Circle.move({ 4, 5 });
-  Circle.getFrameRect();
+  Circle mycircle(5.0, { 3.0, 3.0 });
+
+  Rectangle myrectangle(mycircle.getFrameRect());
+
+  Shape* figures[] = { &mycircle, &myrectangle };
+  int size = sizeof(figures) / sizeof(Shape);
+
+  for (int i = 0; i < size; i++)
+  {
+    figures[i]->showParams();
+  }
+
+  for (int i = 0; i < size; i++)
+  {
+    figures[i]->move(5.0, 5.0);
+    figures[i]->showParams();
+  }
+
   return 0;
 }

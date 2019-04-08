@@ -1,19 +1,17 @@
-#ifndef BASETYPES_HPP
-#define BASETYPES_HPP
-
-const float PI = 3.14159265F;
+#ifndef BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 struct point_t
 {
-  float x;
-  float y;
+  double x;
+  double y;
 };
 
 struct rectangle_t
 {
-  float width;
-  float height;
   point_t pos;
+  double width;
+  double height;
 };
 
 #endif

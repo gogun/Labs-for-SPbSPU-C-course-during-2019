@@ -1,16 +1,38 @@
-#include <iostream>
 #include "rectangle.hpp"
+#include <iostream>
+#include <cassert>
 
-Rectangle::Rectangle(float width, float height, float x, float y)
+Rectangle::Rectangle(const rectangle_t& figure) :
+  m_figure(figure)
 {
-  object.pos.x = x; object.pos.y = y;
-  object.width = width; object.height = height;
-  std::cout << "Rectangle default Param:" << std::endl
-      << "Width = " << object.width << " Height = " << object.width << std::endl
-      << "X = " << object.pos.x << " Y = " << object.pos.y << std::endl;
+  assert((figure.width > 0) && (figure.height > 0));
 }
 
-void Rectangle::getArea() const
+double Rectangle::getArea() const
 {
-  std::cout << "Space: " << object.width * object.height << std::endl;
+  return m_figure.width* m_figure.height;
+}
+
+rectangle_t Rectangle::getFrameRect() const
+{
+  return m_figure;
+}
+
+void Rectangle::move(const point_t& pos)
+{
+  m_figure.pos = pos;
+}
+
+void Rectangle::move(double dx, double dy)
+{
+  m_figure.pos.x += dx;
+  m_figure.pos.y += dy;
+}
+
+void Rectangle::showParams() const
+{
+  std::cout << "Rectangle: center - {" << m_figure.pos.x << ","
+       << m_figure.pos.y << "}\n" << "Width - " << m_figure.width
+       << '\n' << "Height - " << m_figure.height << '\n'
+       << "Area - " << getArea() << '\n';
 }
