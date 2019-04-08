@@ -18,7 +18,7 @@ int main()
 
   std::cout << "new Rectangle " << std::endl;
 
-  Rectangle objrectangle(2, 12, 3, 6);
+  Rectangle objrectangle({2, 12}, 3, 6);
   shp = &objrectangle;
   shp->show();
   std::cout << "move Rectangle" << std::endl;
