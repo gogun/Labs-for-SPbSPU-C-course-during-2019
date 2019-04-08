@@ -7,11 +7,11 @@ class Rectangle : public Shape
 {
 public:
   Rectangle(const point_t pos, const double width, const double height);
-  virtual double getArea() const;
-  virtual rectangle_t getFrameRect() const;
-  virtual void move(const point_t point);
-  virtual void move(const double x, const double y);
-  virtual void getInfo() const;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(const point_t point) override;
+  void move(const double x, const double y) override;
+  void getInfo() const override;
 private:
   double width_;
   double height_;
