@@ -11,8 +11,8 @@ public:
   double getRadius() const;
   rectangle_t getFrameRect() const override;
   void setRadius(const double &R);
-  void move(const point_t &p);
-  void move(const double &x, const double &y);
+  void move(const point_t &p) override;
+  void move(const double &x, const double &y) override;
   void printInfo() const;
   void getCenterInfo() const override;
 private:
