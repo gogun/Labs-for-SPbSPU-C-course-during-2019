@@ -6,17 +6,17 @@
 class Circle: public Shape
 {
 public:
-  Circle(const point_t &center, double radius);
+  Circle(const point_t & center, double radius);
   
-  void move(const point_t &centerPoint) override;
-  void move(double dx, double dy) override;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
+  void move(const point_t & centerPoint) override;
+  void move(double dx, double dy) override;
   void writeInfo() const override;
 
 private:
-  double radius_;
   point_t center_;
+  double radius_;
 };
 
 #endif 
