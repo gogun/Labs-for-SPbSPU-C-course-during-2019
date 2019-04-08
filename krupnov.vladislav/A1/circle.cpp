@@ -2,6 +2,7 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 
 
@@ -9,21 +10,12 @@ Circle::Circle(const double &x, const double &y, const double &R) :
   Shape({ x,y }),
   r_(R)
 {
-  if (r_ < 0)
-  {
-    std::cerr << "invalid radius, replaced by absolute value \n";
-    r_ = -r_;
-  }
-  else if (r_ == 0)
-  {
-    std::cerr << "invalid radius, replaced by 1 \n";
-    r_ = 1;
-  }
+  assert(r_ > 0);
 }
 
 double Circle::getArea() const
 {
-  return M_PI * r_*r_;
+  return M_PI * r_ * r_;
 }
 
 double Circle::getRadius() const
@@ -31,32 +23,15 @@ double Circle::getRadius() const
   return r_;
 }
 
-point_t Circle::getCenter() const
-{
-  return center_;
-}
-
 rectangle_t Circle::getFrameRect() const
 {
-  return { 2 * r_,2 * r_,center_ };
+  return { 2 * r_, 2 * r_, center_ };
 }
 
 void Circle::setRadius(const double &R)
 {
-  if (r_ > 0)
-  {
-    r_ = R;
-  }
-  else if (r_ < 0)
-  {
-    std::cerr << "invalid radius, replaced by absolute value \n";
-    r_ = -r_;
-  }
-  else if (r_ == 0)
-  {
-    std::cerr << "invalid radius, replaced by 1 \n";
-    r_ = 1;
-  }
+  assert(R > 0);
+  r_ = R;
 }
 
 void Circle::move(const point_t &p)
@@ -79,4 +54,9 @@ void Circle::printInfo() const
     << ",heigth=" << getFrameRect().height << ",pos=(" << getFrameRect().pos.x << ";"
     << getFrameRect().pos.y << ")\n";
   std::cout << "**********************\n";
+}
+
+void Circle::getCenterInfo() const
+{
+  std::cout << "Center X: " << posx_ << "Center Y: " << posy_;
 }
