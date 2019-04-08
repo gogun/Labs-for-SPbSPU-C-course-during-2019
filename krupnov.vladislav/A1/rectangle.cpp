@@ -4,9 +4,9 @@
 
 
 Rectangle::Rectangle(const point_t &p, const double &w, const double &h) :
-  center(p),
   width_(w),
-  height_(h)
+  height_(h),
+  center(p)
 {
   assert(height_ > 0 && width_ > 0);
 }
