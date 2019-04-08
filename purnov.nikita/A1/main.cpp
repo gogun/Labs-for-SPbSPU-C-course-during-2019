@@ -17,12 +17,12 @@ void show(const Shape & shape)
 
 int main()
 {
-  Rectangle rect (10.0, 5.0, {.x = 15.0, .y = 15.0});
+  Rectangle rect (10.0, 5.0, {15.0, 15.0});
   show(rect);
-  rect.move({.x = -10, .y =-5});
+  rect.move({-10, -5});
   show(rect);
   
-  Circle circle (5.0, {.x = 1.0, .y = 2.0 });
+  Circle circle (5.0, {1.0, 2.0});
   show(circle);
   
   return 0;
