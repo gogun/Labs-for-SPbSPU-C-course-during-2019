@@ -28,7 +28,5 @@ int main()
   shapePtr->move({ 8, 8 });
   shapePtr->print();
 
-  system("pause");
-
   return 0;
 }
