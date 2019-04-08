@@ -2,13 +2,15 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printShapeInfo(const Shape * pointer) {
+void printShapeInfo(const Shape * pointer)
+{
   std::cout<< "Area: " << pointer->getArea() << "\n";
   std::cout<< "Centre: " << "( " << pointer->getFrameRect().pos.x << "," << pointer->getFrameRect().pos.y << " )\n";
   std::cout<< "Frame rectangle's width - " << pointer->getFrameRect().width << " & height - " << pointer->getFrameRect().height << "\n";
 }
 
-int main() {
+int main()
+{
   Circle circleSample(12.34,{5,6});
   Shape * shapePointer = &circleSample;
   std::cout << "--Circle:--\n";
