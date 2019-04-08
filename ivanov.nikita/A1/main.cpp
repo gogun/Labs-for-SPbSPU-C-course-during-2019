@@ -1,6 +1,6 @@
+#include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include <iostream>
 
 int main()
 {
@@ -27,6 +27,6 @@ int main()
   figure2.move({-10, 7});
   figure2.draw();
   std::cout << "\n";
-  
+
   return 0;
 }
