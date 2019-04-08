@@ -1,10 +1,12 @@
 #include <iostream>
+#include <cassert>
 #include "rectangle.hpp"
 #include "circle.hpp"
 #include "shape.hpp"
 
 void printFigureInfo(const Shape *figure)
 {
+  assert(figure != nullptr);
   rectangle_t frameRect = figure->getFrameRect();
   std::cout << "Center of figure: (" << frameRect.pos.x << ", " << frameRect.pos.y << ")\n";
   std::cout << "Figure width: " << frameRect.width << "\n";
