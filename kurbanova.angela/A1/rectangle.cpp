@@ -1,4 +1,5 @@
 #include "rectangle.hpp"
+#include <cassert>
 #include <iostream>
 
 Rectangle::Rectangle(const point_t &center, double width1, double height1):
@@ -6,15 +7,12 @@ Rectangle::Rectangle(const point_t &center, double width1, double height1):
   width_(width1),
   height_(height1)
 {
-  if ((width_ <= 0) || (height_ <= 0))
-  {
-    std::cerr << "Non-positive width or height" << std::endl;
-  }
+  assert((width1 > 0) && (height1 > 0));
 }
 
 double Rectangle::getArea() const
 {
-  return(width_*height_);
+  return(width_ * height_);
 }
 
 rectangle_t Rectangle::getFrameRect() const
@@ -35,7 +33,7 @@ void Rectangle::move(const point_t &pos1)
 
 void Rectangle::printInfo() const
 {
-  std::cout << "Area = " << getArea() << std::endl;
-  std::cout << "Width = " << width_ << ", height = " << height_ << std::endl;
-  std::cout << "Position (" << pos_.x << ", " << pos_.y << ")\n";
+  std::cout << "Area = " << getArea() << "\n"
+            << "Width = " << width_ << ", height = " << height_ << "\n"
+            << "Position (" << pos_.x << ", " << pos_.y << ")\n";
 }
