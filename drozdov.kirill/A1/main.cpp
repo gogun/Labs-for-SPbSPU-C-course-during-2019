@@ -3,7 +3,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printShape(const Shape *shape)
+void printDataShape(const Shape *shape)
 {
   assert(shape != nullptr);
   shape->printData();
@@ -19,7 +19,7 @@ int main()
   Rectangle rect1(7.2, 5.7, {5, -2.4});
   std::cout << "Rectangle:"
     << "\n*******************";
-  printShape(&rect1);
+  printDataShape(&rect1);
 
   const double dx = 2.5, dy = -4.1;
   rect1.move(dx, dy);
@@ -30,7 +30,7 @@ int main()
   Circle circ1(5);
   std::cout << "\nCircle:"
     << "\n*******************";
-  printShape(&circ1);
+  printDataShape(&circ1);
 
   const point_t position = {-1.8, 2.4};
   circ1.move(position);
