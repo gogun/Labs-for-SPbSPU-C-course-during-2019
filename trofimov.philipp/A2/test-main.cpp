@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(squareChangeOfArea)
 {
   trofimov::Circle circle({ 13, 15 }, 1);
   const double areaBeforeScaling = circle.getArea();
-  circle.scale(1);
+  circle.scale(1.772);
   double areaAfterScaling = circle.getArea();
   BOOST_CHECK_CLOSE(areaBeforeScaling * areaBeforeScaling, areaAfterScaling, accuracy);
 }
