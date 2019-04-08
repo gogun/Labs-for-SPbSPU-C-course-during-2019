@@ -23,7 +23,7 @@ void Rectangle::move(const double dx, const double dy)
   rect_.pos.y += dy;
 }
 
-void Rectangle::move(const point_t &newPos)
+void Rectangle::move(const point_t & newPos)
 {
   rect_.pos = newPos;
 }

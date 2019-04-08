@@ -2,16 +2,17 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printRectangle(const Shape &shape)
+void printRectangle(const Shape & shape)
 {
-  rectangle_t fRect = shape.getFrameRect();
-  std::cout << "Width is " << fRect.width;
-  std::cout << "; Height is " << fRect.height << ";\n";
-  std::cout << "Center on [" << fRect.pos.x << ";" << fRect.pos.y << "];\n";
+  const rectangle_t frameRect = shape.getFrameRect();
+  std::cout << "Width is " << frameRect.width;
+  std::cout << "; Height is " << frameRect.height << ";\n";
+  std::cout << "Center on [" << frameRect.pos.x << ";";
+  std::cout << frameRect.pos.y << "];\n";
   std::cout << "Area of rectangle is " << shape.getArea() << ";\n\n";
 }
 
-void printCircle(const Shape &shape)
+void printCircle(const Shape & shape)
 {
   rectangle_t fRect = shape.getFrameRect();
   std::cout << "Width of frame circle rectangle is " << fRect.width;
