@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const double width, const double height, const point_t &pos):
+Rectangle::Rectangle(double width, double height, const point_t &pos):
   rect_(rectangle_t {width, height, pos})
 {
   assert((width > 0.0) && (height > 0.0));
@@ -24,7 +24,7 @@ void Rectangle::move(const point_t &pos)
   rect_.pos.y = pos.y;
 }
 
-void Rectangle::move(const double x, const double y)
+void Rectangle::move(double x, double y)
 {
   rect_.pos.x += x;
   rect_.pos.y += y;
