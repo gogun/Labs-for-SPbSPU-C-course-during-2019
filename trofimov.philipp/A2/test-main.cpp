@@ -1,6 +1,6 @@
-#define BOOST_TEST_MODULE testMain
+#define BOOST_TEST_MODULE A2
 #include <stdexcept>
-#include <boost/test/unit_test.hpp>
+#include <boost/test/included/unit_test.hpp>
 #include "circle.hpp"
 #include "rectangle.hpp"
 
