@@ -6,10 +6,9 @@
 
 
 
-Circle::Circle(const double &x, const double &y, const double &R) :
-  posx_(x),
-  posy_(y),
-  r_(R)
+Circle::Circle(const point_t &p, const double &R):
+  r_(R),
+  center_(p)
 {
   assert(r_ > 0);
 }
@@ -59,5 +58,5 @@ void Circle::printInfo() const
 
 void Circle::getCenterInfo() const
 {
-  std::cout << "Center X: " << posx_ << "Center Y: " << posy_;
+  std::cout << "Center X: " << center_.x << "Center Y: " << center_.y;
 }
