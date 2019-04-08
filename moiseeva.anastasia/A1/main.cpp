@@ -18,7 +18,7 @@ int main()
   tempRect = figureP->getFrameRect();
   std::cout<<"X after moving "<<tempRect.pos.x<<" Y after moving "<<tempRect.pos.y<<std::endl;
 
-  Rectangle r1({2.0, 2.0}, 5.0, 5.0);
+  Rectangle r1({2.0, 2.0}, 6.0, 5.0);
   std::cout<<"Rectangle area "<<r1.getArea()<<std::endl;
 
   Rectangle r2({3.0, 3.0}, 7.0, 6.0);
