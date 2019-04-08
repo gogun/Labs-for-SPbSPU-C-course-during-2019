@@ -18,6 +18,6 @@ public:
 private:
   double r_;
   double posx_;
-  double posy_
+  double posy_;
 };
 #endif
