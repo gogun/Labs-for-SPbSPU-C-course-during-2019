@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE(areaAfterScalingComposite)
   barekov::CompositeShape testComposite(&testCircle);
   testComposite.addShape(&testRectangle);
   const double InitialArea = testComposite.getArea();
-  const int scaleFactor = 2.75;
+  const double scaleFactor = 2.75;
   testComposite.scale(scaleFactor);
   BOOST_CHECK_CLOSE(testComposite.getArea(), scaleFactor * scaleFactor * InitialArea, ErrorValue);
 }
