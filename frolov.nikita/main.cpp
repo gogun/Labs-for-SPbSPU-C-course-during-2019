@@ -44,7 +44,7 @@ int main()
   shape->move(18,20);
   std::cout << "After change point \n";
   shape->showPoint();
-  shape->move({2,3});
+  shape->move({2,5});
   std::cout << "After change point \n";
   shape->showPoint();
 
