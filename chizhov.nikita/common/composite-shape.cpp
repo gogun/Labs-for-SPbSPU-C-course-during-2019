@@ -92,7 +92,7 @@ void chizhov::CompositeShape::scale(double scale)
   do {
     double dx = listTmp->value->getFrameRect().pos.x - frameRect_.pos.x;
     double dy = listTmp->value->getFrameRect().pos.y - frameRect_.pos.y;
-    listTmp->value->move(point_t{frameRect_.pos.x + dx * scale, frameRect_.pos.y + dy *scale});
+    listTmp->value->move(point_t{frameRect_.pos.x + dx * scale, frameRect_.pos.y + dy * scale});
     listTmp->value->scale(scale);
     listTmp = listTmp->next;
   } while (listTmp != nullptr);
@@ -139,7 +139,7 @@ void chizhov::CompositeShape::recomputeFrame()
     listTmp = listTmp->next;
   } while (listTmp != nullptr);
 
-  frameRect_.width = maxX - minY;
+  frameRect_.width = maxX - minX;
   frameRect_.height = maxY - minY;
   frameRect_.pos.x = (maxX + minX) / 2;
   frameRect_.pos.y = (maxY + minY) / 2;
