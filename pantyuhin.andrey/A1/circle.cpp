@@ -7,7 +7,7 @@ Circle::Circle(point_t centre, double radius):
   centre_(centre),
   radius_(radius)
 {
-  assert(radius_ > 0 && "radius of circle can't be <=0");
+  assert((radius_ > 0) && "radius of circle can't be <=0");
 }
 
 Circle::Circle(double x, double y, double radius):

@@ -7,8 +7,8 @@ Rectangle::Rectangle(point_t centre, double width, double height):
   width_(width),
   height_(height)
 {
-  assert(width_ > 0 && "width of rectangle can't be <= 0");
-  assert(height_ > 0 && "height of rectangle can't be <= 0");
+  assert((width_ > 0) && "width of rectangle can't be <= 0");
+  assert((height_ > 0) && "height of rectangle can't be <= 0");
 }
 
 Rectangle::Rectangle(double x, double y, double width, double height):
