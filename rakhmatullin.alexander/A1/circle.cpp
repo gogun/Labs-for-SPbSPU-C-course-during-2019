@@ -2,7 +2,6 @@
 #include <cassert>
 #include <cmath>
 
-
 Circle::Circle(const point_t &position, const double &radius) :
   center_(position),
   radius_(radius)
