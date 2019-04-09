@@ -25,7 +25,7 @@ int main()
   std::cout << "Frame Rectangle Y " << frameRect.pos.y << '\n';
   std::cout << "Frame Rectangle Width " << frameRect.width << '\n';
   std::cout << "Frame Rectangle Height " << frameRect.height << '\n';
-  shapePtr->move(3.0, 4.0);
+  shapePtr->move({3.0, 4.0});
   frameRect = shapePtr->getFrameRect();
   std::cout << "Frame Rectangle X after moving " << frameRect.pos.x << '\n';
   std::cout << "Frame Rectangle Y after moving " << frameRect.pos.y << '\n';
