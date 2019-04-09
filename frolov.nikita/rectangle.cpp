@@ -23,8 +23,7 @@ void Rectangle::move(double dx, double dy)
 
 void Rectangle::move(const point_t &center)
 {
-  pos_.x = center.x;
-  pos_.y = center.y;
+  pos_ = center;
 }
 
 rectangle_t Rectangle::getFrameRect() const
