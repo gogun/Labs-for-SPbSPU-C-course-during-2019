@@ -9,14 +9,14 @@ namespace zybkin
   class Rectangle : public Shape
   {
   public:
-    Rectangle(const point_t &, const double &, const double &);
+    Rectangle(const point_t &, double, double);
 
     double getArea() const;
     rectangle_t getFrameRect() const;
     void printInfo() const;
     void move(const point_t &);
-    void move(const double &, const double &);
-    virtual void scale(const double &);
+    void move(double, double);
+    void scale(double);
 
   private:
     double height_;

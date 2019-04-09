@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 
-zybkin::Rectangle::Rectangle(const zybkin::point_t &position, const double &width, const double &height) :
+zybkin::Rectangle::Rectangle(const zybkin::point_t &position, double width, double height) :
   height_(height),
   width_(width),
   center_(position)
@@ -45,13 +45,13 @@ void zybkin::Rectangle::move(const zybkin::point_t &position)
   center_ = position;
 }
 
-void zybkin::Rectangle::move(const double &shift_x, const double &shift_y)
+void zybkin::Rectangle::move(double shift_x, double shift_y)
 {
   center_.x += shift_x;
   center_.y += shift_y;
 }
 
-void zybkin::Rectangle::scale(const double &coef)
+void zybkin::Rectangle::scale(double coef)
 {
   if (coef <= 0)
   {

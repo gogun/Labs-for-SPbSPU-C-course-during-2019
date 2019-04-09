@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <cmath>
 
-zybkin::Circle::Circle(const zybkin::point_t &position, const double &radius) :
+zybkin::Circle::Circle(const zybkin::point_t &position, double radius) :
   radius_(radius),
   center_(position)
 {
@@ -41,13 +41,13 @@ void zybkin::Circle::move(const zybkin::point_t &position)
   center_ = position;
 }
 
-void zybkin::Circle::move(const double &shift_x, const double &shift_y)
+void zybkin::Circle::move(double shift_x, double shift_y)
 {
   center_.x += shift_x;
   center_.y += shift_y;
 }
 
-void zybkin::Circle::scale(const double &coef)
+void zybkin::Circle::scale(double coef)
 {
   if (coef <= 0)
   {
