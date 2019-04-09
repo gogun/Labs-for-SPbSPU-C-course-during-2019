@@ -3,7 +3,7 @@
 #include <cmath>
 
 
-Circle::Circle(const point_t & position, const double &radius) :
+Circle::Circle(const point_t &position, const double &radius) :
   center_(position),
   radius_(radius)
 {
@@ -26,7 +26,7 @@ void Circle::move(const double &shift_x, const double &shift_y)
   center_.y += shift_y;
 }
 
-void Circle::move(const point_t & position)
+void Circle::move(const point_t &position)
 {
   center_ = position;
 }
