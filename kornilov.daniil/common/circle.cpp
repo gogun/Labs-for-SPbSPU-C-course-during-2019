@@ -17,7 +17,7 @@ double kornilov::Circle::getArea() const
   return radius_ * radius_ * M_PI;
 }
 
-rectangle_t kornilov::Circle::getFrameRect() const
+kornilov::rectangle_t kornilov::Circle::getFrameRect() const
 {
   return {pos_, radius_ * 2, radius_ * 2};
 }

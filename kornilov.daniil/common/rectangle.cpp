@@ -15,7 +15,7 @@ double kornilov::Rectangle::getArea() const
   return rectangle_.height * rectangle_.width;
 }
 
-rectangle_t kornilov::Rectangle::getFrameRect() const
+kornilov::rectangle_t kornilov::Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
