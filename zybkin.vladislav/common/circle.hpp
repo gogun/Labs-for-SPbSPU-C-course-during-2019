@@ -14,7 +14,7 @@ namespace zybkin
     double getArea() const;
     rectangle_t getFrameRect() const;
     void printInfo() const;
-    void move(const point_t & position);
+    void move(const point_t &);
     void move(double, double);
     void scale(double);
 
