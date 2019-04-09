@@ -101,6 +101,7 @@ BOOST_AUTO_TEST_CASE(invalidRectangleConstructorParams)
 {
   BOOST_CHECK_THROW(kozhin::Rectangle({-1, 3.5}, 1, -3), std::invalid_argument);
   BOOST_CHECK_THROW(kozhin::Rectangle({5, 4}, -5, 6), std::invalid_argument);
+  BOOST_CHECK_THROW(kozhin::Rectangle({-6, 5}, -4, -7), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(invalidRectangleScaleRate)
