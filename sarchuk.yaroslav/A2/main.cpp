@@ -4,7 +4,7 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-void moveAndWrite(Shape *shape, const point_t &pos)
+void moveAndWrite(sarchuk::Shape *shape, const sarchuk::point_t &pos)
 {
   if(shape == nullptr)
   {
@@ -16,7 +16,7 @@ void moveAndWrite(Shape *shape, const point_t &pos)
 
 }
 
-void moveAndWrite(Shape *shape, double dx, double dy)
+void moveAndWrite(sarchuk::Shape *shape, double dx, double dy)
 {
   if(shape == nullptr)
   {
@@ -27,7 +27,7 @@ void moveAndWrite(Shape *shape, double dx, double dy)
   shape->writeInfo();
 }
 
-void scaleAndWrite(Shape *shape, double mult)
+void scaleAndWrite(sarchuk::Shape *shape, double mult)
 {
   if(shape == nullptr)
   {

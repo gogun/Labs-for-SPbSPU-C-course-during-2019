@@ -13,7 +13,7 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
   BOOST_AUTO_TEST_CASE(resistanceToMovement)
   {
     sarchuk::Rectangle rectangle({2, 5}, 4, 6);
-    const rectangle_t rectFrame = rectangle.getFrameRect();
+    const sarchuk::rectangle_t rectFrame = rectangle.getFrameRect();
     const double rectArea = rectangle.getArea();
     rectangle.move({1, 1});
     BOOST_CHECK_EQUAL(rectFrame.width, rectangle.getFrameRect().width);
@@ -39,8 +39,8 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
     BOOST_CHECK_THROW(sarchuk::Rectangle rectangle({1, 1}, - 1, 1), std::invalid_argument);
     BOOST_CHECK_THROW(sarchuk::Rectangle rectangle({1, 1}, 1, - 1), std::invalid_argument);
 
-    const rectangle_t rectIncorrectWidth = {{1, 1}, - 1, 1};
-    const rectangle_t rectIncorrectHeight = {{1, 1}, 1, - 1};
+    const sarchuk::rectangle_t rectIncorrectWidth = {{1, 1}, - 1, 1};
+    const sarchuk::rectangle_t rectIncorrectHeight = {{1, 1}, 1, - 1};
     BOOST_CHECK_THROW(sarchuk::Rectangle rectangle(rectIncorrectWidth), std::invalid_argument);
     BOOST_CHECK_THROW(sarchuk::Rectangle rectangle(rectIncorrectHeight), std::invalid_argument);
 
@@ -56,7 +56,7 @@ BOOST_AUTO_TEST_SUITE(ciecleTest)
   BOOST_AUTO_TEST_CASE(resistanceToMovement)
   {
     sarchuk::Circle circle({2, 5}, 5);
-    const rectangle_t rectFrame = circle.getFrameRect();
+    const sarchuk::rectangle_t rectFrame = circle.getFrameRect();
     const double rectArea = circle.getArea();
     circle.move({1, 1});
     BOOST_CHECK_EQUAL(rectFrame.width, circle.getFrameRect().width);

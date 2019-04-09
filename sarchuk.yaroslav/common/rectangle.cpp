@@ -38,7 +38,7 @@ void sarchuk::Rectangle::writeInfo() const
             << "Area - " << getArea() << "\n\n";
 }
 
-rectangle_t sarchuk::Rectangle::getFrameRect() const
+sarchuk::rectangle_t sarchuk::Rectangle::getFrameRect() const
 {
   return {pos_, width_, height_};
 }

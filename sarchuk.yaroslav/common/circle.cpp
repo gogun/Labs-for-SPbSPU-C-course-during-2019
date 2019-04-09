@@ -37,7 +37,7 @@ void sarchuk::Circle::move(double dx, double dy)
   pos_.y += dy;
 }
 
-rectangle_t sarchuk::Circle::getFrameRect() const
+sarchuk::rectangle_t sarchuk::Circle::getFrameRect() const
 {
   return {pos_, 2 * radius_, 2 * radius_};
 }
