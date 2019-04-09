@@ -3,6 +3,7 @@
 
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include "triangle.hpp"
 
 void printInfo(const Shape *shape)
 {
@@ -23,7 +24,7 @@ int main()
   printInfo(&rectangle);
   const point_t newCenter1 = {1.0, 2.0};
   rectangle.move(newCenter1);
-  rectangle.move(10, 20);
+  rectangle.move(10.0, 20.0);
   printInfo(&rectangle);
 
   Circle circle({11.1, 12.2}, 4.4);
@@ -31,8 +32,16 @@ int main()
   printInfo(&circle);
   const point_t newCenter2 = {10.0, 20.0};
   circle.move(newCenter2);
-  circle.move(1, 2);
+  circle.move(1.0, 2.0);
   printInfo(&circle);
+
+  Triangle triangle({0.0, 0.0}, {0.0, 4.0}, {3.0, 4.0});
+
+  printInfo(&triangle);
+  const point_t newCenter3 = {100.0, 200.0};
+  triangle.move(newCenter3);
+  triangle.move(0.1, 0.2);
+  printInfo(&triangle);
 
   return 0;
 }
