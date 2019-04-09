@@ -21,9 +21,9 @@ double sarchuk::Circle::getArea() const
 void sarchuk::Circle::writeInfo() const
 {
   std::cout << "Circle info:\n"
-            << "Radius - " << radius_ << "\n"
-            << "Center position - x = " << pos_.x << ", y = " << pos_.y << "\n"
-            << "Area - " << getArea() << "\n\n";
+      << "Radius - " << radius_ << "\n"
+      << "Center position - x = " << pos_.x << ", y = " << pos_.y << "\n"
+      << "Area - " << getArea() << "\n\n";
 }
 
 void sarchuk::Circle::move(point_t pos)
@@ -50,5 +50,4 @@ void sarchuk::Circle::scale(double mult)
   }
 
   radius_ *= mult;
-
 }

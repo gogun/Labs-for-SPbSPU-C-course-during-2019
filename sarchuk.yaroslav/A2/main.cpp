@@ -13,7 +13,6 @@ void moveAndWrite(sarchuk::Shape *shape, const sarchuk::point_t &pos)
   std::cout << "Move to point " << pos.x << ", " << pos.y << "\n";
   shape->move(pos);
   shape->writeInfo();
-
 }
 
 void moveAndWrite(sarchuk::Shape *shape, double dx, double dy)

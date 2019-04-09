@@ -32,10 +32,10 @@ double sarchuk::Rectangle::getArea() const
 void sarchuk::Rectangle::writeInfo() const
 {
   std::cout << "Rectangle info:\n"
-            << "Width - " << width_ << "\n"
-            << "Height - " << height_ << "\n"
-            << "Center position - x = " << pos_.x << ", y = " << pos_.y << "\n"
-            << "Area - " << getArea() << "\n\n";
+      << "Width - " << width_ << "\n"
+      << "Height - " << height_ << "\n"
+      << "Center position - x = " << pos_.x << ", y = " << pos_.y << "\n"
+      << "Area - " << getArea() << "\n\n";
 }
 
 sarchuk::rectangle_t sarchuk::Rectangle::getFrameRect() const
