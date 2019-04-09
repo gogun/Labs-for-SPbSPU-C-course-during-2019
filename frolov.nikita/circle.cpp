@@ -28,7 +28,7 @@ void Circle::move(const point_t &center)
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {radius_ * 2, radius_ * 2, {center_.x, center_.y}};
+  return {radius_ * 2, radius_ * 2, center_};
 }
 
 void Circle::showPoint() const
