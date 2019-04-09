@@ -36,5 +36,5 @@ void Circle::move(const point_t & point)
 void Circle::dataOutput() const
 {
   std::cout << "Circle's RADIUS: " << radius_ << '\n'
-    << "Circle's CENTER: " << center_ << '\n';
+    << "Circle's CENTER: " << center_.x << " " << center_.y << '\n';
 }

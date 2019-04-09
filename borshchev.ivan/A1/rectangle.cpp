@@ -6,7 +6,7 @@
 Rectangle::Rectangle(point_t pos, double width, double height) :
   topLeftPoint_(pos),
   width_(width),
-  height_(height),
+  height_(height)
 {
   assert((width > 0.0) && (height > 0.0));
 }
@@ -34,7 +34,7 @@ void Rectangle::move(const point_t & point)
 
 void Rectangle::dataOutput() const
 {
-  std::cout << "Rectangle's TOP LEFT CORNER: " << topLeftPoint_ << '\n'
+  std::cout << "Rectangle's TOP LEFT CORNER: " << topLeftPoint_.x << " " << topLeftPoint_.y << '\n'
     << "Rectangle's WIDTH: " << width_ << '\n'
     << "Rectangle's HEIGHT: " << height_ << '\n';
 }
