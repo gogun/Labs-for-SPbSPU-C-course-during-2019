@@ -1,4 +1,5 @@
 #include "composite-shape.hpp"
+#include <cmath>
 
 rodchenkov::CompositeShape::CompositeShape() :
   size_(0),
