@@ -1,8 +1,9 @@
 #ifndef A3_COMPOSITE_SHAPE_HPP
 #define A3_COMPOSITE_SHAPE_HPP
 
-#include "shape.hpp"
 #include <memory>
+#include "shape.hpp"
+
 namespace maschenko
 {
   class CompositeShape : public Shape
