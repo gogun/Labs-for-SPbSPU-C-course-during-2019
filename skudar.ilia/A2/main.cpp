@@ -24,7 +24,7 @@ int main()
   std::cout << "2 rectangle:" << std::endl;
   printFrameRect(rect2);
   skudar::Circle circ1({2, 4}, 6); // create circle with point (2, 4) and radius 6
-  circle1.scale(1); // scale circle with a coefficient 1 => nothing will change
+  circ1.scale(1); // scale circle with a coefficient 1 => nothing will change
   circ1.move(4, 2); // now coordinates of center of circ1 is (6, 6)
   std::cout << "1 circle:" << std::endl;
   printFrameRect(circ1);
