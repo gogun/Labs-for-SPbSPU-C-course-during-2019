@@ -18,9 +18,9 @@ BOOST_AUTO_TEST_CASE(sameParamsAfterMovingCircleRealatively)
 
   testCircle.move(3, -5);
   const kozhin::rectangle_t newFrameRect = testCircle.getFrameRect();
-  BOOST_CHECK_EQUAL(newFrameRect.width, initialFrameRect.width);
-  BOOST_CHECK_EQUAL(newFrameRect.height, initialFrameRect.height);
-  BOOST_CHECK_EQUAL(testCircle.getArea(), initialArea);
+  BOOST_CHECK_CLOSE(newFrameRect.width, initialFrameRect.width, diff);
+  BOOST_CHECK_CLOSE(newFrameRect.height, initialFrameRect.height, diff);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), initialArea, diff);
 }
 
 BOOST_AUTO_TEST_CASE(sameParamsAfterMovingCircleAbsolutely)
@@ -31,9 +31,9 @@ BOOST_AUTO_TEST_CASE(sameParamsAfterMovingCircleAbsolutely)
 
   testCircle.move({-3, 1});
   kozhin::rectangle_t newFrameRect = testCircle.getFrameRect();
-  BOOST_CHECK_EQUAL(newFrameRect.width, initialFrameRect.width);
-  BOOST_CHECK_EQUAL(newFrameRect.height, initialFrameRect.height);
-  BOOST_CHECK_EQUAL(testCircle.getArea(), initialArea);
+  BOOST_CHECK CLOSE(newFrameRect.width, initialFrameRect.width, diff);
+  BOOST_CHECK_CLOSE(newFrameRect.height, initialFrameRect.height, diff);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), initialArea, diff);
 }
 
 BOOST_AUTO_TEST_CASE(areaChangeAfterCircleScaling)
@@ -69,9 +69,9 @@ BOOST_AUTO_TEST_CASE(sameParamsAfterMovingRectangleRealatively)
 
   testRect.move(3, -5);
   const kozhin::rectangle_t newFrameRect = testRect.getFrameRect();
-  BOOST_CHECK_EQUAL(newFrameRect.width, initialFrameRect.width);
-  BOOST_CHECK_EQUAL(newFrameRect.height, initialFrameRect.height);
-  BOOST_CHECK_EQUAL(testRect.getArea(), initialArea);
+  BOOST_CHECK CLOSE(newFrameRect.width, initialFrameRect.width, diff);
+  BOOST_CHECK_CLOSE(newFrameRect.height, initialFrameRect.height, diff);
+  BOOST_CHECK_CLOSE(testRect.getArea(), initialArea, diff);
 }
 
 BOOST_AUTO_TEST_CASE(sameParamsAfterMovingRectangleAbsolutely)
@@ -82,9 +82,9 @@ BOOST_AUTO_TEST_CASE(sameParamsAfterMovingRectangleAbsolutely)
 
   testRect.move({-3, 1});
   kozhin::rectangle_t newFrameRect = testRect.getFrameRect();
-  BOOST_CHECK_EQUAL(newFrameRect.width, initialFrameRect.width);
-  BOOST_CHECK_EQUAL(newFrameRect.height, initialFrameRect.height);
-  BOOST_CHECK_EQUAL(testRect.getArea(), initialArea);
+  BOOST_CHECK CLOSE(newFrameRect.width, initialFrameRect.widt, diff);
+  BOOST_CHECK_CLOSE(newFrameRect.height, initialFrameRect.height, diff);
+  BOOST_CHECK_CLOSE(testRect.getArea(), initialArea, diff);
 }
 
 BOOST_AUTO_TEST_CASE(areaChangeAfterRectangleScaling)
