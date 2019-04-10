@@ -45,7 +45,13 @@ skudar::rectangle_t skudar::Rectangle::getFrameRect() const
 
 void skudar::Rectangle::scale(double factor)
 {
-  assert(factor > 0.0);
-  width_ *= factor;
-  height_ *= factor;
+  if (factor <= 0.0)
+  {
+    throw std::invalid_argument("Rectangle scale factor must be a non-negative number");
+  }
+  else
+  {
+    width_ *= factor;
+    height_ *= factor;
+  }
 }

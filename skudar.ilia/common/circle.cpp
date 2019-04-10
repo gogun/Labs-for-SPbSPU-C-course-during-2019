@@ -45,6 +45,12 @@ void skudar::Circle::move(double dx, double dy)
 
 void skudar::Circle::scale(double factor)
 {
-  assert(factor > 0.0);
-  radius_ *= factor;
+  if (factor <= 0.0)
+  {
+    throw std::invalid_argument("Circle scale factor must be a non-negative number");
+  }
+  else
+  {
+    radius_ *= factor;
+  }
 }
