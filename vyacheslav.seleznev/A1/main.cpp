@@ -15,7 +15,7 @@ std::ostream& operator << (std::ostream& out , const rectangle_t rect)
   return out;
 }
 
-void stupidPolimorphicMethod(Shape & obj)
+void polimorphicMethod(Shape & obj)
 {
   std::cout << "Area = " << obj.getArea() << std::endl;
   std::cout << "Frame rect " << obj.getFrameRect();
@@ -42,44 +42,44 @@ int main()
   Triangle triangle(trianglePointA, trianglePointB, trianglePointC, triangleCentre);
 
   std::cout << "=== Circle ===" << std::endl;
-  stupidPolimorphicMethod(circle);
+  polimorphicMethod(circle);
   std::cout << "Set new centre point" << std::endl;
   
   circle.move({100, 50});
-  stupidPolimorphicMethod(circle);
+  polimorphicMethod(circle);
 
   std::cout << "Delta move" << std::endl;
 
   circle.move(10, 30);
-  stupidPolimorphicMethod(circle);
+  polimorphicMethod(circle);
 
   std::cout << "===" << std::endl;
 
   std::cout << "=== Rectangle ===" << std::endl;
-  stupidPolimorphicMethod(rectangle);
+  polimorphicMethod(rectangle);
   std::cout << "Set new centre point" << std::endl;
   
   rectangle.move({500, 999});
-  stupidPolimorphicMethod(rectangle);
+  polimorphicMethod(rectangle);
 
   std::cout << "Delta move" << std::endl;
 
   rectangle.move(-40, -99);
-  stupidPolimorphicMethod(rectangle);
+  polimorphicMethod(rectangle);
 
   std::cout << "===" << std::endl;
 
   std::cout << "=== Triangle ===" << std::endl;
-  stupidPolimorphicMethod(triangle);
+  polimorphicMethod(triangle);
   std::cout << "Set new centre point" << std::endl;
 
   triangle.move({385, 444});
-  stupidPolimorphicMethod(triangle);
+  polimorphicMethod(triangle);
 
   std::cout << "Delta move" << std::endl;
 
   triangle.move(-88, -12);
-  stupidPolimorphicMethod(triangle);
+  polimorphicMethod(triangle);
 
   std::cout << "===" << std::endl;
 
