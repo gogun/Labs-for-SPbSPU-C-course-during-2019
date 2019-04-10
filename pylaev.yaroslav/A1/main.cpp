@@ -37,6 +37,7 @@ int main(int, char *[])
   //Triangle
   std::cout << "----------Work with the triangle\n";
   center = {100.0, 800.0};
+  const int nTops = 3;
   double sides[nTops] = {8.544003745, 10.0, 3.0};
   try {
     Triangle triangle_(center, sides);

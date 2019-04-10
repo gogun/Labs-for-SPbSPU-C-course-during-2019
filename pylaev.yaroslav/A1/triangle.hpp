@@ -1,8 +1,6 @@
 #ifndef TRIANGLE_HPP
 #define TRIANGLE_HPP
 
-#define nTops 3
-
 #include "shape.hpp"
 
 class Triangle: public Shape {
@@ -17,10 +15,10 @@ public:
   void move(const point_t &) override;
   void printSpec() const override;
 private:
-  const int nTops_ = nTops;
+  const int nTops_ = 3;
   point_t center_;
-  double sides_[nTops]; // array of lengths
-  point_t coordinates_[nTops]; //array of tops' coordinates
+  double sides_[3]; // array of lengths
+  point_t coordinates_[3]; //array of tops' coordinates
   void setCoordinates();
   };
 
