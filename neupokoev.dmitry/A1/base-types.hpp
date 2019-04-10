@@ -14,4 +14,12 @@ struct rectangle_t
   double height;
 };
 
+struct triangle_t
+{
+  point_t pos;
+  double sideA;
+  double sideB;
+  double sideC;
+};
+
 #endif

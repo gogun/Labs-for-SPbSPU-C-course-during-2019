@@ -1,21 +1,19 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 #include "shape.hpp"
 
-
-class Circle: public Shape
+class Triangle: public Shape
 {
 public:
-  Circle(const point_t &pos, const double radius);
+  Triangle(const triangle_t &parameters);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t &pos) override;
-  void move(const double dx, const double dy) override;
+  void move(double dx, double dy) override;
   void writeParameters() const override;
 
 private:
-  point_t pos_;
-  double radius_;
+  triangle_t triangle_;
 };
 
 #endif
