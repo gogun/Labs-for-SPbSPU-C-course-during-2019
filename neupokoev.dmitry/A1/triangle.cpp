@@ -32,7 +32,7 @@ void Triangle::move(const point_t &pos)
   triangle_.pos = pos;
 }
 
-void Triangle::move(double dx, double dy)
+void Triangle::move(const double dx, const double dy)
 {
   triangle_.pos.x += dx;
   triangle_.pos.y += dy;
