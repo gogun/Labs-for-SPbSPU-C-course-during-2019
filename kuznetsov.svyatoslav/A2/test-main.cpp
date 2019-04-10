@@ -97,7 +97,7 @@ BOOST_AUTO_TEST_SUITE(testingMethods)
     BOOST_CHECK_CLOSE(testCircle.getArea(), rectAreaBeforeScale * coef * coef, INACCURACY);
   }
 
-  BOOST_AUTO_TEST_CASE(invalidRectangleValuse)
+  BOOST_AUTO_TEST_CASE(invalidRectangleValues)
   {
     BOOST_CHECK_THROW(kuznetsov::Rectangle({4.1, 2.5}, -2.0, 1.5), std::invalid_argument);
     BOOST_CHECK_THROW(kuznetsov::Rectangle({4.1, 2.9}, 3.4, -2.0), std::invalid_argument);
