@@ -3,8 +3,9 @@
 #include "base-types.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "triangle.hpp"
 
-std::ostream& operator<<(std::ostream& out , const rectangle_t rect)
+std::ostream& operator << (std::ostream& out , const rectangle_t rect)
 {
   out << "Frame rect width = " << rect.width << " " <<
     "height = " << rect.height << " " <<
@@ -12,6 +13,12 @@ std::ostream& operator<<(std::ostream& out , const rectangle_t rect)
     "centreY = " << rect.pos.y << std::endl;
 
   return out;
+}
+
+void stupidPolimorphicMethod(Shape & obj)
+{
+  std::cout << "Area = " << obj.getArea() << std::endl;
+  std::cout << "Frame rect " << obj.getFrameRect();
 }
 
 int main()
@@ -23,33 +30,58 @@ int main()
   const double rectangleWidth = 20;
   const double rectangleHeight = 10;
 
-  Shape *circle = new Circle(circleRadius, circleCentre);
-  Shape *rectangle = new Rectangle(rectangleWidth, rectangleHeight, rectangleCentre);
+  point_t triangleCentre = {44, 77};
+  point_t trianglePointA = {88, 56};
 
-  std::cout << "Circle area = " << circle->getArea() << std::endl;
-  std::cout << "Rectangle area = " << rectangle->getArea() << std::endl;
+  point_t trianglePointB = {11, 90};
 
-  std::cout << "Circle " << circle->getFrameRect();
-  std::cout << "Rectangle " << rectangle->getFrameRect();
+  point_t trianglePointC = {39, 8};
 
+  Circle circle(circleRadius, circleCentre);
+  Rectangle rectangle(rectangleWidth, rectangleHeight, rectangleCentre);
+  Triangle triangle(trianglePointA, trianglePointB, trianglePointC, triangleCentre);
+
+  std::cout << "=== Circle ===" << std::endl;
+  stupidPolimorphicMethod(circle);
   std::cout << "Set new centre point" << std::endl;
-
-  circle->move({100, 50});
-  rectangle->move({500, 999});
-
-  std::cout << "Circle " << circle->getFrameRect();
-  std::cout << "Rectangle " << rectangle->getFrameRect();
+  
+  circle.move({100, 50});
+  stupidPolimorphicMethod(circle);
 
   std::cout << "Delta move" << std::endl;
 
-  circle->move(10, 30);
-  rectangle->move(-40, -99);
+  circle.move(10, 30);
+  stupidPolimorphicMethod(circle);
 
-  std::cout << "Circle " << circle->getFrameRect();
-  std::cout << "Rectangle " << rectangle->getFrameRect();
+  std::cout << "===" << std::endl;
 
-  delete circle;
-  delete rectangle;
+  std::cout << "=== Rectangle ===" << std::endl;
+  stupidPolimorphicMethod(rectangle);
+  std::cout << "Set new centre point" << std::endl;
+  
+  rectangle.move({500, 999});
+  stupidPolimorphicMethod(rectangle);
+
+  std::cout << "Delta move" << std::endl;
+
+  rectangle.move(-40, -99);
+  stupidPolimorphicMethod(rectangle);
+
+  std::cout << "===" << std::endl;
+
+  std::cout << "=== Triangle ===" << std::endl;
+  stupidPolimorphicMethod(triangle);
+  std::cout << "Set new centre point" << std::endl;
+
+  triangle.move({385, 444});
+  stupidPolimorphicMethod(triangle);
+
+  std::cout << "Delta move" << std::endl;
+
+  triangle.move(-88, -12);
+  stupidPolimorphicMethod(triangle);
+
+  std::cout << "===" << std::endl;
 
   return 0;
 }
