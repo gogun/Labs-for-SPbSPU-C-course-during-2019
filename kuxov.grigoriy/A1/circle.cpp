@@ -2,7 +2,7 @@
 #include "circle.hpp"
 
 #include <iostream>
-#include <stdexcept>
+#include <cassert>
 #include <math.h>
 
 
