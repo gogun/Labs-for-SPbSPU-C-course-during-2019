@@ -1,5 +1,7 @@
+#define _USE_MATH_DEFINES
 #include "triangle.hpp"
 #include <iostream>
+#include <cmath>
 #include <cassert>
 
 Triangle::Triangle(const triangle_t &parameters) :

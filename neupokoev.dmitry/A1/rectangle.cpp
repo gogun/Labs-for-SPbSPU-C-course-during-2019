@@ -1,6 +1,5 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cmath> 
 #include <cassert>
 
 Rectangle::Rectangle(const rectangle_t &parameters) :
