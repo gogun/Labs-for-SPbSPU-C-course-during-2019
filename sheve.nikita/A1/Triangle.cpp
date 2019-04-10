@@ -1,8 +1,9 @@
 #include "base-types.hpp"
-#include "triangle.hpp"
+#include "Triangle.hpp"
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
+#include <cassert>
 
 Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
   pos ({(p1.x + p2.x + p3.x)/3, (p1.y + p2.y + p3.y)/3}),
@@ -10,7 +11,7 @@ Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
   b (p2),
   c (p3)
 {
-  assert((a > 0.0) && (b > 0.0) && (c > 0.0));
+  assert(getArea() > 0);
 }
 
 double Triangle::getArea() const
@@ -41,7 +42,6 @@ rectangle_t Triangle::getFrameRect() const
   localRect.height = maxY - minY;
   return localRect;
 }
-
 void Triangle::move (const point_t &p)
 {
   double dx = p.x - pos.x;
@@ -49,7 +49,7 @@ void Triangle::move (const point_t &p)
   move (dx,dy);
 }
 
-void Triangle::move (double dx, double dy)
+void Triangle::move (const double dx, const double dy)
 {
   pos.x += dx;
   a.x += dx;
