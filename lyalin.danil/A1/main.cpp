@@ -16,13 +16,13 @@ int main()
   Circle c2({6.0, 6.0}, 6.0);
   c2.move({-6.0, 6.0});
 
-  Shape *circPtr = &c2;
-  rectangle_t tmpRect = circPtr->getFrameRect();
+  Shape *shapePtr = &c2;
+  rectangle_t tmpRect = shapePtr->getFrameRect();
   std::cout << tmpRect.pos.x << " " << tmpRect.pos.y << " " << tmpRect.width << " " << tmpRect.height
     << std::endl;
 
-  Shape *rectPtr = &r2;
-  tmpRect = rectPtr->getFrameRect();
+  shapePtr = &r2;
+  tmpRect = shapePtr->getFrameRect();
   std::cout << tmpRect.pos.x << " " << tmpRect.pos.y << " " << tmpRect.width << " " << tmpRect.height
     << std::endl;
   return 0;
