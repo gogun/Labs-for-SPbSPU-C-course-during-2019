@@ -82,7 +82,7 @@ BOOST_AUTO_TEST_CASE(sameParamsAfterMovingRectangleAbsolutely)
 
   testRect.move({-3, 1});
   kozhin::rectangle_t newFrameRect = testRect.getFrameRect();
-  BOOST_CHECK_CLOSE(newFrameRect.width, initialFrameRect.widt, diff);
+  BOOST_CHECK_CLOSE(newFrameRect.width, initialFrameRect.width, diff);
   BOOST_CHECK_CLOSE(newFrameRect.height, initialFrameRect.height, diff);
   BOOST_CHECK_CLOSE(testRect.getArea(), initialArea, diff);
 }
