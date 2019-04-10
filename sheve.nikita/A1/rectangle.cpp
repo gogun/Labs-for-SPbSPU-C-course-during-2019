@@ -31,7 +31,7 @@ void Rectangle::move (const point_t &p)
   pos = p;
 }
 
-void Rectangle::move (const double dx, const double dy)
+void Rectangle::move (double dx, double dy)
 {
   pos.x += dx;
   pos.y += dy;
