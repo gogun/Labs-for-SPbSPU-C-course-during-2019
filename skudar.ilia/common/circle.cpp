@@ -1,19 +1,25 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
-#include <cassert>
+#include <stdexcept>
 
 skudar::Circle::Circle(const point_t &position, double radius) :
   center_(position),
   radius_(radius)
 {
-  assert(radius_ > 0.0);
+  if (radius_ < 0.0)
+  {
+    throw std::invalid_argument("Radius must be a non-negative number");
+  }
 }
 
 skudar::Circle::Circle(double x, double y, double radius) :
   Circle({x, y}, radius)
 {
-  assert(radius_ > 0.0);
+  if (radius_ < 0.0)
+  {
+    throw std::invalid_argument("Radius must be a non-negative number");
+  }
 }
 
 double skudar::Circle::getArea() const

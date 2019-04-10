@@ -1,19 +1,25 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 skudar::Rectangle::Rectangle(const point_t &position, double width, double height) :
   center_(position),
   width_(width),
   height_(height)
 {
-  assert((width_ > 0.0) && (height_ > 0.0));
+  if ((width_ <= 0.0) || (height_ <= 0.0))
+  {
+    throw std::invalid_argument("Width and height must be positive numbers");
+  }
 }
 
 skudar::Rectangle::Rectangle(double x, double y, double width, double height) :
   Rectangle({x, y}, width, height)
 {
-  assert((width_ > 0.0) && (height_ > 0.0));
+  if ((width_ <= 0.0) || (height_ <= 0.0))
+  {
+    throw std::invalid_argument("Width and height must be positive numbers");
+  }
 }
 
 void skudar::Rectangle::move(point_t point)
