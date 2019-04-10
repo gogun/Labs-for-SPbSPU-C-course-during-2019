@@ -1,7 +1,7 @@
 #ifndef BASE_TYPES_HPP
 #define BASE_TYPES_HPP
 
-struct point_t { //_t - if structure contains only data fields
+struct point_t {
   double x;
   double y;
 };

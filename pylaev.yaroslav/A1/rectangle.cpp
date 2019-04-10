@@ -1,14 +1,26 @@
 #include "rectangle.hpp"
-#include <cassert>
+
+#include <stdexcept>
 #include <iostream>
 
-Rectangle::Rectangle(const point_t &center,
-    double width, double height):
-  Shape(center),
+Rectangle::Rectangle(const point_t &center, const double width, const double height):
+  center_(center),
   width_(width),
   height_(height)
   {
-    assert((width_ >= 0) &&  (height_ >= 0) && ("Invalid values"));
+    if ((width_ <= 0.0) &&  (height_ <= 0.0)) {
+      throw std::invalid_argument("ERROR: Lenght of rectangle's sides must be positive");
+    }
+  }
+
+Rectangle::Rectangle(const point_t &center, const double width):
+  center_(center),
+  width_(width),
+  height_(width)
+  {
+    if ((width_ <= 0.0) &&  (height_ <= 0.0)) {
+      throw std::invalid_argument("ERROR: Lenght of square's sides must be positive");
+    }
   }
 
 double Rectangle::getWidth() const
@@ -31,12 +43,22 @@ rectangle_t Rectangle::getFrameRect() const
   return {width_, height_, center_};
 }
 
+void Rectangle::move(const double dx, const double dy)
+{
+  center_.x += dx;
+  center_.y += dy;
+};
+
+void Rectangle::move(const point_t &pos)
+{
+  center_ = pos;
+}
+
 void Rectangle::printSpec() const
 {
-  std::cout << "Area is " << getArea() << " square units\n";
+  std::cout << "Area of our rectangle is " << getArea() << " square units\n";
   rectangle_t frameRectangle = getFrameRect();
-  std::cout << "Frame rectangle width = " << frameRectangle.width << std::endl;
-  std::cout << "Frame rectangle height = " << frameRectangle.height << std::endl;
-  std::cout << "Frame rectangle center X: " << frameRectangle.pos.x << "; ";
-  std::cout << "Frame rectangle center Y: " << frameRectangle.pos.y << std::endl;
+  std::cout << "Center of the frame rectangle with width = " << frameRectangle.width;
+  std::cout << " and height = " << frameRectangle.height;
+  std::cout << " is located in point (" << frameRectangle.pos.x << "; " << frameRectangle.pos.y << ")\n";
 }
