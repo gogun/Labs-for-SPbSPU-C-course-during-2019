@@ -15,9 +15,9 @@ BOOST_AUTO_TEST_CASE(circleTestAreaAndSizeAfterOffset)
   const kvashnin::rectangle_t testing_frame_before = testing_circle.getFrameRect();
   testing_circle.move(100, 100);
   const kvashnin::rectangle_t testing_frame_after = testing_circle.getFrameRect();
-  BOOST_CHECK_EQUAL(testing_circle.getArea(), testing_area);
-  BOOST_CHECK_EQUAL(testing_frame_before.width, testing_frame_after.width);
-  BOOST_CHECK_EQUAL(testing_frame_before.height, testing_frame_after.height);
+  BOOST_CHECK_CLOSE(testing_circle.getArea(), testing_area, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.width, testing_frame_after.width, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.height, testing_frame_after.height, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestAreaAndSizeAfterMoveToPoint)
@@ -27,9 +27,9 @@ BOOST_AUTO_TEST_CASE(circleTestAreaAndSizeAfterMoveToPoint)
   const kvashnin::rectangle_t testing_frame_before = testing_circle.getFrameRect();
   testing_circle.move({150, 150});
   const kvashnin::rectangle_t testing_frame_after = testing_circle.getFrameRect();
-  BOOST_CHECK_EQUAL(testing_circle.getArea(), testing_area);
-  BOOST_CHECK_EQUAL(testing_frame_before.width, testing_frame_after.width);
-  BOOST_CHECK_EQUAL(testing_frame_before.height, testing_frame_after.height);
+  BOOST_CHECK_CLOSE(testing_circle.getArea(), testing_area, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.width, testing_frame_after.width, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.height, testing_frame_after.height, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestAfterScale)
@@ -48,8 +48,8 @@ BOOST_AUTO_TEST_CASE(circleTestFrameRectAreaScale)
   const kvashnin::rectangle_t supposed_rect = testing_circle.getFrameRect();
   BOOST_CHECK_CLOSE(testing_rect.width * 2, supposed_rect.width, OFFSET);
   BOOST_CHECK_CLOSE(testing_rect.height * 2, supposed_rect.height, OFFSET);
-  BOOST_CHECK_EQUAL(testing_rect.pos.x, supposed_rect.pos.x);
-  BOOST_CHECK_EQUAL(testing_rect.pos.y, supposed_rect.pos.y);
+  BOOST_CHECK_CLOSE(testing_rect.pos.x, supposed_rect.pos.x, OFFSET);
+  BOOST_CHECK_CLOSE(testing_rect.pos.y, supposed_rect.pos.y, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestThrowingExceptions)
@@ -66,9 +66,9 @@ BOOST_AUTO_TEST_CASE(rectangleTestAreaAndSizeAfterOffset)
   const kvashnin::rectangle_t testing_frame_before = testing_rectangle.getFrameRect();
   testing_rectangle.move(100, 100);
   const kvashnin::rectangle_t testing_frame_after = testing_rectangle.getFrameRect();
-  BOOST_CHECK_EQUAL(testing_rectangle.getArea(), testing_area);
-  BOOST_CHECK_EQUAL(testing_frame_before.width, testing_frame_after.width);
-  BOOST_CHECK_EQUAL(testing_frame_before.height, testing_frame_after.height);
+  BOOST_CHECK_CLOSE(testing_rectangle.getArea(), testing_area, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.width, testing_frame_after.width, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.height, testing_frame_after.height, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestAreaAndSizeAfterMoveToPoint)
@@ -78,9 +78,9 @@ BOOST_AUTO_TEST_CASE(rectangleTestAreaAndSizeAfterMoveToPoint)
   const kvashnin::rectangle_t testing_frame_before = testing_rectangle.getFrameRect();
   testing_rectangle.move({150, 150});
   const kvashnin::rectangle_t testing_frame_after = testing_rectangle.getFrameRect();
-  BOOST_CHECK_EQUAL(testing_rectangle.getArea(), testing_area);
-  BOOST_CHECK_EQUAL(testing_frame_before.width, testing_frame_after.width);
-  BOOST_CHECK_EQUAL(testing_frame_before.height, testing_frame_after.height);
+  BOOST_CHECK_CLOSE(testing_rectangle.getArea(), testing_area, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.width, testing_frame_after.width, OFFSET);
+  BOOST_CHECK_CLOSE(testing_frame_before.height, testing_frame_after.height, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestAreaScale)
@@ -99,8 +99,8 @@ BOOST_AUTO_TEST_CASE(rectangleTestFrameRectAfterScale)
   const kvashnin::rectangle_t supposed_rect = testing_rectangle.getFrameRect();
   BOOST_CHECK_CLOSE(testing_rect.width * 2, supposed_rect.width, OFFSET);
   BOOST_CHECK_CLOSE(testing_rect.height * 2, supposed_rect.height, OFFSET);
-  BOOST_CHECK_EQUAL(testing_rect.pos.x, supposed_rect.pos.x);
-  BOOST_CHECK_EQUAL(testing_rect.pos.y, supposed_rect.pos.y);
+  BOOST_CHECK_CLOSE(testing_rect.pos.x, supposed_rect.pos.x, OFFSET);
+  BOOST_CHECK_CLOSE(testing_rect.pos.y, supposed_rect.pos.y, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestThrowingExceptions)
