@@ -48,8 +48,8 @@ BOOST_AUTO_TEST_CASE(circleTestFrameRectAreaScale)
   const kvashnin::rectangle_t supposed_rect = testing_circle.getFrameRect();
   BOOST_CHECK_CLOSE(testing_rect.width * 2, supposed_rect.width, OFFSET);
   BOOST_CHECK_CLOSE(testing_rect.height * 2, supposed_rect.height, OFFSET);
-  BOOST_CHECK_EQUAL(testing_rect.pos.x, testing_rect.pos.x);
-  BOOST_CHECK_EQUAL(testing_rect.pos.y, testing_rect.pos.y);
+  BOOST_CHECK_EQUAL(testing_rect.pos.x, supposed_rect.pos.x);
+  BOOST_CHECK_EQUAL(testing_rect.pos.y, supposed_rect.pos.y);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestThrowingExceptions)
@@ -99,8 +99,8 @@ BOOST_AUTO_TEST_CASE(rectangleTestFrameRectAfterScale)
   const kvashnin::rectangle_t supposed_rect = testing_rectangle.getFrameRect();
   BOOST_CHECK_CLOSE(testing_rect.width * 2, supposed_rect.width, OFFSET);
   BOOST_CHECK_CLOSE(testing_rect.height * 2, supposed_rect.height, OFFSET);
-  BOOST_CHECK_EQUAL(testing_rect.pos.x, testing_rect.pos.x);
-  BOOST_CHECK_EQUAL(testing_rect.pos.y, testing_rect.pos.y);
+  BOOST_CHECK_EQUAL(testing_rect.pos.x, supposed_rect.pos.x);
+  BOOST_CHECK_EQUAL(testing_rect.pos.y, supposed_rect.pos.y);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestThrowingExceptions)
