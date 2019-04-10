@@ -14,11 +14,11 @@ Triangle::Triangle(const point_t &center, const double *sides):
   }
 //verification
   for (int i = 0; i < nTops_; i++) {
+    if (sides_[i] <= 0.0) {
+      throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
+    }
     if (sides_[i] >= sides_[(i+1) % nTops_] + sides_[(i+2) % nTops_]) {
       throw std::invalid_argument("ERROR: Such triangle is impossible");
-    }
-    if (sides_[i] <= 0.0) {
-      throw std::invalid_argument("ERROR: Lenght of triangle's sides must be positive");
     }
   }
   setCoordinates();
@@ -32,7 +32,7 @@ Triangle::Triangle(const point_t &center, const double side):
     sides_[i] = side;
     //verification
     if (sides_[i] <= 0) {
-      throw std::invalid_argument("ERROR: Lenght of triangle's sides must be positive");
+      throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
     }
   }
   setCoordinates();
@@ -45,7 +45,7 @@ void Triangle::setCoordinates()
   coordinates_[2] = {sides_[2], 0};
   coordinates_[1].y = 2 * getArea() / sides_[2];
   int k = 1;   //k is coefficient of outside angle
-  if ((sides_[1] > sides_[0]) && (sides_[1] > sides_[2])){
+  if ((sides_[1] > sides_[0]) && (sides_[1] > sides_[2])) {
     k = -1;
   }
   coordinates_[1].x = k * sqrt(pow(sides_[0], 2) - pow(coordinates_[1].y, 2));
@@ -56,8 +56,7 @@ void Triangle::setCoordinates()
     zeroCenter.y += coordinates_[i].y;
   }
   zeroCenter = {zeroCenter.x / nTops_, zeroCenter.y / nTops_};
-  //this delta for translocation triangle from
-  //zero-coordinates to normal center
+  //this delta for translocation triangle from zero-coordinates to normal center
   point_t deltaCoordinates;
   deltaCoordinates.x = center_.x - zeroCenter.x;
   deltaCoordinates.y = center_.y - zeroCenter.y;

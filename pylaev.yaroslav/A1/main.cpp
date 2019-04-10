@@ -53,7 +53,7 @@ int main(int, char *[])
 void exercisesAndPrintSpec(Shape *shapePtr)
 {
   assert(shapePtr != nullptr);
-  //exercises: two types of moving and scaling figure
+  //exercises: two types of moving figure
   const double dx = 3.5;
   const double dy = 5.5;
   const point_t newPoint = {10.0, 10.0};
