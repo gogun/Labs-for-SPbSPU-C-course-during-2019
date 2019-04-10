@@ -1,7 +1,7 @@
 #include "rectangle.hpp"
 
 #include <iostream>
-#include <stdexcept>
+#include <cassert>
 
 Rectangle::Rectangle(const rectangle_t & rect) :
   rect_(rect)
