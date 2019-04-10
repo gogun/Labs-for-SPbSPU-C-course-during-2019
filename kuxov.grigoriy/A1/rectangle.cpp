@@ -6,10 +6,7 @@
 Rectangle::Rectangle(const rectangle_t & rect) :
   rect_(rect)
 {
-  if ((rect_.height < 0.0) || (rect_.width < 0.0))
-  {
-    std::cerr << "Error. Invalid height or width of rectangle.\n";
-  }
+  assert((rect_.width>=0.0)and(rect_.height>=0.0));
 }
 
 double Rectangle::getArea() const
