@@ -2,7 +2,7 @@
 #include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
-#include "triangle.hpp"
+#include "Triangle.hpp"
 
 void printParams(const Shape &s)
 {
