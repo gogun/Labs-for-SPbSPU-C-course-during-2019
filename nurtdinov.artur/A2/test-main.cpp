@@ -19,8 +19,8 @@ BOOST_AUTO_TEST_CASE(circleParamsSavedAfterMovingToPoint)
   const double areaAfter = circle.getArea();
   BOOST_CHECK_CLOSE(areaAfter, areaBefore, ORDER);
   const nurtdinov::rectangle_t frameAfter = circle.getFrameRect();
-  BOOST_CHECK_EQUAL(frameAfter.height, frameBefore.height);
-  BOOST_CHECK_EQUAL(frameAfter.width, frameBefore.width);
+  BOOST_CHECK_CLOSE(frameAfter.height, frameBefore.height, ORDER);
+  BOOST_CHECK_CLOSE(frameAfter.width, frameBefore.width, ORDER);
 }
 
 BOOST_AUTO_TEST_CASE(circleParamsSavedAfterShiftMove)
@@ -32,8 +32,8 @@ BOOST_AUTO_TEST_CASE(circleParamsSavedAfterShiftMove)
   const double areaAfter = circle.getArea();
   BOOST_CHECK_CLOSE(areaAfter, areaBefore, ORDER);
   const nurtdinov::rectangle_t frameAfter = circle.getFrameRect();
-  BOOST_CHECK_EQUAL(frameAfter.height, frameBefore.height);
-  BOOST_CHECK_EQUAL(frameAfter.width, frameBefore.width);
+  BOOST_CHECK_CLOSE(frameAfter.height, frameBefore.height, ORDER);
+  BOOST_CHECK_CLOSE(frameAfter.width, frameBefore.width, ORDER);
 }
 
 BOOST_AUTO_TEST_CASE(circleScaleTest)
@@ -72,8 +72,8 @@ BOOST_AUTO_TEST_CASE(rectangleParamsSavedAfterMovingToPoint)
   const double areaAfter = rectangle.getArea();
   BOOST_CHECK_CLOSE(areaAfter, areaBefore, ORDER);
   const nurtdinov::rectangle_t frameAfter = rectangle.getFrameRect();
-  BOOST_CHECK_EQUAL(frameAfter.height, frameBefore.height);
-  BOOST_CHECK_EQUAL(frameAfter.width, frameBefore.width);
+  BOOST_CHECK_CLOSE(frameAfter.height, frameBefore.height, ORDER);
+  BOOST_CHECK_CLOSE(frameAfter.width, frameBefore.width, ORDER);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleParamsSavedAfterShiftMove)
@@ -86,8 +86,8 @@ BOOST_AUTO_TEST_CASE(rectangleParamsSavedAfterShiftMove)
   const double areaAfter = rectangle.getArea();
   BOOST_CHECK_CLOSE(areaAfter, areaBefore, ORDER);
   const nurtdinov::rectangle_t frameAfter = rectangle.getFrameRect();
-  BOOST_CHECK_EQUAL(frameAfter.height, frameBefore.height);
-  BOOST_CHECK_EQUAL(frameAfter.width, frameBefore.width);
+  BOOST_CHECK_CLOSE(frameAfter.height, frameBefore.height, ORDER);
+  BOOST_CHECK_CLOSE(frameAfter.width, frameBefore.width, ORDER);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleScaleTest)
