@@ -11,7 +11,6 @@ public:
   Triangle(const point_t &, const double); //equilateral triangle
 
   double getArea() const override;
-  double getAreaByCoordinates() const;
   double getSide(const int) const;
   rectangle_t getFrameRect() const override;
   void move(const double, const double) override;
