@@ -118,5 +118,5 @@ void rodchenkov::CompositeShape::computeFrameRect() noexcept
       bottom = currBottom;
     }
   }
-  frame_rect_ = {abs(right - left), abs(top - bottom), {totalX / size_, totalY / size_}};
+  frame_rect_ = {fabs(right - left), fabs(top - bottom), {totalX / size_, totalY / size_}};
 }
