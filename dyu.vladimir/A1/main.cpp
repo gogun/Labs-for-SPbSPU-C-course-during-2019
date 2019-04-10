@@ -12,7 +12,7 @@ void writeInfo(rectangle_t rect)
   std::cout << "Height:" << rect.height << std::endl;
 }
 
-void showresult(const Shape &shape)
+void showResult(const Shape &shape)
 {
   std::cout << "Area:" << shape.getArea() << std::endl;
   std::cout << "position after moving: ";
@@ -21,7 +21,7 @@ void showresult(const Shape &shape)
   writeInfo(shape.getFrameRect());
 }
 
-void showpos(const Shape &shape)
+void showPos(const Shape &shape)
 {
   std::cout << "start position: ";
   std::cout << "Center:(" << shape.getFrameRect().pos.x << "," << shape.getFrameRect().pos.y << ")";
@@ -32,19 +32,19 @@ int main()
 {
   Rectangle rect(3.0, 6.0, {10.0, 10.0});
   std::cout << "Rectangle" << std::endl;
-  showpos(rect);
+  showPos(rect);
   rect.move({0, 0});
-  rect.move(2,2);
-  showresult(rect);
+  rect.move(2, 2);
+  showResult(rect);
   std::cout << std::endl;
   std::cout << std::endl;
 
   Circle circle(3.0, {2.0, 3.0});
   std::cout << "Circle" << std::endl;
-  showpos(circle);
+  showPos(circle);
   circle.move({0, 0});
-  circle.move(3,5);
-  showresult(circle);
+  circle.move(3, 5);
+  showResult(circle);
   std::cout << std::endl;
 
   return 0;
