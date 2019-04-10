@@ -22,11 +22,11 @@ rectangle_t Circle::getFrameRect() const
 
  void Circle::print() const
 {
-  std::cout << "Circle :  " <<std:: endl;
-  std::cout<<"\n";
-  std::cout<<"center X = "<< center_.x << std:: endl; 
-  std::cout<<"center y = " <<center_.y<<std:: endl;
-  std::cout <<"circle ray = " << r_<< std:: endl;
+  std::cout << "Circle :  " << std:: endl;
+  std::cout << '\n';
+  std::cout << "center X = " << center_.x << std:: endl; 
+  std::cout << "center y = " << center_.y << std:: endl;
+  std::cout << "circle ray = " << r_ << std:: endl;
 }
 
 point_t Circle::move(const point_t& point)
