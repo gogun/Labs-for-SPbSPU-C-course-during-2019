@@ -19,7 +19,7 @@ rectangle_t Rectangle::getFrameRect() const
 {
   return {width_, height_, centr_};
 }
-void Rectangle::move(const double dx,const double dy)
+void Rectangle::move(const double dx, const double dy)
 {
   centr_.x += dx;
   centr_.y += dy;
