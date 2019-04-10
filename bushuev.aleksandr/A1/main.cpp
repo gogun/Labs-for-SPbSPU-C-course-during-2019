@@ -47,7 +47,7 @@ int main()
 
   std::cout << "--------------------Triangle------------------------" << std::endl;
   
-  Triangle triangleTest({0,0},10,5,14);
+  Triangle triangleTest({0,0},25.11,11.14,20.01);
   testShape = &triangleTest;
   testShape->printInfo();
 

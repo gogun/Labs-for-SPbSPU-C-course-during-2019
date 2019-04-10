@@ -42,7 +42,7 @@ rectangle_t Triangle::getFrameRect() const
   double x0 = ((4 * (pow(side1MedianLength, 2) - pow(side2MedianLength, 2)) / (9 * frameWidth)) + 2 * center_.x - frameWidth) / 2;
   //координата y нижнего левого угла
   double y0 = sqrt(pow(2 * side2MedianLength / 3, 2) - pow(x0-center_.x, 2)) + center_.y;
-  point_t frameCenter = {(2 * x0 + frameWidth) / 2, (2 * y0 + frameHeight) / 2};
+  point_t frameCenter = {x0 + frameWidth / 2, y0 + frameHeight / 2};
   
   rectangle_t frameRect;
   frameRect.pos = frameCenter;
