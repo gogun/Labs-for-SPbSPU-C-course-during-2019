@@ -1,5 +1,4 @@
 #include "rectangle.hpp"
-#include <iostream>
 #include <stdexcept>
 
 kotov::Rectangle::Rectangle(const kotov::point_t & center, double widht, double heigth) :
@@ -11,7 +10,7 @@ kotov::Rectangle::Rectangle(const kotov::point_t & center, double widht, double 
   }
 }
 
-const char* kotov::Rectangle::getShapeName() const
+const char * kotov::Rectangle::getShapeName() const
 {
   return "rectangle";
 }

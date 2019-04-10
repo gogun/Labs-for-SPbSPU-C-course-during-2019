@@ -9,7 +9,7 @@ namespace kotov {
 
     Rectangle(const point_t & center, double width, double height);
 
-    const char* getShapeName() const override;
+    const char * getShapeName() const override;
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void move(const point_t & newCenter) override;

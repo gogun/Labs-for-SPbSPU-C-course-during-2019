@@ -1,6 +1,5 @@
 #include "circle.hpp"
 #include <cmath>
-#include <iostream>
 #include <stdexcept>
 
 kotov::Circle::Circle(const kotov::point_t & center, double radius) :
@@ -13,7 +12,7 @@ kotov::Circle::Circle(const kotov::point_t & center, double radius) :
   }
 }
 
-const char* kotov::Circle::getShapeName() const
+const char * kotov::Circle::getShapeName() const
 {
   return "circle";
 }
@@ -43,7 +42,7 @@ void kotov::Circle::scale(double scale)
 {
   if (scale > 0)
   {
-    radius_ = radius_ * scale;
+    radius_ *= scale;
   }
   else
   {

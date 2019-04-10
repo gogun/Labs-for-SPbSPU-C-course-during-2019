@@ -11,7 +11,7 @@ namespace kotov
 
     virtual ~Shape() = default;
 
-    virtual const char* getShapeName() const = 0;
+    virtual const char * getShapeName() const = 0;
     virtual double getArea() const = 0;
     virtual rectangle_t getFrameRect() const = 0;
     virtual void move(const point_t & newPos) = 0;
