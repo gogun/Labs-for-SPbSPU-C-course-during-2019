@@ -40,9 +40,10 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
     BOOST_CHECK_THROW(sarchuk::Rectangle rectangle({1, 1}, 1, - 1), std::invalid_argument);
 
     const sarchuk::rectangle_t rectIncorrectWidth = {{1, 1}, - 1, 1};
-    const sarchuk::rectangle_t rectIncorrectHeight = {{1, 1}, 1, - 1};
     BOOST_CHECK_THROW(sarchuk::Rectangle rectangle(rectIncorrectWidth), std::invalid_argument);
-    BOOST_CHECK_THROW(sarchuk::Rectangle rectangle(rectIncorrectHeight), std::invalid_argument);
+	
+    const sarchuk::rectangle_t rectIncorrectHeight = {{1, 1}, 1, - 1};
+	BOOST_CHECK_THROW(sarchuk::Rectangle rectangle(rectIncorrectHeight), std::invalid_argument);
 
     sarchuk::Rectangle rect({1, 1}, 1, 1);
     BOOST_CHECK_THROW(rect.scale(0), std::invalid_argument);
@@ -51,7 +52,7 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(ciecleTest)
+BOOST_AUTO_TEST_SUITE(circleTest)
 
   BOOST_AUTO_TEST_CASE(resistanceToMovement)
   {
@@ -78,7 +79,7 @@ BOOST_AUTO_TEST_SUITE(ciecleTest)
     BOOST_CHECK_CLOSE(circle.getArea(), mult * mult * area, Error);
   }
 
-  BOOST_AUTO_TEST_CASE(inncorrectData)
+  BOOST_AUTO_TEST_CASE(incorrectData)
   {
     BOOST_CHECK_THROW(sarchuk::Circle circle({1, 1}, -2), std::invalid_argument);
 
