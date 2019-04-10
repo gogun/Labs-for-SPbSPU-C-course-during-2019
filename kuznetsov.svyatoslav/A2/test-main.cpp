@@ -20,13 +20,11 @@ BOOST_AUTO_TEST_SUITE(testingMethods)
     testRect.move(7.0, 2.1);
 
     BOOST_CHECK_CLOSE(testRect.getArea(), rectAreaBeforeMoving, INACCURACY);
-    BOOST_CHECK_CLOSE(testRect.getFrameRect(), rectFrameBeforeMoving, INACCURACY);
 
     kuznetsov::rectangle_t rectFrameAfterMoving = testRect.getFrameRect();
 
     BOOST_CHECK_EQUAL(rectFrameBeforeMoving.height, rectFrameAfterMoving.height);
     BOOST_CHECK_EQUAL(rectFrameBeforeMoving.width, rectFrameAfterMoving.width);
-    BOOST_CHECK_CLOSE(testRect.getFrameRect(), rectFrameAfterMoving, INACCURACY);
   }
 
   BOOST_AUTO_TEST_CASE(rectangleTestImmutabilityAfterMovingTo)
@@ -38,13 +36,11 @@ BOOST_AUTO_TEST_SUITE(testingMethods)
     testRect.move({2.7, -1.4});
 
     BOOST_CHECK_CLOSE(testRect.getArea(), rectAreaBeforeMovingTo, INACCURACY);
-    BOOST_CHECK_CLOSE(testRect.getFrameRect(), rectFrameBeforeMovingTo, INACCURACY);
 
     kuznetsov::rectangle_t rectFrameAfterMovingTo = testRect.getFrameRect();
 
     BOOST_CHECK_EQUAL(rectFrameBeforeMovingTo.height, rectFrameAfterMovingTo.height);
     BOOST_CHECK_EQUAL(rectFrameBeforeMovingTo.width, rectFrameAfterMovingTo.width);
-    BOOST_CHECK_CLOSE(testRect.getFrameRect(), rectFrameAfterMovingTo, INACCURACY);
   }
 
   BOOST_AUTO_TEST_CASE(rectangleTestScale)
@@ -67,13 +63,11 @@ BOOST_AUTO_TEST_SUITE(testingMethods)
     testCircle.move(1.8, -4.7);
 
     BOOST_CHECK_CLOSE(testCircle.getArea(), circleAreaBeforeMoving, INACCURACY);
-    BOOST_CHECK_CLOSE(testCircle.getFrameRect(), circleFrameBeforeMoving, INACCURACY);
 
     kuznetsov::rectangle_t rectFrameAfterMoving = testCircle.getFrameRect();
 
     BOOST_CHECK_EQUAL(circleFrameBeforeMoving.height, rectFrameAfterMoving.height);
     BOOST_CHECK_EQUAL(circleFrameBeforeMoving.width, rectFrameAfterMoving.width);
-    BOOST_CHECK_CLOSE(testCircle.getFrameRect(), rectFrameAfterMoving, INACCURACY);
   }
 
   BOOST_AUTO_TEST_CASE(circleTestImmutabilityAfterMovingTo)
@@ -85,13 +79,11 @@ BOOST_AUTO_TEST_SUITE(testingMethods)
     testCircle.move({2.7, -1.4});
 
     BOOST_CHECK_CLOSE(testCircle.getArea(), circleAreaBeforeMovingTo, INACCURACY);
-    BOOST_CHECK_CLOSE(testCircle.getFrameRect(), rectFrameBeforeMovingTo, INACCURACY);
 
     kuznetsov::rectangle_t rectFrameAfterMovingTo = testCircle.getFrameRect();
 
     BOOST_CHECK_EQUAL(rectFrameAfterMovingTo.height, rectFrameBeforeMovingTo.height);
     BOOST_CHECK_EQUAL(rectFrameAfterMovingTo.width, rectFrameBeforeMovingTo.width);
-    BOOST_CHECK_CLOSE(testCircle.getFrameRect(), rectFrameAfterMovingTo, INACCURACY);
   }
 
   BOOST_AUTO_TEST_CASE(circleTestCale)
