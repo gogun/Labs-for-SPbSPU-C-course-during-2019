@@ -13,5 +13,4 @@ public:
   virtual void move(double dx, double dy) = 0;
   virtual void showParams() const = 0;
 };
-
 #endif
