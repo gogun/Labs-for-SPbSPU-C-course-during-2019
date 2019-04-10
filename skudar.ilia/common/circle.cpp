@@ -49,8 +49,5 @@ void skudar::Circle::scale(double factor)
   {
     throw std::invalid_argument("Circle scale factor must be a non-negative number");
   }
-  else
-  {
-    radius_ *= factor;
-  }
+  radius_ *= factor;
 }

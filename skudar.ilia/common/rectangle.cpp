@@ -49,9 +49,6 @@ void skudar::Rectangle::scale(double factor)
   {
     throw std::invalid_argument("Rectangle scale factor must be a non-negative number");
   }
-  else
-  {
-    width_ *= factor;
-    height_ *= factor;
-  }
+  width_ *= factor;
+  height_ *= factor;
 }
