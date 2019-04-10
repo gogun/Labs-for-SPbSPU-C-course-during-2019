@@ -10,10 +10,7 @@ Circle::Circle(const double radius, const point_t & center) :
   radius_(radius),
   center_(center)
 {
-  if (radius_ < 0.0)
-  {
-    std::cerr << "Error. Invalid radius of circle.\n";
-  }
+  assert(radius_>=0.0);
 }
 
 double Circle::getArea() const
