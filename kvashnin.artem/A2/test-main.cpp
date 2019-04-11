@@ -6,7 +6,7 @@
 
 const double OFFSET = 0.01;
 
-BOOST_AUTO_TEST_SUITE(KvashninArtemTestSuite)
+BOOST_AUTO_TEST_SUITE(testSuiteKvashninArtem)
 
 BOOST_AUTO_TEST_CASE(circleTestAreaAndSizeAfterOffset)
 {
