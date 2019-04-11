@@ -48,9 +48,7 @@ int main()
   printParams(tria);
   std::cout << "Moving triangle by dx=10, dy=20" << std::endl;
   triap->move(10, 20);
-  std::cout << "Moving triangle by dx=10, dy=20" << std::endl;
-  triap->move(10, 20);
-  printParams(tria);
+  printParams(tria)
 
   return 0;
 }
