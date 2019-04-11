@@ -18,11 +18,11 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
     rectangle.move({1, 1});
     BOOST_CHECK_EQUAL(rectFrame.width, rectangle.getFrameRect().width);
     BOOST_CHECK_EQUAL(rectFrame.height, rectangle.getFrameRect().height);
-    BOOST_CHECK_EQUAL(rectArea, rectangle.getArea());
+    BOOST_CHECK_CLOSE(rectArea, rectangle.getArea(), Error);
     rectangle.move(1, 2);
     BOOST_CHECK_EQUAL(rectFrame.width, rectangle.getFrameRect().width);
     BOOST_CHECK_EQUAL(rectFrame.height, rectangle.getFrameRect().height);
-    BOOST_CHECK_EQUAL(rectArea, rectangle.getArea());;
+    BOOST_CHECK_CLOSE(rectArea, rectangle.getArea(), Error);
   }
 
   BOOST_AUTO_TEST_CASE(areaScaling)
@@ -62,12 +62,12 @@ BOOST_AUTO_TEST_SUITE(circleTest)
     circle.move({1, 1});
     BOOST_CHECK_EQUAL(rectFrame.width, circle.getFrameRect().width);
     BOOST_CHECK_EQUAL(rectFrame.height, circle.getFrameRect().height);
-    BOOST_CHECK_EQUAL(rectArea, circle.getArea());
+    BOOST_CHECK_CLOSE(rectArea, circle.getArea(), Error);
 
     circle.move(1, 2);
     BOOST_CHECK_EQUAL(rectFrame.width, circle.getFrameRect().width);
     BOOST_CHECK_EQUAL(rectFrame.height, circle.getFrameRect().height);
-    BOOST_CHECK_EQUAL(rectArea, circle.getArea());
+    BOOST_CHECK_CLOSE(rectArea, circle.getArea(), Error);
   }
 
   BOOST_AUTO_TEST_CASE(areaScaling)
