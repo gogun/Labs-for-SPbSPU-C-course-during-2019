@@ -23,11 +23,11 @@ Triangle::Triangle(const point_t & center, const double * sides):
 Triangle::Triangle(const point_t & center, const double side):
   center_(center)
 {
-//verification
+  //verification
   if (side <= 0) {
     throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
   }
-//inicialization
+  //inicialization
   double sides[nTops_];
   for (int i = 0; i < nTops_; i++) {
     sides[i] = side;
