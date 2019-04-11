@@ -56,7 +56,7 @@ int main()
   Triangle tria({ 12, -12 },{13, 5},{ 1, 23 });
   Shape *triap = &tria;
   Triangle tria({ 12, -12 },{ 13, 5 },{ 1, 23 });
-  Shape * triap = &tria;
+  Shape *triap = &tria;
   printParams(tria);
   std::cout << "Moving triangle to point x = -7, y = 4" << std::endl;
   triap->move({ -7, 4 });
