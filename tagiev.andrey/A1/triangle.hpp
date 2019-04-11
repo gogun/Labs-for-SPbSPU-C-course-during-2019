@@ -14,10 +14,10 @@ public:
   void move(const double &, const double &) override;
 
 private:
-  point_t center_;
   point_t pointA_;
   point_t pointB_;
   point_t pointC_;
+  point_t center_;
 };
 
 #endif //TRIANGLE_HPP
