@@ -31,7 +31,7 @@ void ustinov::Circle::scale(double coefficient)
   }
   else
   {
-    radius_*=coefficient;
+    radius_ *= coefficient;
   }
 };
 
