@@ -10,21 +10,23 @@ class CompositeShape : public Shape
 {
 public:
   CompositeShape();
+  CompositeShape(const CompositeShape&);
 
-  double      getArea()                const noexcept override;
-  rectangle_t getFrameRect()           const noexcept override;
-  void        printData(std::ostream&) const          override;
-  void        move(const point_t&)           noexcept override;
-  void        move(double, double)           noexcept override;
-  void        scale(double)                           override;
-  
+  double                 getArea()                const noexcept override;
+  rectangle_t            getFrameRect()           const noexcept override; 
+  std::shared_ptr<Shape> cloneShared()            const          override;
+  void                   printData(std::ostream&) const          override;
+  void                   move(const point_t&)           noexcept override;
+  void                   move(double, double)           noexcept override;
+  void                   scale(double)                           override;
+
+  std::size_t getSize() const noexcept;
   void add(const std::shared_ptr<Shape>&);
-  int  getSize() const noexcept;
 
 private:
 
   std::size_t                               size_;
-  rectangle_t                               frame_rect_;
+  rectangle_t                               frame_rect_{};
   std::unique_ptr<std::shared_ptr<Shape>[]> shapes_;
 
   void computeFrameRect() noexcept;

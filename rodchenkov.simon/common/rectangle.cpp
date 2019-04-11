@@ -22,6 +22,11 @@ rodchenkov::rectangle_t rodchenkov::Rectangle::getFrameRect() const noexcept
   return frame_rect_;
 }
 
+std::shared_ptr<rodchenkov::Shape> rodchenkov::Rectangle::cloneShared() const
+{
+  return std::make_shared<Rectangle>(*this);
+}
+
 void rodchenkov::Rectangle::printData(std::ostream& stream) const
 {
   stream << "Shape : Rectangle\n"

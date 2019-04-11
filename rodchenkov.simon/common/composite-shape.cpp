@@ -7,10 +7,20 @@ rodchenkov::CompositeShape::CompositeShape() :
 {
 }
 
+rodchenkov::CompositeShape::CompositeShape(const CompositeShape& cs)
+{
+    size_ = cs.size_;
+    frame_rect_ = cs.frame_rect_;
+    shapes_ = std::make_unique<std::shared_ptr<Shape>[]>(size_);
+    for (std::size_t i = 0; i < size_; i++) {
+        shapes_[i] = cs.shapes_[i]->cloneShared();
+    }
+}
+
 double rodchenkov::CompositeShape::getArea() const noexcept
 {
   double           area = 0.0;
-  for (std::size_t i    = 0; i < size_; i++) {
+  for (std::size_t i = 0; i < size_; i++) {
     area += shapes_[i]->getArea();
   }
   return area;
@@ -19,6 +29,11 @@ double rodchenkov::CompositeShape::getArea() const noexcept
 rodchenkov::rectangle_t rodchenkov::CompositeShape::getFrameRect() const noexcept
 {
   return frame_rect_;
+}
+
+std::shared_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneShared() const
+{
+    return std::make_shared<CompositeShape>(*this);
 }
 
 void rodchenkov::CompositeShape::printData(std::ostream& stream) const
@@ -48,7 +63,7 @@ void rodchenkov::CompositeShape::move(const double dx, const double dy) noexcept
 void rodchenkov::CompositeShape::scale(const double ratio)
 {
   if (ratio >= 0) {
-    frame_rect_.width *= ratio;
+    frame_rect_.width  *= ratio;
     frame_rect_.height *= ratio;
     for (std::size_t i = 0; i < size_; i++) {
       point_t currPose  = shapes_[i]->getFrameRect().pos;
@@ -62,6 +77,11 @@ void rodchenkov::CompositeShape::scale(const double ratio)
   } else {
     throw std::invalid_argument("scaling ratio can\'t be negative");
   }
+}
+
+std::size_t rodchenkov::CompositeShape::getSize() const noexcept
+{
+  return size_;
 }
 
 void rodchenkov::CompositeShape::add(const std::shared_ptr<Shape>& newShape)
@@ -83,22 +103,14 @@ void rodchenkov::CompositeShape::add(const std::shared_ptr<Shape>& newShape)
   }
 }
 
-int rodchenkov::CompositeShape::getSize() const noexcept
-{
-  return size_;
-}
-
 void rodchenkov::CompositeShape::computeFrameRect() noexcept
 {
   double left   = frame_rect_.pos.x - frame_rect_.width / 2;
   double right  = frame_rect_.pos.x + frame_rect_.width / 2;
   double top    = frame_rect_.pos.y + frame_rect_.height / 2;
   double bottom = frame_rect_.pos.y - frame_rect_.height / 2;
-  double totalX = 0, totalY = 0;
   for (std::size_t i = 0; i < size_; i++) {
     const rectangle_t currRect = shapes_[i]->getFrameRect();
-    totalX += currRect.pos.x;
-    totalY += currRect.pos.y;
 
     double currLeft   = currRect.pos.x - currRect.width / 2;
     double currRight  = currRect.pos.x + currRect.width / 2;
@@ -118,5 +130,5 @@ void rodchenkov::CompositeShape::computeFrameRect() noexcept
       bottom = currBottom;
     }
   }
-  frame_rect_ = {fabs(right - left), fabs(top - bottom), {totalX / size_, totalY / size_}};
+  frame_rect_ = { fabs(top - bottom), fabs(right - left), {(left + right) / 2, (top + bottom) / 2} };
 }
