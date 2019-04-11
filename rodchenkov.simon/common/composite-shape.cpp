@@ -98,7 +98,7 @@ void rodchenkov::CompositeShape::add(const std::shared_ptr<Shape>& newShape)
 {
   if (newShape) {
     std::unique_ptr<std::shared_ptr<Shape>[]> newShapes = std::make_unique<std::shared_ptr<Shape>[]>(size_ + 1);
-    for (std::size_t = 0; i < size_; i++) {
+    for (std::size_t i = 0; i < size_; i++) {
       newShapes[i] = shapes_[i];
     }
     newShapes[size_++] = newShape;
@@ -153,7 +153,7 @@ void rodchenkov::CompositeShape::computeFrameRect() noexcept
   frame_rect_ = {fabs(top - bottom), fabs(right - left), {(left + right) / 2, (top + bottom) / 2}};
 }
 
-void rodchenkov::swap(CompositeShape& l, CompositeShape& r) noexcept
+void rodchenkov::CompositeShape::swap(CompositeShape& l, CompositeShape& r) noexcept
 {
   std::swap(l.size_, r.size_);
   std::swap(l.frame_rect_, r.frame_rect_);
