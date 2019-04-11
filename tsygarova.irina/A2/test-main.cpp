@@ -12,7 +12,7 @@ const double Epsilon = 0.01;
 
 BOOST_AUTO_TEST_CASE(RectangleConstancyAfterMoving)
 {
-  tsygarova::Rectangle testRectangle(4, 2, {1, 3});
+  tsygarova::Rectangle testRectangle({4, 2, {1, 3}});
   const tsygarova::rectangle_t InitFrame = testRectangle.getFrameRect();
   const double InitArea = testRectangle.getArea();
 
@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(CircleConstancyAfterMoving)
 
 BOOST_AUTO_TEST_CASE(RectangleScaling)
 {
-  tsygarova::Rectangle testRectangle(4, 2, {1, 3});
+  tsygarova::Rectangle testRectangle({4, 2, {1, 3}});
   const double InitArea = testRectangle.getArea();
   const double ScaleCoefficient = 4;
 
@@ -69,16 +69,16 @@ BOOST_AUTO_TEST_CASE(CircleScaling)
   const double InitArea = testCircle.getArea();
   const double ScaleCoefficient = 2;
 
-  testRCircle.scale(ScaleCoefficient);
+  testCircle.scale(ScaleCoefficient);
   double CurrentArea = testCircle.getArea();
   BOOST_CHECK_CLOSE(InitArea * ScaleCoefficient * ScaleCoefficient, CurrentArea, Epsilon);
 }
 
 BOOST_AUTO_TEST_CASE(InvalidParametersRectangle)
 {
-  BOOST_CHECK_THROW(tsygarova::Rectangle({-6, 3, {1, 3}})), std::invalid_argument);
-  BOOST_CHECK_THROW(tsygarova::Rectangle({6, -3, {1, 3}})), std::invalid_argument);
-  BOOST_CHECK_THROW(tsygarova::Rectangle({-6, -3, {1, 3}})), std::invalid_argument);
+  BOOST_CHECK_THROW(tsygarova::Rectangle({-6, 3, {1, 3}}), std::invalid_argument);
+  BOOST_CHECK_THROW(tsygarova::Rectangle({6, -3, {1, 3}}), std::invalid_argument);
+  BOOST_CHECK_THROW(tsygarova::Rectangle({-6, -3, {1, 3}}), std::invalid_argument);
     
   tsygarova::Rectangle testRectangle({6, 3, {1, 3}});
   BOOST_CHECK_THROW(testRectangle.scale(0), std::invalid_argument);
@@ -86,9 +86,9 @@ BOOST_AUTO_TEST_CASE(InvalidParametersRectangle)
 
 BOOST_AUTO_TEST_CASE(InvalidParametersCircle)
 {
-  BOOST_CHECK_THROW(tsygarova::Circle(-7, {3, 4})), std::invalid_argument);
+  BOOST_CHECK_THROW(tsygarova::Circle(-7, {3, 4}), std::invalid_argument);
     
-  tsygarova::Circle testCircle(6, 3, {1, 3});
+  tsygarova::Circle testCircle(7, {3, 4});
   BOOST_CHECK_THROW(testCircle.scale(0), std::invalid_argument);
 }
 
