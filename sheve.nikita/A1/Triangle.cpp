@@ -28,12 +28,12 @@ rectangle_t Triangle::getFrameRect() const
 {
   double maxX = 0;
   double maxY = 0;
-  maxX = std::max(std::max(a.x, b.x),c.x);
-  maxY = std::max(std::max(a.y, b.y),c.y);
+  maxX = std::max(std::max(a.x, b.x), c.x);
+  maxY = std::max(std::max(a.y, b.y), c.y);
   double minX = 0;
   double minY = 0;
-  minX = std::min(std::min(a.x, b.x),c.x);
-  minY = std::min(std::min(a.y, b.y),c.y);
+  minX = std::min(std::min(a.x, b.x), c.x);
+  minY = std::min(std::min(a.y, b.y), c.y);
 
   rectangle_t localRect;
   localRect.pos.x = pos.x;
