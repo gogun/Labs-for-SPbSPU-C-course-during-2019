@@ -9,17 +9,37 @@ rodchenkov::CompositeShape::CompositeShape() :
 
 rodchenkov::CompositeShape::CompositeShape(const CompositeShape& cs)
 {
-    size_ = cs.size_;
-    frame_rect_ = cs.frame_rect_;
-    shapes_ = std::make_unique<std::shared_ptr<Shape>[]>(size_);
-    for (std::size_t i = 0; i < size_; i++) {
-        shapes_[i] = cs.shapes_[i]->cloneShared();
-    }
+  size_       = cs.size_;
+  frame_rect_ = cs.frame_rect_;
+  shapes_     = std::make_unique<std::shared_ptr<Shape>[]>(size_);
+  for (std::size_t i = 0; i < size_; i++) {
+    shapes_[i] = cs.shapes_[i]->cloneShared();
+  }
+}
+
+rodchenkov::CompositeShape::CompositeShape(CompositeShape&& cs) noexcept
+{
+  size_       = cs.size_;
+  frame_rect_ = cs.frame_rect_;
+  shapes_.swap(cs.shapes_);
+}
+
+const rodchenkov::CompositeShape& rodchenkov::CompositeShape::operator=(const CompositeShape& cs)
+{
+  CompositeShape temp(cs);
+  swap(*this, temp);
+  return *this;
+}
+
+const rodchenkov::CompositeShape& rodchenkov::CompositeShape::operator=(CompositeShape&& cs) noexcept
+{
+  swap(*this, cs);
+  return *this;
 }
 
 double rodchenkov::CompositeShape::getArea() const noexcept
 {
-  double           area = 0.0;
+  double area = 0.0;
   for (std::size_t i = 0; i < size_; i++) {
     area += shapes_[i]->getArea();
   }
@@ -29,11 +49,6 @@ double rodchenkov::CompositeShape::getArea() const noexcept
 rodchenkov::rectangle_t rodchenkov::CompositeShape::getFrameRect() const noexcept
 {
   return frame_rect_;
-}
-
-std::shared_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneShared() const
-{
-    return std::make_shared<CompositeShape>(*this);
 }
 
 void rodchenkov::CompositeShape::printData(std::ostream& stream) const
@@ -63,7 +78,7 @@ void rodchenkov::CompositeShape::move(const double dx, const double dy) noexcept
 void rodchenkov::CompositeShape::scale(const double ratio)
 {
   if (ratio >= 0) {
-    frame_rect_.width  *= ratio;
+    frame_rect_.width *= ratio;
     frame_rect_.height *= ratio;
     for (std::size_t i = 0; i < size_; i++) {
       point_t currPose  = shapes_[i]->getFrameRect().pos;
@@ -79,16 +94,11 @@ void rodchenkov::CompositeShape::scale(const double ratio)
   }
 }
 
-std::size_t rodchenkov::CompositeShape::getSize() const noexcept
-{
-  return size_;
-}
-
 void rodchenkov::CompositeShape::add(const std::shared_ptr<Shape>& newShape)
 {
   if (newShape) {
     std::unique_ptr<std::shared_ptr<Shape>[]> newShapes = std::make_unique<std::shared_ptr<Shape>[]>(size_ + 1);
-    for (std::size_t i = 0; i < size_; i++) {
+    for (std::size_t = 0; i < size_; i++) {
       newShapes[i] = shapes_[i];
     }
     newShapes[size_++] = newShape;
@@ -101,6 +111,16 @@ void rodchenkov::CompositeShape::add(const std::shared_ptr<Shape>& newShape)
   } else {
     throw std::invalid_argument("new shape pointer can\'t be null");
   }
+}
+
+std::size_t rodchenkov::CompositeShape::getSize() const noexcept
+{
+  return size_;
+}
+
+std::shared_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneShared() const
+{
+  return std::make_shared<CompositeShape>(*this);
 }
 
 void rodchenkov::CompositeShape::computeFrameRect() noexcept
@@ -130,5 +150,12 @@ void rodchenkov::CompositeShape::computeFrameRect() noexcept
       bottom = currBottom;
     }
   }
-  frame_rect_ = { fabs(top - bottom), fabs(right - left), {(left + right) / 2, (top + bottom) / 2} };
+  frame_rect_ = {fabs(top - bottom), fabs(right - left), {(left + right) / 2, (top + bottom) / 2}};
+}
+
+void rodchenkov::swap(CompositeShape& l, CompositeShape& r) noexcept
+{
+  std::swap(l.size_, r.size_);
+  std::swap(l.frame_rect_, r.frame_rect_);
+  l.shapes_.swap(r.shapes_);
 }

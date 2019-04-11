@@ -18,10 +18,16 @@ int main()
     rodchenkov::CompositeShape compositeShape{};
     compositeShape.add(shapes[0]);
     compositeShape.add(shapes[1]);
+    std::cout << "Original shape : \n";
     compositeShape.printData(std::cout);
-    compositeShape.move({0, 0});
-    compositeShape.scale(2);
-    compositeShape.printData(std::cout); 
+    rodchenkov::CompositeShape copyComposite = compositeShape;
+    std::cout << "Copy shape : \n";
+    copyComposite.printData(std::cout);
+    copyComposite.scale(2);
+    std::cout << "Original shape after copy scaling : ";
+    compositeShape.printData(std::cout);
+    std::cout << "Copy shape after scaling : \n";
+    copyComposite.printData(std::cout);
   } catch (const std::invalid_argument& exc) {
     std::cerr << "error: invalid parameter \"" << exc.what() << "\"" << std::endl;
     return 1;
