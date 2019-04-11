@@ -6,16 +6,14 @@
 Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC) :
   pointA_(pointA),
   pointB_(pointB),
-  pointC_(pointC)
+  pointC_(pointC),
+  center_({(pointA_.x + pointB_.x + pointC_.x) / 3, (pointA_.y + pointB_.y + pointC_.y) / 3})
 {
   assert((pointA_.x != pointB_.x) || (pointA_.x != pointC_.x));
   assert((pointA_.y != pointB_.y) || (pointA_.y != pointC_.y));
   assert((pointA_.x != pointB_.x) || (pointA_.y != pointB_.y));
   assert((pointA_.x != pointC_.x) || (pointA_.y != pointC_.y));
   assert((pointB_.x != pointC_.x) || (pointB_.y != pointC_.y));
-
-  center_.x = (pointA_.x + pointB_.x + pointC_.x) / 3;
-  center_.y = (pointA_.y + pointB_.y + pointC_.y) / 3;
 }
 
 rectangle_t Triangle::getFrameRect() const
