@@ -4,7 +4,7 @@
 
 class Rectangle: public Shape {
 public:
-  Rectangle(point_t const &center, double width, double height);
+  Rectangle(point_t const &, double, double);
   Rectangle(point_t const &, double); //square
 
   double getWidth() const;

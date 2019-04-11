@@ -17,7 +17,7 @@ int main(int, char *[])
     Rectangle rectangle_(center, 5.0, 9.0);
     exercisesAndPrintSpec(&rectangle_);
   }
-  catch (std::invalid_argument &err) {
+  catch (std::invalid_argument & err) {
     std::cerr << err.what();
   }
 
@@ -29,7 +29,7 @@ int main(int, char *[])
     Circle circle_(center, 18.0);
     exercisesAndPrintSpec(&circle_);
   }
-  catch (std::invalid_argument &err) {
+  catch (std::invalid_argument & err) {
     std::cerr << err.what();
   }
 
@@ -43,14 +43,14 @@ int main(int, char *[])
     Triangle triangle_(center, sides);
     exercisesAndPrintSpec(&triangle_);
   }
-  catch(std::invalid_argument &err) {
+  catch(std::invalid_argument & err) {
     std::cerr << err.what();
   }
 
   return 0;
 }
 
-void exercisesAndPrintSpec(Shape *shapePtr)
+void exercisesAndPrintSpec(Shape * shapePtr)
 {
   assert(shapePtr != nullptr);
   //exercises: two types of moving figure

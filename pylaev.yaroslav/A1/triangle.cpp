@@ -5,7 +5,7 @@
 #include <math.h>
 #include <iostream>
 
-Triangle::Triangle(const point_t &center, const double *sides):
+Triangle::Triangle(const point_t & center, const double * sides):
   center_(center)
 {
 //verification
@@ -20,7 +20,7 @@ Triangle::Triangle(const point_t &center, const double *sides):
   setCoordinates(sides);
 }
 
-Triangle::Triangle(const point_t &center, const double side):
+Triangle::Triangle(const point_t & center, const double side):
   center_(center)
 {
 //verification
@@ -64,7 +64,7 @@ void Triangle::setCoordinates(const double *sides)
   }
 }
 
-double Triangle::getArea(const double *sides) const //by sides
+double Triangle::getArea(const double * sides) const //by sides
 {
   //s = (p * (p-a) * (p-b) * (p-c))^(1/2)
   double p = 0.0;
