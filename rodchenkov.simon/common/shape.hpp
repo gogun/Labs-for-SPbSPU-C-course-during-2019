@@ -2,6 +2,7 @@
 #define SHAPE_HPP
 
 #include <ostream>
+#include <memory>
 
 #include "base-types.hpp"
 
