@@ -21,6 +21,6 @@ private:
   point_t center_;
   point_t coordinates_[3]; //array of tops' coordinates
   void setCoordinates(const double *sides);
-  };
+};
 
 #endif
