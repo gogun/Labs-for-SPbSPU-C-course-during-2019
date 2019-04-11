@@ -27,3 +27,8 @@ void Rectangle::move(const point_t &point)
 {
   rectangle_.pos = point;
 }
+
+point_t Rectangle::getCentre() const
+{
+  return rectangle_.pos;
+}

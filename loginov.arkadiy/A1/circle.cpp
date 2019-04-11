@@ -29,3 +29,8 @@ void Circle::move(const point_t &point)
 {
   centre_ = point;
 }
+
+point_t Circle::getCentre() const
+{
+  return getFrameRect().pos;
+}
