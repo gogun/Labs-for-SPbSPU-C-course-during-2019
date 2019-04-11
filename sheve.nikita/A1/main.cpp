@@ -21,11 +21,7 @@ int main()
   std::cout << "Moving rectangle to point x=-27, y=52" << std::endl;
   rectp->move({ -27, 52 });
   printParams(rect);
-<<<<<<< HEAD
   std::cout << "Moving rectangle by dx=10, dy=-30" << std::endl;
-=======
-  std::cout << "Moving rectangle by dx=10, dy=30" << std::endl;
->>>>>>> 91e16e58e8a70628e233775a34c9e5aa719587c3
   rectp->move(10, -30);
   printParams(rect);
 
@@ -41,11 +37,7 @@ int main()
   printParams(circ);
 
   std::cout << "Creating triangle with points A(12,-22), B(-13,3) ,C(1,23)" << std::endl;
-<<<<<<< HEAD
-  Triangle tria({ 12, -12 },{ 13, 5 },{ 1, 23 });
-=======
   Triangle tria({ 12, -12 },{ 13, 3 },{ 1, 23 });
->>>>>>> 91e16e58e8a70628e233775a34c9e5aa719587c3
   Shape *triap = &tria;
   printParams(tria);
   std::cout << "Moving triangle to point x=-7, y=4" << std::endl;
@@ -53,11 +45,7 @@ int main()
   printParams(tria);
   std::cout << "Moving triangle by dx=10, dy=20" << std::endl;
   triap->move(10, 20);
-<<<<<<< HEAD
   printParams(tria);
-=======
-  printParams(tria)
->>>>>>> 91e16e58e8a70628e233775a34c9e5aa719587c3
 
   return 0;
 }
