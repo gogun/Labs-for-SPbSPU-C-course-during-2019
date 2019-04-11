@@ -23,7 +23,7 @@ int main()
   myShape->move(5.0, 6.0);
   myShape->writeParameters();
 
-  Triangle myTriangle({{9.0, 10.0}, 8.0, 4.0, 6.0});
+  Triangle myTriangle({9.0, 10.0}, 8.0, 4.0, 6.0);
   myShape = &myTriangle;
   myShape->writeParameters();
   myShape->move({7.0, -7.0});

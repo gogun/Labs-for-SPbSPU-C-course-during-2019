@@ -4,50 +4,49 @@
 #include <cmath>
 #include <cassert>
 
-Triangle::Triangle(const triangle_t &parameters) :
-  triangle_(parameters)
+Triangle::Triangle(const point_t &pos, const double sideA, const double sideB, const double sideC) :
+  pos_(pos),
+  sideA_(sideA),
+  sideB_(sideB),
+  sideC_(sideC)
 {
-  assert((triangle_.sideA > 0) && (triangle_.sideB > 0) && (triangle_.sideC > 0));
-  assert((triangle_.sideA + triangle_.sideB) > triangle_.sideC);
-  assert((triangle_.sideA + triangle_.sideC) > triangle_.sideB);
-  assert((triangle_.sideB + triangle_.sideC) > triangle_.sideA);
+  assert((sideA_ > 0) && (sideB_ > 0) && (sideC_ > 0));
+  assert((sideA_ + sideB_) > sideC_);
+  assert((sideA_ + sideC_) > sideB_);
+  assert((sideB_ + sideC_) > sideA_);
 }
 
 double Triangle::getArea() const
 {
-  double p = (triangle_.sideA + triangle_.sideB + triangle_.sideC) / 2;
-  return sqrt(p * (p - triangle_.sideA) * (p - triangle_.sideB) * (p - triangle_.sideC));
+  double p = (sideA_ + sideB_ + sideC_) / 2;
+  return sqrt(p * (p - sideA_) * (p - sideB_) * (p - sideC_));
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
   double area = Triangle::getArea();
-  rectangle_t frameRect;
-  frameRect.width = triangle_.sideA;
-  frameRect.height = area * 2 / triangle_.sideA;
-  frameRect.pos = triangle_.pos;
-  return frameRect;
+  return {pos_, sideA_, area * 2 / sideA_ };
 }
 
 void Triangle::move(const point_t &pos)
 {
-  triangle_.pos = pos;
+  pos_ = pos;
 }
 
 void Triangle::move(const double dx, const double dy)
 {
-  triangle_.pos.x += dx;
-  triangle_.pos.y += dy;
+  pos_.x += dx;
+  pos_.y += dy;
 }
 
 void Triangle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << "Triangle side A is " << triangle_.sideA << ","
-      << " side B is " << triangle_.sideB << ","
-      << " side C is " << triangle_.sideC << " \n"
-      << "Triangle centre is (" << triangle_.pos.x << ","
-      << triangle_.pos.y << ")\n"
+  std::cout << "Triangle side A is " << sideA_ << ","
+      << " side B is " << sideB_ << ","
+      << " side C is " << sideC_ << " \n"
+      << "Triangle centre is (" << pos_.x << ","
+      << pos_.y << ")\n"
       << "Frame rectangle width = " << rectangle.width
       << ", height = " << rectangle.height << "\n"
       << "Area = " << getArea() << "\n\n";
