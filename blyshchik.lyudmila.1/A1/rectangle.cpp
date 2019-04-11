@@ -29,7 +29,8 @@ void Rectangle::move(const point_t newPos)
 
 void Rectangle::move(double newX, double newY)
 {
-  rectCl_.pos = point_t{rectCl_.pos.x + newX, rectCl_.pos.y + newY};
+  rectCl_.pos.x += newX;
+  rectCl_.pos.y += newY;
 }
 
 point_t Rectangle::getPosition() const

@@ -33,7 +33,8 @@ void Circle::move(const point_t newCentre)
 
 void Circle::move(double newX, double newY)
 {
-  circCentre_ = point_t{circCentre_.x + newX, circCentre_.y + newY};
+  circCentre_.x += newX;
+  circCentre_.y += newY;
 }
 
 point_t Circle::getPosition() const
