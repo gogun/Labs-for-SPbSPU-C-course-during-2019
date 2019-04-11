@@ -28,7 +28,7 @@ Triangle::Triangle(const point_t & center, const double side):
     throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
   }
 //inicialization
-double sides[nTops_];
+  double sides[nTops_];
   for (int i = 0; i < nTops_; i++) {
     sides[i] = side;
   }
