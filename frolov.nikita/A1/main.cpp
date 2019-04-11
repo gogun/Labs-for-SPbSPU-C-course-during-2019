@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "triangle.hpp"
 
 int main()
 {
@@ -44,7 +45,7 @@ int main()
   shape->move(18,20);
   std::cout << "After change point \n";
   shape->showPoint();
-  shape->move({2,5});
+  shape->move({2,3});
   std::cout << "After change point \n";
   shape->showPoint();
 
@@ -63,5 +64,18 @@ int main()
   std::cout << "After change point \n";
   shape->showPoint();
 
+  Triangle triang({6, 3}, {4, 6}, {1, 6});
+  std::cout << "Area: " << triang.getArea() << "\n";
+  triang.showPoint();
+  triang.move(5,4);
+  triang.showPoint();
+  triang.move({7,9});
+  triang.showPoint();
+  frame = triang.getFrameRect();
+  std::cout << "Frame" << "\n";
+  std::cout << "Width= " << frame.width << "\n";
+  std::cout << "Height= " << frame.height << "\n";
+  std::cout << "Center on x-axis=" << frame.pos.x << "\n";
+  std::cout << "Center on y-axis=" << frame.pos.y << "\n";
   return 0;
 }

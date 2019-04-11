@@ -1,20 +1,21 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef classwork2602_RECTANGLE_HPP
+#define classwork2602_RECTANGLE_HPP
 
 #include "shape.hpp"
 
-class Circle : public Shape
+class Rectangle: public Shape
 {
 public:
-  Circle(double radius, const point_t &center);
+  Rectangle(double height, double width, const point_t &center);
   double getArea() const override;
   void move(double dx, double dy) override;
   void move(const point_t &center) override;
   rectangle_t getFrameRect() const override;
   void showPoint() const override;
 private:
-  double radius_;
-  point_t center_;
+  double height_;
+  double width_;
+  point_t pos_;
 };
 
 #endif
