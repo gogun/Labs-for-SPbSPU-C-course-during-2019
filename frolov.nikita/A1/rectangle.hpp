@@ -1,5 +1,5 @@
-#ifndef classwork2602_RECTANGLE_HPP
-#define classwork2602_RECTANGLE_HPP
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 
 #include "shape.hpp"
 

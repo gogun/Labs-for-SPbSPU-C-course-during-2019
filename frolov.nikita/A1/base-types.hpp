@@ -1,5 +1,5 @@
-#ifndef classwork2602_BASE_TYPES_HPP
-#define classwork2602_BASE_TYPES_HPP
+#ifndef BASE_TYPES_HPP
+#define BASE_TYPES_HPP
 
 struct point_t
 {

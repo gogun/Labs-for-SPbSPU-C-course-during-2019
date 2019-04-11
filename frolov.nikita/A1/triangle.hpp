@@ -1,5 +1,5 @@
-#ifndef Classwork2603_TRIANGLE_HPP
-#define Classwork2603_TRIANGLE_HPP
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 
 #include "shape.hpp"
 

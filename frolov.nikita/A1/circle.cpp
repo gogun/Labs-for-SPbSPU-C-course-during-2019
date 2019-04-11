@@ -4,8 +4,8 @@
 #include <cassert>
 
 Circle::Circle(double radius, const point_t &center) :
-  center_(center),
-  radius_(radius)
+  radius_(radius),
+  center_(center)
 {
   assert(radius > 0.0);
 }

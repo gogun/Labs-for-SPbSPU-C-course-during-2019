@@ -3,9 +3,9 @@
 #include <cassert>
 
 Rectangle::Rectangle(double height, double width, const point_t &pos) :
-  pos_(pos),
   height_(height),
-  width_(width)
+  width_(width),
+  pos_(pos)
 {
   assert((height_ > 0.0) && (width_ > 0.0));
 }
@@ -36,3 +36,4 @@ void Rectangle::showPoint() const
   std::cout << "the point on the x-axis " << pos_.x << "\n";
   std::cout << "the point on the y-axis " << pos_.y << "\n";
 }
+
