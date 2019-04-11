@@ -1,13 +1,14 @@
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
+#include "triangle.hpp"
 
 void printRect(const Shape & shape)
 {
   std::cout << "Frame rectangle: x = " << shape.getFrameRect().pos.x;
   std::cout << " y = " << shape.getFrameRect().pos.y;
-  std::cout << " height = " << shape.getFrameRect().height;
-  std::cout << " width = " << shape.getFrameRect().width << '\n';
+  std::cout << " width = " << shape.getFrameRect().width;
+  std::cout << " height = " << shape.getFrameRect().height << '\n';
 }
 
 void showProgramWork(Shape & shape)
@@ -26,14 +27,36 @@ void showProgramWork(Shape & shape)
   printRect(shape);
 }
 
+void showTriangle(Triangle & triangle)
+{
+  std::cout << "Area = " << triangle.getArea() << '\n';
+  triangle.printCenter();
+  printRect(triangle);
+  double x = 2;
+  double y = 2;
+  triangle.move({x, y});
+  std::cout << "Move to: x = " << x << " y = " << y << '\n';
+  triangle.showCoord();
+  printRect(triangle);
+  double dx = 5;
+  double dy = 10;
+  triangle.move(dx, dy);
+  std::cout << "Move by: dx = " << dx << " dy = " << dy << '\n';
+  triangle.showCoord();
+  printRect(triangle);
+}
+
 int main()
 {
   std::cout << "The first object is Circle:" << '\n';
-  Circle circle({3, 7}, 6.6);
+  Circle circle(6.6, {3, 7});
   showProgramWork(circle);
   std::cout << "The second object is Rectangle:" << '\n';
-  Rectangle rectangle({2, 4}, 5, 6);
+  Rectangle rectangle(5, 6, {2, 4});
   showProgramWork(rectangle);
+  std::cout << "The third object is Triangle:" << '\n';
+  Triangle triangle({3, 7}, {5, 2}, {7, 4});
+  showTriangle(triangle);
 
   return 0;
 }

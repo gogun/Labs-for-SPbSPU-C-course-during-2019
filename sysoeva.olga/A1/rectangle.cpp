@@ -2,31 +2,32 @@
 #include <cassert>
 #include <iostream>
 
-Rectangle::Rectangle(const point_t & point, const double height, const double width)
+Rectangle::Rectangle(double width, double height, const point_t & center):
+  width_ (width),
+  height_ (height),
+  center_ (center)
+
 {
   assert((height > 0.0) && (width > 0.0));
-  rect.pos = point;
-  rect.height = height;
-  rect.width = width;
 }
 
 double Rectangle::getArea() const
 {
-  return rect.width * rect.height;
+  return width_ * height_ ;
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return rect;
+  return {width_, height_, center_};
 }
 
 void Rectangle::move(const point_t & point)
 {
-  rect.pos = point;
+  center_ = point;
 }
 
-void Rectangle::move(const double dx, const double dy)
+void Rectangle::move(double dx, double dy)
 {
-  rect.pos.x += dx;
-  rect.pos.y += dy;
+  center_.x += dx;
+  center_.y += dy;
 }
