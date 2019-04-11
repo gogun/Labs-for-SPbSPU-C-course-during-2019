@@ -3,9 +3,9 @@
 
 int main()
 {
-  Circle mycircle(5.0, {3.0, 3.0}); // sozdat' ob"yekt klassa Circle
+  Circle mycircle(5.0, {3.0, 3.0});
 
-  Rectangle myrectangle(mycircle.getFrameRect()); // sozdat' ob"yekt klassa Rectangle
+  Rectangle myrectangle(mycircle.getFrameRect());
 
   Shape* figures[] = {&mycircle, &myrectangle};
   int size = sizeof(figures) / sizeof(Shape);

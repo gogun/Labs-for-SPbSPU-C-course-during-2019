@@ -10,7 +10,7 @@ Rectangle::Rectangle(const rectangle_t& figure):
 
 double Rectangle::getArea() const
 {
-  return m_figure.width* m_figure.height;
+  return m_figure.width * m_figure.height;
 }
 
 rectangle_t Rectangle::getFrameRect() const
