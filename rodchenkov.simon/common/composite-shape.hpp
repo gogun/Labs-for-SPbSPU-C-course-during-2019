@@ -11,6 +11,10 @@ class CompositeShape : public Shape
 public:
   CompositeShape();
   CompositeShape(const CompositeShape&);
+  CompositeShape(CompositeShape&&) noexcept;
+
+  const CompositeShape& operator = (const CompositeShape&);
+  const CompositeShape& operator = (CompositeShape&&) noexcept;
 
   double                 getArea()                const noexcept override;
   rectangle_t            getFrameRect()           const noexcept override; 
@@ -22,6 +26,8 @@ public:
 
   std::size_t getSize() const noexcept;
   void add(const std::shared_ptr<Shape>&);
+
+  friend void swap(CompositeShape& l, CompositeShape& r) noexcept;
 
 private:
 
