@@ -4,9 +4,9 @@
 #include <cassert>
 
 Rectangle::Rectangle(const point_t &p, double w, double h):
-  pos (p),
-  width (w),
-  height (h)
+  pos(p),
+  width(w),
+  height(h)
 {
   assert((width > 0.0) && (height > 0.0));
 }
@@ -26,12 +26,12 @@ rectangle_t Rectangle::getFrameRect() const
   return localRect;
 }
 
-void Rectangle::move (const point_t &p)
+void Rectangle::move(const point_t &p)
 {
   pos = p;
 }
 
-void Rectangle::move (double dx, double dy)
+void Rectangle::move(double dx, double dy)
 {
   pos.x += dx;
   pos.y += dy;

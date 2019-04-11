@@ -4,8 +4,8 @@
 #include <cassert>
 
 Circle::Circle(const point_t &p, double r):
-  pos (p),
-  radius (r)
+  pos(p),
+  radius(r)
 {
   assert(radius > 0.0);
 }
@@ -25,12 +25,12 @@ rectangle_t Circle::getFrameRect() const
   return localRect;
 }
 
-void Circle::move (const point_t &p)
+void Circle::move(const point_t &p)
 {
   pos = p;
 }
 
-void Circle::move (double dx, double dy)
+void Circle::move(double dx, double dy)
 {
   pos.x += dx;
   pos.y += dy;
