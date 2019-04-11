@@ -5,7 +5,7 @@
 Rectangle::Rectangle(const point_t pos, double width, double height):
   rectCl_(rectangle_t{pos, width, height})
 {
-    assert((width > 0.0) && (height > 0.0));
+  assert((width > 0.0) && (height > 0.0));
 }
 Rectangle::Rectangle(double x, double y, double width, double height):
   Rectangle(point_t{x, y}, width, height)
@@ -29,7 +29,8 @@ void Rectangle::move(const point_t newPos)
 
 void Rectangle::move(double newX, double newY)
 {
-  rectCl_.pos = point_t{rectCl_.pos.x + newX, rectCl_.pos.y + newY};
+  rectCl_.pos.x += newX;
+  rectCl_.pos.y += newY;
 }
 
 point_t Rectangle::getPosition() const

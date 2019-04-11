@@ -5,13 +5,13 @@
 
 class Circle:public Shape {
 public:
-  Circle(const point_t, double); //Constructor: centre of circle and radius
-  Circle(double, double, double); //Constructor by coordinates and radius
+  Circle(const point_t /*locO*/, double /*radius*/);
+  Circle(double /*x*/, double /*y*/, double /*radius*/);
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t) override;
-  void move(double, double) override;
+  void move(const point_t /*newCentre*/) override;
+  void move(double /*newX*/, double /*newY*/) override;
 
   void print() const override;
   point_t getPosition() const;
