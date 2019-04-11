@@ -2,7 +2,7 @@
 #define RECTANGLE_H
 #include "shape.hpp"
 
-class Rectangle : public Shape
+class Rectangle: public Shape
 {
 public:
   Rectangle(double width, double height, const point_t & center);
@@ -17,6 +17,5 @@ private:
   double height_;
   point_t center_;
 };
-
 
 #endif

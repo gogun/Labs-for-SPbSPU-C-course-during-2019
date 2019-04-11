@@ -2,7 +2,7 @@
 #define CIRCLE_H
 #include "shape.hpp"
 
-class Circle : public Shape
+class Circle: public Shape
 {
 public:
   Circle(double radius, const point_t & center);
@@ -16,6 +16,5 @@ private:
   double radius_;
   point_t center_;
 };
-
 
 #endif
