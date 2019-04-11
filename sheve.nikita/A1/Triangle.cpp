@@ -6,7 +6,7 @@
 #include <cassert>
 
 Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
-  pos ({(p1.x + p2.x + p3.x) / 3, (p1.y + p2.y + p3.y) / 3}),
+  pos ({(p1.x + p2.x + p3.x) / 3, (p1.y + p2.y + p3.y) / 3 }),
   a(p1),
   b(p2),
   c(p3)
