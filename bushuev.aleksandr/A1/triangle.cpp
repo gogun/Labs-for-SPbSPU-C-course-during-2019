@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cassert>
 #include <cmath>
+#include <algorithm>
 
 Triangle::Triangle(const point_t& center, double side1, double side2, double side3) :
   center_(center),
@@ -9,17 +10,7 @@ Triangle::Triangle(const point_t& center, double side1, double side2, double sid
   side2_(side2),
   side3_(side3)
 {
-  assert((side1 > 0) && (side2 > 0) && (side3 > 0));
-  double max = side1;
-  if (side2 > max)
-  {
-    max = side2;
-  }
-  if (side3 > max)
-  {
-    max = side3;
-  }
-  assert(2 * max < side1 + side2 + side3);
+  assert(((side1 > 0) && (side2 > 0) && (side3 > 0)) && (2 * std::max({side1, side2, side3}) < (side1 + side2 + side3)));
 }
 
 double Triangle::getArea() const
@@ -41,13 +32,10 @@ rectangle_t Triangle::getFrameRect() const
   //координата х нижнего левого угла
   double x0 = ((4 * (pow(side1MedianLength, 2) - pow(side2MedianLength, 2)) / (9 * frameWidth)) + 2 * center_.x - frameWidth) / 2;
   //координата y нижнего левого угла
-  double y0 = sqrt(pow(2 * side2MedianLength / 3, 2) - pow(x0-center_.x, 2)) + center_.y;
+  double y0 = sqrt(pow(2 * side2MedianLength / 3, 2) - pow(x0 - center_.x, 2)) + center_.y;
   point_t frameCenter = {x0 + frameWidth / 2, y0 + frameHeight / 2};
   
-  rectangle_t frameRect;
-  frameRect.pos = frameCenter;
-  frameRect.width = frameWidth;
-  frameRect.height = frameHeight;
+  rectangle_t frameRect = {frameWidth, frameHeight, frameCenter};
   return frameRect;
 }
 
