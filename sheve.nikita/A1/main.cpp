@@ -34,8 +34,6 @@ int main()
   printParams(circ);
   std::cout << "Moving circle by dx=-12, dy=9" << std::endl;
   circp->move(-12, 9);
-  std::cout << "Moving circle by dx=-12, dy=9" << std::endl;
-  circp->move(-12, 9);
   printParams(circ);
 
 
