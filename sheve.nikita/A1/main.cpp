@@ -29,7 +29,7 @@ int main()
   Circle circ({ 20, 30 }, 13);
   Shape *circp = &circ;
   Rectangle rect({ 20, 10 }, 15, 50);
-  Shape * rectp = &rect;
+  Shape *rectp = &rect;
   printParams(rect);
   std::cout << "Moving rectangle to point x=-27, y=52" << std::endl;
   rectp->move({ -27, 52 });
@@ -40,7 +40,7 @@ int main()
 
   std::cout << "Creating Circle x=20, y=30, r=13" << std::endl;
   Circle circ({ 20, 30 }, 13);
-  Shape * circp = &circ;
+  Shape *circp = &circ;
   printParams(circ);
   std::cout << "Moving circle to point x = 32, y = -6" << std::endl;
   circp->move({ 32, -6 });
