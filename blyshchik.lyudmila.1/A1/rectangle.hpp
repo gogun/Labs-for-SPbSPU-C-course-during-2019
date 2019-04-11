@@ -5,13 +5,13 @@
 
 class Rectangle:public Shape {
 public:
-  Rectangle(const point_t /*pos*/, double /*width*/, double /*height*/);
-  Rectangle(double /*x*/, double /*y*/, double /*width*/, double /*height*/);
+  Rectangle(const point_t, double, double); //constructor: center of rectangle, width and height
+  Rectangle(double, double, double, double); //constructor: coordinates x, y, width and height
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t newPos) override;
-  void move(double newX, double newY) override;
+  void move(const point_t) override;
+  void move(double, double) override;
 
   void print() const override;
   point_t getPosition() const;
