@@ -38,8 +38,6 @@ int main()
 
 
   std::cout << "Creating triangle with points A(12,-22), B(-13,3) ,C(1,23)" << std::endl;
-  Triangle tria({ 12, -12 },{13, 5},{ 1, 23 });
-  Shape *triap = &tria;
   Triangle tria({ 12, -12 },{ 13, 5 },{ 1, 23 });
   Shape *triap = &tria;
   printParams(tria);
