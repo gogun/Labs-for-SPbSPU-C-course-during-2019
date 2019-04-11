@@ -24,6 +24,11 @@ rodchenkov::rectangle_t rodchenkov::Circle::getFrameRect() const noexcept
   return frame_rect_;
 }
 
+std::shared_ptr<rodchenkov::Shape> rodchenkov::Circle::cloneShared() const
+{
+  return std::make_shared<Circle>(*this);
+}
+
 void rodchenkov::Circle::printData(std::ostream& stream) const
 {
   stream << "Shape : Circle\n"
