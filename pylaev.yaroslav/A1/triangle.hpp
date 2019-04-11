@@ -8,6 +8,7 @@ public:
   Triangle(const point_t &, const double *);
   Triangle(const point_t &, const double); //equilateral triangle
 
+  double getArea(const double *) const;
   double getArea() const override;
   double getSide(const int) const;
   rectangle_t getFrameRect() const override;
@@ -18,9 +19,8 @@ public:
 private:
   const int nTops_ = 3;
   point_t center_;
-  double sides_[3]; // array of lengths
   point_t coordinates_[3]; //array of tops' coordinates
-  void setCoordinates();
+  void setCoordinates(const double *sides);
   };
 
 #endif

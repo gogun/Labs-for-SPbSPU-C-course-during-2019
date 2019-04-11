@@ -7,21 +7,21 @@ Rectangle::Rectangle(const point_t &center, const double width, const double hei
   center_(center),
   width_(width),
   height_(height)
-  {
-    if ((width_ <= 0.0) &&  (height_ <= 0.0)) {
-      throw std::invalid_argument("ERROR: Length of rectangle's sides must be positive");
-    }
+{
+  if ((width_ <= 0.0) && (height_ <= 0.0)) {
+    throw std::invalid_argument("ERROR: Length of rectangle's sides must be positive");
   }
+}
 
 Rectangle::Rectangle(const point_t &center, const double width):
   center_(center),
   width_(width),
   height_(width)
-  {
-    if ((width_ <= 0.0) &&  (height_ <= 0.0)) {
-      throw std::invalid_argument("ERROR: Length of square's sides must be positive");
-    }
+{
+  if ((width_ <= 0.0) && (height_ <= 0.0)) {
+    throw std::invalid_argument("ERROR: Length of square's sides must be positive");
   }
+}
 
 double Rectangle::getWidth() const
 {
@@ -47,7 +47,7 @@ void Rectangle::move(const double dx, const double dy)
 {
   center_.x += dx;
   center_.y += dy;
-};
+}
 
 void Rectangle::move(const point_t &pos)
 {

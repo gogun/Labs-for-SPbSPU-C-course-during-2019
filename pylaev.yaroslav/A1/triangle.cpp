@@ -8,47 +8,44 @@
 Triangle::Triangle(const point_t &center, const double *sides):
   center_(center)
 {
-//inicialization
-  for (int i = 0; i < nTops_; i++) {
-    sides_[i] = *(sides + i);
-  }
 //verification
   for (int i = 0; i < nTops_; i++) {
-    if (sides_[i] <= 0.0) {
+    if (sides[i] <= 0.0) {
       throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
     }
-    if (sides_[i] >= sides_[(i+1) % nTops_] + sides_[(i+2) % nTops_]) {
+    if (sides[i] >= sides[(i + 1) % nTops_] + sides[(i + 2) % nTops_]) {
       throw std::invalid_argument("ERROR: Such triangle is impossible");
     }
   }
-  setCoordinates();
+  setCoordinates(sides);
 }
 
 Triangle::Triangle(const point_t &center, const double side):
   center_(center)
 {
-//inicialization
-  for (int i = 0; i < nTops_; i++) {
-    sides_[i] = side;
-    //verification
-    if (sides_[i] <= 0) {
-      throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
-    }
+//verification
+  if (side <= 0) {
+    throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
   }
-  setCoordinates();
+//inicialization
+double sides[nTops_];
+  for (int i = 0; i < nTops_; i++) {
+    sides[i] = side;
+  }
+  setCoordinates(sides);
 }
 
-void Triangle::setCoordinates()
+void Triangle::setCoordinates(const double *sides)
 {
   //set zero-coordinates
   coordinates_[0] = {0, 0};
-  coordinates_[2] = {sides_[2], 0};
-  coordinates_[1].y = 2 * getArea() / sides_[2];
+  coordinates_[2] = {sides[2], 0};
+  coordinates_[1].y = 2 * getArea(sides) / sides[2];
   int k = 1;   //k is coefficient of outside angle
-  if ((sides_[1] > sides_[0]) && (sides_[1] > sides_[2])) {
+  if ((sides[1] > sides[0]) && (sides[1] > sides[2])) {
     k = -1;
   }
-  coordinates_[1].x = k * sqrt(pow(sides_[0], 2) - pow(coordinates_[1].y, 2));
+  coordinates_[1].x = k * sqrt(pow(sides[0], 2) - pow(coordinates_[1].y, 2));
   //set center relatively zero-coordinates
   point_t zeroCenter = {0, 0};
   for (int i = 0; i < nTops_; i++) {
@@ -67,27 +64,43 @@ void Triangle::setCoordinates()
   }
 }
 
-double Triangle::getArea() const
+double Triangle::getArea(const double *sides) const //by sides
 {
   //s = (p * (p-a) * (p-b) * (p-c))^(1/2)
   double p = 0.0;
   for (int i = 0; i < nTops_; i++) {
-    p += sides_[i]; //perimeter
+    p += sides[i]; //perimeter
   }
   p /= 2; //semi-perimeter
   double s = 1.0;
   for (int i = 0; i < nTops_; i++) {
-    s *= (p - sides_[i]);
+    s *= (p - sides[i]);
   }
   s = sqrt((p * s));
 
   return s;
 }
 
+double Triangle::getArea() const //by coordinates
+{
+  const int i = 0;
+
+  point_t side1 = {0.0, 0.0};
+  side1.x = coordinates_[i + 1].x - coordinates_[i].x;
+  side1.y = coordinates_[i + 1].y - coordinates_[i].y;
+
+  point_t side2 = {0.0, 0.0};
+  side2.x = coordinates_[i + 2].x - coordinates_[i].x;
+  side2.y = coordinates_[i + 2].y - coordinates_[i].y;
+
+  return (0.5 * abs((side1.x * side2.y - side1.y * side2.x)));
+}
+
 double Triangle::getSide(const int i) const
 {
   assert((i >= 0) && (i < nTops_));
-  return sides_[i];
+
+  return sqrt(pow(coordinates_[i + 1].x - coordinates_[i].x, 2) + pow(coordinates_[i + 1].y - coordinates_[i].y, 2));
 }
 
 rectangle_t Triangle::getFrameRect() const
