@@ -27,7 +27,7 @@ public:
   std::size_t getSize() const noexcept;
   void add(const std::shared_ptr<Shape>&);
 
-  friend void swap(CompositeShape& l, CompositeShape& r) noexcept;
+  static void swap(CompositeShape& l, CompositeShape& r) noexcept;
 
 private:
 
