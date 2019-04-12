@@ -1,8 +1,9 @@
-#include "rectangle.hpp"
 #include <iostream>
 #include <cassert>
+#include "rectangle.hpp"
 
-Rectangle::Rectangle(const double width, const double height, const point_t pos):
+
+Rectangle::Rectangle(const double width, const double height, const point_t &pos):
   width_(width),
   height_(height),
   pos_(pos)
@@ -21,7 +22,7 @@ void Rectangle::move(const double x, const double y)
   pos_.y += y;
 }
 
-void Rectangle::move(const point_t point)
+void Rectangle::move(const point_t &point)
 {
   pos_ = point;
 }
@@ -39,16 +40,6 @@ double Rectangle::getHeight()
 point_t Rectangle::getPos()
 {
   return pos_;
-}
-
-void Rectangle::showData()
-{
-  std::cout << "Rectangle data:" << std::endl;
-  std::cout << "Width: " << width_ << std::endl;
-  std::cout << "Height: " << height_ << std::endl;
-  std::cout << "Centre position(x, y): " << pos_.x << "," << pos_.y << std::endl;
-  std::cout << "FrameRect centre in: " << getFrameRect().pos.x << "," << getFrameRect().pos.y << std::endl;
-  std::cout << "FrameRect width and height: " << getWidth() << " | " << getHeight() << std::endl;
 }
 
 rectangle_t Rectangle::getFrameRect() const
