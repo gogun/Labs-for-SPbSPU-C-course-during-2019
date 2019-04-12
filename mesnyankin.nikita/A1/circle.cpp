@@ -1,9 +1,8 @@
 #define _USE_MATH_DEFINES
-#include "circle.hpp"
 #include <cassert>
 #include <cmath>
 #include <iostream>
-
+#include "circle.hpp"
 
 Circle::Circle(const double radius, const point_t &pos):
   radius_(radius),
