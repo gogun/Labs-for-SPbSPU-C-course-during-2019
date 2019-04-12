@@ -32,7 +32,7 @@ void moveXY(korolev::Shape &shape, double dx, double dy)
 
 int main()
 {
-  korolev::Circle circle({12, 12}, -1);
+  korolev::Circle circle({12, 12}, 1.7);
   movePoint(circle, 23, 45);
   moveXY(circle, 45, 12);
 
