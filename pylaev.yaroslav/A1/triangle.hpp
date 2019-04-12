@@ -10,7 +10,6 @@ public:
   Triangle(const point_t &, const double); //equilateral triangle
 
   double getArea() const override;
-  double getArea(const double, const double, const double) const;
   double getSide(const int) const;
   rectangle_t getFrameRect() const override;
   void move(const double, const double) override;
@@ -21,7 +20,8 @@ private:
   const int nTops_ = 3;
   point_t center_;
   point_t coordinates_[3]; //array of tops' coordinates
-  void setCoordinates(const double, const double, const double);
+  void setCoordinates(const double &, const double &, const double &);
+  double getArea(const double &, const double &, const double &) const;
 };
 
 #endif

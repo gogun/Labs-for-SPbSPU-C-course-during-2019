@@ -50,13 +50,13 @@ Triangle::Triangle(const point_t & center, const double side0): //equilateral tr
   setCoordinates(side0, side1, side2);
 }
 
-void Triangle::setCoordinates(const double side0, const double side1, const double side2)
+void Triangle::setCoordinates(const double & side0, const double & side1, const double & side2)
 {
   //set zero-coordinates
   coordinates_[0] = {0, 0};
   coordinates_[2] = {side2, 0};
   coordinates_[1].y = 2 * getArea(side0, side1, side2) / side2;
-  int k = 1;   //k is coefficient of outside angle
+  int k = 1; //k is coefficient of outside angle
   if ((side1 > side0) && (side1 > side2)) {
     k = -1;
   }
@@ -79,7 +79,7 @@ void Triangle::setCoordinates(const double side0, const double side1, const doub
   }
 }
 
-double Triangle::getArea(const double side0, const double side1, const double side2) const //by sides
+double Triangle::getArea(const double & side0, const double & side1, const double & side2) const //by sides
 {
   //s = (p * (p-a) * (p-b) * (p-c))^(1/2)
   double p = 0.0;
