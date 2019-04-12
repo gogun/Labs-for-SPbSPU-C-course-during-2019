@@ -2,7 +2,7 @@
 
 #include <cmath>
 #include <stdexcept>
-
+const double M_PI =3.14;
 korolev::Circle::Circle(const point_t &center, double radius):
   center_(center),
   radius_(radius)

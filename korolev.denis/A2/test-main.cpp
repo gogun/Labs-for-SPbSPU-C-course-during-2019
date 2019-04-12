@@ -15,41 +15,38 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
 BOOST_AUTO_TEST_CASE(constAfterMovingToPoint)
 {
   korolev::Rectangle rectangle({ -3, 2.5 }, 2, 5);
-  const korolev::rectangle_t frameRectBefore = rectangle.getFrameRect();
+  const double widthBefore = rectangle.getFrameRect().width;
+  const double heightBefore = rectangle.getFrameRect().height;
   const double areaBefore = rectangle.getArea();
   rectangle.move({2, 3});
-  const korolev::rectangle_t frameRectAfter = rectangle.getFrameRect();
-  const double areaAfter = rectangle.getArea();
-  BOOST_CHECK_CLOSE(frameRectBefore.width, frameRectAfter.width, EPSILON);
-  BOOST_CHECK_CLOSE(frameRectBefore.height, frameRectAfter.height, EPSILON);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
+  BOOST_CHECK_CLOSE(widthBefore, rectangle.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(heightBefore, rectangle.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, rectangle.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(constAfterMovingToDxDy)
 {
   korolev::Rectangle rectangle({ -3, 2.5 }, 2, 5);
-  const korolev::rectangle_t frameRectBefore = rectangle.getFrameRect();
+  const double widthBefore = rectangle.getFrameRect().width;
+  const double heightBefore = rectangle.getFrameRect().height;
   const double areaBefore = rectangle.getArea();
   rectangle.move(2, 3);
-  const korolev::rectangle_t frameRectAfter = rectangle.getFrameRect();
-  const double areaAfter = rectangle.getArea();
-  BOOST_CHECK_CLOSE(frameRectBefore.width, frameRectAfter.width, EPSILON);
-  BOOST_CHECK_CLOSE(frameRectBefore.height, frameRectAfter.height, EPSILON);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
+  BOOST_CHECK_CLOSE(widthBefore, rectangle.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(heightBefore, rectangle.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, rectangle.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(constAfterScaling)
 {
   korolev::Rectangle rectangle({ 5.2, -8.1 }, 5, 6);
-  const korolev::rectangle_t frameRectBefore = rectangle.getFrameRect();
+  const double widthBefore = rectangle.getFrameRect().width;
+  const double heightBefore = rectangle.getFrameRect().height;
   const double areaBefore = rectangle.getArea();
   const double coefficient = 2.7;
   rectangle.scale(coefficient);
-  const korolev::rectangle_t frameRectAfter = rectangle.getFrameRect();
-  const double areaAfter = rectangle.getArea();
-  BOOST_CHECK_CLOSE(areaBefore * coefficient * coefficient, areaAfter, EPSILON);
-  BOOST_CHECK_CLOSE(frameRectBefore.width * coefficient, frameRectAfter, EPSILON);
-  BOOST_CHECK_CLOSE(frameRectBefore.height * coefficient, frameRectAfter, EPSILON);
+  BOOST_CHECK_CLOSE(widthBefore * coefficient, rectangle.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(heightBefore * coefficient, rectangle.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore * coefficient * coefficient, rectangle.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(invalidWidth)
@@ -81,10 +78,8 @@ BOOST_AUTO_TEST_CASE(constAfterMovingPoint)
   const double radiusBefore = circle.getRadius();
   const double areaBefore = circle.getArea();
   circle.move({5.3, 7});
-  const double radiusAfter = circle.getRadius();
-  const double areaAfter = circle.getArea();
-  BOOST_CHECK_CLOSE(radiusBefore, radiusAfter, EPSILON);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
+  BOOST_CHECK_CLOSE(radiusBefore, circle.getRadius(), EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, circle.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(constAfterMovingDxDy)
@@ -93,10 +88,8 @@ BOOST_AUTO_TEST_CASE(constAfterMovingDxDy)
   const double radiusBefore = circle.getRadius();
   const double areaBefore = circle.getArea();
   circle.move(5.3, 7);
-  const double radiusAfter = circle.getRadius();
-  const double areaAfter = circle.getArea();
-  BOOST_CHECK_CLOSE(radiusBefore, radiusAfter, EPSILON);
-  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
+  BOOST_CHECK_CLOSE(radiusBefore, circle.getRadius(), EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, circle.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(constAfterScaling)
@@ -106,10 +99,8 @@ BOOST_AUTO_TEST_CASE(constAfterScaling)
   const double radiusBefore = circle.getRadius();
   const double coefficient = 5.6;
   circle.scale(coefficient);
-  const double areaAfter = circle.getArea();
-  const double radiusAfter = circle.getRadius();
-  BOOST_CHECK_CLOSE(areaBefore * coefficient * coefficient, areaAfter, EPSILON);
-  BOOST_CHECK_CLOSE(radiusBefore * coefficient, radiusAfter, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore * coefficient * coefficient, circle.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(radiusBefore * coefficient, circle.getRadius(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(invalidRadius)

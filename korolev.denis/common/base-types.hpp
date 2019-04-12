@@ -3,11 +3,13 @@
 
 namespace korolev
 {
-  struct point_t {
+  struct point_t
+  {
     double x, y;
   };
 
-  struct rectangle_t {
+  struct rectangle_t
+  {
     point_t pos;
     double width, height;
   };

@@ -2,9 +2,9 @@
 
 #include <stdexcept>
 
-korolev::Rectangle::Rectangle(const point_t &center, double wight, double height):
+korolev::Rectangle::Rectangle(const point_t &center, double width, double height):
   center_(center),
-  width_(wight),
+  width_(width),
   height_(height)
 {
   if ((width_ <= 0.0) || (height_ <= 0.0))
@@ -13,9 +13,9 @@ korolev::Rectangle::Rectangle(const point_t &center, double wight, double height
   }
 }
 
-korolev::Rectangle::Rectangle(double x, double y, double wight, double height):
+korolev::Rectangle::Rectangle(double x, double y, double width, double height):
   center_({x, y}),
-  width_(wight),
+  width_(width),
   height_(height)
 {
   if ((width_ <= 0.0) || (height_ <= 0.0))
