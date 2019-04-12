@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "triangle.hpp"
 
 int main()
 {
@@ -28,6 +29,19 @@ int main()
   std::cout << "Coordinate shift:" << std::endl;
   shape->printInfo();
   shape->move({7.8, -9.0});
+  std::cout << "Point shift:" << std::endl;
+  shape->printInfo();
+  std::cout << std::endl;
+  //Triangle
+  Triangle objTriangle({4.0, 10.0}, {15.0, 6.0}, {1.0, 1.0});
+  shape = &objTriangle;
+
+  std::cout << "Triangle:" << std::endl;
+  shape->printInfo();
+  shape->move(5.4, 7.6);
+  std::cout << "Coordinate shift:" << std::endl;
+  shape->printInfo();
+  shape->move({1.0, 3.0});
   std::cout << "Point shift:" << std::endl;
   shape->printInfo();
   std::cout << std::endl;
