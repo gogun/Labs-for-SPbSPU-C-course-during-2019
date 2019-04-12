@@ -7,7 +7,7 @@ shestakova::Circle::Circle(point_t pos, double radius) :
   pos_(pos),
   radius_(radius)
 {
-  if (radius_ < 0)
+  if (radius_ <= 0)
   {
     throw std::invalid_argument("Circle's radius can't be negative.");
   }
