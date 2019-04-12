@@ -8,7 +8,7 @@ BOOST_AUTO_TEST_SUITE(testShape)
 
 BOOST_AUTO_TEST_CASE(unalteredRectangleAfterMove1)
 {
-	lutsenko::Rectangle rect({10.0, 15.0, 20.0, 25.0});
+  lutsenko::Rectangle rect({10.0, 15.0, 20.0, 25.0});
 	lutsenko::rectangle_t rect_before = rect.getFrameRect();
 	double area_before = rect.getArea();
 	rect.move({100.0, 200.0});
