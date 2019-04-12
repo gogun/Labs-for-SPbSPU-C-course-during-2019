@@ -13,6 +13,8 @@ public:
   point_t getPos() const;
   double getWidth() const;
   double getHeight() const;
+  void printParameters() const;
+
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(double dx, double dy) override;
@@ -23,7 +25,6 @@ private:
   point_t centre_;
   double width_;
   double height_;
-
 };
 
 #endif //RECTANGLE_HPP

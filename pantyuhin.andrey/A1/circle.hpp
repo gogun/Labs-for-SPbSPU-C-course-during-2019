@@ -12,6 +12,7 @@ public:
   
   point_t getPos() const;
   double getRadius() const;
+  void printParameters() const;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(double dx, double dy) override;

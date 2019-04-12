@@ -30,6 +30,13 @@ double Rectangle::getHeight() const
   return height_;
 }
 
+void Rectangle::printParameters() const
+{
+  point_t point = getPos();
+  std::cout << "rectangle: x=" << point.x << ", y=" << point.y << ", width="
+      << getWidth() << ", height=" << getHeight() << std::endl << std::endl;
+}
+
 double Rectangle::getArea() const
 {
   return (width_ * height_);
