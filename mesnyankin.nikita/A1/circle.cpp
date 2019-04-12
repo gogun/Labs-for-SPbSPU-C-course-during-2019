@@ -1,12 +1,20 @@
 #define _USE_MATH_DEFINES
 #include "circle.hpp"
-#include <iostream>
 #include <cassert>
 #include <cmath>
+#include <iostream>
 
-Circle::Circle(const double radius, const point_t pos):
+
+Circle::Circle(const double radius, const point_t &pos):
   radius_(radius),
   pos_(pos)
+{
+  assert(radius > 0);
+}
+
+Circle::Circle(const double radius, const double posx, const double posy) :
+  radius_(radius),
+  pos_({ posx, posy })
 {
   assert(radius > 0);
 }
@@ -22,7 +30,7 @@ void Circle::move(const double x, const double y)
   pos_.y += y;
 }
 
-void Circle::move(const point_t point)
+void Circle::move(const point_t &point)
 {
   pos_ = point;
 }
@@ -36,16 +44,6 @@ double Circle::getRadius()
 point_t Circle::getPos()
 {
   return pos_;
-}
-
-void Circle::showData()
-{
-  std::cout << "Circle data:" << std::endl;
-  std::cout << "Radius: " << radius_ << std::endl;
-  std::cout << "Centre position(x, y): " << pos_.x << "," << pos_.y << std::endl;
-  std::cout << "FrameRect centre in: " << getFrameRect().pos.x << "," << getFrameRect().pos.y << std::endl;
-  std::cout << "FrameRect width and height (are equal): " 
-      << getRadius() * 2 << " | " << getRadius() * 2 << std::endl;
 }
 
 rectangle_t Circle::getFrameRect() const
