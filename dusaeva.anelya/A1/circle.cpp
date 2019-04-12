@@ -8,17 +8,17 @@ Circle::Circle(const point_t &position, double radius):
   position_(position),
   radius_(radius)
 {
-  assert(radius >= 0);
+  assert(radius > 0);
 }
 
 double Circle::getArea() const
 {
-  return M_PI*pow(radius_, 2);
+  return (M_PI * pow(radius_, 2));
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {radius_*2, radius_*2, position_};
+  return {radius_ * 2, radius_ * 2, position_};
 }
 
 void Circle::move(double dx, double dy)
