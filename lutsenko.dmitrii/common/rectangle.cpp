@@ -6,13 +6,13 @@ lutsenko::Rectangle::Rectangle(const rectangle_t & rect) :
   rect_(rect)
 {
   if (rect.width <= 0)
-	{
-		throw std::invalid_argument("rectangle width should be greater than	zero");
-	};
-	if (rect.height <= 0)
-	{
-		throw std::invalid_argument("rectangle height should be greater than	zero");
-	};
+  {
+    throw std::invalid_argument("rectangle width should be greater than zero");
+  };
+  if (rect.height <= 0)
+  {
+    throw std::invalid_argument("rectangle height should be greater than zero");
+  };
 }
 
 double lutsenko::Rectangle::getArea() const
@@ -39,9 +39,9 @@ void lutsenko::Rectangle::move(double x, double y)
 void lutsenko::Rectangle::scale(double coefficient)
 {
   if (coefficient <= 0)
-	{
-		throw std::invalid_argument("coefficient should be greater than	zero");
-	};
+  {
+    throw std::invalid_argument("coefficient should be greater than	zero");
+  };
   rect_.height *= coefficient;
   rect_.width *= coefficient;
 }

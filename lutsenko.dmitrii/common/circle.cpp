@@ -9,9 +9,9 @@ lutsenko::Circle::Circle(double radius, const point_t & pos):
   pos_(pos)
 {
   if (radius <= 0)
-	{
-		throw std::invalid_argument("radius should be greater than	zero");
-	};
+  {
+    throw std::invalid_argument("radius should be greater than zero");
+  };
 }
 
 double lutsenko::Circle::getArea() const
@@ -38,8 +38,8 @@ void lutsenko::Circle::move(double dx, double dy)
 void lutsenko::Circle::scale(double coefficient)
 {
   if (coefficient <= 0)
-	{
-		throw std::invalid_argument("coefficient should be greater than	zero");
-	};
+  {
+  throw std::invalid_argument("coefficient should be greater than	zero");
+  };
   radius_ *= coefficient;
 }
