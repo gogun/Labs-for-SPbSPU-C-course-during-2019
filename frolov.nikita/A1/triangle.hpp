@@ -17,7 +17,6 @@ private:
   point_t point1_;
   point_t point2_;
   point_t center_;
-  double findFrameParametrs(double parm[]) const;
 };
 
 #endif

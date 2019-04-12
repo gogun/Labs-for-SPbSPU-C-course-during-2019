@@ -3,6 +3,25 @@
 #include <cassert>
 #include <cmath>
 
+double findFrameParametrs(const double parm[])
+{
+  double maxpoint = parm[0];
+  double minpoint = parm[0];
+  for (int i = 1; i < 3; i++)
+  {
+    if (parm[i] > maxpoint)
+    {
+      maxpoint = parm[i];
+    };
+    if (parm[i] < minpoint)
+    {
+      minpoint = parm[i];
+    };
+  };
+
+  return (maxpoint - minpoint);
+}
+
 Triangle::Triangle(point_t point0, point_t point1, point_t point2) :
   point0_(point0),
   point1_(point1),
@@ -10,10 +29,9 @@ Triangle::Triangle(point_t point0, point_t point1, point_t point2) :
 {
   double parmx[] = {point0_.x, point1_.x, point2_.x};
   double parmy[] = {point0_.y, point1_.y, point2_.y};
-  point_t heightandwidth = {findFrameParametrs(parmx), findFrameParametrs(parmy)};
-  assert((heightandwidth.x != 0) && (heightandwidth.y != 0));
-  center_.x = (point0.x + point1.x + point2.x) / 3;
-  center_.y = (point0.y + point1.y + point2.y) / 3;
+  point_t heightAndWidth = {findFrameParametrs(parmx), findFrameParametrs(parmy)};
+  assert((heightAndWidth.x != 0) && (heightAndWidth.y != 0));
+  center_ = {(point0_.x + point1_.x + point2_.x) / 3, (point0_.y + point1_.y + point2_.y) / 3};
 }
 
 double Triangle::getArea() const
@@ -26,25 +44,6 @@ double Triangle::getArea() const
     * (point0_.y - point2_.y));
   double per = (modvector1 + modvector2 + modvector3) / 2;
   return sqrt(per * (per - modvector1) * (per - modvector2) * (per - modvector3));
-}
-
-double Triangle::findFrameParametrs(double parm[]) const
-{
-  double max = parm[0];
-  double min = parm[0];
-  for (int i = 1; i < 3; i++)
-  {
-    if (parm[i] > max)
-    {
-      max = parm[i];
-    };
-    if (parm[i] < min)
-    {
-      min = parm[i];
-    };
-  };
-
-  return (max - min);
 }
 
 rectangle_t Triangle::getFrameRect() const
