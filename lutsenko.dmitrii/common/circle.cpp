@@ -39,7 +39,7 @@ void lutsenko::Circle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-  throw std::invalid_argument("coefficient should be greater than	zero");
-  };
+    throw std::invalid_argument("coefficient should be greater than zero");
+  }
   radius_ *= coefficient;
 }
