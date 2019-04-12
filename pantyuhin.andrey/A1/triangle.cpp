@@ -62,64 +62,12 @@ double Triangle::getArea() const
   return (sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3)));
 }
 
-double getMax(double number1, double number2, double number3)
-{
-  if (number1 > number2)
-  {
-    if (number1 > number3)
-    {
-      return (number1);
-    }
-    else
-    {
-      return (number3);
-    }
-  }
-  else
-  {
-    if (number2 > number3)
-    {
-      return (number2);
-    }
-    else
-    {
-      return (number3);
-    }
-  }
-}
-
-double getMin(double number1, double number2, double number3)
-{
-  if (number1 < number2)
-  {
-    if (number1 < number3)
-    {
-      return (number1);
-    }
-    else
-    {
-      return (number3);
-    }
-  }
-  else
-  {
-    if (number2 < number3)
-    {
-      return (number2);
-    }
-    else
-    {
-      return (number3);
-    }
-  }
-}
-
 rectangle_t Triangle::getFrameRect() const
 {
-  double maxX = getMax(vertex_[0].x, vertex_[1].x, vertex_[2].x);
-  double maxY = getMax(vertex_[0].y, vertex_[1].y, vertex_[2].y);
-  double minX = getMin(vertex_[0].x, vertex_[1].x, vertex_[2].x);
-  double minY = getMin(vertex_[0].y, vertex_[1].y, vertex_[2].y);
+  double maxX = std::max(std::max(vertex_[0].x, vertex_[1].x), vertex_[2].x);
+  double maxY = std::max(std::max(vertex_[0].y, vertex_[1].y), vertex_[2].y);
+  double minX = std::min(std::min(vertex_[0].x, vertex_[1].x), vertex_[2].x);
+  double minY = std::min(std::min(vertex_[0].y, vertex_[1].y), vertex_[2].y);
 
   return {{(maxX - minX)/2, (maxY - minY)/2}, maxX - minX, maxY - minY};
 }
