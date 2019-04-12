@@ -116,6 +116,9 @@ BOOST_AUTO_TEST_CASE(invalidScaleArgumentsTriangle)
   BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, -4, 6), std::invalid_argument);
   BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, -3, 4, 6), std::invalid_argument);
   BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, 4, -6), std::invalid_argument);
+  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, 10, 6), std::invalid_argument);
+  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, 4, 10), std::invalid_argument);
+  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 10, 4, 5), std::invalid_argument);
 
   neupokoev::Triangle testTriangle({ 1, 2 }, 3, 4, 6);
   BOOST_CHECK_THROW(testTriangle.scale(-5), std::invalid_argument);
