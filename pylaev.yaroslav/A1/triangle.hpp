@@ -5,11 +5,12 @@
 
 class Triangle: public Shape {
 public:
-  Triangle(const point_t &, const double *);
+  Triangle(const point_t &, const double, const double, const double);
+  Triangle(const point_t &, const double, const double); //isosceles triangle
   Triangle(const point_t &, const double); //equilateral triangle
 
-  double getArea(const double *) const;
   double getArea() const override;
+  double getArea(const double, const double, const double) const;
   double getSide(const int) const;
   rectangle_t getFrameRect() const override;
   void move(const double, const double) override;
@@ -20,7 +21,7 @@ private:
   const int nTops_ = 3;
   point_t center_;
   point_t coordinates_[3]; //array of tops' coordinates
-  void setCoordinates(const double *sides);
+  void setCoordinates(const double, const double, const double);
 };
 
 #endif

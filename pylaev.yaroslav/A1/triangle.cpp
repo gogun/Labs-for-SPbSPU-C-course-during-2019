@@ -5,47 +5,62 @@
 #include <math.h>
 #include <iostream>
 
-Triangle::Triangle(const point_t & center, const double * sides):
+Triangle::Triangle(const point_t & center, const double side0, const double side1, const double side2):
   center_(center)
 {
-//verification
-  for (int i = 0; i < nTops_; i++) {
-    if (sides[i] <= 0.0) {
-      throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
-    }
-    if (sides[i] >= sides[(i + 1) % nTops_] + sides[(i + 2) % nTops_]) {
-      throw std::invalid_argument("ERROR: Such triangle is impossible");
-    }
-  }
-  setCoordinates(sides);
-}
-
-Triangle::Triangle(const point_t & center, const double side):
-  center_(center)
-{
-//verification
-  if (side <= 0) {
+  //verification
+  if ((side0 <= 0.0) || (side1 <= 0.0) || (side2 <= 0.0)) {
     throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
   }
-//inicialization
-double sides[nTops_];
-  for (int i = 0; i < nTops_; i++) {
-    sides[i] = side;
+  if ((side0 >= side1 + side2) || (side1 >= side0 + side2) || (side2 >= side0 + side1)) {
+    throw std::invalid_argument("ERROR: Such triangle is impossible");
   }
-  setCoordinates(sides);
+
+  setCoordinates(side0, side1, side2);
 }
 
-void Triangle::setCoordinates(const double *sides)
+Triangle::Triangle(const point_t & center, const double side0, const double side1): //isosceles triangle
+  center_(center)
+{
+  const double side2 = side1; //isosceles
+  //verification
+  if ((side0 <= 0.0) || (side1 <= 0.0)) {
+    throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
+  }
+  if ((side0 >= side1 + side2) || (side1 >= side0 + side2)) {
+    throw std::invalid_argument("ERROR: Such triangle is impossible");
+  }
+
+  setCoordinates(side0, side1, side2);
+}
+
+Triangle::Triangle(const point_t & center, const double side0): //equilateral triangle
+  center_(center)
+{
+  const double side1 = side0; //equilateral
+  const double side2 = side0; //equilateral
+  //verification
+  if (side0 <= 0.0) {
+    throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
+  }
+  if (side0 >= side1 + side2) {
+    throw std::invalid_argument("ERROR: Such triangle is impossible");
+  }
+
+  setCoordinates(side0, side1, side2);
+}
+
+void Triangle::setCoordinates(const double side0, const double side1, const double side2)
 {
   //set zero-coordinates
   coordinates_[0] = {0, 0};
-  coordinates_[2] = {sides[2], 0};
-  coordinates_[1].y = 2 * getArea(sides) / sides[2];
+  coordinates_[2] = {side2, 0};
+  coordinates_[1].y = 2 * getArea(side0, side1, side2) / side2;
   int k = 1;   //k is coefficient of outside angle
-  if ((sides[1] > sides[0]) && (sides[1] > sides[2])) {
+  if ((side1 > side0) && (side1 > side2)) {
     k = -1;
   }
-  coordinates_[1].x = k * sqrt(pow(sides[0], 2) - pow(coordinates_[1].y, 2));
+  coordinates_[1].x = k * sqrt(pow(side0, 2) - pow(coordinates_[1].y, 2));
   //set center relatively zero-coordinates
   point_t zeroCenter = {0, 0};
   for (int i = 0; i < nTops_; i++) {
@@ -64,19 +79,13 @@ void Triangle::setCoordinates(const double *sides)
   }
 }
 
-double Triangle::getArea(const double * sides) const //by sides
+double Triangle::getArea(const double side0, const double side1, const double side2) const //by sides
 {
   //s = (p * (p-a) * (p-b) * (p-c))^(1/2)
   double p = 0.0;
-  for (int i = 0; i < nTops_; i++) {
-    p += sides[i]; //perimeter
-  }
-  p /= 2; //semi-perimeter
+  p = (side0 + side1 + side2) / 2; //semi-perimeter
   double s = 1.0;
-  for (int i = 0; i < nTops_; i++) {
-    s *= (p - sides[i]);
-  }
-  s = sqrt((p * s));
+  s = sqrt((p * (p - side0) * (p - side1) * (p - side2)));
 
   return s;
 }
@@ -85,15 +94,15 @@ double Triangle::getArea() const //by coordinates
 {
   const int i = 0;
 
-  point_t side1 = {0.0, 0.0};
-  side1.x = coordinates_[i + 1].x - coordinates_[i].x;
-  side1.y = coordinates_[i + 1].y - coordinates_[i].y;
+  point_t side0 = {0.0, 0.0};
+  side0.x = coordinates_[i + 1].x - coordinates_[i].x;
+  side0.y = coordinates_[i + 1].y - coordinates_[i].y;
 
   point_t side2 = {0.0, 0.0};
   side2.x = coordinates_[i + 2].x - coordinates_[i].x;
   side2.y = coordinates_[i + 2].y - coordinates_[i].y;
 
-  return (0.5 * abs((side1.x * side2.y - side1.y * side2.x)));
+  return (0.5 * abs((side0.x * side2.y - side0.y * side2.x)));
 }
 
 double Triangle::getSide(const int i) const
