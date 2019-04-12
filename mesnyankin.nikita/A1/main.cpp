@@ -1,102 +1,43 @@
+#include <cassert>
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include "shape.hpp"
+#include "triangle.hpp"
 
+void showStatus(const Shape *shape)
+{
+  assert(shape != nullptr);
+  std::cout << "Current area and frame rectangle are: ";
+  std::cout << shape->getArea() << "\n";
+  rectangle_t frame = shape->getFrameRect();
+  std::cout << frame.width << " | " << frame.height << " | " << frame.pos.x << "," << frame.pos.y << "\n";
+}
+
+void moveFigure(Shape *shape, const double x, const double y)
+{
+  assert(shape != nullptr);
+  shape->move(x,y);
+}
 
 int main()
 {
-  Rectangle rectangle_object(10, 10, {20,20});
- 
-  std::cout << "Rectangle width is " << rectangle_object.getWidth() << std::endl;
-  std::cout << "Rectangle height is " << rectangle_object.getHeight() << std::endl;
-  std::cout << "Rectangle centre position is " << rectangle_object.getPos().x << " // "
-      << rectangle_object.getPos().y << std::endl;
-  std::cout << "Rectangle area is " << rectangle_object.getArea() << std::endl;
-  std::cout << "Frame rectangle is the same: " << rectangle_object.getFrameRect().width
-      << " / " << rectangle_object.getFrameRect().height
-          << " / with the centre in point "
-              << rectangle_object.getFrameRect().pos.x << " / "
-                  << rectangle_object.getFrameRect().pos.y << std::endl;
-  rectangle_object.showData();
-  std::cout << "==================================" << std::endl;
-  std::cout << "Let's try to move our rectangle by void move(double, double)!" << std::endl;
-  
-  rectangle_object.move(5,5);
-  
-  std::cout << "Rectangle width is " << rectangle_object.getWidth() << std::endl;
-  std::cout << "Rectangle height is " << rectangle_object.getHeight() << std::endl;
-  std::cout << "Rectangle centre position is "
-      << rectangle_object.getPos().x
-          << " // " << rectangle_object.getPos().y << std::endl;
-  std::cout << "Rectangle area is " << rectangle_object.getArea() << std::endl;
-  std::cout << "Frame rectangle is the same: "
-      << rectangle_object.getFrameRect().width << " / "
-          << rectangle_object.getFrameRect().height << " / with the centre in point "
-              << rectangle_object.getFrameRect().pos.x << " / "
-                  << rectangle_object.getFrameRect().pos.y << std::endl;
-  rectangle_object.showData();
-  std::cout << "==================================" << std::endl;
+  Rectangle rectangle_object(7, 7, {20,20});
 
-  std::cout << "Let's try to move our rectangle by void move(point_t)!" << std::endl;
-  rectangle_object.move({30,30});
+  showStatus(&rectangle_object);
+  moveFigure(&rectangle_object, 3, 3);
+  showStatus(&rectangle_object);
 
-  std::cout << "Rectangle width is " << rectangle_object.getWidth() << std::endl;
-  std::cout << "Rectangle height is " << rectangle_object.getHeight() << std::endl;
-  std::cout << "Rectangle centre position is "
-      << rectangle_object.getPos().x << " // "
-          << rectangle_object.getPos().y << std::endl;
-  std::cout << "Rectangle area is " << rectangle_object.getArea() << std::endl;
-  std::cout << "Frame rectangle is the same: "
-      << rectangle_object.getFrameRect().width << " / "
-          << rectangle_object.getFrameRect().height << " / with the centre in point "
-              << rectangle_object.getFrameRect().pos.x << " / "
-                  << rectangle_object.getFrameRect().pos.y << std::endl;
-  rectangle_object.showData();
-  std::cout << "==================================" << std::endl;
+  Circle circle_object(5,5,5);
 
-  Circle circle_object(5, { 5,5 });
+  showStatus(&circle_object);
+  moveFigure(&circle_object, 3, 3);
+  showStatus(&circle_object);
 
-  std::cout << "Circle centre x is " << circle_object.getPos().x
-      << " and y: " << circle_object.getPos().y << std::endl;
-  std::cout << "Circle radius is " << circle_object.getRadius() << std::endl;
-  std::cout << "Circle area is " << circle_object.getArea() << std::endl;
-  std::cout << "Circle frame rectagle characteristics: " << std::endl;
-  std::cout << "Width: " << circle_object.getFrameRect().width << std::endl;
-  std::cout << "Height: " << circle_object.getFrameRect().height << std::endl;
-  std::cout << "Position: " << circle_object.getFrameRect().pos.x
-      << "," << circle_object.getFrameRect().pos.y << std::endl;
-  circle_object.showData();
+  Triangle triangle_object({ 5,5 }, { 3,2 }, { 4,4 });
 
-  std::cout << "==================================" << std::endl;
-  std::cout << "Let's try to move circle centre by void(double, double)!" << std::endl;
-  circle_object.move(7, 7);
-
-  std::cout << "Circle centre x is " << circle_object.getPos().x
-      << " and y: " << circle_object.getPos().y << std::endl;
-  std::cout << "Circle radius is " << circle_object.getRadius() << std::endl;
-  std::cout << "Circle area is " << circle_object.getArea() << std::endl;
-  std::cout << "Circle frame rectagle characteristics: " << std::endl;
-  std::cout << "Width: " << circle_object.getFrameRect().width << std::endl;
-  std::cout << "Height: " << circle_object.getFrameRect().height << std::endl;
-  std::cout << "Position: " << circle_object.getFrameRect().pos.x
-      << "," << circle_object.getFrameRect().pos.y << std::endl;
-  circle_object.showData();
-
-  std::cout << "==================================" << std::endl;
-  std::cout << "Let's try to move circle centre by void(point_t)!" << std::endl;
-  circle_object.move({ 7, 7 });
-
-  std::cout << "Circle centre x is " << circle_object.getPos().x
-      << " and y: " << circle_object.getPos().y << std::endl;
-  std::cout << "Circle radius is " << circle_object.getRadius() << std::endl;
-  std::cout << "Circle area is " << circle_object.getArea() << std::endl;
-  std::cout << "Circle frame rectagle characteristics: " << std::endl;
-  std::cout << "Width: " << circle_object.getFrameRect().width << std::endl;
-  std::cout << "Height: " << circle_object.getFrameRect().height << std::endl;
-  std::cout << "Position: " << circle_object.getFrameRect().pos.x
-      << "," << circle_object.getFrameRect().pos.y << std::endl;
-  circle_object.showData();
+  showStatus(&triangle_object);
+  moveFigure(&triangle_object, 3, 3);
+  showStatus(&triangle_object);
 
   return 0;
 }
