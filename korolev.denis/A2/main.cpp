@@ -32,8 +32,6 @@ void moveXY(korolev::Shape &shape, double dx, double dy)
 
 int main()
 {
-  try
-  {
   korolev::Circle circle({12, 12}, 1.7);
   movePoint(circle, 23, 45);
   moveXY(circle, 45, 12);
@@ -41,11 +39,6 @@ int main()
   korolev::Rectangle rectangle(12, 34, 23 , 56);
   movePoint(rectangle, 67, 78);
   moveXY(rectangle, 17, 34);
-
-    } catch (const std::invalid_argument& exc) {
-    std::cerr << "error: invalid parameter \"" << exc.what() << "\"" << std::endl;
-    return 1;
-  }
 
   return 0;
 }
