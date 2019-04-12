@@ -44,6 +44,7 @@ BOOST_AUTO_TEST_CASE(areaPermanenceAfterMovingToPoint)
   rectangle.move({0, 0});
   BOOST_CHECK_CLOSE(rectangle.getArea(), rectangleArea, Epsilon);
 }
+
 BOOST_AUTO_TEST_CASE(areaPermanenceAfterMovingToCoordinates)
 {
   skudar::Rectangle rectangle(4, 2, 3, 5);
@@ -77,7 +78,6 @@ BOOST_AUTO_TEST_CASE(incorrectCoefficientOfScaling)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
-
 
 
 
