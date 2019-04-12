@@ -46,7 +46,7 @@ int main()
 
   std::cout << "\n\n";
 
-  krasnopyorov::Rectangle objRect({-2.5, 1.0, {0, 0}});
+  krasnopyorov::Rectangle objRect({2.5, 1.0, {0, 0}});
   pointerShape = &objRect;
 
   std::cout << "Square of rectangle: " << pointerShape->getArea() << "\n";
