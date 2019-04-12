@@ -9,10 +9,10 @@ int main()
   ustinov::Circle objcircle({2, 2}, 3);
   ustinov::Shape * shp = &objcircle;
   shp->show();
-  std::cout << "move Circle at point" << std::endl;
+  std::cout << "move Circle" << std::endl;
   shp->move({-10, 12});
   shp->show();
-  std::cout << "move Circle at the dx, dy" << std::endl;
+  std::cout << "move Circle" << std::endl;
   shp->move(1, -2);
   shp->show();
   shp->scale(2);
