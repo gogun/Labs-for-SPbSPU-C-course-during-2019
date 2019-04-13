@@ -18,6 +18,7 @@ double Triangle::getArea() const
 {
   return ((std::abs(((a_.x - c_.x) * (b_.y - c_.y)) - ((a_.y - c_.y) * (b_.x - c_.x))) / 2));
 }
+
 rectangle_t Triangle::getFrameRect() const
 {
   double min_x = std::min(std::min(a_.x, b_.x), c_.x);
@@ -26,6 +27,7 @@ rectangle_t Triangle::getFrameRect() const
   double w = std::fabs(std::max(std::max(a_.x, b_.x), c_.x) - min_y);
   return rectangle_t{ w, h,pos_ };
 }
+
 void Triangle::move(const point_t &point)
 {
   a_.x += point.x - pos_.x;
@@ -36,6 +38,7 @@ void Triangle::move(const point_t &point)
   c_.y += point.y - pos_.y;
   pos_ = point;
 }
+
 void Triangle::move(double dx, double dy)
 {
   pos_.x += dx;
@@ -47,6 +50,7 @@ void Triangle::move(double dx, double dy)
   b_.y += dy;
   c_.y += dy;
 }
+
 void Triangle::print() const
 {
   std::cout << '\n';

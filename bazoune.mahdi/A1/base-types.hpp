@@ -1,6 +1,5 @@
 #ifndef BASE_TYPES_H
 #define BASE_TYPES_H
-#include <iostream>
 
 struct point_t
 {
