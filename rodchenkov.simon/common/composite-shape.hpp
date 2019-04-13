@@ -18,24 +18,24 @@ public:
 
   double                 getArea()                const noexcept override;
   rectangle_t            getFrameRect()           const noexcept override; 
-  std::shared_ptr<Shape> cloneShared()            const          override;
+  std::unique_ptr<Shape> cloneUnique()            const          override;
   void                   printData(std::ostream&) const          override;
   void                   move(const point_t&)           noexcept override;
   void                   move(double, double)           noexcept override;
   void                   scale(double)                           override;
 
   std::size_t getSize() const noexcept;
-  void add(const std::shared_ptr<Shape>&);
-
-  static void swap(CompositeShape& l, CompositeShape& r) noexcept;
+  void add(const std::unique_ptr<Shape>&);
+  void add(std::unique_ptr<Shape>&&);
 
 private:
 
   std::size_t                               size_;
   rectangle_t                               frame_rect_{};
-  std::unique_ptr<std::shared_ptr<Shape>[]> shapes_;
+  std::unique_ptr<std::unique_ptr<Shape>[]> shapes_;
 
   void computeFrameRect() noexcept;
+  static void swap(CompositeShape& l, CompositeShape& r) noexcept;
 };
 
 } // namespace rodchenkov

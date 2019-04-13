@@ -24,11 +24,6 @@ rodchenkov::rectangle_t rodchenkov::Circle::getFrameRect() const noexcept
   return frame_rect_;
 }
 
-std::shared_ptr<rodchenkov::Shape> rodchenkov::Circle::cloneShared() const
-{
-  return std::make_shared<Circle>(*this);
-}
-
 void rodchenkov::Circle::printData(std::ostream& stream) const
 {
   stream << "Shape : Circle\n"
@@ -61,4 +56,9 @@ void rodchenkov::Circle::scale(const double ratio)
 double rodchenkov::Circle::getRadius() const noexcept
 {
   return radius_;
+}
+
+std::unique_ptr<rodchenkov::Shape> rodchenkov::Circle::cloneUnique() const
+{
+  return std::make_unique<Circle>(*this);
 }
