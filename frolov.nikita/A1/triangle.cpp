@@ -25,10 +25,15 @@ double Triangle::getArea() const
   return sqrt(per * (per - modvector1) * (per - modvector2) * (per - modvector3));
 }
 
+bool comp(double a, double b)
+{
+  return a < b;
+}
+
 rectangle_t Triangle::getFrameRect() const
 {
-  return {std::max({point0_.x, point1_.x, point2_.x}) - std::min({point0_.x, point1_.x, point2_.x}),
-    std::max({point0_.y, point1_.y, point2_.y}) - std::min({point0_.y, point1_.y, point2_.y}), center_};
+  return {(std::max({point0_.x, point1_.x, point2_.x}, comp) - std::min({point0_.x, point1_.x, point2_.x}, comp)),
+    (std::max({point0_.y, point1_.y, point2_.y}, comp) - std::min({point0_.y, point1_.y, point2_.y}, comp)), center_};
 }
 
 void Triangle::move(double dx, double dy)
