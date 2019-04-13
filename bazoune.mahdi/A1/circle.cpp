@@ -29,15 +29,13 @@ rectangle_t Circle::getFrameRect() const
   std::cout << "circle ray = " << r_ << std::endl;
 }
 
-point_t Circle::move(const point_t& point)
+void Circle::move(const point_t& point)
 {
   center_ = point;
-  return{center_};
 }
 
-point_t Circle::move(double dx, double dy)
+void Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
-  return{center_.x,center_.y};
 }

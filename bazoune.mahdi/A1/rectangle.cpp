@@ -31,15 +31,13 @@ void Rectangle::print() const
   std::cout << "height = " << height_<<std::endl;
 }
 
-point_t Rectangle::move(const point_t& point)
+void Rectangle::move(const point_t& point)
 {
   center_ = point;
-  return{center_};
 }
 
-point_t Rectangle::move(double dx, double dy)
+void Rectangle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
-  return{center_.x,center_.y};
 }

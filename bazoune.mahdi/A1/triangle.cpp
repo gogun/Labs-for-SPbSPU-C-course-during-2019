@@ -26,7 +26,7 @@ rectangle_t Triangle::getFrameRect() const
   double w = std::fabs(std::max(std::max(a_.x, b_.x), c_.x) - min_y);
   return rectangle_t{ w, h,pos_ };
 }
-point_t Triangle::move(const point_t &point)
+void Triangle::move(const point_t &point)
 {
   a_.x += point.x - pos_.x;
   b_.x += point.x - pos_.x;
@@ -35,9 +35,8 @@ point_t Triangle::move(const point_t &point)
   b_.y += point.y - pos_.y;
   c_.y += point.y - pos_.y;
   pos_ = point;
-  return pos_;
 }
-point_t Triangle::move(double dx, double dy)
+void Triangle::move(double dx, double dy)
 {
   pos_.x += dx;
   a_.x += dx;
@@ -47,7 +46,6 @@ point_t Triangle::move(double dx, double dy)
   a_.y += dy;
   b_.y += dy;
   c_.y += dy;
-  return pos_;
 }
 void Triangle::print() const
 {
