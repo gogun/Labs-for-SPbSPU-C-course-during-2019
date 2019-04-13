@@ -4,8 +4,6 @@
 #include <cmath>
 #include <cassert>
 
-//gravity center 
-
 Triangle::Triangle(const point_t &ptA, const point_t &ptB, const point_t &ptC) :
   pos_({ (ptA.x + ptB.x + ptC.x) / 3 , (ptA.y + ptB.y + ptC.y) / 3 }),
   A_(ptA),
