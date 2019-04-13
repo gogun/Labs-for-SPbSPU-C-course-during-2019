@@ -14,8 +14,8 @@ class Triangle: public Shape
     void move(double dx, double dy) override;
     void move(const point_t &newPos) override;
   private:
-    double height_;
     double base_;
+    double height_;
     point_t pos_;
 };
 #endif
