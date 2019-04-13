@@ -25,16 +25,30 @@ double Triangle::getArea() const
   return sqrt(per * (per - modvector1) * (per - modvector2) * (per - modvector3));
 }
 
-bool comp(double a, double b)
+double findFrameParametrs(double parm[])
 {
-  return a < b;
+  double max = parm[0];
+  double min = parm[0];
+  for (int i = 1; i < 3; i++)
+  {
+    if (parm[i] > max)
+    {
+      max = parm[i];
+    };
+    if (parm[i] < min)
+    {
+      min = parm[i];
+    };
+  };
+
+  return (max - min);
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double height = std::max({point0_.x, point1_.x, point2_.x}, comp) - std::min({point0_.x, point1_.x, point2_.x}, comp);
-  double width = std::max({point0_.y, point1_.y, point2_.y}, comp) - std::min({point0_.y, point1_.y, point2_.y}, comp);
-  return {height, width, center_};
+  double parmx[] = {point0_.x, point1_.x, point2_.x};
+  double parmy[] = {point0_.y, point1_.y, point2_.y};
+  return {findFrameParametrs(parmx), findFrameParametrs(parmy), center_};
 }
 
 void Triangle::move(double dx, double dy)
