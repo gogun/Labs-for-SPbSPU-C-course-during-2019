@@ -1,6 +1,7 @@
 #include "rectangle.hpp"
 
 #include <stdexcept>
+#include "circle.hpp"
 
 rodchenkov::Rectangle::Rectangle(const point_t& pos, const double height, const double width) :
   height_(height),
@@ -20,11 +21,6 @@ double rodchenkov::Rectangle::getArea() const noexcept
 rodchenkov::rectangle_t rodchenkov::Rectangle::getFrameRect() const noexcept
 {
   return frame_rect_;
-}
-
-std::shared_ptr<rodchenkov::Shape> rodchenkov::Rectangle::cloneShared() const
-{
-  return std::make_shared<Rectangle>(*this);
 }
 
 void rodchenkov::Rectangle::printData(std::ostream& stream) const
@@ -66,4 +62,9 @@ double rodchenkov::Rectangle::getWidth() const noexcept
 double rodchenkov::Rectangle::getHeight() const noexcept
 {
   return height_;
+}
+
+std::unique_ptr<rodchenkov::Shape> rodchenkov::Rectangle::cloneUnique() const
+{
+  return std::make_unique<Rectangle>(*this);
 }

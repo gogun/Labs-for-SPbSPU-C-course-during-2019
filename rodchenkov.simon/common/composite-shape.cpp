@@ -1,5 +1,6 @@
 #include "composite-shape.hpp"
 #include <cmath>
+#include <iostream>
 
 rodchenkov::CompositeShape::CompositeShape() :
   size_(0),
@@ -11,9 +12,9 @@ rodchenkov::CompositeShape::CompositeShape(const CompositeShape& cs)
 {
   size_       = cs.size_;
   frame_rect_ = cs.frame_rect_;
-  shapes_     = std::make_unique<std::shared_ptr<Shape>[]>(size_);
+  shapes_     = std::make_unique<std::unique_ptr<Shape>[]>(size_);
   for (std::size_t i = 0; i < size_; i++) {
-    shapes_[i] = cs.shapes_[i]->cloneShared();
+    shapes_[i] = cs.shapes_[i]->cloneUnique();
   }
 }
 
@@ -78,7 +79,7 @@ void rodchenkov::CompositeShape::move(const double dx, const double dy) noexcept
 void rodchenkov::CompositeShape::scale(const double ratio)
 {
   if (ratio >= 0) {
-    frame_rect_.width *= ratio;
+    frame_rect_.width  *= ratio;
     frame_rect_.height *= ratio;
     for (std::size_t i = 0; i < size_; i++) {
       point_t currPose  = shapes_[i]->getFrameRect().pos;
@@ -94,19 +95,40 @@ void rodchenkov::CompositeShape::scale(const double ratio)
   }
 }
 
-void rodchenkov::CompositeShape::add(const std::shared_ptr<Shape>& newShape)
+void rodchenkov::CompositeShape::add(const std::unique_ptr<Shape>& newShape)
 {
   if (newShape) {
-    std::unique_ptr<std::shared_ptr<Shape>[]> newShapes = std::make_unique<std::shared_ptr<Shape>[]>(size_ + 1);
+    std::unique_ptr<std::unique_ptr<Shape>[]> newShapes = std::make_unique<std::unique_ptr<Shape>[]>(size_ + 1);
     for (std::size_t i = 0; i < size_; i++) {
-      newShapes[i] = shapes_[i];
+      newShapes[i].swap(shapes_[i]);
     }
-    newShapes[size_++] = newShape;
+    newShapes[size_++] = newShape->cloneUnique();
+    shapes_.swap(newShapes);
+    if (size_ > 1) {
+       computeFrameRect();
+    }
+    else {
+       frame_rect_ = shapes_[0]->getFrameRect();
+    }
+  }
+  else {
+    throw std::invalid_argument("new shape pointer can\'t be null");
+  }
+}
+
+void rodchenkov::CompositeShape::add(std::unique_ptr<Shape>&& newShape)
+{
+  if (newShape) {
+    std::unique_ptr<std::unique_ptr<Shape>[]> newShapes = std::make_unique<std::unique_ptr<Shape>[]>(size_ + 1);
+    for (std::size_t i = 0; i < size_; i++) {
+      newShapes[i].swap(shapes_[i]);
+    }
+    newShapes[size_++].swap(newShape);
     shapes_.swap(newShapes);
     if (size_ > 1) {
       computeFrameRect();
     } else {
-      frame_rect_ = newShape->getFrameRect();
+      frame_rect_ = shapes_[0]->getFrameRect();
     }
   } else {
     throw std::invalid_argument("new shape pointer can\'t be null");
@@ -118,9 +140,9 @@ std::size_t rodchenkov::CompositeShape::getSize() const noexcept
   return size_;
 }
 
-std::shared_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneShared() const
+std::unique_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneUnique() const
 {
-  return std::make_shared<CompositeShape>(*this);
+  return std::make_unique<CompositeShape>(*this);
 }
 
 void rodchenkov::CompositeShape::computeFrameRect() noexcept
