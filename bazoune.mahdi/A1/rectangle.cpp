@@ -25,10 +25,10 @@ void Rectangle::print() const
 {
   std::cout << "rectangle :" << std::endl;
   std::cout << '\n';
-  std::cout << "center x = " << center_.x <<std::endl;
-  std::cout << "center y = " << center_.y <<std::endl;
-  std::cout << "width  = " << width_<<std::endl;
-  std::cout << "height = " << height_<<std::endl;
+  std::cout << "center x = " << center_.x << std::endl;
+  std::cout << "center y = " << center_.y << std::endl;
+  std::cout << "width  = " << width_<< std::endl;
+  std::cout << "height = " << height_<< std::endl;
 }
 
 void Rectangle::move(const point_t& point)

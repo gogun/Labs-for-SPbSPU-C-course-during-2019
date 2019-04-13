@@ -11,7 +11,7 @@ Triangle::Triangle(const point_t &pt1, const point_t &pt2, const point_t &pt3) :
   c_(pt3)
   
 {
-  assert((getArea() !=0) && "Point of triange must be different!");
+  assert((getArea() != 0) && "Point of triange must be different!");
 }
 
 double Triangle::getArea() const
@@ -23,8 +23,8 @@ rectangle_t Triangle::getFrameRect() const
 {
   double min_x = std::min(std::min(a_.x, b_.x), c_.x);
   double min_y = std::min(std::min(a_.y, b_.y), c_.y);
-  double h = std::fabs(std::max(std::max(a_.y, b_.y), c_.y) - min_x);
-  double w = std::fabs(std::max(std::max(a_.x, b_.x), c_.x) - min_y);
+  double h = std::abs(std::max(std::max(a_.y, b_.y), c_.y) - min_x);
+  double w = std::abs(std::max(std::max(a_.x, b_.x), c_.x) - min_y);
   return rectangle_t{ w, h,pos_ };
 }
 
