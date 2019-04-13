@@ -2,8 +2,10 @@
 #include <cassert>
 #include <iostream>
 
-Rectangle::Rectangle(double width, double height, const point_t &newPos) :
-  options_({ width, height, newPos })
+Rectangle::Rectangle(double width, double height, const point_t &position):
+  pos_(position),
+  width_(width),
+  height_(height)
 {
   assert(width > 0.0);
   assert(height > 0.0);
@@ -11,27 +13,27 @@ Rectangle::Rectangle(double width, double height, const point_t &newPos) :
 
 double Rectangle::getArea() const
 {
-  return (options_.width * options_.height);
+  return (width_ * height_);
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return options_;
+  return {width_, height_, pos_};
 }
 
 void Rectangle::printData() const
 {
-  std::cout << "Width: " << options_.width << "\tHeight: " << options_.height;
-  std::cout << "\nPosition: (" << options_.pos.x << ';' << options_.pos.y << ')';
+  std::cout << "Width: " << width_ << "\tHeight: " << height_;
+  std::cout << "\nPosition: (" << pos_.x << ';' << pos_.y << ')';
 }
 
 void Rectangle::move(double dx, double dy)
 {
-  options_.pos.x += dx;
-  options_.pos.y += dy;
+  pos_.x += dx;
+  pos_.y += dy;
 }
 
 void Rectangle::move(const point_t &newPos)
 {
-  options_.pos = newPos;
+  pos_ = newPos;
 }

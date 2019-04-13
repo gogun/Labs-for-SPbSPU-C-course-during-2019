@@ -3,8 +3,8 @@
 #include <cmath>
 #include <iostream>
 
-Circle::Circle (double radius, const point_t &pos):
-  pos_(pos),
+Circle::Circle (double radius, const point_t &position):
+  pos_(position),
   radius_(radius)
 {
   assert(radius > 0.0);
@@ -17,10 +17,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t frameCirc;
-  frameCirc.height = frameCirc.width = radius_ * 2;
-  frameCirc.pos = pos_;
-  return frameCirc;
+  return {radius_ * 2, radius_ * 2, pos_};
 }
 
 void Circle::printData() const
