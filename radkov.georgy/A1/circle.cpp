@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-Circle::Circle(const point_t pos, const double radius) :
+Circle::Circle(const point_t &pos, const double radius) :
   pos_(pos),
   radius_(radius)
 {
@@ -28,7 +28,7 @@ rectangle_t Circle::getFrameRect() const
   return {pos_, 2 * radius_, 2 * radius_};
 }
 
-void Circle::move(const point_t pos)
+void Circle::move(const point_t &pos)
 {
   pos_.x = pos.x;
   pos_.y = pos.y;
@@ -42,8 +42,8 @@ void Circle::move(const double dx, const double dy)
 
 void Circle::printInformation() const
 {
-  std::cout << "Radius - " << getRadius() << std::endl
-      << "Position - (" << pos_.x << ", " << pos_.y << ")" << std::endl
-      << "Area : " << getArea() << std::endl
-      << "Frame Rectangle is : " << getFrameRect().width << ", " << getFrameRect().height << std::endl;
+  std::cout << "Radius: " << getRadius() << std::endl
+      << "Position: (" << pos_.x << ", " << pos_.y << ")" << std::endl
+      << "Area: " << getArea() << std::endl
+      << "Frame Rectangle: " << getFrameRect().width << ", " << getFrameRect().height << std::endl;
 }
