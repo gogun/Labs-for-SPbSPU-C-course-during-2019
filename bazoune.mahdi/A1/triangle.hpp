@@ -5,8 +5,7 @@
 class Triangle : public Shape
 {
 public:
-  Triangle(const point_t &ptA, const point_t &ptB, const point_t &ptC);
-  void setPoints(const point_t &ptA, const point_t &ptB, const point_t &ptC);
+  Triangle(const point_t &pt1, const point_t &pt2, const point_t &pt3);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   point_t move(const point_t &point) override;
@@ -14,10 +13,8 @@ public:
   void print() const override;
 private:
   point_t pos_;
-  point_t A_;
-  point_t B_;
-  point_t C_;
-  static double getMin(const double &ptA, const double &ptB, const double &ptC);
-  static double getMax(const double &ptA, const double &ptB, const double &ptC);
+  point_t a_;
+  point_t b_;
+  point_t c_;
 };
 #endif
