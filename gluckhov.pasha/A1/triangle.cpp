@@ -3,8 +3,8 @@
 #include <iostream>
 
 Triangle::Triangle(double base, double height, const point_t &position):
-  height_(height),
   base_(base),
+  height_(height),
   pos_(position)
 {
   assert(base > 0.0);
