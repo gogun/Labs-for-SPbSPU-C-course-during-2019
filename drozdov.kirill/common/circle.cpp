@@ -26,6 +26,12 @@ rectangle_t drozdov::Circle::getFrameRect() const
   return rectangle_t{radius_ * 2, radius_ * 2, pos_};
 }
 
+void drozdov::Circle::scale(double factor)
+{
+  assert(factor > 0.0);
+  radius_ *= factor;
+}
+
 void drozdov::Circle::move(double dx, double dy)
 {
   pos_.x += dx;

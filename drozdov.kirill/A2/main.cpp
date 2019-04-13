@@ -16,6 +16,10 @@ int main()
   std::cout << "\n===After move: + (" << dx << ';' << dy << ")===";
   rect1.printData();
 
+  std::cout << "=====After scale x2.0=====";
+  rect1.scale(2.0);
+  rect1.printData();
+
   std::cout << std::endl;
 
   drozdov::Circle circ1(5, {6, 7.2});
@@ -25,6 +29,10 @@ int main()
   const point_t position = {-1.8, 2.4};
   circ1.move(position);
   std::cout << "\n===After move to (-1.8, 2.4)===";
+  circ1.printData();
+
+  std::cout << "=====After scale x4.0====";
+  circ1.scale(4.0);
   circ1.printData();
 
   std::cout << std::endl;

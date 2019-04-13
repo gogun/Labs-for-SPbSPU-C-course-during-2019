@@ -27,6 +27,13 @@ rectangle_t drozdov::Rectangle::getFrameRect() const
   return rectangle_t{width_, height_, pos_};
 }
 
+void drozdov::Rectangle::scale(double factor)
+{
+  assert(factor > 0.0);
+  width_ *= factor;
+  height_ *= factor;
+}
+
 void drozdov::Rectangle::move(double dx, double dy)
 {
   pos_.x += dx;
