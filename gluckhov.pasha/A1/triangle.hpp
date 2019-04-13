@@ -12,7 +12,7 @@ class Triangle: public Shape
     rectangle_t getFrameRect() const override;
     void printData() const override;
     void move(double dx, double dy) override;
-    void move(const point_t & newPos) override;
+    void move(const point_t &newPos) override;
   private:
     double height_;
     double base_;
