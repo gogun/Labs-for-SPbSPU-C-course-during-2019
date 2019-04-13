@@ -18,6 +18,11 @@ Rectangle::Rectangle(const point_t &pos, const double width, const double height
   }
 }
 
+point_t Rectangle::getPos() const
+{
+  return pos_;
+}
+
 double Rectangle::getArea() const
 {
   return (width_ * height_);

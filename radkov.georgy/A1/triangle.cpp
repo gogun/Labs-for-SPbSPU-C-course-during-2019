@@ -6,13 +6,13 @@
 Triangle::Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &pos_c):
   corners_{pos_a, pos_b, pos_c}
 {
-  if (getArea() != 0.0)
+  if (getArea() == 0.0)
   {
-    throw std::invalid_argument("Area must be = 0.0")
+    throw std::invalid_argument("Area mustn't be = 0.0");
   }
 }
 
-point_t Triangle::getCenter() const
+point_t Triangle::getPos() const
 {
   point_t center = {0, 0};
 
@@ -33,7 +33,7 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  point_t top_left = getCenter();
+  point_t top_left = getPos();
   point_t bottom_right = top_left;
 
   for (size_t i = 0; i < 3; i++)
@@ -66,7 +66,7 @@ rectangle_t Triangle::getFrameRect() const
 
 void Triangle::move(const point_t &pos)
 {
-  point_t center = getCenter();
+  point_t center = getPos();
   move(pos.x - center.x, pos.y - center.y);
 }
 
@@ -81,7 +81,7 @@ void Triangle::move(const double dx, const double dy)
 
 void Triangle::printInformation() const
 {
-  center = getCenter();
+  point_t center = getPos();
 
   std::cout << "Position: (" << center.x << ", " << center.y << ")" << std::endl
       << "Area: " << getArea() << std::endl
