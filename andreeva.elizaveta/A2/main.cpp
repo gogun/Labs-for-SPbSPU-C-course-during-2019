@@ -7,7 +7,7 @@ int main()
   andreeva::Circle circle({1.0, 1.0}, 5.0);
   andreeva::Shape *shapePtr = &circle;
   std::cout << "Circle area " << shapePtr->getArea() << '\n';
-  shapePtr->scale(3.0);
+  shapePtr->scale(4.0);
   std::cout << "Circle area " << shapePtr->getArea() << '\n';
   andreeva::rectangle_t frameRect = shapePtr->getFrameRect();
   std::cout << "Frame Rectangle X " << frameRect.pos.x << '\n';

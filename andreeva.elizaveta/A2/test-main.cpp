@@ -50,7 +50,7 @@ BOOST_AUTO_TEST_SUITE(A2Testing)
   {
     andreeva::Circle testCircle({1.0, 1.0}, 10.0);
     const double areaBeforeScaling = testCircle.getArea();
-    const double factor = 5.2;
+    const double factor = 4.2;
     testCircle.scale(factor);
     BOOST_CHECK_CLOSE(testCircle.getArea(), factor * factor * areaBeforeScaling, accuracy);
   }
