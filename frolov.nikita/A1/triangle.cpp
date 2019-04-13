@@ -32,8 +32,9 @@ bool comp(double a, double b)
 
 rectangle_t Triangle::getFrameRect() const
 {
-  return {(std::max({point0_.x, point1_.x, point2_.x}, comp) - std::min({point0_.x, point1_.x, point2_.x}, comp)),
-    (std::max({point0_.y, point1_.y, point2_.y}, comp) - std::min({point0_.y, point1_.y, point2_.y}, comp)), center_};
+  double height = std::max({point0_.x, point1_.x, point2_.x}, comp) - std::min({point0_.x, point1_.x, point2_.x}, comp);
+  double width = std::max({point0_.y, point1_.y, point2_.y}, comp) - std::min({point0_.y, point1_.y, point2_.y}, comp);
+  return {height, width, center_};
 }
 
 void Triangle::move(double dx, double dy)
