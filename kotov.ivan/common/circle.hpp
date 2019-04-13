@@ -8,7 +8,7 @@ namespace kotov
 {
   class Circle : public Shape
   {
-    public:
+  public:
 
     Circle(const point_t & center, double radius);
 
@@ -19,7 +19,7 @@ namespace kotov
     void move(double dX, double dY)  override;
     void scale(double scale) override;
 
-    private:
+  private:
     point_t center_;
     double radius_;
   };

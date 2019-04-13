@@ -24,7 +24,7 @@ double kotov::Circle::getArea() const
 
 kotov::rectangle_t kotov::Circle::getFrameRect() const
 {
-  return {center_, 2 * radius_, 2 * radius_};
+  return { center_, 2 * radius_, 2 * radius_};
 }
 
 void kotov::Circle::move(const kotov::point_t & newCenter)

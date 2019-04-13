@@ -2,7 +2,7 @@
 #include <stdexcept>
 
 kotov::Rectangle::Rectangle(const kotov::point_t & center, double widht, double heigth) :
-  rect_({center, widht, heigth})
+  rect_({ center, widht, heigth})
 {
   if ((rect_.width <= 0) || (rect_.height <= 0)) 
   {
