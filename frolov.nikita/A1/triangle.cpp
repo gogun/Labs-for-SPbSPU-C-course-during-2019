@@ -3,34 +3,13 @@
 #include <cassert>
 #include <cmath>
 
-double findFrameParametrs(const double parm[])
-{
-  double maxpoint = parm[0];
-  double minpoint = parm[0];
-  for (int i = 1; i < 3; i++)
-  {
-    if (parm[i] > maxpoint)
-    {
-      maxpoint = parm[i];
-    };
-    if (parm[i] < minpoint)
-    {
-      minpoint = parm[i];
-    };
-  };
-
-  return (maxpoint - minpoint);
-}
-
-Triangle::Triangle(point_t point0, point_t point1, point_t point2) :
+Triangle::Triangle(const point_t &point0, const point_t &point1, const point_t &point2) :
   point0_(point0),
   point1_(point1),
   point2_(point2)
 {
-  double parmx[] = {point0_.x, point1_.x, point2_.x};
-  double parmy[] = {point0_.y, point1_.y, point2_.y};
-  point_t heightAndWidth = {findFrameParametrs(parmx), findFrameParametrs(parmy)};
-  assert((heightAndWidth.x != 0) && (heightAndWidth.y != 0));
+  rectangle_t frame = getFrameRect();
+  assert((frame.height != 0) && (frame.width != 0));
   center_ = {(point0_.x + point1_.x + point2_.x) / 3, (point0_.y + point1_.y + point2_.y) / 3};
 }
 
@@ -48,9 +27,8 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double parmx[] = {point0_.x, point1_.x, point2_.x};
-  double parmy[] = {point0_.y, point1_.y, point2_.y};
-  return {findFrameParametrs(parmx), findFrameParametrs(parmy), center_};
+  return {std::max({point0_.x, point1_.x, point2_.x}) - std::min({point0_.x, point1_.x, point2_.x}),
+    std::max({point0_.y, point1_.y, point2_.y}) - std::min({point0_.y, point1_.y, point2_.y}), center_};
 }
 
 void Triangle::move(double dx, double dy)
