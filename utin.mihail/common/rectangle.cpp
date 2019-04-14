@@ -31,6 +31,12 @@ void utin::Rectangle::move(const point_t &point)
   center_ = point;
 }
 
+void utin::Rectangle::scale(const double &multiplier)
+{
+  width_ *= multiplier;
+  height_ *=multiplier;
+}
+
 void utin::Rectangle::printInfo() const
 {
   std::cout << "Width of rectangle is " << width_ << '\n'

@@ -31,6 +31,11 @@ void utin::Circle::move(const point_t &point)
   center_ = point;
 }
 
+void utin::Circle::scale(const double &multiplier)
+{
+  radius_ *= multiplier;
+}
+
 void utin::Circle::printInfo() const
 {
   std::cout << "Radius of circle is " << radius_ << '\n'
