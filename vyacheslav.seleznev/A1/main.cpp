@@ -30,12 +30,12 @@ int main()
   const double rectangleWidth = 20;
   const double rectangleHeight = 10;
 
-  point_t triangleCentre = {44, 77};
-  point_t trianglePointA = {88, 56};
+  point_t triangleCentre = {44, 32};
+  point_t trianglePointA = {0, 1};
 
-  point_t trianglePointB = {11, 90};
+  point_t trianglePointB = {32, 21};
 
-  point_t trianglePointC = {39, 8};
+  point_t trianglePointC = {2, 5};
 
   Circle circle(circleRadius, circleCentre);
   Rectangle rectangle(rectangleWidth, rectangleHeight, rectangleCentre);

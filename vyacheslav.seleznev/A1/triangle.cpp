@@ -10,15 +10,17 @@ Triangle::Triangle(point_t pA, point_t pB, point_t pC, point_t p):
   pointB_(pB),
   pointC_(pC)
 {
+  lenghtA_ = sqrt(pow((pointA_.x - pointB_.x), 2) + pow((pointA_.y - pointB_.y), 2));
+  lenghtB_ = sqrt(pow((pointB_.x - pointC_.x), 2) + pow((pointB_.y - pointC_.y), 2));
+  lenghtC_ = sqrt(pow((pointC_.x - pointA_.x), 2) + pow((pointC_.y - pointA_.y), 2));
+
+  assert((lenghtA_ + lenghtB_ > lenghtC_) || (lenghtA_ + lenghtC_ > lenghtB_) || (lenghtB_ + lenghtC_ > lenghtA_));
 }
 
 double Triangle::getArea() const
 {
-  double wdthA = sqrt(pow((pointA_.x - pointB_.x), 2) + pow((pointA_.y - pointB_.y), 2));
-  double wdthB = sqrt(pow((pointB_.x - pointC_.x), 2) + pow((pointB_.y - pointC_.y), 2));
-  double wdthC = sqrt(pow((pointC_.x - pointA_.x), 2) + pow((pointC_.y - pointA_.y), 2));
-  double halfPer = (wdthA + wdthB + wdthC) / 2;
-  double area = sqrt(halfPer * (halfPer - wdthA) * (halfPer - wdthB) * (halfPer - wdthC));
+  double halfPer = (lenghtA_ + lenghtB_ + lenghtC_) / 2;
+  double area = sqrt(halfPer * (halfPer - lenghtA_) * (halfPer - lenghtB_) * (halfPer - lenghtC_));
 
   return area;
 }
