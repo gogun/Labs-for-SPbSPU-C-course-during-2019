@@ -26,7 +26,7 @@ int main()
   std::cout << "Circle:" << "\n*******************";
   printDataShape(&circ1);
 
-  const point_t position = {-1.8, 2.4};
+  const drozdov::point_t position = {-1.8, 2.4};
   circ1.move(position);
   std::cout << "\n===After move to (-1.8, 2.4)===";
   circ1.printData();
@@ -45,7 +45,7 @@ void printDataShape(const drozdov::Shape *shape)
     shape->printData();
     std::cout << "\nArea: " << shape->getArea() << std::endl;
 
-    rectangle_t frameRect = shape->getFrameRect();
+    drozdov::rectangle_t frameRect = shape->getFrameRect();
 
     std::cout << "***Frame Rectangle:";
     std::cout << "\nWidth: " << frameRect.width  << "\tHeight: " << frameRect.height;

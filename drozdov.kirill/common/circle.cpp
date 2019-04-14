@@ -23,9 +23,9 @@ double drozdov::Circle::getArea() const
   return (M_PI * radius_ * radius_);
 }
 
-rectangle_t drozdov::Circle::getFrameRect() const
+drozdov::rectangle_t drozdov::Circle::getFrameRect() const
 {
-  return rectangle_t{radius_ * 2, radius_ * 2, pos_};
+  return {radius_ * 2, radius_ * 2, pos_};
 }
 
 void drozdov::Circle::scale(double factor)

@@ -23,9 +23,9 @@ double drozdov::Rectangle::getArea() const
   return (width_ * height_);
 }
 
-rectangle_t drozdov::Rectangle::getFrameRect() const
+drozdov::rectangle_t drozdov::Rectangle::getFrameRect() const
 {
-  return rectangle_t{width_, height_, pos_};
+  return {width_, height_, pos_};
 }
 
 void drozdov::Rectangle::scale(double factor)
