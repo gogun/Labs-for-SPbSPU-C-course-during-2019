@@ -32,7 +32,7 @@ void Circle::move(const point_t &newPoint)
   center_ = newPoint;
 }
 
-void Circle::inform()
+void Circle::inform() const
 {
   std::cout << "X: " << center_.x;
   std::cout << "\n Y: " << center_.y;

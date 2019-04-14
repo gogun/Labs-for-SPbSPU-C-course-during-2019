@@ -19,11 +19,11 @@ int main()
   point_t movePoint = { 5,6 };
   shape1->move(movePoint);
   std::cout << "Circle moved to: ";
-  shape1->info();
+  shape1->inform();
 
   shape1->move(7.0, 8.0);
   std::cout << "Circle moved to: ";
-  shape1->info();
+  shape1->inform();
 
   std::cout << "-----" << "\n";
 
@@ -37,11 +37,11 @@ int main()
 
   shape1->move(movePoint);
   std::cout << "Rectangle moved to: ";
-  shape1->info();
+  shape1->inform();
 
   shape1->move(7.0, 8.0);
   std::cout << "Rectangle moved to: ";
-  shape1->info();
+  shape1->inform();
 
   return 0;
 }
