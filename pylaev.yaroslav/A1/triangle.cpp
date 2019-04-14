@@ -141,7 +141,8 @@ void Triangle::move(const double dx, const double dy)
   }
 }
 
-void Triangle::move(const point_t &pos) {
+void Triangle::move(const point_t &pos) 
+{
   move(center_.x - pos.x, center_.y - pos.y);
 }
 
