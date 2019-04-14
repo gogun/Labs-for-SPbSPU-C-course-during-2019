@@ -19,7 +19,7 @@ int main()
   shape->printShapeInfo();
 
 
-  firsov::Rectangle rectangle(7,7,{ 3,5 });
+  firsov::Rectangle rectangle(7, 7, { 3,5 });
   shape = &rectangle;
   std::cout << "__Rectangle info__ " << "\n\n";
   shape->printShapeInfo();
