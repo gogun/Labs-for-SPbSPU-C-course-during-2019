@@ -1,5 +1,4 @@
 #include "rectangle.hpp"
-#include <cassert>
 #include <iostream>
 
 utin::Rectangle::Rectangle(const utin::point_t &center, const double &width, const double &height):
@@ -7,7 +6,14 @@ utin::Rectangle::Rectangle(const utin::point_t &center, const double &width, con
   width_(width),
   height_(height)
 {
-  assert((height > 0.0) && (width > 0.0));
+  if (height_ <= 0.0)
+  {
+    throw std::invalid_argument("Height must be greater that zero");
+  }
+  if (width_ <= 0.0)
+  {
+    throw std::invalid_argument("Width must be greater that zero");
+  }
 }
 
 double utin::Rectangle::getArea() const
@@ -33,6 +39,10 @@ void utin::Rectangle::move(const point_t &point)
 
 void utin::Rectangle::scale(const double &multiplier)
 {
+  if (multiplier <= 0)
+  {
+    throw std::invalid_argument("Multiplier must be greater that zero");
+  }
   width_ *= multiplier;
   height_ *=multiplier;
 }

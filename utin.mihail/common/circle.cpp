@@ -1,13 +1,15 @@
 #include "circle.hpp"
 #include <iostream>
-#include <cassert>
 #include <cmath>
 
 utin::Circle::Circle(const utin::point_t &center, const double &radius):
   center_(center),
   radius_(radius)
 {
-  assert(radius_ > 0.0);
+  if (radius_ <= 0)
+  {
+    throw std::invalid_argument("Radius must be greater that zero");
+  }
 }
 
 double utin::Circle::getArea() const
@@ -33,6 +35,10 @@ void utin::Circle::move(const point_t &point)
 
 void utin::Circle::scale(const double &multiplier)
 {
+  if (multiplier <= 0)
+  {
+    throw std::invalid_argument("Multiplier must be greater that zero");
+  }
   radius_ *= multiplier;
 }
 
