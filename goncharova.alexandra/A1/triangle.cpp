@@ -33,7 +33,7 @@ rectangle_t Triangle::getFrameRect()const
   trCenter.x = ((std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2));
   trCenter.y = (((std::min(pointA_.y, std::min(pointB_.y, pointC_.y)))) + height / 2);
 
-  return{width, height, trCenter};
+  return{trCenter, width, height};
 }
 
 void Triangle::move(const double dx, const double dy)
