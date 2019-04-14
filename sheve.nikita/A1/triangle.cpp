@@ -1,5 +1,5 @@
 #include "base-types.hpp"
-#include "Triangle.hpp"
+#include "triangle.hpp"
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
