@@ -21,4 +21,5 @@ namespace firsov
     point_t pos_;
   };
 }
+
 #endif
