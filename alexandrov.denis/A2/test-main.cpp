@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_SUITE(testRectangle)
     BOOST_CHECK_CLOSE_FRACTION(areaRect, rectangle1.getArea(), accuracy);
   }
 
-  BOOST_AUTO_TEST_CASE(testRectangleScale)
+  BOOST_AUTO_TEST_CASE(testRectangleScaleArea)
   {
     alexandrov::Rectangle rectangle1({{1.1, 2.2}, 2.0, 2.0});
     double areaRect = rectangle1.getArea();
@@ -69,6 +69,7 @@ BOOST_AUTO_TEST_SUITE(testRectangle)
   {
     alexandrov::Rectangle rectangle1({{1.1, 2.2}, 2.0, 2.0});
     BOOST_CHECK_THROW(rectangle1.scale(-1.0), std::invalid_argument);
+    BOOST_CHECK_THROW(rectangle1.scale(0.0), std::invalid_argument);
   }
 
 BOOST_AUTO_TEST_SUITE_END();
@@ -124,6 +125,7 @@ BOOST_AUTO_TEST_SUITE(testCircle)
   {
     alexandrov::Circle circle1({1.1, 2.2}, 3.0);
     BOOST_CHECK_THROW(circle1.scale(-1.0), std::invalid_argument);
+    BOOST_CHECK_THROW(circle1.scale(0.0), std::invalid_argument);
   }
 
 BOOST_AUTO_TEST_SUITE_END();
