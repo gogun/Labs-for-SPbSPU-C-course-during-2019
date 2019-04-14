@@ -19,6 +19,6 @@ namespace firsov
   private:
     double radius_;
     point_t pos_;
-	};
+  };
 }
 #endif
