@@ -9,8 +9,8 @@ Triangle::Triangle(point_t pA, point_t pB, point_t pC, point_t p):
   pointA_(pA),
   pointB_(pB),
   pointC_(pC)
-  {
-  }
+{
+}
 
 double Triangle::getArea() const
 {
