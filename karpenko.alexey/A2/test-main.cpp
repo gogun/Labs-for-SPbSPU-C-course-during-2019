@@ -76,6 +76,7 @@ BOOST_AUTO_TEST_CASE(argumentTesting)
   BOOST_CHECK_THROW(karpenko::Rectangle({2, -7, {2, 2}}), std::invalid_argument);
 
   BOOST_CHECK_THROW(karpenko::Circle(-5, {2, 6}}, std::invalid_argument);
+}
 
 BOOST_AUTO_TEST_SUITE_END
 
