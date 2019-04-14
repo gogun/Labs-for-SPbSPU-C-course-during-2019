@@ -3,52 +3,25 @@
 //
 
 #include "rectangle.hpp"
-#include <cassert> //need for assetr
+#include <cassert> //need for assert
 
 //Прямоугольник по центру, ширине и высоте
 Rectangle::Rectangle(const point_t &pos, double width, double height) :
   Shape(pos),
-
-  leftDown
-    (
-      point_t
-        {
-          -width / 2,
-          -height / 2
-        }
-    ),
-
-  rightUp
-    (
-      point_t
-        {
-          width / 2,
-          height / 2
-        }
-    )
+  rightUp_(Vector2(width, height) / 2)
 {
   assert(width > 0);
   assert(height > 0);
-
 }
 
-//прямоугольник по левому нижнему и правому верхнему углам
+//прямоугольник по левой нижней и правой верхней вершине
 Rectangle::Rectangle(const point_t &leftDown, const point_t &rightUp) :
-  Shape
-    (
-      point_t
-        {
-          leftDown.x + (rightUp.x - leftDown.x) / 2,
-          leftDown.y + (rightUp.y - leftDown.y) / 2
-        }
-    ),
-  leftDown(leftDown - pos),
-  rightUp(rightUp - pos)
+  Shape(Vector2(leftDown) + (Vector2(rightUp) - Vector2(leftDown)) / 2),
+  rightUp_(Vector2(rightUp) - pos_)
 {
   assert(rightUp.x > leftDown.x);
   assert(rightUp.y > leftDown.y);
 }
-
 
 double Rectangle::getArea() const
 {
@@ -58,21 +31,25 @@ double Rectangle::getArea() const
 rectangle_t Rectangle::getFrameRect() const
 {
   rectangle_t result;
+  result.pos = this->pos_.getPoint();
   result.width = getWidth();
   result.height = getHeight();
-  result.pos = this->pos;
   return result;
 }
 
 double Rectangle::getHeight() const
 {
-  return (rightUp.y - leftDown.y);
+  return (rightUp_.y_ * 2);
 }
-
 
 double Rectangle::getWidth() const
 {
-  return (rightUp.x - leftDown.x);
+  return (rightUp_.x_ * 2);
+}
+
+std::string Rectangle::getName() const
+{
+  return "Rectangle";
 }
 
 

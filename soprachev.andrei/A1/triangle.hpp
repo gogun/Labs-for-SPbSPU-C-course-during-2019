@@ -2,8 +2,8 @@
 // Created by Andrei Soprachev on 2019-04-01.
 //
 
-#ifndef LAB1_TRIANGLE_HPP
-#define LAB1_TRIANGLE_HPP
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 
 
 #include "shape.hpp"
@@ -12,21 +12,17 @@
 class Triangle : public Shape
 {
 public:
-  Triangle(const point_t &posCenterOfMass, const point_t &localVertice0, const point_t &localVertice1,
-    const point_t &localVertice2);
-
-  Triangle(const point_t &globalVertice0, const point_t &globalVertice1, const point_t &globalVertice2);
-
+  Triangle(const point_t &globalVertex0, const point_t &globalVertex1, const point_t &globalVertex2);
+  std::string getName() const override;
   double getArea() const override;
-
   rectangle_t getFrameRect() const override;
 
 private:
   //in local space
-  point_t vertice0;
-  point_t vertice1;
-  point_t vertice2;
+  Vector2 vertex0_;
+  Vector2 vertex1_;
+  Vector2 vertex2_;
 };
 
 
-#endif //LAB1_TRIANGLE_HPP
+#endif //TRIANGLE_HPP

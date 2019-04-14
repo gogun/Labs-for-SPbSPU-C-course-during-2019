@@ -3,58 +3,33 @@
 //
 
 #include "triangle.hpp"
-#include "math.h"
+#include <cassert>
+#include "math.h" //need for abs in getArea
 
-point_t centerOfMassByVertice(const point_t &vertice0, const point_t &vertice1, const point_t &vertice2)
+point_t centerOfMassByPoints(const point_t &point0, const point_t &point1, const point_t &point2)
 {
-  return (vertice0 + vertice1 + vertice2) / 3;
+  return point_t
+    {
+      (point0.x + point1.x + point2.x) / 3,
+      (point0.y + point1.y + point2.y) / 3,
+    };
 }
 
-
-//задание треугольника центром масс и тремя точками относительно него
-Triangle::Triangle(const point_t &posCenterOfMass, const point_t &localVertice0, const point_t &localVertice1,
-  const point_t &localVertice2) :
-  Shape(posCenterOfMass),
-  vertice0(localVertice0),
-  vertice1(localVertice1),
-  vertice2(localVertice2)
+//треугольник по трём вершиам
+Triangle::Triangle(const point_t &globalVertex0, const point_t &globalVertex1, const point_t &globalVertex2) :
+  Shape(centerOfMassByPoints(globalVertex0, globalVertex1, globalVertex2)),
+  vertex0_(Vector2(globalVertex0) - pos_),
+  vertex1_(Vector2(globalVertex1) - pos_),
+  vertex2_(Vector2(globalVertex2) - pos_)
 {
-  //вершины должны задавть треугольник центр масс которого совпадает с началом координат
-  point_t trueCenterOfMass = centerOfMassByVertice(vertice0, vertice1, vertice2);
-  assert(trueCenterOfMass.x == 0 && trueCenterOfMass.y == 0);
-
-  //длина каждой стороны меньше суммы двух других
-  double lenght01 = (vertice0 - vertice1).magnitude();
-  double lenght12 = (vertice1 - vertice2).magnitude();
-  double lenght20 = (vertice2 - vertice0).magnitude();
-  assert(lenght01 < lenght12 + lenght20);
-  assert(lenght12 < lenght01 + lenght20);
-  assert(lenght20 < lenght12 + lenght01);
-
-}
-
-//задание треугольника тремя координатами
-Triangle::Triangle(const point_t &globalVertice0, const point_t &globalVertice1, const point_t &globalVertice2) :
-  Shape(centerOfMassByVertice(globalVertice0, globalVertice1, globalVertice2))
-{
-
-  //перевод глобальных координат в локальные (относительно центра масс)
-  vertice0 = globalVertice0 - pos;
-  vertice1 = globalVertice1 - pos;
-  vertice2 = globalVertice2 - pos;
-  double lenght01 = (vertice0 - vertice1).magnitude();
-  double lenght12 = (vertice1 - vertice2).magnitude();
-  double lenght20 = (vertice2 - vertice0).magnitude();
-  assert(lenght01 < lenght12 + lenght20);
-  assert(lenght12 < lenght01 + lenght20);
-  assert(lenght20 < lenght12 + lenght01);
+  assert(getArea() > 0);
 }
 
 //объём через определитель матрицы
 double Triangle::getArea() const
 {
-  double a = (vertice0.x - vertice2.x) * (vertice1.y - vertice2.y);
-  double b = (vertice1.x - vertice2.x) * (vertice0.y - vertice2.y);
+  double a = (vertex0_.x_ - vertex2_.x_) * (vertex1_.y_ - vertex2_.y_);
+  double b = (vertex1_.x_ - vertex2_.x_) * (vertex0_.y_ - vertex2_.y_);
   double det = a - b;
   return abs(.5 * det);
 }
@@ -77,20 +52,23 @@ double maxOfVal(double d0, double d1, double d2)
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double left = minOfVal(vertice0.x, vertice1.x, vertice2.x);
-  double right = maxOfVal(vertice0.x, vertice1.x, vertice2.x);
-  double down = minOfVal(vertice0.y, vertice1.y, vertice2.y);
-  double up = maxOfVal(vertice0.y, vertice1.y, vertice2.y);
+  double left = minOfVal(vertex0_.x_, vertex1_.x_, vertex2_.x_);
+  double right = maxOfVal(vertex0_.x_, vertex1_.x_, vertex2_.x_);
+  double down = minOfVal(vertex0_.y_, vertex1_.y_, vertex2_.y_);
+  double up = maxOfVal(vertex0_.y_, vertex1_.y_, vertex2_.y_);
 
   rectangle_t result;
-  result.width = right - left;
-  result.height = up - down;
-
   result.pos = point_t
     {
-      this->pos.x + left + (result.width / 2),
-      this->pos.y + down + (result.height / 2)
+      this->pos_.x_ + left + ((right - left) / 2),
+      this->pos_.y_ + down + ((up - down) / 2)
     };
-
+  result.width = right - left;
+  result.height = up - down;
   return result;
+}
+
+std::string Triangle::getName() const
+{
+  return "Triangle";
 }

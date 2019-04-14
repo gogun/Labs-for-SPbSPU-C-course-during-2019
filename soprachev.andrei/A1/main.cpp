@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cassert> //need for assetr
+#include <cassert>
 #include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
@@ -7,16 +7,15 @@
 
 std::string rectToString(rectangle_t rectangle)
 {
-  return "pos: (" + std::to_string(rectangle.pos.x) + "; " +std::to_string(rectangle.pos.y) + ")\nwidth = " +
-          std::to_string(rectangle.width) + "\nheight = " + std::to_string(rectangle.height);
+  return "pos_: (" + std::to_string(rectangle.pos.x) + "; " + std::to_string(rectangle.pos.y) + ")\nwidth = " +
+         std::to_string(rectangle.width) + "\nheight = " + std::to_string(rectangle.height);
 }
 
 std::string shapeToString(Shape *shape)
 {
   assert(shape != nullptr);
-  return rectToString(shape->getFrameRect()) + "\narea = " + std::to_string(shape->getArea());
+  return shape->getName() + "\n" + rectToString(shape->getFrameRect()) + "\narea = " + std::to_string(shape->getArea());
 }
-
 
 int main()
 {
@@ -29,16 +28,12 @@ int main()
   //круг по центру и радиусу
   Circle circle = Circle(point_t{3, 4}, 2);
 
-  //треугольниу по центру масс и координатам относительно центра масс
-  Triangle triangleByPosAndLocalVert = Triangle(point_t{2, 5}, point_t{-2, -2}, point_t{4, -2}, point_t{-2, 4});
-
   //треугольник по трём точкам
   Triangle triangleByWorldVert = Triangle(point_t{4, 5}, point_t{-1, 9}, point_t{0, 3});
 
-  Shape * shapes[5] = {&rectangleByPosWH, &rectangleByLeftDownRightUp, &circle, &triangleByPosAndLocalVert,
-                       &triangleByWorldVert};
+  Shape *shapes[4] = {&rectangleByPosWH, &rectangleByLeftDownRightUp, &circle, &triangleByWorldVert};
 
-  for (Shape * shape : shapes)
+  for (Shape *shape : shapes)
   {
     std::cout << shapeToString(shape) << "\n\n";
   }
@@ -47,11 +42,10 @@ int main()
   shapes[1]->move(point_t{1, 1}); //перемещение в точку
   shapes[2]->move(-1, -3); //перемещение на вектор
   shapes[3]->move(1, 2); //перемещение на вектор
-  shapes[4]->move(point_t{1, 1}); //перемещение в точку
 
-  std::cout <<  "after move: \n\n";
+  std::cout << "after move: \n\n";
 
-  for (Shape * shape : shapes)
+  for (Shape *shape : shapes)
   {
     std::cout << shapeToString(shape) << "\n\n";
   }
