@@ -7,14 +7,14 @@ Circle::Circle(const point_t& pos, double radius) :
   centre_(pos),
   radius_(radius)
 {
-  assert(radius_ >= 0.0 && "Invalid circle radius");
+  assert(radius_ >= 0.0);
 }
 
 Circle::Circle(double x, double y, double radius) :
   centre_({x, y}),
   radius_(radius)
 {
-  assert(radius_ >= 0.0 && "Invalid circle radius");
+  assert(radius_ >= 0.0);
 }
 
 double Circle::getArea() const

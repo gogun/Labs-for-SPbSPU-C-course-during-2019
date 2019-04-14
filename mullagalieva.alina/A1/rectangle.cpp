@@ -6,7 +6,7 @@ Rectangle::Rectangle(const point_t& position, double width, double height) :
   width_(width),
   height_(height)
 {
-  assert(width_ >= 0.0 && height_ >= 0.0 && "Invalid rectangle width or height");
+  assert((width_ > 0.0) && (height_ > 0.0));
 }
 
 Rectangle::Rectangle(double x, double y, double width, double height) :
@@ -14,12 +14,12 @@ Rectangle::Rectangle(double x, double y, double width, double height) :
   width_(width),
   height_(height)
 {
-  assert(width_ >= 0.0 && height_ >= 0.0 && "Invalid rectangle width or height");
+  assert((width_ > 0.0) && (height_ > 0.0));
 }
 
 double Rectangle::getArea() const
 {
-  return width_ * height_;
+  return {width_ * height_};
 }
 
 rectangle_t Rectangle::getFrameRect() const
