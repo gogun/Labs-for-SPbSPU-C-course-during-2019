@@ -50,10 +50,10 @@ void ustinov::Circle::show() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << std::endl
-            << "Coordinates of centre circle (" << center_.x
-            << ";" << center_.y << ")" << std::endl
-            << "radius = " << radius_ << std::endl
-            << "Frame rectangle width = " << rectangle.width
-            << ", height = " << rectangle.height << std::endl
-            << "Area = " << getArea() << std::endl << std::endl;
+      << "Coordinates of centre circle (" << center_.x
+      << ";" << center_.y << ")" << std::endl
+      << "radius = " << radius_ << std::endl
+      << "Frame rectangle width = " << rectangle.width
+      << ", height = " << rectangle.height << std::endl
+      << "Area = " << getArea() << std::endl << std::endl;
 }
