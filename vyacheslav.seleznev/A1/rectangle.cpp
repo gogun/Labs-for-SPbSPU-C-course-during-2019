@@ -7,8 +7,7 @@ Rectangle::Rectangle(double w, double h, point_t p):
   width_(w),
   height_(h)
 {
-  assert(width_ > 0);
-  assert(height_ > 0);
+  assert((width_ > 0) || (height_ > 0));
 }
 
 double Rectangle::getArea() const
