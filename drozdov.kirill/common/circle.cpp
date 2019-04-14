@@ -2,13 +2,16 @@
 #include "circle.hpp"
 #include <math.h>
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 drozdov::Circle::Circle (double radius, const point_t &pos):
   radius_(radius),
   pos_(pos)
 {
-  assert(radius > 0.0);
+  if (radius < 0.0)
+  {
+    throw std::invalid_argument("Circle arguments are not valid.");
+  }
 }
 
 void drozdov::Circle::printData() const
@@ -28,8 +31,16 @@ rectangle_t drozdov::Circle::getFrameRect() const
 
 void drozdov::Circle::scale(double factor)
 {
-  assert(factor > 0.0);
-  radius_ *= factor;
+  if (factor >= 0.0) {
+    radius_ *= factor;
+  } else {
+    throw std::invalid_argument("\nCircle scale factor is not valid.");
+  }
+}
+
+double drozdov::Circle::getRadius() const
+{
+  return radius_;
 }
 
 void drozdov::Circle::move(double dx, double dy)

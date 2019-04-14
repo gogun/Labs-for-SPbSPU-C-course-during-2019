@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 #include "rectangle.hpp"
 #include "circle.hpp"
 
@@ -41,13 +41,16 @@ int main()
 
 void printDataShape(const Shape *shape)
 {
-  assert(shape != nullptr);
-  shape->printData();
-  std::cout << "\nArea: " << shape->getArea() << std::endl;
+  if (shape != nullptr) {
+    shape->printData();
+    std::cout << "\nArea: " << shape->getArea() << std::endl;
 
-  rectangle_t frameRect = shape->getFrameRect();
+    rectangle_t frameRect = shape->getFrameRect();
 
-  std::cout << "***Frame Rectangle:";
-  std::cout << "\nWidth: " << frameRect.width  << "\tHeight: " << frameRect.height;
-  std::cout << "\nPosition: (" << frameRect.pos.x << ';' << frameRect.pos.y << ')' << std::endl;
+    std::cout << "***Frame Rectangle:";
+    std::cout << "\nWidth: " << frameRect.width  << "\tHeight: " << frameRect.height;
+    std::cout << "\nPosition: (" << frameRect.pos.x << ';' << frameRect.pos.y << ')' << std::endl;
+  } else {
+    throw std::invalid_argument("\nShape pointer is null.");
+  }
 }

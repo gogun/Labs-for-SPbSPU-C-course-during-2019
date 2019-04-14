@@ -1,14 +1,16 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 drozdov::Rectangle::Rectangle (double width, double height, const point_t &pos):
   width_(width),
   height_(height),
   pos_(pos)
 {
-  assert(width > 0.0);
-  assert(height > 0.0);
+  if ((width < 0.0) || (height < 0.0))
+  {
+    throw std::invalid_argument("Rectangle arguments are not valid.");
+  }
 }
 
 void drozdov::Rectangle::printData() const
@@ -29,9 +31,12 @@ rectangle_t drozdov::Rectangle::getFrameRect() const
 
 void drozdov::Rectangle::scale(double factor)
 {
-  assert(factor > 0.0);
-  width_ *= factor;
-  height_ *= factor;
+  if (factor >= 0.0) {
+    width_ *= factor;
+    height_ *= factor;
+  } else {
+    throw std::invalid_argument("\nRectangle scale factor is not valid.");
+  }
 }
 
 void drozdov::Rectangle::move(double dx, double dy)
