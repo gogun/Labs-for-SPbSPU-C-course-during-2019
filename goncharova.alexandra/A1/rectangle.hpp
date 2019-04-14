@@ -14,6 +14,7 @@ public:
   rectangle_t getFrameRect() const;
   void move(const point_t &newPoint);
   void move(double dx, double dy);
+  void info() const;
 };
 
 #endif

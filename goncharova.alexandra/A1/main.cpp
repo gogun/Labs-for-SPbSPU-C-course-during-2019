@@ -18,12 +18,12 @@ int main()
 
   point_t movePoint = { 5,6 };
   shape1->move(movePoint);
-  std::cout << "Circle moved to: x:" << shape1->center_.x;
-  std::cout << ", y:" << shape1->center_.y << "\n";
+  std::cout << "Circle moved to: ";
+  shape1->info();
 
   shape1->move(7.0, 8.0);
-  std::cout << "Circle moved to: x:" << shape1->center_.x;
-  std::cout << ", y:" << shape1->center_.y << "\n";
+  std::cout << "Circle moved to: ";
+  shape1->info();
 
   std::cout << "-----" << "\n";
 
@@ -36,12 +36,12 @@ int main()
   std::cout << shape1->getFrameRect().width << "\n";
 
   shape1->move(movePoint);
-  std::cout << "Rectangle moved to: x:" << shape1->center_.x;
-  std::cout << ", y:" << shape1->center_.y << "\n";
+  std::cout << "Rectangle moved to: ";
+  shape1->info();
 
   shape1->move(7.0, 8.0);
-  std::cout << "Rectangle moved to: x:" << shape1->center_.x;
-  std::cout << ", y:" << shape1->center_.y << "\n";
+  std::cout << "Rectangle moved to: ";
+  shape1->info();
 
   return 0;
 }
