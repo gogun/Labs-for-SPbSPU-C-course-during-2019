@@ -57,7 +57,7 @@ BOOST_AUTO_TEST_CASE(quadroMetamaorphoseRectangleTesting)
 
   const double scaleRatio = 3.3;
   rectangle.scale(scaleRatio);
-  BOOST_CHECK_CLOSE(rectangle.getArea, originalSquare * scaleRatio * scaleRatio, LAPSE)
+  BOOST_CHECK_CLOSE(rectangle.getArea, originalSquare * scaleRatio * scaleRatio, LAPSE);
 }
 
 BOOST_AUTO_TEST_CASE(quadroMetamaorphoseCircleTesting)
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(quadroMetamaorphoseCircleTesting)
 
   const double scaleRatio = 3.3;
   rectangle.scale(scaleRatio);
-  BOOST_CHECK_CLOSE(circle.getArea, originalSquare * scaleRatio * scaleRatio, LAPSE)
+  BOOST_CHECK_CLOSE(circle.getArea, originalSquare * scaleRatio * scaleRatio, LAPSE);
 }
 
 BOOST_AUTO_TEST_CASE(argumentTesting)
@@ -77,5 +77,5 @@ BOOST_AUTO_TEST_CASE(argumentTesting)
 
   BOOST_CHECK_THROW(karpenko::Circle(-5, {2, 6}}, std::invalid_argument);
 
-
 BOOST_AUTO_TEST_SUITE_END
+

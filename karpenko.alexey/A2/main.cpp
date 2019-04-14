@@ -59,7 +59,6 @@ int main()
       << scaleRate2 << "\n";
   circle.scale(scaleRate2);
   printCircle(circle);
-  std::cout << "End program for Circle;\n"; 
-  system("pause");
+  std::cout << "End program for Circle;\n";
   return 0;
 }
