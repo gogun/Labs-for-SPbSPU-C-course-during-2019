@@ -3,7 +3,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-void printDataShape(const Shape *shape);
+void printDataShape(const drozdov::Shape *shape);
 
 int main()
 {
@@ -39,7 +39,7 @@ int main()
   return 0;
 }
 
-void printDataShape(const Shape *shape)
+void printDataShape(const drozdov::Shape *shape)
 {
   if (shape != nullptr) {
     shape->printData();
