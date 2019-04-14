@@ -37,18 +37,18 @@ BOOST_AUTO_TEST_CASE(circleTestScale)
   utin::Circle testCircle({2.1, 3.9}, 4.5);
   const double areaBeforeScale = testCircle.getArea();
   testCircle.scale(1.5);
-  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeScale, mistake);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeScale * 1.5 * 1.5, mistake);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestTrowException)
 {
-  BOOST_CHECK_TROW(utin::circle({1.1, 1.2}, -1.1), std::invalid_argument);
+  BOOST_CHECK_THROW(utin::Circle testCircle({1.1, 1.2}, -1.1), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestTrowExceptionScale)
 {
   utin::Circle testCircle({2.1, 3.9}, 4.5);
-  BOOST_CHECK_TROW(testCircle.scale(-1), std::invalid_argument);
+  BOOST_CHECK_THROW(testCircle.scale(-1), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -84,23 +84,23 @@ BOOST_AUTO_TEST_CASE(rectangleTestScale)
   utin::Rectangle testRectangle({2.1, 3.9}, 4.5, 5.5);
   const double areaBeforeScale = testRectangle.getArea();
   testRectangle.scale(1.5);
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeScale, mistake);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeScale * 1.5 * 1.5, mistake);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestWidthTrowException)
 {
-  BOOST_CHECK_TROW(utin::Rectangle({1.1, 1.2}, -1.1, 1.2), std::invalid_argument);
+  BOOST_CHECK_THROW(utin::Rectangle({1.1, 1.2}, -1.1, 1.2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestHeigthTrowException)
 {
-  BOOST_CHECK_TROW(utin::Rectangle({1.1, 1.2}, 1.1, -1.2), std::invalid_argument);
+  BOOST_CHECK_THROW(utin::Rectangle({1.1, 1.2}, 1.1, -1.2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestTrowExceptionScale)
 {
-  utin::Rectangle testRectangle({2.1, 3.9}, 4.5);
-  BOOST_CHECK_TROW(testrectangle.scale(-1), std::invalid_argument);
+  utin::Rectangle testRectangle({2.1, 3.9}, 4.5, 5.5);
+  BOOST_CHECK_THROW(testRectangle.scale(-1), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
