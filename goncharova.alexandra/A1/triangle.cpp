@@ -67,6 +67,6 @@ void Triangle::move(const point_t &newPoint)
 
 void Triangle::inform() const
 {
-	std::cout << "X: " << center_.x;
-	std::cout << "\n Y: " << center_.y;
+  std::cout << "X: " << center_.x;
+  std::cout << "\n Y: " << center_.y;
 }
