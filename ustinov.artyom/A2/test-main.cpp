@@ -56,17 +56,17 @@ BOOST_AUTO_TEST_CASE(changeAfterScalingDecrease)
   BOOST_CHECK_CLOSE(testRectangle.getArea(), testing_area * 0.25, IMPRECISION);
 }
 
-BOOST_AUTO_TEST_CASE(IncorrectWidth)
+BOOST_AUTO_TEST_CASE(incorrectWidth)
 {
   BOOST_CHECK_THROW(ustinov::Rectangle testRectangle({4, 2}, -15, 2), std::invalid_argument);
 }
 
-BOOST_AUTO_TEST_CASE(IncorrectHeight)
+BOOST_AUTO_TEST_CASE(incorrectHeight)
 {
   BOOST_CHECK_THROW(ustinov::Rectangle testRectangle({3, 1}, 33, -8), std::invalid_argument);
 }
 
-BOOST_AUTO_TEST_CASE(inncorrectCoefficient)
+BOOST_AUTO_TEST_CASE(inncorrectCoefficientScale)
 {
   ustinov::Rectangle testRectangle {{12, 3}, 5, 2};
   BOOST_CHECK_THROW(testRectangle.scale(-5), std::invalid_argument);
@@ -126,7 +126,7 @@ BOOST_AUTO_TEST_CASE(inncorrectRadius)
   BOOST_CHECK_THROW(ustinov::Circle testCircle({12, 3}, -3.4), std::invalid_argument);
 }
 
-BOOST_AUTO_TEST_CASE(inncorrectCoefficient)
+BOOST_AUTO_TEST_CASE(inncorrectCoefficientScale)
 {
   ustinov::Circle testCircle({12, 3}, 3.4);
   BOOST_CHECK_THROW(testCircle.scale(0), std::invalid_argument);
