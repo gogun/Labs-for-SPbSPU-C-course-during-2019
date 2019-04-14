@@ -1,36 +1,47 @@
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include "base-types.hpp"
 
 int main()
 {
-  point_t dot = {3, 4};
-  Circle circle1(dot, 15);
-  std::cout << "Area of circle1: " << circle1.getArea() << std::endl;
-  std::cout << "Height of frame rectangle: " << circle1.getFrameRect().height << std::endl;
-  std::cout << "Width of frame rectangle: " << circle1.getFrameRect().width << std::endl;
-  point_t movePoint = { 5,6 };
-  circle1.move(movePoint);
-  std::cout << "Circle moved to: x:" << circle1.center_.x
-  << ", y:" << circle1.center_.y << std::endl;
-  circle1.move(7.0, 8.0);
-  std::cout << "Circle moved to: x:" << circle1.center_.x
-  << ", y:" << circle1.center_.y << std::endl;
-  std::cout << "---" << std::endl;
+	point_t dot = { 3, 4 };
+	Circle circle1(dot, 15);
+	Rectangle rectangle1(dot, 10, 10);
 
-  Rectangle rectangle1(dot, 10, 10);
-  std::cout << "Area of rectangle1: " << rectangle1.getArea() << std::endl;
-  std::cout << "Height of frame rectangle: " << rectangle1.getFrameRect().height
-  << std::endl;
-  std::cout << "Width of frame rectangle: " << rectangle1.getFrameRect().width
-  << std::endl;
-  rectangle1.move(movePoint);
-  std::cout << "Rectangle moved to: x:" << rectangle1.center_.x 
-  << ", y:" << rectangle1.center_.y << std::endl;
-  rectangle1.move(7.0, 8.0);
-  std::cout << "Rectangle moved to: x:" << rectangle1.center_.x 
-  << ", y:" << rectangle1.center_.y << std::endl;
+	Shape* shape1 = &circle1;
+	std::cout << "Area of circle1: ";
+	std::cout << shape1.getArea() << "\n";
+	std::cout << "Height of frame rectangle: ";
+	std::cout << shape1.getFrameRect().height << "\n";
+	std::cout << "Width of frame rectangle: ";
+	std::cout << shape1.getFrameRect().width << "\n";
 
-  return 0;
+	point_t movePoint = { 5,6 };
+	shape1.move(movePoint);
+	std::cout << "Circle moved to: x:" << shape1.center_.x;
+	std::cout << ", y:" << shape1.center_.y << "\n";
+
+	shape1.move(7.0, 8.0);
+	std::cout << "Circle moved to: x:" << shape1.center_.x;
+	std::cout << ", y:" << shape1.center_.y << "\n";
+
+	std::cout << "-----" << "\n";
+
+	shape1 = &rectangle1;
+	std::cout << "Area of rectangle1: ";
+	std::cout << shape1.getArea() << "\n";
+	std::cout << "Height of frame rectangle: ";
+	std::cout << shape1.getFrameRect().height << "\n";
+	std::cout << "Width of frame rectangle: ";
+	std::cout << shape1.getFrameRect().width << "\n";
+
+	shape1.move(movePoint);
+	std::cout << "Rectangle moved to: x:" << shape1.center_.x;
+	std::cout << ", y:" << shape1.center_.y << "\n";
+
+	shape1.move(7.0, 8.0);
+	std::cout << "Rectangle moved to: x:" << shape1.center_.x;
+	std::cout << ", y:" << shape1.center_.y << "\n";
+
+	return 0;
 }
