@@ -15,8 +15,10 @@ int main()
     << "  center - " << rect.pos.x << " , " << rect.pos.y << std::endl;
 
   shape->move({1,3});
+  shape->scale(2);
   potapova::rectangle_t rect_ = shape->getFrameRect();
-  std::cout << "New center: " << rect_.pos.x<< " , " << rect_.pos.y << std::endl;
+  std::cout << "New center: " << rect_.pos.x<< " , " << rect_.pos.y << '\n'
+    << " New area - " << shape->getArea() << std::endl;
 
   potapova::Rectangle rectangle({{9,2}, 3, 8});
   shape = &rectangle;
@@ -29,7 +31,9 @@ int main()
     << "  center - " << rectan.pos.x << " , " << rectan.pos.y <<std::endl;
 
   shape->move({4,2});
+  shape->scale(3);
   potapova::rectangle_t rectan_ = shape->getFrameRect();
-  std::cout << "New center - " << rectan_.pos.x << " , " << rectan_.pos.y <<std::endl;
+  std::cout << "New center - " << rectan_.pos.x << " , " << rectan_.pos.y
+    << " New area - " << shape->getArea() <<std::endl;
   return 0;
 }
