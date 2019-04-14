@@ -12,12 +12,12 @@ BOOST_AUTO_TEST_SUITE(A2TestRectangle)
   BOOST_AUTO_TEST_CASE(testCorrectnessAfterMove)
   {
     drozdov::Rectangle rectangle(5.0, 3.0, {4.3, 1.0});
-    const rectangle_t beforeMoveRect = rectangle.getFrameRect();
+    const drozdov::rectangle_t beforeMoveRect = rectangle.getFrameRect();
     const double areaBeforeMove = rectangle.getArea();
 
     rectangle.move(2.4, 5.6);
 
-    const rectangle_t afterMoveRect = rectangle.getFrameRect();
+    const drozdov::rectangle_t afterMoveRect = rectangle.getFrameRect();
     const double areaAfterMove = rectangle.getArea();
 
     BOOST_CHECK_CLOSE(beforeMoveRect.width, afterMoveRect.width, calculationError);
