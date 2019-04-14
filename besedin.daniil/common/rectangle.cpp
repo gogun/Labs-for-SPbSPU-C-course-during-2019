@@ -43,9 +43,6 @@ void besedin::Rectangle::scale(const double scale)
   {
     throw std::invalid_argument("Wrong scaling factor");
   }
-  else
-  {
-    width_ *= scale;
-    height_ *= scale;
-  }
+  width_ *= scale;
+  height_ *= scale;
 }

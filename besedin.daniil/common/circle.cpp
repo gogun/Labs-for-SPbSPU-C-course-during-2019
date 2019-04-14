@@ -39,8 +39,5 @@ void besedin::Circle::scale(const double scale)
   {
     throw std::invalid_argument("Wrong scaling factor");
   }
-  else
-  {
-    radius_ *= scale;
-  }
+  radius_ *= scale;
 }
