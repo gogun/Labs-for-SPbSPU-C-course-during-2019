@@ -31,7 +31,7 @@ void Rectangle::move(const point_t &newPoint)
   center_ = newPoint;
 }
 
-void Rectangle::info()
+void Rectangle::inform()
 {
   std::cout << "X: " << center_.x;
   std::cout << "\n Y: " << center_.y;
