@@ -43,7 +43,8 @@ BOOST_AUTO_TEST_CASE(rectangleSquareAreaChangeAfterMove)
   testCirc.scale(coeff);
   BOOST_CHECK_CLOSE(circleAreaBeforeScale * coeff * coeff, testCirc.getArea(), tolerance);
 }
-BOOST_AUTO_TEST_CASE(circleSquareAreaChangeAfterMove)
+
+BOOST_AUTO_TEST_CASE(circleSquareAreaChangeAfterScale)
 {
   const double coeff = 12.4;
   chugaynov::Rectangle testRect({ 12.26, 2.8 }, 12.2, 102.3);

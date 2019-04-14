@@ -10,7 +10,7 @@ namespace chugaynov
     Circle(const point_t &point, double radius);
     rectangle_t getFrameRect() const override;
     double getArea() const override;
-    double getRadius();
+    double getRadius() const;
     void move(const point_t &point) override;
     void move(double dx, double dy) override;
     void scale(double coefficient) override;

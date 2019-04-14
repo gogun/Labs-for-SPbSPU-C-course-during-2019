@@ -18,7 +18,7 @@ double chugaynov::Circle::getArea() const
   return radius_ * radius_ * M_PI;
 }
 
-double chugaynov::Circle::getRadius()
+double chugaynov::Circle::getRadius() const
 {
   return radius_;
 }
