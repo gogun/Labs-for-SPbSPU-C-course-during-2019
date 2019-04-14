@@ -23,8 +23,8 @@ double Circle::getArea() const
 
 void Circle::move(const double dx, const double dy)
 {
-	center_.x += dx;
-	center_.y += dy;
+	center_.x = center_.x + dx;
+	center_.y = center_.y + dy;
 }
 
 void Circle::move(const point_t &newPoint)
