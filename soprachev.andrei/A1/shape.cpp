@@ -3,6 +3,7 @@
 //
 
 #include "shape.hpp"
+#include <cassert>
 
 Shape::Shape(const point_t &pos) :
   pos_(Vector2(pos))
