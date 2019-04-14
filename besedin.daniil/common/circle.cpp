@@ -33,7 +33,7 @@ void besedin::Circle::move(const point_t &newPos) noexcept
   center_ = newPos;
 }
 
-void besedin::Circle::scale(const double scale) noexcept
+void besedin::Circle::scale(const double scale)
 {
   if (scale <= 0.0)
   {

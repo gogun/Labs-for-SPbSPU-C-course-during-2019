@@ -13,7 +13,7 @@ namespace besedin
     rectangle_t getFrameRect() const noexcept override;
     void move(double dx, double dy) noexcept override;
     void move(const point_t &newPos) noexcept override;
-    void scale(double scale) noexcept override;
+    void scale(double scale) override;
 
   private:
     double width_;

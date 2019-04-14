@@ -71,7 +71,6 @@ BOOST_AUTO_TEST_CASE(wrongRectangleParameteresAndScaling)
   const double scale = -10;
   besedin::Rectangle rectangle(5.0, 5.0, {10.0, 10.0});
   BOOST_CHECK_THROW(rectangle.scale(scale), std::invalid_argument);
-
 }
 
 BOOST_AUTO_TEST_CASE(wrongCircleParameteresAndScaling)

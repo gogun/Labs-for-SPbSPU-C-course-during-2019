@@ -37,7 +37,7 @@ void besedin::Rectangle::move(const point_t &newPos) noexcept
   center_ = newPos;
 }
 
-void besedin::Rectangle::scale(const double scale) noexcept
+void besedin::Rectangle::scale(const double scale)
 {
   if (scale <= 0.0)
   {
