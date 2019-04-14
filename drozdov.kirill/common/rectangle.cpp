@@ -7,8 +7,7 @@ drozdov::Rectangle::Rectangle (double width, double height, const point_t &pos):
   height_(height),
   pos_(pos)
 {
-  if ((width < 0.0) || (height < 0.0))
-  {
+  if ((width < 0.0) || (height < 0.0)) {
     throw std::invalid_argument("Rectangle arguments are not valid.");
   }
 }

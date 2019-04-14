@@ -8,8 +8,7 @@ drozdov::Circle::Circle (double radius, const point_t &pos):
   radius_(radius),
   pos_(pos)
 {
-  if (radius < 0.0)
-  {
+  if (radius < 0.0) {
     throw std::invalid_argument("Circle arguments are not valid.");
   }
 }
