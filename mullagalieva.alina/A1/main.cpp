@@ -38,22 +38,22 @@ int main()
       << figures[0]->getPos().y << ")" << "\n";
 
   std::cout << "Position of the third figure: (" // moving circle
-      << figures[3]->getPos().x << "; "
-      << figures[3]->getPos().y << ")" << "\n";
+      << figures[2]->getPos().x << "; "
+      << figures[2]->getPos().y << ")" << "\n";
   std::cout << "Moving dx = 6.1, dy = 5" << "\n";
-  figures[3]->move(6.1, 5);
+  figures[2]->move(6.1, 5);
   std::cout << "New position of the third figure: ("
-      << figures[3]->getPos().x << "; "
-      << figures[3]->getPos().y << ")" << "\n";
+      << figures[2]->getPos().x << "; "
+      << figures[2]->getPos().y << ")" << "\n";
 
   std::cout << "Position of the fifth figure: (" // moving triangle
-      << figures[5]->getPos().x << "; "
-      << figures[5]->getPos().y << ") " << "\n";
+      << figures[4]->getPos().x << "; "
+      << figures[4]->getPos().y << ") " << "\n";
   std::cout << "Moving to the point (2.9; 4.1)" << "\n";
-  figures[5]->move({2.9, 4.1});
+  figures[4]->move({2.9, 4.1});
   std::cout << "New position of the fifth figure: ("
-      << figures[5]->getPos().x << "; "
-      << figures[5]->getPos().y << ")";
+      << figures[4]->getPos().x << "; "
+      << figures[4]->getPos().y << ")";
     
   return 0;
 }

@@ -19,7 +19,7 @@ Rectangle::Rectangle(double x, double y, double width, double height) :
 
 double Rectangle::getArea() const
 {
-  return {width_ * height_};
+  return width_ * height_;
 }
 
 rectangle_t Rectangle::getFrameRect() const
