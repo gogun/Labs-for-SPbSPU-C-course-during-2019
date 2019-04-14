@@ -25,6 +25,18 @@ BOOST_AUTO_TEST_SUITE(A2TestRectangle)
     BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, calculationError);
   }
 
+  BOOST_AUTO_TEST_CASE(testCorrectnessAftersScale)
+  {
+    drozdov::Rectangle rectangle(5.0, 3.0, {4.3, 1.0});
+    const double beforeAreaScale = rectangle.getArea();
+
+    const double factor = 4.0;
+    rectangle.scale(factor);
+
+    const double afterAreaScale = rectangle.getArea();
+    BOOST_CHECK_CLOSE(beforeAreaScale * factor * factor, afterAreaScale, calculationError);
+  }
+
 BOOST_AUTO_TEST_SUITE_END()
 
 
@@ -44,6 +56,18 @@ BOOST_AUTO_TEST_SUITE(A2TestCircle)
     BOOST_CHECK_CLOSE(radiusBeforeMove, radiusAfterMove, calculationError);
     BOOST_CHECK_CLOSE(radiusBeforeMove, radiusAfterMove, calculationError);
     BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, calculationError);
+  }
+
+  BOOST_AUTO_TEST_CASE(testCorrectnessAftersScale)
+  {
+    drozdov::Circle circle(5.0, {4.3, 1.0});
+    const double beforeAreaScale = circle.getArea();
+
+    const double factor = 4.0;
+    circle.scale(factor);
+    
+    const double afterAreaScale = circle.getArea();
+    BOOST_CHECK_CLOSE(beforeAreaScale * factor * factor, afterAreaScale, calculationError);
   }
 
 BOOST_AUTO_TEST_SUITE_END()
