@@ -1,5 +1,4 @@
 #include "rectangle.hpp"
-#include <iostream>
 #include <stdexcept>
 
 afanasiev::Rectangle::Rectangle(const point_t &position, double width, double height):
