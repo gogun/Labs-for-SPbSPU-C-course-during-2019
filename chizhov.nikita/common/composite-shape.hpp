@@ -7,8 +7,13 @@ namespace chizhov
 {
   class CompositeShape : public Shape {
   public:
-    CompositeShape(Shape*);
+    CompositeShape(Shape&);
+    CompositeShape(const CompositeShape&);
+    CompositeShape(CompositeShape&&);
     ~CompositeShape();
+
+    CompositeShape operator =(const CompositeShape&);
+    CompositeShape operator =(CompositeShape&&);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
@@ -16,7 +21,7 @@ namespace chizhov
     void move(point_t);
     void scale(double);
 
-    void addShape(Shape*);
+    void addShape(Shape&);
 
   private:
     struct link;
@@ -34,6 +39,7 @@ namespace chizhov
 
     void recomputeArea();
     void recomputeFrame();
+    void copyFromSource(const CompositeShape&);
   };
 }
 

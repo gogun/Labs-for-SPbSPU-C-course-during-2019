@@ -41,7 +41,7 @@ void chizhov::Circle::scale(double scale)
 {
   if (scale <= 0) {
     throw std::invalid_argument("You cannot scale by non-positive multiplier");
-  } else {
-    radius_ *= scale;
   }
+
+  radius_ *= scale;
 }
