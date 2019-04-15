@@ -4,7 +4,6 @@
 #include <boost/test/included/unit_test.hpp>
 #include <stdexcept>
 
-
 BOOST_AUTO_TEST_SUITE(TestCircle)
 
 const double fault = 0.001;
@@ -60,6 +59,8 @@ BOOST_AUTO_TEST_SUITE_END(TestCircle)
 
 
 BOOST_AUTO_TEST_SUITE(TestRectangle)
+
+const double fault = 0.001;
 
 BOOST_AUTO_TEST_CASE(TestRectangleAfterMove)
 {
