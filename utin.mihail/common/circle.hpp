@@ -13,7 +13,7 @@ namespace utin
     void move(const double &, const double &) override;
     void move(const point_t &) override;
     void printInfo() const override;
-    void scale(const double &) override;
+    void scale(double) override;
   private:
     point_t center_;
     double radius_;
