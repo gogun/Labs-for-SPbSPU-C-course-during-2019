@@ -6,7 +6,7 @@
 
 
 
-Circle::Circle(const point_t &p, const double &r):
+Circle::Circle(const point_t &p, const double &r) :
   r_(r),
   center_(p)
 {
