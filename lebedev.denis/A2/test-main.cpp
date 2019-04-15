@@ -10,7 +10,7 @@ const double fault = 0.001;
   
 BOOST_AUTO_TEST_CASE(TestCircleAfterMove)
 {
-  lebedev::Rectangle c1(3.00, { 1.00, 3.00 });
+  lebedev::Circle c1(3.00, { 1.00, 3.00 });
   const double AreaBefore = c1.getArea();
   const lebedev::rectangle_t frameBefore = c1.getFrameRect();
   c1.move(2.00, 5.4);
