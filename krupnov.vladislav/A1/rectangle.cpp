@@ -8,7 +8,7 @@ Rectangle::Rectangle(const point_t &p, const double &w, const double &h) :
   height_(h),
   center_(p)
 {
-  assert(height_ > 0 && width_ > 0);
+  assert((height_ > 0) && (width_ > 0));
 }
 
 double Rectangle::getArea() const
@@ -18,7 +18,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return { width_, height_, center_ };
+  return {width_, height_, center_};
 }
 
 void Rectangle::setWidth(const double &w)
