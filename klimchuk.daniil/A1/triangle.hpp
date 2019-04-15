@@ -1,12 +1,12 @@
-#ifndef RECTANGLE_HPP
-#define RECTANGLE_HPP
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 
 #include "shape.hpp"
 
-class Rectangle : public Shape
+class Triangle : public Shape
 {
 public:
-  Rectangle(double width, double height, const point_t &center);
+  Triangle(double side1, double side2, double side3, const point_t &center);
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
@@ -15,9 +15,10 @@ public:
   void printInfo() const override;
 
 private:
-  double width_;
-  double height_;
+  double side1_;
+  double side2_;
+  double side3_;
   point_t pos_;
 };
 
-#endif //RECTANGLE_HPP
+#endif //TRIANGLE_HPP
