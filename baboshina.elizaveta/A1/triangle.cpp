@@ -1,7 +1,7 @@
 #include "triangle.hpp"
 #include <iostream>
 
-Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC)
+Triangle::Triangle(const point_t pointA, const point_t pointB, const point_t pointC)
 {
   pointA_ = pointA;
   pointB_ = pointB;
@@ -20,7 +20,7 @@ rectangle_t Triangle::getFrameRect() const
   return { widht, height, {height / 2, widht / 2} };
 }
 
-void Triangle::move(const point_t &point)
+void Triangle::move(const point_t point)
 {
   point_t center = { (pointA_.x + pointB_.x + pointC_.x) / 3, (pointA_.y + pointB_.y + pointC_.y) / 3 };
   point_t delta = { point.x - center.x, point.y - center.y };
@@ -32,7 +32,7 @@ void Triangle::move(const point_t &point)
   pointC_.y += delta.y;
 }
 
-void Triangle::move(const double & x, const double & y)
+void Triangle::move(const double x, const double y)
 {
   pointA_.x += x;
   pointB_.x += x;
