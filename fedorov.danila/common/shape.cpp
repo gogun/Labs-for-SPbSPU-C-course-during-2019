@@ -1,7 +1,6 @@
 #include "shape.hpp"
 
 #include <iostream>
-#include <cassert>
 
 fedorov::Shape::Shape(const point_t &position):
   position_(position)
