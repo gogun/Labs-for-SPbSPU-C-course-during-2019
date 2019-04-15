@@ -3,16 +3,16 @@
 
 namespace fedorov
 {
-	struct point_t
-	{
-		double x, y;
-	};
+  struct point_t
+  {
+    double x, y;
+  };
 
-	struct rectangle_t
-	{
-		point_t pos;
-		double width, height;
-	};
+  struct rectangle_t
+  {
+    point_t pos;
+    double width, height;
+  };
 }
 
 #endif //BASE_TYPES_HPP

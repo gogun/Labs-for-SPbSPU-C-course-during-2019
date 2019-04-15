@@ -5,22 +5,22 @@
 
 namespace fedorov
 {
-	class Circle :
-		  public Shape
-	{
-	public:
-		Circle(const point_t &position, const double radius);
+  class Circle :
+      public Shape
+  {
+  public:
+    Circle(const point_t &position, const double radius);
 
-		rectangle_t getFrameRect() const override;
-		double getArea() const override;
+    rectangle_t getFrameRect() const override;
+    double getArea() const override;
     double getRadius() const;
 
-		void printInfo() const override;
-		void scale(double scale) override;
+    void printInfo() const override;
+    void scale(double scale) override;
 
-	private:
-		double radius_;
-	};
+  private:
+    double radius_;
+  };
 }
 
 #endif //CIRCLE_HPP

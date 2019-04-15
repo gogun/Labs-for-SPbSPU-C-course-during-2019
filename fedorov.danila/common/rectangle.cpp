@@ -51,6 +51,6 @@ void fedorov::Rectangle::scale(double scale)
   {
     throw std::invalid_argument("Incorrect scale");
   }
-	width_ *= scale;
-	height_ *= scale;
+  width_ *= scale;
+  height_ *= scale;
 }

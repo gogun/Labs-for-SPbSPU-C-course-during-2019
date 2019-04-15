@@ -48,5 +48,5 @@ void fedorov::Circle::scale(double scale)
   {
     throw std::invalid_argument("Incorrect scale");
   }
-	radius_ *= scale;
+  radius_ *= scale;
 }
