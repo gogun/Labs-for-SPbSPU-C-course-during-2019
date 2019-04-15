@@ -1,15 +1,18 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 #include "base-types.hpp"
 
 
-gusarov::Rectangle::Rectangle(const point_t &center, const double width, const double height):
+gusarov::Rectangle::Rectangle(const point_t &center,const double width,const double height):
   width_(width),
   height_(height),
   center_(center)
 {
-  assert((height > 0) && (width > 0));
+  if(width <= 0 || height <= 0)
+  {
+    throw std::invalid_argument("Invalid width or height value");
+  }
 }
 double gusarov::Rectangle::getArea() const
 {
@@ -34,9 +37,20 @@ void gusarov::Rectangle::printInfo() const
             << "Height of rectangle is " << height_ <<'\n'
             << "Center of rectangle is a point: ("<< center_.x<<";"<<center_.y<<")"<<'\n';
 }
-void gusarov::Rectangle::scale(double scale)
+void gusarov::Rectangle::scale(const double scale)
 {
-  assert(scale > 0);
+  if(scale <= 0)
+  {
+    throw std::invalid_argument("Invalid scale value");
+  }
   width_ *= scale;
   height_ *= scale;
+}
+double gusarov::Rectangle::getHeight() const
+{
+  return height_;
+}
+double gusarov::Rectangle::getWidth() const
+{
+  return width_;
 }

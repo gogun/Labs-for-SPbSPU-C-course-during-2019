@@ -16,8 +16,8 @@ int main()
   shape->scale(2);
   //Вывод данных после смещения и масштабирования
   shape->printInfo();
-  //круг
-  gusarov::Circle cir({1,4}, 6);
+  //окружность
+  gusarov::Circle cir({1,4}, 2);
   shape = &cir;
   shape->printInfo();
   std::cout << "Area of circle is " << shape->getArea() <<'\n';
