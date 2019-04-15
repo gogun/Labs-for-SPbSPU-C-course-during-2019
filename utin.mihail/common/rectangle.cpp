@@ -37,7 +37,7 @@ void utin::Rectangle::move(const point_t &point)
   center_ = point;
 }
 
-void utin::Rectangle::scale(const double &multiplier)
+void utin::Rectangle::scale(double multiplier)
 {
   if (multiplier <= 0)
   {

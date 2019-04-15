@@ -33,7 +33,7 @@ void utin::Circle::move(const point_t &point)
   center_ = point;
 }
 
-void utin::Circle::scale(const double &multiplier)
+void utin::Circle::scale(double multiplier)
 {
   if (multiplier <= 0)
   {
