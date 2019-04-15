@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE(TestCircleInvalidParametrs)
   BOOST_CHECK_THROW( c1.scale(-1.5), std::invalid_argument)
 }
 
-BOOST_AUTO_TEST_SUITE_END(TestCircle)
+BOOST_AUTO_TEST_SUITE_END();
 
 
 BOOST_AUTO_TEST_SUITE(TestRectangle)
@@ -111,4 +111,4 @@ BOOST_AUTO_TEST_CASE(TestRectangleInvalidParametrs)
   BOOST_CHECK_THROW(r1.scale(0), std::invalid_argument);
 }
 
-BOOST_AUTO_TEST_SUITE_END(TestRectangle)
+BOOST_AUTO_TEST_SUITE_END()
