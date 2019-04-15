@@ -1,24 +1,37 @@
 #include "rectangle.hpp"
 
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 fedorov::Rectangle::Rectangle(const point_t &position, const double width, const double height):
   Shape(position),
   width_(width),
   height_(height)
 {
-  assert((width_ > 0) && (height_ > 0));
+  if ((width_ <= 0) || (height_ <= 0))
+  {
+    throw std::invalid_argument("Incorrect width or height");
+  }
 }
 
 fedorov::rectangle_t fedorov::Rectangle::getFrameRect() const
 {
-  return {position_, width_, height_};
+  return { position_, width_, height_ };
 }
 
 double fedorov::Rectangle::getArea() const
 {
   return width_ * height_;
+}
+
+double fedorov::Rectangle::getWidth() const
+{
+  return width_;
+}
+
+double fedorov::Rectangle::getHeight() const
+{
+  return height_;
 }
 
 void fedorov::Rectangle::printInfo() const
@@ -34,7 +47,10 @@ void fedorov::Rectangle::printInfo() const
 
 void fedorov::Rectangle::scale(double scale)
 {
-	assert(scale > 0);
+  if (scale <= 0)
+  {
+    throw std::invalid_argument("Incorrect scale");
+  }
 	width_ *= scale;
 	height_ *= scale;
 }

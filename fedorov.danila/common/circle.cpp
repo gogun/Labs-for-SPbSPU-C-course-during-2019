@@ -1,7 +1,7 @@
 #include "circle.hpp"
 
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -10,17 +10,25 @@ fedorov::Circle::Circle(const point_t &position, const double radius):
   Shape(position),
   radius_(radius)
 {
-  assert(radius_ > 0);
+  if (radius_ <= 0)
+  {
+    throw std::invalid_argument("Incorrect radius");
+  }
 }
 
 fedorov::rectangle_t fedorov::Circle::getFrameRect() const
 {
-  return {position_, radius_ * 2, radius_ * 2};
+  return { position_, radius_ * 2, radius_ * 2 };
 }
 
 double fedorov::Circle::getArea() const
 {
   return radius_ * radius_ * M_PI;
+}
+
+double fedorov::Circle::getRadius() const
+{
+  return radius_;
 }
 
 void fedorov::Circle::printInfo() const
@@ -36,6 +44,9 @@ void fedorov::Circle::printInfo() const
 
 void fedorov::Circle::scale(double scale)
 {
-	assert(scale > 0);
+  if (scale <= 0)
+  {
+    throw std::invalid_argument("Incorrect scale");
+  }
 	radius_ *= scale;
 }

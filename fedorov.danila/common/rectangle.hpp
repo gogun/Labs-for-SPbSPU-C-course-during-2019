@@ -6,13 +6,15 @@
 namespace fedorov
 {
 	class Rectangle :
-		public Shape
+		  public Shape
 	{
 	public:
 		Rectangle(const point_t &position, const double width, const double height);
 
 		rectangle_t getFrameRect() const override;
 		double getArea() const override;
+		double getWidth() const;
+		double getHeight() const;
 
 		void printInfo() const override;
 		void scale(double scale) override;
