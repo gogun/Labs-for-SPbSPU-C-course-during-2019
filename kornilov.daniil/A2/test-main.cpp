@@ -68,13 +68,13 @@ BOOST_AUTO_TEST_CASE(SquareChangingAfterScaling)
 BOOST_AUTO_TEST_CASE(InvalidWidth)
 {
   const double width = -0.1;
-  BOOST_CHECK_THROW(kornilov::Rectangle rectangle({{0, 0}, width, 11}), std::invalid_argument);
+  BOOST_CHECK_THROW(const kornilov::Rectangle rectangle({{0, 0}, width, 11}), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(InvalidHeight)
 {
   const double height = -0.1;
-  BOOST_CHECK_THROW(kornilov::Rectangle rectangle({{0, 0}, 10, height}), std::invalid_argument);
+  BOOST_CHECK_THROW(const kornilov::Rectangle rectangle({{0, 0}, 10, height}), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(InvalidCoefficient)
@@ -132,7 +132,7 @@ BOOST_AUTO_TEST_CASE(SquareChangingAfterScaling)
 BOOST_AUTO_TEST_CASE(InvalidRadius)
 {
   const double radius = -0.1;
-  BOOST_CHECK_THROW(kornilov::Circle circle({0, 0}, radius), std::invalid_argument);
+  BOOST_CHECK_THROW(const kornilov::Circle circle({0, 0}, radius), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(InvalidCoefficient)
