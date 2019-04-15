@@ -48,8 +48,12 @@ BOOST_AUTO_TEST_CASE(TestCircleScale)
 BOOST_AUTO_TEST_CASE(TestCircleInvalidParametrs)
 {
   BOOST_CHECK_THROW(lebedev::Circle c1(-1.5, { 1.00, 3.00 }), std::invalid_argument);
-  BOOST_CHECK_THROW(lebedev::c1.scale(-1.5), std::invalid_argument)
-    
+}
+
+BOOST_AUTO_TEST_CASE(TestCircleInvalidMultiplier)
+{
+  lebedev::Circle c1(1.5, { 1.00, 3.00 });
+  BOOST_CHECK_THROW(c1.scale(-1.5), std::invalid_argument);     
 }
 
 BOOST_AUTO_TEST_SUITE_END();
@@ -100,8 +104,12 @@ BOOST_AUTO_TEST_CASE(TestRectangleInvalidParametrs)
 {
   BOOST_CHECK_THROW(lebedev::Rectangle r1(-3.00, 4.00, { 5.00, 4.00 }), std::invalid_argument);
   BOOST_CHECK_THROW(lebedev::Rectangle r1(3.00, -4.00, { 5.00, 4.00 }), std::invalid_argument);
-  BOOST_CHECK_THROW(lebedev::r1.scale(0), std::invalid_argument);
-    
+}
+
+BOOST_AUTO_TEST_CASE(TestRectangleInvalidCoefficient)
+{
+  lebedev::Rectangle r1(3.00, 4.00, { 5.00, 4.00 });
+  BOOST_CHECK_THROW(r1.scale(0), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
