@@ -39,7 +39,7 @@ chizhov::CompositeShape::~CompositeShape()
   }
 }
 
-chizhov::CompositeShape chizhov::CompositeShape::operator =(const chizhov::CompositeShape& rhs)
+chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::CompositeShape& rhs)
 {
   if (this != &rhs) {
     frameRect_ = rhs.frameRect_;
@@ -51,7 +51,7 @@ chizhov::CompositeShape chizhov::CompositeShape::operator =(const chizhov::Compo
   return *this;
 }
 
-chizhov::CompositeShape chizhov::CompositeShape::operator=(chizhov::CompositeShape&& rhs)
+chizhov::CompositeShape& chizhov::CompositeShape::operator=(chizhov::CompositeShape&& rhs)
 {
   if (this != &rhs) {
     frameRect_ = rhs.frameRect_;

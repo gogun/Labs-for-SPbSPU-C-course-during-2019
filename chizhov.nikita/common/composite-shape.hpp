@@ -12,8 +12,8 @@ namespace chizhov
     CompositeShape(CompositeShape&&);
     ~CompositeShape();
 
-    CompositeShape operator =(const CompositeShape&);
-    CompositeShape operator =(CompositeShape&&);
+    CompositeShape& operator =(const CompositeShape&);
+    CompositeShape& operator =(CompositeShape&&);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
