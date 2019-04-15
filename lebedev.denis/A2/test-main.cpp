@@ -17,7 +17,7 @@ BOOST_AUTO_TEST_CASE(TestCircleAfterMove)
   const double AreaAfterMove = c1.getArea();
   const lebedev::rectangle_t frameAfterMove = c1.getFrameRect();
   BOOST_CHECK_CLOSE(frameBefore.height, frameAfterMove.height, fault);
-  BOOST_CHECK_CLOSE(frameBefore.width, farmeAfterMove.width, fault);
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfterMove.width, fault);
   BOOST_CHECK_CLOSE(AreaBefore, AreaAfterMove, fault);
 }
 
@@ -48,7 +48,7 @@ BOOST_AUTO_TEST_CASE(TestCircleScale)
 BOOST_AUTO_TEST_CASE(TestCircleInvalidParametrs)
 {
   BOOST_CHECK_THROW(lebedev::Circle c1(-1.5, { 1.00, 3.00 }), std::invalid_argument);
-  BOOST_CHECK_THROW( c1.scale(-1.5), std::invalid_argument)
+  BOOST_CHECK_THROW(lebedev::Circle c1.scale(-1.5), std::invalid_argument)
     
 }
 
@@ -70,6 +70,7 @@ BOOST_AUTO_TEST_CASE(TestRectangleAfterMove)
   BOOST_CHECK_CLOSE(frameBefore.height, frameAfterMove.height, fault);
   BOOST_CHECK_CLOSE(frameBefore.width, frameAfterMove.width, fault);
   BOOST_CHECK_CLOSE(AreaBefore, AreaAfterMove, fault);
+}  
 
 BOOST_AUTO_TEST_CASE(TestRectangleAfterMovePos)
 {
