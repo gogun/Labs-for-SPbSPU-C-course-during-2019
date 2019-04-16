@@ -134,7 +134,11 @@ void barekov::CompositeShape::deleteShape(int index)
 {
   if ((index >= shapeQuantity_) || (index < 0))
   {
-    throw std::invalid_argument("Index is out of range");
+    throw std::out_of_range("Index is out of range");
+  }
+  if (shapeQuantity_ == 1)
+  {
+    throw std::out_of_range("Composite shape cannot contain less than one figure");
   }
 
   std::unique_ptr<Shape*[]> tmpArray(new Shape*[shapeQuantity_ - 1]);
