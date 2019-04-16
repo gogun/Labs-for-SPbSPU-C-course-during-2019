@@ -4,7 +4,7 @@
 #include <cmath>
 #include <cassert>
 
-Triangle::Triangle(const point_t & pt1, const point_t & pt2, const point_t & pt3) :
+Triangle::Triangle(const point_t &pt1, const point_t &pt2, const point_t &pt3) :
   pos_({ (pt1.x + pt2.x + pt3.x) / 3 , (pt1.y + pt2.y + pt3.y) / 3 }),
   a_(pt1),
   b_(pt2),
