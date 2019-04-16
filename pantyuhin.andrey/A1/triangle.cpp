@@ -6,7 +6,7 @@
 Triangle::Triangle(point_t vertexA, point_t vertexB, point_t vertexC):
     vertex_{vertexA, vertexB, vertexC}
 {
-  assert(((vertexC.x - vertexA.x) / (vertexB.x - vertexA.x) == (vertexC.y - vertexA.y) / (vertexB.y - vertexA.y))
+  assert(((vertexC.x - vertexA.x) / (vertexB.x - vertexA.x) != (vertexC.y - vertexA.y) / (vertexB.y - vertexA.y))
       && "vertexes of triangle can't lie on the same straight line or match");
 }
 
