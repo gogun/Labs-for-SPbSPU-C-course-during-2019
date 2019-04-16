@@ -87,7 +87,6 @@ void chizhov::CompositeShape::deleteShape(const Shape* shape)
   while (listTmp != nullptr) {
     if (listTmp->value == shape) {
       if (listTmp == listHead_) {
-
         listHead_ = listTmp->next;
       }
 
