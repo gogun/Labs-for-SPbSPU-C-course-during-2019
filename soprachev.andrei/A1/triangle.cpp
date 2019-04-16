@@ -36,10 +36,10 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double left = std::min({vertex0_.x_, vertex1_.x_, vertex2_.x_});
-  double right = std::max({vertex0_.x_, vertex1_.x_, vertex2_.x_});
-  double down = std::min({vertex0_.y_, vertex1_.y_, vertex2_.y_});
-  double up = std::max({vertex0_.y_, vertex1_.y_, vertex2_.y_});
+  double left = std::min(vertex0_.x_, std::min(vertex1_.x_, vertex2_.x_));
+  double right = std::max(vertex0_.x_, std::max(vertex1_.x_, vertex2_.x_));
+  double down = std::min(vertex0_.y_, std::min(vertex1_.y_, vertex2_.y_));
+  double up = std::max(vertex0_.y_, std::max(vertex1_.y_, vertex2_.y_));
 
   return rectangle_t
     {
