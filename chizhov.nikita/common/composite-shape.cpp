@@ -133,8 +133,6 @@ void chizhov::CompositeShape::move(chizhov::point_t position)
   double dx = position.x - frameRect.pos.x;
   double dy = position.y - frameRect.pos.y;
 
-  std::cout << dx << ' ' << dy;
-
   link* listTmp = listHead_;
 
   while (listTmp != nullptr) {
