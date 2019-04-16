@@ -45,7 +45,7 @@ BOOST_AUTO_TEST_CASE(areaAfterScalingComposite)
   BOOST_CHECK_CLOSE(testComposite.getArea(), scaleFactor * scaleFactor * InitialArea, ErrorValue);
 }
 
-BOOST_AUTO_TEST_CASE(invalidArgumentsComposite)
+BOOST_AUTO_TEST_CASE(exceptionThrowComposite)
 {
   BOOST_CHECK_THROW(barekov::CompositeShape(nullptr), std::invalid_argument);
 
