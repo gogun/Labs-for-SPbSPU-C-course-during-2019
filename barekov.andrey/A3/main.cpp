@@ -85,5 +85,9 @@ int main()
       << composite.getPos().x << "; "
       << composite.getPos().y << ")\n";
 
+  std::cout << "Deleting a shape";
+  composite.deleteShape(2);
+  composite.showScalableParameters();
+
   return 0;
 }

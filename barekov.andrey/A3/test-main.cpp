@@ -56,6 +56,8 @@ BOOST_AUTO_TEST_CASE(invalidArgumentsComposite)
   BOOST_CHECK_THROW(testComposite.scale(-2), std::invalid_argument);
 
   BOOST_CHECK_THROW(testComposite.addShape(nullptr), std::invalid_argument);
+  BOOST_CHECK_THROW(testComposite.deleteShape(4), std::invalid_argument);
+  BOOST_CHECK_THROW(testComposite.deleteShape(-2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

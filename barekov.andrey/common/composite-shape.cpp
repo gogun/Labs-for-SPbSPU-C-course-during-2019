@@ -129,3 +129,25 @@ void barekov::CompositeShape::addShape(Shape* addedShape)
 
   centre_ = getFrameRect().pos;
 }
+
+void barekov::CompositeShape::deleteShape(int index)
+{
+  if ((index >= shapeQuantity_) || (index < 0))
+  {
+    throw std::invalid_argument("Index is out of range");
+  }
+
+  std::unique_ptr<Shape*[]> tmpArray(new Shape*[shapeQuantity_ - 1]);
+  for (int i = 0; i < index; i++)
+  {
+    tmpArray[i] = arrayOfShapes_[i];
+  }
+  for (int i = index; i < shapeQuantity_ - 1; i++)
+  {
+    tmpArray[i] = arrayOfShapes_[i + 1];
+  }
+  shapeQuantity_--;
+  arrayOfShapes_.swap(tmpArray);
+
+  centre_ = getFrameRect().pos;
+}

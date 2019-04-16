@@ -22,6 +22,7 @@ namespace barekov
     void scale(double scaleFactor) override;
 
     void addShape(Shape* addedShape);
+    void deleteShape(int index);
 
   private:
     point_t centre_;
