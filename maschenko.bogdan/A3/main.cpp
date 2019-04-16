@@ -47,5 +47,9 @@ int main()
   std::cout << "scale CompositeShape with coefficient = 4" << std::endl;
   composite_shape.scale(4);
   composite_shape.writeInfo();
+
+  composite_shape.removeShape(p_circle3);
+  composite_shape.removeShape(4);
+  composite_shape.writeInfo();
   return 0;
 }

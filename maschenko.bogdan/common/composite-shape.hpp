@@ -19,6 +19,9 @@ namespace maschenko
     void writeInfo() const override;
     int getShapeQuantity() const;
     void addShape(Shape *shape);
+    void removeShape(Shape *shape);
+    void removeShape(int index);
+    Shape* getShape(int index) const;
 
   private:
     point_t pos_;

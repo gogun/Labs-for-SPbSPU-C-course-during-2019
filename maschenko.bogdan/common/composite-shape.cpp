@@ -29,29 +29,40 @@ double maschenko::CompositeShape::getArea() const
 
 maschenko::rectangle_t maschenko::CompositeShape::getFrameRect() const
 {
-  double max_y = shape_array_[0]->getFrameRect().pos.y + shape_array_[0]->getFrameRect().height / 2;
-  double min_y = shape_array_[0]->getFrameRect().pos.y - shape_array_[0]->getFrameRect().height / 2;
-  double max_x = shape_array_[0]->getFrameRect().pos.x + shape_array_[0]->getFrameRect().width / 2;
-  double min_x = shape_array_[0]->getFrameRect().pos.x - shape_array_[0]->getFrameRect().width / 2;
-  for (int i = 1; i < shape_quantity_; i++)
+  double max_x = shape_array_[0]->getFrameRect().pos.x;
+  double min_x = shape_array_[0]->getFrameRect().pos.x;
+  double max_y = shape_array_[0]->getFrameRect().pos.y;
+  double min_y = shape_array_[0]->getFrameRect().pos.y;
+
+  for (int i = 1; i < shape_quantity_; ++i)
   {
-    if (max_y < shape_array_[i]->getFrameRect().pos.y + shape_array_[i]->getFrameRect().height / 2)
+    rectangle_t temp_rect = shape_array_[i]->getFrameRect();
+
+    double bottom_side = temp_rect.pos.y - temp_rect.height / 2;
+    if (min_y > bottom_side)
     {
-      max_y = shape_array_[i]->getFrameRect().pos.y + shape_array_[i]->getFrameRect().height / 2;
+      min_y = bottom_side;
     }
-    if (min_y > shape_array_[i]->getFrameRect().pos.y - shape_array_[i]->getFrameRect().height / 2)
+
+    double top_side = temp_rect.pos.y + temp_rect.height / 2;
+    if (max_y > top_side)
     {
-      min_y = shape_array_[i]->getFrameRect().pos.y - shape_array_[i]->getFrameRect().height / 2;
+      max_y = top_side;
     }
-    if (max_x < shape_array_[i]->getFrameRect().pos.x + shape_array_[i]->getFrameRect().width / 2)
+
+    double left_side = temp_rect.pos.x - temp_rect.width / 2;
+    if (min_x > left_side)
     {
-      max_x = shape_array_[i]->getFrameRect().pos.x + shape_array_[i]->getFrameRect().width / 2;
+      min_x = left_side;
     }
-    if (min_x > shape_array_[i]->getFrameRect().pos.x - shape_array_[i]->getFrameRect().width / 2)
+
+    double right_side = temp_rect.pos.x + temp_rect.width / 2;
+    if (max_x > right_side)
     {
-      min_x = shape_array_[i]->getFrameRect().pos.x - shape_array_[i]->getFrameRect().width / 2;
+      max_x = right_side;
     }
   }
+
   return
   {
     {
@@ -109,14 +120,14 @@ void maschenko::CompositeShape::scale(double coefficient)
 
 void maschenko::CompositeShape::writeInfo() const
 {
+  maschenko::rectangle_t temp_rect = getFrameRect();
   std::cout << std::endl
-            << "Quantity shape in CompositeShape = " << shape_quantity_
-            << " with centre (" << pos_.x << ";" << pos_.y << ") " << std::endl
+            << "Quantity shape in CompositeShape = " << shape_quantity_ << std::endl
             << "Area = " << getArea() << std::endl
-            << "Frame rectangle width = " << getFrameRect().width
-            << ", height = " << getFrameRect().height
-            << ", and with centre (" << getFrameRect().pos.x << ";"
-            << getFrameRect().pos.y << ") " << std::endl << std::endl;
+            << "Frame rectangle width = " << temp_rect.width
+            << ", height = " << temp_rect.height
+            << ", and with centre (" << temp_rect.pos.x << ";"
+            << temp_rect.pos.y << ") " << std::endl << std::endl;
 }
 
 int maschenko::CompositeShape::getShapeQuantity() const
@@ -139,29 +150,58 @@ void maschenko::CompositeShape::addShape(maschenko::Shape *shape)
   new_shape_array[shape_quantity_] = shape;
   shape_quantity_++;
   shape_array_.swap(new_shape_array);
-  double max_y = shape_array_[0]->getFrameRect().pos.y + shape_array_[0]->getFrameRect().height / 2;
-  double min_y = shape_array_[0]->getFrameRect().pos.y - shape_array_[0]->getFrameRect().height / 2;
-  double max_x = shape_array_[0]->getFrameRect().pos.x + shape_array_[0]->getFrameRect().width / 2;
-  double min_x = shape_array_[0]->getFrameRect().pos.x - shape_array_[0]->getFrameRect().width / 2;
-  for (int i = 1; i < shape_quantity_; i++)
+
+  pos_.x = getFrameRect().pos.x;
+  pos_.y = getFrameRect().pos.y;
+}
+
+void maschenko::CompositeShape::removeShape(int index)
+{
+  if (index > shape_quantity_)
   {
-    if (max_y < shape_array_[i]->getFrameRect().pos.y + shape_array_[i]->getFrameRect().height / 2)
+    throw std::invalid_argument("Index out of bounds exception");
+  }
+
+  std::unique_ptr<maschenko::Shape *[]> new_shape_array(new maschenko::Shape *[shape_quantity_ - 1]);
+
+  for (int i = 0; i < index; ++i)
+  {
+    new_shape_array[i] = shape_array_[i];
+  }
+
+  shape_quantity_--;
+
+  for (int i = index; i < shape_quantity_; ++i)
+  {
+    new_shape_array[i] = shape_array_[i + 1];
+  }
+
+  shape_array_.swap(new_shape_array);
+
+  pos_.x = getFrameRect().pos.x;
+  pos_.y = getFrameRect().pos.y;
+}
+
+void maschenko::CompositeShape::removeShape(maschenko::Shape *shape)
+{
+  for (int i = 0; i < shape_quantity_; ++i)
+  {
+    if (shape == shape_array_[i])
     {
-      max_y = shape_array_[i]->getFrameRect().pos.y + shape_array_[i]->getFrameRect().height / 2;
-    }
-    if (min_y > shape_array_[i]->getFrameRect().pos.y - shape_array_[i]->getFrameRect().height / 2)
-    {
-      min_y = shape_array_[i]->getFrameRect().pos.y - shape_array_[i]->getFrameRect().height / 2;
-    }
-    if (max_x < shape_array_[i]->getFrameRect().pos.x + shape_array_[i]->getFrameRect().width / 2)
-    {
-      max_x = shape_array_[i]->getFrameRect().pos.x + shape_array_[i]->getFrameRect().width / 2;
-    }
-    if (min_x > shape_array_[i]->getFrameRect().pos.x - shape_array_[i]->getFrameRect().width / 2)
-    {
-      min_x = shape_array_[i]->getFrameRect().pos.x - shape_array_[i]->getFrameRect().width / 2;
+      removeShape(i);
+      return;
     }
   }
-  pos_.x = (max_x + min_x) / 2;
-  pos_.y = (max_y + min_y) / 2;
+
+  throw std::invalid_argument("This shape doesn't exist");
+}
+
+maschenko::Shape* maschenko::CompositeShape::getShape(int index)
+{
+  if (index > shape_quantity_)
+  {
+    throw std::invalid_argument("Index out of bounds exception");
+  }
+
+  return shape_array_[index];
 }
