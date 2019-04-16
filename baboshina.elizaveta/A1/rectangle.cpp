@@ -2,10 +2,10 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const point_t pos, double width, double height):
-  center_(pos),
+Rectangle::Rectangle(const double width, const double height, const point_t pos):
   width_(width),
-  height_(height)
+  height_(height),
+  center_(pos)
 {
   assert((width > 0) && (height > 0));
 }
