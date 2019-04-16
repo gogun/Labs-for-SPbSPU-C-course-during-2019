@@ -4,7 +4,6 @@
 
 #include "triangle.hpp"
 #include <cassert>
-#include <mach/task.h>
 #include "math.h" //need for abs in getArea
 
 point_t centerOfMassByPoints(const point_t &point0, const point_t &point1, const point_t &point2)
