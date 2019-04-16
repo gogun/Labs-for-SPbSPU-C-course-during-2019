@@ -11,9 +11,9 @@ namespace lebedev
 
   struct rectangle_t
   {
-   double height;
-   double width;
-   point_t pos;
+    double height;
+    double width;
+    point_t pos;
   };
 }
 #endif
