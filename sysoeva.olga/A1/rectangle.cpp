@@ -3,9 +3,9 @@
 #include <iostream>
 
 Rectangle::Rectangle(double width, double height, const point_t & center):
-  width_ (width),
-  height_ (height),
-  center_ (center)
+  width_(width),
+  height_(height),
+  center_(center)
 
 {
   assert((height > 0.0) && (width > 0.0));
@@ -13,7 +13,7 @@ Rectangle::Rectangle(double width, double height, const point_t & center):
 
 double Rectangle::getArea() const
 {
-  return width_ * height_ ;
+  return width_ * height_;
 }
 
 rectangle_t Rectangle::getFrameRect() const

@@ -27,25 +27,6 @@ void showProgramWork(Shape & shape)
   printRect(shape);
 }
 
-void showTriangle(Triangle & triangle)
-{
-  std::cout << "Area = " << triangle.getArea() << '\n';
-  triangle.printCenter();
-  printRect(triangle);
-  double x = 2;
-  double y = 2;
-  triangle.move({x, y});
-  std::cout << "Move to: x = " << x << " y = " << y << '\n';
-  triangle.showCoord();
-  printRect(triangle);
-  double dx = 5;
-  double dy = 10;
-  triangle.move(dx, dy);
-  std::cout << "Move by: dx = " << dx << " dy = " << dy << '\n';
-  triangle.showCoord();
-  printRect(triangle);
-}
-
 int main()
 {
   std::cout << "The first object is Circle:" << '\n';
@@ -56,7 +37,8 @@ int main()
   showProgramWork(rectangle);
   std::cout << "The third object is Triangle:" << '\n';
   Triangle triangle({3, 7}, {5, 2}, {7, 4});
-  showTriangle(triangle);
-
+  triangle.printCenter();
+  showProgramWork(triangle);
+  triangle.showCoord();
   return 0;
 }
