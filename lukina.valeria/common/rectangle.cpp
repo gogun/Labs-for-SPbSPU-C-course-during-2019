@@ -10,7 +10,7 @@ lukina::Rectangle::Rectangle(const point_t &center, double width, double height)
 {
   if ((width_ <= 0.0) || (height_ <= 0.0))
   {
-    throw std::invalid_argument("Rectangle parameters must be positive!\n");
+    throw std::invalid_argument("Rectangle parameters must be positive!");
   }
 }
 
@@ -39,7 +39,7 @@ void lukina::Rectangle::scale(double coefficient)
 {
   if (coefficient <= 0.0)
   {
-    throw std::invalid_argument("Coefficient should be positive!\n");
+    throw std::invalid_argument("Coefficient should be positive!");
   }
   else
   {

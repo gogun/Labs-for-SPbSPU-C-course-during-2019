@@ -10,7 +10,7 @@ lukina::Circle::Circle(const point_t &center, double radius) :
 {
   if (radius_ <= 0.0)
   {
-    throw std::invalid_argument("Radius must be positive!\n");
+    throw std::invalid_argument("Radius must be positive!");
   }
 }
 
@@ -38,9 +38,9 @@ void lukina::Circle::move(const point_t &newPoint)
 void lukina::Circle::scale(double coefficient)
 {
   if (coefficient <= 0.0)
-    {
-      throw std::invalid_argument("Coefficient should be positive!\n");
-    }
+  {
+      throw std::invalid_argument("Coefficient should be positive!");
+  }
   else
   {
     radius_ *= coefficient;
