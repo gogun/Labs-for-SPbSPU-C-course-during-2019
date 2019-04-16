@@ -9,7 +9,7 @@ Rectangle::Rectangle(const point_t & center, const double width, const double he
   height_(height)
 {
   if ((width_ <= 0.0) && (height_ <= 0.0)) {
-    throw std::invalid_argument("ERROR: Length of rectangle's sides must be positive");
+    throw std::invalid_argument("Length of rectangle's sides must be positive");
   }
 }
 
@@ -19,7 +19,7 @@ Rectangle::Rectangle(const point_t & center, const double width):
   height_(width)
 {
   if ((width_ <= 0.0) && (height_ <= 0.0)) {
-    throw std::invalid_argument("ERROR: Length of square's sides must be positive");
+    throw std::invalid_argument("Length of square's sides must be positive");
   }
 }
 
@@ -49,7 +49,7 @@ void Rectangle::move(const double dx, const double dy)
   center_.y += dy;
 }
 
-void Rectangle::move(const point_t &pos)
+void Rectangle::move(const point_t & pos)
 {
   center_ = pos;
 }

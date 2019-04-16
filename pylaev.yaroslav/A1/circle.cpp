@@ -11,10 +11,10 @@ Circle::Circle(const point_t & center, double radius):
   radius_(radius)
 {
   if (radius_ == 0.0) {
-    throw std::invalid_argument("ERROR: It is a point");
+    throw std::invalid_argument("It is a point");
   }
   if (radius_ < 0.0) {
-    throw std::invalid_argument("ERROR: Length of radius must be positive");
+    throw std::invalid_argument("Length of radius must be positive");
   }
 }
 
@@ -39,7 +39,7 @@ void Circle::move(const double dx, const double dy)
   center_.y += dy;
 };
 
-void Circle::move(const point_t &pos)
+void Circle::move(const point_t & pos)
 {
   center_ = pos;
 }
