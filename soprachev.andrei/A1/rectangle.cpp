@@ -30,11 +30,12 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  rectangle_t result;
-  result.pos = this->pos_.getPoint();
-  result.width = getWidth();
-  result.height = getHeight();
-  return result;
+  return rectangle_t
+    {
+      pos_.getPoint(),
+      getWidth(),
+      getHeight()
+    };
 }
 
 double Rectangle::getHeight() const

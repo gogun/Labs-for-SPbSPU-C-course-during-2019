@@ -4,6 +4,7 @@
 
 #include "triangle.hpp"
 #include <cassert>
+#include <mach/task.h>
 #include "math.h" //need for abs in getArea
 
 point_t centerOfMassByPoints(const point_t &point0, const point_t &point1, const point_t &point2)
@@ -57,15 +58,16 @@ rectangle_t Triangle::getFrameRect() const
   double down = minOfVal(vertex0_.y_, vertex1_.y_, vertex2_.y_);
   double up = maxOfVal(vertex0_.y_, vertex1_.y_, vertex2_.y_);
 
-  rectangle_t result;
-  result.pos = point_t
+  return rectangle_t
     {
-      this->pos_.x_ + left + ((right - left) / 2),
-      this->pos_.y_ + down + ((up - down) / 2)
+      point_t
+        {
+          this->pos_.x_ + left + ((right - left) / 2),
+          this->pos_.y_ + down + ((up - down) / 2)
+        },
+      right - left,
+      up - down
     };
-  result.width = right - left;
-  result.height = up - down;
-  return result;
 }
 
 std::string Triangle::getName() const

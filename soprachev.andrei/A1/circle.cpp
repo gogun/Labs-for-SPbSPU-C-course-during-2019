@@ -19,11 +19,12 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t result;
-  result.pos = this->pos_.getPoint();
-  result.height = this->radius_ * 2;
-  result.width = this->radius_ * 2;
-  return result;
+  return rectangle_t
+    {
+      pos_.getPoint(),
+      radius_ * 2,
+      radius_ * 2
+    };
 }
 
 std::string Circle::getName() const
