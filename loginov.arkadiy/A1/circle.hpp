@@ -1,7 +1,6 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
 
-#include <cmath>
 #include "shape.hpp"
 
 class Circle : public Shape
