@@ -2,16 +2,6 @@
 #include <cassert>
 #include <cmath>
 
-double Triangle::max(double a, double b, double c) const
-{
-  return fmax(a, fmax(b, c));
-}
-
-double Triangle::min(double a, double b, double c) const
-{
-  return fmin(a, fmin(b, c));
-}
-
 Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
         p1_(p1),
         p2_(p2),
@@ -70,4 +60,14 @@ double Triangle::getLength(const point_t &p1, const point_t &p2) const
 point_t Triangle::getCentre() const
 {
   return { (p1_.x + p2_.x + p3_.x) / 3, (p1_.y + p2_.y + p3_.y) / 3 };
+}
+
+double Triangle::max(double a, double b, double c) const
+{
+  return fmax(a, fmax(b, c));
+}
+
+double Triangle::min(double a, double b, double c) const
+{
+  return fmin(a, fmin(b, c));
 }
