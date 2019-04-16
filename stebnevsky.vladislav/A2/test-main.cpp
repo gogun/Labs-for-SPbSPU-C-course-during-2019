@@ -42,7 +42,7 @@ BOOST_AUTO_TEST_SUITE(testRectangle)
     BOOST_CHECK_THROW(stebnevsky::Rectangle rectangle({{12, -12}, 0, 1}), std::invalid_argument);
     BOOST_CHECK_THROW(stebnevsky::Rectangle rectangle({{12, -12}, 1, 0}), std::invalid_argument);
 
-    stebnevsky::Rectangle rectangle({{12, -12}, -2, 1});
+    stebnevsky::Rectangle rectangle({{12, -12}, 2, 1});
     BOOST_CHECK_THROW(rectangle.scale(0), std::invalid_argument);
     BOOST_CHECK_THROW(rectangle.scale(-2), std::invalid_argument);
   }
