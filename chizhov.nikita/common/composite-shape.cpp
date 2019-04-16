@@ -5,9 +5,8 @@
 chizhov::CompositeShape::CompositeShape(Shape& shape) :
     quantity_(1)
 {
-  Shape** shapesArr = new Shape* [quantity_];
-  shapesArr[0] = &shape;
-  shapes_ = shapesArr;
+  shapes_ = new Shape* [quantity_];
+  shapes_[0] = &shape;
 }
 
 chizhov::CompositeShape::CompositeShape(const chizhov::CompositeShape& source) :
@@ -58,6 +57,7 @@ void chizhov::CompositeShape::addShape(Shape& shape)
     shapesArr[i] = shapes_[i];
   }
   shapesArr[quantity_ - 1] = &shape;
+  delete [] shapes_;
   shapes_ = shapesArr;
 }
 
