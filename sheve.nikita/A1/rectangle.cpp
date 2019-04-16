@@ -18,12 +18,7 @@ double Rectangle::getArea() const
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  rectangle_t localRect;
-  localRect.m_pos.x = m_pos.x;
-  localRect.m_pos.y = m_pos.y;
-  localRect.m_width  = m_width;
-  localRect.m_height = m_height;
-  return localRect;
+  return {m_width, m_height, m_pos};
 }
 
 void Rectangle::move(const point_t &p)
