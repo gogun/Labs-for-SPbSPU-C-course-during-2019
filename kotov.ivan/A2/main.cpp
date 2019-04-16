@@ -41,6 +41,7 @@ int main()
   }
   catch (...)
   {
+    return 2;
   }
   return 0;
 }
