@@ -39,7 +39,7 @@ int main()
 
   std::cout << std::endl;
 
-  Triangle trian1(4, 2.5, {3.2, 2.4});
+  Triangle trian1({1.3, 1.6}, {2.4, 2.0}, {3.2, 2.4});
   std::cout << "\nTriangle: \n";
   printShape(&trian1);
 
