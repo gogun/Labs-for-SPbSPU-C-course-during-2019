@@ -13,13 +13,10 @@ int main(int, char * [])
   //Rectangle
   std::cout << "----------Work with the rectangle\n";
   point_t center = {1.0, 8.0};
-  try
-  {
+  try {
     Rectangle rectangle(center, 5.0, 9.0);
     exercisesAndPrintSpec(&rectangle);
-  }
-  catch (std::invalid_argument & err)
-  {
+  } catch (std::invalid_argument & err) {
     std::cerr << err.what();
   }
 
@@ -27,13 +24,10 @@ int main(int, char * [])
   //Circle
   std::cout << "----------Work with the circle\n";
   center = {10.0, 80.0};
-  try
-  {
+  try {
     Circle circle(center, 18.0);
     exercisesAndPrintSpec(&circle);
-  }
-  catch (std::invalid_argument & err)
-  {
+  } catch (std::invalid_argument & err) {
     std::cerr << err.what();
   }
 
@@ -41,13 +35,10 @@ int main(int, char * [])
   //Triangle
   std::cout << "----------Work with the triangle\n";
   center = {100.0, 800.0};
-  try
-  {
+  try {
     Triangle triangle(center, 8.544003745, 10.0, 3.0);
     exercisesAndPrintSpec(&triangle);
-  }
-  catch(std::invalid_argument & err)
-  {
+  } catch(std::invalid_argument & err) {
     std::cerr << err.what();
   }
 
