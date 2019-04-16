@@ -26,7 +26,12 @@ rectangle_t Triangle::getFrameRect() const
 
   const double maxY = std::max(std::max(vertexA_.y, vertexB_.y), vertexC_.y);
   const double minY = std::min(std::min(vertexA_.y, vertexB_.y), vertexC_.y);
-  return {maxX - minX, maxY - minY, pos_};
+  
+  const double width = maxX - minX;
+  const double height = maxY - minY;
+  const point_t position = {minX + width / 2, minY + height / 2};
+  
+  return {width, height, position};
 }
 
 void Triangle::printData() const
