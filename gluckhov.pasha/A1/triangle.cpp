@@ -38,10 +38,14 @@ void Triangle::printData() const
 
 void Triangle::move(double dx, double dy)
 {
-  const point_t point = {dx, dy};
-  vertexA_ += point;
-  vertexB_ += point;
-  vertexC_ += point;
+  vertexA_.x += dx;
+  vertexA_.y += dy;
+
+  vertexB_.x += dx;
+  vertexB_.y += dy;
+
+  vertexC_.x += dx;
+  vertexC_.y += dy;
 }
 
 void Triangle::move(const point_t &newPos)
