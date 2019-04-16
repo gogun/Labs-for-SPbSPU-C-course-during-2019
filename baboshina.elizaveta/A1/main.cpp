@@ -23,7 +23,7 @@ int main()
   std::cout << "\n---Information about circle---" << std::endl;
   test(&circle);
 
-  Rectangle rectangle({5, 5}, 20, 5);
+  Rectangle rectangle(20, 5, {5, 5});
   std::cout << "\n---Information about rectangle---" << std::endl;
   test(&rectangle);
 
