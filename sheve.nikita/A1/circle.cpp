@@ -17,12 +17,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  rectangle_t localRect;
-  localRect.m_pos.x = m_pos.x;
-  localRect.m_pos.y = m_pos.y;
-  localRect.width = 2 * m_radius;
-  localRect.height = 2 * m_radius;
-  return localRect;
+  return {m_radius * 2, m_radius * 2, m_pos};
 }
 
 void Circle::move(const point_t &p)
