@@ -1,6 +1,5 @@
 #ifndef SHAPE_HPP
 #define SHAPE_HPP
-
 #include "base-types.hpp"
 
 class Shape
@@ -13,4 +12,4 @@ public:
   virtual void move(double abs, double ord) = 0;
 };
 
-#endif // SHAPE_HPP
+#endif
