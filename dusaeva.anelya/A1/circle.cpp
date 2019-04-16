@@ -1,10 +1,12 @@
 #define _USE_MATH_DEFINES
+
 #include "circle.hpp"
+
 #include <iostream>
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(const point_t &position, double radius):
+Circle::Circle(const point_t &position, double radius) :
   position_(position),
   radius_(radius)
 {
@@ -35,9 +37,8 @@ void Circle::move(const point_t &position)
 void Circle::printInfo() const
 {
   rectangle_t info = getFrameRect();
-  std::cout << "Area = " << getArea() << std::endl;
-  std::cout << "Central coordinates of frame: (" << info.pos.x << ", " << info.pos.y << ")" << std::endl;
-  std::cout << "Frame width = " << info.width <<", frame height = " << info.height << std::endl;
-  std::cout << std::endl;
+  std::cout << "Area = " << getArea() << "\n";
+  std::cout << "Central coordinates of frame: (" << info.pos.x << ", " << info.pos.y << ")\n";
+  std::cout << "Frame width = " << info.width <<", frame height = " << info.height << "\n\n";
 }
 
