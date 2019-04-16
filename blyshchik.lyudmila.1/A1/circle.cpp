@@ -11,6 +11,7 @@ Circle::Circle(const point_t locO, double radius):
 {
   assert(radius_ > 0.0);
 }
+
 Circle::Circle(double x, double y, double radius):
   Circle(point_t{x, y}, radius)
 {
