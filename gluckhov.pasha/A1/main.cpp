@@ -32,9 +32,9 @@ int main()
   std::cout << "\nCircle: \n";
   printShape(&circ1);
 
-  const point_t newPos1 = {4.2, 3};
-  circ1.move(newPos1);
-  std::cout << "\n===After move: to (" << newPos1.x << ';' << newPos1.y << ")\n";
+  const point_t newPosCirc = {4.2, 3};
+  circ1.move(newPosCirc);
+  std::cout << "\n===After move: to (" << newPosCirc.x << ';' << newPosCirc.y << ")\n";
   circ1.printData();
 
   std::cout << std::endl;
@@ -43,9 +43,9 @@ int main()
   std::cout << "\nTriangle: \n";
   printShape(&trian1);
 
-  const point_t newPos2 = {1, 6.7};
-  trian1.move(newPos2);
-  std::cout << "\n===After move: to (" << newPos2.x << ';' << newPos2.y << ")\n";
+  const point_t newPosTrian = {1, 6.7};
+  trian1.move(newPosTrian);
+  std::cout << "\n===After move: to (" << newPosTrian.x << ';' << newPosTrian.y << ")\n";
   trian1.printData();
 
   std::cout << std::endl;
