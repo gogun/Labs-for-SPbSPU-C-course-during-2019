@@ -34,28 +34,12 @@ double Triangle::getArea() const
   return abs(.5 * det);
 }
 
-//минимальное значение из трёх
-double minOfVal(double d0, double d1, double d2)
-{
-  return (d0 < d1) ?
-         ((d0 < d2) ? d0 : d2) :
-         ((d1 < d2) ? d1 : d2);
-}
-
-//максимальное значение из трёх
-double maxOfVal(double d0, double d1, double d2)
-{
-  return (d0 > d1) ?
-         ((d0 > d2) ? d0 : d2) :
-         ((d1 > d2) ? d1 : d2);
-}
-
 rectangle_t Triangle::getFrameRect() const
 {
-  double left = minOfVal(vertex0_.x_, vertex1_.x_, vertex2_.x_);
-  double right = maxOfVal(vertex0_.x_, vertex1_.x_, vertex2_.x_);
-  double down = minOfVal(vertex0_.y_, vertex1_.y_, vertex2_.y_);
-  double up = maxOfVal(vertex0_.y_, vertex1_.y_, vertex2_.y_);
+  double left = std::min({vertex0_.x_, vertex1_.x_, vertex2_.x_});
+  double right = std::max({vertex0_.x_, vertex1_.x_, vertex2_.x_});
+  double down = std::min({vertex0_.y_, vertex1_.y_, vertex2_.y_});
+  double up = std::max({vertex0_.y_, vertex1_.y_, vertex2_.y_});
 
   return rectangle_t
     {
