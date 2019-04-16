@@ -44,7 +44,7 @@ int main()
   std::cout << "End program for Rectangle;\n\n";
 
 
-  karpenko::Circle circle({-5.0, {1.0, 2.0}});
+  karpenko::Circle circle({5.0, {1.0, 2.0}});
 
   std::cout << "Circle demonstration started.\n";
   printCircle(circle);
