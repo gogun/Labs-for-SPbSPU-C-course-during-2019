@@ -15,40 +15,24 @@ Triangle::Triangle(const point_t &point0, const point_t &point1, const point_t &
 
 double Triangle::getArea() const
 {
-  double modvector1 = sqrt((point0_.x - point1_.x) * (point0_.x - point1_.x) + (point0_.y - point1_.y)
+  double lengthVector1 = sqrt((point0_.x - point1_.x) * (point0_.x - point1_.x) + (point0_.y - point1_.y)
     * (point0_.y - point1_.y));
-  double modvector2 = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y)
+  double lengthVector2 = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y)
     * (point1_.y - point2_.y));
-  double modvector3 = sqrt((point0_.x - point2_.x) * (point0_.x - point2_.x) + (point0_.y - point2_.y)
+  double lengthVector3 = sqrt((point0_.x - point2_.x) * (point0_.x - point2_.x) + (point0_.y - point2_.y)
     * (point0_.y - point2_.y));
-  double per = (modvector1 + modvector2 + modvector3) / 2;
-  return sqrt(per * (per - modvector1) * (per - modvector2) * (per - modvector3));
+  double perimeter = (lengthVector1 + lengthVector2 + lengthVector3) / 2;
+  return sqrt(perimeter * (perimeter - lengthVector1) * (perimeter - lengthVector2) * (perimeter - lengthVector3));
 }
 
-double findFrameParametrs(double parm[])
-{
-  double max = parm[0];
-  double min = parm[0];
-  for (int i = 1; i < 3; i++)
-  {
-    if (parm[i] > max)
-    {
-      max = parm[i];
-    };
-    if (parm[i] < min)
-    {
-      min = parm[i];
-    };
-  };
-
-  return (max - min);
-}
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double parmx[] = {point0_.x, point1_.x, point2_.x};
-  double parmy[] = {point0_.y, point1_.y, point2_.y};
-  return {findFrameParametrs(parmx), findFrameParametrs(parmy), center_};
+  double width = std::max(std::max(point0_.x, point1_.x), point2_.x)
+    - std::min(std::min(point0_.x, point1_.x), point2_.x);
+  double height = std::max(std::max(point0_.x, point1_.x), point2_.x)
+    - std::min(std::min(point0_.x, point1_.x), point2_.x);
+  return {height, width, center_};
 }
 
 void Triangle::move(double dx, double dy)
@@ -79,6 +63,10 @@ void Triangle::showPoint() const
 {
   std::cout << "the point on the x-axis " << center_.x << "\n";
   std::cout << "the point on the y-axis " << center_.y << "\n";
-  std::cout << "the point of top  " << point0_.x << "\n";
-  std::cout << "the point of top  " << point0_.y << "\n";
+  std::cout << "the point of top 1 " << point0_.x << "\n";
+  std::cout << "the point of top 1 " << point0_.y << "\n";
+  std::cout << "the point of top 2 " << point1_.x << "\n";
+  std::cout << "the point of top 2 " << point1_.y << "\n";
+  std::cout << "the point of top 3 " << point2_.x << "\n";
+  std::cout << "the point of top 3 " << point2_.y << "\n";
 }
