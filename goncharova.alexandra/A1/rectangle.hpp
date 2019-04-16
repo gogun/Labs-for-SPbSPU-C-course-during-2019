@@ -12,6 +12,7 @@ public:
   void move(const point_t &newPoint);
   void move(double dx, double dy);
   void inform() const;
+
 private:
   point_t center_;
   double width_;
