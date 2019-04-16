@@ -28,12 +28,12 @@ drozdov::rectangle_t drozdov::Circle::getFrameRect() const
   return {radius_ * 2, radius_ * 2, pos_};
 }
 
-void drozdov::Circle::scale(double factor)
+void drozdov::Circle::scale(double coefficient)
 {
-  if (factor >= 0.0) {
-    radius_ *= factor;
+  if (coefficient >= 0.0) {
+    radius_ *= coefficient;
   } else {
-    throw std::invalid_argument("\nCircle scale factor is not valid.");
+    throw std::invalid_argument("\nCircle scale coefficient is not valid.");
   }
 }
 

@@ -13,7 +13,7 @@ namespace drozdov
       void printData() const override;
       double getArea() const override;
       rectangle_t getFrameRect() const override;
-      void scale(double factor) override;
+      void scale(double coefficient) override;
       double getRadius() const;
 
       void move (double dx, double dy) override;

@@ -28,11 +28,11 @@ drozdov::rectangle_t drozdov::Rectangle::getFrameRect() const
   return {width_, height_, pos_};
 }
 
-void drozdov::Rectangle::scale(double factor)
+void drozdov::Rectangle::scale(double coefficient)
 {
-  if (factor >= 0.0) {
-    width_ *= factor;
-    height_ *= factor;
+  if (coefficient >= 0.0) {
+    width_ *= coefficient;
+    height_ *= coefficient;
   } else {
     throw std::invalid_argument("\nRectangle scale factor is not valid.");
   }
