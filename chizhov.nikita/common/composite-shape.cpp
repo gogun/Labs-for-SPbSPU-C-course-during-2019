@@ -2,44 +2,36 @@
 
 #include <stdexcept>
 
-chizhov::CompositeShape::CompositeShape(Shape* shape)
+chizhov::CompositeShape::CompositeShape(Shape& shape) :
+    quantity_(1)
 {
-  if (shape == nullptr) {
-    throw std::invalid_argument("Shape link cannot be nullptr");
-  }
-
-  listHead_ = new link;
-  listHead_->value = shape;
-  listHead_->next = nullptr;
-  listHead_->prev = nullptr;
-  listLast_ = listHead_;
+  Shape** shapesArr = new Shape* [quantity_];
+  shapesArr[0] = &shape;
+  shapes_ = shapesArr;
 }
 
-chizhov::CompositeShape::CompositeShape(const chizhov::CompositeShape& source)
+chizhov::CompositeShape::CompositeShape(const chizhov::CompositeShape& source) :
+    quantity_(source.quantity_)
 {
   copyFromSource(source);
 }
 
 chizhov::CompositeShape::CompositeShape(chizhov::CompositeShape&& source) :
-    listHead_(source.listHead_),
-    listLast_(source.listLast_)
+    shapes_(source.shapes_),
+    quantity_(source.quantity_)
 {
-  source.listHead_ = nullptr;
-  source.listLast_ = nullptr;
+  source.shapes_ = nullptr;
 }
 
 chizhov::CompositeShape::~CompositeShape()
 {
-  while (listLast_ != nullptr) {
-    link* listTmp = listLast_->prev;
-    delete listLast_;
-    listLast_ = listTmp;
-  }
+  delete [] shapes_;
 }
 
 chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::CompositeShape& rhs)
 {
   if (this != &rhs) {
+    quantity_ = rhs.quantity_;
     copyFromSource(rhs);
   }
 
@@ -49,60 +41,58 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::Comp
 chizhov::CompositeShape& chizhov::CompositeShape::operator=(chizhov::CompositeShape&& rhs)
 {
   if (this != &rhs) {
-    listHead_ = rhs.listHead_;
-    listLast_ = rhs.listLast_;
-
-    rhs.listHead_ = nullptr;
-    rhs.listLast_ = nullptr;
+    shapes_ = rhs.shapes_;
+    quantity_ = rhs.quantity_;
+    rhs.shapes_ = nullptr;
   }
 
   return *this;
 }
 
-void chizhov::CompositeShape::addShape(Shape* shape)
+void chizhov::CompositeShape::addShape(Shape& shape)
 {
-  if (shape == nullptr) {
-    throw std::invalid_argument("Shape link cannot be nullptr");
-  }
+  quantity_++;
+  Shape** shapesArr = new Shape* [quantity_];
 
-  listLast_->next = new link;
-  listLast_->next->prev = listLast_;
-  listLast_ = listLast_->next;
-  listLast_->value = shape;
-  listLast_->next = nullptr;
+  for (int i = 0; i < quantity_ - 1; i++) {
+    shapesArr[i] = shapes_[i];
+  }
+  shapesArr[quantity_ - 1] = &shape;
+  shapes_ = shapesArr;
 }
 
-void chizhov::CompositeShape::deleteShape(const Shape* shape)
+void chizhov::CompositeShape::deleteShape(const Shape& shape)
 {
-  if (shape == nullptr) {
-    throw std::invalid_argument("Shape link cannot be nullptr");
-  }
-
-  if (listHead_->next == nullptr) {
+  if (quantity_ == 1) {
     throw std::invalid_argument("You cannot destroy Composite Shape by deleting last figure");
   }
 
-  link* listTmp = listHead_;
+  int pos = 0;
+  bool exist = false;
+  for (int i = 0; i < quantity_; i++) {
+    if (&shape == shapes_[i]) {
+      exist = true;
+      pos = i;
+      break;
+    }
+  }
 
-  while (listTmp != nullptr) {
-    if (listTmp->value == shape) {
-      if (listTmp == listHead_) {
-        listHead_ = listTmp->next;
+  if (exist) {
+    quantity_--;
+    Shape** shapesArr = new Shape* [quantity_];
+
+    int j = 0;
+    for (int i = 0; i < quantity_ + 1; i++) {
+      if (i == pos) {
+        continue;
       }
 
-      if (listTmp->next != nullptr) {
-        listTmp->next->prev = listTmp->prev;
-      }
-
-      if (listTmp->prev != nullptr) {
-        listTmp->prev->next = listTmp->next;
-      }
-
-      delete listTmp;
-      return;
+      shapesArr[j] = shapes_[i];
+      j++;
     }
 
-    listTmp = listTmp->next;
+    delete [] shapes_;
+    shapes_ = shapesArr;
   }
 }
 
@@ -118,11 +108,8 @@ chizhov::rectangle_t chizhov::CompositeShape::getFrameRect() const
 
 void chizhov::CompositeShape::move(double dx, double dy)
 {
-  link* listTmp = listHead_;
-
-  while (listTmp != nullptr) {
-    listTmp->value->move(dx, dy);
-    listTmp = listTmp->next;
+  for (int i = 0; i < quantity_; i++) {
+    shapes_[i]->move(dx, dy);
   }
 }
 
@@ -132,11 +119,8 @@ void chizhov::CompositeShape::move(chizhov::point_t position)
   double dx = position.x - frameRect.pos.x;
   double dy = position.y - frameRect.pos.y;
 
-  link* listTmp = listHead_;
-
-  while (listTmp != nullptr) {
-    listTmp->value->move(dx, dy);
-    listTmp = listTmp->next;
+  for (int i = 0; i < quantity_; i++) {
+    shapes_[i]->move(dx, dy);
   }
 }
 
@@ -148,25 +132,19 @@ void chizhov::CompositeShape::scale(double scale)
 
   rectangle_t frameRect = recomputeFrame();
 
-  link* listTmp = listHead_;
-
-  while (listTmp != nullptr) {
-    double dx = listTmp->value->getFrameRect().pos.x - frameRect.pos.x;
-    double dy = listTmp->value->getFrameRect().pos.y - frameRect.pos.y;
-    listTmp->value->move(point_t{frameRect.pos.x + dx * scale, frameRect.pos.y + dy * scale});
-    listTmp->value->scale(scale);
-    listTmp = listTmp->next;
+  for (int i = 0; i < quantity_; i++) {
+    double dx = shapes_[i]->getFrameRect().pos.x - frameRect.pos.x;
+    double dy = shapes_[i]->getFrameRect().pos.y - frameRect.pos.y;
+    shapes_[i]->move(point_t{frameRect.pos.x + dx * scale, frameRect.pos.y + dy * scale});
+    shapes_[i]->scale(scale);
   }
 }
 
 double chizhov::CompositeShape::recomputeArea() const
 {
   double area = 0;
-  link* listTmp = listHead_;
-
-  while (listTmp != nullptr) {
-    area += listTmp->value->getArea();
-    listTmp = listTmp->next;
+  for (int i = 0; i < quantity_; i++) {
+    area += shapes_[i]->getArea();
   }
 
   return area;
@@ -174,15 +152,18 @@ double chizhov::CompositeShape::recomputeArea() const
 
 chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
 {
-  link* listTmp = listHead_->next;
-  rectangle_t rectTmp = listHead_->value->getFrameRect();
+  rectangle_t rectTmp = shapes_[0]->getFrameRect();
   double minX = rectTmp.pos.x - rectTmp.width / 2;
   double maxX = rectTmp.pos.x + rectTmp.width / 2;
   double minY = rectTmp.pos.y - rectTmp.height / 2;
   double maxY = rectTmp.pos.y + rectTmp.height / 2;
 
-  while (listTmp != nullptr) {
-    rectTmp = listTmp->value->getFrameRect();
+  if (quantity_ == 1) {
+    return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
+  }
+
+  for (int i = 1; i < quantity_; i++) {
+    rectTmp = shapes_[i]->getFrameRect();
 
     double tmp = rectTmp.pos.x - rectTmp.width / 2;
     minX = tmp < minX ? tmp : minX;
@@ -195,8 +176,6 @@ chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
 
     tmp = rectTmp.pos.y - rectTmp.height / 2;
     maxY = tmp > maxY ? tmp : maxY;
-
-    listTmp = listTmp->next;
   }
 
   return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
@@ -204,20 +183,10 @@ chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
 
 void chizhov::CompositeShape::copyFromSource(const chizhov::CompositeShape& source)
 {
-  link* listTmpSource = source.listHead_;
-  listHead_ = new link;
-  link* listTmp = listHead_;
+  Shape** shapesArr = new Shape* [quantity_];
+  shapes_ = shapesArr;
 
-  while (listTmpSource->next != nullptr) {
-    listTmp->value = listTmpSource->value;
-    listTmp->next = new link;
-    listTmp->next->prev = listTmp;
-
-    listTmp = listTmp->next;
-    listTmp->next = nullptr;
-    listTmpSource = listTmpSource->next;
+  for (int i = 0; i < quantity_; i++) {
+    shapes_[i] = source.shapes_[i];
   }
-
-  listTmp->value = listTmpSource->value;
-  listLast_ = listTmp;
 }

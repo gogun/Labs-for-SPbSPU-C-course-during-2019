@@ -23,15 +23,15 @@ int main()
 
   chizhov::Rectangle r1({2, 1}, 2);
 
-  chizhov::CompositeShape cs1(&c1);
-  cs1.addShape(&r1);
+  chizhov::CompositeShape cs1(c1);
+  cs1.addShape(r1);
   printInfo(cs1, "Composite shape");
 
   cs1.move(1, 1);
   printInfo(cs1, "Composite shape");
 
   cs1.scale(2);
-  cs1.deleteShape(&c1);
+  cs1.deleteShape(c1);
   printInfo(cs1, "Composite shape");
 
   cs1.move({1.5, 1.5});

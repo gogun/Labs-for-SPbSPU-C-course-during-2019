@@ -7,7 +7,7 @@ namespace chizhov
 {
   class CompositeShape : public Shape {
   public:
-    CompositeShape(Shape*);
+    CompositeShape(Shape&);
     CompositeShape(const CompositeShape&);
     CompositeShape(CompositeShape&&);
     ~CompositeShape();
@@ -21,20 +21,12 @@ namespace chizhov
     void move(point_t);
     void scale(double);
 
-    void addShape(Shape*);
-    void deleteShape(const Shape*);
+    void addShape(Shape&);
+    void deleteShape(const Shape&);
 
   private:
-    struct link;
-
-    struct link {
-      Shape* value;
-      link* next;
-      link* prev;
-    };
-
-    link* listHead_;
-    link* listLast_;
+    Shape** shapes_;
+    int quantity_;
 
     double recomputeArea() const;
     rectangle_t recomputeFrame() const;
