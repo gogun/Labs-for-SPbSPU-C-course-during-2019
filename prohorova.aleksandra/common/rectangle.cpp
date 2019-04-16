@@ -4,7 +4,7 @@
 prohorova::Rectangle::Rectangle(const point_t &pos, double width, double height):
   rect_(rectangle_t{pos, width, height})
 {
-  if(rect_.width <= 0 || rect_.height <= 0)
+  if (rect_.width <= 0 || rect_.height <= 0)
   {
     throw std::invalid_argument("Parameters  must be positive numbers.\n");
   }
