@@ -6,54 +6,66 @@
 
 int main()
 {
-  Circle circle1{point_t{4.12, 6.7}, 3.5};
-  Circle circle2{1.23, 5.67, 134.3};
-  Rectangle rectangle1{point_t{5.86, 9.06}, 4.5, 3.21};
-  Rectangle rectangle2{7.65, 3.65, 8.91, 13.01};
-  Triangle triangle1{point_t{3.17, 8.1}, 3, 4, 5};
-  Triangle triangle2{6.89, 9.123, 5, 11.5, 7.87};
+  Circle circle{point_t{4.12, 6.7}, 3.5};
+  Rectangle rectangle{7.65, 3.65, 8.91, 13.01};
+  Triangle triangle{point_t{3.17, 8.1}, 3, 4, 5};
 
-  Shape* figures[] = {&circle1, &circle2, &rectangle1, &rectangle2, &triangle1, &triangle2};
-  int size = sizeof(figures) / sizeof(Shape);
-  for (int i = 0; i < size; i++)
-  {
-    std::cout << "Figure num:" << i << "\n";
-    std::cout << "Area: " << figures[i]->getArea() << "\n";
-    std::cout << "Frame Rectangle centre: ("
-        << figures[i]->getFrameRect().pos.x << "; "
-        << figures[i]->getFrameRect().pos.y << ")" << "\n";
-    std::cout << "Frame Rectangle width: "
-        << figures[i]->getFrameRect().width << "\n";
-    std::cout << "Frame Rectangle height: "
-        << figures[i]->getFrameRect().height << "\n";
-  }
-
-  std::cout << "Position of the first figure: (" // moving rectangle
-      << figures[0]->getPos().x << "; "
-      << figures[0]->getPos().y << ")" << "\n";
+  Shape* shapePointer = &circle;
+  std::cout << "Circle:" << "\n";
+  std::cout << "Area: " << shapePointer->getArea() << "\n";
+  std::cout << "Frame Rectangle centre: ("
+      << shapePointer->getFrameRect().pos.x << "; "
+      << shapePointer->getFrameRect().pos.y << ")" << "\n";
+  std::cout << "Frame Rectangle width: "
+      << shapePointer->getFrameRect().width << "\n";
+  std::cout << "Frame Rectangle height: "
+      << shapePointer->getFrameRect().height << "\n";
+  std::cout << "Position of the first figure: ("
+      << shapePointer->getPos().x << "; "
+      << shapePointer->getPos().y << ")" << "\n";
   std::cout << "Moving to the point (1; 2.9)" << "\n";
-  figures[0]->move({1, 2.9});
+  shapePointer->move({1, 2.9});
   std::cout << "New position of the first figure: ("
-      << figures[0]->getPos().x << "; "
-      << figures[0]->getPos().y << ")" << "\n";
+      << shapePointer->getPos().x << "; "
+      << shapePointer->getPos().y << ")" << "\n";
 
-  std::cout << "Position of the third figure: (" // moving circle
-      << figures[2]->getPos().x << "; "
-      << figures[2]->getPos().y << ")" << "\n";
-  std::cout << "Moving dx = 6.1, dy = 5" << "\n";
-  figures[2]->move(6.1, 5);
+  shapePointer = &rectangle;
+  std::cout << "Rectangle:" << "\n";
+  std::cout << "Area: " << shapePointer->getArea() << "\n";
+  std::cout << "Frame Rectangle centre: ("
+    << shapePointer->getFrameRect().pos.x << "; "
+    << shapePointer->getFrameRect().pos.y << ")" << "\n";
+  std::cout << "Frame Rectangle width: "
+    << shapePointer->getFrameRect().width << "\n";
+  std::cout << "Frame Rectangle height: "
+    << shapePointer->getFrameRect().height << "\n";
+  std::cout << "Position of the second figure: ("
+    << shapePointer->getPos().x << "; "
+    << shapePointer->getPos().y << ")" << "\n";
+  std::cout << "Moving dx = 3.4, dy = 5.6" << "\n";
+  shapePointer->move(3.4, 5.6);
+  std::cout << "New position of the second figure: ("
+    << shapePointer->getPos().x << "; "
+    << shapePointer->getPos().y << ")" << "\n";
+
+  shapePointer = &triangle;
+  std::cout << "Triangle:" << "\n";
+  std::cout << "Area: " << shapePointer->getArea() << "\n";
+  std::cout << "Frame Rectangle centre: ("
+    << shapePointer->getFrameRect().pos.x << "; "
+    << shapePointer->getFrameRect().pos.y << ")" << "\n";
+  std::cout << "Frame Rectangle width: "
+    << shapePointer->getFrameRect().width << "\n";
+  std::cout << "Frame Rectangle height: "
+    << shapePointer->getFrameRect().height << "\n";
+  std::cout << "Position of the third figure: ("
+    << shapePointer->getPos().x << "; "
+    << shapePointer->getPos().y << ")" << "\n";
+  std::cout << "Moving to the point (6.12; 7.34)" << "\n";
+  shapePointer->move({6.12, 7.34});
   std::cout << "New position of the third figure: ("
-      << figures[2]->getPos().x << "; "
-      << figures[2]->getPos().y << ")" << "\n";
-
-  std::cout << "Position of the fifth figure: (" // moving triangle
-      << figures[4]->getPos().x << "; "
-      << figures[4]->getPos().y << ") " << "\n";
-  std::cout << "Moving to the point (2.9; 4.1)" << "\n";
-  figures[4]->move({2.9, 4.1});
-  std::cout << "New position of the fifth figure: ("
-      << figures[4]->getPos().x << "; "
-      << figures[4]->getPos().y << ")";
+    << shapePointer->getPos().x << "; "
+    << shapePointer->getPos().y << ")" << "\n";
     
   return 0;
 }
