@@ -33,7 +33,7 @@ int main()
   moveFigure(&circle_object, 3, 3);
   showStatus(&circle_object);
 
-  Triangle triangle_object({ 5,5 }, { 3,2 }, { 4,4 });
+  Triangle triangle_object({5,5}, {3,2}, {4,4});
 
   showStatus(&triangle_object);
   moveFigure(&triangle_object, 3, 3);
