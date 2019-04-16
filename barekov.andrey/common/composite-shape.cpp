@@ -48,7 +48,7 @@ barekov::rectangle_t barekov::CompositeShape::getFrameRect() const
     rgtX = std::max(tmpValue, rgtX);
 
     tmpValue = tmpFrameRect.pos.y - tmpFrameRect.height / 2;
-    btmY = std::min(tmpValue, btmX);
+    btmY = std::min(tmpValue, btmY);
 
     tmpValue = tmpFrameRect.pos.y + tmpFrameRect.height / 2;
     topY = std::max(tmpValue, topY);
