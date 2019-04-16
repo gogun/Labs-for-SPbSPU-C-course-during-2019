@@ -12,7 +12,7 @@ public:
   void move (const point_t &) override;
   void move (double,  double) override;
   void printInfo() const override;
-	
+
 private:
   point_t center_;
   point_t pointA_, pointB_, pointC_;
