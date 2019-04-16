@@ -2,7 +2,6 @@
 #include <stdexcept>
 #include <iostream>
 
-
 lebedev::Rectangle::Rectangle(double height, double width, const point_t &pos):
   m_height(height),
   m_width(width),
