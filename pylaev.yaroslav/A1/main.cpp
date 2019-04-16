@@ -14,8 +14,8 @@ int main(int, char * [])
   std::cout << "----------Work with the rectangle\n";
   point_t center = {1.0, 8.0};
   try {
-    Rectangle rectangle_(center, 5.0, 9.0);
-    exercisesAndPrintSpec(&rectangle_);
+    Rectangle rectangle(center, 5.0, 9.0);
+    exercisesAndPrintSpec(&rectangle);
   }
   catch (std::invalid_argument & err) {
     std::cerr << err.what();
@@ -26,8 +26,8 @@ int main(int, char * [])
   std::cout << "----------Work with the circle\n";
   center = {10.0, 80.0};
   try {
-    Circle circle_(center, 18.0);
-    exercisesAndPrintSpec(&circle_);
+    Circle circle(center, 18.0);
+    exercisesAndPrintSpec(&circle);
   }
   catch (std::invalid_argument & err) {
     std::cerr << err.what();
@@ -38,8 +38,8 @@ int main(int, char * [])
   std::cout << "----------Work with the triangle\n";
   center = {100.0, 800.0};
   try {
-    Triangle triangle_(center, 8.544003745, 10.0, 3.0);
-    exercisesAndPrintSpec(&triangle_);
+    Triangle triangle(center, 8.544003745, 10.0, 3.0);
+    exercisesAndPrintSpec(&triangle);
   }
   catch(std::invalid_argument & err) {
     std::cerr << err.what();

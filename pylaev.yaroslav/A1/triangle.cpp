@@ -10,10 +10,10 @@ Triangle::Triangle(const point_t & center, const double side0, const double side
 {
   //verification
   if ((side0 <= 0.0) || (side1 <= 0.0) || (side2 <= 0.0)) {
-    throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
+    throw std::invalid_argument("Length of triangle's sides must be positive");
   }
   if ((side0 >= side1 + side2) || (side1 >= side0 + side2) || (side2 >= side0 + side1)) {
-    throw std::invalid_argument("ERROR: Such triangle is impossible");
+    throw std::invalid_argument("Such triangle is impossible");
   }
 
   setCoordinates(side0, side1, side2);
@@ -25,10 +25,10 @@ Triangle::Triangle(const point_t & center, const double side0, const double side
   const double side2 = side1; //isosceles
   //verification
   if ((side0 <= 0.0) || (side1 <= 0.0)) {
-    throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
+    throw std::invalid_argument("Length of triangle's sides must be positive");
   }
   if ((side0 >= side1 + side2) || (side1 >= side0 + side2)) {
-    throw std::invalid_argument("ERROR: Such triangle is impossible");
+    throw std::invalid_argument("Such triangle is impossible");
   }
 
   setCoordinates(side0, side1, side2);
@@ -41,13 +41,32 @@ Triangle::Triangle(const point_t & center, const double side0): //equilateral tr
   const double side2 = side0; //equilateral
   //verification
   if (side0 <= 0.0) {
-    throw std::invalid_argument("ERROR: Length of triangle's sides must be positive");
+    throw std::invalid_argument("Length of triangle's sides must be positive");
   }
   if (side0 >= side1 + side2) {
-    throw std::invalid_argument("ERROR: Such triangle is impossible");
+    throw std::invalid_argument("Such triangle is impossible");
   }
 
   setCoordinates(side0, side1, side2);
+}
+
+Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t & pointC):
+  coordinates_({pointA, pointB, pointC})
+{
+  if (getArea() == 0) {
+    throw std::invalid_argument("It's a stright line, coordinates of tops can't be on one line");
+  }
+  center_ = getCenter();
+}
+
+point_t Triangle::getCenter() const
+{
+  point_t center = {0.0, 0.0};
+  for (int i = 0; i < nTops_; i++) {
+    center.x += coordinates_[i].x;
+    center.y += coordinates_[i].y;
+  }
+  return {center.x / 3, center.y / 3};
 }
 
 void Triangle::setCoordinates(const double & side0, const double & side1, const double & side2)
@@ -62,7 +81,7 @@ void Triangle::setCoordinates(const double & side0, const double & side1, const 
   }
   coordinates_[1].x = k * sqrt(pow(side0, 2) - pow(coordinates_[1].y, 2));
   //set center relatively zero-coordinates
-  point_t zeroCenter = {0, 0};
+  point_t zeroCenter = {0.0, 0.0};
   for (int i = 0; i < nTops_; i++) {
     zeroCenter.x += coordinates_[i].x;
     zeroCenter.y += coordinates_[i].y;
@@ -119,10 +138,10 @@ rectangle_t Triangle::getFrameRect() const
   point_t maxCoordinates = coordinates_[0];
   point_t minCoordinates = coordinates_[0];
   for (int i = 0; i < nTops_; i++) {
-    maxCoordinates.x = fmax(maxCoordinates.x, coordinates_[i].x);
-    maxCoordinates.y = fmax(maxCoordinates.y, coordinates_[i].y);
-    minCoordinates.x = fmin(minCoordinates.x, coordinates_[i].x);
-    minCoordinates.y = fmin(minCoordinates.y, coordinates_[i].y);
+    maxCoordinates.x = std::max(maxCoordinates.x, coordinates_[i].x);
+    maxCoordinates.y = std::max(maxCoordinates.y, coordinates_[i].y);
+    minCoordinates.x = std::min(minCoordinates.x, coordinates_[i].x);
+    minCoordinates.y = std::min(minCoordinates.y, coordinates_[i].y);
   }
   frameRectangle.width = maxCoordinates.x - minCoordinates.x;
   frameRectangle.height = maxCoordinates.y - minCoordinates.y;
@@ -141,7 +160,8 @@ void Triangle::move(const double dx, const double dy)
   }
 }
 
-void Triangle::move(const point_t &pos) {
+void Triangle::move(const point_t &pos)
+{
   move(center_.x - pos.x, center_.y - pos.y);
 }
 

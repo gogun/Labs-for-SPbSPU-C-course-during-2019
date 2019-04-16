@@ -8,8 +8,10 @@ public:
   Triangle(const point_t &, const double, const double, const double);
   Triangle(const point_t &, const double, const double); //isosceles triangle
   Triangle(const point_t &, const double); //equilateral triangle
+  Triangle(const point_t &, const point_t &, const point_t &); //by coordinates
 
   double getArea() const override;
+  point_t getCenter() const;
   double getSide(const int) const;
   rectangle_t getFrameRect() const override;
   void move(const double, const double) override;
