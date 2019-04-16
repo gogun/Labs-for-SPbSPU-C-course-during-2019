@@ -8,14 +8,15 @@ drozdov::Circle::Circle (double radius, const point_t &pos):
   radius_(radius),
   pos_(pos)
 {
-  if (radius < 0.0) {
-    throw std::invalid_argument("Circle arguments are not valid.");
+  if (radius <= 0.0) {
+    throw std::invalid_argument("Circle's arguments are not valid.");
   }
 }
 
 void drozdov::Circle::printData() const
 {
-  std::cout << "\nRadius: " << radius_ << "\nPosition: (" << pos_.x << ';' << pos_.y << ')' << std::endl;
+  std::cout << "\nRadius: " << radius_;
+  std::cout << "\nPosition: (" << pos_.x << ';' << pos_.y << ')' << std::endl;
 }
 
 double drozdov::Circle::getArea() const
@@ -30,10 +31,10 @@ drozdov::rectangle_t drozdov::Circle::getFrameRect() const
 
 void drozdov::Circle::scale(double coefficient)
 {
-  if (coefficient >= 0.0) {
+  if (coefficient > 0.0) {
     radius_ *= coefficient;
   } else {
-    throw std::invalid_argument("\nCircle scale coefficient is not valid.");
+    throw std::invalid_argument("\nCircle's coefficient for scale is not valid.");
   }
 }
 
@@ -48,7 +49,7 @@ void drozdov::Circle::move(double dx, double dy)
   pos_.y += dy;
 }
 
-void drozdov::Circle::move(const point_t &dot)
+void drozdov::Circle::move(const point_t &newPos)
 {
-  pos_ = dot;
+  pos_ = newPos;
 }

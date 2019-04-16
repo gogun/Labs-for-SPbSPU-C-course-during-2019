@@ -17,7 +17,7 @@ namespace drozdov
       double getRadius() const;
 
       void move (double dx, double dy) override;
-      void move (const point_t &dot) override;
+      void move (const point_t &newPos) override;
     private:
       double radius_;
       point_t pos_;

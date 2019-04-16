@@ -16,9 +16,9 @@ int main()
   std::cout << "\n===After move: + (" << dx << ';' << dy << ")===";
   rect1.printData();
 
-  double coefficientScale = 2.0;
-  rect1.scale(coefficientScale);
-  std::cout << "=====After scale x" << coefficientScale << "=====";
+  const double coefficientScaleRect = 2.0;
+  rect1.scale(coefficientScaleRect);
+  std::cout << "=====After scale x" << coefficientScaleRect << "=====";
   rect1.printData();
 
   std::cout << std::endl;
@@ -33,9 +33,9 @@ int main()
   std::cout << "\n===After move to (-1.8, 2.4)===";
   circ1.printData();
 
-  coefficientScale = 4.0;
-  circ1.scale(coefficientScale);
-  std::cout << "=====After scale x" << coefficientScale << "=====";
+  const double coefficientScaleCirc = 4.0;
+  circ1.scale(coefficientScaleCirc);
+  std::cout << "=====After scale x" << coefficientScaleCirc << "=====";
   circ1.printData();
 
   std::cout << std::endl;
@@ -47,7 +47,7 @@ void printDataShape(const drozdov::Shape *shape)
 {
   if (shape != nullptr) {
     shape->printData();
-    std::cout << "\nArea: " << shape->getArea() << std::endl;
+    std::cout << "Area: " << shape->getArea() << std::endl;
 
     drozdov::rectangle_t frameRect = shape->getFrameRect();
 

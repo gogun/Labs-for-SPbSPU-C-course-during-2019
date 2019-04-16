@@ -16,7 +16,7 @@ namespace drozdov
       void scale(double coefficient) override;
 
       void move (double dx, double dy) override;
-      void move (const point_t &dot) override;
+      void move (const point_t &newPos) override;
     private:
       double width_;
       double height_;

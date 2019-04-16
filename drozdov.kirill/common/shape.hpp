@@ -16,7 +16,7 @@ namespace drozdov
       virtual void scale(double coefficient) = 0;
 
       virtual void move (double dx, double dy) = 0;
-      virtual void move (const point_t &dot) = 0;
+      virtual void move (const point_t &newPos) = 0;
   };
 }
 #endif

@@ -4,52 +4,51 @@
 #include <stdexcept>
 #include "rectangle.hpp"
 #include "circle.hpp"
+#define ACCURACY 0.001
+#define INCORRECT_ARGUMENT -10.0
 
-const double calculationError = 0.01;
-
-BOOST_AUTO_TEST_SUITE(A2TestRectangle)
+BOOST_AUTO_TEST_SUITE(A2TestsRectangle)
 
   BOOST_AUTO_TEST_CASE(testCorrectnessAfterMove)
   {
     drozdov::Rectangle rectangle(5.0, 3.0, {4.3, 1.0});
-    const drozdov::rectangle_t beforeMoveRect = rectangle.getFrameRect();
+    const drozdov::rectangle_t rectBeforeMove = rectangle.getFrameRect();
     const double areaBeforeMove = rectangle.getArea();
 
     rectangle.move(2.4, 5.6);
 
-    const drozdov::rectangle_t afterMoveRect = rectangle.getFrameRect();
+    const drozdov::rectangle_t rectAfterMove = rectangle.getFrameRect();
     const double areaAfterMove = rectangle.getArea();
 
-    BOOST_CHECK_CLOSE(beforeMoveRect.width, afterMoveRect.width, calculationError);
-    BOOST_CHECK_CLOSE(beforeMoveRect.height, afterMoveRect.height, calculationError);
-    BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, calculationError);
-  }
+    BOOST_CHECK_CLOSE(rectBeforeMove.width, rectAfterMove.width, ACCURACY);
+    BOOST_CHECK_CLOSE(rectBeforeMove.height, rectAfterMove.height, ACCURACY);
+    BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, ACCURACY);
+  } //testCorrectnessAfterMove
 
-  BOOST_AUTO_TEST_CASE(testCorrectnessAftersScale)
+  BOOST_AUTO_TEST_CASE(testCorrectnessAfterScale)
   {
     drozdov::Rectangle rectangle(5.0, 3.0, {4.3, 1.0});
-    const double beforeAreaScale = rectangle.getArea();
+    const double areaBeforeScale = rectangle.getArea();
 
-    const double factor = 4.0;
-    rectangle.scale(factor);
+    const double coefficientScaleRect = 4.0;
+    rectangle.scale(coefficientScaleRect);
 
-    const double afterAreaScale = rectangle.getArea();
-    BOOST_CHECK_CLOSE(beforeAreaScale * factor * factor, afterAreaScale, calculationError);
-  }
+    const double areaAfterScale = rectangle.getArea();
+    BOOST_CHECK_CLOSE(areaBeforeScale * coefficientScaleRect * coefficientScaleRect, areaAfterScale, ACCURACY);
+  } //testCorrectnessAfterScale
 
   BOOST_AUTO_TEST_CASE(testIncorrectParameters)
   {
-    BOOST_CHECK_THROW(drozdov::Rectangle(-5.0, 3.0, {4.3, 1.0}), std::invalid_argument);
-    BOOST_CHECK_THROW(drozdov::Rectangle(5.0, -3.0, {4.3, 1.0}), std::invalid_argument);
+    BOOST_CHECK_THROW(drozdov::Rectangle(INCORRECT_ARGUMENT, 3.0, {4.3, 1.0}), std::invalid_argument);
+    BOOST_CHECK_THROW(drozdov::Rectangle(5.0, INCORRECT_ARGUMENT, {4.3, 1.0}), std::invalid_argument);
 
     drozdov::Rectangle rectangle(5.0, 3.0, {4.3, 1.0});
-    BOOST_CHECK_THROW(rectangle.scale(-1.0), std::invalid_argument);
-  }
+    BOOST_CHECK_THROW(rectangle.scale(INCORRECT_ARGUMENT), std::invalid_argument);
+  } //testIncorrectParameters
 
-BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE_END() //A2TestsRectangle
 
-
-BOOST_AUTO_TEST_SUITE(A2TestCircle)
+BOOST_AUTO_TEST_SUITE(A2TestsCircle)
 
   BOOST_AUTO_TEST_CASE(testCorrectnessAfterMove)
   {
@@ -62,29 +61,29 @@ BOOST_AUTO_TEST_SUITE(A2TestCircle)
     const double radiusAfterMove = circle.getRadius();
     const double areaAfterMove = circle.getArea();
 
-    BOOST_CHECK_CLOSE(radiusBeforeMove, radiusAfterMove, calculationError);
-    BOOST_CHECK_CLOSE(radiusBeforeMove, radiusAfterMove, calculationError);
-    BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, calculationError);
-  }
+    BOOST_CHECK_CLOSE(radiusBeforeMove, radiusAfterMove, ACCURACY);
+    BOOST_CHECK_CLOSE(radiusBeforeMove, radiusAfterMove, ACCURACY);
+    BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, ACCURACY);
+  } //testCorrectnessAfterMove
 
-  BOOST_AUTO_TEST_CASE(testCorrectnessAftersScale)
+  BOOST_AUTO_TEST_CASE(testCorrectnessAfterScale)
   {
     drozdov::Circle circle(5.0, {4.3, 1.0});
-    const double beforeAreaScale = circle.getArea();
+    const double areaBeforeScale = circle.getArea();
 
-    const double factor = 4.0;
-    circle.scale(factor);
+    const double coefficientScaleCirc = 4.0;
+    circle.scale(coefficientScaleCirc);
 
-    const double afterAreaScale = circle.getArea();
-    BOOST_CHECK_CLOSE(beforeAreaScale * factor * factor, afterAreaScale, calculationError);
-  }
+    const double areaAfterScale = circle.getArea();
+    BOOST_CHECK_CLOSE(areaBeforeScale * coefficientScaleCirc * coefficientScaleCirc, areaAfterScale, ACCURACY);
+  } //testCorrectnessAfterScale
 
   BOOST_AUTO_TEST_CASE(testIncorrectParameters)
   {
-    BOOST_CHECK_THROW(drozdov::Circle(-5.0, {4.3, 1.0}), std::invalid_argument);
+    BOOST_CHECK_THROW(drozdov::Circle(INCORRECT_ARGUMENT, {4.3, 1.0}), std::invalid_argument);
 
     drozdov::Circle circle(5.0, {4.3, 1.0});
-    BOOST_CHECK_THROW(circle.scale(-1.0), std::invalid_argument);
-  }
+    BOOST_CHECK_THROW(circle.scale(INCORRECT_ARGUMENT), std::invalid_argument);
+  } //testIncorrectParameters
 
-BOOST_AUTO_TEST_SUITE_END()
+BOOST_AUTO_TEST_SUITE_END() //A2TestsCircle

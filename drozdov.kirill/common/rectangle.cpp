@@ -7,7 +7,7 @@ drozdov::Rectangle::Rectangle (double width, double height, const point_t &pos):
   height_(height),
   pos_(pos)
 {
-  if ((width < 0.0) || (height < 0.0)) {
+  if ((width <= 0.0) || (height <= 0.0)) {
     throw std::invalid_argument("Rectangle arguments are not valid.");
   }
 }
@@ -30,11 +30,11 @@ drozdov::rectangle_t drozdov::Rectangle::getFrameRect() const
 
 void drozdov::Rectangle::scale(double coefficient)
 {
-  if (coefficient >= 0.0) {
+  if (coefficient > 0.0) {
     width_ *= coefficient;
     height_ *= coefficient;
   } else {
-    throw std::invalid_argument("\nRectangle scale factor is not valid.");
+    throw std::invalid_argument("\nRectangle's coefficient for scale is not valid.");
   }
 }
 
@@ -44,7 +44,7 @@ void drozdov::Rectangle::move(double dx, double dy)
   pos_.y += dy;
 }
 
-void drozdov::Rectangle::move(const point_t &dot)
+void drozdov::Rectangle::move(const point_t &newPos)
 {
-  pos_ = dot;
+  pos_ = newPos;
 }
