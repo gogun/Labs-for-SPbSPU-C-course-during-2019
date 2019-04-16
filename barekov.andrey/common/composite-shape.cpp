@@ -42,16 +42,16 @@ barekov::rectangle_t barekov::CompositeShape::getFrameRect() const
     tmpFrameRect = arrayOfShapes_[i]->getFrameRect();
 
     double tmpValue = tmpFrameRect.pos.x - tmpFrameRect.width / 2;
-    lftX = tmpValue < lftX ? tmpValue : lftX;
+    lftX = std::min(tmpValue, lftX);
 
     tmpValue = tmpFrameRect.pos.x + tmpFrameRect.width / 2;
-    rgtX = tmpValue > rgtX ? tmpValue : rgtX;
+    rgtX = std::max(tmpValue, rgtX);
 
     tmpValue = tmpFrameRect.pos.y - tmpFrameRect.height / 2;
-    btmY = tmpValue < btmY ? tmpValue : btmY;
+    btmY = std::min(tmpValue, btmX);
 
     tmpValue = tmpFrameRect.pos.y + tmpFrameRect.height / 2;
-    topY = tmpValue > topY ? tmpValue : topY;
+    topY = std::max(tmpValue, topY);
   }
 
   return {rgtX - lftX, topY - btmY, {(lftX + rgtX) / 2, (btmY + topY) / 2}};
