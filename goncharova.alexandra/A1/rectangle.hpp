@@ -1,5 +1,5 @@
-#ifndef rectangle_hpp
-#define rectangle_hpp
+#ifndef RECTANGLE_HPP
+#define RECTANGLE_HPP
 
 #include "shape.hpp"
 
