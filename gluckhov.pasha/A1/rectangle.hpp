@@ -12,7 +12,7 @@ class Rectangle : public Shape
     rectangle_t getFrameRect() const override;
     void printData() const override;
     void move(double dx, double dy) override;
-    void move(const point_t & newPos) override;
+    void move(const point_t &newPos) override;
   private:
     point_t pos_;
     double width_;
