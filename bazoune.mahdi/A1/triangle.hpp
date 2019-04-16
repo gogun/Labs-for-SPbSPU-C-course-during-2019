@@ -8,7 +8,7 @@ public:
   Triangle(const point_t &pt1, const point_t &pt2, const point_t &pt3);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t & point) override;
+  void move(const point_t &point) override;
   void move(double dx, double dy) override;
   void print() const override;
 private:

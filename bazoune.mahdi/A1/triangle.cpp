@@ -28,7 +28,7 @@ rectangle_t Triangle::getFrameRect() const
   return rectangle_t{ w, h,pos_ };
 }
 
-void Triangle::move(const point_t & point)
+void Triangle::move(const point_t &point)
 {
   a_.x += point.x - pos_.x;
   b_.x += point.x - pos_.x;

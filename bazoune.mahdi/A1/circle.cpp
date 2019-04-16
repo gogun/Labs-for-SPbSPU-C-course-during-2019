@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cassert>
 
-Circle::Circle(double r, const point_t & center) :
+Circle::Circle(double r, const point_t &center) :
   r_(r),
   center_(center)
 {
@@ -30,7 +30,7 @@ rectangle_t Circle::getFrameRect() const
   std::cout << "circle ray = " << r_ << std::endl;
 }
 
-void Circle::move(const point_t & point)
+void Circle::move(const point_t &point)
 {
   center_ = point;
 }
