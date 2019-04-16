@@ -41,7 +41,7 @@ rectangle_t Triangle::getFrameRect() const
   double height = bottom - top;
   double x0 = (left + right) / 2;
   double y0 = (top + bottom) / 2;
-  return {width, height, {x0, y0}};
+  return { width, height, { x0, y0 } };
 }
 
 void Triangle::move(double dx, double dy)
@@ -69,5 +69,5 @@ double Triangle::getLength(const point_t &p1, const point_t &p2) const
 
 point_t Triangle::getCentre() const
 {
-  return {(p1_.x + p2_.x + p3_.x) / 3, (p1_.y + p2_.y + p3_.y) / 3};
+  return { (p1_.x + p2_.x + p3_.x) / 3, (p1_.y + p2_.y + p3_.y) / 3 };
 }
