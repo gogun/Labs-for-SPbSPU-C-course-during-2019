@@ -2,8 +2,8 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-const double scaleRate1 = 3.42;
-const double scaleRate2 = 2.93;
+const double scale_rate1 = 3.42;
+const double scale_rate2 = 2.93;
 
 void printRectangle(const karpenko::Shape & shape)
 {
@@ -17,7 +17,7 @@ void printRectangle(const karpenko::Shape & shape)
 
 void printCircle(const karpenko::Shape & shape)
 {
-  karpenko::rectangle_t frameRect = shape.getFrameRect();
+  const karpenko::rectangle_t frameRect = shape.getFrameRect();
   std::cout << "Width of frame circle rectangle is " << frameRect.width;
   std::cout << "; Height of frame circle rectangle is " << frameRect.height << ";\n";
   std::cout << "Center on [" << frameRect.pos.x << ";" << frameRect.pos.y << "];\n";
@@ -26,38 +26,38 @@ void printCircle(const karpenko::Shape & shape)
 
 int main()
 {
-  karpenko::Rectangle rectangle({1, 4, {3, 4}});
+  karpenko::Rectangle rectangle({1.2, 4.33, {3.2, 4.7}});
 
   std::cout << "Rectangle demonstration started.\n\n";
   printRectangle(rectangle);
   std::cout << "Moving to coordinates...\n";
-  rectangle.move(5, 6);
+  rectangle.move(5.0, 4.0);
   printRectangle(rectangle);
   std::cout << "Moving to point...\n";
-  rectangle.move({3, 3});
+  rectangle.move({3.0, 3.0});
   printRectangle(rectangle);
 
-  std::cout << "Applies scaling with coeficcent = "
-      << scaleRate1 << "\n";
-  rectangle.scale(scaleRate1);
+  std::cout << "Applies scaling with coefficient = "
+    << scale_rate1 << "\n";
+  rectangle.scale(scale_rate1);
   printRectangle(rectangle);
   std::cout << "End program for Rectangle;\n\n";
 
 
-  karpenko::Circle circle({-5, {1, 2}});
+  karpenko::Circle circle({-5.0, {1.0, 2.0}});
 
   std::cout << "Circle demonstration started.\n";
   printCircle(circle);
   std::cout << "Moving to coordinates...\n";
-  circle.move(5, 6);
+  circle.move(5.0, 6.0);
   printCircle(circle);
   std::cout << "Moving to point...\n";
-  circle.move({3, 3});
+  circle.move({3.0, 3.0});
   printCircle(circle);
 
-  std::cout << "Applies scaling with coeficcent = "
-      << scaleRate2 << "\n";
-  circle.scale(scaleRate2);
+  std::cout << "Applies scaling with coefficient = "
+    << scale_rate1 << "\n";
+  circle.scale(scale_rate2);
   printCircle(circle);
   std::cout << "End program for Circle;\n";
   return 0;
