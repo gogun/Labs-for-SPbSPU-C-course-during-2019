@@ -1,4 +1,3 @@
-#include "base-types.hpp"
 #include "triangle.hpp"
 #include <stdlib.h>
 #include <iostream>
