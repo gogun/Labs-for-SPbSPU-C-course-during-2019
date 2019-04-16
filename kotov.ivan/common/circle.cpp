@@ -6,7 +6,7 @@ kotov::Circle::Circle(const kotov::point_t & center, double radius) :
   center_(center),
   radius_(radius)
 {
-  if (radius_ <= 0) 
+  if (radius_ <= 0)
   {
     throw std::invalid_argument("Invalid radius of circle");
   }
@@ -24,7 +24,11 @@ double kotov::Circle::getArea() const
 
 kotov::rectangle_t kotov::Circle::getFrameRect() const
 {
-  return { center_, 2 * radius_, 2 * radius_};
+  return {
+    center_,
+    2 * radius_,
+    2 * radius_
+  };
 }
 
 void kotov::Circle::move(const kotov::point_t & newCenter)
