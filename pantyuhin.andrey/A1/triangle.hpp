@@ -10,8 +10,6 @@ public:
   Triangle(double x1, double y1, double x2, double y2, double x3, double y3);
 
   point_t getCentre() const;
-  point_t getVertex(int vertexNumber) const;
-  double getSide(point_t vertex1, point_t vertex2) const;
   double getPerimeter() const;
   void printParameters() const;
 
@@ -23,6 +21,7 @@ public:
 private:
 
   point_t vertex_[3];
+  double getSide(int vertex1, int vertex2) const;
 };
 
 #endif //A_TRIANGLE_HPP

@@ -5,19 +5,7 @@
 
 Triangle::Triangle(point_t vertexA, point_t vertexB, point_t vertexC):
     vertex_{vertexA, vertexB, vertexC}
-{
-  double AB = getSide(vertexA, vertexB);
-  double AC = getSide(vertexA, vertexC);
-  double BC = getSide(vertexB, vertexC);
-  assert(((AB + AC) > BC)
-      && "Summary of two triangle's sides must be > third side");
-  assert(((AB + BC) > AC)
-      && "Summary of two triangle's sides must be > third side");
-  assert(((AC + BC) > AB)
-      && "Summary of two triangle's sides must be > third side");
-  assert(((AB > 0) && (AC > 0) && (BC > 0))
-      && "Triangle's vertices can't coincide");
-}
+{ }
 
 Triangle::Triangle(double x1, double y1, double x2, double y2, double x3, double y3):
   Triangle({x1, y1}, {x2, y2}, {x3, y3})
@@ -28,27 +16,21 @@ point_t Triangle::getCentre() const
   return {(vertex_[0].x + vertex_[1].x + vertex_[2].x) / 3, ((vertex_[0].y + vertex_[1].y + vertex_[2].y) / 3)};
 }
 
-point_t Triangle::getVertex(int vertexNumber) const
+double Triangle::getSide(int vertex1, int vertex2) const
 {
-  return(vertex_[vertexNumber]);
-}
-
-double Triangle::getSide(point_t vertex1, point_t vertex2) const
-{
-  return (sqrt(pow((vertex1.x - vertex2.x), 2) + pow((vertex1.y - vertex2.y), 2)));
+  return (sqrt(pow((vertex_[vertex1].x - vertex_[vertex2].x), 2) + pow((vertex_[vertex1].y - vertex_[vertex2].y), 2)));
 }
 
 double Triangle::getPerimeter() const
 {
-  return (getSide(vertex_[0], vertex_[1]) + getSide(vertex_[1], vertex_[2])
-          + getSide(vertex_[0], vertex_[2]));
+  return (getSide(0, 1) + getSide(1, 2) + getSide(0, 2));
 }
 
 void Triangle::printParameters() const
 {
   for (int i = 0; i <= 2; i++)
   {
-    std::cout << "(" << getVertex(i).x << ", " << getVertex(i).y << "); ";
+    std::cout << "(" << vertex_[i].x << ", " << vertex_[i].y << "); ";
   }
   std::cout << std::endl << std::endl;
 }
@@ -56,9 +38,10 @@ void Triangle::printParameters() const
 double Triangle::getArea() const
 {
   double semiPerimeter = 0.5 * getPerimeter();
-  double side1 = getSide(vertex_[0], vertex_[1]);
-  double side2 = getSide(vertex_[1], vertex_[2]);
-  double side3 = getSide(vertex_[2], vertex_[0]);
+  double side1 = getSide(0, 1);
+  double side2 = getSide(1, 2);
+  double side3 = getSide(2, 0);
+
   return (sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3)));
 }
 
