@@ -133,7 +133,6 @@ double Triangle::getSide(const int i) const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  rectangle_t frameRectangle;
   //it's not points of triangle, it's convenient way to save max/min coordinates of triangle
   point_t maxCoordinates = coordinates_[0];
   point_t minCoordinates = coordinates_[0];
@@ -143,6 +142,7 @@ rectangle_t Triangle::getFrameRect() const
     minCoordinates.x = std::min(minCoordinates.x, coordinates_[i].x);
     minCoordinates.y = std::min(minCoordinates.y, coordinates_[i].y);
   }
+  rectangle_t frameRectangle = {0, 0, {0.0, 0.0}};
   frameRectangle.width = maxCoordinates.x - minCoordinates.x;
   frameRectangle.height = maxCoordinates.y - minCoordinates.y;
   frameRectangle.pos = {frameRectangle.width / 2 + minCoordinates.x, frameRectangle.height / 2 + minCoordinates.y};
