@@ -1,6 +1,6 @@
 #include "triangle.hpp"
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 Triangle::Triangle(const point_t &point1, const point_t &point2, const point_t &point3):
   point1_(point1),
@@ -12,10 +12,6 @@ Triangle::Triangle(const point_t &point1, const point_t &point2, const point_t &
   side1_ = sqrt((point1_.x - point2_.x)*(point1_.x - point2_.x) + (point1_.y - point2_.y)*(point1_.y - point2_.y));
   side2_ = sqrt((point2_.x - point3_.x)*(point2_.x - point3_.x) + (point2_.y - point3_.y)*(point2_.y - point3_.y));
   side3_ = sqrt((point1_.x - point3_.x)*(point1_.x - point3_.x) + (point1_.y - point3_.y)*(point1_.y - point3_.y));
-  assert((side1_ > 0) && (side2_ > 0) && (side3_ > 0));
-  assert((side1_ + side2_) > side3_);
-  assert((side1_ + side3_) > side2_);
-  assert((side2_ + side3_) > side1_);
 }
 
 double Triangle::getArea() const
@@ -130,7 +126,7 @@ void Triangle::move(double abs, double ord)
    centre_.y += ord;
  }
 
-void Triangle::printTriang()
+void Triangle::printTriang() const
  {
    std::cout << "Sides: " << side1_ << ", " << side2_ << ", " << side3_ << std::endl;
    std::cout << "Centre of gravity:" << " (" << centre_.x << "," << centre_.y << ")" << std::endl;

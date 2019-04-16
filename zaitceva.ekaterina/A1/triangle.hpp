@@ -1,5 +1,6 @@
 #ifndef UNTITLED1_TRIANGLE_H
 #define UNTITLED1_TRIANGLE_H
+
 #include "shape.hpp"
 
 class Triangle : public Shape
@@ -10,7 +11,7 @@ public:
   rectangle_t getFrameRect() const override;
   void move(const point_t &point) override;
   void move(double abs, double ord) override;
-  void printTriang() const override;
+  void printTriang() const;
 
 private:
   point_t point1_;
