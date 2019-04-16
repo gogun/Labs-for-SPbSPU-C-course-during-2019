@@ -1,6 +1,7 @@
 #include "composite-shape.hpp"
 
 #include <stdexcept>
+#include <algorithm>
 
 chizhov::CompositeShape::CompositeShape(Shape& shape) :
     quantity_(1)
@@ -166,16 +167,16 @@ chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
     rectTmp = shapes_[i]->getFrameRect();
 
     double tmp = rectTmp.pos.x - rectTmp.width / 2;
-    minX = tmp < minX ? tmp : minX;
+    minX = std::min(tmp, minX);
 
     tmp = rectTmp.pos.x + rectTmp.width / 2;
-    maxX = tmp > maxX ? tmp : maxX;
+    maxX = std::max(tmp, maxX);
 
     tmp = rectTmp.pos.y - rectTmp.height / 2;
-    minY = tmp < minY ? tmp : minY;
+    minY = std::min(tmp, minY);
 
     tmp = rectTmp.pos.y - rectTmp.height / 2;
-    maxY = tmp > maxY ? tmp : maxY;
+    maxY = std::min(tmp, maxY);
   }
 
   return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
