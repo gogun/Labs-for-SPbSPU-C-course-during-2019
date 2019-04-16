@@ -21,14 +21,10 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double maxX = 0;
-  double maxY = 0;
-  maxX = std::max(std::max(m_a.x, m_b.x), m_c.x);
-  maxY = std::max(std::max(m_a.y, m_b.y), m_c.y);
-  double minX = 0;
-  double minY = 0;
-  minX = std::min(std::min(m_a.x, m_b.x), m_c.x);
-  minY = std::min(std::min(m_a.y, m_b.y), m_c.y);
+  double maxX = std::max(std::max(m_a.x, m_b.x), m_c.x);
+  double maxY = std::max(std::max(m_a.y, m_b.y), m_c.y); 
+  double minX = std::min(std::min(m_a.x, m_b.x), m_c.x); 
+  double minY = std::min(std::min(m_a.y, m_b.y), m_c.y);
   return {maxX - minX, maxY - minY, {(maxX + minX) / 2, (maxY + minY) / 2}};
 }
 void Triangle::move(const point_t &p)
