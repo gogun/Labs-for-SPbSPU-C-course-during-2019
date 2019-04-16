@@ -55,8 +55,7 @@ int main()
   circle.move({3.0, 3.0});
   printCircle(circle);
 
-  std::cout << "Applies scaling with coefficient = "
-    << scale_rate1 << "\n";
+  std::cout << "Applies scaling with coefficient = " << scale_rate1 << "\n";
   circle.scale(scale_rate2);
   printCircle(circle);
   std::cout << "End program for Circle;\n";

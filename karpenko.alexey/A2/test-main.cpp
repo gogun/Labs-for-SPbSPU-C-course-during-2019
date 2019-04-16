@@ -1,4 +1,4 @@
-#define BOOST_AUTO_MODULE A2_TEST
+#define BOOST_AUTO_MODULE
 
 #include <stdexcept>
 
