@@ -1,8 +1,6 @@
 #include "circle.hpp"
 #include <cmath>
 #include <iostream>
-#include <cassert>
-#include <stdexcept>
 
 marashov::Circle::Circle(const point_t & center, double radius) :
   center_(center),
@@ -41,7 +39,10 @@ void marashov::Circle::move(double deltaX, double deltaY)
 
 void marashov::Circle::scale(double scaleAmount)
 {
-  assert(scaleAmount > 0);
+  if (scaleAmount <= 0)
+  {
+    throw std::invalid_argument("Scale amount must be positive");
+  }
   radius_ *= scaleAmount;
 }
 

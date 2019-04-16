@@ -1,6 +1,5 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cassert>
 
 marashov::Rectangle::Rectangle(const point_t & pos, double width, double height) :
   center_(pos),
@@ -40,7 +39,10 @@ void marashov::Rectangle::move(double deltaX, double deltaY)
 
 void marashov::Rectangle::scale(double scaleAmount)
 {
-  assert(scaleAmount > 0);
+  if (scaleAmount <= 0)
+  {
+    throw std::invalid_argument("Scale amount must be positive");
+  }
   width_ *= scaleAmount;
   height_ *= scaleAmount;
 }

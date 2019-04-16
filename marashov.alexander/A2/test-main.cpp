@@ -1,8 +1,6 @@
 #define BOOST_TEST_MODULE A2
 #include <boost/test/included/unit_test.hpp>
 
-#include <iostream>
-
 #include "rectangle.hpp"
 #include "circle.hpp"
 
@@ -28,10 +26,10 @@ BOOST_AUTO_TEST_SUITE(moveTest)
     rectangle.move(newRectPoint);
 
     // проверка неизменности высоты, ширины и площади прямоугольника
-    // (допускается погрешность TOLERANCE)
-    BOOST_CHECK_CLOSE(rectangle.getWidth(), width, TOLERANCE);
-    BOOST_CHECK_CLOSE(rectangle.getHeight(), height, TOLERANCE);
-    BOOST_CHECK_CLOSE(rectangle.getArea(), rectArea, TOLERANCE);
+    // (погрешность не допускается, параметры должны быть неизменны)
+    BOOST_CHECK_EQUAL(rectangle.getWidth(), width);
+    BOOST_CHECK_EQUAL(rectangle.getHeight(), height);
+    BOOST_CHECK_EQUAL(rectangle.getArea(), rectArea);
   }
 
   // проверка перемещения круга
@@ -45,9 +43,9 @@ BOOST_AUTO_TEST_SUITE(moveTest)
     circle.move(newCirclePoint);
 
     // проверка неизменности радиуса и площади круга
-    // (допускается погрешность TOLERANCE)
-    BOOST_CHECK_CLOSE(circle.getRadius(), radius, TOLERANCE);
-    BOOST_CHECK_CLOSE(circle.getArea(), circleArea, TOLERANCE);
+    // (погрешность не допускается, параметры должны быть неизменны)
+    BOOST_CHECK_EQUAL(circle.getRadius(), radius);
+    BOOST_CHECK_EQUAL(circle.getArea(), circleArea);
   }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -99,6 +97,22 @@ BOOST_AUTO_TEST_SUITE(incorrectParamsTest)
     // проверка на наличие исключения "некорректный аргумент" при попытке задать
     // отрицательный радиус круга
     BOOST_CHECK_THROW(marashov::Circle({0, 0}, -10), std::invalid_argument);
+  }
+
+  BOOST_AUTO_TEST_CASE(rectangleScale) {
+    marashov::Rectangle rectangle = marashov::Rectangle({0, 0}, 10, 5);
+    // проверка на наличие исключения "некорректный аргумент" при попытке задать
+    // отрицательное или нулевое значение масштабирования
+    const double incorrectArg = 0;
+    BOOST_CHECK_THROW(rectangle.scale(incorrectArg), std::invalid_argument);
+  }
+
+  BOOST_AUTO_TEST_CASE(circleScale) {
+    marashov::Circle circle = marashov::Circle({0, 0}, -10);
+    // проверка на наличие исключения "некорректный аргумент" при попытке задать
+    // отрицательное или нулевое значение масштабирования
+    const double incorrectArg = -2;
+    BOOST_CHECK_THROW(circle.scale(incorrectArg), std::invalid_argument);
   }
 
 BOOST_AUTO_TEST_SUITE_END()
