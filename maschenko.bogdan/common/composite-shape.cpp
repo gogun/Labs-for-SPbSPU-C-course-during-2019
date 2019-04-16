@@ -196,7 +196,7 @@ void maschenko::CompositeShape::removeShape(maschenko::Shape *shape)
   throw std::invalid_argument("This shape doesn't exist");
 }
 
-maschenko::Shape* maschenko::CompositeShape::getShape(int index)
+maschenko::Shape* maschenko::CompositeShape::getShape(int index) const
 {
   if (index > shape_quantity_)
   {
