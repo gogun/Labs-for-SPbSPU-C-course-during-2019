@@ -6,12 +6,12 @@
 class Triangle: public  Shape
 {
 public:
-   Triangle(const point_t &point0, const point_t &point1, const point_t &point2);
-   void move(double dx, double dy) override;
-   void move(const point_t &center) override;
-   double getArea() const override;
-   rectangle_t getFrameRect() const override;
-   void showPoint() const override;
+  Triangle(const point_t &point0, const point_t &point1, const point_t &point2);
+  void move(double dx, double dy) override;
+  void move(const point_t &center) override;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void showPoint() const override;
 private:
   point_t point0_;
   point_t point1_;
