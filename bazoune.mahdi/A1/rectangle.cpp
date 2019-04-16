@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(double setWidth, double setHeight, const point_t& setCenter) :
+Rectangle::Rectangle(double setWidth, double setHeight, const point_t & setCenter) :
   width_(setWidth),
   height_(setHeight),
   center_(setCenter)
@@ -31,7 +31,7 @@ void Rectangle::print() const
   std::cout << "height = " << height_<< std::endl;
 }
 
-void Rectangle::move(const point_t& point)
+void Rectangle::move(const point_t & point)
 {
   center_ = point;
 }
