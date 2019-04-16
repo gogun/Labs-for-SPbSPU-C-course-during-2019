@@ -14,7 +14,11 @@ Triangle::Triangle(point_t pA, point_t pB, point_t pC, point_t p):
   lenghtB_ = sqrt(pow((pointB_.x - pointC_.x), 2) + pow((pointB_.y - pointC_.y), 2));
   lenghtC_ = sqrt(pow((pointC_.x - pointA_.x), 2) + pow((pointC_.y - pointA_.y), 2));
 
-  assert((lenghtA_ + lenghtB_ > lenghtC_) || (lenghtA_ + lenghtC_ > lenghtB_) || (lenghtB_ + lenghtC_ > lenghtA_));
+  assert((lenghtA_ > 0) && (lenghtB_ > 0) && (lenghtC_ > 0));
+  assert((lenghtA_ + lenghtB_) > lenghtC_);
+  assert((lenghtA_ + lenghtC_) > lenghtB_);
+  assert((lenghtB_ + lenghtC_) > lenghtA_);
+
 }
 
 double Triangle::getArea() const
