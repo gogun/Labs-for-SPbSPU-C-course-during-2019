@@ -36,7 +36,7 @@ int main()
   movePoint(circle, 23, 45);
   moveXY(circle, 45, 12);
 
-  korolev::Rectangle rectangle(12, 34, 23 , 56);
+  korolev::Rectangle rectangle(12, 34, 23, 56);
   movePoint(rectangle, 67, 78);
   moveXY(rectangle, 17, 34);
 
