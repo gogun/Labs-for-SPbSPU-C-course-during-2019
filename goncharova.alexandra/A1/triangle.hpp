@@ -5,15 +5,17 @@
 class Triangle : public Shape
 {
 public:
-  point_t center_;
-  point_t pointA_, pointB_, pointC_;
-  double a_, b_, c_;
   Triangle(const point_t &, const point_t &, const point_t &, const point_t &);
   double getArea() const;
   rectangle_t getFrameRect() const;
   void move(const point_t &newPoint);
   void move(double dx, double dy);
   void inform() const;
+  
+private:
+  point_t center_;
+  point_t pointA_, pointB_, pointC_;
+  double a_, b_, c_;
 };
 
 #endif
