@@ -1,11 +1,11 @@
 #include "triangle.hpp"
 #include <iostream>
 
-Triangle::Triangle(const point_t pointA, const point_t pointB, const point_t pointC)
+Triangle::Triangle(const point_t pointA, const point_t pointB, const point_t pointC):
+  pointA_(pointA),
+  pointB_(pointB),
+  pointC_(pointC)
 {
-  pointA_ = pointA;
-  pointB_ = pointB;
-  pointC_ = pointC;
 }
 
 double Triangle::getArea() const
