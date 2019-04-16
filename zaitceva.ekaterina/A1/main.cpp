@@ -47,5 +47,6 @@ int main ()
   triangle.move(2,8);
   std::cout << "After axial movement: " << std::endl;
   triangle.printTriang();
+
   return 0;
 };
