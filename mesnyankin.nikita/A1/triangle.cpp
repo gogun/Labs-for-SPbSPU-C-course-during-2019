@@ -4,23 +4,14 @@
 #include <iostream>
 #include "triangle.hpp"
 
-double searchMax(double x, double y, double z)
-{
-  return std::max({ x,y,z });
-}
 
-double searchMin(double x, double y, double z)
-{
-  return std::min({x,y,z});
-}
-
-Triangle::Triangle(const point_t &a, const point_t &b, const point_t &c) :
+Triangle::Triangle(const point_t &a, const point_t &b, const point_t &c):
   a_(a),
   b_(b),
   c_(c),
-  pos_({ ((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3) })
+  pos_({((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3)})
 {
-  assert(c.y != (a.y - b.y) / (a.x - b.x)*c.x + a.y - (a.y - b.y) / (a.x - b.x) * a.x);
+  assert(c.y != (a.y - b.y) / (a.x - b.x) * c.x + a.y - (a.y - b.y) / (a.x - b.x) * a.x);
 }
 
 double Triangle::getArea() const
@@ -69,13 +60,13 @@ rectangle_t Triangle::getFrameRect() const
 {
   double rMinX, rMinY, rMaxX, rMaxY;
   point_t rectangle_centre;
-  rMaxX = searchMax(a_.x, b_.x, c_.x);
-  rMaxY = searchMax(a_.y, b_.y, c_.y);
-  rMinX = searchMin(a_.x, b_.x, c_.x);
-  rMinY = searchMin(a_.y, b_.y, c_.y);
+  rMaxX = std::max({a_.x, b_.x, c_.x});
+  rMaxY = std::max({a_.y, b_.y, c_.y});
+  rMinX = std::min({a_.x, b_.x, c_.x});
+  rMinY = std::min({a_.y, b_.y, c_.y});
   rectangle_centre.x = (rMaxX + rMinX) / 2;
   rectangle_centre.y = (rMaxY + rMinY) / 2;
-  return { rectangle_centre, rMaxX - rMinX, rMaxY - rMinY };
+  return {rectangle_centre, rMaxX - rMinX, rMaxY - rMinY};
 }
 
 double Triangle::getAB() const
