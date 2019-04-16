@@ -4,34 +4,34 @@
 #include <cassert>
 
 Circle::Circle(const point_t &p, double r):
-  pos(p),
-  radius(r)
+  m_pos(p),
+  m_radius(r)
 {
-  assert(radius > 0.0);
+  assert(m_radius > 0.0);
 }
 
 double Circle::getArea() const
 {
-  return M_PI * radius * radius;
+  return M_PI * m_radius * m_radius;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
   rectangle_t localRect;
-  localRect.pos.x = Circle::pos.x;
-  localRect.pos.y = Circle::pos.y;
-  localRect.width = 2 * Circle::radius;
-  localRect.height = 2 * Circle::radius;
+  localRect.m_pos.x = m_pos.x;
+  localRect.m_pos.y = m_pos.y;
+  localRect.width = 2 * m_radius;
+  localRect.height = 2 * m_radius;
   return localRect;
 }
 
 void Circle::move(const point_t &p)
 {
-  pos = p;
+  m_pos = p;
 }
 
 void Circle::move(double dx, double dy)
 {
-  pos.x += dx;
-  pos.y += dy;
+  m_pos.x += dx;
+  m_pos.y += dy;
 }
