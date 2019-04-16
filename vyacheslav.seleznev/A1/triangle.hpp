@@ -7,7 +7,7 @@
 class Triangle : public Shape
 {
   public:
-    Triangle(point_t pA, point_t pB, point_t pC, point_t p);
+    Triangle(point_t pA, point_t pB, point_t pC);
     double getArea() const override;
     rectangle_t getFrameRect() const override;
 
@@ -15,9 +15,11 @@ class Triangle : public Shape
     point_t pointA_;
     point_t pointB_;
     point_t pointC_;
-    double lenghtA_;
-    double lenghtB_;
-    double lenghtC_;
+    double lengthA_;
+    double lengthB_;
+    double lengthC_;
+    double getLength(point_t a, point_t b);
+    void assertTriangle(double a, double b, double c);
 };
 
 #endif

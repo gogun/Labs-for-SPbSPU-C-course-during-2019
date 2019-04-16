@@ -26,25 +26,24 @@ int main()
   point_t circleCentre = {5, 8};
   const double circleRadius = 5;
 
-  point_t rectangleCentre = {25, 30};
+  point_t rectangleCentre = {12, 30};
   const double rectangleWidth = 20;
   const double rectangleHeight = 10;
 
-  point_t triangleCentre = {44, 32};
-  point_t trianglePointA = {0, 1};
+  point_t trianglePointA = {10, 2};
 
-  point_t trianglePointB = {32, 21};
+  point_t trianglePointB = {3, 40};
 
-  point_t trianglePointC = {2, 5};
+  point_t trianglePointC = {50, 6};
 
   Circle circle(circleRadius, circleCentre);
   Rectangle rectangle(rectangleWidth, rectangleHeight, rectangleCentre);
-  Triangle triangle(trianglePointA, trianglePointB, trianglePointC, triangleCentre);
+  Triangle triangle(trianglePointA, trianglePointB, trianglePointC);
 
   std::cout << "=== Circle ===" << std::endl;
   polimorphicMethod(circle);
   std::cout << "Set new centre point" << std::endl;
-  
+
   circle.move({100, 50});
   polimorphicMethod(circle);
 
@@ -58,7 +57,7 @@ int main()
   std::cout << "=== Rectangle ===" << std::endl;
   polimorphicMethod(rectangle);
   std::cout << "Set new centre point" << std::endl;
-  
+
   rectangle.move({500, 999});
   polimorphicMethod(rectangle);
 
