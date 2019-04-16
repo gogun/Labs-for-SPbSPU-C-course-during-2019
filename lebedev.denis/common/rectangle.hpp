@@ -4,7 +4,7 @@
 
 namespace lebedev
 {
-  class Rectangle : public Shape
+  class Rectangle: public Shape
   {
     public:
       Rectangle(double height, double widht, const point_t &pos);
