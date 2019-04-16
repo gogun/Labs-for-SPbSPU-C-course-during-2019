@@ -108,7 +108,7 @@ BOOST_AUTO_TEST_SUITE(incorrectParamsTest)
   }
 
   BOOST_AUTO_TEST_CASE(circleScale) {
-    marashov::Circle circle = marashov::Circle({0, 0}, -10);
+    marashov::Circle circle = marashov::Circle({0, 0}, 10);
     // проверка на наличие исключения "некорректный аргумент" при попытке задать
     // отрицательное или нулевое значение масштабирования
     const double incorrectArg = -2;
