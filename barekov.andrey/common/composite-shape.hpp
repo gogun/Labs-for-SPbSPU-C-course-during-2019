@@ -21,12 +21,12 @@ namespace barekov
     void move(double deltaX, double deltaY) override;
     void scale(double scaleFactor) override;
 
-    void addShape(Shape* addedShape);
+    void addShape(Shape* shape);
     void deleteShape(int index);
 
   private:
     point_t centre_;
-    int shapeQuantity_;
+    int count_;
     std::unique_ptr<Shape*[]> arrayOfShapes_;
   };
 }
