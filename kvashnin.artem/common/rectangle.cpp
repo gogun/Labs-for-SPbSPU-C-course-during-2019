@@ -4,7 +4,7 @@
 kvashnin::Rectangle::Rectangle(const point_t &position, const double width, const double height):
   rect_({position, width, height})
 {
-  if ((width < 0) || (height < 0)
+  if ((width < 0) || (height < 0))
   {
     throw std::invalid_argument("width or height can not be < 0");
   }
