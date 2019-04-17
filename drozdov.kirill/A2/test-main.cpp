@@ -44,7 +44,7 @@ BOOST_AUTO_TEST_SUITE(A2TestsRectangle)
     BOOST_CHECK_THROW(drozdov::Rectangle(5.0, incorrectArgument, {4.3, 1.0}), std::invalid_argument);
 
     drozdov::Rectangle rectangle(5.0, 3.0, {4.3, 1.0});
-    BOOST_CHECK_THROW(rectangle.scale(incorrectAtgument), std::invalid_argument);
+    BOOST_CHECK_THROW(rectangle.scale(incorrectArgument), std::invalid_argument);
   } //testIncorrectParameters
 
 BOOST_AUTO_TEST_SUITE_END() //A2TestsRectangle
