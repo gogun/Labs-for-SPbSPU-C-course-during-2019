@@ -16,4 +16,5 @@ namespace tsygarova
     point_t pos;
   };
 }
+
 #endif
