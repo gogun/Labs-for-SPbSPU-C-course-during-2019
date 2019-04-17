@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-prohorova::Circle::Circle(const point_t &pos,double radius):
+prohorova::Circle::Circle(const point_t &pos, double radius):
   pos_(pos),
   radius_(radius)
 {
@@ -21,15 +21,16 @@ double prohorova::Circle::getArea() const
 }
 prohorova::rectangle_t prohorova::Circle::getFrameRect() const
 {
-  return rectangle_t{getPos(), getRadius(), getRadius()};
+  return rectangle_t{pos_, radius_ * 2, radius_ * 2};
 }
 void prohorova::Circle::move(const point_t &newPos)
 {
   pos_ = newPos;
 }
-void prohorova::Circle::move(double dx,double dy)
+void prohorova::Circle::move(double dx, double dy)
 {
-  pos_ = point_t{getPos().x + dx, getPos().y + dy};
+  pos_.x += dx;
+  pos_.y += dy;
 }
 void prohorova::Circle::show() const
 {
@@ -42,7 +43,7 @@ void prohorova::Circle::show() const
 }
 void prohorova::Circle::scale(double factor)
 {
-  radius_ = radius_ * factor;
+  radius_ *= factor;
 }
 const prohorova::point_t& prohorova::Circle::getPos() const
 {

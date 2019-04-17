@@ -6,12 +6,12 @@ prohorova::Rectangle::Rectangle(const point_t &pos, double width, double height)
 {
   if (rect_.width <= 0 || rect_.height <= 0)
   {
-    throw std::invalid_argument("Parameters  must be positive numbers.\n");
+    throw std::invalid_argument("Parameters must be positive numbers.\n");
   }
 }
 prohorova::Rectangle::Rectangle(double posX, double posY, double width, double height):
   Rectangle(point_t{posX,posY}, width, height)
-{ 
+{
 }
 double prohorova::Rectangle::getArea() const
 {
