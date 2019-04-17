@@ -5,7 +5,7 @@
 
 void printParams(const Shape &s)
 {
-  rectangle_t outFrRect = s.getFrameRect();
+  const rectangle_t outFrRect = s.getFrameRect();
   std::cout << "Its area is " << s.getArea() << std::endl;
   std::cout << "Frame centre position is point (" << outFrRect.pos.x << ";" << outFrRect.pos.y << ")." << std::endl;
   std::cout << "Its width is " << outFrRect.width << " and height is " << outFrRect.height << std::endl << std::endl;
