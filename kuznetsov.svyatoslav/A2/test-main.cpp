@@ -3,7 +3,6 @@
 #include <stdexcept>
 #include <boost/test/included/unit_test.hpp>
 #include <boost/test/floating_point_comparison.hpp>
-
 #include "rectangle.hpp"
 #include "circle.hpp"
 
