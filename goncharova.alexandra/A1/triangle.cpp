@@ -7,7 +7,7 @@ Triangle::Triangle(const point_t &center, const point_t &pointA, const point_t &
   center_(center),
   pointA_(pointA),
   pointB_(pointB),
-  pointC_(3 * center_.x - pointB_.x - pointA_.x, 3 * center_.y - pointB_.y - pointA_.y)
+  pointC_{3 * center_.x - pointB_.x - pointA_.x, 3 * center_.y - pointB_.y - pointA_.y}
 {
   assert(fabs((pointB.x - pointA.x) * (center_.y - pointA_.y) - (center_.x - pointA.x) * (pointB.y - pointA.y)) > pow(10, -8));
 }
