@@ -51,7 +51,7 @@ rectangle_t Triangle::getFrameRect() const
   //it's not points of triangle, it's convenient way to save max/min coordinates of triangle
   point_t maxCoordinates = coordinates_[0];
   point_t minCoordinates = coordinates_[0];
-  for (int i = 0; i < nTops_; i++) {
+  for (int i = 1; i < nTops_; i++) {
     maxCoordinates.x = std::max(maxCoordinates.x, coordinates_[i].x);
     maxCoordinates.y = std::max(maxCoordinates.y, coordinates_[i].y);
     minCoordinates.x = std::min(minCoordinates.x, coordinates_[i].x);
