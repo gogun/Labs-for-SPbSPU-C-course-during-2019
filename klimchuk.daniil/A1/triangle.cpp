@@ -25,9 +25,11 @@ rectangle_t Triangle::getFrameRect() const
 {
   double left = std::min(std::min(A_.x, B_.x), C_.x);
   double bot = std::min(std::min(A_.y, B_.y), C_.y);
-  double height = std::abs(std::max(std::max(A_.y, B_.y), C_.y) - bot);
-  double width = std::abs(std::max(std::max(A_.x, B_.x), C_.x) - left);
-  return {width, height, findCenter()};
+  double top = std::max(std::max(A_.y, B_.y), C_.y);
+  double right = std::max(std::max(A_.x, B_.x), C_.x);
+  double width = right - left;
+  double height = top - bot;
+  return {width, height, {(left + right) / 2, (top + bot) / 2}};
 }
 
 void Triangle::move(const point_t &pos)
