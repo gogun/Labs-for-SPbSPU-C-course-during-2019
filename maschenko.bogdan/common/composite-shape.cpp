@@ -39,28 +39,16 @@ maschenko::rectangle_t maschenko::CompositeShape::getFrameRect() const
     rectangle_t temp_rect = shape_array_[i]->getFrameRect();
 
     double bottom_side = temp_rect.pos.y - temp_rect.height / 2;
-    if (min_y > bottom_side)
-    {
-      min_y = bottom_side;
-    }
+    min_y = std::min(min_y, bottom_side);
 
     double top_side = temp_rect.pos.y + temp_rect.height / 2;
-    if (max_y > top_side)
-    {
-      max_y = top_side;
-    }
+    max_y = std::max(max_y, top_side);
 
     double left_side = temp_rect.pos.x - temp_rect.width / 2;
-    if (min_x > left_side)
-    {
-      min_x = left_side;
-    }
+    min_x = std::min(min_x, left_side);
 
     double right_side = temp_rect.pos.x + temp_rect.width / 2;
-    if (max_x > right_side)
-    {
-      max_x = right_side;
-    }
+    max_x = std::max(max_x, right_side);
   }
 
   return
