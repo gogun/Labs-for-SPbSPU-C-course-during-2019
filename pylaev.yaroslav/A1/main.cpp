@@ -34,17 +34,11 @@ int main(int, char * [])
   std::cout << std::endl;
   //Triangle
   std::cout << "----------Work with the triangle\n";
-<<<<<<< HEAD
   point_t pointA = {0.0, 10.5};
   point_t pointB = {0.0, 5.5};
   point_t pointC = {5.0, 5.0};
   try {
     Triangle triangle(pointA, pointB, pointC);
-=======
-  center = {100.0, 800.0};
-  try {
-    Triangle triangle(center, 8.544003745, 10.0, 3.0);
->>>>>>> cb378f16af1ff86191261ceb64da3e08375a254d
     exercisesAndPrintSpec(&triangle);
   } catch(std::invalid_argument & err) {
     std::cerr << err.what();
