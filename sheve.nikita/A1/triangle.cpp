@@ -27,7 +27,7 @@ rectangle_t Triangle::getFrameRect() const
   const double minY = std::min(std::min(m_a.y, m_b.y), m_c.y);
   const double width = maxX - minX;
   const double height = maxY - minY;
-  return {{ minX + width / 2, minY + height / 2 }, width, height };
+  return { { minX + width / 2, minY + height / 2 }, width, height };
 }
 void Triangle::move(const point_t &p)
 {
