@@ -1,8 +1,8 @@
 #include "triangle.hpp"
 
+#include <iostream>
 #include <math.h>
 #include <cassert>
-#include <iostream>
 #include <algorithm>
 
 Triangle::Triangle(const point_t & vA, const point_t & vB, const point_t & vC) :
@@ -17,7 +17,9 @@ Triangle::Triangle(const point_t & vA, const point_t & vB, const point_t & vC) :
 
 double Triangle::getArea() const
 {
-  return (std::fabs(vA_.x - vC_.x) * (vB_.y - vC_.y)- std::fabs(vB_.x - vC_.x) * (vA_.y - vC_.y)) / 2;
+  return (std::fabs(vA_.x - vC_.x) * (vB_.y - vC_.y)
+      - std::fabs(vB_.x - vC_.x) *
+        (vA_.y - vC_.y)) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
@@ -26,6 +28,7 @@ rectangle_t Triangle::getFrameRect() const
   const double minX = std::min(std::min(vA_.x, vB_.x), vC_.x);
   const double maxY = std::max(std::max(vA_.y, vB_.y), vC_.y);
   const double minY = std::min(std::min(vA_.y, vB_.y), vC_.y);
+
   const double width = maxX - minX;
   const double height = maxY - minY;
   const point_t position = { minX + width / 2, minY + height / 2 };
