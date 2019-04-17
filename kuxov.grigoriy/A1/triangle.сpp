@@ -5,8 +5,6 @@
 #include <cassert>
 #include <algorithm>
 
-
-
 Triangle::Triangle(const point_t & vA, const point_t & vB, const point_t & vC) :
   pos_({ (vA.x + vB.x + vC.x) / 3, (vA.y + vB.y + vC.y) / 3 }),
   vA_(vA),
@@ -20,7 +18,7 @@ Triangle::Triangle(const point_t & vA, const point_t & vB, const point_t & vC) :
 double Triangle::getArea() const
 {
   return (std::fabs(vA_.x - vC_.x) * (vB_.y - vC_.y)
-      - std::fabs(vB_.x - vC_.x) *
+    - std::fabs(vB_.x - vC_.x) *
         (vA_.y - vC_.y)) / 2;
 }
 
@@ -30,11 +28,9 @@ rectangle_t Triangle::getFrameRect() const
   const double minX = std::min(std::min(vA_.x, vB_.x), vC_.x);
   const double maxY = std::max(std::max(vA_.y, vB_.y), vC_.y);
   const double minY = std::min(std::min(vA_.y, vB_.y), vC_.y);
-
   const double width = maxX - minX;
   const double height = maxY - minY;
   const point_t position = { minX + width / 2, minY + height / 2 };
-
   return { width, height, position };
 }
 
@@ -59,7 +55,6 @@ void Triangle::move(double dx, double dy)
 {
   pos_.x += dx;
   pos_.y += dy;
-
   vA_.x += dx;
   vA_.y += dy;
   vB_.x += dx;
