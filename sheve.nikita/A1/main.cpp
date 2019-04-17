@@ -36,7 +36,7 @@ int main()
   printParams(circ);
 
   std::cout << "Creating triangle with points A(12,-22), B(-13,3) ,C(1,23)" << std::endl;
-  Triangle tria({ 12, -12 },{ 13, 3 },{ 1, 23 });
+  Triangle tria({ 12, -12 }, { 13, 3 }, { 1, 23 });
   Shape *triap = &tria;
   printParams(tria);
   std::cout << "Moving triangle to point x=-7, y=4" << std::endl;
