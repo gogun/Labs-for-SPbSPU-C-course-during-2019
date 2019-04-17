@@ -11,17 +11,21 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
 BOOST_AUTO_TEST_CASE(constantWidthAndHeightAfterMovingToPoint)
 {
   ustinov::Rectangle testRectangle({2, 3}, 6, 3);
+  ustinov::rectangle_t frameBefore = testRectangle.getFrameRect();
   testRectangle.move({12, 2});
-  BOOST_CHECK_CLOSE(6, testRectangle.getFrameRect().width, IMPRECISION);
-  BOOST_CHECK_CLOSE(3, testRectangle.getFrameRect().height, IMPRECISION);
+  ustinov::rectangle_t frameAfter = testRectangle.getFrameRect();
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, IMPRECISION);
+  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, IMPRECISION);
 }
 
 BOOST_AUTO_TEST_CASE(constantWidthAndHeightAfterMovingWithOffset)
 {
   ustinov::Rectangle testRectangle({6, 7}, 12, 10);
+  ustinov::rectangle_t frameBefore = testRectangle.getFrameRect();
   testRectangle.move(22, 21);
-  BOOST_CHECK_CLOSE(12, testRectangle.getFrameRect().width, IMPRECISION);
-  BOOST_CHECK_CLOSE(10, testRectangle.getFrameRect().height, IMPRECISION);
+  ustinov::rectangle_t frameAfter = testRectangle.getFrameRect();
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, IMPRECISION);
+  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, IMPRECISION);
 }
 
 BOOST_AUTO_TEST_CASE(constantAreaMovingToPoint)
@@ -44,18 +48,18 @@ BOOST_AUTO_TEST_CASE(changeAfterScalingIncrease)
 {
   ustinov::Rectangle testRectangle({4, 7}, 14, 19);
   const auto testing_area = testRectangle.getArea(); //double
-  auto factor = 2; //double
-  testRectangle.scale(factor);
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), testing_area * factor * factor, IMPRECISION);
+  auto parameter = 2; //double
+  testRectangle.scale(parameter);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), testing_area * parameter * parameter, IMPRECISION);
 }
 
 BOOST_AUTO_TEST_CASE(changeAfterScalingDecrease)
 {
   ustinov::Rectangle testRectangle({4, 7}, 14, 19);
   const auto testing_area = testRectangle.getArea(); //double
-  auto factor = 0.5; //double 
-  testRectangle.scale(factor);
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), testing_area * factor * factor, IMPRECISION);
+  auto parameter = 0.5; //double 
+  testRectangle.scale(parameter);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), testing_area * parameter * parameter, IMPRECISION);
 }
 
 BOOST_AUTO_TEST_CASE(incorrectWidth)
@@ -77,20 +81,6 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(CircleTest)
 
-BOOST_AUTO_TEST_CASE(constantRadiusAfterMovingCenter)
-{
-  ustinov::Circle testCircle({2, 3}, 6);
-  testCircle.move({12, 2});
-  BOOST_CHECK_CLOSE(6, testCircle.getFrameRect().width / 2, IMPRECISION);
-}
-
-BOOST_AUTO_TEST_CASE(constantRadiusAfterToPoint)
-{
-  ustinov::Circle testCircle({2, 3}, 6);
-  testCircle.move(7, 4);
-  BOOST_CHECK_CLOSE(6, testCircle.getFrameRect().width / 2, IMPRECISION);
-}
-
 BOOST_AUTO_TEST_CASE(areaAfterMovingCenter)
 {
   ustinov::Circle testCircle({3, 5}, 6);
@@ -111,18 +101,18 @@ BOOST_AUTO_TEST_CASE(areaCircleIncrease)
 {
   ustinov::Circle testCircle({3, 5}, 6);
   const auto area = testCircle.getArea(); //double 
-  auto factor = 3; //double
-  testCircle.scale(factor);
-  BOOST_CHECK_CLOSE(testCircle.getArea(), area * facrot * facrot, IMPRECISION);
+  auto parameter = 3; //double
+  testCircle.scale(parameter);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), area * parameter * parameter, IMPRECISION);
 }
 
 BOOST_AUTO_TEST_CASE(areaCircleDecrease)
 {
   ustinov::Circle testCircle({3, 5}, 6);
   const auto area = testCircle.getArea(); //double
-  auto facrot = 0.2;
-  testCircle.scale(facrot);
-  BOOST_CHECK_CLOSE(testCircle.getArea(), area * factor * facrot, IMPRECISION);
+  auto parameter = 0.2;
+  testCircle.scale(parameter);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), area * parameter * parameter, IMPRECISION);
 }
 
 BOOST_AUTO_TEST_CASE(inncorrectRadius)
