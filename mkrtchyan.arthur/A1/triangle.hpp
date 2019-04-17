@@ -19,4 +19,4 @@ private:
   point_t pos_;
 };
 
-#endif //A1_TRIANGLE_HPP
+#endif
