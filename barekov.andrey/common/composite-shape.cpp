@@ -1,20 +1,76 @@
 #include "composite-shape.hpp"
 
+#include <algorithm>
 #include <iostream>
 #include <stdexcept>
 
 barekov::CompositeShape::CompositeShape(Shape* shape) :
-  centre_({0, 0}),
-  count_(1),
-  arrayOfShapes_(new Shape*[1])
+  count_(0),
+  arrayOfShapes_(nullptr)
 {
   if (shape == nullptr)
   {
     throw std::invalid_argument("Shape pointer must not be null");
   }
 
-  arrayOfShapes_[0] = shape;
-  centre_ = arrayOfShapes_[0]->getFrameRect().pos;
+  addShape(shape);
+}
+
+barekov::CompositeShape::CompositeShape(const CompositeShape& source) :
+  count_(source.count_),
+  arrayOfShapes_(new Shape*[source.count_])
+{
+  for (int i = 0; i < count_; i++)
+  {
+    arrayOfShapes_[i] = source.arrayOfShapes_[i];
+  }
+}
+
+barekov::CompositeShape::CompositeShape(CompositeShape&& source) :
+  count_(source.count_),
+  arrayOfShapes_(nullptr)
+{
+  arrayOfShapes_.swap(source.arrayOfShapes_);
+  source.arrayOfShapes_.reset();
+  source.arrayOfShapes_ = nullptr;
+  source.count_ = 0;
+}
+
+barekov::CompositeShape::~CompositeShape()
+{
+  arrayOfShapes_.reset();
+  arrayOfShapes_ = nullptr;
+  count_ = 0;
+}
+
+barekov::CompositeShape& barekov::CompositeShape::operator =(const CompositeShape& rhs)
+{
+  if (this != &rhs)
+  {
+    count_ = rhs.count_;
+    std::unique_ptr<Shape*[]> tmpArray(new Shape*[rhs.count_]);
+    for (int i = 0; i < count_; i++)
+    {
+      tmpArray[i] = rhs.arrayOfShapes_[i];
+    }
+    arrayOfShapes_.swap(tmpArray);
+  }
+
+  return *this;
+}
+
+barekov::CompositeShape& barekov::CompositeShape::operator =(CompositeShape&& rhs)
+{
+  if (this != &rhs)
+  {
+    count_ = rhs.count_;
+    arrayOfShapes_.swap(rhs.arrayOfShapes_);
+    rhs.arrayOfShapes_.reset();
+    rhs.arrayOfShapes_ = nullptr;
+    rhs.count_ = 0;
+  }
+
+  return *this;
 }
 
 double barekov::CompositeShape::getArea() const
@@ -59,7 +115,7 @@ barekov::rectangle_t barekov::CompositeShape::getFrameRect() const
 
 barekov::point_t barekov::CompositeShape::getPos() const
 {
-  return centre_;
+  return getFrameRect().pos;
 }
 
 void barekov::CompositeShape::showScalableParameters() const
@@ -76,13 +132,12 @@ void barekov::CompositeShape::showScalableParameters() const
 
 void barekov::CompositeShape::move(const point_t& centre)
 {
-  double deltaX = centre.x - centre_.x;
-  double deltaY = centre.y - centre_.y;
+  double deltaX = centre.x - getFrameRect().pos.x;
+  double deltaY = centre.y - getFrameRect().pos.y;
   for (int i = 0; i < count_; i++)
   {
     arrayOfShapes_[i]->move(deltaX, deltaY);
   }
-  centre_ = centre;
 }
 
 void barekov::CompositeShape::move(double deltaX, double deltaY)
@@ -91,8 +146,6 @@ void barekov::CompositeShape::move(double deltaX, double deltaY)
   {
     arrayOfShapes_[i]->move(deltaX, deltaY);
   }
-  centre_.x += deltaX;
-  centre_.y += deltaY;
 }
 
 void barekov::CompositeShape::scale(double scaleFactor)
@@ -104,9 +157,9 @@ void barekov::CompositeShape::scale(double scaleFactor)
 
   for (int i = 0; i < count_; i++)
   {
-    double deltaX = arrayOfShapes_[i]->getFrameRect().pos.x - centre_.x;
-    double deltaY = arrayOfShapes_[i]->getFrameRect().pos.y - centre_.y;
-    arrayOfShapes_[i]->move({centre_.x + deltaX * scaleFactor, centre_.y + deltaY * scaleFactor});
+    double deltaX = arrayOfShapes_[i]->getFrameRect().pos.x - getFrameRect().pos.x;
+    double deltaY = arrayOfShapes_[i]->getFrameRect().pos.y - getFrameRect().pos.y;
+    arrayOfShapes_[i]->move({getFrameRect().pos.x + deltaX * scaleFactor, getFrameRect().pos.y + deltaY * scaleFactor});
     arrayOfShapes_[i]->scale(scaleFactor);
   }
 }
@@ -126,8 +179,6 @@ void barekov::CompositeShape::addShape(Shape* shape)
   tmpArray[count_] = shape;
   count_++;
   arrayOfShapes_.swap(tmpArray);
-
-  centre_ = getFrameRect().pos;
 }
 
 void barekov::CompositeShape::deleteShape(int index)
@@ -136,9 +187,9 @@ void barekov::CompositeShape::deleteShape(int index)
   {
     throw std::out_of_range("Index is out of range");
   }
-  if (count_ == 1)
+  if (count_ == 0)
   {
-    throw std::out_of_range("Composite shape cannot contain less than one figure");
+    throw std::out_of_range("Cannot delete a figure from an empty composite shape");
   }
 
   std::unique_ptr<Shape*[]> tmpArray(new Shape*[count_ - 1]);
@@ -152,6 +203,4 @@ void barekov::CompositeShape::deleteShape(int index)
   }
   count_--;
   arrayOfShapes_.swap(tmpArray);
-
-  centre_ = getFrameRect().pos;
 }

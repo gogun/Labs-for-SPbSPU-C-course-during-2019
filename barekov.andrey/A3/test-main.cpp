@@ -60,6 +60,7 @@ BOOST_AUTO_TEST_CASE(exceptionThrowComposite)
   BOOST_CHECK_THROW(testComposite.deleteShape(-2), std::out_of_range);
 
   testComposite.deleteShape(1);
+  testComposite.deleteShape(0);
   BOOST_CHECK_THROW(testComposite.deleteShape(0), std::out_of_range);
 }
 

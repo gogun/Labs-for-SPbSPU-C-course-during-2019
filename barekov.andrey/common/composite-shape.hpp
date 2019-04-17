@@ -12,6 +12,12 @@ namespace barekov
   {
   public:
     CompositeShape(Shape* shape);
+    CompositeShape(const CompositeShape& source);
+    CompositeShape(CompositeShape&& source);
+    ~CompositeShape();
+
+    CompositeShape& operator =(const CompositeShape& rhs);
+    CompositeShape& operator =(CompositeShape&& rhs);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
@@ -25,7 +31,6 @@ namespace barekov
     void deleteShape(int index);
 
   private:
-    point_t centre_;
     int count_;
     std::unique_ptr<Shape*[]> arrayOfShapes_;
   };
