@@ -10,14 +10,14 @@ Triangle::Triangle(const point_t& pointA, const point_t& pointB, const point_t& 
   pointB_(pointB),
   pointC_(pointC)
 {
-  assert(abs((pointB.x - pointA.x) / (pointB.y - pointA.y)
+  assert(std::abs((pointB.x - pointA.x) / (pointB.y - pointA.y)
       - (pointC.x - pointA.x) / (pointC.y - pointA.y)) > 0.0000000001);
 //points should not lie on the same line
 }
 
 double Triangle::getArea() const
 {
-  return abs((pointB_.x - pointA_.x) * (pointC_.y - pointA_.y)
+  return std::abs((pointB_.x - pointA_.x) * (pointC_.y - pointA_.y)
       - (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
 }
 
