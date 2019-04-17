@@ -6,7 +6,7 @@
 class Triangle : public Shape
 {
 public:
-  Triangle(double side1, double side2, double side3, const point_t &center);
+  Triangle(const point_t &p1, const point_t &p2, const point_t &p3);
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
@@ -15,10 +15,11 @@ public:
   void printInfo() const override;
 
 private:
-  double side1_;
-  double side2_;
-  double side3_;
-  point_t pos_;
+  point_t A_;
+  point_t B_;
+  point_t C_;
+  point_t findCenter() const;
+  static double getDistance(const point_t &p1, const point_t &p2);
 };
 
 #endif //TRIANGLE_HPP

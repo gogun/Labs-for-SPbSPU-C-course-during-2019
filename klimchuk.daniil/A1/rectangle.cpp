@@ -33,12 +33,16 @@ void Rectangle::move(double dx, double dy)
 
 void Rectangle::printInfo() const
 {
+  rectangle_t frame = getFrameRect();
   std::cout << "Rectangle:"
       << std::endl << "  Width: " << width_
       << std::endl << "  Height: " << height_
-      << std::endl << "  Position: "
+      << std::endl << "  Center: "
       << std::endl << "    x: " << pos_.x
       << std::endl << "    y: " << pos_.y
+      << std::endl << "  Frame rectangle for the rectangle: "
+      << std::endl << "    Width: " << frame.width
+      << std::endl << "    Height: " << frame.height
       << std::endl << "  Area: " << this->getArea()
       << std::endl << std::endl;
 }

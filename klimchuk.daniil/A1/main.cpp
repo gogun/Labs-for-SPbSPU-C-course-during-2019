@@ -27,7 +27,7 @@ int main()
   shapeTest->move({3.0, 4.0});
   shapeTest->printInfo();
 
-  Triangle triangleTest = {14.11, 11.04, 20.0, {3.0, 10.10}};
+  Triangle triangleTest = {{13, 42}, {31, 28}, {25, 20}};
   shapeTest = &triangleTest;
   std::cout << "That's what we know about shape:" << std::endl;
   shapeTest->printInfo();
@@ -37,24 +37,6 @@ int main()
   std::cout << "Now we will move the shape to a specific point (3, 4)." << std::endl;
   shapeTest->move({3.0, 4.0});
   shapeTest->printInfo();
-
-  rectangle_t rectangleFrame = rectangleTest.getFrameRect();
-  std::cout << "Frame rectangle for the rectangle:"
-      << std::endl << "  Width: " << rectangleFrame.width
-      << std::endl << "  Height: " << rectangleFrame.height
-      << std::endl << std::endl;
-
-  rectangle_t circleFrame = circleTest.getFrameRect();
-  std::cout << "Frame rectangle for the circle:"
-      << std::endl << "  Width: " << circleFrame.width
-      << std::endl << "  Height: " << circleFrame.height
-      << std::endl << std::endl;
-
-  rectangle_t triangleFrame = triangleTest.getFrameRect();
-  std::cout << "Frame rectangle for the triangle:"
-      << std::endl << "  Width: " << triangleFrame.width
-      << std::endl << "  Height: " << triangleFrame.height
-      << std::endl << std::endl;
 
   return 0;
 }

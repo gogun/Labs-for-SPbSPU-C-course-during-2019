@@ -33,11 +33,15 @@ void Circle::move(double dx, double dy)
 
 void Circle::printInfo() const
 {
+  rectangle_t frame = getFrameRect();
   std::cout << "Circle:"
       << std::endl << "  Radius: " << radius_
-      << std::endl << "  Position: "
+      << std::endl << "  Center: "
       << std::endl << "    x: " << pos_.x
       << std::endl << "    y: " << pos_.y
+      << std::endl << "  Frame rectangle for the circle: "
+      << std::endl << "    Width: " << frame.width
+      << std::endl << "    Height: " << frame.height
       << std::endl << "  Area: " << this->getArea()
       << std::endl << std::endl;
 }
