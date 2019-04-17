@@ -31,9 +31,9 @@ int main()
   printInfo(cs1, "Composite shape");
 
   cs1.scale(2);
-  cs1.deleteShape(c1);
   printInfo(cs1, "Composite shape");
 
+  cs1.deleteShape(c1);
   cs1.move({1.5, 1.5});
 
   chizhov::Circle c2(4, 7, 2);

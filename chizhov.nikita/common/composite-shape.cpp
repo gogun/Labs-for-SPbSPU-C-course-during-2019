@@ -38,7 +38,7 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::Comp
   return *this;
 }
 
-chizhov::CompositeShape& chizhov::CompositeShape::operator=(chizhov::CompositeShape&& rhs)
+chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeShape&& rhs)
 {
   if (this != &rhs) {
     shapes_ = rhs.shapes_;
@@ -51,12 +51,18 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator=(chizhov::CompositeSh
 
 void chizhov::CompositeShape::addShape(Shape& shape)
 {
-  quantity_++;
-  Shape** shapesArr = new Shape* [quantity_];
+  for (int i = 0; i < quantity_; i++) {
+    if (shapes_[i] == &shape) {
+      return;
+    }
+  }
+
+  Shape** shapesArr = new Shape* [++quantity_];
 
   for (int i = 0; i < quantity_ - 1; i++) {
     shapesArr[i] = shapes_[i];
   }
+
   shapesArr[quantity_ - 1] = &shape;
   delete [] shapes_;
   shapes_ = shapesArr;
@@ -68,32 +74,20 @@ void chizhov::CompositeShape::deleteShape(const Shape& shape)
     throw std::invalid_argument("You cannot destroy Composite Shape by deleting last figure");
   }
 
-  int pos = 0;
-  bool exist = false;
+  int j = 0;
+  bool removed = false;
   for (int i = 0; i < quantity_; i++) {
-    if (&shape == shapes_[i]) {
-      exist = true;
-      pos = i;
-      break;
+    if (shapes_[i] == &shape) {
+      removed = true;
+      continue;
     }
+
+    shapes_[j] = shapes_[i];
+    j++;
   }
 
-  if (exist) {
-    quantity_--;
-    Shape** shapesArr = new Shape* [quantity_];
-
-    int j = 0;
-    for (int i = 0; i < quantity_ + 1; i++) {
-      if (i == pos) {
-        continue;
-      }
-
-      shapesArr[j] = shapes_[i];
-      j++;
-    }
-
-    delete [] shapes_;
-    shapes_ = shapesArr;
+  if (removed) {
+    shapes_[--quantity_] = nullptr;
   }
 }
 
@@ -176,7 +170,7 @@ chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
     minY = std::min(tmp, minY);
 
     tmp = rectTmp.pos.y - rectTmp.height / 2;
-    maxY = std::min(tmp, maxY);
+    maxY = std::max(tmp, maxY);
   }
 
   return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
