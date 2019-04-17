@@ -17,7 +17,7 @@ int main()
   shapePtr->move({ 9, 9 });
   shapePtr->print();
   std::cout << std::endl;
-
+  
   Circle circle(5, { 3, 3 });
   shapePtr = &circle;
   std::cout << "FOR CIRCLE\n";
@@ -40,6 +40,6 @@ int main()
   const point_t nPosTrian = { 5.0, 5.0 };
   shapePtr->move(nPosTrian);
   shapePtr->print();
-
+  
   return 0;
 }
