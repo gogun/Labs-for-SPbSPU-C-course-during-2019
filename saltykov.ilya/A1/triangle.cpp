@@ -3,37 +3,31 @@
 #include <cassert>
 #include <cmath>
 
-Triangle::Triangle(const point_t& pos, double sideA, double sideB, double sideC) :
-  centre_(pos),
-  sideA_(sideA),
-  sideB_(sideB),
-  sideC_(sideC)
+Triangle::Triangle(const point_t& pointA, const point_t& pointB, const point_t& pointC) :
+  centre_({(pointA.x + pointB.x + pointC.x) / 3, (pointA.y + pointB.y + pointC.y) / 3}),
+//a + 2/3m = a + 2/3 ((b + c)/2-a) = a + 1/3(b + c) - 2/3a = 1/3(a + b + c)
+  pointA_(pointA),
+  pointB_(pointB),
+  pointC_(pointC)
 {
-  assert((sideA_ > 0) && (sideB_ > 0) && (sideC_ > 0));
-  assert(sideA_ < (sideB_ + sideC_));
-  assert(sideB_ < (sideA_ + sideC_));
-  assert(sideC_ < (sideA_ + sideB_));
-}
-
-Triangle::Triangle(double x, double y, double sideA, double sideB, double sideC) :
-  Triangle({x, y}, sideA, sideB, sideC)
-{
-  assert((sideA_ > 0) && (sideB_ > 0) && (sideC_ > 0));
-  assert(sideA_ < (sideB_ + sideC_));
-  assert(sideB_ < (sideA_ + sideC_));
-  assert(sideC_ < (sideA_ + sideB_));
+  assert(abs((pointB.x - pointA.x) / (pointB.y - pointA.y)
+      - (pointC.x - pointA.x) / (pointC.y - pointA.y)) > 0.0000000001);
+//points should not lie on the same line
 }
 
 double Triangle::getArea() const
 {
-  double p = (sideA_ + sideB_ + sideC_) / 2; //half the perimeter of the triangle
-  return sqrt(p * (p - sideA_) * (p - sideB_) * (p - sideC_)); //Heron's formula
+  return abs((pointB_.x - pointA_.x) * (pointC_.y - pointA_.y)
+      - (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double area = Triangle::getArea();
-  return {sideA_, 2 * area / sideA_, centre_ }; //S = 1/2 * h * sideA_; --> S * 2 / sideA_ = h;
+  double max_x = fmax(fmax(pointA_.x, pointB_.x), pointC_.x);
+  double min_x = fmin(fmin(pointA_.x, pointB_.x), pointC_.x);
+  double max_y = fmax(fmax(pointA_.y, pointB_.y), pointC_.y);
+  double min_y = fmin(fmin(pointA_.y, pointB_.y), pointC_.y);
+  return {max_x - min_x, max_y - min_y, {(max_x + min_x) / 2, (max_y + min_y) / 2}};
 }
 
 point_t Triangle::getPos() const

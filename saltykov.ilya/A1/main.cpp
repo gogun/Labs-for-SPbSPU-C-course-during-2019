@@ -10,8 +10,8 @@ int main()
   Circle circle2{-3.15, -3.45, 5};
   Rectangle rectangle1{point_t{5, 4.15}, 4, 2};
   Rectangle rectangle2{-5, -4.15, 4, 2};
-  Triangle triangle1{point_t{3.5, 3.5}, 3, 4, 5};
-  Triangle triangle2{-3.5, -3.5, 4, 5, 3};
+  Triangle triangle1{point_t{0, 0}, point_t{0, 3}, point_t{4, 0}};
+  Triangle triangle2{point_t{3, 3}, point_t{4, 4}, point_t{2, 5}};
 
   Shape* figures[] = {&circle1, &circle2, &rectangle1, &rectangle2, &triangle1, &triangle2};
   const int Size = sizeof(figures) / sizeof(Shape);
