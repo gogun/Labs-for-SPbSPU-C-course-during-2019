@@ -4,18 +4,6 @@
 #include <iostream>
 #include <stdexcept>
 
-barekov::CompositeShape::CompositeShape(Shape* shape) :
-  count_(0),
-  arrayOfShapes_(nullptr)
-{
-  if (shape == nullptr)
-  {
-    throw std::invalid_argument("Shape pointer must not be null");
-  }
-
-  addShape(shape);
-}
-
 barekov::CompositeShape::CompositeShape(const CompositeShape& source) :
   count_(source.count_),
   arrayOfShapes_(new Shape*[source.count_])
@@ -34,6 +22,18 @@ barekov::CompositeShape::CompositeShape(CompositeShape&& source) :
   source.arrayOfShapes_.reset();
   source.arrayOfShapes_ = nullptr;
   source.count_ = 0;
+}
+
+barekov::CompositeShape::CompositeShape(Shape* shape) :
+  count_(0),
+  arrayOfShapes_(nullptr)
+{
+  if (shape == nullptr)
+  {
+    throw std::invalid_argument("Shape pointer must not be null");
+  }
+
+  addShape(shape);
 }
 
 barekov::CompositeShape::~CompositeShape()
