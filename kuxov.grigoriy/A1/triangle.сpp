@@ -5,6 +5,8 @@
 #include <cassert>
 #include <algorithm>
 
+
+
 Triangle::Triangle(const point_t & vA, const point_t & vB, const point_t & vC) :
   pos_({ (vA.x + vB.x + vC.x) / 3, (vA.y + vB.y + vC.y) / 3 }),
   vA_(vA),
