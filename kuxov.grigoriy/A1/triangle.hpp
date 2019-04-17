@@ -19,4 +19,5 @@ private:
   point_t vB_;
   point_t vC_;
 };
+
 #endif
