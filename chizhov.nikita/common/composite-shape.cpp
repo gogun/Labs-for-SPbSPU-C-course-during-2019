@@ -3,13 +3,6 @@
 #include <stdexcept>
 #include <algorithm>
 
-chizhov::CompositeShape::CompositeShape(Shape& shape) :
-    quantity_(1)
-{
-  shapes_ = new Shape* [quantity_];
-  shapes_[0] = &shape;
-}
-
 chizhov::CompositeShape::CompositeShape(const chizhov::CompositeShape& source) :
     quantity_(source.quantity_)
 {
@@ -21,6 +14,13 @@ chizhov::CompositeShape::CompositeShape(chizhov::CompositeShape&& source) :
     quantity_(source.quantity_)
 {
   source.shapes_ = nullptr;
+}
+
+chizhov::CompositeShape::CompositeShape(Shape& shape) :
+    quantity_(1)
+{
+  shapes_ = new Shape* [quantity_];
+  shapes_[0] = &shape;
 }
 
 chizhov::CompositeShape::~CompositeShape()
@@ -47,48 +47,6 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeS
   }
 
   return *this;
-}
-
-void chizhov::CompositeShape::addShape(Shape& shape)
-{
-  for (int i = 0; i < quantity_; i++) {
-    if (shapes_[i] == &shape) {
-      return;
-    }
-  }
-
-  Shape** shapesArr = new Shape* [++quantity_];
-
-  for (int i = 0; i < quantity_ - 1; i++) {
-    shapesArr[i] = shapes_[i];
-  }
-
-  shapesArr[quantity_ - 1] = &shape;
-  delete [] shapes_;
-  shapes_ = shapesArr;
-}
-
-void chizhov::CompositeShape::deleteShape(const Shape& shape)
-{
-  if (quantity_ == 1) {
-    throw std::invalid_argument("You cannot destroy Composite Shape by deleting last figure");
-  }
-
-  int j = 0;
-  bool removed = false;
-  for (int i = 0; i < quantity_; i++) {
-    if (shapes_[i] == &shape) {
-      removed = true;
-      continue;
-    }
-
-    shapes_[j] = shapes_[i];
-    j++;
-  }
-
-  if (removed) {
-    shapes_[--quantity_] = nullptr;
-  }
 }
 
 double chizhov::CompositeShape::getArea() const
@@ -132,6 +90,48 @@ void chizhov::CompositeShape::scale(double scale)
     double dy = shapes_[i]->getFrameRect().pos.y - frameRect.pos.y;
     shapes_[i]->move(point_t{frameRect.pos.x + dx * scale, frameRect.pos.y + dy * scale});
     shapes_[i]->scale(scale);
+  }
+}
+
+void chizhov::CompositeShape::addShape(Shape& shape)
+{
+  for (int i = 0; i < quantity_; i++) {
+    if (shapes_[i] == &shape) {
+      return;
+    }
+  }
+
+  Shape** shapesArr = new Shape* [++quantity_];
+
+  for (int i = 0; i < quantity_ - 1; i++) {
+    shapesArr[i] = shapes_[i];
+  }
+
+  shapesArr[quantity_ - 1] = &shape;
+  delete [] shapes_;
+  shapes_ = shapesArr;
+}
+
+void chizhov::CompositeShape::deleteShape(const Shape& shape)
+{
+  if (quantity_ == 1) {
+    throw std::invalid_argument("You cannot destroy Composite Shape by deleting last figure");
+  }
+
+  int j = 0;
+  bool removed = false;
+  for (int i = 0; i < quantity_; i++) {
+    if (shapes_[i] == &shape) {
+      removed = true;
+      continue;
+    }
+
+    shapes_[j] = shapes_[i];
+    j++;
+  }
+
+  if (removed) {
+    shapes_[--quantity_] = nullptr;
   }
 }
 
