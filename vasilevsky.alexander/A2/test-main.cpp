@@ -58,8 +58,8 @@ BOOST_AUTO_TEST_CASE(invalidValues)
 
   vasilevsky::Rectangle testRectangle(2.1, 3.3, {5.0, 3.9});
 
-  BOOST_CHECK_THROW(testRectangle.scale(-3), std::invalid_argument);
-  BOOST_CHECK_THROW(testRectangle.scale(0), std::invalid_argument);
+  BOOST_CHECK_THROW(testRectangle.scale(-3.0), std::invalid_argument);
+  BOOST_CHECK_THROW(testRectangle.scale(0.0), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -110,8 +110,8 @@ BOOST_AUTO_TEST_CASE(invalidValues)
 
   vasilevsky::Circle testCircle(2.5, {5.0, 3.9});
 
-  BOOST_CHECK_THROW(testCircle.scale(-3), std::invalid_argument);
-  BOOST_CHECK_THROW(testCircle.scale(0), std::invalid_argument);
+  BOOST_CHECK_THROW(testCircle.scale(-3.0), std::invalid_argument);
+  BOOST_CHECK_THROW(testCircle.scale(0.0), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
