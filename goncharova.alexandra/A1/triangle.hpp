@@ -6,7 +6,8 @@
 class Triangle : public Shape
 {
 public:
-  Triangle(const point_t &, const point_t &, const point_t &, const point_t &);
+  // In triangle we set 3 dots: center_, pointA_ and pointB_
+  Triangle(const point_t &, const point_t &, const point_t &);
   double getArea() const;
   rectangle_t getFrameRect() const;
   void move(const point_t &newPoint);
