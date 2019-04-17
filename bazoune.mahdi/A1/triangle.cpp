@@ -30,14 +30,10 @@ rectangle_t Triangle::getFrameRect() const
 
 void Triangle::move(const point_t &point)
 {
-  a_.x += point.x - pos_.x;
-  b_.x += point.x - pos_.x;
-  c_.x += point.x - pos_.x;
-  a_.y += point.y - pos_.y;
-  b_.y += point.y - pos_.y;
-  c_.y += point.y - pos_.y;
-  pos_ = point;
-}
+  const double dx = point.x - pos_.x;
+  const double dy = point.y - pos_.y;
+  move(dx, dy); 
+} 
 
 void Triangle::move(double dx, double dy)
 {
