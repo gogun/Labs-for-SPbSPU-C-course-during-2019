@@ -10,7 +10,7 @@ kotov::Rectangle::Rectangle(const kotov::point_t &center, double widht, double h
   }
 }
 
-const char * kotov::Rectangle::getShapeName() const
+const char* kotov::Rectangle::getShapeName() const
 {
   return "rectangle";
 }
@@ -25,7 +25,7 @@ kotov::rectangle_t kotov::Rectangle::getFrameRect() const
   return rect_;
 }
 
-void kotov::Rectangle::move(const kotov::point_t & newCenter)
+void kotov::Rectangle::move(const kotov::point_t &newCenter)
 {
   rect_.pos = newCenter;
 }

@@ -2,7 +2,7 @@
 #include <cmath>
 #include <stdexcept>
 
-kotov::Circle::Circle(const kotov::point_t & center, double radius) :
+kotov::Circle::Circle(const kotov::point_t &center, double radius) :
   center_(center),
   radius_(radius)
 {
@@ -12,7 +12,7 @@ kotov::Circle::Circle(const kotov::point_t & center, double radius) :
   }
 }
 
-const char * kotov::Circle::getShapeName() const
+const char* kotov::Circle::getShapeName() const
 {
   return "circle";
 }
@@ -24,14 +24,10 @@ double kotov::Circle::getArea() const
 
 kotov::rectangle_t kotov::Circle::getFrameRect() const
 {
-  return {
-    center_,
-    2 * radius_,
-    2 * radius_
-  };
+  return { center_, 2 * radius_, 2 * radius_ };
 }
 
-void kotov::Circle::move(const kotov::point_t & newCenter)
+void kotov::Circle::move(const kotov::point_t &newCenter)
 {
   center_ = newCenter;
 }
