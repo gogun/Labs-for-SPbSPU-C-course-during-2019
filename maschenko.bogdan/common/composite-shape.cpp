@@ -51,15 +51,7 @@ maschenko::rectangle_t maschenko::CompositeShape::getFrameRect() const
     max_x = std::max(max_x, right_side);
   }
 
-  return
-  {
-    {
-      (max_x + min_x) / 2,
-      (max_y + min_y) / 2
-    },
-    max_x - min_x,
-    max_y - min_y
-  };
+  return rectangle_t{point_t{(max_x + min_x) / 2, (max_y + min_y) / 2}, max_x - min_x, max_y - min_y};
 }
 
 void maschenko::CompositeShape::move(double dx, double dy)
