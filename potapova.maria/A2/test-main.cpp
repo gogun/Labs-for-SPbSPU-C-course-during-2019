@@ -11,7 +11,7 @@ BOOST_AUTO_TEST_SUITE(testForRectangle)
 
 BOOST_AUTO_TEST_CASE(methodsOfShape)
 {
-  potapova::Rectangle rectangle({{3, 5}, 3, 10});
+  potapova::Rectangle rectangle({{ 3, 5 }, 3, 10});
   const potapova::rectangle_t rectangleFrameBeforeMove = rectangle.getFrameRect();
   const double areaBefore = rectangle.getArea();
 
@@ -23,7 +23,7 @@ BOOST_AUTO_TEST_CASE(methodsOfShape)
   BOOST_CHECK_CLOSE(rectangleFrameBeforeMove.width, rectangleFrameAfterMove.width, accuracy);
   BOOST_CHECK_CLOSE(areaBefore, areaAfter, accuracy);
 
-  rectangle.move({1, 6});
+  rectangle.move({ 1, 6 });
   rectangleFrameAfterMove = rectangle.getFrameRect();
   areaAfter = rectangle.getArea();
 
@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_CASE(methodsOfShape)
 
 BOOST_AUTO_TEST_CASE(squareChange)
 {
-  potapova::Rectangle rectangle({{1, 5}, 4, 3});
+  potapova::Rectangle rectangle({{ 1, 5 }, 4, 3});
   const double areaBeforeScale = rectangle.getArea();
   const double testScale  = 3;
   rectangle.scale(testScale);
@@ -44,8 +44,8 @@ BOOST_AUTO_TEST_CASE(squareChange)
 
 BOOST_AUTO_TEST_CASE(availabilityOfProcessingOfInvalidParameters)
 {
-  BOOST_CHECK_THROW(potapova::Rectangle rectangle({{1, 6}, 5, -3}), std::invalid_argument);
-  potapova::Rectangle rectangle({{1, 6}, 3, 5});
+  BOOST_CHECK_THROW(potapova::Rectangle rectangle({{ 1, 6 }, 5, -3}), std::invalid_argument);
+  potapova::Rectangle rectangle({{ 1, 6 }, 3, 5});
   BOOST_CHECK_THROW(rectangle.scale(-3), std::invalid_argument)
 }
 
@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_SUITE(testForCircle)
 
 BOOST_AUTO_TEST_CASE(methodsOfShape)
 {
-  potapova::Circle circle({1, 5}, 4);
+  potapova::Circle circle({ 1, 5 }, 4);
   const potapova::rectangle_t circleFrameBeforeMove = circle.getFrameRect();
   const double areaBefore = circle.getArea();
 
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(methodsOfShape)
   BOOST_CHECK_CLOSE(circleFrameBeforeMove.width, circleFrameAfterMove.width, accuracy);
   BOOST_CHECK_CLOSE(areaBefore, areaAfter, accuracy);
 
-  circle.move({3, 5});
+  circle.move({ 3, 5 });
   circleFrameAfterMove = circle.getFrameRect();
   areaAfter = circle.getArea();
 
@@ -78,7 +78,7 @@ BOOST_AUTO_TEST_CASE(methodsOfShape)
 
 BOOST_AUTO_TEST_CASE(squareChange)
 {
-  potapova::Circle circle({4, 5}, 4);
+  potapova::Circle circle({ 4, 5 }, 4);
   const double areaBeforeScale = circle.getArea();
   const double testScale  = 2;
   circle.scale(testScale);
@@ -88,8 +88,8 @@ BOOST_AUTO_TEST_CASE(squareChange)
 
 BOOST_AUTO_TEST_CASE(availabilityOfProcessingOfInvalidParameters)
 {
-  BOOST_CHECK_THROW(potapova::Circle circle({5, 8}, -3), std::invalid_argument);
-  potapova::Circle circle({1, 6}, 3);
+  BOOST_CHECK_THROW(potapova::Circle circle({ 5, 8 }, -3), std::invalid_argument);
+  potapova::Circle circle({ 1, 6 }, 3);
   BOOST_CHECK_THROW(circle.scale(-2), std::invalid_argument)
 }
 
