@@ -2,8 +2,10 @@
 #define SHAPE_HPP
 #include "base-types.hpp"
 
-namespace marashov {
-  class Shape {
+namespace marashov
+{
+  class Shape
+  {
   public:
     virtual ~Shape() = default;
 

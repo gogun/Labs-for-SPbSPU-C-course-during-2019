@@ -3,8 +3,10 @@
 
 #include "shape.hpp"
 
-namespace marashov {
-  class Circle: public Shape {
+namespace marashov
+{
+  class Circle: public Shape
+  {
   public:
     Circle(const point_t &center, double radius);
 
