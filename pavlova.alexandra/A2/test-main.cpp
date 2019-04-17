@@ -12,31 +12,33 @@ const double EPSILON = 0.01;
 BOOST_AUTO_TEST_CASE(constCircleAfterMove)
 {
   pavlova::Circle circle(3, {6, 6});
-  circle.move(4, 9);
-  BOOST_CHECK_EQUAL(3, circle.getFrameRect().width / 2);
-  circle.move({2, 2});
-  BOOST_CHECK_EQUAL(3, circle.getFrameRect().width / 2);
-
+  pavlova::rectangle_t circleBefore = circle.getFrameRect();
   double areaBefore = circle.getArea();
-  circle.move(2, 5);
-  BOOST_CHECK_EQUAL(areaBefore, circle.getArea());
+
+  circle.move(4, 9);
+  BOOST_CHECK_CLOSE(circleBefore.height, circle.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(circleBefore.width, circle.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, circle.getArea(), EPSILON);
+  circle.move({2, 2});
+  BOOST_CHECK_CLOSE(circleBefore.height, circle.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(circleBefore.width, circle.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, circle.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(constRectangleAfterMove)
 {
   pavlova::Rectangle rectangle(3, 5, {6, 6});
-  rectangle.move(4, 9);
-  BOOST_CHECK_EQUAL(5, rectangle.getFrameRect().height);
-  rectangle.move({2, 2});
-  BOOST_CHECK_EQUAL(5, rectangle.getFrameRect().height);
-  rectangle.move(4, 9);
-  BOOST_CHECK_EQUAL(3, rectangle.getFrameRect().width);
-  rectangle.move({2, 2});
-  BOOST_CHECK_EQUAL(3, rectangle.getFrameRect().width);
-
+  pavlova::rectangle_t rectangleBefore = rectangle.getFrameRect();
   double areaBefore = rectangle.getArea();
-  rectangle.move(2, 5);
-  BOOST_CHECK_EQUAL(areaBefore, rectangle.getArea());
+
+  rectangle.move(4, 9);
+  BOOST_CHECK_CLOSE(rectangleBefore.height, rectangle.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(rectangleBefore.width, rectangle.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, rectangle.getArea(), EPSILON);
+  rectangle.move({2, 2});
+  BOOST_CHECK_CLOSE(rectangleBefore.height, rectangle.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(rectangleBefore.width, rectangle.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, rectangle.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(changeCircleAreaAfterScale)
