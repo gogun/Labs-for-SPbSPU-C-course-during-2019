@@ -7,7 +7,7 @@ kuznetsov::Circle::Circle(const kuznetsov::point_t &position, double radius) :
   radius_(radius),
   center_(position)
 {
-  if(radius_ <= 0)
+  if (radius_ <= 0)
   {
     throw std::invalid_argument("Radius must be positive");
   }
@@ -49,7 +49,7 @@ void kuznetsov::Circle::printInfo() const
 
 void kuznetsov::Circle::scale(double coef)
 {
-  if(coef <= 0)
+  if (coef <= 0)
   {
     throw std::invalid_argument("Coefficient must be positive");
   }

@@ -7,11 +7,11 @@ kuznetsov::Rectangle::Rectangle(const kuznetsov::point_t &position, double width
   height_(height),
   center_(position)
 {
-  if(width_ <= 0)
+  if (width_ <= 0)
   {
     throw std::invalid_argument("Width must be positive");
   }
-  if(height_ <= 0)
+  if (height_ <= 0)
   {
     throw std::invalid_argument("Height must be positive");
   }
@@ -53,7 +53,7 @@ void kuznetsov::Rectangle::printInfo() const
 
 void kuznetsov::Rectangle::scale(double coef)
 {
-  if(coef <= 0)
+  if (coef <= 0)
   {
     throw std::invalid_argument("Coefficient must be positive");
   }
