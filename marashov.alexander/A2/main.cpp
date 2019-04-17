@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <stdexcept>
 #include "circle.hpp"
 #include "rectangle.hpp"
 
@@ -30,11 +31,12 @@ int main()
     const double circleAmount = 2;
     const double circleArea = shape->getArea();
     shape->scale(circleAmount);
-    std::cout << std::fixed << std::setprecision(3)
-              << "Previous circle area: " << circleArea << ", "
-              << "Area after scaling: " << shape->getArea() << ", "
-              << "Change in area was " << shape->getArea() / circleArea << " times"
-              << std::endl << std::endl;
+    std::cout
+        << std::fixed << std::setprecision(3)
+        << "Previous circle area: " << circleArea << ", "
+        << "Area after scaling: " << shape->getArea() << ", "
+        << "Change in area was " << shape->getArea() / circleArea << " times"
+        << std::endl << std::endl;
 
     // Получение ограничивающего прямоугольника для круга и вывод результата
     const marashov::rectangle_t boundedRectCircle1 = shape->getFrameRect();
@@ -60,10 +62,11 @@ int main()
     const double rectAmount = 2;
     const double rectArea = shape->getArea();
     shape->scale(rectAmount);
-    std::cout << "Previous rectangle area: " << rectArea << ", "
-              << "Area after scaling: " << shape->getArea() << ", "
-              << "Change in area was " << shape->getArea() / rectArea << " times"
-              << std::endl << std::endl;
+    std::cout
+        << "Previous rectangle area: " << rectArea << ", "
+        << "Area after scaling: " << shape->getArea() << ", "
+        << "Change in area was " << shape->getArea() / rectArea << " times"
+        << std::endl << std::endl;
 
     // Получение ограничивающего прямоугольника для прямоугольника и вывод результата
     const marashov::rectangle_t boundedRectRectangle1 = shape->getFrameRect();

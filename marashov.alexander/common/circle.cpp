@@ -1,8 +1,9 @@
 #include "circle.hpp"
 #include <cmath>
+#include <stdexcept>
 #include <iostream>
 
-marashov::Circle::Circle(const point_t & center, double radius) :
+marashov::Circle::Circle(const point_t & center, double radius):
   center_(center),
   radius_(radius)
 {
@@ -12,7 +13,7 @@ marashov::Circle::Circle(const point_t & center, double radius) :
   }
 }
 
-marashov::Circle::Circle(double centerX, double centerY, double radius) :
+marashov::Circle::Circle(double centerX, double centerY, double radius):
   Circle({centerX, centerY}, radius)
 { }
 

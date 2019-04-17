@@ -1,7 +1,8 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <stdexcept>
 
-marashov::Rectangle::Rectangle(const point_t & pos, double width, double height) :
+marashov::Rectangle::Rectangle(const point_t & pos, double width, double height):
   center_(pos),
   width_(width),
   height_(height)
@@ -12,7 +13,7 @@ marashov::Rectangle::Rectangle(const point_t & pos, double width, double height)
   }
 }
 
-marashov::Rectangle::Rectangle(double posX, double posY, double width, double height) :
+marashov::Rectangle::Rectangle(double posX, double posY, double width, double height):
   Rectangle({posX, posY}, width, height)
 { }
 
