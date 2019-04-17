@@ -59,7 +59,7 @@ BOOST_AUTO_TEST_CASE(RectangleIncorrectParameters)
       std::invalid_argument);
   BOOST_CHECK_THROW(prohorova::Rectangle incorrectWidthAndHeightRectangle(pos, incorrectWidth, incorrectHeight),
       std::invalid_argument);
-  }
+}
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(figureCircle)
