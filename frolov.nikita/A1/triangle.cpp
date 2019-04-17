@@ -16,11 +16,11 @@ Triangle::Triangle(const point_t &point0, const point_t &point1, const point_t &
 double Triangle::getArea() const
 {
   double lengthVector1 = sqrt((point0_.x - point1_.x) * (point0_.x - point1_.x) + (point0_.y - point1_.y)
-    * (point0_.y - point1_.y));
+      * (point0_.y - point1_.y));
   double lengthVector2 = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y)
-    * (point1_.y - point2_.y));
+      * (point1_.y - point2_.y));
   double lengthVector3 = sqrt((point0_.x - point2_.x) * (point0_.x - point2_.x) + (point0_.y - point2_.y)
-    * (point0_.y - point2_.y));
+      * (point0_.y - point2_.y));
   double perimeter = (lengthVector1 + lengthVector2 + lengthVector3) / 2;
   return sqrt(perimeter * (perimeter - lengthVector1) * (perimeter - lengthVector2) * (perimeter - lengthVector3));
 }
@@ -29,10 +29,10 @@ double Triangle::getArea() const
 rectangle_t Triangle::getFrameRect() const
 {
   double width = std::max(std::max(point0_.x, point1_.x), point2_.x)
-    - std::min(std::min(point0_.x, point1_.x), point2_.x);
+      - std::min(std::min(point0_.x, point1_.x), point2_.x);
   double height = std::max(std::max(point0_.x, point1_.x), point2_.x)
-    - std::min(std::min(point0_.x, point1_.x), point2_.x);
-  return {height, width, center_};
+      - std::min(std::min(point0_.x, point1_.x), point2_.x);
+  return {center_, height, width};
 }
 
 void Triangle::move(double dx, double dy)

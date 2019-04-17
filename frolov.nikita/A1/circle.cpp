@@ -3,11 +3,11 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(double radius, const point_t &center) :
-  radius_(radius),
-  center_(center)
+Circle::Circle(const point_t &center, double radius) :
+  center_(center),
+  radius_(radius)
 {
-  assert(radius > 0.0);
+  assert(radius_ >= 0.0);
 }
 
 double Circle::getArea() const
@@ -28,7 +28,7 @@ void Circle::move(const point_t &center)
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {radius_ * 2, radius_ * 2, {center_.x, center_.y}};
+  return {center_, radius_ * 2, radius_ * 2};
 }
 
 void Circle::showPoint() const

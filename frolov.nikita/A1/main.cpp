@@ -5,77 +5,47 @@
 
 int main()
 {
-  Circle cir(3,{5,2});
-  std::cout << "Area: " << cir.getArea() << "\n";
-  cir.move(5,7);
-  std::cout << "After change center" << "\n";
-  cir.showPoint();
-  cir.move({5,12});
-  rectangle_t frame = cir.getFrameRect();
-  std::cout << "Frame" << "\n";
-  std::cout << "Width= " << frame.width << "\n";
+  Circle circle({3, 4}, 5);
+  Shape *shape = &circle;
+  std::cout << "Area of Circle= " << shape->getArea() << "\n";
+  std::cout << "Frame: " << "\n";
+  rectangle_t frame = shape->getFrameRect();
   std::cout << "Height= " << frame.height << "\n";
-  std::cout << "Center on x-axis=" << frame.pos.x << "\n";
-  std::cout << "Center on y-axis=" << frame.pos.y << "\n";
-
-  Rectangle rect(4,3,{3,4});
-  std::cout << "Area: " << rect.getArea() << "\n";
-  rect.move(5,8);
-  std::cout << "After change point ";
-  rect.showPoint();
-  rect.move({10,2});
-  std::cout << "After change point ";
-  rect.showPoint();
-  std::cout << "Area after change " << rect.getArea() << "\n";
-  rectangle_t frame_ = rect.getFrameRect();
-  std::cout << "Frame" << "\n";
-  std::cout << "Width= " << frame_.width << "\n";
-  std::cout << "Height= " << frame_.height << "\n";
-  std::cout << "Center on x-axis=" << frame_.pos.x << "\n";
-  std::cout << "Center on y-axis=" << frame_.pos.y << "\n";
-
-  Rectangle srect(4,4,{9,5});
-  Shape *shape = &srect;
-  rectangle_t sframe_ = shape->getFrameRect();
-  std::cout << "Width= " << sframe_.width << "\n";
-  std::cout << "Height= " << sframe_.height << "\n";
-  std::cout << "Center on x-axis= " << sframe_.pos.x << "\n";
-  std::cout << "Center on y-axis= " << sframe_.pos.y << "\n";
-  std::cout << "Area: " << shape->getArea()<< "\n";
-  shape->move(18,20);
-  std::cout << "After change point \n";
-  shape->showPoint();
-  shape->move({2,3});
-  std::cout << "After change point \n";
-  shape->showPoint();
-
-  Circle scirc(5,{1,5});
-  shape = &scirc;
-  sframe_ = shape->getFrameRect();
-  std::cout << "Width= " << sframe_.width << "\n";
-  std::cout << "Height= " << sframe_.height << "\n";
-  std::cout << "Center on x-axis= " << sframe_.pos.x << "\n";
-  std::cout << "Center on y-axis= " << sframe_.pos.y << "\n";
-  std::cout << "Area: " << shape->getArea()<< "\n";
-  shape->move(18,20);
-  std::cout << "After change point \n";
-  shape->showPoint();
-  shape->move({2,3});
-  std::cout << "After change point \n";
-  shape->showPoint();
-
-  Triangle triang({6, 3}, {4, 6}, {1, 6});
-  std::cout << "Area: " << triang.getArea() << "\n";
-  triang.showPoint();
-  triang.move(5,4);
-  triang.showPoint();
-  triang.move({7,9});
-  triang.showPoint();
-  frame = triang.getFrameRect();
-  std::cout << "Frame" << "\n";
   std::cout << "Width= " << frame.width << "\n";
+  std::cout << "Point of Center in x-axis= " << frame.center_.x << "\n";
+  std::cout << "Point of Center in y-axis= " << frame.center_.y << "\n";
+  shape->move(4,5);
+  shape->showPoint();
+  shape->move({4, 5});
+  shape->showPoint();
+
+  Triangle triangle({4, 5}, {3, 5}, {6, 7});
+  shape = &triangle;
+  std::cout << "Area of Triangle= " << shape->getArea() << "\n";
+  std::cout << "Frame: " << "\n";
+  frame = shape->getFrameRect();
   std::cout << "Height= " << frame.height << "\n";
-  std::cout << "Center on x-axis=" << frame.pos.x << "\n";
-  std::cout << "Center on y-axis=" << frame.pos.y << "\n";
+  std::cout << "Width= " << frame.width << "\n";
+  std::cout << "Point of Center in x-axis= " << frame.center_.x << "\n";
+  std::cout << "Point of Center in y-axis= " << frame.center_.y << "\n";
+  shape->move(4,5);
+  shape->showPoint();
+  shape->move({4, 5});
+  shape->showPoint();
+
+  Rectangle rectangle({4, 5}, 7, 9);
+  shape = &rectangle;
+  std::cout << "Area of Triangle= " << shape->getArea() << "\n";
+  std::cout << "Frame: " << "\n";
+  frame = shape->getFrameRect();
+  std::cout << "Height= " << frame.height << "\n";
+  std::cout << "Width= " << frame.width << "\n";
+  std::cout << "Point of Center in x-axis= " << frame.center_.x << "\n";
+  std::cout << "Point of Center in y-axis= " << frame.center_.y << "\n";
+  shape->move(4,5);
+  shape->showPoint();
+  shape->move({4, 5});
+  shape->showPoint();
+
   return 0;
 }
