@@ -6,7 +6,7 @@
 Rectangle::Rectangle(const rectangle_t & rect) :
   rect_(rect)
 {
-  assert((rect_.width>=0.0)and(rect_.height>=0.0));
+  assert((rect_.width > 0.0) && (rect_.height > 0.0));
 }
 
 double Rectangle::getArea() const
