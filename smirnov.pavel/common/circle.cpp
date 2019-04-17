@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cassert>
 #include <cmath>
+#include <stdexcept>
 
 smirnov::Circle::Circle(double radius, const point_t & center):
   radius_(radius),

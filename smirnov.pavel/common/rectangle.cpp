@@ -1,6 +1,7 @@
 #include "rectangle.hpp"
 #include <cassert>
 #include <iostream>
+#include <stdexcept>
 
 smirnov::Rectangle::Rectangle(double width, double height, const point_t & center):
   width_(width),
