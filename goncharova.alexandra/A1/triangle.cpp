@@ -25,14 +25,14 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double width = (std::max(pointA_.x, std::max(pointB_.x, pointC_.x)))
-      - (std::min(pointA_.x, std::min(pointB_.x, pointC_.x)));
-  double height=(std::max(pointA_.y, std::max(pointB_.y, pointC_.y)))
-      - (std::min(pointA_.y, std::min(pointB_.y, pointC_.y)));
+  double width = std::max(pointA_.x, std::max(pointB_.x, pointC_.x))
+      - std::min(pointA_.x, std::min(pointB_.x, pointC_.x));
+  double height = std::max(pointA_.y, std::max(pointB_.y, pointC_.y))
+      - std::min(pointA_.y, std::min(pointB_.y, pointC_.y));
 
   point_t trCenter;
-  trCenter.x = ((std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2));
-  trCenter.y = (((std::min(pointA_.y, std::min(pointB_.y, pointC_.y)))) + height / 2);
+  trCenter.x = std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2;
+  trCenter.y = std::min(pointA_.y, std::min(pointB_.y, pointC_.y)) + height / 2;
 
   return {trCenter, width, height};
 }
