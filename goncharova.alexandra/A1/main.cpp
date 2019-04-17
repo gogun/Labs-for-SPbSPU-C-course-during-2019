@@ -8,7 +8,7 @@ int main()
   point_t dot = { 3, 4 };
   Circle circle1(dot, 15);
   Rectangle rectangle1(dot, 10, 10);
-  Triangle triangle1(dot, { 3, 2 }, { 1, 6 }, { 5, 6 });
+  Triangle triangle1(dot, { 3, 2 }, { 1, 6 });
 
   Shape* shape1 = &circle1;
   std::cout << "Area of circle1: ";
