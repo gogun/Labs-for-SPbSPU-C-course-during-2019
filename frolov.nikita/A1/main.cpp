@@ -10,8 +10,8 @@ void showParametrsShape(Shape *shape)
   rectangle_t frame = shape->getFrameRect();
   std::cout << "Height= " << frame.height << "\n";
   std::cout << "Width= " << frame.width << "\n";
-  std::cout << "Point of Center in x-axis= " << frame.center_.x << "\n";
-  std::cout << "Point of Center in y-axis= " << frame.center_.y << "\n";
+  std::cout << "Point of Center in x-axis= " << frame.pos.x << "\n";
+  std::cout << "Point of Center in y-axis= " << frame.pos.y << "\n";
   shape->move(4,5);
   shape->showPoint();
   shape->move({4, 5});
