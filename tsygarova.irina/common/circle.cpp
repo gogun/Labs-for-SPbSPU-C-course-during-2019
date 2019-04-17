@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <cmath>
 
-tsygarova::Circle::Circle(const double radius, const point_t & center):
+tsygarova::Circle::Circle(const double radius, const point_t &center):
   radius_(radius),
   center_(center)
 {
@@ -16,15 +16,15 @@ tsygarova::Circle::Circle(const double radius, const point_t & center):
 
 double tsygarova::Circle::getArea() const
 {
-  return (M_PI * radius_ * radius_);
+  return M_PI * radius_ * radius_;
 }
 
 tsygarova::rectangle_t tsygarova::Circle::getFrameRect() const
 {
-  return {2 * radius_, 2 * radius_, center_};
+  return {radius_ * 2, radius_ * 2, center_};
 }
 
-void tsygarova::Circle::move(const point_t & point)
+void tsygarova::Circle::move(const point_t &point)
 {
   center_ = point;
 }
