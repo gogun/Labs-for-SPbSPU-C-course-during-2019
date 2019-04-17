@@ -38,13 +38,19 @@ rectangle_t Triangle::getFrameRect() const
 
 void Triangle::print() const
 {
-  std::cout << "Area of triangle: " << getArea();
-  std::cout << "\nWidth of frame rectangle: " << getFrameRect().width;
-  std::cout << "\nHeight of frame rectangle: " << getFrameRect().height;
-  std::cout << "\nTriangle's A : (" << vA_.x << ';' << vA_.y << ')';
-  std::cout << "\nTriangle's B : (" << vB_.x << ';' << vB_.y << ')';
-  std::cout << "\nTriangle's C : (" << vC_.x << ';' << vC_.y << ')';
-  std::cout << "\nTriangle's center : (" << pos_.x << ';' << pos_.y << ')';
+  std::cout << "Area of triangle: " << getArea() << std::endl;
+  std::cout << "Width of frame rectangle: " << getFrameRect().width
+    << std::endl;
+  std::cout << "Height of frame rectangle: " << getFrameRect().height
+    << std::endl;
+  std::cout << "Triangle's A : (" << vA_.x << ';' << vA_.y << ')'
+    << std::endl;
+  std::cout << "Triangle's B : (" << vB_.x << ';' << vB_.y << ')'
+    << std::endl;
+  std::cout << "Triangle's C : (" << vC_.x << ';' << vC_.y << ')'
+    << std::endl;
+  std::cout << "Triangle's center : (" << pos_.x << ';' << pos_.y << ')'
+    << std::endl;
 }
 
 void Triangle::move(double dx, double dy)
