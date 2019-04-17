@@ -7,7 +7,7 @@ namespace chizhov
 {
   class CompositeShape : public Shape {
   public:
-    СompositeShape(const CompositeShape&);
+    CompositeShape(const CompositeShape&);
     CompositeShape(CompositeShape&&);
     CompositeShape(Shape&);
     ~CompositeShape();
