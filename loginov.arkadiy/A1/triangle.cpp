@@ -3,14 +3,14 @@
 #include <cmath>
 
 Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
-        p1_(p1),
-        p2_(p2),
-        p3_(p3),
-        length12_(getLength(p1, p2)),
-        length23_(getLength(p2, p3)),
-        length13_(getLength(p1, p3))
+  p1_(p1),
+  p2_(p2),
+  p3_(p3),
+  length12_(getLength(p1, p2)),
+  length23_(getLength(p2, p3)),
+  length13_(getLength(p1, p3))
 {
-  double maxLength = max(length12_, length23_, length13_);
+  double maxLength = std::fmax(length12_, std::fmax(length23_, length13_));
   double sumOther = length12_ + length23_ + length13_ - maxLength;
   assert(sumOther > maxLength);
 }
@@ -23,10 +23,10 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double left = min(p1_.x, p2_.x, p3_.x);
-  double right = max(p1_.x, p2_.x, p3_.x);
-  double top = min(p1_.y, p2_.y, p3_.y);
-  double bottom = max(p1_.y, p2_.y, p3_.y);
+  double left = std::fmin(p1_.x, std::fmin(p2_.x, p3_.x));
+  double right = std::fmax(p1_.x, std::fmax(p2_.x, p3_.x));
+  double top = std::fmin(p1_.y, std::fmin(p2_.y, p3_.y));
+  double bottom = std::fmax(p1_.y, std::fmax(p2_.y, p3_.y));
   double width = right - left;
   double height = bottom - top;
   double x0 = (left + right) / 2;
@@ -60,14 +60,4 @@ double Triangle::getLength(const point_t &p1, const point_t &p2) const
 point_t Triangle::getCentre() const
 {
   return { (p1_.x + p2_.x + p3_.x) / 3, (p1_.y + p2_.y + p3_.y) / 3 };
-}
-
-double Triangle::max(double a, double b, double c) const
-{
-  return fmax(a, fmax(b, c));
-}
-
-double Triangle::min(double a, double b, double c) const
-{
-  return fmin(a, fmin(b, c));
 }
