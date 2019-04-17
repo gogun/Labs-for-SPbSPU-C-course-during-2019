@@ -1,5 +1,6 @@
 #include "triangle.hpp"
 #include <iostream>
+#include <algorithm>
 
 Triangle::Triangle(const point_t pointA, const point_t pointB, const point_t pointC):
   pointA_(pointA),
@@ -15,9 +16,11 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double height = getMax(pointA_.x, pointB_.x, pointC_.x) - getMin(pointA_.x, pointB_.x, pointC_.x);
-  double widht = getMax(pointA_.y, pointB_.y, pointC_.y) - getMin(pointA_.y, pointB_.y, pointC_.y);
-  return { widht, height, {height / 2, widht / 2} };
+  double maxX = std::max(std::max(pointA_.x, pointB_.x), pointC_.x);
+  double minX = std::min(std::min(pointA_.x, pointB_.x), pointC_.x);
+  double maxY = std::max(std::max(pointA_.y, pointB_.y), pointC_.y);
+  double minY = std::min(std::min(pointA_.y, pointB_.y), pointC_.y);
+  return { maxX - minX, maxY - minY, {minX + maxX / 2, minY + maxY / 2} };
 }
 
 void Triangle::move(const point_t point)
@@ -47,32 +50,4 @@ void Triangle::getInfo() const
   std::cout << "\nPoint A is: x=" << pointA_.x << " y=" << pointA_.y << std::endl;
   std::cout << "Point B is: x=" << pointB_.x << " y=" << pointB_.y << std::endl;
   std::cout << "Point C is: x=" << pointC_.x << " y=" << pointC_.y << std::endl;
-}
-
-double Triangle::getMax(double const first, double const second, double const third) const
-{
-  double max = first;
-  if (second > max)
-  {
-    max = second;
-  }
-  if (third > max)
-  {
-    max = third;
-  }
-  return max;
-}
-
-double Triangle::getMin(double const first, double const second, double const third) const
-{
-  double min = first;
-  if (second < min)
-  {
-    min = second;
-  }
-  if (third < min)
-  {
-    min = third;
-  }
-  return min;
 }
