@@ -16,8 +16,6 @@ private:
   point_t pointA_;
   point_t pointB_;
   point_t pointC_;
-  double getMax(double const first, double const second, double const third) const;
-  double getMin(double const first, double const second, double const third) const;
 };
 
 #endif // !TRIANGLE_HPP
