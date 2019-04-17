@@ -4,8 +4,8 @@
 #include <stdexcept>
 #include "rectangle.hpp"
 #include "circle.hpp"
-#define ACCURACY 0.001
 
+const double ACCURACY = 0.001;
 const double INCORRECT_ARGUMENT = -10.0;
 
 BOOST_AUTO_TEST_SUITE(A2TestsRectangle)
