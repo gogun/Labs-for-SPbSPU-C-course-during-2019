@@ -22,9 +22,9 @@ int main()
   std::cout << '\n';
   ptr_shape->print();
   std::cout << '\n';
-  ptr_shape->move({1.2, 2.4});
+  ptr_shape->move({1.3, 2.4});
   std::cout << '\n';
-  std::cout << "move the circle with (1.2, 2.4)" << std::endl;
+  std::cout << "move the circle with (1.3, 2.4)" << std::endl;
   std::cout << '\n';
   ptr_shape->print();
   std::cout << '\n';
