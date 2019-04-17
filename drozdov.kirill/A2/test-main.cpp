@@ -6,7 +6,7 @@
 #include "circle.hpp"
 #define ACCURACY 0.001
 
-const double incorrectArgument = -10.0;
+const double INCORRECT_ARGUMENT = -10.0;
 
 BOOST_AUTO_TEST_SUITE(A2TestsRectangle)
 
@@ -40,11 +40,11 @@ BOOST_AUTO_TEST_SUITE(A2TestsRectangle)
 
   BOOST_AUTO_TEST_CASE(testIncorrectParameters)
   {
-    BOOST_CHECK_THROW(drozdov::Rectangle(incorrectArgument, 3.0, {4.3, 1.0}), std::invalid_argument);
-    BOOST_CHECK_THROW(drozdov::Rectangle(5.0, incorrectArgument, {4.3, 1.0}), std::invalid_argument);
+    BOOST_CHECK_THROW(drozdov::Rectangle(INCORRECT_ARGUMENT, 3.0, {4.3, 1.0}), std::invalid_argument);
+    BOOST_CHECK_THROW(drozdov::Rectangle(5.0, INCORRECT_ARGUMENT, {4.3, 1.0}), std::invalid_argument);
 
     drozdov::Rectangle rectangle(5.0, 3.0, {4.3, 1.0});
-    BOOST_CHECK_THROW(rectangle.scale(incorrectArgument), std::invalid_argument);
+    BOOST_CHECK_THROW(rectangle.scale(INCORRECT_ARGUMENT), std::invalid_argument);
   } //testIncorrectParameters
 
 BOOST_AUTO_TEST_SUITE_END() //A2TestsRectangle
@@ -81,10 +81,10 @@ BOOST_AUTO_TEST_SUITE(A2TestsCircle)
 
   BOOST_AUTO_TEST_CASE(testIncorrectParameters)
   {
-    BOOST_CHECK_THROW(drozdov::Circle(incorrectArgument, {4.3, 1.0}), std::invalid_argument);
+    BOOST_CHECK_THROW(drozdov::Circle(INCORRECT_ARGUMENT, {4.3, 1.0}), std::invalid_argument);
 
     drozdov::Circle circle(5.0, {4.3, 1.0});
-    BOOST_CHECK_THROW(circle.scale(incorrectArgument), std::invalid_argument);
+    BOOST_CHECK_THROW(circle.scale(INCORRECT_ARGUMENT), std::invalid_argument);
   } //testIncorrectParameters
 
 BOOST_AUTO_TEST_SUITE_END() //A2TestsCircle
