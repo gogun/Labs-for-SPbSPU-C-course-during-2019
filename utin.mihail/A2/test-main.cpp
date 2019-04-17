@@ -4,7 +4,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-const double mistake = 0.001;
+const double MISTAKE = 0.001;
 
 BOOST_AUTO_TEST_SUITE(circleTesting)
 
@@ -14,10 +14,10 @@ BOOST_AUTO_TEST_CASE(circleTestMoving)
   const double areaBeforeMoving = testCircle.getArea();
   const utin::rectangle_t frameRectBeforeMoving = testCircle.getFrameRect();
   testCircle.move(-1.1, 2.1);
-  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeMoving, mistake);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeMoving, MISTAKE);
   const utin::rectangle_t frameRectAfterMoving = testCircle.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, mistake);
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, mistake);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, MISTAKE);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, MISTAKE);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestMovingTo)
@@ -26,18 +26,19 @@ BOOST_AUTO_TEST_CASE(circleTestMovingTo)
   const double areaBeforeMoving = testCircle.getArea();
   const utin::rectangle_t frameRectBeforeMoving = testCircle.getFrameRect();
   testCircle.move({-1.0, 2.0});
-  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeMoving, mistake);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeMoving, MISTAKE);
   const utin::rectangle_t frameRectAfterMoving = testCircle.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, mistake);
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, mistake);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, MISTAKE);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, MISTAKE);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestScale)
 {
   utin::Circle testCircle({2.1, 3.9}, 4.5);
   const double areaBeforeScale = testCircle.getArea();
-  testCircle.scale(1.5);
-  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeScale * 1.5 * 1.5, mistake);
+  const double multiplier = 1.5;
+  testCircle.scale(multiplier);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBeforeScale * multiplier * multiplier, MISTAKE);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestTrowException)
@@ -61,10 +62,10 @@ BOOST_AUTO_TEST_CASE(rectangleTestMoving)
   const double areaBeforeMoving = testRectangle.getArea();
   const utin::rectangle_t frameRectBeforeMoving = testRectangle.getFrameRect();
   testRectangle.move(-1.1, 2.1);
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeMoving, mistake);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeMoving, MISTAKE);
   const utin::rectangle_t frameRectAfterMoving = testRectangle.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, mistake);
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, mistake);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, MISTAKE);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, MISTAKE);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestMovingTo)
@@ -73,18 +74,19 @@ BOOST_AUTO_TEST_CASE(rectangleTestMovingTo)
   const double areaBeforeMoving = testRectangle.getArea();
   const utin::rectangle_t frameRectBeforeMoving = testRectangle.getFrameRect();
   testRectangle.move({-1.0, 2.0});
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeMoving, mistake);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeMoving, MISTAKE);
   const utin::rectangle_t frameRectAfterMoving = testRectangle.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, mistake);
-  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, mistake);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.width, frameRectBeforeMoving.width, MISTAKE);
+  BOOST_CHECK_CLOSE(frameRectAfterMoving.height, frameRectBeforeMoving.height, MISTAKE);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestScale)
 {
   utin::Rectangle testRectangle({2.1, 3.9}, 4.5, 5.5);
   const double areaBeforeScale = testRectangle.getArea();
-  testRectangle.scale(1.5);
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeScale * 1.5 * 1.5, mistake);
+  const double multiplier = 1.5;
+  testRectangle.scale(multiplier);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), areaBeforeScale * multiplier * multiplier, MISTAKE);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestWidthTrowException)
