@@ -17,7 +17,6 @@ public:
 private:
   point_t center_;
   point_t pointA_, pointB_, pointC_;
-  double a_, b_, c_;
 };
 
 #endif
