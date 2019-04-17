@@ -11,7 +11,7 @@ Triangle::Triangle(const point_t &pt1, const point_t &pt2, const point_t &pt3) :
   c_(pt3)
   
 {
-  assert((getArea() != 0) && "Point of triange must be different!");
+  assert((getArea() != 0) && "Points of the triangle must be different!");
 }
 
 double Triangle::getArea() const
