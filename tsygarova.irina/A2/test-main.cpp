@@ -51,7 +51,7 @@ BOOST_AUTO_TEST_CASE(circleConstancyAfterMoving)
   currentArea = testCircle.getArea();
   BOOST_CHECK_CLOSE(initFrame.width, currentFrame.width, EPSILON);
   BOOST_CHECK_CLOSE(initFrame.height, currentFrame.height, EPSILON);
-  BOOST_CHECK_CLOSE(initArea, currentArea, Epsilon);
+  BOOST_CHECK_CLOSE(initArea, currentArea, EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleScaling)
@@ -60,7 +60,7 @@ BOOST_AUTO_TEST_CASE(rectangleScaling)
   const double initArea = testRectangle.getArea();
   const double scaleCoefficient = 4;
 
-  testRectangle.scale(ScaleCoefficient);
+  testRectangle.scale(scaleCoefficient);
   double currentArea = testRectangle.getArea();
   BOOST_CHECK_CLOSE(initArea * scaleCoefficient * scaleCoefficient, currentArea, EPSILON);
 }
@@ -71,7 +71,7 @@ BOOST_AUTO_TEST_CASE(circleScaling)
   const double initArea = testCircle.getArea();
   const double scaleCoefficient = 2;
 
-  testCircle.scale(ScaleCoefficient);
+  testCircle.scale(scaleCoefficient);
   double currentArea = testCircle.getArea();
   BOOST_CHECK_CLOSE(initArea * scaleCoefficient * scaleCoefficient, currentArea, EPSILON);
 }
