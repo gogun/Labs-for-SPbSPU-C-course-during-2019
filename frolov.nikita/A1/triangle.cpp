@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cassert>
 #include <cmath>
+#include <algorithm>
 
 Triangle::Triangle(const point_t &point0, const point_t &point1, const point_t &point2) :
   point0_(point0),
@@ -13,14 +14,17 @@ Triangle::Triangle(const point_t &point0, const point_t &point1, const point_t &
   center_ = {(point0_.x + point1_.x + point2_.x) / 3, (point0_.y + point1_.y + point2_.y) / 3};
 }
 
+double findLengthVector(const point_t &point1, const point_t &point2)
+{
+  point_t vector = {(point2.x - point1.x), (point2.y - point1.y)};
+  return sqrt(vector.x * vector.x + vector.y * vector.y);
+}
+
 double Triangle::getArea() const
 {
-  double lengthVector1 = sqrt((point0_.x - point1_.x) * (point0_.x - point1_.x) + (point0_.y - point1_.y)
-      * (point0_.y - point1_.y));
-  double lengthVector2 = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y)
-      * (point1_.y - point2_.y));
-  double lengthVector3 = sqrt((point0_.x - point2_.x) * (point0_.x - point2_.x) + (point0_.y - point2_.y)
-      * (point0_.y - point2_.y));
+  double lengthVector1 = findLengthVector(point0_, point1_);
+  double lengthVector2 = findLengthVector(point0_, point2_);
+  double lengthVector3 = findLengthVector(point1_, point2_);
   double perimeter = (lengthVector1 + lengthVector2 + lengthVector3) / 2;
   return sqrt(perimeter * (perimeter - lengthVector1) * (perimeter - lengthVector2) * (perimeter - lengthVector3));
 }
@@ -28,10 +32,8 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double width = std::max(std::max(point0_.x, point1_.x), point2_.x)
-      - std::min(std::min(point0_.x, point1_.x), point2_.x);
-  double height = std::max(std::max(point0_.x, point1_.x), point2_.x)
-      - std::min(std::min(point0_.x, point1_.x), point2_.x);
+  double width = std::max({point0_.x, point1_.x, point2_.x}) - std::min({point0_.x, point1_.x, point2_.x});
+  double height = std::max({point0_.y, point1_.y, point2_.y}) - std::min({point0_.y, point1_.y, point2_.y});
   return {center_, height, width};
 }
 
@@ -61,12 +63,12 @@ void Triangle::move(const point_t &center)
 
 void Triangle::showPoint() const
 {
-  std::cout << "the point on the x-axis " << center_.x << "\n";
-  std::cout << "the point on the y-axis " << center_.y << "\n";
-  std::cout << "the point of top 1 " << point0_.x << "\n";
-  std::cout << "the point of top 1 " << point0_.y << "\n";
-  std::cout << "the point of top 2 " << point1_.x << "\n";
-  std::cout << "the point of top 2 " << point1_.y << "\n";
-  std::cout << "the point of top 3 " << point2_.x << "\n";
-  std::cout << "the point of top 3 " << point2_.y << "\n";
+  std::cout << "the point on the x-axis= " << center_.x << "\n";
+  std::cout << "the point on the y-axis= " << center_.y << "\n";
+  std::cout << "the point of top 1= " << point0_.x << "\n";
+  std::cout << "the point of top 1= " << point0_.y << "\n";
+  std::cout << "the point of top 2= " << point1_.x << "\n";
+  std::cout << "the point of top 2= " << point1_.y << "\n";
+  std::cout << "the point of top 3= " << point2_.x << "\n";
+  std::cout << "the point of top 3= " << point2_.y << "\n";
 }
