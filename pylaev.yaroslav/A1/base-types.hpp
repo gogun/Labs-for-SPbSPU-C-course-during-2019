@@ -7,9 +7,9 @@ struct point_t {
 };
 
 struct rectangle_t {
+  point_t pos; //coordinates of center
   double width;
   double height;
-  point_t pos; //coordinates of center
 };
 
 #endif

@@ -30,7 +30,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {radius_ * 2, radius_ * 2, center_};
+  return {center_, radius_ * 2, radius_ * 2};
 }
 
 void Circle::move(const double dx, const double dy)
