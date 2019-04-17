@@ -21,13 +21,13 @@ prohorova::rectangle_t prohorova::Rectangle::getFrameRect() const
 {
   return rect_;
 }
-void prohorova::Rectangle::move(const point_t &newPos)
+void prohorova::Rectangle::move(const point_t& newPos)
 {
   rect_.pos = newPos;
 }
 void prohorova::Rectangle::move(double dx, double dy)
 {
-  rect_.pos = point_t{getPos().x + dx,getPos().y + dy};
+  rect_.pos = point_t{getPos().x + dx, getPos().y + dy};
 }
 void prohorova::Rectangle::show() const
 {
