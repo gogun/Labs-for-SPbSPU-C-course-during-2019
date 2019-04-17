@@ -20,9 +20,9 @@ BOOST_AUTO_TEST_CASE(RectangleInvariantParametersAfterMove)
 
   testRectangle.move(dx, dy);
 
-  BOOST_REQUIRE_CLOSE(testRectangle.getWidth(), width, ACCURACY);
-  BOOST_REQUIRE_CLOSE(testRectangle.getHeight(), height, ACCURACY);
-  BOOST_REQUIRE_CLOSE(testRectangle.getArea(), area, ACCURACY);
+  BOOST_CHECK_CLOSE(testRectangle.getWidth(), width, ACCURACY);
+  BOOST_CHECK_CLOSE(testRectangle.getHeight(), height, ACCURACY);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), area, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(RectangleChangeOfParametersAfterScale)
@@ -40,9 +40,9 @@ BOOST_AUTO_TEST_CASE(RectangleChangeOfParametersAfterScale)
 
   testRectangle.scale(factor);
 
-  BOOST_REQUIRE_CLOSE(testRectangle.getWidth(), newWidth, ACCURACY);
-  BOOST_REQUIRE_CLOSE(testRectangle.getHeight(), newHeight, ACCURACY);
-  BOOST_REQUIRE_CLOSE(testRectangle.getArea(), newArea, ACCURACY);
+  BOOST_CHECK_CLOSE(testRectangle.getWidth(), newWidth, ACCURACY);
+  BOOST_CHECK_CLOSE(testRectangle.getHeight(), newHeight, ACCURACY);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), newArea, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(RectangleIncorrectParameters)
@@ -76,8 +76,8 @@ BOOST_AUTO_TEST_CASE(CircleInvariantParametersAfterMove)
 
   testCircle.move(dx, dy);
 
-  BOOST_REQUIRE_CLOSE(testCircle.getRadius(), radius, ACCURACY);
-  BOOST_REQUIRE_CLOSE(testCircle.getArea(), area, ACCURACY);
+  BOOST_CHECK_CLOSE(testCircle.getRadius(), radius, ACCURACY);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), area, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(CircleChangeOfParametersAfterScale)
@@ -93,8 +93,8 @@ BOOST_AUTO_TEST_CASE(CircleChangeOfParametersAfterScale)
 
   testCircle.scale(factor);
 
-  BOOST_REQUIRE_CLOSE(testCircle.getRadius(), newRadius, ACCURACY);
-  BOOST_REQUIRE_CLOSE(testCircle.getArea(), newArea, ACCURACY);
+  BOOST_CHECK_CLOSE(testCircle.getRadius(), newRadius, ACCURACY);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), newArea, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(CircleIncorrectParameters)
