@@ -3,6 +3,7 @@
 //
 
 #include "triangle.hpp"
+#include <algorithm> //need for std::min({})
 #include <cassert>
 #include "math.h" //need for abs in getArea
 
@@ -25,7 +26,7 @@ Triangle::Triangle(const point_t &globalVertex0, const point_t &globalVertex1, c
   assert(getArea() > 0);
 }
 
-//объём через определитель матрицы
+//площадь треугольника через определитель матрицы
 double Triangle::getArea() const
 {
   double a = (vertex0_.x_ - vertex2_.x_) * (vertex1_.y_ - vertex2_.y_);
@@ -36,17 +37,17 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double left = std::min(vertex0_.x_, std::min(vertex1_.x_, vertex2_.x_));
-  double right = std::max(vertex0_.x_, std::max(vertex1_.x_, vertex2_.x_));
-  double down = std::min(vertex0_.y_, std::min(vertex1_.y_, vertex2_.y_));
-  double up = std::max(vertex0_.y_, std::max(vertex1_.y_, vertex2_.y_));
+  double left = std::min({vertex0_.x_, vertex1_.x_, vertex2_.x_});
+  double right = std::max({vertex0_.x_, vertex1_.x_, vertex2_.x_});
+  double down = std::min({vertex0_.y_, vertex1_.y_, vertex2_.y_});
+  double up = std::max({vertex0_.y_, vertex1_.y_, vertex2_.y_});
 
   return rectangle_t
     {
       point_t
         {
-          this->pos_.x_ + left + ((right - left) / 2),
-          this->pos_.y_ + down + ((up - down) / 2)
+          pos_.x_ + left + ((right - left) / 2),
+          pos_.y_ + down + ((up - down) / 2)
         },
       right - left,
       up - down

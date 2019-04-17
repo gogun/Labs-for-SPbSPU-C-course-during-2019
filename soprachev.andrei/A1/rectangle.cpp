@@ -5,7 +5,7 @@
 #include "rectangle.hpp"
 #include <cassert> //need for assert
 
-//Прямоугольник по центру, ширине и высоте
+//прямоугольник по центру, ширине и высоте
 Rectangle::Rectangle(const point_t &pos, double width, double height) :
   Shape(pos),
   rightUp_(Vector2(width, height) / 2)
@@ -40,12 +40,12 @@ rectangle_t Rectangle::getFrameRect() const
 
 double Rectangle::getHeight() const
 {
-  return (rightUp_.y_ * 2);
+  return rightUp_.y_ * 2;
 }
 
 double Rectangle::getWidth() const
 {
-  return (rightUp_.x_ * 2);
+  return rightUp_.x_ * 2;
 }
 
 std::string Rectangle::getName() const
