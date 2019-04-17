@@ -35,7 +35,7 @@ void gusarov::Rectangle::printInfo() const
 {
   std::cout << "Width of rectangle is " << width_ <<'\n'
             << "Height of rectangle is " << height_ <<'\n'
-            << "Center of rectangle is a point: ("<< center_.x<<";"<<center_.y<<")"<<'\n';
+            << "Center of rectangle is a point: (" << center_.x << ";" << center_.y << ")" <<'\n';
 }
 void gusarov::Rectangle::scale(const double scale)
 {

@@ -12,7 +12,7 @@
 
 BOOST_AUTO_TEST_SUITE(testsForCircle)
 
-const double epsilon = 0.1;
+const double EPSILON = 0.1;
 
 BOOST_AUTO_TEST_CASE(testOfImmutability)
 {
@@ -21,12 +21,12 @@ BOOST_AUTO_TEST_CASE(testOfImmutability)
   const double area = testingCircle.getArea();
 
   testingCircle.move(1.0, 2.0);
-  BOOST_CHECK_CLOSE(testingCircle.getRadius(), radius, epsilon);
-  BOOST_CHECK_CLOSE(testingCircle.getArea(), area, epsilon);
+  BOOST_CHECK_CLOSE(testingCircle.getRadius(), radius, EPSILON);
+  BOOST_CHECK_CLOSE(testingCircle.getArea(), area, EPSILON);
 
   testingCircle.move({3.0, 5.0});
-  BOOST_CHECK_CLOSE(testingCircle.getRadius(), radius, epsilon);
-  BOOST_CHECK_CLOSE(testingCircle.getArea(), area, epsilon);
+  BOOST_CHECK_CLOSE(testingCircle.getRadius(), radius, EPSILON);
+  BOOST_CHECK_CLOSE(testingCircle.getArea(), area, EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(testOfCorrectScaling)
@@ -37,7 +37,7 @@ BOOST_AUTO_TEST_CASE(testOfCorrectScaling)
   const double scale = 3.0;
 
   testingCircle.scale(scale);
-  BOOST_CHECK_CLOSE(testingCircle.getArea(), area * scale * scale, epsilon);
+  BOOST_CHECK_CLOSE(testingCircle.getArea(), area * scale * scale, EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(testInvalidValues)
@@ -51,7 +51,7 @@ BOOST_AUTO_TEST_SUITE_END();
 
 BOOST_AUTO_TEST_SUITE(testsForRectangle)
 
-const double epsilon = 0.01;
+const double EPSILON = 0.01;
 
 BOOST_AUTO_TEST_CASE(testOfImmutability)
 {
@@ -62,14 +62,14 @@ BOOST_AUTO_TEST_CASE(testOfImmutability)
   const double area = testingRect.getArea();
 
   testingRect.move(5.0, 5.5);
-  BOOST_CHECK_CLOSE(testingRect.getWidth(), width, epsilon);
-  BOOST_CHECK_CLOSE(testingRect.getHeight(), height, epsilon);
-  BOOST_CHECK_CLOSE(testingRect.getArea(), area, epsilon);
+  BOOST_CHECK_CLOSE(testingRect.getWidth(), width, EPSILON);
+  BOOST_CHECK_CLOSE(testingRect.getHeight(), height, EPSILON);
+  BOOST_CHECK_CLOSE(testingRect.getArea(), area, EPSILON);
 
   testingRect.move({10.0, 12.0});
-  BOOST_CHECK_CLOSE(testingRect.getWidth(), width, epsilon);
-  BOOST_CHECK_CLOSE(testingRect.getHeight(), height, epsilon);
-  BOOST_CHECK_CLOSE(testingRect.getArea(), area, epsilon);
+  BOOST_CHECK_CLOSE(testingRect.getWidth(), width, EPSILON);
+  BOOST_CHECK_CLOSE(testingRect.getHeight(), height, EPSILON);
+  BOOST_CHECK_CLOSE(testingRect.getArea(), area, EPSILON);
 }
 BOOST_AUTO_TEST_CASE(testOfCorrectScaling)
 {
@@ -78,7 +78,7 @@ BOOST_AUTO_TEST_CASE(testOfCorrectScaling)
   const double area = testingRect.getArea();
   const double scale = 3.0;
   testingRect.scale(scale);
-  BOOST_CHECK_CLOSE(testingRect.getArea(), area * scale * scale, epsilon);
+  BOOST_CHECK_CLOSE(testingRect.getArea(), area * scale * scale, EPSILON);
 }
 BOOST_AUTO_TEST_CASE(testInvalidValues)
 {
