@@ -9,19 +9,13 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
   pointB_(pointB),
   pointC_(pointC),
 
-  a_(sqrt(pow((pointA.x - pointB.x), 2) + pow((pointA.y - pointB.y), 2))),
-  b_(sqrt(pow((pointB.x - pointC.x), 2) + pow((pointB.y - pointC.y), 2))),
-  c_(sqrt(pow((pointC.x - pointA.x), 2) + pow((pointC.y - pointA.y), 2)))
-
+  a_(getSide(pointA, pointB)),
+  b_(getSide(pointB, pointC)),
+  c_(getSide(pointA, pointC))
 {
   assert((a_ > 0.0) && (b_ > 0.0) && (c_ > 0.0) && (a_ + b_ > c_) && (a_ + c_ > b_) && (b_ + c_ > a_));
-
-  double width = (std::max(pointA_.x, std::max(pointB_.x, pointC_.x)))
-      - (std::min(pointA_.x, std::min(pointB_.x, pointC_.x)));
-  double height = (std::max(pointA_.y, std::max(pointB_.y, pointC_.y)))
-      - (std::min(pointA_.y, std::min(pointB_.y, pointC_.y)));
-  center_.x = ((std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2));
-  center_.y = (((std::min(pointA_.y, std::min(pointB_.y, pointC_.y)))) + height / 2);
+  rectangle_t frameParameters = getFrameRect();
+  center_ = frameParameters.pos;
 }
 
 double Triangle::getArea() const
@@ -33,16 +27,15 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect()const
 {
-  double width = (std::max(pointA_.x, std::max(pointB_.x, pointC_.x)))
-      - (std::min(pointA_.x, std::min(pointB_.x, pointC_.x)));
-  double height = (std::max(pointA_.y, std::max(pointB_.y, pointC_.y)))
-      - (std::min(pointA_.y, std::min(pointB_.y, pointC_.y)));
+  point_t center;
 
-  point_t trCenter;
-  trCenter.x = ((std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2));
-  trCenter.y = (((std::min(pointA_.y, std::min(pointB_.y, pointC_.y)))) + height / 2);
+  double width = std::max(pointA_.x, std::max(pointB_.x, pointC_.x)) - std::min(pointA_.x, std::min(pointB_.x, pointC_.x));
+  double height = std::max(pointA_.y, std::max(pointB_.y, pointC_.y))- std::min(pointA_.y, std::min(pointB_.y, pointC_.y));
 
-  return{width, height, trCenter};
+  center.x = std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2;
+  center.y = std::min(pointA_.y, std::min(pointB_.y, pointC_.y)) + height / 2;
+
+  return {width, height, center};
 }
 
 void Triangle::move(double dx, double dy)
@@ -81,4 +74,11 @@ void Triangle::printInfo() const
   std::cout << "Area = " << getArea() << "\n";
   std::cout << "Central coordinates of frame: (" << info.pos.x << ", " << info.pos.y << ")\n";
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << "\n\n";
+}
+
+double Triangle::getSide(const point_t &point1, const point_t &point2)
+{
+  double side = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
+
+  return side;
 }
