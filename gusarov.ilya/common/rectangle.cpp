@@ -16,7 +16,7 @@ gusarov::Rectangle::Rectangle(const point_t &center,const double width,const dou
 }
 double gusarov::Rectangle::getArea() const
 {
-  return width_*height_;
+  return width_ * height_;
 }
 gusarov::rectangle_t gusarov::Rectangle::getFrameRect() const
 {
