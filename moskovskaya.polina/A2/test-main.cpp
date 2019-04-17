@@ -68,54 +68,54 @@ BOOST_AUTO_TEST_SUITE_END()
 BOOST_AUTO_TEST_SUITE(circleTestingA2);
 
 BOOST_AUTO_TEST_CASE(cirInvariabilityAfterChangingCenter)
-  {
-    moskovskaya::Circle cirTest1({4,4}, 4.6);
-    const moskovskaya::rectangle_t framesBeforeChange = cirTest1.getFrameRect();
-    cirTest1.move({2, 5});
-    const moskovskaya::rectangle_t framesAfterChange = cirTest1.getFrameRect();
-    BOOST_CHECK_CLOSE(framesBeforeChange.height, framesAfterChange.height, errorValue);
-    BOOST_CHECK_CLOSE(framesBeforeChange.width, framesAfterChange.width, errorValue);
+{
+  moskovskaya::Circle cirTest1({4,4}, 4.6);
+  const moskovskaya::rectangle_t framesBeforeChange = cirTest1.getFrameRect();
+  cirTest1.move({2, 5});
+  const moskovskaya::rectangle_t framesAfterChange = cirTest1.getFrameRect();
+  BOOST_CHECK_CLOSE(framesBeforeChange.height, framesAfterChange.height, errorValue);
+  BOOST_CHECK_CLOSE(framesBeforeChange.width, framesAfterChange.width, errorValue);
 
-    moskovskaya::Circle cirTest2({2, 5}, 8.5);
-    const double areaBeforeChange = cirTest2.getArea();
-    cirTest2.move({4, 6});
-    const double areaAfterChange = cirTest2.getArea();
-    BOOST_CHECK_CLOSE(areaBeforeChange, areaAfterChange, errorValue);
-  }
+  moskovskaya::Circle cirTest2({2, 5}, 8.5);
+  const double areaBeforeChange = cirTest2.getArea();
+  cirTest2.move({4, 6});
+  const double areaAfterChange = cirTest2.getArea();
+  BOOST_CHECK_CLOSE(areaBeforeChange, areaAfterChange, errorValue);
+}
 
 BOOST_AUTO_TEST_CASE(cirInvariabilityAfterDisplacement)
-  {
-    moskovskaya::Circle cirTest1({4,4}, 5);
-    const moskovskaya::rectangle_t framesBeforeDisp = cirTest1.getFrameRect();
-    cirTest1.move(12, 5);
-    const moskovskaya::rectangle_t framesAfterDisp = cirTest1.getFrameRect();
-    BOOST_CHECK_CLOSE(framesBeforeDisp.height, framesAfterDisp.height, errorValue);
-    BOOST_CHECK_CLOSE(framesBeforeDisp.width, framesAfterDisp.width, errorValue);
+{
+  moskovskaya::Circle cirTest1({4,4}, 5);
+  const moskovskaya::rectangle_t framesBeforeDisp = cirTest1.getFrameRect();
+  cirTest1.move(12, 5);
+  const moskovskaya::rectangle_t framesAfterDisp = cirTest1.getFrameRect();
+  BOOST_CHECK_CLOSE(framesBeforeDisp.height, framesAfterDisp.height, errorValue);
+  BOOST_CHECK_CLOSE(framesBeforeDisp.width, framesAfterDisp.width, errorValue);
 
-    moskovskaya::Circle cirTest2({2, 5}, 11);
-    const double areaBeforeDisp = cirTest2.getArea();
-    cirTest2.move(4, 3);
-    const double areaAfterDisp = cirTest2.getArea();
-    BOOST_CHECK_CLOSE(areaBeforeDisp, areaAfterDisp, errorValue);
-  }
+  moskovskaya::Circle cirTest2({2, 5}, 11);
+  const double areaBeforeDisp = cirTest2.getArea();
+  cirTest2.move(4, 3);
+  const double areaAfterDisp = cirTest2.getArea();
+  BOOST_CHECK_CLOSE(areaBeforeDisp, areaAfterDisp, errorValue);
+}
 
 BOOST_AUTO_TEST_CASE(cirChangeOfAreaAfterScaling)
-  {
-    moskovskaya::Circle cirTest1({4, 4}, 13);
-    const double areaBeforeScaling = cirTest1.getArea();
-    const double testFactor = 4;
-    const double squareDiff = testFactor * testFactor;
-    cirTest1.scale(testFactor);
-    const double areaAfterScaling = cirTest1.getArea();
-    BOOST_CHECK_CLOSE(areaBeforeScaling * squareDiff, areaAfterScaling, errorValue);
-  }
+{
+  moskovskaya::Circle cirTest1({4, 4}, 13);
+  const double areaBeforeScaling = cirTest1.getArea();
+  const double testFactor = 4;
+  const double squareDiff = testFactor * testFactor;
+  cirTest1.scale(testFactor);
+  const double areaAfterScaling = cirTest1.getArea();
+  BOOST_CHECK_CLOSE(areaBeforeScaling * squareDiff, areaAfterScaling, errorValue);
+}
 
 BOOST_AUTO_TEST_CASE(cirChekingInvalidArguments)
-  {
-    BOOST_CHECK_THROW(moskovskaya::Circle({5, 6}, -5), std::invalid_argument);
-    moskovskaya::Circle cirTest({4,6}, 6);
-    const double factor = -3;
-    BOOST_CHECK_THROW(cirTest.scale(factor), std::invalid_argument);
-  }
+{
+  BOOST_CHECK_THROW(moskovskaya::Circle({5, 6}, -5), std::invalid_argument);
+  moskovskaya::Circle cirTest({4,6}, 6);
+  const double factor = -3;
+  BOOST_CHECK_THROW(cirTest.scale(factor), std::invalid_argument);
+}
 
 BOOST_AUTO_TEST_SUITE_END()
