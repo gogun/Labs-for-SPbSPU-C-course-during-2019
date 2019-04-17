@@ -10,23 +10,13 @@ Triangle::Triangle(point_t pA, point_t pB, point_t pC):
   pointB_(pB),
   pointC_(pC)
 {
-  lengthA_ = getLength(pA, pB);
-  lengthB_ = getLength(pB, pC);
-  lengthC_ = getLength(pC, pA);
+  lengthA_ = sqrt(pow((pointA_.x - pointB_.x), 2) + pow((pointA_.y - pointB_.y), 2));
+  lengthB_ = sqrt(pow((pointB_.x - pointC_.x), 2) + pow((pointB_.y - pointC_.y), 2));
+  lengthC_ = sqrt(pow((pointC_.x - pointA_.x), 2) + pow((pointC_.y - pointA_.y), 2));
 
-  assertTriangle(lengthA_, lengthB_, lengthC_);
-  assertTriangle(lengthA_, lengthC_, lengthB_);
-  assertTriangle(lengthB_, lengthC_, lengthA_);
-}
-
-double Triangle::getLength(point_t a, point_t b)
-{
-  return sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2));
-}
-
-void Triangle::assertTriangle(double a, double b, double c)
-{
-  assert((a + b) > c);
+  assert(lengthA_ + lengthB_ > lengthC_);
+  assert(lengthA_ + lengthC_ > lengthB_);
+  assert(lengthB_ + lengthC_ > lengthA_);
 }
 
 double Triangle::getArea() const
