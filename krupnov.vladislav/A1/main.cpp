@@ -1,8 +1,8 @@
 ﻿#include "rectangle.hpp"
 #include "circle.hpp"
 #include "triangle.hpp"
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 
 
