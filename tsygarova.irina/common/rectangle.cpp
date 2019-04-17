@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-tsygarova::Rectangle::Rectangle(const rectangle_t & rect):
+tsygarova::Rectangle::Rectangle(const rectangle_t &rect):
   rect_(rect)
 {
   if ((rect_.height < 0.0) || (rect_.width < 0.0))
@@ -14,7 +14,7 @@ tsygarova::Rectangle::Rectangle(const rectangle_t & rect):
 
 double tsygarova::Rectangle::getArea() const
 {
-  return (rect_.width * rect_.height);
+  return rect_.width * rect_.height;
 }
 
 tsygarova::rectangle_t tsygarova::Rectangle::getFrameRect() const
@@ -22,7 +22,7 @@ tsygarova::rectangle_t tsygarova::Rectangle::getFrameRect() const
   return rect_;
 }
 
-void tsygarova::Rectangle::move(const point_t & point)
+void tsygarova::Rectangle::move(const point_t &point)
 {
   rect_.pos = point;
 }

@@ -8,7 +8,7 @@ namespace tsygarova
   class Rectangle: public Shape
   {
   public:
-    Rectangle(const rectangle_t & rect);
+    Rectangle(const rectangle_t &rect);
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void move(const point_t & point) override;
@@ -19,4 +19,5 @@ namespace tsygarova
     rectangle_t rect_;
   };
 }
+
 #endif
