@@ -1,11 +1,11 @@
 #include "triangle.hpp"
-#include <cassert>
 #include <iostream>
+#include <cassert>
 #include <cmath>
 #include <algorithm>
 
 
-Triangle::Triangle(const point_t & point1, const point_t & point2, const point_t & point3) :
+Triangle::Triangle(const point_t & point1, const point_t & point2, const point_t & point3):
   p1_(point1),
   p2_(point2),
   p3_(point3)

@@ -3,7 +3,7 @@
 #include <cassert>
 
 
-Rectangle::Rectangle(const point_t &p, const double &w, const double &h) :
+Rectangle::Rectangle(const point_t &p, const double &w, const double &h):
   width_(w),
   height_(h),
   center_(p)

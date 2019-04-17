@@ -1,4 +1,5 @@
 #define _USE_MATH_DEFINES
+
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
@@ -6,7 +7,7 @@
 
 
 
-Circle::Circle(const point_t &p, const double &r) :
+Circle::Circle(const point_t &p, const double &r):
   r_(r),
   center_(p)
 {
