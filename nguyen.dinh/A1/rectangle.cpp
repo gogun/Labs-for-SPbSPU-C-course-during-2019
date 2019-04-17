@@ -1,17 +1,14 @@
 #include "rectangle.hpp"
 #include <iostream>
+#include <cassert>
 
 Rectangle::Rectangle(double width, double height, const point_t &center) :
-    width_(width),
-    height_(height),
-    pos_(center)
+  width_(width),
+  height_(height),
+  pos_(center)
 {
-  if (width <= 0) {
-    std::cerr << "Invalid rectangle width. Width must be above zero." << std::endl;
-  }
-  if (height <= 0) {
-    std::cerr << "Invalid rectangle height. Height must be above zero." << std::endl;
-  }
+  assert(width > 0);
+  assert(height > 0);
 }
 
 double Rectangle::getArea() const
@@ -38,10 +35,10 @@ void Rectangle::move(const double dx, const double dy)
 void Rectangle::printInfo() const
 {
   std::cout << "Rectangle:"
-            << "\n  Width: " << width_
-            << "\n  Height: " << height_
-            << "\n  Position:"
-            << "\n    x: " << pos_.x
-            << "\n    y: " << pos_.y
-            << "\n  Area: " << this->getArea() << "\n\n";
+  << "\n  Width: " << width_
+  << "\n  Height: " << height_
+  << "\n  Position:"
+  << "\n    x: " << pos_.x
+  << "\n    y: " << pos_.y
+  << "\n  Area: " << this->getArea() << "\n\n";
 }

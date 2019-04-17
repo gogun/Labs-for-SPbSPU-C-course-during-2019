@@ -1,14 +1,13 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
+#include <cassert>
 
 Circle::Circle(const double radius, const point_t &center) :
-    radius_(radius),
-    pos_(center)
+  radius_(radius),
+  pos_(center)
 {
-  if (radius <= 0) {
-    std::cerr << "Invalid circle radius. Radius must be above zero.\n";
-  }
+  assert(radius  > 0);
 }
 
 double Circle::getArea() const
@@ -35,9 +34,9 @@ void Circle::move(const double dx, const double dy)
 void Circle::printInfo() const
 {
   std::cout << "Circle:"
-            << "\n  Radius: " << radius_
-            << "\n  Position:"
-            << "\n    x: " << pos_.x
-            << "\n    y: " << pos_.y
-            << "\n  Area: " << this->getArea() << "\n\n";
+  << "\n  Radius: " << radius_
+  << "\n  Position:"
+  << "\n    x: " << pos_.x
+  << "\n    y: " << pos_.y
+  << "\n  Area: " << this->getArea() << "\n\n";
 }
