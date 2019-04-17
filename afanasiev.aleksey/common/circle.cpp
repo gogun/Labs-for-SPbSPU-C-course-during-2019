@@ -38,7 +38,8 @@ void afanasiev::Circle::scale(double zoomFactor)
   if (zoomFactor <= 0)
   {
     throw std::invalid_argument("Zoom factor must be positive");
-  } else
+  }
+  else
   {
     radius_ *= zoomFactor;
   }
