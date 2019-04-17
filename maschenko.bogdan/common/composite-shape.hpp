@@ -25,7 +25,7 @@ namespace maschenko
 
   private:
     point_t pos_;
-    int shape_quantity_;
+    int shape_count_;
     std::unique_ptr<Shape *[]> shape_array_;
   };
 }

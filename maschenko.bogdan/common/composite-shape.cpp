@@ -6,7 +6,7 @@
 maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
   //присваиваю здесь центр с координатами (0;0) так как shape может быть null
   pos_({0, 0}),
-  shape_quantity_(1),
+  shape_count_(1),
   shape_array_(new maschenko::Shape*[1])
 {
   if (shape == nullptr)
@@ -20,7 +20,7 @@ maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
 double maschenko::CompositeShape::getArea() const
 {
   double sum_shapes_area = 0;
-  for (int i = 0; i < shape_quantity_; ++i)
+  for (int i = 0; i < shape_count_; ++i)
   {
     sum_shapes_area += shape_array_[i]->getArea();
   }
@@ -34,7 +34,7 @@ maschenko::rectangle_t maschenko::CompositeShape::getFrameRect() const
   double max_y = shape_array_[0]->getFrameRect().pos.y;
   double min_y = shape_array_[0]->getFrameRect().pos.y;
 
-  for (int i = 1; i < shape_quantity_; ++i)
+  for (int i = 1; i < shape_count_; ++i)
   {
     rectangle_t temp_rect = shape_array_[i]->getFrameRect();
 
@@ -64,7 +64,7 @@ maschenko::rectangle_t maschenko::CompositeShape::getFrameRect() const
 
 void maschenko::CompositeShape::move(double dx, double dy)
 {
-  for (int i = 0; i < shape_quantity_; ++i)
+  for (int i = 0; i < shape_count_; ++i)
   {
     shape_array_[i]->move(dx, dy);
   }
@@ -77,7 +77,7 @@ void maschenko::CompositeShape::move(const maschenko::point_t &center)
   double dx = center.x - pos_.x;
   double dy = center.y - pos_.y;
   pos_ = center;
-  for (int i = 0; i < shape_quantity_; ++i)
+  for (int i = 0; i < shape_count_; ++i)
   {
     shape_array_[i]->move(dx, dy);
   }
@@ -92,7 +92,7 @@ void maschenko::CompositeShape::scale(double coefficient)
     shape_array_[0]->move((coefficient - 1) * dx, (coefficient - 1) * dy);
     shape_array_[0]->scale(coefficient);
 
-    for (int i = 1; i < shape_quantity_; ++i)
+    for (int i = 1; i < shape_count_; ++i)
     {
       dx = shape_array_[i]->getFrameRect().pos.x - pos_.x;
       dy = shape_array_[i]->getFrameRect().pos.x - pos_.y;
@@ -110,7 +110,7 @@ void maschenko::CompositeShape::writeInfo() const
 {
   maschenko::rectangle_t temp_rect = getFrameRect();
   std::cout << std::endl
-            << "Quantity shape in CompositeShape = " << shape_quantity_ << std::endl
+            << "Quantity shape in CompositeShape = " << shape_count_ << std::endl
             << "Area = " << getArea() << std::endl
             << "Frame rectangle width = " << temp_rect.width
             << ", height = " << temp_rect.height
@@ -120,7 +120,7 @@ void maschenko::CompositeShape::writeInfo() const
 
 int maschenko::CompositeShape::getShapeQuantity() const
 {
-  return shape_quantity_;
+  return shape_count_;
 }
 
 void maschenko::CompositeShape::addShape(maschenko::Shape *shape)
@@ -130,13 +130,13 @@ void maschenko::CompositeShape::addShape(maschenko::Shape *shape)
     throw std::invalid_argument("shape equals null. It can't be");
   }
 
-  std::unique_ptr<maschenko::Shape*[]> new_shape_array(new maschenko::Shape *[shape_quantity_ + 1]);
-  for (int i = 0; i < shape_quantity_; ++i)
+  std::unique_ptr<maschenko::Shape*[]> new_shape_array(new maschenko::Shape *[shape_count_ + 1]);
+  for (int i = 0; i < shape_count_; ++i)
   {
     new_shape_array[i] = shape_array_[i];
   }
-  new_shape_array[shape_quantity_] = shape;
-  shape_quantity_++;
+  new_shape_array[shape_count_] = shape;
+  shape_count_++;
   shape_array_.swap(new_shape_array);
 
   pos_.x = getFrameRect().pos.x;
@@ -145,21 +145,21 @@ void maschenko::CompositeShape::addShape(maschenko::Shape *shape)
 
 void maschenko::CompositeShape::removeShape(int index)
 {
-  if (index > shape_quantity_)
+  if (index > shape_count_)
   {
     throw std::invalid_argument("Index out of bounds exception");
   }
 
-  std::unique_ptr<maschenko::Shape *[]> new_shape_array(new maschenko::Shape *[shape_quantity_ - 1]);
+  std::unique_ptr<maschenko::Shape *[]> new_shape_array(new maschenko::Shape *[shape_count_ - 1]);
 
   for (int i = 0; i < index; ++i)
   {
     new_shape_array[i] = shape_array_[i];
   }
 
-  shape_quantity_--;
+  shape_count_--;
 
-  for (int i = index; i < shape_quantity_; ++i)
+  for (int i = index; i < shape_count_; ++i)
   {
     new_shape_array[i] = shape_array_[i + 1];
   }
@@ -172,7 +172,7 @@ void maschenko::CompositeShape::removeShape(int index)
 
 void maschenko::CompositeShape::removeShape(maschenko::Shape *shape)
 {
-  for (int i = 0; i < shape_quantity_; ++i)
+  for (int i = 0; i < shape_count_; ++i)
   {
     if (shape == shape_array_[i])
     {
@@ -186,7 +186,7 @@ void maschenko::CompositeShape::removeShape(maschenko::Shape *shape)
 
 maschenko::Shape* maschenko::CompositeShape::getShape(int index) const
 {
-  if (index > shape_quantity_)
+  if (index > shape_count_)
   {
     throw std::invalid_argument("Index out of bounds exception");
   }
