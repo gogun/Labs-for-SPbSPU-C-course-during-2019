@@ -72,10 +72,5 @@ void Triangle::move(point_t newCentre)
   point_t oldCentre = getCentre();
   double dx = newCentre.x - oldCentre.x;
   double dy = newCentre.y - oldCentre.y;
-
-  for (int i = 0; i <= 2; i++)
-  {
-    vertex_[i].x += dx;
-    vertex_[i].y += dy;
-  }
+  move(dx, dy);
 }
