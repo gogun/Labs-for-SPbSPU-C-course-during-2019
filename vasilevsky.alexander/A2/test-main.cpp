@@ -38,7 +38,7 @@ BOOST_AUTO_TEST_CASE(constantParametersAfterMovingToPoint)
   BOOST_CHECK_CLOSE(testArea, testRectangle.getArea(), fault);
 }
 
-BOOST_AUTO_TEST_CASE(squareСhangeAreaAfterScale)
+BOOST_AUTO_TEST_CASE(squareChangeAreaAfterScale)
 {
   vasilevsky::Rectangle testRectangle(2.1, 3.3, {5.0, 3.9});
   const double testArea = testRectangle.getArea();
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(constantParametersAfterMovingToPoint)
   BOOST_CHECK_CLOSE(testArea, testCircle.getArea(), fault);
 }
 
-BOOST_AUTO_TEST_CASE(squareСhangeAreaAfterScale)
+BOOST_AUTO_TEST_CASE(squareChangeAreaAfterScale)
 {
   vasilevsky::Circle testCircle(2.5, {5.9, 3.0});
   const double testArea = testCircle.getArea();
