@@ -7,7 +7,7 @@
 
 int main()
 {
-  point_t myPoint = {0, 0};
+  const point_t myPoint = {0, 0};
   std::cout << "mypoint " << "( " << myPoint.x ;
   std::cout << "," << myPoint.y << ")" << std::endl;
   std::cout << '\n';
