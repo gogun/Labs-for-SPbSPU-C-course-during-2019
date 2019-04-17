@@ -36,7 +36,7 @@ void Triangle::move(const point_t &p)
   move(dx, dy);
 }
 
-void Triangle::move(const double dx, const double dy)
+void Triangle::move(double dx, double dy)
 {
   m_pos.x += dx;
   m_a.x += dx;
