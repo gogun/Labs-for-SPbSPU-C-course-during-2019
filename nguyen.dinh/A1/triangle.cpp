@@ -1,7 +1,7 @@
-#include <cmath>
-#include <iostream>
-#include <algorithm>
 #include "triangle.hpp"
+#include <iostream>
+#include <cmath>
+#include <algorithm>
 
 Triangle::Triangle(const point_t &corner_1,const point_t &corner_2,const point_t &corner_3):
   m_corner_1(corner_1),
@@ -35,10 +35,10 @@ rectangle_t Triangle::getFrameRect() const
   return {maxwidth - minwidth, maxheight - minheight, center};
 }
 
-void Triangle::move(const point_t &pos)
+void Triangle::move(const point_t &point)
 {
-  const double dx = pos.x - m_center.x;
-  const double dy = pos.y - m_center.y;
+  const double dx = point.x - m_center.x;
+  const double dy = point.y - m_center.y;
   move(dx, dy);
   
 }
