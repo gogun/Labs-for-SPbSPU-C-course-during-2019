@@ -57,9 +57,16 @@ rectangle_t Triangle::getFrameRect() const
     minCoordinates.x = std::min(minCoordinates.x, coordinates_[i].x);
     minCoordinates.y = std::min(minCoordinates.y, coordinates_[i].y);
   }
+<<<<<<< HEAD
   double width = maxCoordinates.x - minCoordinates.x;
   double height = maxCoordinates.y - minCoordinates.y;
   point_t pos = {width / 2 + minCoordinates.x, height / 2 + minCoordinates.y};
+=======
+  rectangle_t frameRectangle = {0, 0, {0.0, 0.0}};
+  frameRectangle.width = maxCoordinates.x - minCoordinates.x;
+  frameRectangle.height = maxCoordinates.y - minCoordinates.y;
+  frameRectangle.pos = {frameRectangle.width / 2 + minCoordinates.x, frameRectangle.height / 2 + minCoordinates.y};
+>>>>>>> cb378f16af1ff86191261ceb64da3e08375a254d
 
   return {pos, width, height};
 }
