@@ -54,7 +54,7 @@ void vasilevsky::Rectangle::printInfo() const
   std::cout << "Center point on OY: " << getFrameRect().pos.y << "\n\n";
 }
 
-void vasilevsky::Rectangle::scale(const double &coefficient)
+void vasilevsky::Rectangle::scale(const double coefficient)
 {
   if (coefficient <= 0.0)
   {

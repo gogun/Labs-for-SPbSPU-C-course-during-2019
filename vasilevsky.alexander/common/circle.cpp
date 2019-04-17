@@ -49,7 +49,7 @@ void vasilevsky::Circle::printInfo() const
   std::cout << "Center point on OY: " << getFrameRect().pos.y << "\n\n";
 }
 
-void vasilevsky::Circle::scale(const double &coefficient)
+void vasilevsky::Circle::scale(const double coefficient)
 {
   if (coefficient <= 0.0)
   {

@@ -14,7 +14,7 @@ namespace vasilevsky
     void move(const point_t &point) override;
     void move(const double &, const double &) override;
     void printInfo() const override;
-    void scale(const double &) override;
+    void scale(const double) override;
 
   private:
     double width_;
