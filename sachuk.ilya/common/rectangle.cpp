@@ -33,7 +33,7 @@ sachuk::rectangle_t sachuk::Rectangle::getFrameRect() const
   return {width_, height_, center_};
 }
 
-void sachuk::Rectangle::scale(const double multiplier)
+void sachuk::Rectangle::scale(double multiplier)
 {
   if (multiplier <= 0) {
     throw std::invalid_argument("Multiplier must be positive");

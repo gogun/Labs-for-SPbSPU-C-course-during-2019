@@ -13,7 +13,7 @@ namespace sachuk
     void move(const point_t & point) override;
     void move(double dx, double dy) override;
     void printInfo() const override;
-    void scale(const double multiplier) override;
+    void scale(double multiplier) override;
 
   private:
     point_t center_;

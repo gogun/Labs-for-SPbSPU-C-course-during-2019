@@ -33,7 +33,7 @@ sachuk::rectangle_t sachuk::Circle::getFrameRect() const
   return {2 * radius_, 2 * radius_, center_};
 }
 
-void sachuk::Circle::scale(const double multiplier)
+void sachuk::Circle::scale(double multiplier)
 {
   if (multiplier <= 0) {
     throw std::invalid_argument("Multiplier must be positive");
