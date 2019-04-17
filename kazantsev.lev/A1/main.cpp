@@ -3,53 +3,33 @@
 #include "rectangle.hpp"
 #include "triangle.hpp"
 
-void printFrameInfo(const rectangle_t &frame)
-{
-  std::cout << "Frame is:" << "\n";
-  std::cout << "Width = " << frame.width << " Height = " << frame.height << "\n";
-  std::cout << "Centre is in " << " X= " << frame.pos.x << " Y= " << frame.pos.y << "\n";
-}
+
 
 int main()
 {
-  Rectangle oRectangle{ { 1, 1 }, 2, 3 };
-  Shape* ptr = &oRectangle;
-  ptr->printShapeInfo();
-  std::cout << "Area= " << ptr->getArea() << "\n";
-  ptr->move({ 5, 5 });
-  std::cout << "After moving to {5,5}: " << "\n";
-  ptr->printShapeInfo();
-  ptr->move(2, 3);
-  std::cout << "After moving on dx=2, dy=3" << "\n";
-  ptr->printShapeInfo();
-  printFrameInfo(ptr->getFrameRect());
-  std::cout << "\n";
+  Circle cir({3.0, 2.0}, 7.0);
+  Shape* shp = &cir;
+  shp->writeParameters();
+  shp->move({5.0, -5.0});
+  shp->writeParameters();
+  shp->move(2.0, 3.0);
+  shp->writeParameters();
 
-  Circle oCircle{ { 1, 1 }, 6 };
-  ptr = &oCircle;
-  ptr->printShapeInfo();
-  std::cout << "Area= " << ptr->getArea() << "\n";
-  ptr->move({ 5, 5 });
-  std::cout << "After moving to {5,5}: " << "\n";
-  ptr->printShapeInfo();
-  ptr->move(2, 3);
-  std::cout << "After moving on dx=2, dy=3" << "\n";
-  ptr->printShapeInfo();
-  printFrameInfo(ptr->getFrameRect());
-  std::cout << "\n";
+  Rectangle rect({{5.0, 11.0}, 3.0, 6.0});
+  shp = &rect;
+  shp->writeParameters();
+  shp->move({6.0, -6.0});
+  shp->writeParameters();
+  shp->move(3.0, 5.0);
+  shp->writeParameters();
 
-  Triangle oTriangle{ {0, 0}, {10, 10}, {20, 0} };
-  ptr = &oTriangle;
-  ptr->printShapeInfo();
-  std::cout << "Area= " << ptr->getArea() << "\n";
-  ptr->move({ 5, 5 });
-  std::cout << "After moving to {5,5}: " << "\n";
-  ptr->printShapeInfo();
-  ptr->move(2, 3);
-  std::cout << "After moving on dx=2, dy=3" << "\n";
-  ptr->printShapeInfo();
-  printFrameInfo(ptr->getFrameRect());
-  std::cout << "\n";
- 
+  Triangle trg({9.0, 10.0}, 8.0, 4.0, 6.0);
+  shp = &trg;
+  shp->writeParameters();
+  shp->move({7.0, -7.0});
+  shp->writeParameters();
+  shp->move(5.0, 6.0);
+  shp->writeParameters();
+
   return 0;
 }

@@ -1,61 +1,40 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <stdexcept>
+#include <cassert>
 
-Rectangle::Rectangle(const point_t &centre, const double &width, const double &height) :
-  Shape(centre),
-  width_(width),
-  height_(height)
+Rectangle::Rectangle(const rectangle_t &parameters) :
+  rect_(parameters)
 {
-  if (width <= 0 || height <= 0)
-  {
-    throw std::invalid_argument("width <= 0 or height <= 0");
-  }
+  assert((rect_.height > 0) && (rect_.width > 0));
 }
-void Rectangle::setWidth(const double &width)
-{
-  if (width <= 0)
-  {
-    throw std::invalid_argument("width <= 0");
-  }
-  width_ = width;
-}
-void Rectangle::setHeight(const double &height)
-{
-  if (height <= 0)
-  {
-    throw std::invalid_argument("height <= 0");
-  }
-  height_ = height;
-}
-double Rectangle::getWidth() const
-{
-  return width_;
-}
-double Rectangle::getHeight() const
-{
-  return height_;
-}
+
 double Rectangle::getArea() const
 {
-  return (width_ * height_);
+  return rect_.width * rect_.height;
 }
+
 rectangle_t Rectangle::getFrameRect() const
 {
-  return rectangle_t{ width_, height_, pos_ };
+  return rect_;
 }
-void Rectangle::move(const point_t &to_position)
+
+void Rectangle::move(const point_t &pos)
 {
-  pos_ = to_position;
+  rect_.pos = pos;
 }
-void Rectangle::move(const double &dx, const double &dy)
+
+void Rectangle::move(const double dx, const double dy)
 {
-  pos_.x += dx;
-  pos_.y += dy;
+  rect_.pos.x += dx;
+  rect_.pos.y += dy;
 }
-void Rectangle::printShapeInfo() const
+
+void Rectangle::writeParameters() const
 {
-  std::cout << "Rectangle info" << "\n";
-  std::cout << "Centre is in " << " X= " << pos_.x << " Y= " << pos_.y << "\n";
-  std::cout << "Width is= " << width_ << " Height is= " << height_ << "\n";
+  rectangle_t rectangle = getFrameRect();
+  std::cout << "Rectangle centre is (" << rect_.pos.x << ","
+      << rect_.pos.y << ")\n"
+      << "Frame rectangle width = " << rectangle.width
+      << ", height = " << rectangle.height << "\n"
+      << "Area = " << getArea() << "\n\n";
 }
