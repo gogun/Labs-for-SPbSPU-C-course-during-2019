@@ -6,7 +6,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 
-const double compareTolerance = 0.001;
+const double TOLERANCE = 0.001;
 
 BOOST_AUTO_TEST_SUITE(rectangle) // rectangle
 
@@ -62,9 +62,9 @@ BOOST_AUTO_TEST_CASE(areaScaledCorrectly)
 
   rectangle.scale(scale);
   
-  BOOST_CHECK_CLOSE(rectangle.getArea(), areaScaled, compareTolerance);
+  BOOST_CHECK_CLOSE(rectangle.getArea(), areaScaled, TOLERANCE);
 
-  BOOST_CHECK_CLOSE(rectangle.getArea() / area, scale * scale, compareTolerance);
+  BOOST_CHECK_CLOSE(rectangle.getArea() / area, scale * scale, TOLERANCE);
 }
 
 BOOST_AUTO_TEST_SUITE_END() // rectangle/scale
@@ -134,9 +134,9 @@ BOOST_AUTO_TEST_CASE(areaScaledCorrectly)
 
   circle.scale(scale);
 
-  BOOST_CHECK_CLOSE(circle.getArea(), areaScaled, compareTolerance);
+  BOOST_CHECK_CLOSE(circle.getArea(), areaScaled, TOLERANCE);
 
-  BOOST_CHECK_CLOSE(circle.getArea() / area, scale * scale, compareTolerance);
+  BOOST_CHECK_CLOSE(circle.getArea() / area, scale * scale, TOLERANCE);
 }
 
 BOOST_AUTO_TEST_SUITE_END() // circle/scale
