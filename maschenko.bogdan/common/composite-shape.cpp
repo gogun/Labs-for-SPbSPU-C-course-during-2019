@@ -147,7 +147,7 @@ void maschenko::CompositeShape::removeShape(int index)
 {
   if (index > shape_count_)
   {
-    throw std::out_of_range("Index out of bounds exception");
+    throw std::out_of_range("Index out of range");
   }
 
   std::unique_ptr<maschenko::Shape *[]> new_shape_array(new maschenko::Shape *[shape_count_ - 1]);
@@ -188,7 +188,7 @@ maschenko::Shape* maschenko::CompositeShape::getShape(int index) const
 {
   if (index > shape_count_)
   {
-    throw std::invalid_argument("Index out of bounds exception");
+    throw std::out_of_range("Index out of range");
   }
 
   return shape_array_[index];
