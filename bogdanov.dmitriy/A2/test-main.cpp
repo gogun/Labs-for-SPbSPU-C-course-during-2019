@@ -79,7 +79,7 @@ BOOST_AUTO_TEST_SUITE(TestA2)
     BOOST_CHECK_CLOSE(initialAreaCircle, circle.getArea(), ACCURACY);
   }
 
-  BOOST_FIXTURE_TEST_CASE(AreOfRectangleShouldChangeQuadraticallyAfterScaling,FixtureCreationRectangle)
+  BOOST_FIXTURE_TEST_CASE(areaOfRectangleShouldChangeQuadraticallyAfterScaling,FixtureCreationRectangle)
   {
     const double initialAreaRectangle = rectangle.getArea();
     const double scalingFactor = 0.5;
@@ -89,7 +89,7 @@ BOOST_AUTO_TEST_SUITE(TestA2)
     BOOST_CHECK_CLOSE(initialAreaRectangle * scalingFactor * scalingFactor, rectangle.getArea(), ACCURACY);
   }
 
-  BOOST_FIXTURE_TEST_CASE(AreOfCircleShouldChangeQuadraticallyAfterScaling,FixtureCreationCircle)
+  BOOST_FIXTURE_TEST_CASE(areaOfCircleShouldChangeQuadraticallyAfterScaling,FixtureCreationCircle)
   {
     const double initialAreaCircle = circle.getArea();
     const double scalingFactor = 2;
