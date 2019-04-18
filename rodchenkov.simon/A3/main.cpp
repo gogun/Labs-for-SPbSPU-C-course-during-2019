@@ -8,19 +8,14 @@
 int main()
 {
   try {
-    rodchenkov::CompositeShape compositeShape{};
-    compositeShape.add(std::make_unique<rodchenkov::Rectangle>(rodchenkov::point_t{ 10, 10 }, 10, 10));
-    compositeShape.add(std::make_unique<rodchenkov::Circle>(rodchenkov::point_t{ 15, 15 }, 5));
-    std::cout << "-- Original shape : \n";
-    compositeShape.printData(std::cout);
-    rodchenkov::CompositeShape copyComposite = compositeShape;
-    std::cout << "-- Copy shape : \n";
-    copyComposite.printData(std::cout);
-    copyComposite.scale(2);
-    std::cout << "-- Original shape after copy scaling : \n";
-    compositeShape.printData(std::cout);
-    std::cout << "-- Copy shape after scaling : \n";
-    copyComposite.printData(std::cout);
+    rodchenkov::CompositeShape cs{};
+    cs.add(new rodchenkov::Rectangle{{10, 10}, 10, 10});
+    cs.add(new rodchenkov::Circle{{15, 15}, 5});
+    cs.printData(std::cout);
+    cs[1]->scale(2);
+    cs.printData(std::cout);
+    cs.remove(1);
+    cs.printData(std::cout);
   } catch (const std::invalid_argument& exc) {
     std::cerr << "error: invalid parameter \"" << exc.what() << "\"" << std::endl;
     return 1;

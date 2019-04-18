@@ -6,7 +6,7 @@ namespace rodchenkov {
 struct point_t
 {
   double x;
-  double y;
+  double y; 
 };
 
 struct rectangle_t

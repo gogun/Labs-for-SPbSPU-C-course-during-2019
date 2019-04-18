@@ -1,7 +1,6 @@
 #include "rectangle.hpp"
 
 #include <stdexcept>
-#include "circle.hpp"
 
 rodchenkov::Rectangle::Rectangle(const point_t& pos, const double height, const double width) :
   height_(height),
