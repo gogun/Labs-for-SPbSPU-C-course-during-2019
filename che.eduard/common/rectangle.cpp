@@ -8,7 +8,7 @@ che::Rectangle::Rectangle(const rectangle_t & rect):
 {
   if ((rectangle_.height < 0) || (rectangle_.width < 0)) 
   {
-  throw std::invalid_argument("rectangle width and height can not be negative");
+    throw std::invalid_argument("rectangle width and height can not be negative");
   }
 
 }
@@ -38,7 +38,7 @@ void che::Rectangle::scale(double coef)
 {
   if (coef <= 0)
   {
-	throw std::invalid_argument("Negativ parameter");
+    throw std::invalid_argument("Negativ parameter");
   }
   rectangle_.height *= coef;
   rectangle_.width *= coef;
