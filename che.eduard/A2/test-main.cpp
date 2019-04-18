@@ -33,8 +33,6 @@ BOOST_AUTO_TEST_CASE(Circle_Scale_Tetsting)
   BOOST_CHECK_CLOSE(AreaBeforeScaling * AreaBeforeScaling, AreaAfterScaling, ACCURACY);
 }
 
-}
-
 BOOST_AUTO_TEST_CASE(Circle_Invalid_Values)
 {
   BOOST_CHECK_THROW(che::Circle({ 2.0,3.5 }, -1.5), std::invalid_argument);
