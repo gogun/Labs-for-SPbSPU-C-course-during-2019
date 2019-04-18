@@ -1,40 +1,42 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include "shape.hpp"
-#include "base-types.hpp"
+#include <cassert>
 
-Rectangle::Rectangle(double Wid, double Hei, double xrect, double yrect):
-  rrect_{Wid, Hei, {xrect, yrect}}
+Rectangle::Rectangle(double width, double height, const point_t &center):
+  width_(width),
+  height_(height),
+  pos_(center)
 {
-  assert((Wid > 0) && (Hei > 0));
+  assert((width > 0) && (height > 0));
 }
 
 double Rectangle::getArea() const
 {
-  return rrect_.height * rrect_.width;
+  return width_ * height_;
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return {rrect_.height, rrect_.width, rrect_.pos.x, rrect_.pos.y};
+  return {width_, height_, pos_};
 }
 
 void Rectangle::move(double mX, double mY)
 {
-  rrect_.pos.x += mX;
-  rrect_.pos.y += mY;
+  pos_.x += mX;
+  pos_.y += mY;
 }
 
 void Rectangle::move(const point_t &point)
 {
-  rrect_.pos.x = point.x;
-  rrect_.pos.y = point.y;
+  pos_ = point;
 }
 
 void Rectangle::dataoutput() const
 {
-  std::cout << "area_of_rectangle_=" << getArea() << std::endl;
-  std::cout << "framerect_width_height_X_Y_=" << getFrameRect().width << " " << getFrameRect().height << " ";
-  std::cout << getFrameRect().pos.x << " " << getFrameRect().pos.y << std::endl;
-  std::cout << "position_X_Y_" << rrect_.pos.x << " " << rrect_.pos.y << std::endl;
+	std::cout << "area_of_rectangle_=" << getArea() << std::endl
+			  << "\n Width:  " << width_
+		      << "\n Height: " << height_
+			  << "\n position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
 }
+
+

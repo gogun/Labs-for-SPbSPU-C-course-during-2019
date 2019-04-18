@@ -1,11 +1,9 @@
 #include "circle.hpp"
-#include <math.h>
+#include <cmath>
 #include <iostream>
-#include <stdexcept>
-#include "shape.hpp"
-#include "base-types.hpp"
+#include <cassert>
 
-Circle::Circle (double Rcircle, point_t &cpoint):
+Circle::Circle (double Rcircle, const point_t &cpoint):
   cR_(Rcircle),
   pos_(cpoint)
 {
@@ -19,7 +17,7 @@ double Circle::getArea() const
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {2 * cR_, 2 * cR_, pos_};
+  return {2.0 * cR_, 2.0 * cR_, pos_};
 }
 
 void Circle::move(double mX, double mY)
@@ -35,8 +33,8 @@ void Circle::move(const point_t &point)
 
 void Circle::dataoutput() const
 {
-  std::cout << "area_of_circle_=" << getArea() << std::endl;
-  std::cout << "framerect_width_height_X_Y_=" << getFrameRect().width << " " << getFrameRect().height << " ";
-  std::cout << getFrameRect().pos_.x << " " << getFrameRect().pos_.y << std::endl;
-  std::cout << "position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
+  std::cout << "area_of_circle_=" << getArea() << std::endl
+			<< "\n  Radius: " << cR_
+			<< "position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
 }
+

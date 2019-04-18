@@ -7,11 +7,11 @@ class Circle : public Shape
 {
 public:
   Circle(double Rcircle, const point_t &cpoint);
-  double getArea() const;
-  rectangle_t getFrameRect() const;
-  void move(double mX, double mY);
-  void move(const point_t &point);
-  void dataoutput() const;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(double mX, double mY) override;
+  void move(const point_t &point) override;
+  void printInfo() const override;
 
 private:
   double cR_;
@@ -19,3 +19,5 @@ private:
 };
 
 #endif
+
+

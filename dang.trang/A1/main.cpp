@@ -1,28 +1,28 @@
+#include <iostream>
 #include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
-#include "triangle.hpp"
-#include "base-types.hpp"
+
+void actions(Shape * usingShape)
+{
+  usingShape->printInfo();
+  std::cout << "shape move for 5 right, 6 up" << std::endl;
+  usingShape->move(5, 6);
+  usingShape->printInfo();
+  std::cout << "shape move  to (4,7)" << std::endl;
+  usingShape->move({ 4, 7 });
+  usingShape->printInfo();
+}
 
 int main()
 {
-  point_t point = {534, 348};
-
-  Rectangle rectangle(300, 200, 500, 300);
-  Shape * RC = &rectangle;
-  RC->dataoutput();
-  RC->move(40, 30);
-  RC->move(point);
-  RC->dataoutput();
+  Rectangle rectangle(10.0, 5.0, { 15.0, 15.0 });
+  Circle circle(2.5, { 3.14, 2.71 });
   
-  point = {765, 395};
-
-  Circle circle(7, {30, 40});
-  Shape * CR = &circle;
-  CR->dataoutput();
-  CR->move(-15, -70);
-  CR->move(point);
-  CR->dataoutput();
+  actions(&circle);
+  actions(&rectangle);
 
   return 0;
 }
+
+
