@@ -23,7 +23,7 @@ int main()
 {
   ryabikin::Rectangle rectnagle(3.00, 4.00, { 5.00, 4.00 });
   std::cout << "Rectangle = " << "\n";
-  showAll(&rectnagle)
+	showAll(&rectnagle);
   rectnagle.scale(3.0);
   std::cout << "After scale - " << "\n";
   showAll(&rectnagle);
