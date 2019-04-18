@@ -22,22 +22,22 @@ void showAll(const ryabikin::Shape * shape)
 int main()
 {
   ryabikin::Rectangle rectnagle(3.00, 4.00, { 5.00, 4.00 });
-	std::cout << "Rectangle = " << "\n";
-	showAll(&rectnagle)
-	rectnagle.scale(3.0);
+  std::cout << "Rectangle = " << "\n";
+  showAll(&rectnagle)
+  rectnagle.scale(3.0);
   std::cout << "After scale - " << "\n";
-	showAll(&rectnagle);
+  showAll(&rectnagle);
   rectnagle.move({ .x = 7.00, .y = 8.00 });
   std::cout << "After move - " << "\n";
-	showAll(&rectnagle);
+  showAll(&rectnagle);
   ryabikin::Circle circle(3.00, { 1.00, 3.00 });
-	std::cout << "Circle = " << "\n";
-	showAll(&circle);
-	circle.scale(4.00);
+  std::cout << "Circle = " << "\n";
+  showAll(&circle);
+  circle.scale(4.00);
   std::cout << "After scale - " << "\n";
-	showAll(&circle);
+  showAll(&circle);
   circle.move(3.00, -1.5);
   std::cout << "After move - " << "\n";
-	showAll(&circle);
+  showAll(&circle);
   return 0;
 }
