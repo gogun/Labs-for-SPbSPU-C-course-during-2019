@@ -33,7 +33,7 @@ int main()
 
   //Получение ограничивающего квадрата для круга
   const moreva::rectangle_t boundedRectCircle = shape->getFrameRect();
-  std::cout <<"Bounded rectangle for Circle has " << std::endl
+  std::cout << "Bounded rectangle for Circle has " << std::endl
             << "X (center): " << boundedRectCircle.pos.x << std::endl
             << "Y (center): " << boundedRectCircle.pos.y << std::endl
             << "Width: " << boundedRectCircle.width << std::endl
