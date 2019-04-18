@@ -24,8 +24,8 @@ void Circle::move(const point_t &point)
   pos_ = point;
 }
 
-void Circle::move(double abs, double ord)
+void Circle::move(double dx, double dy)
 {
-  pos_.x += abs;
-  pos_.y += ord;
+  pos_.x += dx;
+  pos_.y += dy;
 }

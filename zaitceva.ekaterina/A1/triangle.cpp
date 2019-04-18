@@ -26,7 +26,8 @@ point_t Triangle::getCentre() const
 
 double Triangle::getArea() const
 {
-  return abs(0.5*(point1_.x * (point2_.y - point3_.y) + point2_.x * (point3_.y - point1_.y) + point3_.x * (point1_.y - point2_.y)));
+  return std::fabs(0.5*(point1_.x * (point2_.y - point3_.y)
+      + point2_.x * (point3_.y - point1_.y) + point3_.x * (point1_.y - point2_.y)));
 }
 
 rectangle_t Triangle::getFrameRect() const
@@ -43,13 +44,21 @@ rectangle_t Triangle::getFrameRect() const
 
 void Triangle::move(const point_t &point)
 {
-  centre_ = point;
+  double movement_x = point.x - centre_.x;
+  double movement_y = point.y - centre_.y;
+  move(movement_x, movement_y);
 }
 
-void Triangle::move(double abs, double ord)
+void Triangle::move(double dx, double dy)
 {
-  centre_.x += abs;
-  centre_.y += ord;
+  centre_.x += dx;
+  centre_.y += dy;
+  point1_.x += dx;
+  point1_.y += dy;
+  point2_.x += dx;
+  point2_.y += dy;
+  point3_.x += dx;
+  point3_.x += dx;
 }
 
 void Triangle::printTriang() const

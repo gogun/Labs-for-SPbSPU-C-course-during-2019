@@ -11,7 +11,7 @@ public:
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t &point) override;
-  void move(double abs, double ord) override;
+  void move(double dx, double dy) override;
   void printTriang() const;
 
 private:

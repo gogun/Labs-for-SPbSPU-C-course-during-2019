@@ -24,8 +24,8 @@ void Rectangle::move(const point_t &point)
   pos_ = point;
 }
 
-void Rectangle::move(double abs, double ord)
+void Rectangle::move(double dx, double dy)
 {
-  pos_.x += abs;
-  pos_.y += ord;
+  pos_.x += dx;
+  pos_.y += dy;
 }
