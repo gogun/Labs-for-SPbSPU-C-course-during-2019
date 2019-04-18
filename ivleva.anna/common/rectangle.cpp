@@ -14,7 +14,7 @@ double ivleva::Rectangle::getArea() const
   return (rect_.width * rect_.height);
 }
 
-rectangle_t ivleva::Rectangle::getFrameRect() const
+ivleva::rectangle_t ivleva::Rectangle::getFrameRect() const
 {
   return rect_;
 }
