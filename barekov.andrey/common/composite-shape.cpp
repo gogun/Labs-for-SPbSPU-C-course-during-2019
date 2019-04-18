@@ -85,6 +85,11 @@ double barekov::CompositeShape::getArea() const
 
 barekov::rectangle_t barekov::CompositeShape::getFrameRect() const
 {
+  if (count_ == 0)
+  {
+    return {0, 0, {0, 0}};
+  }
+
   rectangle_t tmpFrameRect = arrayOfShapes_[0]->getFrameRect();
 
   //leftX, rightX, bottomY are shortened for better code readability.
