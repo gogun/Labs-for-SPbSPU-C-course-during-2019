@@ -37,7 +37,7 @@ void Triangle::move(const point_t &point)
 {
   const double dx = point.x - m_center.x;
   const double dy = point.y - m_center.y;
-  move(dx, dy);  
+  move(dx, dy);
 }
 
 void Triangle::move(const double dx, const double dy)
