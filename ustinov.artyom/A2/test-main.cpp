@@ -48,7 +48,7 @@ BOOST_AUTO_TEST_CASE(changeAfterScalingIncrease)
 {
   ustinov::Rectangle testRectangle({4, 7}, 14, 19);
   const auto testing_area = testRectangle.getArea(); //double
-  auto parameter = 2; //double
+  const auto parameter = 2; //double
   testRectangle.scale(parameter);
   BOOST_CHECK_CLOSE(testRectangle.getArea(), testing_area * parameter * parameter, IMPRECISION);
 }
@@ -57,7 +57,7 @@ BOOST_AUTO_TEST_CASE(changeAfterScalingDecrease)
 {
   ustinov::Rectangle testRectangle({4, 7}, 14, 19);
   const auto testing_area = testRectangle.getArea(); //double
-  auto parameter = 0.5; //double 
+  const auto parameter = 0.5; //double 
   testRectangle.scale(parameter);
   BOOST_CHECK_CLOSE(testRectangle.getArea(), testing_area * parameter * parameter, IMPRECISION);
 }
@@ -101,7 +101,7 @@ BOOST_AUTO_TEST_CASE(areaCircleIncrease)
 {
   ustinov::Circle testCircle({3, 5}, 6);
   const auto area = testCircle.getArea(); //double 
-  auto parameter = 3; //double
+  const auto parameter = 3; //double
   testCircle.scale(parameter);
   BOOST_CHECK_CLOSE(testCircle.getArea(), area * parameter * parameter, IMPRECISION);
 }
@@ -110,7 +110,7 @@ BOOST_AUTO_TEST_CASE(areaCircleDecrease)
 {
   ustinov::Circle testCircle({3, 5}, 6);
   const auto area = testCircle.getArea(); //double
-  auto parameter = 0.2;
+  const auto parameter = 0.2;
   testCircle.scale(parameter);
   BOOST_CHECK_CLOSE(testCircle.getArea(), area * parameter * parameter, IMPRECISION);
 }
