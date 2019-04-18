@@ -7,11 +7,11 @@ bessonov::Rectangle::Rectangle(const bessonov::point_t &center, double width, do
   width_(width),
   height_(height)
 {
-	if (width <= 0)
+	if (width_ <= 0)
 	{
 		throw std::invalid_argument("Problematic width");
 	}
-	if (height <= 0)
+	if (height_ <= 0)
 	{
 		throw std::invalid_argument("Problematic height");
 	}
@@ -24,7 +24,7 @@ double bessonov::Rectangle::getArea() const
 
 bessonov::rectangle_t bessonov::Rectangle::getFrameRect() const
 {
-  return { width_, height_, center_ };
+  return {width_, height_, center_ };
 }
 
 void bessonov::Rectangle::move(double dx, double dy)
