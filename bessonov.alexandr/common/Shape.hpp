@@ -22,5 +22,4 @@ namespace bessonov
   };
 }
 
-
 #endif
