@@ -18,7 +18,7 @@ BOOST_AUTO_TEST_CASE(Circle_Immutability_After_Moving)
   BOOST_CHECK_CLOSE(CircleBeforeMoving.height, testCircle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving, testCircle.getArea(), ACCURACY);
 
-  testCircle.move({ 2.5, 3.2 });
+  testCircle.move({ 3.5, 1.2 });
   BOOST_CHECK_CLOSE(CircleBeforeMoving.width, testCircle.getFrameRect().width, ACCURACY);
   BOOST_CHECK_CLOSE(CircleBeforeMoving.height, testCircle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving, testCircle.getArea(), ACCURACY);
@@ -30,8 +30,7 @@ BOOST_AUTO_TEST_CASE(Circle_Scale_Tetsting)
   che::Circle testCircle({ 2.0, 3.5 }, 1.5);
   const double AreaBeforeScaling = testCircle.getArea();
   testCircle.coef(1.8);
-  testCircle.scale(circle.coef);
-  BOOST_CHECK_CLOSE(testCircle.getArea(), AreaBeforeScaling * circle.coef * circle.coef, ACCURACY);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), AreaBeforeScaling * testCircle.coef * testCircle.coef, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Circle_Invalid_Values)
@@ -46,24 +45,29 @@ BOOST_AUTO_TEST_CASE(Circle_Invalid_Values)
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(Rectangle_Suite_Testing)
+
+BOOST_AUTO_TEST_CASE(Rectangle_Immutability_After_Moving)
 {
   che::Rectangle testRectangle({ 4.0, 9.0 }, 2.0, 4.0);
   const double AreaBeforeMoving = testRectangle.getArea();
   const che::rectangle_t FrameBeforeMoving = testRectangle.getFrameRect();
   testRectangle.move(2.0, 3.0);
-  che::rectangle_t AreaAfterMoving = testRectangle.getFrameRect();
-  BOOST_CHECK_EQUAL(AreaAfterMoving.height, AreaBeforeMoving.height);
-  BOOST_CHECK_EQUAL(AreaAfterMoving.width, AreaBeforeMoving.width);
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), AreaBeforeMoving, ACCURACY);
+  BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
+  BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
+  BOOST_CHECK_CLOSE(AreaBeforeMoving, testRectangle.getArea(), ACCURACY);
+
+  testRectangle.move({ 2.0, 4.0 });
+  BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
+  BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
+  BOOST_CHECK_CLOSE(AreaBeforeMoving, testRectangle.getArea(), ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
 {
-  che::Rectangle rec({ 4.0, 9.0 }, 2.0, 5.0);
-  const double AreaBeforeScaling = rec.getArea();
-  rec.coef(2.2);
-  const double AreaAfterScaling = rec.getArea();
-  BOOST_CHECK_CLOSE(AreaBeforeScaling * AreaBeforeScaling, AreaAfterScaling, ACCURACY);
+  che::Rectangle testRectangle({ 4.0, 9.0 }, 2.0, 5.0);
+  const double AreaBeforeScaling = testRectangle.getArea();
+  testRectangle.coef(2.2);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), testRectangle.coef * testRectangle.coef * AreaBeforeScaling, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Rectangle_Invalid_Values)
