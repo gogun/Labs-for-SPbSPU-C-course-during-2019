@@ -43,7 +43,7 @@ void ivleva::Rectangle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-    throw std::invalid_argument("The coefficient need to be positive");
+    throw std::invalid_argument("The coefficient must be positive");
   }
   rect_.width *= coefficient;
   rect_.height *= coefficient;
