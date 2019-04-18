@@ -6,6 +6,7 @@
 Rectangle::Rectangle(double Wid, double Hei, double xrect, double yrect):
   rrect_{Wid, Hei, {xrect, yrect}}
 {
+  assert((Wid > 0) && (Hei > 0));
 }
 
 double Rectangle::getArea() const
@@ -32,8 +33,8 @@ void Rectangle::move(const point_t &point)
 
 void Rectangle::dataoutput() const
 {
-  std::cout << "area_of_rectangle_=" << getArea() << std::endl
-			<< "framerect_width_height_X_Y_=" << getFrameRect().width << " " << getFrameRect().height << " "
-		    << getFrameRect().pos.x << " " << getFrameRect().pos.y << std::endl
-		    << "position_X_Y_" << rrect_.pos.x << " " << rrect_.pos.y << std::endl;
+  std::cout << "area_of_rectangle_=" << getArea() << std::endl;
+  std::cout << "framerect_width_height_X_Y_=" << getFrameRect().width << " " << getFrameRect().height << " ";
+  std::cout << getFrameRect().pos.x << " " << getFrameRect().pos.y << std::endl;
+  std::cout << "position_X_Y_" << rrect_.pos.x << " " << rrect_.pos.y << std::endl;
 }

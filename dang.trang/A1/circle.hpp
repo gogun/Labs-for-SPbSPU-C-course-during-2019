@@ -6,7 +6,7 @@
 class Circle : public Shape
 {
 public:
-  Circle(double Rcircle, point_t &cpoint);
+  Circle(double Rcircle, const point_t &cpoint);
   double getArea() const;
   rectangle_t getFrameRect() const;
   void move(double mX, double mY);
