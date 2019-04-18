@@ -14,7 +14,7 @@ namespace ivleva
     void move(double dx, double dy) override;
     void print() const override;
     void scale(double coefficient) override;
-
+ 
   private:
     double radius_;
     point_t center_;

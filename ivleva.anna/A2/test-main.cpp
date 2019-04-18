@@ -4,7 +4,7 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-double accuracy = 0.01;
+double accuracy = 0.001;
 
 BOOST_AUTO_TEST_SUITE(testingOfCircle)
 

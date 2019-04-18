@@ -14,5 +14,4 @@ namespace ivleva
     point_t pos;
   };
 }
-
 #endif

@@ -14,10 +14,9 @@ namespace ivleva
     void move(double dx, double dy) override;
     void print() const override;
     void scale(double coefficient) override;
-
+  
   private:
     rectangle_t rect_;
   };
 }
-
 #endif
