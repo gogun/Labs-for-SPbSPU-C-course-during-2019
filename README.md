@@ -146,47 +146,49 @@ Accepted Labs
 | Name                   | A1 | A2 | A3 | A4 | B1 | B2 | B3 | B4 | B5 | B6 | B7 | B8 |
 |------------------------|----|----|----|----|----|----|----|----|----|----|----|----|
 | Afanasiev Aleksey      | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Akhmedov Abdulla       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Akhmedov Abdulla       | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Alexandrov Denis       | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Andreeva Elizaveta     | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Atamanova Svetlana     | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Andreeva Elizaveta     | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Atamanova Svetlana     | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Barekov Andrey         | *  | *  |    |    |    |    |    |    |    |    |    |    |
-| Besedin Daniil         | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Besedin Daniil         | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Bessonov Alexandr      | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Bogdanov Dmitriy       | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Bondarev Oleg          | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Borshchev Ivan         | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Bublyaev Aleksey       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Bublyaev Aleksey       | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Bushuev Aleksandr      | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Che Eduard             | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Chizhov Nikita         | *  | *  |    |    |    |    |    |    |    |    |    |    |
-| Chugaynov Valeriy      | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Chugaynov Valeriy      | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Drozdov Kirill         | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Dyu Vladimir           | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Fedorov Danila         | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Firsov Daniil          | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Firsov Daniil          | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Gnatishin Mikhail      | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Golikov George         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Gusarov Ilya           | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Ivanenko Egor          | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Ivleva Anna            | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Karpenko Alexey        | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Karpenko Alexey        | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Khismatullin Kamil     | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Konev Ivan             | *  | *  |    |    |    |    |    |    |    |    |    |    |
-| Kornilov Daniil        | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Korolev Denis          | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Kornilov Daniil        | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Korolev Denis          | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Korshunov Kirill       | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Kotov Ivan             | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Kozhin Sergey          | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Kozhin Sergey          | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Kozlov Konstantin      | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Krasnopyorov Nikita    | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Krasnopyorov Nikita    | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Kraynov Alexander      | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Krinkina Vladislava    | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Kurbanova Angela       | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Kuznetsov Svyatoslav   | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Kvashnin Artem         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Lebedev Denis          | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Lestsenko Klimenti     | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Lukina Valeria         | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Lutsenko Dmitrii       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Lukina Valeria         | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Lutsenko Dmitrii       | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Lyalin Danil           | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Lysenko Bogdan         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Magomedalizade Orkhan  | *  |    |    |    |    |    |    |    |    |    |    |    |
@@ -200,31 +202,34 @@ Accepted Labs
 | Naumov Andrei          | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Nazarov Dmitry         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Neupokoev Dmitry       | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Nurtdinov Artur        | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Nurtdinov Artur        | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Pavlova Alexandra      | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Pedchenko Elena        | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Petrov Artyom          | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Pinaev Nikita          | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Ponomarev Stepan       | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Potapova Maria         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Prohorova Aleksandra   | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Protasov Maxim         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Purnov Nikita          | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Rakhmatullin Alexander | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Rakhmatullin Alexander | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Rodchenkov Simon       | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Ryabikin Timofey       | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Sachuk Ilya            | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Sarchuk Yaroslav       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Sarchuk Yaroslav       | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Sazonov Dmitriy        | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Senatova Irina         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Shahbazly Tural        | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Shatilov Demid         | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Sherman Mark           | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Shestakova Alina       | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Sherman Mark           | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Shestakova Alina       | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Shreder Anastasia      | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Skudar Ilia            | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Stebnevsky Vladislav   | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Skudar Ilia            | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Smirnov Pavel          | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Stebnevsky Vladislav   | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Stotskaya Elena        | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Tagiev Andrey          | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Tolstikov Grigoriy     | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Tolstikov Grigoriy     | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Trofimov Philipp       | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Troshev Dmitry         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Tsai Georgii           | *  |    |    |    |    |    |    |    |    |    |    |    |
@@ -233,7 +238,8 @@ Accepted Labs
 | Utin Mihail            | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Uzhegov Dmitry         | *  |    |    |    |    |    |    |    |    |    |    |    |
 | Vasilevsky Alexander   | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Zakharova Alyona       | *  |    |    |    |    |    |    |    |    |    |    |    |
-| Zemlyak Artyom         | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Vlasenko Nataliia      | *  |    |    |    |    |    |    |    |    |    |    |    |
+| Zakharova Alyona       | *  | *  |    |    |    |    |    |    |    |    |    |    |
+| Zemlyak Artyom         | *  | *  |    |    |    |    |    |    |    |    |    |    |
 | Zybkin Vladislav       | *  | *  |    |    |    |    |    |    |    |    |    |    |
-| __Total__              |  91|  10|   0|   0|   0|   0|   0|   0|   0|   0|   0|   0|
+| __Total__              |  97|  34|   0|   0|   0|   0|   0|   0|   0|   0|   0|   0|
