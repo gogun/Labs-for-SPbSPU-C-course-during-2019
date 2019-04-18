@@ -26,7 +26,7 @@ public:
   void                   scale(double)                           override;
 
   std::size_t getSize() const noexcept;
-  void        add(const Shape*);
+  void        add(const Shape&);
   void        remove(std::size_t);
 
 private:

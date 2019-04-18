@@ -100,18 +100,14 @@ void rodchenkov::CompositeShape::scale(const double ratio)
   }
 }
 
-void rodchenkov::CompositeShape::add(const Shape* newShape)
+void rodchenkov::CompositeShape::add(const Shape& newShape)
 {
-  if (newShape) {
-    std::unique_ptr<std::unique_ptr<Shape>[]> newShapes = std::make_unique<std::unique_ptr<Shape>[]>(count_ + 1);
-    for (std::size_t i = 0; i < count_; i++) {
-      newShapes[i].swap(shapes_[i]);
-    }
-    newShapes[count_++] = newShape->cloneUnique();
-    shapes_.swap(newShapes);
-  } else {
-    throw std::invalid_argument("new shape pointer can\'t be null");
+  std::unique_ptr<std::unique_ptr<Shape>[]> newShapes = std::make_unique<std::unique_ptr<Shape>[]>(count_ + 1);
+  for (std::size_t i = 0; i < count_; i++) {
+    newShapes[i].swap(shapes_[i]);
   }
+  newShapes[count_++] = newShape.cloneUnique();
+  shapes_.swap(newShapes);
 }
 
 void rodchenkov::CompositeShape::remove(const std::size_t n)
@@ -144,24 +140,27 @@ std::unique_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneUnique() con
 
 rodchenkov::rectangle_t rodchenkov::CompositeShape::computeFrameRect() const noexcept
 {
-  double left   = shapes_[0]->getFrameRect().pos.x;
-  double right  = shapes_[0]->getFrameRect().pos.x;
-  double top    = shapes_[0]->getFrameRect().pos.y;
-  double bottom = shapes_[0]->getFrameRect().pos.y;
-  for (std::size_t i = 0; i < count_; i++) {
-    const rectangle_t currRect = shapes_[i]->getFrameRect();
+  if (count_ > 0) {
+    double left   = shapes_[0]->getFrameRect().pos.x;
+    double right  = shapes_[0]->getFrameRect().pos.x;
+    double top    = shapes_[0]->getFrameRect().pos.y;
+    double bottom = shapes_[0]->getFrameRect().pos.y;
+    for (std::size_t i = 0; i < count_; i++) {
+      const rectangle_t currRect = shapes_[i]->getFrameRect();
 
-    double currLeft   = currRect.pos.x - currRect.width / 2;
-    double currRight  = currRect.pos.x + currRect.width / 2;
-    double currTop    = currRect.pos.y + currRect.height / 2;
-    double currBottom = currRect.pos.y - currRect.height / 2;
+      double currLeft   = currRect.pos.x - currRect.width / 2;
+      double currRight  = currRect.pos.x + currRect.width / 2;
+      double currTop    = currRect.pos.y + currRect.height / 2;
+      double currBottom = currRect.pos.y - currRect.height / 2;
 
-    left   = std::min(currLeft, left);
-    right  = std::max(currRight, right);
-    top    = std::max(currTop, top);
-    bottom = std::min(currBottom, bottom);
+      left   = std::min(currLeft, left);
+      right  = std::max(currRight, right);
+      top    = std::max(currTop, top);
+      bottom = std::min(currBottom, bottom);
+    }
+    return {fabs(top - bottom), fabs(right - left), {(left + right) / 2, (top + bottom) / 2}};
   }
-  return {fabs(top - bottom), fabs(right - left), {(left + right) / 2, (top + bottom) / 2}};
+  return {0, 0, {0, 0}};
 }
 
 void rodchenkov::CompositeShape::swap(CompositeShape& l, CompositeShape& r) noexcept

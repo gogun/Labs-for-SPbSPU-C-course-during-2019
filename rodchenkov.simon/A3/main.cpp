@@ -9,10 +9,9 @@ int main()
 {
   try {
     rodchenkov::CompositeShape cs{};
-    cs.add(new rodchenkov::Rectangle{{10, 10}, 10, 10});
-    cs.add(new rodchenkov::Circle{{15, 15}, 5});
+    cs.add(rodchenkov::Rectangle{{10, 10}, 10, 10});
+    cs.add(rodchenkov::Circle{{15, 15}, 5});
     cs.printData(std::cout);
-    cs[1]->scale(2);
     cs.printData(std::cout);
     cs.remove(1);
     cs.printData(std::cout);
@@ -23,5 +22,6 @@ int main()
     std::cerr << "error: " << exc.what() << std::endl;
     return 2;
   }
+  system("pause");
   return 0;
 }
