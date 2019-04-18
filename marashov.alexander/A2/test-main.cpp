@@ -48,8 +48,11 @@ BOOST_AUTO_TEST_CASE(quadraticSquareIncreaseAfterScaling)
 BOOST_AUTO_TEST_CASE(constructorExceptions)
 {
   // проверка на наличие исключения "некорректный аргумент" при попытке задать
-  // отрицательный радиус круга
-  BOOST_CHECK_THROW(marashov::Circle({0, 0}, -10), std::invalid_argument);
+  // отрицательный или нулевой радиус круга
+  const double incorrectArg1 = -2;
+  const double incorrectArg2 = 0;
+  BOOST_CHECK_THROW(marashov::Circle({0, 0}, incorrectArg1), std::invalid_argument);
+  BOOST_CHECK_THROW(marashov::Circle({0, 0}, incorrectArg2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(scaleExceptions)
@@ -58,8 +61,10 @@ BOOST_AUTO_TEST_CASE(scaleExceptions)
   marashov::Circle circle = marashov::Circle(circleCenter, 10);
   // проверка на наличие исключения "некорректный аргумент" при попытке задать
   // отрицательное или нулевое значение масштабирования
-  const double incorrectArg = -2;
-  BOOST_CHECK_THROW(circle.scale(incorrectArg), std::invalid_argument);
+  const double incorrectArg1 = -2;
+  const double incorrectArg2 = 0;
+  BOOST_CHECK_THROW(circle.scale(incorrectArg1), std::invalid_argument);
+  BOOST_CHECK_THROW(circle.scale(incorrectArg2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -107,8 +112,13 @@ BOOST_AUTO_TEST_CASE(quadraticSquareIncreaseAfterScaling)
 BOOST_AUTO_TEST_CASE(constructorExceptions)
 {
   // проверка на наличие исключения "некорректный аргумент" при попытке задать
-  // отрицательную высоту или ширину прямоугольника
-  BOOST_CHECK_THROW(marashov::Rectangle({0, 0}, -10, 10), std::invalid_argument);
+  // отрицательную или нулевую высоту или ширину прямоугольника
+  const double incorrectArg1 = -2;
+  const double incorrectArg2 = 0;
+  BOOST_CHECK_THROW(marashov::Rectangle({0, 0}, incorrectArg1, 10), std::invalid_argument);
+  BOOST_CHECK_THROW(marashov::Rectangle({0, 0}, incorrectArg2, 10), std::invalid_argument);
+  BOOST_CHECK_THROW(marashov::Rectangle({0, 0}, 10, incorrectArg1), std::invalid_argument);
+  BOOST_CHECK_THROW(marashov::Rectangle({0, 0}, 10, incorrectArg2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(scaleExceptions)
@@ -116,8 +126,10 @@ BOOST_AUTO_TEST_CASE(scaleExceptions)
   marashov::Rectangle rectangle = marashov::Rectangle({0, 0}, 10, 5);
   // проверка на наличие исключения "некорректный аргумент" при попытке задать
   // отрицательное или нулевое значение масштабирования
-  const double incorrectArg = 0;
-  BOOST_CHECK_THROW(rectangle.scale(incorrectArg), std::invalid_argument);
+  const double incorrectArg1 = -2;
+  const double incorrectArg2 = 0;
+  BOOST_CHECK_THROW(rectangle.scale(incorrectArg1), std::invalid_argument);
+  BOOST_CHECK_THROW(rectangle.scale(incorrectArg2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
