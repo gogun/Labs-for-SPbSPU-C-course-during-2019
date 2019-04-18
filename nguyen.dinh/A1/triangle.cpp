@@ -18,7 +18,8 @@ double Triangle::getArea() const
   const double side2 = sqrt(pow(m_corner_1.x - m_corner_3.x, 2) + pow(m_corner_1.y - m_corner_3.y, 2));
   const double side3 = sqrt(pow(m_corner_2.x - m_corner_3.x, 2) + pow(m_corner_2.y - m_corner_3.y, 2));
   const double perimeter = side1 + side2 + side3;
-  const double radius = sqrt(((perimeter  / 2 - side1) * (perimeter / 2 - side2) * (perimeter / 2 - side3)) / (perimeter / 2));
+  const double radius = sqrt(((perimeter / 2 - side1) * (perimeter / 2 - side2)
+                              * (perimeter / 2 - side3)) / (perimeter / 2));
   
   return radius * perimeter  / 2 ;
 }

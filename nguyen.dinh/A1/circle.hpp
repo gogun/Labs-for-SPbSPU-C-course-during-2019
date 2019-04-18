@@ -1,9 +1,10 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef circle_hpp
+#define circle_hpp
 
 #include "shape.hpp"
 
-class Circle : public Shape {
+class Circle : public Shape
+{
 public:
   Circle(const double radius, const point_t &center);
   

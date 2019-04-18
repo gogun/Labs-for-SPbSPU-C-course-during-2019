@@ -1,9 +1,10 @@
-#ifndef TRIANGLE_HPP
-#define TRIANGLE_HPP
+#ifndef triangle_hpp
+#define triangle_hpp
 
 #include "shape.hpp"
 
-class Triangle : public Shape {
+class Triangle : public Shape
+{
 public:
   Triangle(const point_t &corner_1, const point_t &corner_2, const point_t &corner_3);
   
