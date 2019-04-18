@@ -22,15 +22,17 @@ BOOST_AUTO_TEST_CASE(Circle_Immutability_After_Moving)
   BOOST_CHECK_CLOSE(CircleBeforeMoving.width, testCircle.getFrameRect().width, ACCURACY);
   BOOST_CHECK_CLOSE(CircleBeforeMoving.height, testCircle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving, testCircle.getArea(), ACCURACY);
-
 }
 
 BOOST_AUTO_TEST_CASE(Circle_Scale_Tetsting)
 {
   che::Circle testCircle({ 2.0, 3.5 }, 1.5);
   const double AreaBeforeScaling = testCircle.getArea();
-  testCircle.coef(1.8);
-  BOOST_CHECK_CLOSE(testCircle.getArea(), AreaBeforeScaling * testCircle.coef * testCircle.coef, ACCURACY);
+  testCircle.scale(1.8);
+  double AreaAfterScaling = testCircle.getArea();
+  BOOST_CHECK_CLOSE(AreaBeforeScaling * AreaBeforeScaling, AreaAfterScaling, ACCURACY);
+}
+
 }
 
 BOOST_AUTO_TEST_CASE(Circle_Invalid_Values)
@@ -54,12 +56,12 @@ BOOST_AUTO_TEST_CASE(Rectangle_Immutability_After_Moving)
   testRectangle.move(2.0, 3.0);
   BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
-  BOOST_CHECK_CLOSE(AreaBeforeMoving, testRectangle.getArea(), ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving, testRectangle.getArea(), ACCURACY);
 
   testRectangle.move({ 2.0, 4.0 });
   BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
-  BOOST_CHECK_CLOSE(AreaBeforeMoving, testRectangle.getArea(), ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving, testRectangle.getArea(), ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
@@ -67,7 +69,8 @@ BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
   che::Rectangle testRectangle({ 4.0, 9.0 }, 2.0, 5.0);
   const double AreaBeforeScaling = testRectangle.getArea();
   testRectangle.coef(2.2);
-  BOOST_CHECK_CLOSE(testRectangle.getArea(), testRectangle.coef * testRectangle.coef * AreaBeforeScaling, ACCURACY);
+  const double AreaAfterScaling = testRectangle.getArea();
+  BOOST_CHECK_CLOSE(AreaBeforeScaling * AreaBeforeScaling, AreaAfterScaling, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Rectangle_Invalid_Values)
