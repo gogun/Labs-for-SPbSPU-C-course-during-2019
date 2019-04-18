@@ -34,7 +34,9 @@ rectangle_t Triangle::getFrameRect() const
 {
   double width = std::max({point0_.x, point1_.x, point2_.x}) - std::min({point0_.x, point1_.x, point2_.x});
   double height = std::max({point0_.y, point1_.y, point2_.y}) - std::min({point0_.y, point1_.y, point2_.y});
-  return {center_, height, width};
+  double minX = std::min({point0_.x, point1_.x, point2_.x});
+  double minY = std::min({point0_.y, point1_.y, point2_.y});
+  return {{minX + width / 2, minY + height / 2} , height, width};
 }
 
 void Triangle::move(double dx, double dy)
