@@ -53,7 +53,7 @@ BOOST_AUTO_TEST_CASE(TestCircleParametrs)
 BOOST_AUTO_TEST_CASE(TestCircleScaleCoefficient)
 {
   ryabikin::Circle circle(5.00, { 16.00, 16.00 });
-  BOOST_CHECK_THROW(c1.scale(-1.00), std::invalid_argument);
+  BOOST_CHECK_THROW(circle.scale(-1.00), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
