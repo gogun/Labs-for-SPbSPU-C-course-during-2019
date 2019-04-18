@@ -35,7 +35,7 @@ BOOST_AUTO_TEST_CASE(Circle_Scale_Tetsting)
 
 BOOST_AUTO_TEST_CASE(Circle_Invalid_Values)
 {
-  BOOST_CHECK_THROW(che::Circle({ 2.0,3.5 }, -1.5), std::invalid_argument);
+  BOOST_CHECK_THROW(che::Circle({ 2.0,3.0 }, -1.5), std::invalid_argument);
   che::Circle testCircle1({ 3.0, 3.0 }, 2.0);
   BOOST_CHECK_THROW(testCircle1.scale(-3.0), std::invalid_argument);
   che::Circle testCircle2({ 2.0, 2.0 }, 3.0);
@@ -66,7 +66,7 @@ BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
 {
   che::Rectangle testRectangle({ 4.0, 9.0 }, 2.0, 5.0);
   const double AreaBeforeScaling = testRectangle.getArea();
-  testRectangle.coef(2.2);
+  testRectangle.scale(2.2);
   const double AreaAfterScaling = testRectangle.getArea();
   BOOST_CHECK_CLOSE(AreaBeforeScaling * AreaBeforeScaling, AreaAfterScaling, ACCURACY);
 }
