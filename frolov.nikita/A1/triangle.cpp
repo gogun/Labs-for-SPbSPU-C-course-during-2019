@@ -51,14 +51,7 @@ void Triangle::move(double dx, double dy)
 
 void Triangle::move(const point_t &center)
 {
-  point_t shift = {(center_.x - center.x), (center_.y - center.y)};
-  center_ = center;
-  point0_.x += shift.x;
-  point0_.y += shift.y;
-  point1_.x += shift.x;
-  point1_.y += shift.y;
-  point2_.x += shift.x;
-  point2_.y += shift.y;
+  move((center.x - center_.x), (center.y - center_.y));
 }
 
 void Triangle::showPoint() const
