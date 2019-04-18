@@ -7,14 +7,14 @@ bessonov::Rectangle::Rectangle(const bessonov::point_t &center, double width, do
   width_(width),
   height_(height)
 {
-	if (width_ <= 0)
-	{
-		throw std::invalid_argument("Problematic width");
-	}
-	if (height_ <= 0)
-	{
-		throw std::invalid_argument("Problematic height");
-	}
+  if (width_ <= 0)
+  {
+    throw std::invalid_argument("Problematic width");
+  }
+  if (height_ <= 0)
+  {
+    throw std::invalid_argument("Problematic height");
+  }
 }
 
 double bessonov::Rectangle::getArea() const
@@ -24,7 +24,7 @@ double bessonov::Rectangle::getArea() const
 
 bessonov::rectangle_t bessonov::Rectangle::getFrameRect() const
 {
-  return {width_, height_, center_ };
+  return { width_, height_, center_ };
 }
 
 void bessonov::Rectangle::move(double dx, double dy)
@@ -40,10 +40,10 @@ void bessonov::Rectangle::move(const point_t &newCenter)
 
 void bessonov::Rectangle::scale(double factor)
 {
-	if (factor <= 0)
-	{
-		throw std::invalid_argument("Problematic factor");
-	}
-	width_ *= factor;
-	height_ *= factor;
+  if (factor <= 0)
+  {
+    throw std::invalid_argument("Problematic factor");
+  }
+  width_ *= factor;
+  height_ *= factor;
 }
