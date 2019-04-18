@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "common/shape.hpp"
-#include "common/circle.hpp"
-#include "common/rectangle.hpp"
+#include "shape.hpp"
+#include "circle.hpp"
+#include "rectangle.hpp"
 
 void printInfo(const bogdanov::Shape &shape)
 {

@@ -1,8 +1,8 @@
 #define BOOST_TEST_MODULE A2
 
-#include "common/shape.hpp"
-#include "common/rectangle.hpp"
-#include "common/circle.hpp"
+#include "shape.hpp"
+#include "rectangle.hpp"
+#include "circle.hpp"
 #include <boost/test/included/unit_test.hpp>
 #include <boost/test/floating_point_comparison.hpp>
 #include <stdexcept>
