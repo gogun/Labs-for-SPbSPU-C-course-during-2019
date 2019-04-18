@@ -7,38 +7,38 @@ width_(width),
 height_(height),
 pos_(center)
 {
-    assert(width > 0);
-    assert(height > 0);
+  assert(width > 0);
+  assert(height > 0);
 }
 
 double Rectangle::getArea() const
 {
-    return width_ * height_;
+  return width_ * height_;
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-    return {width_, height_, pos_};
+  return {width_, height_, pos_};
 }
 
 void Rectangle::move(const point_t &point)
 {
-    pos_ = point;
+  pos_ = point;
 }
 
 void Rectangle::move(const double dx, const double dy)
 {
-    pos_.x += dx;
-    pos_.y += dy;
+  pos_.x += dx;
+  pos_.y += dy;
 }
 
 void Rectangle::printInfo() const
 {
-    std::cout << "Rectangle:"
-    << "\n  Width: " << width_
-    << "\n  Height: " << height_
-    << "\n  Position:"
-    << "\n    x: " << pos_.x
-    << "\n    y: " << pos_.y
-    << "\n  Area: " << this->getArea() << "\n\n";
+  std::cout << "Rectangle:"
+  << "\n  Width: " << width_
+  << "\n  Height: " << height_
+  << "\n  Position:"
+  << "\n    x: " << pos_.x
+  << "\n    y: " << pos_.y
+  << "\n  Area: " << this->getArea() << "\n\n";
 }
