@@ -13,11 +13,12 @@ public:
   CompositeShape(const CompositeShape&);
   CompositeShape(CompositeShape&&) noexcept;
 
-  const CompositeShape& operator = (const CompositeShape&);
-  const CompositeShape& operator = (CompositeShape&&) noexcept;
+  const CompositeShape& operator =  (const CompositeShape&);
+  const CompositeShape& operator =  (CompositeShape&&) noexcept;
+  Shape*                operator [] (std::size_t) const;
 
   double                 getArea()                const noexcept override;
-  rectangle_t            getFrameRect()           const noexcept override; 
+  rectangle_t            getFrameRect()           const noexcept override;
   std::unique_ptr<Shape> cloneUnique()            const          override;
   void                   printData(std::ostream&) const          override;
   void                   move(const point_t&)           noexcept override;
@@ -25,16 +26,14 @@ public:
   void                   scale(double)                           override;
 
   std::size_t getSize() const noexcept;
-  void add(const std::unique_ptr<Shape>&);
-  void add(std::unique_ptr<Shape>&&);
+  void        add(const Shape*);
+  void        remove(std::size_t);
 
 private:
-
-  std::size_t                               size_;
-  rectangle_t                               frame_rect_{};
+  std::size_t                               count_;
   std::unique_ptr<std::unique_ptr<Shape>[]> shapes_;
 
-  void computeFrameRect() noexcept;
+  rectangle_t computeFrameRect() const noexcept;
   static void swap(CompositeShape& l, CompositeShape& r) noexcept;
 };
 
