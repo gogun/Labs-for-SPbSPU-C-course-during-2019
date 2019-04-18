@@ -11,23 +11,23 @@ const double FAULT = 0.01;
 BOOST_AUTO_TEST_CASE(testRectangleAfterMove) {
   sachuk::Rectangle testRect({12, 3}, 13, 10);
   const double areaBeforeMove = testRect.getArea();
-  const sachuk::rectangle_t rectBeforeMove = testRect.getFrameRect();
+  const sachuk::rectangle_t frameBeforeMove = testRect.getFrameRect();
 
   testRect.move({4, 9});
 
   double areaAfterMove = testRect.getArea();
-  sachuk::rectangle_t rectAfterMove = testRect.getFrameRect();
+  sachuk::rectangle_t frameAfterMove = testRect.getFrameRect();
   BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, FAULT);
-  BOOST_CHECK_CLOSE(rectBeforeMove.width, rectAfterMove.width, FAULT);
-  BOOST_CHECK_CLOSE(rectBeforeMove.height, rectAfterMove.height, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, frameAfterMove.width, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, frameAfterMove.height, FAULT);
 
   testRect.move(4, 5);
 
   areaAfterMove = testRect.getArea();
-  rectAfterMove = testRect.getFrameRect();
+  frameAfterMove = testRect.getFrameRect();
   BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, FAULT);
-  BOOST_CHECK_CLOSE(rectBeforeMove.width, rectAfterMove.width, FAULT);
-  BOOST_CHECK_CLOSE(rectBeforeMove.height, rectAfterMove.height, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, frameAfterMove.width, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, frameAfterMove.height, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(testRectangleScale) {
@@ -51,23 +51,23 @@ BOOST_AUTO_TEST_CASE(testRectangleParameters) {
 BOOST_AUTO_TEST_CASE(testCircleAfterMove) {
   sachuk::Circle testCircle({2, 5}, 8);
   const double areaBeforeMove = testCircle.getArea();
-  const sachuk::rectangle_t frameRectBefore = testCircle.getFrameRect();
+  const sachuk::rectangle_t frameBeforeMove = testCircle.getFrameRect();
 
   testCircle.move({6, 8});
 
   double areaAfterMove = testCircle.getArea();
-  sachuk::rectangle_t frameRectAfter = testCircle.getFrameRect();
+  sachuk::rectangle_t frameAfterMove = testCircle.getFrameRect();
   BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, FAULT);
-  BOOST_CHECK_CLOSE(frameRectBefore.width, frameRectAfter.width, FAULT);
-  BOOST_CHECK_CLOSE(frameRectBefore.height, frameRectAfter.height, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, frameAfterMove.width, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, frameAfterMove.height, FAULT);
 
   testCircle.move(6, 8);
 
   areaAfterMove = testCircle.getArea();
-  frameRectAfter = testCircle.getFrameRect();
+  frameAfterMove = testCircle.getFrameRect();
   BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, FAULT);
-  BOOST_CHECK_CLOSE(frameRectBefore.width, frameRectAfter.width, FAULT);
-  BOOST_CHECK_CLOSE(frameRectBefore.height, frameRectAfter.height, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, frameAfterMove.width, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, frameAfterMove.height, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(testCircleScale) {
