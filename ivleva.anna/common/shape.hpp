@@ -16,4 +16,5 @@ namespace ivleva
     virtual void scale(double coefficient) = 0;
   };
 }
+
 #endif

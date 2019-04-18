@@ -13,7 +13,7 @@ int main()
   shapePtr->print();
   std::cout << "2) Moving to the point (" << 4 << "; " << 3 << ")\n";
   shapePtr->move({4, 3});
-  shapePtr->scale(2.0);
+  shapePtr->scale(2.1);
   shapePtr->print();
   std::cout << std::endl;
     

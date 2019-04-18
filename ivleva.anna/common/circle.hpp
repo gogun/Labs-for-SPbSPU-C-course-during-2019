@@ -20,5 +20,4 @@ namespace ivleva
     point_t center_;
   };
 }
-
 #endif

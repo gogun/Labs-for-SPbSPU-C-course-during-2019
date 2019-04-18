@@ -19,4 +19,5 @@ namespace ivleva
     rectangle_t rect_;
   };
 }
+
 #endif

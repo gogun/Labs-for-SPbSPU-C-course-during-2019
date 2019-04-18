@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(quadraticAreaChanging)
 {
   ivleva::Rectangle rectangle({ 4, 2, {1, 3} });
   double areaBefore = rectangle.getArea();
-  double coefficient = 2.2;
+  double coefficient = 2.0;
   rectangle.scale(coefficient);
   double areaAfter = rectangle.getArea();
   BOOST_CHECK_CLOSE(areaBefore*coefficient*coefficient, areaAfter, accuracy);
