@@ -45,7 +45,7 @@ void ivleva::Circle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-    throw std::invalid_argument("The coefficient must be positive");
+    throw std::invalid_argument("The coefficient need to be positive");
   }
   radius_ *= coefficient;
 }
