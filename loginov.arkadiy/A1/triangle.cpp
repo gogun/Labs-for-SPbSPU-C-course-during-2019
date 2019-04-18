@@ -55,3 +55,10 @@ point_t Triangle::getCentre() const
 {
   return { (p1_.x + p2_.x + p3_.x) / 3, (p1_.y + p2_.y + p3_.y) / 3 };
 }
+
+double Triangle::getLength(const point_t &p1, const point_t &p2) const
+{
+  double dx = p2.x - p1.x;
+  double dy = p2.y - p1.y;
+  return sqrt(dx * dx + dy * dy);
+}
