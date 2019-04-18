@@ -16,9 +16,8 @@ public:
 
 private:
   point_t p1_, p2_, p3_;
+  // cache length to reduce computations
   double const length12_, length23_, length13_;
-
-  double getLength(const point_t &, const point_t &) const;
 };
 
 #endif

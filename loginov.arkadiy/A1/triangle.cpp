@@ -10,9 +10,10 @@ Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
   length23_(getLength(p2, p3)),
   length13_(getLength(p1, p3))
 {
+  const double EPSILON = 1e-6;
   double maxLength = std::fmax(length12_, std::fmax(length23_, length13_));
   double sumOther = length12_ + length23_ + length13_ - maxLength;
-  assert(sumOther > maxLength);
+  assert(sumOther - EPSILON > maxLength);
 }
 
 double Triangle::getArea() const
@@ -31,7 +32,7 @@ rectangle_t Triangle::getFrameRect() const
   double height = bottom - top;
   double x0 = (left + right) / 2;
   double y0 = (top + bottom) / 2;
-  return { width, height, { x0, y0 } };
+  return { width, height, { x0, y0 }};
 }
 
 void Triangle::move(double dx, double dy)
@@ -48,13 +49,6 @@ void Triangle::move(const point_t &point)
 {
   point_t preCentre = getCentre();
   move(point.x - preCentre.x, point.y - preCentre.y);
-}
-
-double Triangle::getLength(const point_t &p1, const point_t &p2) const
-{
-  double dx = p2.x - p1.x;
-  double dy = p2.y - p1.y;
-  return sqrt(dx * dx + dy * dy);
 }
 
 point_t Triangle::getCentre() const
