@@ -12,7 +12,7 @@ kotov::Circle::Circle(const kotov::point_t &center, double radius) :
   }
 }
 
-const char* kotov::Circle::getShapeName() const
+const char *kotov::Circle::getShapeName() const
 {
   return "circle";
 }
