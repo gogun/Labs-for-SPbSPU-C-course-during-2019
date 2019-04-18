@@ -7,30 +7,37 @@
 
 BOOST_AUTO_TEST_SUITE(A2_test_suite)
 
-  const double Value = 0.01;
+  const double Inaccuracy = 0.01;
 
-  BOOST_AUTO_TEST_CASE(circle_invar_after_move)
+  BOOST_AUTO_TEST_CASE(circle_invar_after_absolute_move)
+  {
+    korshunov::Circle testCircle({7, 7}, 7);
+    const korshunov::rectangle_t testFrameBefore = testCircle.getFrameRect();
+    const double testAreaBefore = testCircle.getArea();
+
+    testCircle.move({23, 49});
+    korshunov::rectangle_t testFrameAfter = testCircle.getFrameRect();
+    double testAreaAfter = testCircle.getArea();
+    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Inaccuracy);
+    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Inaccuracy);
+    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Inaccuracy);
+  }
+
+  BOOST_AUTO_TEST_CASE(circle_invar_after_relative_move)
   {
     korshunov::Circle testCircle({ 7, 7 }, 7);
     const korshunov::rectangle_t testFrameBefore = testCircle.getFrameRect();
     const double testAreaBefore = testCircle.getArea();
 
-    testCircle.move({ 23, 49 });
+    testCircle.move(23, 17);
     korshunov::rectangle_t testFrameAfter = testCircle.getFrameRect();
     double testAreaAfter = testCircle.getArea();
-    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Value);
-    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Value);
-    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Value);
-
-    testCircle.move(27, 1);
-    testFrameAfter = testCircle.getFrameRect();
-    testAreaAfter = testCircle.getArea();
-    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Value);
-    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Value);
-    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Value);
+    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Inaccuracy);
+    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Inaccuracy);
+    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Inaccuracy);
   }
 
-  BOOST_AUTO_TEST_CASE(rectangle_invar_after_move)
+  BOOST_AUTO_TEST_CASE(rectangle_invar_after_absolute_move)
   {
     korshunov::Rectangle testRectangle({ 7, 7 }, 7, 17);
     const korshunov::rectangle_t testFrameBefore = testRectangle.getFrameRect();
@@ -39,16 +46,23 @@ BOOST_AUTO_TEST_SUITE(A2_test_suite)
     testRectangle.move({ 27, 37 });
     korshunov::rectangle_t testFrameAfter = testRectangle.getFrameRect();
     double testAreaAfter = testRectangle.getArea();
-    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Value);
-    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Value);
-    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Value);
+    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Inaccuracy);
+    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Inaccuracy);
+    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Inaccuracy);
+  }
 
-    testRectangle.move(23, 13);
-    testFrameAfter = testRectangle.getFrameRect();
-    testAreaAfter = testRectangle.getArea();
-    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Value);
-    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Value);
-    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Value);
+  BOOST_AUTO_TEST_CASE(rectangle_invar_after_relative_move)
+  {
+    korshunov::Rectangle testRectangle({ 7, 7 }, 7, 17);
+    const korshunov::rectangle_t testFrameBefore = testRectangle.getFrameRect();
+    const double testAreaBefore = testRectangle.getArea();
+
+    testRectangle.move(17, 13);
+    korshunov::rectangle_t testFrameAfter = testRectangle.getFrameRect();
+    double testAreaAfter = testRectangle.getArea();
+    BOOST_CHECK_CLOSE(testFrameBefore.width, testFrameAfter.width, Inaccuracy);
+    BOOST_CHECK_CLOSE(testFrameBefore.height, testFrameAfter.height, Inaccuracy);
+    BOOST_CHECK_CLOSE(testAreaBefore, testAreaAfter, Inaccuracy);
   }
 
   BOOST_AUTO_TEST_CASE(quadr_change_area_circle)
@@ -58,7 +72,7 @@ BOOST_AUTO_TEST_SUITE(A2_test_suite)
     const double coefScale = 7;
 
     testCircle.scale(coefScale);
-    BOOST_CHECK_CLOSE(testCircle.getArea(), coefScale * coefScale * testAreaBefore, Value);
+    BOOST_CHECK_CLOSE(testCircle.getArea(), coefScale * coefScale * testAreaBefore, Inaccuracy);
   }
 
   BOOST_AUTO_TEST_CASE(quadr_change_area_rectangle)
@@ -68,7 +82,7 @@ BOOST_AUTO_TEST_SUITE(A2_test_suite)
     const double coefScale = 7;
 
     testRectangle.scale(coefScale);
-    BOOST_CHECK_CLOSE(testRectangle.getArea(), coefScale * coefScale * testAreaBefore, Value);
+    BOOST_CHECK_CLOSE(testRectangle.getArea(), coefScale * coefScale * testAreaBefore, Inaccuracy);
   }
 
   BOOST_AUTO_TEST_CASE(throwing_exceptions)
