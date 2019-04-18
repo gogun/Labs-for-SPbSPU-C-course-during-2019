@@ -80,7 +80,7 @@ BOOST_AUTO_TEST_CASE(quadraticAreaChanging)
 
 BOOST_AUTO_TEST_CASE(incorrectParametersSearching)
 {
-	ivleva::Rectangle rectangle({ 4, 2, { 1, 3 } });
+  ivleva::Rectangle rectangle({ 4, 2, { 1, 3 } });
   BOOST_CHECK_THROW(rectangle.scale(-2.2), std::invalid_argument);
 }
 
