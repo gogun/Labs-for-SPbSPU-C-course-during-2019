@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_CASE(moveRectangleTest)
 
 BOOST_AUTO_TEST_CASE(moveTriangleTest)
 {
-  neupokoev::Triangle testTriangle({ 3, 4 }, 5, 6, 7);
+  neupokoev::Triangle testTriangle({0, 0}, {4, 1}, {3, 7});
   const neupokoev::rectangle_t InitialFrameRect = testTriangle.getFrameRect();
   const double InitialArea = testTriangle.getArea();
 
@@ -86,7 +86,7 @@ BOOST_AUTO_TEST_CASE(areaAfterScalingRectangleTest)
 
 BOOST_AUTO_TEST_CASE(areaAfterScalingTriangleTest)
 {
-  neupokoev::Triangle testTriangle({ 4, 5 }, 6, 7, 8);
+  neupokoev::Triangle testTriangle({ 0, 0 }, { 4, 1 }, { 3, 7 });
   const double InitialArea = testTriangle.getArea();
   const double scaleFactor = 4;
 
@@ -113,15 +113,14 @@ BOOST_AUTO_TEST_CASE(invalidScaleArgumentsRectangle)
 
 BOOST_AUTO_TEST_CASE(invalidScaleArgumentsTriangle)
 {
-  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, -4, 6), std::invalid_argument);
-  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, -3, 4, 6), std::invalid_argument);
-  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, 4, -6), std::invalid_argument);
-  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, 10, 6), std::invalid_argument);
-  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 3, 4, 10), std::invalid_argument);
-  BOOST_CHECK_THROW(neupokoev::Triangle({ 1, 2 }, 10, 4, 5), std::invalid_argument);
-
-  neupokoev::Triangle testTriangle({ 1, 2 }, 3, 4, 6);
+  neupokoev::Triangle testTriangle({ 0, 0 }, { 4, 1 }, { 3, 7 });
   BOOST_CHECK_THROW(testTriangle.scale(-5), std::invalid_argument);
+}
+
+BOOST_AUTO_TEST_CASE(invalidPointsTriangle)
+{
+  BOOST_CHECK_THROW(neupokoev::Triangle({ 0, 0 }, { 4, 0 }, { 8, 0 }), std::invalid_argument);
+  BOOST_CHECK_THROW(neupokoev::Triangle({ 0, 0 }, { 0, 0 }, { 0, 0 }), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
