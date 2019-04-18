@@ -7,18 +7,18 @@ Rectangle::Rectangle(const point_t &pos, const double width, const double height
   width_(width),
   height_(height)
 {
-  if (width_ <= 0.0)
+  if (width_ <= 0)
   {
     throw std::invalid_argument("Width must be > 0.0!");
   }
 
-  if (height_ <= 0.0)
+  if (height_ <= 0)
   {
     throw std::invalid_argument("Height must be > 0.0!");
   }
 }
 
-point_t Rectangle::getPos() const
+point_t Rectangle::getPosition() const
 {
   return pos_;
 }
@@ -50,5 +50,5 @@ void Rectangle::printInformation() const
   std::cout << "Width: " << getFrameRect().width << ", height: " << getFrameRect().height << std::endl
       << "Position: (" << pos_.x << ", " << pos_.y << ")" << std::endl
       << "Area: " << getArea() << std::endl
-      << "Frame Rectangle: " << getFrameRect().width << ", " << getFrameRect().height << std::endl;
+      << "Frame Rectangle: width - " << getFrameRect().width << ", height - " << getFrameRect().height << std::endl;
 }

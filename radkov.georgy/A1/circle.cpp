@@ -7,13 +7,13 @@ Circle::Circle(const point_t &pos, const double radius) :
   pos_(pos),
   radius_(radius)
 {
-  if (radius_ <= 0.0)
+  if (radius_ <= 0)
   {
     throw std::invalid_argument("Radius must be > 0.0!");
   }
 }
 
-point_t Circle::getPos() const
+point_t Circle::getPosition() const
 {
   return pos_;
 }
@@ -50,5 +50,5 @@ void Circle::printInformation() const
   std::cout << "Radius: " << getRadius() << std::endl
       << "Position: (" << pos_.x << ", " << pos_.y << ")" << std::endl
       << "Area: " << getArea() << std::endl
-      << "Frame Rectangle: " << getFrameRect().width << ", " << getFrameRect().height << std::endl;
+      << "Frame Rectangle: width - " << getFrameRect().width << ", height - " << getFrameRect().height << std::endl;
 }

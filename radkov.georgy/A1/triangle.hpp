@@ -7,7 +7,7 @@ class Triangle:
 {
 public:
   Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &pos_c);
-  point_t getPos() const override;
+  point_t getPosition() const override;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t &pos) override;
@@ -15,7 +15,7 @@ public:
   void printInformation() const override;
 
 private:
-  point_t corners_[3];
+  point_t points_[3];
 };
 
 #endif
