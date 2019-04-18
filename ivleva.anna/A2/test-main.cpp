@@ -40,7 +40,8 @@ BOOST_AUTO_TEST_CASE(quadraticAreaChanging)
 
 BOOST_AUTO_TEST_CASE(incorrectParametersSearching)
 {
-  BOOST_CHECK_THROW(ivleva::Circle(-1, { 2, 3 }), std::invalid_argument);
+  ivleva::Circle circle(6, { 2, 3 });
+  BOOST_CHECK_THROW(circle.scale(-2.0), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
@@ -79,7 +80,8 @@ BOOST_AUTO_TEST_CASE(quadraticAreaChanging)
 
 BOOST_AUTO_TEST_CASE(incorrectParametersSearching)
 {
-  BOOST_CHECK_THROW(ivleva::Rectangle({ -4, 2, {1, 3} }), std::invalid_argument);
+  ivleva::Rectangle rectangle(4, 2, { 1, 3 });
+  BOOST_CHECK_THROW(rectangle.scale(-2.2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
