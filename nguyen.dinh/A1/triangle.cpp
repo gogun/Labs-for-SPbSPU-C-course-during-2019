@@ -29,9 +29,7 @@ rectangle_t Triangle::getFrameRect() const
   const double minwidth = std::min(std::min(m_corner_1.x, m_corner_2.x), m_corner_3.x);
   const double maxheight = std::max(std::min(m_corner_1.y, m_corner_2.y), m_corner_3.y);
   const double maxwidth = std::max(std::min(m_corner_1.x, m_corner_2.x),m_corner_3.x);
-  
   point_t center{ minwidth + (maxwidth - minwidth) / 2 , minheight + (maxheight - minheight) / 2 };
-  
   return {maxwidth - minwidth, maxheight - minheight, center};
 }
 
@@ -50,7 +48,6 @@ void Triangle::move(const double dx, const double dy)
   m_corner_1.y += dy;
   m_corner_2.y += dy;
   m_corner_3.y += dy;
-  
   m_center.x = (m_corner_1.x + m_corner_2.x + m_corner_3.x) / 3;
   m_center.y = (m_corner_1.y + m_corner_2.y + m_corner_3.y) / 3;
 }
