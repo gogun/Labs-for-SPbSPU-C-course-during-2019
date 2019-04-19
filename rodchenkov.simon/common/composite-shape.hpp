@@ -15,7 +15,7 @@ public:
 
   const CompositeShape& operator =  (const CompositeShape&);
   const CompositeShape& operator =  (CompositeShape&&) noexcept;
-  Shape*                operator [] (std::size_t) const;
+  Shape&                operator [] (std::size_t) const;
 
   double                 getArea()                const noexcept override;
   rectangle_t            getFrameRect()           const noexcept override;

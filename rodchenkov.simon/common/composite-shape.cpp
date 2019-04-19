@@ -36,10 +36,10 @@ const rodchenkov::CompositeShape& rodchenkov::CompositeShape::operator=(Composit
   return *this;
 }
 
-rodchenkov::Shape* rodchenkov::CompositeShape::operator [](const std::size_t n) const
+rodchenkov::Shape& rodchenkov::CompositeShape::operator [](const std::size_t n) const
 {
   if (n < count_) {
-    return shapes_[n].get();
+    return *shapes_[n];
   }
   throw std::out_of_range{"index was out of range in CompositeShape::operator[]"};
 }

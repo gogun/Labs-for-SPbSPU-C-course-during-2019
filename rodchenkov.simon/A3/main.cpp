@@ -12,6 +12,7 @@ int main()
     cs.add(rodchenkov::Rectangle{{10, 10}, 10, 10});
     cs.add(rodchenkov::Circle{{15, 15}, 5});
     cs.printData(std::cout);
+    cs[1].scale(2);
     cs.printData(std::cout);
     cs.remove(1);
     cs.printData(std::cout);
