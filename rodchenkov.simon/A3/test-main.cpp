@@ -159,6 +159,50 @@ BOOST_AUTO_TEST_CASE(composite_shape_removing_t)
   BOOST_CHECK_CLOSE(currFrame.height, 0, INACCURACY);
 }
 
+BOOST_AUTO_TEST_CASE(composite_shape_independent_scaling_t)
+{
+  rodchenkov::CompositeShape testComposite{};
+  testComposite.add(rodchenkov::Rectangle{{10, 10}, 10, 10});
+  testComposite.add(rodchenkov::Circle{{15, 15}, 5});
+  testComposite[1].scale(2);
+  rodchenkov::rectangle_t currFrame = testComposite.getFrameRect();
+  BOOST_CHECK_CLOSE(currFrame.pos.x, 15, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.pos.y, 15, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.width, 20, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.height, 20, INACCURACY);
+  testComposite[0].scale(2);
+  currFrame = testComposite.getFrameRect();
+  BOOST_CHECK_CLOSE(currFrame.pos.x, 12,5, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.pos.y, 12,5, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.width, 25, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.height, 25, INACCURACY);
+}
+
+BOOST_AUTO_TEST_CASE(composite_shape_independent_moving_t)
+{
+  rodchenkov::CompositeShape testComposite{};
+  testComposite.add(rodchenkov::Rectangle{{10, 10}, 10, 10});
+  testComposite.add(rodchenkov::Rectangle{{10, 10}, 10, 10});
+  testComposite.add(rodchenkov::Rectangle{{10, 10}, 10, 10});
+  rodchenkov::rectangle_t currFrame = testComposite.getFrameRect();
+  BOOST_CHECK_CLOSE(currFrame.pos.x, 10, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.pos.y, 10, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.width, 10, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.height, 10, INACCURACY);
+  testComposite[1].move(10, 0);
+  currFrame = testComposite.getFrameRect();
+  BOOST_CHECK_CLOSE(currFrame.pos.x, 15, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.pos.y, 10, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.width, 20, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.height, 10, INACCURACY);
+  testComposite[2].move(10, 10);
+  currFrame = testComposite.getFrameRect();
+  BOOST_CHECK_CLOSE(currFrame.pos.x, 15, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.pos.y, 15, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.width, 20, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.height, 20, INACCURACY);
+}
+
 BOOST_AUTO_TEST_CASE(composite_shape_index_operator_exception_t)
 {
   rodchenkov::CompositeShape testComposite{};
