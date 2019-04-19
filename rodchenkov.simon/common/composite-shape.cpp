@@ -26,13 +26,13 @@ rodchenkov::CompositeShape::CompositeShape(CompositeShape&& cs) noexcept :
 const rodchenkov::CompositeShape& rodchenkov::CompositeShape::operator=(const CompositeShape& cs)
 {
   CompositeShape temp(cs);
-  swap(*this, temp);
+  swap(temp);
   return *this;
 }
 
 const rodchenkov::CompositeShape& rodchenkov::CompositeShape::operator=(CompositeShape&& cs) noexcept
 {
-  swap(*this, cs);
+  swap(cs);
   return *this;
 }
 
@@ -163,8 +163,8 @@ rodchenkov::rectangle_t rodchenkov::CompositeShape::computeFrameRect() const noe
   return {0, 0, {0, 0}};
 }
 
-void rodchenkov::CompositeShape::swap(CompositeShape& l, CompositeShape& r) noexcept
+void rodchenkov::CompositeShape::swap(CompositeShape& r) noexcept
 {
-  std::swap(l.count_, r.count_);
-  std::swap(l.shapes_, r.shapes_);
+  std::swap(count_, r.count_);
+  std::swap(shapes_, r.shapes_);
 }
