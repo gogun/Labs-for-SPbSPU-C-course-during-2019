@@ -33,8 +33,8 @@ double Rectangle::getHeight() const
 void Rectangle::printParameters() const
 {
   point_t point = getPos();
-  std::cout << "rectangle: x=" << point.x << ", y=" << point.y << ", width="
-      << getWidth() << ", height=" << getHeight() << std::endl << std::endl;
+  std::cout << "rectangle: x = " << point.x << ", y = " << point.y << ", width = "
+      << getWidth() << ", height = " << getHeight() << std::endl << std::endl;
 }
 
 double Rectangle::getArea() const

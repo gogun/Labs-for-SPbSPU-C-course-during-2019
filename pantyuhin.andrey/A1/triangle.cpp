@@ -6,7 +6,7 @@
 Triangle::Triangle(point_t vertexA, point_t vertexB, point_t vertexC):
     vertex_{vertexA, vertexB, vertexC}
 {
-  assert(((vertexC.x - vertexA.x) / (vertexB.x - vertexA.x) != (vertexC.y - vertexA.y) / (vertexB.y - vertexA.y))
+  assert(((vertexC.x - vertexA.x) * (vertexB.y - vertexA.y) != (vertexC.y - vertexA.y) * (vertexB.x - vertexA.x))
       && "vertexes of triangle can't lie on the same straight line or match");
 }
 
@@ -40,7 +40,7 @@ void Triangle::printParameters() const
 
 double Triangle::getArea() const
 {
-  double semiPerimeter = 0.5 * getPerimeter();
+  double semiPerimeter = getPerimeter() / 2;
   double side1 = getSide(0, 1);
   double side2 = getSide(1, 2);
   double side3 = getSide(2, 0);
@@ -55,7 +55,7 @@ rectangle_t Triangle::getFrameRect() const
   double minX = std::min(std::min(vertex_[0].x, vertex_[1].x), vertex_[2].x);
   double minY = std::min(std::min(vertex_[0].y, vertex_[1].y), vertex_[2].y);
 
-  return {{(maxX - minX)/2, (maxY - minY)/2}, maxX - minX, maxY - minY};
+  return {{(maxX - minX) / 2, (maxY - minY) / 2}, maxX - minX, maxY - minY};
 }
 
 void Triangle::move(double dx, double dy)
