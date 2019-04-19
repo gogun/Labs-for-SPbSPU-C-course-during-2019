@@ -34,7 +34,7 @@ void Circle::move(const point_t &point)
 void Circle::printInfo() const
 {
   std::cout << "area_of_circle_=" << getArea()
-			<< "\n  Radius: " << Rcircle_
-			<< "position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
+  << "\n  Radius: " << Rcircle_
+  << "position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
 }
 
