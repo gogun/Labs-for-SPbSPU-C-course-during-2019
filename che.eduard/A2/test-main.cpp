@@ -27,11 +27,11 @@ BOOST_AUTO_TEST_CASE(Circle_Immutability_After_Moving)
 
 BOOST_AUTO_TEST_CASE(Circle_Scale_Tetsting)
 {
-  che::Circle testCircle({ 2.0, 3.5 }, 1.5);
+  che::Circle testCircle({2.0, {3.5 , 1.5}});
   const double AreaBeforeScaling = testCircle.getArea();
-  testCircle.scale(1.8);
-  double AreaAfterScaling = testCircle.getArea();
-  BOOST_CHECK_CLOSE(AreaBeforeScaling * AreaBeforeScaling, AreaAfterScaling, ACCURACY);
+  const double coef = 1.8;
+  testCircle.scale(coef);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), AreaBeforeScaling * coef * coef, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Circle_Invalid_Values)
@@ -67,14 +67,15 @@ BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
 {
   che::Rectangle testRectangle({4.0, 9.0,{2.0, 5.0}});
   const double AreaBeforeScaling = testRectangle.getArea();
-  testRectangle.scale(2.2);
-  const double AreaAfterScaling = testRectangle.getArea();
-  BOOST_CHECK_CLOSE(AreaBeforeScaling * AreaBeforeScaling, AreaAfterScaling, ACCURACY);
+  const double coef = 2.2;
+  testRectangle.scale(coef)
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), AreaBeforeScaling * coef * coef, ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Rectangle_Invalid_Values)
 {
   BOOST_CHECK_THROW(che::Rectangle testRectangle({ 2.0, 4.0, { -3.0, 5.0}}), std::invalid_argument);
+  BOOST_CHECK_THROW(che::Rectangle testRectangle({ 2.0, 4.0, {-2.5, -1.0}}), std::invalid_argument);
   che::Rectangle testRectangle({ 2.0, 2.0,{ 5.0, 10.0}});
   BOOST_CHECK_THROW(testRectangle.scale(0), std::invalid_argument);
 }
