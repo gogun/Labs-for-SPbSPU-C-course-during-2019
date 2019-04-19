@@ -28,13 +28,13 @@ public:
   std::size_t getSize() const noexcept;
   void        add(const Shape&);
   void        remove(std::size_t);
+  void        swap(CompositeShape& r) noexcept;
 
 private:
   std::size_t                               count_;
   std::unique_ptr<std::unique_ptr<Shape>[]> shapes_;
 
   rectangle_t computeFrameRect() const noexcept;
-  static void swap(CompositeShape& l, CompositeShape& r) noexcept;
 };
 
 } // namespace rodchenkov
