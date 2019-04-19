@@ -2,7 +2,6 @@
 #include <iostream>
 #include <stdexcept>
 #include <cmath>
-#include "base-types.hpp"
 
 gusarov::Circle::Circle(const point_t &center,const double radius):
   radius_(radius),

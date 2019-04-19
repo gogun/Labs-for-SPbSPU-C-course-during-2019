@@ -1,7 +1,6 @@
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
 #include "base-types.hpp"
-#include "shape.hpp"
 
 namespace gusarov
 {
