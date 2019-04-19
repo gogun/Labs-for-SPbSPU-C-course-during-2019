@@ -172,8 +172,8 @@ BOOST_AUTO_TEST_CASE(composite_shape_independent_scaling_t)
   BOOST_CHECK_CLOSE(currFrame.height, 20, INACCURACY);
   testComposite[0].scale(2);
   currFrame = testComposite.getFrameRect();
-  BOOST_CHECK_CLOSE(currFrame.pos.x, 12,5, INACCURACY);
-  BOOST_CHECK_CLOSE(currFrame.pos.y, 12,5, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.pos.x, 12.5, INACCURACY);
+  BOOST_CHECK_CLOSE(currFrame.pos.y, 12.5, INACCURACY);
   BOOST_CHECK_CLOSE(currFrame.width, 25, INACCURACY);
   BOOST_CHECK_CLOSE(currFrame.height, 25, INACCURACY);
 }
