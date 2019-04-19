@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(TestCircleScaled)
 
 BOOST_AUTO_TEST_CASE(TestCircleParametrs)
 {
-  BOOST_CHECK_THROW(ryabikin::Circle (-1.00, { 16.00, 16.00 }), std::invalid_argument);
+  BOOST_CHECK_THROW(ryabikin::Circle(-1.00, { 16.00, 16.00 }), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(TestCircleScaleCoefficient)
@@ -102,8 +102,8 @@ BOOST_AUTO_TEST_CASE(TestRectangleScaled)
 
 BOOST_AUTO_TEST_CASE(TestRectangleParametrs)
 {
-  BOOST_CHECK_THROW(ryabikin::Rectangle (-1.00, 5.00, { 15.00, 15.00 }), std::invalid_argument);
-  BOOST_CHECK_THROW(ryabikin::Rectangle (5.00, -1.00, { 15.00, 15.00 }), std::invalid_argument);
+  BOOST_CHECK_THROW(ryabikin::Rectangle(-1.00, 5.00, { 15.00, 15.00 }), std::invalid_argument);
+  BOOST_CHECK_THROW(ryabikin::Rectangle(5.00, -1.00, { 15.00, 15.00 }), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(TestRectangleScaleCoefficient)
