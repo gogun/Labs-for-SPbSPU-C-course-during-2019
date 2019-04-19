@@ -141,13 +141,13 @@ std::unique_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneUnique() con
 rodchenkov::rectangle_t rodchenkov::CompositeShape::computeFrameRect() const noexcept
 {
   if (count_ > 0) {
-    double left   = shapes_[0]->getFrameRect().pos.x;
-    double right  = shapes_[0]->getFrameRect().pos.x;
-    double top    = shapes_[0]->getFrameRect().pos.y;
-    double bottom = shapes_[0]->getFrameRect().pos.y;
-    for (std::size_t i = 0; i < count_; i++) {
-      const rectangle_t currRect = shapes_[i]->getFrameRect();
-
+    rectangle_t currRect = shapes_[0]->getFrameRect();
+    double left   = shapes_[0]->getFrameRect().pos.x - currRect.width / 2;
+    double right  = shapes_[0]->getFrameRect().pos.x + currRect.width / 2;
+    double top    = shapes_[0]->getFrameRect().pos.y + currRect.height / 2;
+    double bottom = shapes_[0]->getFrameRect().pos.y - currRect.height / 2;
+    for (std::size_t i = 1; i < count_; i++) {
+      currRect = shapes_[i]->getFrameRect();
       double currLeft   = currRect.pos.x - currRect.width / 2;
       double currRight  = currRect.pos.x + currRect.width / 2;
       double currTop    = currRect.pos.y + currRect.height / 2;
@@ -158,9 +158,9 @@ rodchenkov::rectangle_t rodchenkov::CompositeShape::computeFrameRect() const noe
       top    = std::max(currTop, top);
       bottom = std::min(currBottom, bottom);
     }
-    return {fabs(top - bottom), fabs(right - left), {(left + right) / 2, (top + bottom) / 2}};
+    return { fabs(top - bottom), fabs(right - left), { (left + right) / 2, (top + bottom) / 2 } };
   }
-  return {0, 0, {0, 0}};
+  return { 0, 0, { 0, 0 } };
 }
 
 void rodchenkov::CompositeShape::swap(CompositeShape& r) noexcept
