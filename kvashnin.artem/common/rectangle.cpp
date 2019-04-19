@@ -33,7 +33,7 @@ void kvashnin::Rectangle::move(const double dx, const double dy)
 
 void kvashnin::Rectangle::scale(double coefficient)
 {
-  if(coefficient <= 0)
+  if (coefficient <= 0)
   {
     throw std::invalid_argument("coefficient can not be <= 0");
   }

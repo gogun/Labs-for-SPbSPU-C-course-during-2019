@@ -1,6 +1,6 @@
 #define BOOST_TEST_MODULE A2
-#include <boost/test/included/unit_test.hpp>
 #include <stdexcept>
+#include <boost/test/included/unit_test.hpp>
 #include "circle.hpp"
 #include "rectangle.hpp"
 
@@ -36,18 +36,20 @@ BOOST_AUTO_TEST_CASE(circleTestAfterScale)
 {
   kvashnin::Circle testingCircle({15, 15}, 10);
   const double testingArea = testingCircle.getArea();
-  testingCircle.scale(2);
-  BOOST_CHECK_CLOSE(testingCircle.getArea(), testingArea * 4, OFFSET);
+  const double scaleFactor = 2;
+  testingCircle.scale(scaleFactor);
+  BOOST_CHECK_CLOSE(testingCircle.getArea(), testingArea * scaleFactor * scaleFactor, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(circleTestFrameRectAreaScale)
 {
   kvashnin::Circle testingCircle({15, 15}, 10);
   const kvashnin::rectangle_t testingRect = testingCircle.getFrameRect();
-  testingCircle.scale(2);
+  const double scaleFactor = 2;
+  testingCircle.scale(scaleFactor);
   const kvashnin::rectangle_t supposedRect = testingCircle.getFrameRect();
-  BOOST_CHECK_CLOSE(testingRect.width * 2, supposedRect.width, OFFSET);
-  BOOST_CHECK_CLOSE(testingRect.height * 2, supposedRect.height, OFFSET);
+  BOOST_CHECK_CLOSE(testingRect.width * scaleFactor, supposedRect.width, OFFSET);
+  BOOST_CHECK_CLOSE(testingRect.height * scaleFactor, supposedRect.height, OFFSET);
   BOOST_CHECK_CLOSE(testingRect.pos.x, supposedRect.pos.x, OFFSET);
   BOOST_CHECK_CLOSE(testingRect.pos.y, supposedRect.pos.y, OFFSET);
 }
@@ -87,18 +89,20 @@ BOOST_AUTO_TEST_CASE(rectangleTestAreaScale)
 {
   kvashnin::Rectangle testingRectangle({4, 4}, 16, 20);
   const double testingArea = testingRectangle.getArea();
-  testingRectangle.scale(2);
-  BOOST_CHECK_CLOSE(testingRectangle.getArea(), testingArea * 4, OFFSET);
+  const double scaleFactor = 2;
+  testingRectangle.scale(scaleFactor);
+  BOOST_CHECK_CLOSE(testingRectangle.getArea(), testingArea * scaleFactor * scaleFactor, OFFSET);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleTestFrameRectAfterScale)
 {
   kvashnin::Rectangle testingRectangle({4, 4}, 16, 20);
   const kvashnin::rectangle_t testingRect = testingRectangle.getFrameRect();
-  testingRectangle.scale(2);
+  const double scaleFactor = 2;
+  testingRectangle.scale(scaleFactor);
   const kvashnin::rectangle_t supposedRect = testingRectangle.getFrameRect();
-  BOOST_CHECK_CLOSE(testingRect.width * 2, supposedRect.width, OFFSET);
-  BOOST_CHECK_CLOSE(testingRect.height * 2, supposedRect.height, OFFSET);
+  BOOST_CHECK_CLOSE(testingRect.width * scaleFactor, supposedRect.width, OFFSET);
+  BOOST_CHECK_CLOSE(testingRect.height * scaleFactor, supposedRect.height, OFFSET);
   BOOST_CHECK_CLOSE(testingRect.pos.x, supposedRect.pos.x, OFFSET);
   BOOST_CHECK_CLOSE(testingRect.pos.y, supposedRect.pos.y, OFFSET);
 }

@@ -7,7 +7,7 @@ kvashnin::Circle::Circle(const point_t &position, const double radius):
   pos_(position),
   radius_(radius)
 {
-  if(radius < 0)
+  if (radius < 0)
   {
     throw std::invalid_argument("radius can not be < 0");
   }
@@ -36,7 +36,7 @@ kvashnin::rectangle_t kvashnin::Circle::getFrameRect() const
 
 void kvashnin::Circle::scale(double coefficient)
 {
-  if(coefficient <= 0)
+  if (coefficient <= 0)
   {
     throw std::invalid_argument("coefficient can not be <= 0");
   }
