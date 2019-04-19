@@ -23,6 +23,5 @@ int main()
     std::cerr << "error: " << exc.what() << std::endl;
     return 2;
   }
-  system("pause");
   return 0;
 }
