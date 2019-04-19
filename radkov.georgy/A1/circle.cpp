@@ -13,16 +13,6 @@ Circle::Circle(const point_t &pos, const double radius) :
   }
 }
 
-point_t Circle::getPosition() const
-{
-  return pos_;
-}
-
-double Circle::getRadius() const
-{
-  return radius_;
-}
-
 double Circle::getArea() const
 {
   return M_PI * radius_ * radius_;

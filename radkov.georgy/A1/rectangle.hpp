@@ -6,7 +6,6 @@ class Rectangle : public Shape
 {
 public:
   Rectangle(const point_t &pos, const double width, const double height);
-  point_t getPosition() const override;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t &pos) override;
@@ -14,8 +13,7 @@ public:
 
 private:
   point_t pos_;
-  double width_;
-  double height_;
+  double width_, height_;
 };
 
 #endif
