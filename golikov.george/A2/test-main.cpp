@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_CASE(testRectangleImmutabilityScaling)
 BOOST_AUTO_TEST_CASE(testRectangleIncorrectParams)
 {
   golikov::Rectangle rectangle1({{5, 5}, 6, 4});
-  BOOST_CHECK_THROW(rectangle1, std::invalid_argument);
+  BOOST_CHECK_THROW(golikov::Rectangle rectangle1({{5, 5}, -6, 4}), std::invalid_argument);
   // check not positive width or height
   BOOST_CHECK_THROW(rectangle1.scale(-1), std::invalid_argument);
   BOOST_CHECK_THROW(rectangle1.scale(0), std::invalid_argument);
@@ -70,7 +70,7 @@ BOOST_AUTO_TEST_CASE(testCircleImmutabilityScaling)
 BOOST_AUTO_TEST_CASE(testCircleIncorrectParams)
 {
   golikov::Circle circle1(5, 5, 5);
-  BOOST_CHECK_THROW(circle1, std::invalid_argument);
+  BOOST_CHECK_THROW(golikov::Circle circle1(-2, 5, 5), std::invalid_argument);
   // check not positive width or height
   BOOST_CHECK_THROW(circle1.scale(-1), std::invalid_argument);
   BOOST_CHECK_THROW(circle1.scale(0), std::invalid_argument);
