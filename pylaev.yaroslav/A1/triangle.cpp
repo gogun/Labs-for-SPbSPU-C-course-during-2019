@@ -16,25 +16,16 @@ Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t
 
 point_t Triangle::getCenter() const
 {
-  point_t center = {0.0, 0.0};
-  for (int i = 0; i < nTops_; i++) {
-    center.x += coordinates_[i].x;
-    center.y += coordinates_[i].y;
-  }
-  return {center.x / 3, center.y / 3};
+  double summX = coordinates_[0].x + coordinates_[1].x + coordinates_[2].x;
+  double summY = coordinates_[0].y + coordinates_[1].y + coordinates_[2].y;
+
+  return {summX / 3, summY / 3};
 }
 
 double Triangle::getArea() const
 {
-  const int i = 0;
-
-  point_t side0 = {0.0, 0.0};
-  side0.x = coordinates_[i + 1].x - coordinates_[i].x;
-  side0.y = coordinates_[i + 1].y - coordinates_[i].y;
-
-  point_t side2 = {0.0, 0.0};
-  side2.x = coordinates_[i + 2].x - coordinates_[i].x;
-  side2.y = coordinates_[i + 2].y - coordinates_[i].y;
+  point_t side0 = {coordinates_[1].x - coordinates_[0].x, coordinates_[1].y - coordinates_[0].y};
+  point_t side2 = {coordinates_[2].x - coordinates_[0].x, coordinates_[2].y - coordinates_[0].y};
 
   return (0.5 * abs((side0.x * side2.y - side0.y * side2.x)));
 }
@@ -43,20 +34,20 @@ double Triangle::getSide(const int i) const
 {
   assert((i >= 0) && (i < nTops_));
 
-  return sqrt(pow(coordinates_[i + 1].x - coordinates_[i].x, 2) + pow(coordinates_[i + 1].y - coordinates_[i].y, 2));
+  return sqrt(pow(coordinates_[(i + 1) % nTops_].x - coordinates_[i].x, 2)
+      + pow(coordinates_[(i + 1) % nTops_].y - coordinates_[i].y, 2));
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
   //it's not points of triangle, it's convenient way to save max/min coordinates of triangle
   point_t maxCoordinates = coordinates_[0];
+  maxCoordinates.x = std::max(maxCoordinates.x, std::max(coordinates_[1].x, coordinates_[2].x));
+  maxCoordinates.y = std::max(maxCoordinates.y, std::max(coordinates_[1].y, coordinates_[2].y));
+
   point_t minCoordinates = coordinates_[0];
-  for (int i = 0; i < nTops_; i++) {
-    maxCoordinates.x = std::max(maxCoordinates.x, coordinates_[i].x);
-    maxCoordinates.y = std::max(maxCoordinates.y, coordinates_[i].y);
-    minCoordinates.x = std::min(minCoordinates.x, coordinates_[i].x);
-    minCoordinates.y = std::min(minCoordinates.y, coordinates_[i].y);
-  }
+  minCoordinates.x = std::min(maxCoordinates.x, std::min(coordinates_[1].x, coordinates_[2].x));
+  minCoordinates.y = std::min(maxCoordinates.y, std::min(coordinates_[1].y, coordinates_[2].y));
 
   double width = maxCoordinates.x - minCoordinates.x;
   double height = maxCoordinates.y - minCoordinates.y;
@@ -75,7 +66,7 @@ void Triangle::move(const double dx, const double dy)
   }
 }
 
-void Triangle::move(const point_t &pos)
+void Triangle::move(const point_t & pos)
 {
   move(pos.x - center_.x, pos.y - center_.y);
 }
