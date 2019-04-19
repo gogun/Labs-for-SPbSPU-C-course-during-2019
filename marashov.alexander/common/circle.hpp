@@ -5,7 +5,7 @@
 
 namespace marashov
 {
-  class Circle: public Shape
+  class Circle : public Shape
   {
   public:
     Circle(const point_t & center, double radius);

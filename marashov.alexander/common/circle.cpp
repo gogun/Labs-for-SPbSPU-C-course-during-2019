@@ -14,8 +14,10 @@ marashov::Circle::Circle(const point_t & center, double radius):
 }
 
 marashov::Circle::Circle(double centerX, double centerY, double radius):
-  Circle({centerX, centerY}, radius)
-{ }
+  Circle({ centerX, centerY }, radius)
+{
+
+}
 
 double marashov::Circle::getArea() const
 {
@@ -24,7 +26,7 @@ double marashov::Circle::getArea() const
 
 marashov::rectangle_t marashov::Circle::getFrameRect() const
 {
-  return {radius_ * 2, radius_ * 2, center_};
+  return { radius_ * 2, radius_ * 2, center_ };
 }
 
 void marashov::Circle::move(const point_t & pos)

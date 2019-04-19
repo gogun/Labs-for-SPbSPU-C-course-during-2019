@@ -7,15 +7,17 @@ marashov::Rectangle::Rectangle(const point_t & pos, double width, double height)
   width_(width),
   height_(height)
 {
-  if (width <= 0 || height <= 0)
+  if ((width <= 0) || (height <= 0))
   {
     throw std::invalid_argument("Width and height of the rectangle must be positive");
   }
 }
 
 marashov::Rectangle::Rectangle(double posX, double posY, double width, double height):
-  Rectangle({posX, posY}, width, height)
-{ }
+  Rectangle({ posX, posY }, width, height)
+{
+
+}
 
 double marashov::Rectangle::getArea() const
 {
@@ -24,7 +26,7 @@ double marashov::Rectangle::getArea() const
 
 marashov::rectangle_t marashov::Rectangle::getFrameRect() const
 {
-  return {width_, height_, center_};
+  return { width_, height_, center_ };
 }
 
 void marashov::Rectangle::move(const point_t & pos)

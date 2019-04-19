@@ -9,21 +9,15 @@ int main()
   // try для отлова исключений и завершения программы с ненулевым кодом возврата
   try
   {
-    // Создание круга и прямоугольника с помощью разных конструкторов:
-    // 1) с указанием центра фигуры при помощи координат
-    // 2) с указанием центра фигуры при помощи точки
     marashov::Circle circle1(0, 0, 5);
-    marashov::Rectangle rectangle1({1, 1}, 10, 20);
-
     circle1.writeInfo();
-    rectangle1.writeInfo();
 
     // shape указывает на экземпляр круга
     marashov::Shape *shape = &circle1;
 
     // Демострация перемещения центра круга:
     // 1) при помощи смещения в заданную точку
-    shape->move({10, 10});
+    shape->move({ 10, 10 });
 
     std::cout << "After moving: " << std::endl;
     shape->writeInfo();
@@ -41,14 +35,15 @@ int main()
 
     // Получение ограничивающего прямоугольника для круга и вывод результата
     const marashov::rectangle_t boundedRectCircle1 = shape->getFrameRect();
-    std::cout
-        << "Bounded rectangle for circle1:" << std::endl
+    std::cout << "Bounded rectangle for circle1:" << std::endl
         << "Pos X: " << boundedRectCircle1.pos.x << ", "
         << "Pos Y: " << boundedRectCircle1.pos.y << ", "
         << "Width: " << boundedRectCircle1.width << ", "
         << "Height: " << boundedRectCircle1.height
         << std::endl << std::endl;
 
+    marashov::Rectangle rectangle1({ 1, 1 }, 10, 20);
+    rectangle1.writeInfo();
     // Теперь shape указывает на экземпляр прямоугольника
     shape = &rectangle1;
 
