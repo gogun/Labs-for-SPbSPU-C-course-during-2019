@@ -6,7 +6,7 @@ using namespace che;
 
 void showInfo (Shape & shape1)
 {
-  std::cout << "height = " << shape1.getFrameRect().height; << std::endl;
+  std::cout << "height = " << shape1.getFrameRect().height << std::endl;
   std::cout << ", width = " << shape1.getFrameRect().width;
   std::cout << "point x = " << shape1.getFrameRect().pos.x;
   std::cout << ", point y = " << shape1.getFrameRect().pos.y; 
@@ -23,7 +23,7 @@ int main()
   showInfo(circle1);
 
   std::cout << "Rectangle:" << std::endl;
-  Rectangle rectangle1({ {2, 2}, 10, 10 });
+  Rectangle rectangle1({2, 2}, 10, 10);
   showInfo(rectangle1);
   std::cout << "Scaling by 1.5: " << std::endl;
   circle1.scale(1.5);
