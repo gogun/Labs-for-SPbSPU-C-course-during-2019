@@ -10,7 +10,7 @@ void printRect (Shape &shape)
   std::cout << " " << "(" << rectangle1.pos.x << "," <<rectangle1.pos.y << ")" << std::endl;
 }
 
-int main ()
+int main()
 {
   std::cout << "Rectangle" << std::endl;
   Rectangle rectangle (6,9,{3,4});
