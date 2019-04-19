@@ -52,6 +52,8 @@ BOOST_AUTO_TEST_CASE(RectangleIncorrectParameters)
   const double correctHeight = 5;
   const double incorrectWidth = -3;
   const double incorrectHeight = 0;
+  const double factor = -228;
+  prohorova::Rectangle testRectangle{pos, correctWidth, correctHeight};
 
   BOOST_CHECK_THROW(prohorova::Rectangle incorrectWidthRectangle(pos, incorrectWidth, correctHeight),
       std::invalid_argument);
@@ -59,7 +61,9 @@ BOOST_AUTO_TEST_CASE(RectangleIncorrectParameters)
       std::invalid_argument);
   BOOST_CHECK_THROW(prohorova::Rectangle incorrectWidthAndHeightRectangle(pos, incorrectWidth, incorrectHeight),
       std::invalid_argument);
+  BOOST_CHECK_THROW(testRectangle.scale(factor), std::invalid_argument);
 }
+
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(figureCircle)
@@ -101,7 +105,7 @@ BOOST_AUTO_TEST_CASE(CircleIncorrectParameters)
 {
   const prohorova::point_t pos{-1, -1};
   const double incorrectRadius = -1;
-    
+
   BOOST_CHECK_THROW(prohorova::Circle incorrectRectangle(pos, incorrectRadius), std::invalid_argument);
 }
 BOOST_AUTO_TEST_SUITE_END()

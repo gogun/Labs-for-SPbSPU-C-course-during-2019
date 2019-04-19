@@ -43,6 +43,10 @@ void prohorova::Circle::show() const
 }
 void prohorova::Circle::scale(double factor)
 {
+  if (factor <= 0)
+  {
+    throw std::invalid_argument("Factor of scaling must be a positive number.\n")
+  }
   radius_ *= factor;
 }
 const prohorova::point_t& prohorova::Circle::getPos() const

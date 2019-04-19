@@ -4,7 +4,7 @@
 prohorova::Rectangle::Rectangle(const point_t &pos, double width, double height):
   rect_(rectangle_t{pos, width, height})
 {
-  if (rect_.width <= 0 || rect_.height <= 0)
+  if ((rect_.width <= 0) || (rect_.height <= 0))
   {
     throw std::invalid_argument("Parameters must be positive numbers.\n");
   }
@@ -40,8 +40,12 @@ void prohorova::Rectangle::show() const
 }
 void prohorova::Rectangle::scale(double factor)
 {
-  rect_.width = rect_.width * factor;
-  rect_.height = rect_.height * factor;
+  if (factor <= 0)
+  {
+    throw std::invalid_argument("Factor of scaling must be a positive number.\n")
+  }
+  rect_.width *= factor;
+  rect_.height *= factor;
 }
 double prohorova::Rectangle::getWidth() const
 {
