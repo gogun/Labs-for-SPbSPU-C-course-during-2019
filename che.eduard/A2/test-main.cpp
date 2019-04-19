@@ -27,7 +27,7 @@ BOOST_AUTO_TEST_CASE(Circle_Immutability_After_Moving)
 
 BOOST_AUTO_TEST_CASE(Circle_Scale_Tetsting)
 {
-  che::Circle testCircle({2.0, {3.5 , 1.5}});
+  che::Circle testCircle({2.0, 3.5}, 1.5);
   const double AreaBeforeScaling = testCircle.getArea();
   const double coef = 1.8;
   testCircle.scale(coef);
@@ -68,7 +68,7 @@ BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
   che::Rectangle testRectangle({4.0, 9.0,{2.0, 5.0}});
   const double AreaBeforeScaling = testRectangle.getArea();
   const double coef = 2.2;
-  testRectangle.scale(coef)
+  testRectangle.scale(coef);
   BOOST_CHECK_CLOSE(testRectangle.getArea(), AreaBeforeScaling * coef * coef, ACCURACY);
 }
 
