@@ -52,7 +52,7 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(testForCircle)
 
- BOOST_AUTO_TEST_CASE(checkChangesAfterMovingOfRectangle)
+ BOOST_AUTO_TEST_CASE(checkChangesAfterMovingOfCircle)
  {
    frolov::Circle circle({5, 3}, 10);
    const frolov::rectangle_t circleFrameBeforeMove = circle.getFrameRect();
