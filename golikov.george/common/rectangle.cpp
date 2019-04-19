@@ -5,7 +5,7 @@
 golikov::Rectangle::Rectangle(const rectangle_t & figure):
   m_figure(figure)
 {
-  if ( (figure.width <= 0) || (figure.height <= 0) )
+  if ((figure.width <= 0) || (figure.height <= 0))
   {
     throw std::invalid_argument("Rectangle's width or height cannot be negative");
   }
