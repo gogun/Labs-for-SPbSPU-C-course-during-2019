@@ -10,13 +10,16 @@ Triangle::Triangle(point_t pA, point_t pB, point_t pC):
   pointB_(pB),
   pointC_(pC)
 {
-  lengthA_ = sqrt(pow((pointA_.x - pointB_.x), 2) + pow((pointA_.y - pointB_.y), 2));
-  lengthB_ = sqrt(pow((pointB_.x - pointC_.x), 2) + pow((pointB_.y - pointC_.y), 2));
-  lengthC_ = sqrt(pow((pointC_.x - pointA_.x), 2) + pow((pointC_.y - pointA_.y), 2));
+  lengthA_ = getLength(pA, pB);
+  lengthB_ = getLength(pB, pC);
+  lengthC_ = getLength(pC, pA);
 
-  assert(lengthA_ + lengthB_ > lengthC_);
-  assert(lengthA_ + lengthC_ > lengthB_);
-  assert(lengthB_ + lengthC_ > lengthA_);
+  assert(getArea() > 0.0);
+}
+
+double Triangle::getLength(point_t a, point_t b)
+{
+  return sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2));
 }
 
 double Triangle::getArea() const
@@ -33,10 +36,6 @@ rectangle_t Triangle::getFrameRect() const
   double minY = std::min(pointA_.y, std::min(pointB_.y, pointC_.y));
   double maxX = std::max(pointA_.x, std::max(pointB_.x, pointC_.x));
   double maxY = std::max(pointA_.y, std::max(pointB_.y, pointC_.y));
-  double w = maxX - minX;
-  double h = maxY - minY;
-  double cenX = (minX + maxX) / 2;
-  double cenY = (minY + maxY) / 2;
 
-  return {w, h, {cenX, cenY}};
+  return {maxX - minX, maxY - minY, {(minX + maxX) / 2, (minY + maxY) / 2}};
 }

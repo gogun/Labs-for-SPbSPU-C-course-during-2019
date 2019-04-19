@@ -5,7 +5,7 @@
 #include "circle.hpp"
 #include "triangle.hpp"
 
-std::ostream& operator << (std::ostream& out , const rectangle_t rect)
+std::ostream & operator << (std::ostream & out , const rectangle_t rect)
 {
   out << "Frame rect width = " << rect.width << " " <<
     "height = " << rect.height << " " <<
@@ -30,11 +30,11 @@ int main()
   const double rectangleWidth = 20;
   const double rectangleHeight = 10;
 
-  point_t trianglePointA = {10, 2};
+  point_t trianglePointA = {1, 20};
 
-  point_t trianglePointB = {3, 40};
+  point_t trianglePointB = {30, 4};
 
-  point_t trianglePointC = {50, 6};
+  point_t trianglePointC = {4, 50};
 
   Circle circle(circleRadius, circleCentre);
   Rectangle rectangle(rectangleWidth, rectangleHeight, rectangleCentre);
