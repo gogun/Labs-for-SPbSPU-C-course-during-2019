@@ -6,12 +6,12 @@
 class Triangle: public Shape
 {
 public:
-  Triangle(const point_t &vertexA, const point_t &vertexB, const point_t &vertexC);
+  Triangle(const point_t &, const point_t &, const point_t &);
 
   double getArea() const override;
   void printInfo() const override;
   rectangle_t getFrameRect() const override;
-  void move(const point_t &newPoint) override;
+  void move(const point_t &) override;
   void move(double dx, double dy) override;
 
 private:
