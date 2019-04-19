@@ -21,7 +21,7 @@ point_t Triangle::getCentre() const
   point_t point;
   point.x = (point1_.x + point2_.x + point3_.x)/3;
   point.y = (point1_.y + point2_.y + point3_.y)/3;
-  return (point);
+  return point;
 }
 
 double Triangle::getArea() const
