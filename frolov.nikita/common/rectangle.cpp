@@ -9,7 +9,7 @@ frolov::Rectangle::Rectangle(const point_t &center, double height, double width)
 {
   if ((height_ <= 0) || (width_ <= 0))
   {
-    throw std::invalid_argument("Invalid height or width!")
+    throw std::invalid_argument("Invalid height or width!");
   }
 }
 

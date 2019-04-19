@@ -9,7 +9,7 @@ frolov::Circle::Circle(const point_t &center, double radius) :
 {
   if (radius_ <= 0)
   {
-    throw std::invalid_argument("Invalid radius!")
+    throw std::invalid_argument("Invalid radius!");
   }
 }
 
