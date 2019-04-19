@@ -23,10 +23,10 @@ int main()
   showInfo(circle1);
 
   std::cout << "Rectangle:" << std::endl;
-  Rectangle rectangle1({2, 2}, 10, 10);
+  Rectangle rectangle1({2.0, 2.0}, 10.0, 10.0);
   showInfo(rectangle1);
   std::cout << "Scaling by 1.5: " << std::endl;
-  circle1.scale(1.5);
+  rectangle1.scale(1.5);
   showInfo(rectangle1);
   
   return 0;
