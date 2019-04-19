@@ -1,13 +1,12 @@
 #define BOOST_TEST_MODULE_test
-#define BOOST_TEST_DYN_LINK
+#include <boost/test/unit_test.hpp>
 #include <iostream>
 #include <stdexcept>
-#include <boost/test/unit_test.hpp>
 #include "circle.hpp"
 #include "rectangle.hpp"
 #include "triangle.hpp"
 
-const double fallibility = 0.01;
+const double Fallibility = 0.01;
 
 BOOST_AUTO_TEST_SUITE(testOfRectangle)
 
@@ -20,16 +19,16 @@ BOOST_AUTO_TEST_CASE(checkChangesAfterMovingOfRectangle)
   rectangle.move(1, 4);
   frolov::rectangle_t rectangleFrameAfterMove = rectangle.getFrameRect();
 
-  BOOST_CHECK_CLOSE(rectangleFrameBeforeMove.height, rectangleFrameAfterMove.height, fallibility);
-  BOOST_CHECK_CLOSE(rectangleFrameBeforeMove.width, rectangleFrameAfterMove.width, fallibility);
-  BOOST_CHECK_CLOSE(areaBeforeMove, rectangle.getArea(), fallibility);
+  BOOST_CHECK_CLOSE(rectangleFrameBeforeMove.height, rectangleFrameAfterMove.height, Fallibility);
+  BOOST_CHECK_CLOSE(rectangleFrameBeforeMove.width, rectangleFrameAfterMove.width, Fallibility);
+  BOOST_CHECK_CLOSE(areaBeforeMove, rectangle.getArea(), Fallibility);
 
   rectangle.move({1, 6});
   rectangleFrameAfterMove = rectangle.getFrameRect();
 
-  BOOST_CHECK_EQUAL(rectangleFrameBeforeMove.height, rectangleFrameAfterMove.height);
-  BOOST_CHECK_EQUAL(rectangleFrameBeforeMove.width, rectangleFrameAfterMove.width);
-  BOOST_CHECK_EQUAL(areaBeforeMove, rectangle.getArea());
+  BOOST_CHECK_CLOSE(rectangleFrameBeforeMove.height, rectangleFrameAfterMove.height, Fallibility);
+  BOOST_CHECK_CLOSE(rectangleFrameBeforeMove.width, rectangleFrameAfterMove.width, Fallibility);
+  BOOST_CHECK_CLOSE(areaBeforeMove, rectangle.getArea(), Fallibility);
 }
 
 BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfRectangle)
@@ -38,7 +37,7 @@ BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfRectangle)
   const double areaBeforeScale = rectangle.getArea();
   const double testScale = 5;
   rectangle.scale(testScale);
-  BOOST_CHECK_EQUAL(areaBeforeScale * testScale * testScale, rectangle.getArea());
+  BOOST_CHECK_CLOSE(areaBeforeScale * testScale * testScale, rectangle.getArea(), Fallibility);
 }
 
 BOOST_AUTO_TEST_CASE(invalidArgumentsInRectangle)
@@ -62,16 +61,16 @@ BOOST_AUTO_TEST_CASE(checkChangesAfterMovingOfRectangle)
   circle.move(1, 4);
   frolov::rectangle_t circleFrameAfterMove = circle.getFrameRect();
 
-  BOOST_CHECK_CLOSE(circleFrameBeforeMove.height, circleFrameAfterMove.height, fallibility);
-  BOOST_CHECK_CLOSE(circleFrameBeforeMove.width, circleFrameAfterMove.width, fallibility);
-  BOOST_CHECK_CLOSE(areaBeforeMove, circle.getArea(), fallibility);
+  BOOST_CHECK_CLOSE(circleFrameBeforeMove.height, circleFrameAfterMove.height, Fallibility);
+  BOOST_CHECK_CLOSE(circleFrameBeforeMove.width, circleFrameAfterMove.width, Fallibility);
+  BOOST_CHECK_CLOSE(areaBeforeMove, circle.getArea(), Fallibility);
 
   circle.move({1, 6});
   circleFrameAfterMove = circle.getFrameRect();
 
-  BOOST_CHECK_EQUAL(circleFrameBeforeMove.height, circleFrameAfterMove.height);
-  BOOST_CHECK_EQUAL(circleFrameBeforeMove.width, circleFrameAfterMove.width);
-  BOOST_CHECK_EQUAL(areaBeforeMove, circle.getArea());
+  BOOST_CHECK_CLOSE(circleFrameBeforeMove.height, circleFrameAfterMove.height, Fallibility);
+  BOOST_CHECK_CLOSE(circleFrameBeforeMove.width, circleFrameAfterMove.width, Fallibility);
+  BOOST_CHECK_CLOSE(areaBeforeMove, circle.getArea(), Fallibility);
 }
 
 BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfCircle)
@@ -80,7 +79,7 @@ BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfCircle)
   const double areaBeforeScale = circle.getArea();
   const double testScale = 5;
   circle.scale(testScale);
-  BOOST_CHECK_EQUAL(areaBeforeScale * testScale * testScale, circle.getArea());
+  BOOST_CHECK_CLOSE(areaBeforeScale * testScale * testScale, circle.getArea(), Fallibility);
 }
 
 BOOST_AUTO_TEST_CASE(invalidArgumentsInCircle)
@@ -103,16 +102,16 @@ BOOST_AUTO_TEST_CASE(checkChangesAfterMovingOfTriangle)
   triangle.move(4, 5);
   frolov::rectangle_t triangleFrameAfterMove = triangle.getFrameRect();
 
-  BOOST_CHECK_CLOSE(triangleFrameAfterMove.height, triangleFrameBeforMove.height, fallibility);
-  BOOST_CHECK_CLOSE(triangleFrameAfterMove.width, triangleFrameBeforMove.width, fallibility);
-  BOOST_CHECK_CLOSE(areaBeforMove, triangle.getArea(), fallibility);
+  BOOST_CHECK_CLOSE(triangleFrameAfterMove.height, triangleFrameBeforMove.height, Fallibility);
+  BOOST_CHECK_CLOSE(triangleFrameAfterMove.width, triangleFrameBeforMove.width, Fallibility);
+  BOOST_CHECK_CLOSE(areaBeforMove, triangle.getArea(), Fallibility);
 
   triangle.move({4, 5});
   triangleFrameAfterMove = triangle.getFrameRect();
 
-  BOOST_CHECK_EQUAL(triangleFrameAfterMove.height, triangleFrameBeforMove.height);
-  BOOST_CHECK_EQUAL(triangleFrameAfterMove.width, triangleFrameBeforMove.width);
-  BOOST_CHECK_EQUAL(areaBeforMove, triangle.getArea());
+  BOOST_CHECK_CLOSE(triangleFrameAfterMove.height, triangleFrameBeforMove.height, Fallibility);
+  BOOST_CHECK_CLOSE(triangleFrameAfterMove.width, triangleFrameBeforMove.width, Fallibility);
+  BOOST_CHECK_CLOSE(areaBeforMove, triangle.getArea(), Fallibility);
 }
 
 BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfTriangle)
@@ -121,8 +120,9 @@ BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfTriangle)
   const double areaBeforScaling = triangle.getArea();
   const double testScale = 4;
   triangle.scale(testScale);
-  BOOST_CHECK_EQUAL(areaBeforScaling * testScale * testScale, triangle.getArea());
+  BOOST_CHECK_CLOSE(areaBeforScaling * testScale * testScale, triangle.getArea(), Fallibility);
 }
+
 BOOST_AUTO_TEST_CASE(invalidArgumentsInTriangle)
 {
   BOOST_CHECK_THROW(frolov::Triangle triangle({4, 5}, {4, 6},{4, 7}), std::invalid_argument);
@@ -130,4 +130,5 @@ BOOST_AUTO_TEST_CASE(invalidArgumentsInTriangle)
   frolov::Triangle triangle({4, 5}, {1, 4}, {6, 7});
   BOOST_CHECK_THROW(triangle.scale(-4), std::invalid_argument);
 }
+
 BOOST_AUTO_TEST_SUITE_END()
