@@ -8,7 +8,7 @@ namespace marashov
   class Rectangle: public Shape
   {
   public:
-    Rectangle(const point_t &pos, double width, double height);
+    Rectangle(const point_t & pos, double width, double height);
 
     Rectangle(double posX, double posY, double width, double height);
 
@@ -16,7 +16,7 @@ namespace marashov
 
     rectangle_t getFrameRect() const override;
 
-    void move(const point_t &pos) override;
+    void move(const point_t & pos) override;
 
     void move(double deltaX, double deltaY) override;
 

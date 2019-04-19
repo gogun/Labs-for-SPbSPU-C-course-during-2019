@@ -48,12 +48,12 @@ void marashov::Rectangle::scale(double scaleAmount)
   height_ *= scaleAmount;
 }
 
-void marashov::Rectangle:: writeInfo() const { // проверить отступы
+void marashov::Rectangle:: writeInfo() const {
   std::cout << "Rectangle. Center at (" << center_.x << "; " << center_.y << ")"
-            << std::endl << "Width = " << width_
-            << std::endl << "Height = " << height_
-            << std::endl << "Area = " << getArea()
-            << std::endl << std::endl;
+      << std::endl << "Width = " << width_
+      << std::endl << "Height = " << height_
+      << std::endl << "Area = " << getArea()
+      << std::endl << std::endl;
 }
 
 marashov::point_t marashov::Rectangle::getCenter() const

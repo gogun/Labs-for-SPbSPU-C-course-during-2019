@@ -15,7 +15,7 @@ namespace marashov
 
     virtual void move(double dltX, double dltY) = 0;
 
-    virtual void move(const point_t &pos) = 0;
+    virtual void move(const point_t & pos) = 0;
 
     virtual void scale(double scaleAmount) = 0;
 

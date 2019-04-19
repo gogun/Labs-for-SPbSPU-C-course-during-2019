@@ -8,7 +8,7 @@ namespace marashov
   class Circle: public Shape
   {
   public:
-    Circle(const point_t &center, double radius);
+    Circle(const point_t & center, double radius);
 
     Circle(double centerX, double centerY, double radius);
 
@@ -16,7 +16,7 @@ namespace marashov
 
     rectangle_t getFrameRect() const override;
 
-    void move(const point_t &pos) override;
+    void move(const point_t & pos) override;
 
     void move(double dltX, double dltY) override;
 

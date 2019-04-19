@@ -50,9 +50,9 @@ void marashov::Circle::scale(double scaleAmount)
 void marashov::Circle:: writeInfo() const
 {
   std::cout << "Circle. Center at (" << center_.x << "; " << center_.y << ")"
-            << std::endl << "Radius = " << radius_
-            << std::endl << "Area = " << getArea()
-            << std::endl << std::endl;
+      << std::endl << "Radius = " << radius_
+      << std::endl << "Area = " << getArea()
+      << std::endl << std::endl;
 }
 
 marashov::point_t marashov::Circle::getCenter() const

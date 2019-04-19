@@ -59,7 +59,7 @@ int main()
     std::cout << "After moving: " << std::endl;
     shape->writeInfo();
 
-    // Демонстрация изотропного масштабирования круга
+    // Демонстрация изотропного масштабирования прямоугольника
     const double rectAmount = 2;
     const double rectArea = shape->getArea();
     shape->scale(rectAmount);
