@@ -13,13 +13,14 @@ BOOST_AUTO_TEST_CASE(testOfRectangleMoving)
 {
   smirnov::Rectangle rect(15, 10, {0, 0});
   const double areaBeforeMoving = rect.getArea();
+  const smirnov::rectangle_t rectBeforeMoving = rect.getFrameRect();
   rect.move({-4, 7});
-  BOOST_CHECK_CLOSE(rect.getFrameRect().width, 15, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(rect.getFrameRect().height, 10, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rect.getFrameRect().width, rectBeforeMoving.width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rect.getFrameRect().height, rectBeforeMoving.height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, rect.getArea(), ERROR_CHANCE);
   rect.move(15, -3);
-  BOOST_CHECK_CLOSE(rect.getFrameRect().width, 15, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(rect.getFrameRect().height, 10, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rect.getFrameRect().width, rectBeforeMoving.width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rect.getFrameRect().height, rectBeforeMoving.height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, rect.getArea(), ERROR_CHANCE);
 }
 
@@ -27,13 +28,14 @@ BOOST_AUTO_TEST_CASE(testOfCircleMoving)
 {
   smirnov::Circle circ(5, {0, 0});
   const double areaBeforeMoving = circ.getArea();
+  const smirnov::rectangle_t circBeforeMoving = circ.getFrameRect();
   circ.move({-4, 7});
-  BOOST_CHECK_CLOSE(circ.getFrameRect().width, 10, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(circ.getFrameRect().height, 10, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circ.getFrameRect().width, circBeforeMoving.width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circ.getFrameRect().height, circBeforeMoving.height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, circ.getArea(), ERROR_CHANCE);
   circ.move(15, -3);
-  BOOST_CHECK_CLOSE(circ.getFrameRect().width, 10, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(circ.getFrameRect().height, 10, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circ.getFrameRect().width, circBeforeMoving.width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circ.getFrameRect().height, circBeforeMoving.height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, circ.getArea(), ERROR_CHANCE);
 }
 
@@ -41,16 +43,18 @@ BOOST_AUTO_TEST_CASE(testOfRectangleScaling)
 {
   smirnov::Rectangle rect(4, 6, {0, 0});
   const double areaBeforeMoving = rect.getArea();
-  rect.scale(3);
-  BOOST_CHECK_CLOSE(areaBeforeMoving * 3 * 3, rect.getArea(), ERROR_CHANCE);
+  const double scalingCoef = 3;
+  rect.scale(scalingCoef);
+  BOOST_CHECK_CLOSE(areaBeforeMoving * scalingCoef * scalingCoef, rect.getArea(), ERROR_CHANCE);
 }
 
 BOOST_AUTO_TEST_CASE(testOfCircleScaling)
 {
   smirnov::Circle circ(7, {0, 0});
   const double areaBeforeMoving = circ.getArea();
-  circ.scale(0.5);
-  BOOST_CHECK_CLOSE(areaBeforeMoving * 0.5 * 0.5, circ.getArea(), ERROR_CHANCE);
+  const double scalingCoef = 0.5;
+  circ.scale(scalingCoef);
+  BOOST_CHECK_CLOSE(areaBeforeMoving * scalingCoef * scalingCoef, circ.getArea(), ERROR_CHANCE);
 }
 
 BOOST_AUTO_TEST_CASE(testOfInvalidScalingCoefInRectangle)
