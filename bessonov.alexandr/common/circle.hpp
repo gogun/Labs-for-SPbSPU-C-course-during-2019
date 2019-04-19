@@ -6,7 +6,6 @@
 
 namespace bessonov
 {
-
   class Circle : public Shape
   {
   public:
