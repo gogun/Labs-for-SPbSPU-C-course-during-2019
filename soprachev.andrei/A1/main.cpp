@@ -5,13 +5,13 @@
 #include "circle.hpp"
 #include "triangle.hpp"
 
-std::string rectToString(rectangle_t rectangle)
+std::string rectToString(const rectangle_t &rectangle)
 {
   return "pos_: (" + std::to_string(rectangle.pos.x) + "; " + std::to_string(rectangle.pos.y) + ")\nwidth = "
          + std::to_string(rectangle.width) + "\nheight = " + std::to_string(rectangle.height);
 }
 
-std::string shapeToString(Shape *shape)
+std::string shapeToString(const Shape *shape)
 {
   assert(shape != nullptr);
   return shape->getName() + "\n" + rectToString(shape->getFrameRect()) + "\narea = " + std::to_string(shape->getArea());
