@@ -53,14 +53,14 @@ BOOST_AUTO_TEST_CASE(Rectangle_Immutability_After_Moving)
   const che::rectangle_t FrameBeforeMoving = testRectangle.getFrameRect();
   const double  AreaBeforeMoving = testRectangle.getArea();
   testRectangle.move(2.0, 3.0);
-  BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
-  BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
-  BOOST_CHECK_CLOSE(FrameBeforeMoving, testRectangle.getArea(), ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
+  BOOST_CHECK_CLOSE(AreaBeforeMoving, testRectangle.getArea(), ACCURACY);
 
   testRectangle.move({2.0, 4.0});
-  BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
-  BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
-  BOOST_CHECK_CLOSE(FrameBeforeMoving, testRectangle.getArea(), ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
+  BOOST_CHECK_CLOSE(AreaBeforeMoving, testRectangle.getArea(), ACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
