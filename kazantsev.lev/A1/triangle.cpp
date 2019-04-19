@@ -4,50 +4,67 @@
 #include <cmath>
 #include <cassert>
 
-Triangle::Triangle(const point_t &pos, const double sideA, const double sideB, const double sideC) :
-  pos_(pos),
-  sideA_(sideA),
-  sideB_(sideB),
-  sideC_(sideC)
+Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC) :
+  pos_({(pointA.x + pointB.x + pointC.x) / 3,
+  (pointA.y + pointB.y + pointC.y) / 3}),
+  point1_(pointA),
+  point2_(pointB),
+  point3_(pointC)
 {
-  assert((sideA_ > 0) && (sideB_ > 0) && (sideC_ > 0));
-  assert((sideA_ + sideB_) > sideC_);
-  assert((sideA_ + sideC_) > sideB_);
-  assert((sideB_ + sideC_) > sideA_);
+ if (point1_.x == point2_.x && point1_.y == point2_.y || point2_.x == point3_.x && point 2_.y == point3_.y || point1_.x == point3_.x && point 1_.y == point3_.y)
+  {
+    throw std::invalid_argument("Two point are matching")
+  }   
 }
 
 double Triangle::getArea() const
 {
-  double p = (sideA_ + sideB_ + sideC_) / 2;
-  return sqrt(p * (p - sideA_) * (p - sideB_) * (p - sideC_));
+  return (std::fabs(point1_.x - point3_.x) * (point2_.y - point3_.y) - std::fabs(point2_.x -point3_.x) * (point1_.y - point3_.y)) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double area = Triangle::getArea();
-  return {pos_, sideA_, area * 2 / sideA_ };
+  const double maxX = std::max(std::max(paoint1_.x,point2_.x), point3_.x);
+  const double  minX = std::min(std::min(paoint1_.x,point2_.x), point3_.x);
+
+  const double maxY = std::max(std::max(paoint1_.y,point2_.y), point3_.y);
+  const double  minY = std::min(std::min(paoint1_.y,point2_.y), point3_.y);
+  const point_t position = {minX + width / 2, minY + height / 2};
+
+  return {width, height, position};
 }
 
-void Triangle::move(const point_t &pos)
+void Triangle::move(const point_t &newPos)
 {
-  pos_ = pos;
+  const point_t difference = {newPos.x - pos_.x, newPos.y - pos_.y};
+
+  move(difference.x, difference.y);
 }
 
 void Triangle::move(const double dx, const double dy)
 {
   pos_.x += dx;
   pos_.y += dy;
+
+  point1_.x += dx;
+  point1_.y += dy;
+
+  point2_.x += dx;
+  point2_.y += dy;
+  
+  point3_.x += dx;
+  point3_.y += dy;
 }
 
 void Triangle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << "Triangle side A is " << sideA_ << ","
-      << " side B is " << sideB_ << ","
-      << " side C is " << sideC_ << " \n"
-      << "Triangle centre is (" << pos_.x << ","
-      << pos_.y << ")\n"
-      << "Frame rectangle width = " << rectangle.width
+  std::cout << "Triangle point A is (" << point1_.x << ';' << point1_.y << ")";
+  std::cout << "point B is " << point2_.x << ';' << point2_.y << ")";
+  std::cout << "point C is " << point3_.x << ';' << point3_.y << ")" << " \n";
+  std::cout << "Triangle centre is (" << pos_.x << ","
+      << pos_.y << ")\n";
+  std::cout << "Frame rectangle width = " << rectangle.width
       << ", height = " << rectangle.height << "\n"
       << "Area = " << getArea() << "\n\n";
 }

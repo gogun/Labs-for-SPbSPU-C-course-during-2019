@@ -23,7 +23,7 @@ int main()
   shp->move(3.0, 5.0);
   shp->writeParameters();
 
-  Triangle trg({9.0, 10.0}, 8.0, 4.0, 6.0);
+  Triangle trg({2.0, 1.0}, {2.5, 1.5}, {3.0, 2.0});
   shp = &trg;
   shp->writeParameters();
   shp->move({7.0, -7.0});
