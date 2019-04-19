@@ -3,8 +3,6 @@
 #include <cmath>
 #include <stdexcept>
 
-using namespace che;
-
 che::Circle::Circle(const point_t & center, double radius) :
   center_(center),
   radius_(radius)

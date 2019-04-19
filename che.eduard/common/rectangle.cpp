@@ -1,8 +1,6 @@
 #include "rectangle.hpp"
 #include <stdexcept>
 
-using namespace che;
-
 che::Rectangle::Rectangle(const rectangle_t & rect):
   rectangle_(rect)
 {
