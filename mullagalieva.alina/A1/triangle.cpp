@@ -3,7 +3,7 @@
 #include <cassert>
 
 Triangle::Triangle(const point_t& posA, const point_t& posB, const point_t& posC) :
-  centre_({ (posA.x + posB.x + posC.x) / 3, (posA.y + posB.y + posC.y) / 3 }),
+  centre_({(posA.x + posB.x + posC.x) / 3, (posA.y + posB.y + posC.y) / 3}),
   posA_(posA),
   posB_(posB),
   posC_(posC)
