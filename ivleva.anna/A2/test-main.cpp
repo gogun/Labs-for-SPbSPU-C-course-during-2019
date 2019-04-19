@@ -35,7 +35,7 @@ BOOST_AUTO_TEST_CASE(quadraticAreaChanging)
   double coefficient = 2.0;
   circle.scale(coefficient);
   double areaAfter = circle.getArea();
-  BOOST_CHECK_CLOSE(areaBefore*coefficient*coefficient, areaAfter, accuracy);
+  BOOST_CHECK_CLOSE(areaBefore * coefficient * coefficient, areaAfter, accuracy);
 }
 
 BOOST_AUTO_TEST_CASE(incorrectParametersSearching)
@@ -75,7 +75,7 @@ BOOST_AUTO_TEST_CASE(quadraticAreaChanging)
   double coefficient = 2.0;
   rectangle.scale(coefficient);
   double areaAfter = rectangle.getArea();
-  BOOST_CHECK_CLOSE(areaBefore*coefficient*coefficient, areaAfter, accuracy);
+  BOOST_CHECK_CLOSE(areaBefore * coefficient * coefficient, areaAfter, accuracy);
 }
 
 BOOST_AUTO_TEST_CASE(incorrectParametersSearching)
