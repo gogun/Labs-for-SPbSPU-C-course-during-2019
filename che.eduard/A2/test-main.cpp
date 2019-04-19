@@ -50,8 +50,8 @@ BOOST_AUTO_TEST_SUITE(Rectangle_Suite_Testing)
 BOOST_AUTO_TEST_CASE(Rectangle_Immutability_After_Moving)
 {
   che::Rectangle testRectangle({ 4.0, 9.0 }, 2.0, 4.0);
-  const che::rectangle_t FrameBeforeMoving = rectangle.getFrameRect();
-  const double  AreaBeforeMoving = rectangle.getArea();
+  const che::rectangle_t FrameBeforeMoving = testRectangle.getFrameRect();
+  const double  AreaBeforeMoving = testRectangle.getArea();
   testRectangle.move(2.0, 3.0);
   BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
