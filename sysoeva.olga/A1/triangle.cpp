@@ -10,7 +10,7 @@ Triangle::Triangle(point_t vertex1, point_t vertex2, point_t vertex3):
   vertex_3(vertex3),
   center_(getCenter())
 {
-  assert((vertex_1.x - vertex_2.x) / (vertex_3.y - vertex_2.y) != (vertex_1.y - vertex_2.y) / (vertex_3.x - vertex_2.x));
+  assert((vertex_1.x - vertex_2.x) * (vertex_3.y - vertex_2.y) != (vertex_1.y - vertex_2.y) * (vertex_3.x - vertex_2.x));
 }
 
 point_t Triangle::getCenter() const
