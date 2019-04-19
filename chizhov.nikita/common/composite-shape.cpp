@@ -17,9 +17,9 @@ chizhov::CompositeShape::CompositeShape(chizhov::CompositeShape&& source) :
 }
 
 chizhov::CompositeShape::CompositeShape(Shape& shape) :
+    shapes_(new Shape*[1]),
     quantity_(1)
 {
-  shapes_ = new Shape* [quantity_];
   shapes_[0] = &shape;
 }
 
@@ -51,7 +51,12 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeS
 
 double chizhov::CompositeShape::getArea() const
 {
-  return recomputeArea();
+  double area = 0;
+  for (int i = 0; i < quantity_; i++) {
+    area += shapes_[i]->getArea();
+  }
+
+  return area;
 }
 
 chizhov::rectangle_t chizhov::CompositeShape::getFrameRect() const
@@ -135,16 +140,6 @@ void chizhov::CompositeShape::deleteShape(const Shape& shape)
   }
 }
 
-double chizhov::CompositeShape::recomputeArea() const
-{
-  double area = 0;
-  for (int i = 0; i < quantity_; i++) {
-    area += shapes_[i]->getArea();
-  }
-
-  return area;
-}
-
 chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
 {
   rectangle_t rectTmp = shapes_[0]->getFrameRect();
@@ -152,10 +147,6 @@ chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
   double maxX = rectTmp.pos.x + rectTmp.width / 2;
   double minY = rectTmp.pos.y - rectTmp.height / 2;
   double maxY = rectTmp.pos.y + rectTmp.height / 2;
-
-  if (quantity_ == 1) {
-    return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
-  }
 
   for (int i = 1; i < quantity_; i++) {
     rectTmp = shapes_[i]->getFrameRect();
@@ -178,8 +169,7 @@ chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
 
 void chizhov::CompositeShape::copyFromSource(const chizhov::CompositeShape& source)
 {
-  Shape** shapesArr = new Shape* [quantity_];
-  shapes_ = shapesArr;
+  shapes_ = new Shape* [quantity_];
 
   for (int i = 0; i < quantity_; i++) {
     shapes_[i] = source.shapes_[i];
