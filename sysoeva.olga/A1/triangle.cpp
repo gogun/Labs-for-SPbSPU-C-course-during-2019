@@ -10,7 +10,7 @@ Triangle::Triangle(point_t vertex1, point_t vertex2, point_t vertex3):
   vertex_3(vertex3),
   center_(getCenter())
 {
-  assert((vertex_1.x - vertex_2.x) / (vertex_3.y - vertex_2.y) != (vertex_1.y - vertex_2.y) / (vertex_3.x - vertex_2.x));
+  assert((vertex_1.x - vertex_2.x) * (vertex_3.y - vertex_2.y) != (vertex_1.y - vertex_2.y) * (vertex_3.x - vertex_2.x));
 }
 
 point_t Triangle::getCenter() const
@@ -18,7 +18,7 @@ point_t Triangle::getCenter() const
   return {(vertex_1.x + vertex_2.x + vertex_3.x) / 3, (vertex_1.y + vertex_2.y + vertex_3.y) / 3};
 }
 
-double Triangle::getVector(const point_t & vertex1, const point_t & vertex2) const
+double getVector(const point_t & vertex1, const point_t & vertex2)
 {
   return sqrt(pow(vertex2.x - vertex1.x, 2) + pow(vertex2.y - vertex1.y, 2));
 }
@@ -34,34 +34,31 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double width = std::max({vertex_1.x, vertex_2.x, vertex_3.x}) - std::min({vertex_1.x, vertex_2.x, vertex_3.x});
-  double height = std::max({vertex_1.y, vertex_2.y, vertex_3.y}) - std::min({vertex_1.y, vertex_2.y, vertex_3.y});
-  point_t center = {std::min({vertex_1.x, vertex_2.x, vertex_3.x}) + (width/2),
-                    std::min({vertex_1.y, vertex_2.y, vertex_3.y}) + (height/2)};
+  double min_x = std::min({vertex_1.x, vertex_2.x, vertex_3.x});
+  double min_y = std::min({vertex_1.y, vertex_2.y, vertex_3.y});
+  double max_x = std::max({vertex_1.x, vertex_2.x, vertex_3.x});
+  double max_y = std::max({vertex_1.y, vertex_2.y, vertex_3.y});
+  double width = max_x - min_x;
+  double height = max_y - min_y;
+  point_t center = {min_x + (width/2), min_y + (height/2)};
   return {width, height, center};
-}
-
-void Triangle::changeVertex(double dx, double dy)
-{
-  point_t * mas[] = {&vertex_1, &vertex_2, &vertex_3};
-  for (size_t i = 0; i < sizeof(mas) / sizeof(mas[0]); i++)
-  {
-    * mas[i] = {mas[i]->x + dx, mas[i]->y + dy};
-  }
 }
 
 void Triangle::move(const point_t & point)
 {
-  double dx = point.x - center_.x;
-  double dy = point.y - center_.y ;
-  center_ = point;
-  changeVertex(dx, dy);
+  move(point.x - center_.x, point.y - center_.y);
 }
 
 void Triangle::move(double dx, double dy)
 {
-  center_ = {center_.x + dx, center_.y + dy};
-  changeVertex(dx, dy);
+  center_.x += dx;
+  center_.y += dy;
+  vertex_1.x += dx;
+  vertex_1.y += dy;
+  vertex_2.x += dx;
+  vertex_2.y += dy;
+  vertex_3.x += dx;
+  vertex_3.y += dy;
 }
 
 void Triangle::showCoord()
