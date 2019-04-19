@@ -49,10 +49,10 @@ BOOST_AUTO_TEST_SUITE(Rectangle_Suite_Testing)
 
 BOOST_AUTO_TEST_CASE(Rectangle_Immutability_After_Moving)
 {
-  che::Rectangle testRectangle({{4.0, 9.0}, 2.0, 4.0});
+  che::Rectangle testRectangle({4.0, 9.0}, 2.0, 4.0);
   const che::rectangle_t FrameBeforeMoving = testRectangle.getFrameRect();
   const double  AreaBeforeMoving = testRectangle.getArea();
-  testRectangle.move({2.0, 3.0});
+  testRectangle.move(2.0, 3.0);
   BOOST_CHECK_CLOSE(AreaBeforeMoving.height, testRectangle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving.width, testRectangle.getFrameRect().width, ACCURACY);
   BOOST_CHECK_CLOSE(FrameBeforeMoving, testRectangle.getArea(), ACCURACY);
@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(Rectangle_Immutability_After_Moving)
 
 BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
 {
-  che::Rectangle testRectangle({{4.0, 9.0}, 2.0, 5.0});
+  che::Rectangle testRectangle({4.0, 9.0}, 2.0, 5.0);
   const double AreaBeforeScaling = testRectangle.getArea();
   testRectangle.scale(2.2);
   const double AreaAfterScaling = testRectangle.getArea();
@@ -74,8 +74,8 @@ BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
 
 BOOST_AUTO_TEST_CASE(Rectangle_Invalid_Values)
 {
-  BOOST_CHECK_THROW(che::Rectangle testRectangle({{2.0, 4.0 }, -3.0, 5.0}), std::invalid_argument);
-  che::Rectangle testRectangle({{2.0, 2.0}, 5.0, 10.0});
+  BOOST_CHECK_THROW(che::Rectangle testRectangle({2.0, 4.0 }, -3.0, 5.0), std::invalid_argument);
+  che::Rectangle testRectangle({2.0, 2.0}, 5.0, 10.0);
   BOOST_CHECK_THROW(testRectangle.scale(0), std::invalid_argument);
 }
 
