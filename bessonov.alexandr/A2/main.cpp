@@ -10,9 +10,9 @@ void printRectFrames(const bessonov::Shape *shape)
   assert(shape != nullptr);
   bessonov::rectangle_t frameRect = shape->getFrameRect();
   std::cout << "{" << frameRect.pos.x << ","
-    << frameRect.pos.y << "},"
-    << frameRect.width << ","
-    << frameRect.height << "\n";
+      << frameRect.pos.y << "},"
+      << frameRect.width << ","
+      << frameRect.height << "\n";
 }
 
 int main()
