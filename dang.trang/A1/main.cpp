@@ -10,14 +10,14 @@ void actions(Shape * usingShape)
   usingShape->move(5, 6);
   usingShape->printInfo();
   std::cout << "shape move  to (4,7)" << std::endl;
-  usingShape->move({ 4, 7 });
+  usingShape->move({4, 7 });
   usingShape->printInfo();
 }
 
 int main()
 {
-  Rectangle rectangle(10.0, 5.0, { 15.0, 15.0 });
-  Circle circle(2.5, { 3.14, 2.71 });
+  Rectangle rectangle(10.0, 5.0, {15.0, 15.0 });
+  Circle circle(2.5, {3.14, 2.71});
   
   actions(&circle);
   actions(&rectangle);
