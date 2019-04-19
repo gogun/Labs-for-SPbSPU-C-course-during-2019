@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cassert>
 #include <cmath>
+#include <algorithm>
 
 Triangle::Triangle(const point_t &point0, const point_t &point1, const point_t &point2) :
   point0_(point0),
