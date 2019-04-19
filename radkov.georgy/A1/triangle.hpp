@@ -12,7 +12,6 @@ public:
   rectangle_t getFrameRect() const override;
   void move(const point_t &pos) override;
   void move(const double dx, const double dy) override;
-  void printInformation() const override;
 
 private:
   point_t points_[3];

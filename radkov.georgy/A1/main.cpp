@@ -5,41 +5,34 @@
 
 int main()
 {
-  Circle shape_1({1.0, 2.0}, 5.0);
-  Shape *cir = &shape_1;
-  std::cout << "Circle:" << std::endl;
+  Circle shape_0({1, 2}, 5);
+  Shape *cir = &shape_0;
 
-  cir->printInformation();
+  cir->move({3, 4});
+  cir->move(7, 6);
 
-  cir->move({3.0, 4.0});
-  std::cout << "Move to the point (" << cir->getPosition().x << ", " << cir->getPosition().y << ")" << std::endl;
+  Rectangle shape_1({1, 2}, 5, 8);
+  Shape *rect = &shape_1;
 
-  cir->move(7.0, 6.0);
-  std::cout << "Move on (" << cir->getPosition().x << ", " << cir->getPosition().y << ")" << std::endl << std::endl;
+  rect->move({2, 9});
+  rect->move(13, 1);
 
-  Rectangle shape_2({1.0, 2.0}, 5.0, 8.0);
-  Shape *rect = &shape_2;
-  std::cout << "Rectangle:" << std::endl;
+  Triangle shape_2({0, 0}, {0, 3}, {4, 0});
+  Shape *tri = &shape_2;
 
-  rect->printInformation();
+  tri->move({6, 11});
+  tri->move(2, 5);
 
-  rect->move({3.0, 4.0});
-  std::cout << "Move to the point (" << rect->getPosition().x << ", " << rect->getPosition().y << ")" << std::endl;
+  Shape *shapes[3] = {cir, rect, tri};
 
-  rect->move(7.0, 6.0);
-  std::cout << "Move on (" << rect->getPosition().x << ", " << rect->getPosition().y << ")" << std::endl << std::endl;
-
-  Triangle shape_3({0.0, 0.0}, {0.0, 3.0}, {4.0, 0.0});
-  Shape *tri = &shape_3;
-  std::cout << "Triangle:" << std::endl;
-
-  tri->printInformation();
-
-  tri->move({6.0, 11.0});
-  std::cout << "Move to the point (" << tri->getPosition().x << ", " << tri->getPosition().y << ")" << std::endl;
-
-  tri->move(2.0, 5.0);
-  std::cout << "Move on (" << tri->getPosition().x << ", " << tri->getPosition().y << ")" << std::endl;
+  for (size_t i = 0; i < 3; ++i)
+  {
+    rectangle_t frame_rect = shapes[i]->getFrameRect();
+    std::cout << "shape_" << i << " info" << std::endl
+        << "position: {" << frame_rect.pos.x << ", " << frame_rect.pos.y << "}" << std::endl
+        << "size: " << frame_rect.width << " x " << frame_rect.height << std::endl
+        << "area: " << shapes[i]->getArea() << std::endl << std::endl;
+  }
 
   return 0;
 }

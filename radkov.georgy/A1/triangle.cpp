@@ -8,21 +8,14 @@ Triangle::Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &po
 {
   if (getArea() == 0)
   {
-    throw std::invalid_argument("Area mustn't be = 0.0");
+    throw std::invalid_argument("Area mustn't be = 0");
   }
 }
 
 point_t Triangle::getPosition() const
 {
-  point_t center = {0, 0};
-
-  for (size_t i = 0; i < 3; i++)
-  {
-    center.x += points_[i].x / 3;
-    center.y += points_[i].y / 3;
-  }
-
-  return center;
+  return {(points_[0].x + points_[1].x + points_[2].x) / 3,
+      (points_[0].y + points_[1].y + points_[2].y) / 3};
 }
 
 double Triangle::getArea() const
@@ -36,7 +29,7 @@ rectangle_t Triangle::getFrameRect() const
   point_t top_left = getPosition();
   point_t bottom_right = top_left;
 
-  for (size_t i = 0; i < 3; i++)
+  for (size_t i = 0; i < 3; ++i)
   {
     top_left.x = std::min(points_[i].x, top_left.x);
     top_left.y = std::max(points_[i].y, top_left.y);
@@ -57,18 +50,9 @@ void Triangle::move(const point_t &pos)
 
 void Triangle::move(const double dx, const double dy)
 {
-  for (size_t i = 0; i < 3; i++)
+  for (size_t i = 0; i < 3; ++i)
   {
     points_[i].x += dx;
     points_[i].y += dy;
   }
-}
-
-void Triangle::printInformation() const
-{
-  point_t center = getPosition();
-
-  std::cout << "Position: (" << center.x << ", " << center.y << ")" << std::endl
-      << "Area: " << getArea() << std::endl
-      << "Frame Rectangle: width - " << getFrameRect().width << ", height - " << getFrameRect().height << std::endl;
 }
