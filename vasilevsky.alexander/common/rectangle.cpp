@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-vasilevsky::Rectangle::Rectangle(const double &width, const double &height, const point_t &point):
+vasilevsky::Rectangle::Rectangle(const double width, const double height, const point_t &point):
   width_(width),
   height_(height),
   center_(point)
@@ -28,7 +28,7 @@ vasilevsky::rectangle_t vasilevsky::Rectangle::getFrameRect() const
   return {width_, height_, center_};
 }
 
-void vasilevsky::Rectangle::move(const double &dx, const double &dy)
+void vasilevsky::Rectangle::move(const double dx, const double dy)
 {
   center_.x += dx;
   center_.y += dy;

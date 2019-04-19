@@ -4,7 +4,7 @@
 #include <cmath>
 #include <stdexcept>
 
-vasilevsky::Circle::Circle(const double &radius, const point_t &point):
+vasilevsky::Circle::Circle(const double radius, const point_t &point):
   radius_(radius),
   center_(point)
 {
@@ -29,7 +29,7 @@ void vasilevsky::Circle::move(const point_t &point)
   center_ = point;
 }
 
-void vasilevsky::Circle::move(const double &dx, const double &dy)
+void vasilevsky::Circle::move(const double dx, const double dy)
 {
   center_.x += dx;
   center_.y += dy;

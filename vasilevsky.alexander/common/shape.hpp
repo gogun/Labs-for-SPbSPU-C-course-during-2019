@@ -12,7 +12,7 @@ namespace vasilevsky
     virtual double getArea() const = 0;
     virtual rectangle_t getFrameRect() const = 0;
     virtual void move(const point_t &point) = 0;
-    virtual void move(const double &, const double &) = 0;
+    virtual void move(const double, const double) = 0;
     virtual void printInfo() const = 0;
     virtual void scale(const double) = 0;
   };
