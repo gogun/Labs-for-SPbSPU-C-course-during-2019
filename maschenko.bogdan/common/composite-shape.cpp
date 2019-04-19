@@ -5,7 +5,6 @@
 
 maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
   //присваиваю здесь центр с координатами (0;0) так как shape может быть null
-  pos_({0, 0}),
   shape_count_(1),
   shape_array_(new maschenko::Shape*[1])
 {
@@ -14,7 +13,6 @@ maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
     throw std::invalid_argument("shape equals null. It can't be");
   }
   shape_array_[0] = shape;
-  pos_ = shape_array_[0]->getFrameRect().pos;
 }
 
 double maschenko::CompositeShape::getArea() const
@@ -60,15 +58,12 @@ void maschenko::CompositeShape::move(double dx, double dy)
   {
     shape_array_[i]->move(dx, dy);
   }
-  pos_.x += dx;
-  pos_.y += dy;
 }
 
 void maschenko::CompositeShape::move(const maschenko::point_t &center)
 {
-  double dx = center.x - pos_.x;
-  double dy = center.y - pos_.y;
-  pos_ = center;
+  double dx = center.x - getFrameRect().pos.x;
+  double dy = center.y - getFrameRect().pos.y;
   for (int i = 0; i < shape_count_; ++i)
   {
     shape_array_[i]->move(dx, dy);
@@ -81,8 +76,8 @@ void maschenko::CompositeShape::scale(double coefficient)
   {
     for (int i = 0; i < shape_count_; ++i)
     {
-      double dx = shape_array_[i]->getFrameRect().pos.x - pos_.x;
-      double dy = shape_array_[i]->getFrameRect().pos.y - pos_.y;
+      double dx = shape_array_[i]->getFrameRect().pos.x - getFrameRect().pos.x;
+      double dy = shape_array_[i]->getFrameRect().pos.y - getFrameRect().pos.y;
       shape_array_[i]->move((coefficient - 1) * dx, (coefficient - 1) * dy);
       shape_array_[i]->scale(coefficient);
     }
@@ -125,9 +120,6 @@ void maschenko::CompositeShape::addShape(maschenko::Shape *shape)
   new_shape_array[shape_count_] = shape;
   shape_count_++;
   shape_array_.swap(new_shape_array);
-
-  pos_.x = getFrameRect().pos.x;
-  pos_.y = getFrameRect().pos.y;
 }
 
 void maschenko::CompositeShape::removeShape(int index)
@@ -152,9 +144,6 @@ void maschenko::CompositeShape::removeShape(int index)
   }
 
   shape_array_.swap(new_shape_array);
-
-  pos_.x = getFrameRect().pos.x;
-  pos_.y = getFrameRect().pos.y;
 }
 
 void maschenko::CompositeShape::removeShape(maschenko::Shape *shape)
