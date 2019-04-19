@@ -35,10 +35,10 @@ void Rectangle::move(const double dx, const double dy)
 void Rectangle::printInfo() const
 {
   std::cout << "Rectangle:"
-  << "\n  Width: " << width_
-  << "\n  Height: " << height_
-  << "\n  Position:"
-  << "\n    x: " << pos_.x
-  << "\n    y: " << pos_.y
-  << "\n  Area: " << this->getArea() << "\n\n";
+    << "\n  Width: " << width_
+    << "\n  Height: " << height_
+    << "\n  Position:"
+    << "\n    x: " << pos_.x
+    << "\n    y: " << pos_.y
+    << "\n  Area: " << this->getArea() << "\n\n";
 }
