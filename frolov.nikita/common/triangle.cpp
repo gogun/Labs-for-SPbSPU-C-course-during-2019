@@ -1,6 +1,6 @@
 #include "triangle.hpp"
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 #include <cmath>
 #include <algorithm>
 
@@ -10,7 +10,10 @@ frolov::Triangle::Triangle(const point_t &point0, const point_t &point1, const p
   point2_(point2),
   center_({(point0_.x + point1_.x + point2_.x) / 3, (point0_.y + point1_.y + point2_.y) / 3})
 {
-  assert(getArea() > 0.0);
+  if (getArea() <= 0)
+  {
+    throw std::invalid_argument("invalid_argument point!");
+  }
 }
 
 static double findDistance(const frolov::point_t &point1, const frolov::point_t &point2)

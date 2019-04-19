@@ -1,13 +1,16 @@
 #include "rectangle.hpp"
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 
 frolov::Rectangle::Rectangle(const point_t &center, double height, double width) :
   center_(center),
   height_(height),
   width_(width)
 {
-  assert((height_ >= 0.0) && (width_ >= 0.0));
+  if ((height_ <= 0) || (width_ <= 0))
+  {
+    throw std::invalid_argument("Invalid height or width!")
+  }
 }
 
 double frolov::Rectangle::getArea() const

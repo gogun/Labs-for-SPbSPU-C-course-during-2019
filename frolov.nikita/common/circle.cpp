@@ -1,13 +1,16 @@
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
-#include <cassert>
+#include <stdexcept>
 
 frolov::Circle::Circle(const point_t &center, double radius) :
   center_(center),
   radius_(radius)
 {
-  assert(radius_ >= 0.0);
+  if (radius_ <= 0)
+  {
+    throw std::invalid_argument("Invalid radius!")
+  }
 }
 
 double frolov::Circle::getArea() const
