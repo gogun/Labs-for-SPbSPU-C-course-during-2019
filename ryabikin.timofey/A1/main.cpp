@@ -1,0 +1,36 @@
+#include <iostream>
+#include "circle.hpp"
+#include "rectangle.hpp"
+#include <cassert>
+
+void showRectangle_t(rectangle_t data)
+{
+  std::cout << "Width = " << data.width << "\n";
+  std::cout << "Height = " << data.height << "\n";
+  std::cout << "(X = " << data.pos.x << ";";
+  std::cout << "Y = " << data.pos.y << ")" << "\n";
+}
+
+void showAll(const Shape * shape)
+{
+  assert(shape != nullptr);
+  std::cout << "Area = " << shape->getArea() << "\n";
+  showRectangle_t(shape->getFrameRect());
+}
+
+int main()
+{
+  Rectangle r1(3.00, 4.00, { 5.00, 4.00 });
+  std::cout << "Demonstrate rectangle" << "\n";
+  showAll(&r1);
+  r1.move({ .x = 7.00, .y = 8.00 });
+  std::cout << "Moved rectangle" << "\n";
+  showAll(&r1);
+  Circle c1(3.00, { 1.00, 3.00 });
+  std::cout << "Demonstrate circle" << "\n";
+  showAll(&c1);
+  c1.move(3.00, -1.5);
+  std::cout << "Moved corcle" << "\n";
+  showAll(&c1);
+  return 0;
+}
