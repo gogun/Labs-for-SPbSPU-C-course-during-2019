@@ -5,8 +5,7 @@
 #include <cassert>
 
 Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC) :
-  pos_({(pointA.x + pointB.x + pointC.x) / 3,
-  (pointA.y + pointB.y + pointC.y) / 3}),
+  pos_({(pointA.x + pointB.x + pointC.x) / 3, (pointA.y + pointB.y + pointC.y) / 3}),
   point1_(pointA),
   point2_(pointB),
   point3_(pointC)
@@ -60,8 +59,8 @@ void Triangle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << "Triangle point A is (" << point1_.x << ';' << point1_.y << ")";
-  std::cout << "point B is " << point2_.x << ';' << point2_.y << ")";
-  std::cout << "point C is " << point3_.x << ';' << point3_.y << ")" << " \n";
+  std::cout << "\n point B is " << point2_.x << ';' << point2_.y << ")";
+  std::cout << "\n point C is " << point3_.x << ';' << point3_.y << ")";
   std::cout << "Triangle centre is (" << pos_.x << ","
       << pos_.y << ")\n";
   std::cout << "Frame rectangle width = " << rectangle.width
