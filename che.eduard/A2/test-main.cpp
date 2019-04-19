@@ -75,7 +75,7 @@ BOOST_AUTO_TEST_CASE(Rectangle_Scale_Testing)
 BOOST_AUTO_TEST_CASE(Rectangle_Invalid_Values)
 {
   BOOST_CHECK_THROW(che::Rectangle testRectangle({ 2.0, 4.0, { -3.0, 5.0}}), std::invalid_argument);
-  che::Rectangle testRectangle({ 2.0, 2.0{, 5.0, 10.0}});
+  che::Rectangle testRectangle({ 2.0, 2.0,{ 5.0, 10.0}});
   BOOST_CHECK_THROW(testRectangle.scale(0), std::invalid_argument);
 }
 
