@@ -2,6 +2,8 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
+using namespace che;
+
 void showInfo (Shape & shape1)
 {
   std::cout << "height = " << shape1.getFrameRect().height << std::endl;
@@ -14,14 +16,14 @@ void showInfo (Shape & shape1)
 int main()
 {
   std::cout << "Circle:" << std::endl;
-  che::Circle circle({1,1},3);
+  Circle circle({1,1},3);
   showInfo(circle);
   std::cout << "Scaling by 2: " << std::endl;
   circle.scale(2);
   showInfo(circle);
 
   std::cout << "Rectangle:" << std::endl;
-  che::Rectangle rectangle({2.0, 2.0}, 10.0, 10.0);
+  Rectangle rectangle({2,2,{10,10}});
   showInfo(rectangle);
   std::cout << "Scaling by 1.5: " << std::endl;
   rectangle.scale(1.5);
