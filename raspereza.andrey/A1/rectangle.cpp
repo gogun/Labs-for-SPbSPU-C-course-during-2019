@@ -1,9 +1,9 @@
-#include <iostream>
 #include "rectangle.hpp"
+#include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(point_t dot, double width, double height):
-  center_(dot),
+Rectangle::Rectangle(const point_t &center, double width, double height):
+  center_(center),
   width_(width),
   height_(height)
 {
@@ -17,17 +17,18 @@ double Rectangle::getArea() const
 
 void Rectangle::printInfo() const
 {
-  std::cout << "Center= " << center_.x << ";" << center_.y << " Width= " << width_ << " Height= " << height_ << "\n";
+  std::cout << "Center = " << center_.x << ";" << center_.y
+      << " Width = " << width_ << " Height = " << height_ << "\n";
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  return {width_,height_,center_};
+  return {width_, height_, center_};
 }
 
-void Rectangle::move(point_t point)
+void Rectangle::move(const point_t &newCenter)
 {
-  center_ = point;
+  center_ = newCenter;
 }
 
 void Rectangle::move(double dx, double dy)

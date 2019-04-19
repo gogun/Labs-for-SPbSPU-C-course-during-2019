@@ -1,12 +1,12 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 #include "base-types.hpp"
 #include "shape.hpp"
 
-class Circle: public Shape
+class Triangle: public Shape
 {
 public:
-  Circle(const point_t &newPoint, double radius);
+  Triangle(const point_t &vertexA, const point_t &vertexB, const point_t &vertexC);
 
   double getArea() const override;
   void printInfo() const override;
@@ -16,7 +16,9 @@ public:
 
 private:
   point_t center_;
-  double radius_;
+  point_t vertexA_;
+  point_t vertexB_;
+  point_t vertexC_;
 };
 
-#endif // CIRCLE_HPP
+#endif //TRIANGLE_HPP
