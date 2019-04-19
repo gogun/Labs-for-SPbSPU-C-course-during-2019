@@ -7,20 +7,20 @@
 #include "circle.hpp"
 
 BOOST_AUTO_TEST_SUITE(A2Test)
-  const double error = 0.001;
+  const double ERROR_MARGIN = 0.001;
   BOOST_AUTO_TEST_CASE(rectangleMove)
   {
     stotskaya::Rectangle testRect({5.0, 6.5}, 20.0, 10.0);
     const stotskaya::rectangle_t initialFrame = testRect.getFrameRect();
     const double initialArea = testRect.getArea();
     testRect.move({3.0, 5.5});
-    BOOST_CHECK_CLOSE(initialFrame.width, testRect.getFrameRect().width, error);
-    BOOST_CHECK_CLOSE(initialFrame.height, testRect.getFrameRect().height, error);
-    BOOST_CHECK_CLOSE(initialArea, testRect.getArea(), error);
+    BOOST_CHECK_CLOSE(initialFrame.width, testRect.getFrameRect().width, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialFrame.height, testRect.getFrameRect().height, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialArea, testRect.getArea(), ERROR_MARGIN);
     testRect.move(-3.0, 4.0);
-    BOOST_CHECK_CLOSE(initialFrame.width, testRect.getFrameRect().width, error);
-    BOOST_CHECK_CLOSE(initialFrame.height, testRect.getFrameRect().height, error);
-    BOOST_CHECK_CLOSE(initialArea, testRect.getArea(), error);
+    BOOST_CHECK_CLOSE(initialFrame.width, testRect.getFrameRect().width, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialFrame.height, testRect.getFrameRect().height, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialArea, testRect.getArea(), ERROR_MARGIN);
   }
   BOOST_AUTO_TEST_CASE(rectangleScale)
   {
@@ -29,9 +29,9 @@ BOOST_AUTO_TEST_SUITE(A2Test)
     const double initialArea = testRect.getArea();
     const double testRatio = 3.2;
     testRect.scale(testRatio);
-    BOOST_CHECK_CLOSE(initialFrame.width * testRatio, testRect.getFrameRect().width, error);
-    BOOST_CHECK_CLOSE(initialFrame.height * testRatio, testRect.getFrameRect().height, error);
-    BOOST_CHECK_CLOSE(initialArea * testRatio * testRatio, testRect.getArea(), error);
+    BOOST_CHECK_CLOSE(initialFrame.width * testRatio, testRect.getFrameRect().width, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialFrame.height * testRatio, testRect.getFrameRect().height, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialArea * testRatio * testRatio, testRect.getArea(), ERROR_MARGIN);
   }
   BOOST_AUTO_TEST_CASE(rectangleIncorrectValues)
   {
@@ -46,13 +46,13 @@ BOOST_AUTO_TEST_SUITE(A2Test)
     const stotskaya::rectangle_t initialFrame = testCircle.getFrameRect();
     const double initialArea = testCircle.getArea();
     testCircle.move({3.0, 5.5});
-    BOOST_CHECK_CLOSE(initialFrame.width, testCircle.getFrameRect().width, error);
-    BOOST_CHECK_CLOSE(initialFrame.height, testCircle.getFrameRect().height, error);
-    BOOST_CHECK_CLOSE(initialArea, testCircle.getArea(), error);
+    BOOST_CHECK_CLOSE(initialFrame.width, testCircle.getFrameRect().width, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialFrame.height, testCircle.getFrameRect().height, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialArea, testCircle.getArea(), ERROR_MARGIN);
     testCircle.move(-3.0, 4.0);
-    BOOST_CHECK_CLOSE(initialFrame.width, testCircle.getFrameRect().width, error);
-    BOOST_CHECK_CLOSE(initialFrame.height, testCircle.getFrameRect().height, error);
-    BOOST_CHECK_CLOSE(initialArea, testCircle.getArea(), error);
+    BOOST_CHECK_CLOSE(initialFrame.width, testCircle.getFrameRect().width, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialFrame.height, testCircle.getFrameRect().height, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialArea, testCircle.getArea(), ERROR_MARGIN);
   }
   BOOST_AUTO_TEST_CASE(circleScale)
   {
@@ -61,9 +61,9 @@ BOOST_AUTO_TEST_SUITE(A2Test)
     const double initialArea = testCircle.getArea();
     const double testRatio = 4.5;
     testCircle.scale(testRatio);
-    BOOST_CHECK_CLOSE(initialFrame.width * testRatio, testCircle.getFrameRect().width, error);
-    BOOST_CHECK_CLOSE(initialFrame.height * testRatio, testCircle.getFrameRect().height, error);
-    BOOST_CHECK_CLOSE(initialArea * testRatio * testRatio, testCircle.getArea(), error);
+    BOOST_CHECK_CLOSE(initialFrame.width * testRatio, testCircle.getFrameRect().width, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialFrame.height * testRatio, testCircle.getFrameRect().height, ERROR_MARGIN);
+    BOOST_CHECK_CLOSE(initialArea * testRatio * testRatio, testCircle.getArea(), ERROR_MARGIN);
   }
   BOOST_AUTO_TEST_CASE(circleIncorrectValues)
   {
