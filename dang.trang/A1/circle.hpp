@@ -1,5 +1,6 @@
 #ifndef CIRCLE_HPP
 #define CIRCLE_HPP
+
 #include "shape.hpp"
 
 class Circle : public Shape
@@ -13,11 +14,11 @@ public:
   void printInfo() const override;
 
 private:
-  double cR_;
+  double Rcircle_;
   point_t pos_;
 };
 
-#endif
+#endif //CIRCLE_HPP
 
 
 

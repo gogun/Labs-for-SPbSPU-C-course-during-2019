@@ -12,5 +12,5 @@ struct rectangle_t
   point_t pos;
 };
 
-#endif
+#endif //BASE_TYPES_HPP
 
