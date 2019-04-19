@@ -79,15 +79,10 @@ void maschenko::CompositeShape::scale(double coefficient)
 {
   if (coefficient > 0)
   {
-    double dx = shape_array_[0]->getFrameRect().pos.x - pos_.x;
-    double dy = shape_array_[0]->getFrameRect().pos.y - pos_.y;
-    shape_array_[0]->move((coefficient - 1) * dx, (coefficient - 1) * dy);
-    shape_array_[0]->scale(coefficient);
-
-    for (int i = 1; i < shape_count_; ++i)
+    for (int i = 0; i < shape_count_; ++i)
     {
-      dx = shape_array_[i]->getFrameRect().pos.x - pos_.x;
-      dy = shape_array_[i]->getFrameRect().pos.y - pos_.y;
+      double dx = shape_array_[i]->getFrameRect().pos.x - pos_.x;
+      double dy = shape_array_[i]->getFrameRect().pos.y - pos_.y;
       shape_array_[i]->move((coefficient - 1) * dx, (coefficient - 1) * dy);
       shape_array_[i]->scale(coefficient);
     }
