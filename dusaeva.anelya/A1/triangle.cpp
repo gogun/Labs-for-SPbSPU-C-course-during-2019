@@ -14,14 +14,13 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
   c_(getSide(pointA, pointC))
 {
   assert((a_ > 0.0) && (b_ > 0.0) && (c_ > 0.0) && (a_ + b_ > c_) && (a_ + c_ > b_) && (b_ + c_ > a_));
-  rectangle_t frameParameters = getFrameRect();
-  center_ = frameParameters.pos;
 }
 
 double Triangle::getArea() const
 {
   double p = (a_ + b_ + c_) / 2;
   double square = sqrt(p * (p - a_) * (p - b_) * (p - c_));
+
   return square;
 }
 
@@ -47,16 +46,15 @@ void Triangle::move(double dx, double dy)
   pointA_.y += dy;
   pointB_.y += dy;
   pointC_.y += dy;
-
-  center_.x += dx;
-  center_.y += dy;
 }
 
 void Triangle::move(const point_t &param)
 {
-  double dx = param.x - center_.x;
-  double dy = param.y - center_.y;
-  center_  = param;
+  rectangle_t frameRect(getFrameRect());
+  point_t center = frameRect.pos;
+
+  double dx = param.x - center.x;
+  double dy = param.y - center.y;
 
   pointA_.x += dx;
   pointB_.x += dx;
