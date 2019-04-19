@@ -1,6 +1,6 @@
 #include "circle.hpp"
-#include <cmath>
 #include <iostream>
+#include <cmath>
 #include <cassert>
 
 Circle::Circle (double Rcircle, const point_t &cpoint):
@@ -31,7 +31,7 @@ void Circle::move(const point_t &point)
   pos_ = point;
 }
 
-void Circle::dataoutput() const
+void Circle::printInfo() const
 {
   std::cout << "area_of_circle_=" << getArea() << std::endl
 			<< "\n  Radius: " << cR_

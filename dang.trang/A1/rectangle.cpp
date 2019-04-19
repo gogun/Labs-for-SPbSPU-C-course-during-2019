@@ -31,12 +31,13 @@ void Rectangle::move(const point_t &point)
   pos_ = point;
 }
 
-void Rectangle::dataoutput() const
+void Rectangle::printInfo() const
 {
 	std::cout << "area_of_rectangle_=" << getArea() << std::endl
 			  << "\n Width:  " << width_
 		      << "\n Height: " << height_
 			  << "\n position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
 }
+
 
 

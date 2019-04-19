@@ -10,7 +10,7 @@ public:
   virtual rectangle_t getFrameRect() const = 0;
   virtual void move(double mX, double mY) = 0;
   virtual void move(const point_t &point) = 0;
-  virtual void dataoutput() const =0;
+  virtual void printInfo() const =0;
 };
 
 #endif

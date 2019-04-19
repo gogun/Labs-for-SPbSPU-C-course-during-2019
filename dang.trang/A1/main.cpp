@@ -1,7 +1,7 @@
 #include <iostream>
-#include "shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "shape.hpp"
 
 void actions(Shape * usingShape)
 {
@@ -24,5 +24,6 @@ int main()
 
   return 0;
 }
+
 
 
