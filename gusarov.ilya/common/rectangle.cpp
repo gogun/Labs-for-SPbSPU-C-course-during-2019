@@ -1,8 +1,6 @@
 #include "rectangle.hpp"
 #include <iostream>
 #include <stdexcept>
-#include "base-types.hpp"
-
 
 gusarov::Rectangle::Rectangle(const point_t &center,const double width,const double height):
   width_(width),
