@@ -28,8 +28,7 @@ namespace chizhov
     Shape** shapes_;
     int quantity_;
 
-    rectangle_t recomputeFrame() const;
-    void copyFromSource(const CompositeShape&);
+    inline void copyFromSource(const CompositeShape&);
   };
 }
 

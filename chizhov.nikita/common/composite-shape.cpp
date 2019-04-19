@@ -61,7 +61,29 @@ double chizhov::CompositeShape::getArea() const
 
 chizhov::rectangle_t chizhov::CompositeShape::getFrameRect() const
 {
-  return recomputeFrame();
+  rectangle_t rectTmp = shapes_[0]->getFrameRect();
+  double minX = rectTmp.pos.x - rectTmp.width / 2;
+  double maxX = rectTmp.pos.x + rectTmp.width / 2;
+  double minY = rectTmp.pos.y - rectTmp.height / 2;
+  double maxY = rectTmp.pos.y + rectTmp.height / 2;
+
+  for (int i = 1; i < quantity_; i++) {
+    rectTmp = shapes_[i]->getFrameRect();
+
+    double tmp = rectTmp.pos.x - rectTmp.width / 2;
+    minX = std::min(tmp, minX);
+
+    tmp = rectTmp.pos.x + rectTmp.width / 2;
+    maxX = std::max(tmp, maxX);
+
+    tmp = rectTmp.pos.y - rectTmp.height / 2;
+    minY = std::min(tmp, minY);
+
+    tmp = rectTmp.pos.y - rectTmp.height / 2;
+    maxY = std::max(tmp, maxY);
+  }
+
+  return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
 }
 
 void chizhov::CompositeShape::move(double dx, double dy)
@@ -73,7 +95,7 @@ void chizhov::CompositeShape::move(double dx, double dy)
 
 void chizhov::CompositeShape::move(chizhov::point_t position)
 {
-  rectangle_t frameRect = recomputeFrame();
+  rectangle_t frameRect = getFrameRect();
   double dx = position.x - frameRect.pos.x;
   double dy = position.y - frameRect.pos.y;
 
@@ -88,7 +110,7 @@ void chizhov::CompositeShape::scale(double scale)
     throw std::invalid_argument("You cannot scale by non-positive multiplier");
   }
 
-  rectangle_t frameRect = recomputeFrame();
+  rectangle_t frameRect = getFrameRect();
 
   for (int i = 0; i < quantity_; i++) {
     double dx = shapes_[i]->getFrameRect().pos.x - frameRect.pos.x;
@@ -138,33 +160,6 @@ void chizhov::CompositeShape::deleteShape(const Shape& shape)
   if (removed) {
     shapes_[--quantity_] = nullptr;
   }
-}
-
-chizhov::rectangle_t chizhov::CompositeShape::recomputeFrame() const
-{
-  rectangle_t rectTmp = shapes_[0]->getFrameRect();
-  double minX = rectTmp.pos.x - rectTmp.width / 2;
-  double maxX = rectTmp.pos.x + rectTmp.width / 2;
-  double minY = rectTmp.pos.y - rectTmp.height / 2;
-  double maxY = rectTmp.pos.y + rectTmp.height / 2;
-
-  for (int i = 1; i < quantity_; i++) {
-    rectTmp = shapes_[i]->getFrameRect();
-
-    double tmp = rectTmp.pos.x - rectTmp.width / 2;
-    minX = std::min(tmp, minX);
-
-    tmp = rectTmp.pos.x + rectTmp.width / 2;
-    maxX = std::max(tmp, maxX);
-
-    tmp = rectTmp.pos.y - rectTmp.height / 2;
-    minY = std::min(tmp, minY);
-
-    tmp = rectTmp.pos.y - rectTmp.height / 2;
-    maxY = std::max(tmp, maxY);
-  }
-
-  return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
 }
 
 void chizhov::CompositeShape::copyFromSource(const chizhov::CompositeShape& source)
