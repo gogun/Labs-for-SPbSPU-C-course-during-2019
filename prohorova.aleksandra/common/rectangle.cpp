@@ -42,7 +42,7 @@ void prohorova::Rectangle::scale(double factor)
 {
   if (factor <= 0)
   {
-    throw std::invalid_argument("Factor of scaling must be a positive number.\n")
+    throw std::invalid_argument("Factor of scaling must be a positive number.\n");
   }
   rect_.width *= factor;
   rect_.height *= factor;
