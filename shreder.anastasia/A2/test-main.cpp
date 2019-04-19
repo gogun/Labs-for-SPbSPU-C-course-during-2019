@@ -12,8 +12,8 @@ BOOST_AUTO_TEST_SUITE(testShape)
 
 BOOST_AUTO_TEST_CASE (TestCorrectnessOfShapeParameters)
 {
-  BOOST_CHECK_THROW(shreder::Circle({1.0, 6.6}, 0.0), std::invalid_argument);
-  BOOST_CHECK_THROW(shreder::Rectangle({5.6, 4.0}, -3.5, -1.7), std::invalid_argument);
+  BOOST_CHECK_THROW(shreder::Circle({{1.0, 6.6}, 0.0}), std::invalid_argument);
+  BOOST_CHECK_THROW(shreder::Rectangle({{5.6, 4.0}, -3.5, -1.7}), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE (TestCorrectnessOfScaleValue)
@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_CASE(TestRectangleMovingToThePoint)
   shreder::Rectangle testRectangle({{6.0, 5.0}, 12.3, 3.1});
   const double rectangleAreaBeforeMoving = testRectangle.getArea();
   const shreder::rectangle_t frameRectangleBeforeMoving = testRectangle.getFrameRect();
-  testRectangle.move({4.0, -1.5}); //moving rectangle to the point with coordinates (10.0, 3.5)
+  testRectangle.move({4.0, -1.5});
 
   BOOST_CHECK_CLOSE(rectangleAreaBeforeMoving, testRectangle.getArea(), PRECISION);
   shreder::rectangle_t frameRectangleAfterMoving = testRectangle.getFrameRect();
@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(TestCircleMovingToThePoint)
   shreder::Circle testCircle({{7.0, 8.0}, 12.3});
   const double circleAreaBeforeMoving = testCircle.getArea();
   const shreder::rectangle_t frameCircleBeforeMoving = testCircle.getFrameRect();
-  testCircle.move({4.0, -1.5}); //moving circle to the point with coordinates (10.0, 3.5)
+  testCircle.move({4.0, -1.5});
 
   BOOST_CHECK_CLOSE(circleAreaBeforeMoving, testCircle.getArea(), PRECISION);
   shreder::rectangle_t frameCircleAfterMoving = testCircle.getFrameRect();
