@@ -3,7 +3,6 @@
 #include <boost/test/included/unit_test.hpp>
 #include <stdexcept>
 #include <iostream>
-
 #include "rectangle.hpp"
 #include "circle.hpp"
 
