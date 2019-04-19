@@ -3,7 +3,7 @@
 #include "circle.hpp"
 #include "triangle.hpp"
 
-void printRect (Shape &shape)
+void printRect(Shape &shape)
 {
   rectangle_t rectangle1 = shape.getFrameRect();
   std::cout << rectangle1.width << " " << rectangle1.height;
