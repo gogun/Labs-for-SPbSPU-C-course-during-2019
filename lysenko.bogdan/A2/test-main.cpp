@@ -9,31 +9,31 @@ const double deviation = 0.0001;
 
 BOOST_AUTO_TEST_SUITE(circleTest)
 
-BOOST_AUTO_TEST_CASE(constParametersAfterMovingByDistance, * boost::unit_test::tolerance(deviation))
+BOOST_AUTO_TEST_CASE(constParametersAfterMovingByDistance)
 {
   lysenko::Circle testCircle(4, {2, 3});
   const double testCircleArea = testCircle.getArea();
   const lysenko::rectangle_t testFrameRect = testCircle.getFrameRect();
 
   testCircle.move(4, 2);
-  BOOST_TEST(testCircle.getArea() == testCircleArea);
-  BOOST_TEST(testCircle.getFrameRect().height == testFrameRect.height);
-  BOOST_TEST(testCircle.getFrameRect().width == testFrameRect.width);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), testCircleArea, deviation);
+  BOOST_CHECK_CLOSE(testCircle.getFrameRect().height, testFrameRect.height, deviation);
+  BOOST_CHECK_CLOSE(testCircle.getFrameRect().width, testFrameRect.width, deviation);
 }
 
-BOOST_AUTO_TEST_CASE(constParametersAfterMovingToPoint, * boost::unit_test::tolerance(deviation))
+BOOST_AUTO_TEST_CASE(constParametersAfterMovingToPoint)
 {
   lysenko::Circle testCircle(4, {2, 3});
   const double testCircleArea = testCircle.getArea();
   const lysenko::rectangle_t testFrameRect = testCircle.getFrameRect();
 
   testCircle.move({1.5, 7});
-  BOOST_TEST(testCircle.getArea() == testCircleArea);
-  BOOST_TEST(testCircle.getFrameRect().height == testFrameRect.height);
-  BOOST_TEST(testCircle.getFrameRect().width == testFrameRect.width);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), testCircleArea, deviation);
+  BOOST_CHECK_CLOSE(testCircle.getFrameRect().height, testFrameRect.height, deviation);
+  BOOST_CHECK_CLOSE(testCircle.getFrameRect().width, testFrameRect.width, deviation);
 }
 
-BOOST_AUTO_TEST_CASE(squareChangeAfterScale, * boost::unit_test::tolerance(deviation))
+BOOST_AUTO_TEST_CASE(squareChangeAfterScale)
 {
   lysenko::Circle testCircle(4, {2, 7});
   const double testArea = testCircle.getArea();
@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(squareChangeAfterScale, * boost::unit_test::tolerance(devia
 
   testCircle.scale(coefficient);
 
-  BOOST_TEST(testCircle.getArea() == (testArea * coefficient * coefficient));
+  BOOST_CHECK_CLOSE(testCircle.getArea(), (testArea * coefficient * coefficient), deviation);
 }
   
 BOOST_AUTO_TEST_CASE(invalidValues)
@@ -59,7 +59,7 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(rectangleTest)
 
-BOOST_AUTO_TEST_CASE(constParametersAfterMovingByDistance, *boost::unit_test::tolerance(deviation))
+BOOST_AUTO_TEST_CASE(constParametersAfterMovingByDistance)
 {
   lysenko::Rectangle testRectangle({4, 6, {2, 3}});
   const double testRectangleArea = testRectangle.getArea();
@@ -67,24 +67,24 @@ BOOST_AUTO_TEST_CASE(constParametersAfterMovingByDistance, *boost::unit_test::to
 
   testRectangle.move(4, 2);
 
-  BOOST_TEST(testRectangle.getArea() == testRectangleArea);
-  BOOST_TEST(testRectangle.getFrameRect().height == testFrameRect.height);
-  BOOST_TEST(testRectangle.getFrameRect().width == testFrameRect.width);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), testRectangleArea, deviation);
+  BOOST_CHECK_CLOSE(testRectangle.getFrameRect().height, testFrameRect.height, deviation);
+  BOOST_CHECK_CLOSE(testRectangle.getFrameRect().width, testFrameRect.width, deviation);
 }
 
-BOOST_AUTO_TEST_CASE(constParametersAfterMovingToPoint, *boost::unit_test::tolerance(deviation))
+BOOST_AUTO_TEST_CASE(constParametersAfterMovingToPoint)
 {
   lysenko::Rectangle testRectangle({4, 2, { 2, 3 }});
   const double testRectangleArea = testRectangle.getArea();
   const lysenko::rectangle_t testFrameRect = testRectangle.getFrameRect();
 
   testRectangle.move({1.5, 7});
-  BOOST_TEST(testRectangle.getArea() == testRectangleArea);
-  BOOST_TEST(testRectangle.getFrameRect().height == testFrameRect.height);
-  BOOST_TEST(testRectangle.getFrameRect().width == testFrameRect.width);
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), testRectangleArea, deviation);
+  BOOST_CHECK_CLOSE(testRectangle.getFrameRect().height, testFrameRect.height, deviation);
+  BOOST_CHECK_CLOSE(testRectangle.getFrameRect().width, testFrameRect.width, deviation);
 }
 
-BOOST_AUTO_TEST_CASE(squareChangeAfterScale, *boost::unit_test::tolerance(deviation))
+BOOST_AUTO_TEST_CASE(squareChangeAfterScale)
 {
   lysenko::Rectangle testRectangle({1, 4, { 2, 7 }});
   const double testArea = testRectangle.getArea();
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(squareChangeAfterScale, *boost::unit_test::tolerance(deviat
 
   testRectangle.scale(coefficient);
 
-  BOOST_TEST(testRectangle.getArea() == (testArea * coefficient * coefficient));
+  BOOST_CHECK_CLOSE(testRectangle.getArea(), (testArea * coefficient * coefficient), deviation);
 }
 
 BOOST_AUTO_TEST_CASE(invalidValues)
