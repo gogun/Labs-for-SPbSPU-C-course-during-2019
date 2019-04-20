@@ -14,7 +14,7 @@ Triangle::Triangle(point_t pA, point_t pB, point_t pC):
   lengthB_ = getLength(pB, pC);
   lengthC_ = getLength(pC, pA);
 
-  assert(getArea() > 0.0);
+  assert(getArea() > 0);
 }
 
 double Triangle::getLength(point_t a, point_t b)
