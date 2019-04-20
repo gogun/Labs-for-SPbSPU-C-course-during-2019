@@ -10,9 +10,7 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
 	point2_(pointB),
 	point3_(pointC)
 {
-	if ((point1_.x == point2_.x && point1_.y == point2_.y) || 
-		(point2_.x == point3_.x && point2_.y == point3_.y) || 
-		(point1_.x == point3_.x && point1_.y == point3_.y))
+	if ((point1_.x == point2_.x && point1_.y == point2_.y) || (point2_.x == point3_.x && point2_.y == point3_.y) || (point1_.x == point3_.x && point1_.y == point3_.y))	
 	{
 		throw std::invalid_argument("Two point are matching");
 	}
@@ -21,7 +19,7 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
 double Triangle::getArea() const
 {
 	return (std::fabs(point1_.x - point3_.x) * (point2_.y - point3_.y) - 
-			std::fabs(point2_.x - point3_.x) * (point1_.y - point3_.y)) / 2;
+std::fabs(point2_.x - point3_.x) * (point1_.y - point3_.y)) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
