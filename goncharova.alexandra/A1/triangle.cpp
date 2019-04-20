@@ -9,17 +9,14 @@ Triangle::Triangle(const point_t &center, const point_t &pointA, const point_t &
   pointB_(pointB),
   pointC_{3 * center_.x - pointB_.x - pointA_.x, 3 * center_.y - pointB_.y - pointA_.y}
 {
-  assert(fabs((pointB.x - pointA.x) * (center_.y - pointA_.y) - (center_.x - pointA.x) * (pointB.y - pointA.y)) > pow(10, -8));
+  assert(fabs((pointB_.x - pointA_.x) * (center_.y - pointA_.y) 
+      - (center_.x - pointA_.x) * (pointB_.y - pointA_.y)) > pow(10, -8));
 }
 
 double Triangle::getArea() const
 {
-  double a_ = (sqrt(pow(pointA_.x - pointB_.x, 2) + pow(pointA_.y - pointB_.y, 2)));
-  double b_ = (sqrt(pow(pointB_.x - pointC_.x, 2) + pow(pointB_.y - pointC_.y, 2)));
-  double c_ = (sqrt(pow(pointC_.x - pointA_.x, 2) + pow(pointC_.y - pointA_.y, 2)));
-  
-  double p = (a_ + b_ + c_) / 2;
-  double square = sqrt(p * (p - a_) * (p - b_) * (p - c_));
+  double square = fabs((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y)
+      - (pointB_.x - pointC_.x) * (pointA_.y - pointC_.y)) * 1 / 2;
   return square;
 }
 
