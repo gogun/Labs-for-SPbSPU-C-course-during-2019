@@ -36,5 +36,5 @@ void Rectangle::show() const
   std::cout << "Width: " << rect_.width << std::endl;
   std::cout << "Height: " << rect_.height << std::endl;
   std::cout << "Center coordinates: (" << rect_.pos.x
-            << "; " << rect_.pos.y << ")" << std::endl;
+      << "; " << rect_.pos.y << ")" << std::endl;
 }

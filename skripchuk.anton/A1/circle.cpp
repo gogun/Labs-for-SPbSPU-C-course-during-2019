@@ -38,5 +38,5 @@ void Circle::show() const
   std::cout << "Rectangle's width: " << getFrameRect().width << std::endl;
   std::cout << "Rectangle's height: " << getFrameRect().height << std::endl;
   std::cout << "Rectangle's center: (" << getFrameRect().pos.x
-            << "; " << getFrameRect().pos.y << ")" << std::endl;
+      << "; " << getFrameRect().pos.y << ")" << std::endl;
 }

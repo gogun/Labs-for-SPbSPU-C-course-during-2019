@@ -1,12 +1,12 @@
-#ifndef CIRCLE_HPP
-#define CIRCLE_HPP
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 
 #include "shape.hpp"
 
-struct Circle: public Shape
+struct Triangle: public Shape
 {
 public:
-  Circle(double radius, const point_t & center);
+  Triangle(const point_t & pointA, const point_t & pointB, const point_t & pointC);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t & point) override;
@@ -14,7 +14,9 @@ public:
   void show() const override;
 
 private:
-  double radius_;
+  point_t pointA_;
+  point_t pointB_;
+  point_t pointC_;
   point_t center_;
 };
 
