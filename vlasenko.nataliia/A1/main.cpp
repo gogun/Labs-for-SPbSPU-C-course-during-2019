@@ -1,7 +1,6 @@
+#include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
-
-#include <iostream>
 
 int main()
 {
@@ -23,8 +22,8 @@ int main()
   std::cout << "\t Transfer center of circle to (2.0+7.0, 5.2+1.0)\n";
   shape->move(7.0, 1.0);
   shape->printInfo();
-  std::cout << "\t Move to (-27.1, 9.0)\n";
-  shape->move({-27.1, 9.0});
+  std::cout << "\t Move to (-16.1, 7.0)\n";
+  shape->move({-16.1, 7.0});
   shape->printInfo();
 
   return 0;
