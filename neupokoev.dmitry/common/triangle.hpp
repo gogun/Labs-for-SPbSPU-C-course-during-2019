@@ -14,16 +14,11 @@ namespace neupokoev
     void move(const double dx, const double dy) override;
     void writeParameters() const override;
     void scale(double scaleFactor) override;
-    void getSides();
 
   private:
-    point_t pos_;
     point_t A;
     point_t B;
     point_t C;
-    double sideA_;
-    double sideB_;
-    double sideC_;
   };
 }
 
