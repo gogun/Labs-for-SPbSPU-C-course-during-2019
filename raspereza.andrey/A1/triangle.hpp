@@ -15,10 +15,10 @@ public:
   void move(double dx, double dy) override;
 
 private:
-  point_t center_;
   point_t vertexA_;
   point_t vertexB_;
   point_t vertexC_;
+  point_t center_;
 };
 
 #endif //TRIANGLE_HPP
