@@ -35,12 +35,12 @@ void Circle::move(const point_t &point)
   pos_ = point;
 }
 
-double Circle::getRadius()
+double Circle::getRadius() const
 {
   return radius_;
 }
 
-point_t Circle::getPos()
+point_t Circle::getPos() const
 {
   return pos_;
 }
