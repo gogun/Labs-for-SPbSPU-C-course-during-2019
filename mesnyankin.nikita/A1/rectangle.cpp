@@ -1,6 +1,6 @@
-#include <iostream>
-#include <cassert>
 #include "rectangle.hpp"
+#include <cassert>
+#include <iostream>
 
 
 Rectangle::Rectangle(const double width, const double height, const point_t &pos):
@@ -8,7 +8,7 @@ Rectangle::Rectangle(const double width, const double height, const point_t &pos
   height_(height),
   pos_(pos)
 {
-  assert((width > 0) || (height > 0));
+  assert((width > 0) && (height > 0));
 }
 
 double Rectangle::getArea() const
