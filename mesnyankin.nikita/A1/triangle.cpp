@@ -31,11 +31,18 @@ void Triangle::move(const double x, const double y)
   a_.y += y;
   b_.y += y;
   c_.y += y;
+  pos_ = {((a_.x + b_.x + c_.x) / 3), ((a_.y + b_.y + c_.y) / 3)};
 }
 
 void Triangle::move(const point_t &point)
 {
   pos_ = point;
+  a_.x += point.x - pos_.x;
+  b_.x += point.x - pos_.x;
+  c_.x += point.x - pos_.x;
+  a_.y += point.y - pos_.y;
+  b_.y += point.y - pos_.y;
+  c_.y += point.y - pos_.y;
 }
 
 point_t Triangle::getA() const
