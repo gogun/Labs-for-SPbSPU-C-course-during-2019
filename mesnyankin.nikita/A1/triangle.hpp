@@ -3,7 +3,7 @@
 
 #include "shape.hpp"
 
-class Triangle : public Shape {
+class Triangle: public Shape {
 
 public:
   Triangle(const point_t &a, const point_t &b, const point_t &c);
@@ -24,7 +24,6 @@ private:
   point_t b_;
   point_t c_;
   point_t pos_;
-
 };
 
 #endif
