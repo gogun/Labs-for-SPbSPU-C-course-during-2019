@@ -11,6 +11,7 @@ namespace barekov
   class CompositeShape : public Shape
   {
   public:
+    CompositeShape();
     CompositeShape(const CompositeShape& source);
     CompositeShape(CompositeShape&& source);
     CompositeShape(Shape* shape);
