@@ -56,7 +56,3 @@ void Triangle::show() const
   std::cout << "Triangle's center: (" << getFrameRect().pos.x
       << "; " << getFrameRect().pos.y << ")" << std::endl;
 }
-
-
-
-  
