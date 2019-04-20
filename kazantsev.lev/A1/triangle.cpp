@@ -1,5 +1,5 @@
 #define _USE_MATH_DEFINES
-#include "triangle.h"
+#include "triangle.hpp"
 #include <iostream>
 #include <cmath>
 #include <cassert>
