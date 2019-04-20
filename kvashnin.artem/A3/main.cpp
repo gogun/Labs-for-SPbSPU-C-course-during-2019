@@ -1,9 +1,9 @@
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-#include "composite-shape.cpp"
+#include "composite-shape.hpp"
 
-int main1()
+int main()
 {
   std::cout << "Create a circle with a radius of 1 at the origin." << std::endl;
   kvashnin::Circle cir = kvashnin::Circle({0, 0}, 1);
