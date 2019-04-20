@@ -6,13 +6,13 @@
 
 class Circle : public Shape
 {
-  public:
-    Circle(double radius, point_t pos);
-    double getArea() const override;
-    rectangle_t getFrameRect() const override;
+public:
+  Circle(double radius, point_t pos);
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
 
-  private:
-    double radius_;
+private:
+  double radius_;
 };
 
 #endif

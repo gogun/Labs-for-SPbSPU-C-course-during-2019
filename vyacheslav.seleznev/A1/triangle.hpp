@@ -6,19 +6,19 @@
 
 class Triangle : public Shape
 {
-  public:
-    Triangle(point_t pA, point_t pB, point_t pC);
-    double getArea() const override;
-    rectangle_t getFrameRect() const override;
+public:
+  Triangle(point_t pA, point_t pB, point_t pC);
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
 
-  private:
-    point_t pointA_;
-    point_t pointB_;
-    point_t pointC_;
-    double lengthA_;
-    double lengthB_;
-    double lengthC_;
-    double getLength(point_t a, point_t b);
+private:
+  point_t pointA_;
+  point_t pointB_;
+  point_t pointC_;
+  double lengthA_;
+  double lengthB_;
+  double lengthC_;
+  double getLength(point_t a, point_t b);
 };
 
 #endif
