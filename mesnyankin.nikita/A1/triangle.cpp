@@ -1,8 +1,8 @@
+#include "triangle.hpp"
 #include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <iostream>
-#include "triangle.hpp"
 
 
 Triangle::Triangle(const point_t &a, const point_t &b, const point_t &c):
@@ -11,6 +11,8 @@ Triangle::Triangle(const point_t &a, const point_t &b, const point_t &c):
   c_(c),
   pos_({((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3)})
 {
+  assert((getAB() + getBC() > getCA()) && (getBC() + getCA() > getAB()) && (getAB() + getCA() > getBC()));
+  assert(((getAB() != 0) && (getBC() != 0) && (getCA() != 0)));
   assert(c.y != (a.y - b.y) / (a.x - b.x) * c.x + a.y - (a.y - b.y) / (a.x - b.x) * a.x);
 }
 
@@ -71,15 +73,15 @@ rectangle_t Triangle::getFrameRect() const
 
 double Triangle::getAB() const
 {
-  return sqrt(pow((getB().x - getA().x), 2) + pow((getB().y - getA().y), 2));
+  return std::abs(sqrt(pow((getB().x - getA().x), 2) + pow((getB().y - getA().y), 2)));
 }
 
 double Triangle::getBC() const
 {
-  return sqrt(pow((getC().x - getB().x), 2) + pow((getC().y - getB().y), 2));
+  return std::abs(sqrt(pow((getC().x - getB().x), 2) + pow((getC().y - getB().y), 2)));
 }
 
 double Triangle::getCA() const
 {
-  return sqrt(pow((getA().x - getC().x), 2) + pow((getA().y - getC().y), 2));
+  return std::abs(sqrt(pow((getA().x - getC().x), 2) + pow((getA().y - getC().y), 2)));
 }
