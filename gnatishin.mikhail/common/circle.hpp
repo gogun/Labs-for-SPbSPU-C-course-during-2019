@@ -23,4 +23,5 @@ namespace gnatishin
       double radius_;
   };
 }
+
 #endif
