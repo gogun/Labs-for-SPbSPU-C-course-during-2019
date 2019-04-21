@@ -39,7 +39,6 @@ void troshev::Rectangle::getInfo() const
   std::cout << "Point y : " << rec_.pos.y << std::endl;
   std::cout << "Rectangle height : " << rec_.height << std::endl;
   std::cout << "Rectangle width : " << rec_.width << std::endl;
-
 }
 
 void troshev::Rectangle::scale(double number)
