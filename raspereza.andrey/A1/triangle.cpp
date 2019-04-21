@@ -10,9 +10,11 @@ Triangle::Triangle(const point_t &vertexA, const point_t &vertexB, const point_t
   vertexC_(vertexC),
   center_ {(vertexA.x + vertexB.x + vertexC.x) / 3 , (vertexA.y + vertexB.y + vertexC.y) / 3}
 {
-  assert((vertexA_.x != vertexB_.x) || ((vertexA_.x != vertexC_.x) && (vertexA_.y != vertexB_.y)));
-  assert((vertexA_.x != vertexC_.x) || ((vertexA_.y != vertexB_.y) && (vertexA_.y != vertexC_.y)));
+  assert((vertexA_.x != vertexB_.x) || (vertexA_.x != vertexC_.x));
+  assert((vertexA_.x != vertexB_.x) || (vertexA_.y != vertexB_.y));
+  assert((vertexA_.x != vertexC_.x) || (vertexA_.y != vertexC_.y));
   assert((vertexB_.x != vertexC_.x) || (vertexB_.y != vertexC_.y));
+  assert((vertexA_.y != vertexB_.y) || (vertexA_.y != vertexC_.y));
 }
 
 double Triangle::getArea() const
@@ -43,19 +45,7 @@ rectangle_t Triangle::getFrameRect() const
 
 void Triangle::move(const point_t &newCenter)
 {
-  double dx = newCenter.x - center_.x;
-  double dy = newCenter.y - center_.y;
-
-  center_ = newCenter;
-
-  vertexA_.x += dx;
-  vertexA_.y += dy;
-
-  vertexB_.x += dx;
-  vertexB_.y += dy;
-
-  vertexC_.x += dx;
-  vertexC_.y += dy;
+  move((newCenter.x - center_.x), (newCenter.y - center_.y));
 }
 
 void Triangle::move(double dx, double dy)
