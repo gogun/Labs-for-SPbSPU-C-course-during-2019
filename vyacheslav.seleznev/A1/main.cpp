@@ -5,7 +5,7 @@
 #include "circle.hpp"
 #include "triangle.hpp"
 
-std::ostream & operator << (std::ostream & out , const rectangle_t rect)
+std::ostream & operator <<(std::ostream & out , const rectangle_t rect)
 {
   out << "Frame rect width = " << rect.width << " " <<
     "height = " << rect.height << " " <<
@@ -15,10 +15,23 @@ std::ostream & operator << (std::ostream & out , const rectangle_t rect)
   return out;
 }
 
-void polimorphicMethod(Shape & obj)
+void printShape(Shape *shape)
 {
-  std::cout << "Area = " << obj.getArea() << std::endl;
-  std::cout << "Frame rect " << obj.getFrameRect();
+  std::cout << "Area = " << shape->getArea() << std::endl;
+  std::cout << "Frame rect " << shape->getFrameRect();
+}
+
+void demonstrateShapeCapabilities(Shape *shape, std::string figure)
+{
+  std::cout << figure << std::endl;
+  printShape(shape);
+  std::cout << "Set new centre point" << std::endl;
+  shape->move({100, 50});
+  printShape(shape);
+  std::cout << "Delta move" << std::endl;
+  shape->move(10, 30);
+  printShape(shape);
+  std::cout << "===" << std::endl;
 }
 
 int main()
@@ -31,56 +44,16 @@ int main()
   const double rectangleHeight = 10;
 
   point_t trianglePointA = {1, 20};
-
   point_t trianglePointB = {30, 4};
-
   point_t trianglePointC = {4, 50};
 
   Circle circle(circleRadius, circleCentre);
   Rectangle rectangle(rectangleWidth, rectangleHeight, rectangleCentre);
   Triangle triangle(trianglePointA, trianglePointB, trianglePointC);
 
-  std::cout << "=== Circle ===" << std::endl;
-  polimorphicMethod(circle);
-  std::cout << "Set new centre point" << std::endl;
-
-  circle.move({100, 50});
-  polimorphicMethod(circle);
-
-  std::cout << "Delta move" << std::endl;
-
-  circle.move(10, 30);
-  polimorphicMethod(circle);
-
-  std::cout << "===" << std::endl;
-
-  std::cout << "=== Rectangle ===" << std::endl;
-  polimorphicMethod(rectangle);
-  std::cout << "Set new centre point" << std::endl;
-
-  rectangle.move({500, 999});
-  polimorphicMethod(rectangle);
-
-  std::cout << "Delta move" << std::endl;
-
-  rectangle.move(-40, -99);
-  polimorphicMethod(rectangle);
-
-  std::cout << "===" << std::endl;
-
-  std::cout << "=== Triangle ===" << std::endl;
-  polimorphicMethod(triangle);
-  std::cout << "Set new centre point" << std::endl;
-
-  triangle.move({385, 444});
-  polimorphicMethod(triangle);
-
-  std::cout << "Delta move" << std::endl;
-
-  triangle.move(-88, -12);
-  polimorphicMethod(triangle);
-
-  std::cout << "===" << std::endl;
+  demonstrateShapeCapabilities(&circle, "=== Circle ===");
+  demonstrateShapeCapabilities(&rectangle, "=== Rectangle ===");
+  demonstrateShapeCapabilities(&triangle, "=== Triangle ===");
 
   return 0;
 }
