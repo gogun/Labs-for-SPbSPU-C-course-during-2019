@@ -7,7 +7,14 @@ krinkina::Rectangle::Rectangle(const point_t &centre, double width, double heigh
   width_(width),
   height_(height)
 {
-  assert((width > 0.0) && (height > 0.0));
+  if (rectangle.width <= 0)
+  {
+    throw std::invalid_argument("Width must be greater than 0");
+  }
+  if (rectangle.height <= 0)
+  {
+    throw std::invalid_argument("Height must be greater than 0");
+  }
 }
 
 void krinkina::Rectangle::move(const point_t &centre)
@@ -38,9 +45,17 @@ krinkina:: rectangle_t krinkina::Rectangle::getFrameRect() const
 
 void krinkina::Rectangle::scale(double coefficient)
 {
-  assert(coefficient > 0);
-  width_ *= coefficient;
-  height_ *= coefficient;
+  if (coefficient <= 0)
+  {
+    {
+      throw std::invalid_argument("Scaling coefficient must be positive.");
+    }
+  else
+  {
+    width_ *= coefficient;
+    height_ *= coefficient;
+  }
+
 }
 
 void krinkina::Rectangle::printInfo() const
