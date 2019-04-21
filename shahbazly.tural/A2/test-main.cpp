@@ -70,7 +70,7 @@ BOOST_AUTO_TEST_CASE(invalidArgumentsCircle)
 //Тест на неправильные аргументы прямоугольника
 BOOST_AUTO_TEST_CASE(invalidArgumentsRectangle)
 {
-	BOOST_CHECK_THROW(shahbazly::Rectangle({1, 2}, -3, -3), std::invalid_argument);
+  BOOST_CHECK_THROW(shahbazly::Rectangle({1, 2}, -3, -3), std::invalid_argument);
   BOOST_CHECK_THROW(shahbazly::Rectangle({1, 2}, -1, 2), std::invalid_argument);
   BOOST_CHECK_THROW(shahbazly::Rectangle({1, 2}, 1, -2), std::invalid_argument);
 
