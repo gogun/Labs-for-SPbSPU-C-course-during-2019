@@ -17,7 +17,7 @@ Triangle::Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &po
 point_t Triangle::getCenter() const noexcept
 {
   return {(points_[0].x + points_[1].x + points_[2].x) / 3,
-      (points_[0].y + points_[1].y + points_[3].y) / 3};
+      (points_[0].y + points_[1].y + points_[2].y) / 3};
 }
 
 double Triangle::getArea() const noexcept
