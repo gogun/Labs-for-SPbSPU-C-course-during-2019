@@ -7,21 +7,18 @@ Triangle::Triangle(point_t point1, point_t point2, point_t point3):
   point1_(point1),
   point2_(point2),
   point3_(point3),
-  pos_({(point1.x + point2.x + point3.x) / 3, (point1.y + point2.y + point3.y) / 3})
+  pos_({(point1.x + point2.x + point3.x) / 3, (point1.y + point2.y + point3.y) / 3}),
+  a_(sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y))),
+  b_(sqrt((point2.x - point3.x) * (point2.x - point3.x) + (point2.y - point3.y) * (point2.y - point3.y))),
+  c_(sqrt((point3.x - point1.x) * (point3.x - point1.x) + (point3.y - point1.y) * (point3.y - point1.y)))
 {
-  const double a = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y) * (point1_.y - point2_.y));
-  const double b = sqrt((point2_.x - point3_.x) * (point2_.x - point3_.x) + (point2_.y - point3_.y) * (point2_.y - point3_.y));
-  const double c = sqrt((point3_.x - point1_.x) * (point3_.x - point1_.x) + (point3_.y - point1_.y) * (point3_.y - point1_.y));
-  assert((a > 0) && (b > 0) && (c > 0) && ((a + b) > c) && ((c + b) > a) && ((a + c) > b));
+  assert((a_ > 0) && (b_ > 0) && (c_ > 0) && ((a_ + b_) > c_) && ((c_ + b_) > a_) && ((a_ + c_) > b_));
 }
 
 double Triangle::getArea() const
 {
-  const double a = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y) * (point1_.y - point2_.y));
-  const double b = sqrt((point2_.x - point3_.x) * (point2_.x - point3_.x) + (point2_.y - point3_.y) * (point2_.y - point3_.y));
-  const double c = sqrt((point3_.x - point1_.x) * (point3_.x - point1_.x) + (point3_.y - point1_.y) * (point3_.y - point1_.y));
-  const double p = 0.5 * (a + b + c);
-  return sqrt(p * (p - a) * (p - b) * (p - c));
+  const double p = 0.5 * (a_ + b_ + c_);
+  return sqrt(p * (p - a_) * (p - b_) * (p - c_));
 }
 
 rectangle_t Triangle::getFrameRect() const
