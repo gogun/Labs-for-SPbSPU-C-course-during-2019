@@ -72,7 +72,7 @@ kvashnin::rectangle_t kvashnin::CompositeShape::getFrameRect() const
   }
   else
   {
-    return rectangle_t{{0, 0}, 0, 0};
+    throw std::invalid_argument("empty array");
   }
 }
 
@@ -104,7 +104,7 @@ void kvashnin::CompositeShape::scale(double coefficient)
   {
     array_[i]->scale(coefficient);
     array_[i]->move(cenData.x + (array_[i]->getFrameRect().pos.x - cenData.x) * coefficient,
-                    cenData.y + (array_[i]->getFrameRect().pos.y - cenData.y) * coefficient);
+        cenData.y + (array_[i]->getFrameRect().pos.y - cenData.y) * coefficient);
   }
 }
 
@@ -113,11 +113,11 @@ void kvashnin::CompositeShape::printInfo() const
   rectangle_t frameRectData = getFrameRect();
   point_t centreData = getCentre();
   std::cout << "CompositeShape coordinates: X: " << centreData.x
-            << "; Y: " << centreData.y << std::endl
-            << "CompositeShape area: " << getArea() << std::endl
-            << "Rectangle frame width: " << frameRectData.width
-            << "; height: " << frameRectData.height << std::endl
-            << "Length: " << length() << std::endl;
+      << "; Y: " << centreData.y << std::endl
+      << "CompositeShape area: " << getArea() << std::endl
+      << "Rectangle frame width: " << frameRectData.width
+      << "; height: " << frameRectData.height << std::endl
+      << "Length: " << length() << std::endl;
 }
 
 kvashnin::point_t kvashnin::CompositeShape::getCentre() const

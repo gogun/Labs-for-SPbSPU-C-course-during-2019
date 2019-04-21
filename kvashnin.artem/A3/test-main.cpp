@@ -172,6 +172,7 @@ BOOST_AUTO_TEST_SUITE(testSuiteKvashninArtem)
   BOOST_AUTO_TEST_CASE(compositeShapeTestThrowingExceptions)
   {
     kvashnin::CompositeShape comShp = kvashnin::CompositeShape();
+    BOOST_CHECK_THROW(comShp.getFrameRect(), std::invalid_argument);
     BOOST_CHECK_THROW(comShp.scale(-2), std::invalid_argument);
     BOOST_CHECK_THROW(comShp.add(nullptr), std::invalid_argument);
     BOOST_CHECK_THROW(comShp.remove(-2), std::out_of_range);
