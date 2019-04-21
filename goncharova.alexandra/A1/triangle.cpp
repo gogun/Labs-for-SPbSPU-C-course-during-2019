@@ -3,11 +3,11 @@
 #include <cmath>
 #include <cassert>
 
-Triangle::Triangle(const point_t &center, const point_t &pointA, const point_t &pointB) :
-  center_(center),
+Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC) :
   pointA_(pointA),
   pointB_(pointB),
-  pointC_{3 * center_.x - pointB_.x - pointA_.x, 3 * center_.y - pointB_.y - pointA_.y}
+  pointC_(pointC),
+  center_{(pointA_.x + pointB_.x + pointC_.x) / 3, (pointA_.y + pointB_.y + pointC_.y) / 3}
 {
   assert(fabs((pointB_.x - pointA_.x) * (center_.y - pointA_.y) 
       - (center_.x - pointA_.x) * (pointB_.y - pointA_.y)) > pow(10, -8));
@@ -66,6 +66,6 @@ void Triangle::move(const point_t &newPoint)
 
 void Triangle::inform() const
 {
-  std::cout << "X: " << center_.x;
-  std::cout << "\n Y: " << center_.y;
+  std::cout << "X: " << round(center_.x * 100) / 100;
+  std::cout << "\n Y: " << round(center_.y * 100) / 100;
 }
