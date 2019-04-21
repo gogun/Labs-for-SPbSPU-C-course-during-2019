@@ -22,7 +22,7 @@ int main()
 
   std::cout << "\tMoving all figures to the points with coordinates (1;1): \n";
   for (blyshchik::Shape* element:figures) {
-    element->move(point_t{1, 1});
+    element->move(blyshchik::point_t{1, 1});
     element->print();
   }
 
