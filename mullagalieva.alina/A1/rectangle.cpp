@@ -1,4 +1,5 @@
 #include "rectangle.hpp"
+#include <iostream>
 #include <cassert>
 
 Rectangle::Rectangle(const point_t& position, double width, double height) :
@@ -38,7 +39,14 @@ void Rectangle::move(double dx, double dy)
   centre_.y += dy;
 }
 
-point_t Rectangle::getPos() const
+void Rectangle::show() const
 {
-  return centre_;
+  std::cout << "Rectangle" << "\n";
+  std::cout << "Position of the figure: ("
+      << centre_.x << "; " << centre_.y << ")" << "\n";
+  std::cout << "Area: " << getArea() << "\n";
+  std::cout << "Frame Rectangle centre: ("
+      << getFrameRect().pos.x << "; " << getFrameRect().pos.y << ")" << "\n";
+  std::cout << "Frame Rectangle width: " << getFrameRect().width << "\n";
+  std::cout << "Frame Rectangle height: " << getFrameRect().height << "\n";
 }

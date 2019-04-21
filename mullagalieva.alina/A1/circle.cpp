@@ -1,5 +1,6 @@
 #define _USE_MATH_DEFINES
 #include "circle.hpp"
+#include <iostream>
 #include <cmath>
 #include <cassert>
 
@@ -38,7 +39,14 @@ void Circle::move(double dx, double dy)
   centre_.y += dy;
 }
 
-point_t Circle::getPos() const
+void Circle::show() const
 {
-  return centre_;
+  std::cout << "Circle" << "\n";
+  std::cout << "Position of the figure: ("
+      << centre_.x << "; " << centre_.y << ")" << "\n";
+  std::cout << "Area: " << getArea() << "\n";
+  std::cout << "Frame Rectangle centre: ("
+      << getFrameRect().pos.x << "; " << getFrameRect().pos.y << ")" << "\n";
+  std::cout << "Frame Rectangle width: " << getFrameRect().width << "\n";
+  std::cout << "Frame Rectangle height: " << getFrameRect().height << "\n";
 }

@@ -1,4 +1,5 @@
 #include "triangle.hpp"
+#include <iostream>
 #include <cmath>
 #include <cassert>
 
@@ -8,8 +9,8 @@ Triangle::Triangle(const point_t& posA, const point_t& posB, const point_t& posC
   posB_(posB),
   posC_(posC)
 {
-  assert(std::abs((posB.x - posA.x) / (posB.y - posA.y)
-      - (posC.x - posA.x) / (posC.y - posA.y)) > 0.000001); //points shouldn't lie on the same line
+  assert(std::abs((posB.x - posA.x) * (posC.y - posA.y)
+      - (posB.y - posA.y) * (posC.x - posA.x)) > 0.000001); //points shouldn't lie on the same line
 }
 
 double Triangle::getArea() const
@@ -53,7 +54,18 @@ void Triangle::move(double dx, double dy)
   posC_.y += dy;
 }
 
-point_t Triangle::getPos() const
+void Triangle::show() const
 {
-  return centre_;
+  std::cout << "Triangle" << "\n";
+  std::cout << "Position of the figure: ("
+      << centre_.x << "; " << centre_.y << ")" << "\n";
+  std::cout << "Coordinates:" << "\n";
+  std::cout << "A: (" << posA_.x << "; " << posA_.y << ")" << "\n";
+  std::cout << "B: (" << posB_.x << "; " << posB_.y << ")" << "\n";
+  std::cout << "C: (" << posC_.x << "; " << posC_.y << ")" << "\n";
+  std::cout << "Area: " << getArea() << "\n";
+  std::cout << "Frame Rectangle centre: ("
+      << getFrameRect().pos.x << "; " << getFrameRect().pos.y << ")" << "\n";
+  std::cout << "Frame Rectangle width: " << getFrameRect().width << "\n";
+  std::cout << "Frame Rectangle height: " << getFrameRect().height << "\n";
 }
