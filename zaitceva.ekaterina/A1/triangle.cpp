@@ -13,24 +13,13 @@ Triangle::Triangle(const point_t &point1, const point_t &point2, const point_t &
   side1_ = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y) * (point1_.y - point2_.y));
   side2_ = sqrt((point2_.x - point3_.x) * (point2_.x - point3_.x) + (point2_.y - point3_.y) * (point2_.y - point3_.y));
   side3_ = sqrt((point1_.x - point3_.x) * (point1_.x - point3_.x) + (point1_.y - point3_.y) * (point1_.y - point3_.y));
-<<<<<<< HEAD
   assert(((side1_ > 0) && (side2_ > 0) && (side3_ > 0))
       && (2 * std::max({side1_, side2_, side3_}) < (side1_ + side2_ + side3_)));
-=======
-  assert(((side1_ > 0) && (side2_ > 0) && (side3_ > 0)) && (2 * std::max({side1_, side2_, side3_}) < (side1_ + side2_ + side3_)));
->>>>>>> cff4620426758ab4f71da736ce185299208621be
 }
 
 point_t Triangle::getCentre() const
 {
-<<<<<<< HEAD
   return {(point1_.x + point2_.x + point3_.x)/3, (point1_.y + point2_.y + point3_.y)/3};
-=======
-  point_t point;
-  point.x = (point1_.x + point2_.x + point3_.x)/3;
-  point.y = (point1_.y + point2_.y + point3_.y)/3;
-  return point;
->>>>>>> cff4620426758ab4f71da736ce185299208621be
 }
 
 double Triangle::getArea() const
