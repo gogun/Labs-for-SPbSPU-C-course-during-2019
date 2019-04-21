@@ -62,9 +62,6 @@ BOOST_AUTO_TEST_CASE(circleExceptionTesting)
   BOOST_CHECK_THROW(vlasenko::Circle({ 1.4,3.2 }, -2.0), std::invalid_argument);
 }
 
-
-BOOST_AUTO_TEST_SUITE_END()
-
 BOOST_AUTO_TEST_SUITE(rectangleMethodsTesting)
 
 BOOST_AUTO_TEST_CASE(rectangleAfterTransferingTesting)
