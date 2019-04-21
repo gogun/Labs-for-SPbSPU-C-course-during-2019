@@ -16,4 +16,5 @@ namespace shahbazly
 	  point_t pos;
 	};
 }
+
 #endif // BASE_TYPES_HPP
