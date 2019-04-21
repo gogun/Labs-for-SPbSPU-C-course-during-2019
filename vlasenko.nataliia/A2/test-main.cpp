@@ -98,10 +98,10 @@ BOOST_AUTO_TEST_CASE(rectangleScaleTesting)
   const double scaleTesting = 2.5;
 
   rectangleTest.scale(scaleTesting);
-  BOOST_CHECK_CLOSE(rectangleTest.getArea(), rectangleAreaBeforeScale * testScale * testScale, FAULT);
+  BOOST_CHECK_CLOSE(rectangleTest.getArea(), rectangleAreaBeforeScale * scaleTesting * scaleTesting, FAULT);
   const vlasenko::rectangle_t frameRectAfterScale = rectangleTest.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRectAfterScale.height, frameRectBeforeScale.height * testScale, FAULT);
-  BOOST_CHECK_CLOSE(frameRectAfterScale.width, frameRectBeforeScale.width * testScale, FAULT);
+  BOOST_CHECK_CLOSE(frameRectAfterScale.height, frameRectBeforeScale.height * scaleTesting, FAULT);
+  BOOST_CHECK_CLOSE(frameRectAfterScale.width, frameRectBeforeScale.width * scaleTesting, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleExceptionAfterScaleTesting)
