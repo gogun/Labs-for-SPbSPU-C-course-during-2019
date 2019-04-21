@@ -8,9 +8,10 @@
 #include "circle.hpp"
 #include "rectangle.hpp"
 
-const double FAULT = 0.01;
 
 BOOST_AUTO_TEST_SUITE(circleMethodsTesting)
+
+const double FAULT = 0.01;
 
 BOOST_AUTO_TEST_CASE(circleAfterTransferingTest)
 {
@@ -119,4 +120,4 @@ BOOST_AUTO_TEST_CASE(rectangleHeightExceptionTesting)
   BOOST_CHECK_THROW(vlasenko::Rectangle({ 5.1,4.2 }, 3.0, -2.0), std::invalid_argument);
 }
 
-BOOST_AUTO_TEST_SUITE_END()
+}BOOST_AUTO_TEST_SUITE_END()
