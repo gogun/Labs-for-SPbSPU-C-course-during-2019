@@ -17,9 +17,6 @@ private:
   point_t point2_;
   point_t point3_;
   point_t pos_;
-  double a_;
-  double b_;
-  double c_;
 };
 
 #endif

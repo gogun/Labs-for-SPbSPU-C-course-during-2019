@@ -7,18 +7,14 @@ Triangle::Triangle(point_t point1, point_t point2, point_t point3):
   point1_(point1),
   point2_(point2),
   point3_(point3),
-  pos_({(point1.x + point2.x + point3.x) / 3, (point1.y + point2.y + point3.y) / 3}),
-  a_(sqrt(std::pow(point1.x - point2.x, 2) + std::pow(point1.y - point2.y, 2))),
-  b_(sqrt(std::pow(point2.x - point3.x, 2) + std::pow(point2.y - point3.y, 2))),
-  c_(sqrt(std::pow(point3.x - point1.x, 2) + std::pow(point3.y - point1.y, 2)))
+  pos_({(point1.x + point2.x + point3.x) / 3, (point1.y + point2.y + point3.y) / 3})
 {
-  assert((a_ > 0) && (b_ > 0) && (c_ > 0) && ((a_ + b_) > c_) && ((c_ + b_) > a_) && ((a_ + c_) > b_));
+  assert(getArea() > 0);
 }
 
 double Triangle::getArea() const
 {
-  const double p = 0.5 * (a_ + b_ + c_);
-  return sqrt(p * (p - a_) * (p - b_) * (p - c_));
+  return 0.5 * std::fabs((point2_.x - point1_.x) * (point3_.y - point1_.y) - (point3_.x - point1_.x) * (point2_.y - point1_.y));
 }
 
 rectangle_t Triangle::getFrameRect() const
