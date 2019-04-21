@@ -17,8 +17,8 @@ namespace troshev
     void scale(double number) override;
 
   private:
-	point_t center_;
-	double radius_;
+    point_t center_;
+    double radius_;
   };
 }
 #endif

@@ -14,7 +14,7 @@ namespace troshev
     virtual void move(double dx, double dy) = 0;
     virtual void move(const point_t &point) = 0;
     virtual void getInfo() const = 0;
-	virtual void scale(double number) = 0;
+    virtual void scale(double number) = 0;
   };
 }
 #endif

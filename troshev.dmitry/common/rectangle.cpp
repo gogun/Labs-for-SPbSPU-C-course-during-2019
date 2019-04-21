@@ -42,6 +42,7 @@ void Rectangle::getInfo() const
   std::cout << "Rectangle width : " << rec_.width << std::endl;
 
 }
+
 void Rectangle::scale(double number)
 {
   if (number <= 0)
