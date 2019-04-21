@@ -14,10 +14,6 @@ public:
   void move(double dx, double dy) override;
   void show() const override;
 
-  point_t getPosA() const;
-  point_t getPosB() const;
-  point_t getPosC() const;
-
 private:
   point_t centre_;
   point_t posA_;
