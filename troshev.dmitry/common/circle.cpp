@@ -18,12 +18,12 @@ double troshev::Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-troshev::rectangle_t Circle::getFrameRect() const
+troshev::rectangle_t troshev::Circle::getFrameRect() const
 {
   return  { center_, 2 * radius_,2 * radius_ };
 }
 
-troshev::void Circle::move(double dx, double dy)
+void troshev::Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
