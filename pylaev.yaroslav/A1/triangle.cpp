@@ -20,12 +20,12 @@ point_t operator/(const point_t & pos, double number)
 }
 
 Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t & pointC):
-  coordinates_({pointA, pointB, pointC})
+  coordinates_({pointA, pointB, pointC}),
+  center_(getCenter())
 {
   if (getArea() == 0.0) {
     throw std::invalid_argument("It's a stright line, coordinates of tops can't be on one line");
   }
-  center_ = getCenter();
 }
 
 point_t Triangle::getCenter() const
