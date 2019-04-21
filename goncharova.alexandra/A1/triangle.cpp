@@ -16,20 +16,21 @@ Triangle::Triangle(const point_t &center, const point_t &pointA, const point_t &
 double Triangle::getArea() const
 {
   double square = fabs((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y)
-      - (pointB_.x - pointC_.x) * (pointA_.y - pointC_.y)) * 1 / 2;
+      - (pointB_.x - pointC_.x) * (pointA_.y - pointC_.y)) / 2;
   return square;
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double width = std::max(pointA_.x, std::max(pointB_.x, pointC_.x))
-      - std::min(pointA_.x, std::min(pointB_.x, pointC_.x));
-  double height = std::max(pointA_.y, std::max(pointB_.y, pointC_.y))
-      - std::min(pointA_.y, std::min(pointB_.y, pointC_.y));
-
-  point_t trCenter;
-  trCenter.x = std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2;
-  trCenter.y = std::min(pointA_.y, std::min(pointB_.y, pointC_.y)) + height / 2;
+  point_t point1 = {std::min(pointA_.x, std::min(pointB_.x, pointC_.x)),
+      std::min(pointA_.y, std::min(pointB_.y, pointC_.y))};
+  point_t point2 = {std::max(pointA_.x, std::max(pointB_.x, pointC_.x)),
+      std::max(pointA_.y, std::max(pointB_.y, pointC_.y))};
+  
+  double width = point2.x - point1.x;
+  double height = point2.y - point1.y;
+  
+  point_t trCenter = {(point1.x + point2.x) / 2, (point1.y + point2.y) / 2};
 
   return {trCenter, width, height};
 }
