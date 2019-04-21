@@ -29,12 +29,12 @@ uzhegov::rectangle_t uzhegov::Rectangle::getFrameRect() const
 
 void uzhegov::Rectangle::printParams() const
 {
-  std::cout << "-Coordination of the center (" << center_.x << "," << center_.y << ")\n";
+  std::cout << "-Coordination of the center (" << center_.x << ", " << center_.y << ")\n";
   std::cout << "-Width = " << width_ << ", Height = " << height_ << '\n';
-  std::cout << "-Area = " << Rectangle::getArea() << '\n';
-  rectangle_t frameRect = getFrameRect();
+  std::cout << "-Area = " << getArea() << '\n';
+  uzhegov::rectangle_t frameRect = getFrameRect();
   std::cout << "-Parameters of FrameRect:\n";
-  std::cout << "--Coordination of the center (" << frameRect.pos.x << "," << frameRect.pos.y << ")\n";
+  std::cout << "--Coordination of the center (" << frameRect.pos.x << ", " << frameRect.pos.y << ")\n";
   std::cout << "--Width = " << frameRect.width << ", Height = " << frameRect.height << '\n';
 }
 

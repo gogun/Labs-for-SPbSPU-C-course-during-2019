@@ -7,7 +7,7 @@ uzhegov::Circle::Circle(const point_t &center, double radius) :
   center_(center),
   radius_(radius)
 {
-  if(radius <= 0)
+  if (radius <= 0)
   {
     throw std::invalid_argument("Radius should be positive");
   }
@@ -26,12 +26,12 @@ uzhegov::rectangle_t uzhegov::Circle::getFrameRect() const
 
 void uzhegov::Circle::printParams() const
 {
-  std::cout << "-Coordination of the center (" << center_.x << "," << center_.y << ")\n";
+  std::cout << "-Coordination of the center (" << center_.x << ", " << center_.y << ")\n";
   std::cout << "-Radius = " << radius_ << '\n';
-  std::cout << "-Area = " << Circle::getArea() << '\n';
-  rectangle_t frameRect = getFrameRect();
+  std::cout << "-Area = " << getArea() << '\n';
+  uzhegov::rectangle_t frameRect = getFrameRect();
   std::cout << "-Parameters of FrameRect\n";
-  std::cout << "--Coordination of the center (" << frameRect.pos.x << "," << frameRect.pos.y << ")\n";
+  std::cout << "--Coordination of the center (" << frameRect.pos.x << ", " << frameRect.pos.y << ")\n";
   std::cout << "--Width = " << frameRect.width << ", Height = " << frameRect.height << '\n';
 }
 
