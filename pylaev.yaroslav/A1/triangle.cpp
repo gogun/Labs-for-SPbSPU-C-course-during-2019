@@ -4,21 +4,6 @@
 #include <math.h>
 #include <iostream>
 
-point_t operator+(const point_t & pos1, const point_t & pos2)
-{
-  return {pos1.x + pos2.x, pos1.y + pos2.y};
-}
-
-point_t operator-(const point_t & pos1, const point_t & pos2)
-{
-  return {pos1.x - pos2.x, pos1.y - pos2.y};
-}
-
-point_t operator/(const point_t & pos, double number)
-{
-  return {pos.x / number, pos.y / number};
-}
-
 Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t & pointC):
   coordinates_({pointA, pointB, pointC}),
   center_(getCenter())
@@ -30,13 +15,16 @@ Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t
 
 point_t Triangle::getCenter() const
 {
-  return {(coordinates_[0] + coordinates_[1] + coordinates_[2]) / 3};
+  return {
+    (coordinates_[0].x + coordinates_[1].x + coordinates_[2].x) / 3,
+    (coordinates_[0].y + coordinates_[1].y + coordinates_[2].y) / 3
+  };
 }
 
 double Triangle::getArea() const //by coordinates
 {
-  point_t side0 = coordinates_[1] - coordinates_[0]; //like vectors
-  point_t side2 = coordinates_[2] - coordinates_[0];
+  point_t side0 = {coordinates_[1].x - coordinates_[0].x, coordinates_[1].y - coordinates_[0].y}; //like vectors
+  point_t side2 = {coordinates_[2].x - coordinates_[0].x, coordinates_[2].y - coordinates_[0].y};
 
   return (fabs((side0.x * side2.y - side0.y * side2.x)) / 2);
 }

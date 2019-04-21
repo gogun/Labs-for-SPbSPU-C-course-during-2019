@@ -18,7 +18,7 @@ Rectangle::Rectangle(const point_t & center, const double width):
   width_(width),
   height_(width)
 {
-  if ((width_ <= 0.0) && (height_ <= 0.0)) {
+  if (width_ <= 0.0) {
     throw std::invalid_argument("Length of square's sides must be positive");
   }
 }
