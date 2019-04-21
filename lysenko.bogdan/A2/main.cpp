@@ -12,10 +12,10 @@ int main()
   figure->move(5, 2);
   figure->print();
   std::cout << "-Moving circle to the point (8, 6)\n";
-  figure->move({ -8, 6 });
+  figure->move({-8, 6});
   figure->print();
   std::cout << "-Scaling circle with coefficient 1.8\n";
-  figure->scale(2.3);
+  figure->scale(1.8);
   figure->print();
 
   lysenko::Rectangle rectangle({4, 6, {4, 3}});
