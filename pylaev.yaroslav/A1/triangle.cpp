@@ -49,8 +49,8 @@ rectangle_t Triangle::getFrameRect() const
   maxCoordinates.y = std::max(maxCoordinates.y, std::max(coordinates_[1].y, coordinates_[2].y));
 
   point_t minCoordinates = coordinates_[0];
-  minCoordinates.x = std::min(maxCoordinates.x, std::min(coordinates_[1].x, coordinates_[2].x));
-  minCoordinates.y = std::min(maxCoordinates.y, std::min(coordinates_[1].y, coordinates_[2].y));
+  minCoordinates.x = std::min(minCoordinates.x, std::min(coordinates_[1].x, coordinates_[2].x));
+  minCoordinates.y = std::min(minCoordinates.y, std::min(coordinates_[1].y, coordinates_[2].y));
 
   double width = maxCoordinates.x - minCoordinates.x;
   double height = maxCoordinates.y - minCoordinates.y;
