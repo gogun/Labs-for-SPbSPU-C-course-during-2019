@@ -15,10 +15,8 @@ Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t
 
 point_t Triangle::getCenter() const
 {
-  return {
-    (coordinates_[0].x + coordinates_[1].x + coordinates_[2].x) / 3,
-    (coordinates_[0].y + coordinates_[1].y + coordinates_[2].y) / 3
-  };
+  return {(coordinates_[0].x + coordinates_[1].x + coordinates_[2].x) / 3,
+      (coordinates_[0].y + coordinates_[1].y + coordinates_[2].y) / 3};
 }
 
 double Triangle::getArea() const //by coordinates
@@ -32,14 +30,10 @@ double Triangle::getArea() const //by coordinates
 rectangle_t Triangle::getFrameRect() const
 {
   //max/min coordinates of triangle (left top and rigth bottom)
-  point_t maxCoordinates {
-    std::max(coordinates_[0].x, std::max(coordinates_[1].x, coordinates_[2].x)),
-    std::max(coordinates_[0].y, std::max(coordinates_[1].y, coordinates_[2].y))
-  };
-  point_t minCoordinates {
-    std::min(coordinates_[0].x, std::min(coordinates_[1].x, coordinates_[2].x)),
-    std::min(coordinates_[0].y, std::min(coordinates_[1].y, coordinates_[2].y))
-  };
+  point_t maxCoordinates {std::max(coordinates_[0].x, std::max(coordinates_[1].x, coordinates_[2].x)),
+      std::max(coordinates_[0].y, std::max(coordinates_[1].y, coordinates_[2].y))};
+  point_t minCoordinates {std::min(coordinates_[0].x, std::min(coordinates_[1].x, coordinates_[2].x)),
+      std::min(coordinates_[0].y, std::min(coordinates_[1].y, coordinates_[2].y))};
 
   double width = maxCoordinates.x - minCoordinates.x;
   double height = maxCoordinates.y - minCoordinates.y;
