@@ -13,38 +13,38 @@ void printRect (Shape &shape)
 int main ()
 {
   std::cout << "Rectangle" << std::endl;
-  Rectangle rectangle (6,9,{3,4});
+  Rectangle rectangle (6, 9, {3, 4});
   printRect(rectangle);
   std::cout << "Area = " << rectangle.getArea() << std::endl;
-  rectangle.move({2,1});
+  rectangle.move({2, 1});
   std::cout << "After moving to a point: ";
   printRect(rectangle);
-  rectangle.move(2,8);
+  rectangle.move(2, 8);
   std::cout << "After axial movement: ";
   printRect(rectangle);
 
   std::cout << "Circle" << std::endl;
-  Circle circle ({5,5},4);
+  Circle circle ({5, 5}, 4);
   std::cout << "Rectangle frame: ";
   printRect(circle);
   std::cout << "Area = " << circle.getArea() << std::endl;
-  circle.move({1,1});
+  circle.move({1, 1});
   std::cout << "After moving to a point: ";
   printRect(circle);
-  circle.move(2,8);
+  circle.move(2, 8);
   std::cout << "After axial movement: ";
   printRect(circle);
 
   std::cout << "Triangle" << std::endl;
-  Triangle triangle ({-1,-1},{-1,-4},{-5,-1});
+  Triangle triangle ({-1, -1},{-1, -4},{-5, -1});
   triangle.printTriang();
   std::cout << "Rectangle frame: ";
   printRect(triangle);
   std::cout << "Area = " << triangle.getArea() << std::endl;
-  triangle.move({1,1});
+  triangle.move({1, 1});
   std::cout << "After moving to a point: " << std::endl;
   triangle.printTriang();
-  triangle.move(2,8);
+  triangle.move(2, 8);
   std::cout << "After axial movement: " << std::endl;
   triangle.printTriang();
 

@@ -12,7 +12,7 @@ public:
   void move(double dx, double dy) override;
 
 private:
-  point_t pos_;
+  point_t centre_;
   double radius_;
 };
 

@@ -1,5 +1,5 @@
-#ifndef UNTITLED1_TRIANGLE_H
-#define UNTITLED1_TRIANGLE_H
+#ifndef TRIANGLE_H
+#define TRIANGLE_H
 
 #include "shape.hpp"
 

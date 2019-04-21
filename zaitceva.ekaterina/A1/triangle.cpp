@@ -10,23 +10,21 @@ Triangle::Triangle(const point_t &point1, const point_t &point2, const point_t &
   point3_(point3),
   centre_(getCentre())
 {
-  side1_ = sqrt((point1_.x - point2_.x)*(point1_.x - point2_.x) + (point1_.y - point2_.y)*(point1_.y - point2_.y));
-  side2_ = sqrt((point2_.x - point3_.x)*(point2_.x - point3_.x) + (point2_.y - point3_.y)*(point2_.y - point3_.y));
-  side3_ = sqrt((point1_.x - point3_.x)*(point1_.x - point3_.x) + (point1_.y - point3_.y)*(point1_.y - point3_.y));
-  assert(((side1_ > 0) && (side2_ > 0) && (side3_ > 0)) && (2 * std::max({side1_, side2_, side3_}) < (side1_ + side2_ + side3_)));
+  side1_ = sqrt((point1_.x - point2_.x) * (point1_.x - point2_.x) + (point1_.y - point2_.y) * (point1_.y - point2_.y));
+  side2_ = sqrt((point2_.x - point3_.x) * (point2_.x - point3_.x) + (point2_.y - point3_.y) * (point2_.y - point3_.y));
+  side3_ = sqrt((point1_.x - point3_.x) * (point1_.x - point3_.x) + (point1_.y - point3_.y) * (point1_.y - point3_.y));
+  assert(((side1_ > 0) && (side2_ > 0) && (side3_ > 0))
+      && (2 * std::max({side1_, side2_, side3_}) < (side1_ + side2_ + side3_)));
 }
 
 point_t Triangle::getCentre() const
 {
-  point_t point;
-  point.x = (point1_.x + point2_.x + point3_.x)/3;
-  point.y = (point1_.y + point2_.y + point3_.y)/3;
-  return (point);
+  return {(point1_.x + point2_.x + point3_.x)/3, (point1_.y + point2_.y + point3_.y)/3};
 }
 
 double Triangle::getArea() const
 {
-  return std::fabs(0.5*(point1_.x * (point2_.y - point3_.y)
+  return std::fabs(0.5 * (point1_.x * (point2_.y - point3_.y)
       + point2_.x * (point3_.y - point1_.y) + point3_.x * (point1_.y - point2_.y)));
 }
 
@@ -36,9 +34,7 @@ rectangle_t Triangle::getFrameRect() const
   double max_y = std::max({point1_.y, point2_.y, point3_.y});
   double min_x = std::min({point1_.x, point2_.x, point3_.x});
   double min_y = std::min({point1_.y, point2_.y, point3_.y});
-  point_t cenRect;
-  cenRect.x = (max_x + min_x)/2;
-  cenRect.y = (max_y + min_y)/2;
+  point_t cenRect = {(max_x + min_x)/2, (max_y + min_y)/2};
   return {max_x - min_x, max_y - min_y, cenRect};
 }
 
