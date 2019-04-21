@@ -12,5 +12,5 @@ namespace blyshchik {
     double width;
     double height;
   };
-};
+}
 #endif //A1_BASE_TYPES_HPP

@@ -21,5 +21,5 @@ namespace  blyshchik {
     point_t centre_;
     double radius_;
   };
-};
+}
 #endif //A1_CIRCLE_HPP

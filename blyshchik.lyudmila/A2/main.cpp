@@ -4,9 +4,9 @@
 
 int main()
 {
-  blyshchik::Circle circle1{point_t{2, 3.2}, 4};
+  blyshchik::Circle circle1{blyshchik::point_t{2, 3.2}, 4};
   blyshchik::Circle circle2{3, 6, 9};
-  blyshchik::Rectangle rect1{point_t{7, 2}, 5, 4};
+  blyshchik::Rectangle rect1{blyshchik::point_t{7, 2}, 5, 4};
   blyshchik::Rectangle rect2{7, 7, 4, 10};
 
   blyshchik::Shape* figures[] = {&circle1, &circle2, &rect1, &rect2};

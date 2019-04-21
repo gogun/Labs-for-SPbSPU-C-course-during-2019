@@ -21,5 +21,5 @@ namespace blyshchik {
   private:
     rectangle_t rectCl_;
   };
-};
+}
 #endif //A1_RECTANGLE_HPP

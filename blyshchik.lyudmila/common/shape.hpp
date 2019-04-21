@@ -14,5 +14,5 @@ namespace blyshchik {
     virtual void print() const = 0;
     virtual void scale(double) = 0;
   };
-};
+}
 #endif //A1_SHAPE_HPP
