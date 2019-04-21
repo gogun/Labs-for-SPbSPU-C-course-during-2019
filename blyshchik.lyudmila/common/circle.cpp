@@ -24,7 +24,7 @@ double blyshchik::Circle::getArea() const
   return M_PI * pow(radius_, 2);
 }
 
-rectangle_t blyshchik::Circle::getFrameRect() const
+blyshchik::rectangle_t blyshchik::Circle::getFrameRect() const
 {
   return {centre_, radius_ * 2, radius_ * 2};
 }
@@ -40,7 +40,7 @@ void blyshchik::Circle::move(double newX, double newY)
   centre_.y += newY;
 }
 
-point_t blyshchik::Circle::getPosition() const
+blyshchik::point_t blyshchik::Circle::getPosition() const
 {
   return centre_;
 }

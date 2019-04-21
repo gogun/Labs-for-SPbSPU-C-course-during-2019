@@ -20,7 +20,7 @@ double blyshchik::Rectangle::getArea() const
   return rectCl_.height * rectCl_.width;
 }
 
-rectangle_t blyshchik::Rectangle::getFrameRect() const
+blyshchik::rectangle_t blyshchik::Rectangle::getFrameRect() const
 {
   return rectCl_;
 }
