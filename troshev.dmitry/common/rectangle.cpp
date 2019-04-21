@@ -2,7 +2,7 @@
 #include <iostream>
 #include <assert.h> 
 
-Rectangle::Rectangle(const point_t &pos, double w, double h) :
+troshev::Rectangle::Rectangle(const point_t &pos, double w, double h) :
 	rectangle_({ pos, w, h })
 {
   if ((rectangle_.height <= 0) || (rectangle_.width <= 0))
@@ -12,28 +12,28 @@ Rectangle::Rectangle(const point_t &pos, double w, double h) :
 }
 
 
-double Rectangle::getArea() const
+double troshev::Rectangle::getArea() const
 {
   return rectangle_.height * rectangle_.width;
 }
 
-rectangle_t Rectangle::getFrameRect() const
+troshev::rectangle_t Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
 
-void Rectangle::move(double dx, double dy)
+void troshev::Rectangle::move(double dx, double dy)
 {
   rectangle_.pos.x += dx;
   rectangle_.pos.y += dy;
 }
 
-void Rectangle::move(const point_t &point)
+void troshev::Rectangle::move(const point_t &point)
 {
   rectangle_.pos = point;
 }
 
-void Rectangle::getInfo() const
+void troshev::Rectangle::getInfo() const
 {
   rectangle_t rec_ = getFrameRect();
   std::cout << "Point x : " << rec_.pos.x << std::endl;
@@ -43,7 +43,7 @@ void Rectangle::getInfo() const
 
 }
 
-void Rectangle::scale(double number)
+void troshev::Rectangle::scale(double number)
 {
   if (number <= 0)
   {
