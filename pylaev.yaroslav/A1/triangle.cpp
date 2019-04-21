@@ -44,13 +44,14 @@ double Triangle::getArea() const //by coordinates
 rectangle_t Triangle::getFrameRect() const
 {
   //max/min coordinates of triangle (left top and rigth bottom)
-  point_t maxCoordinates = coordinates_[0];
-  maxCoordinates.x = std::max(maxCoordinates.x, std::max(coordinates_[1].x, coordinates_[2].x));
-  maxCoordinates.y = std::max(maxCoordinates.y, std::max(coordinates_[1].y, coordinates_[2].y));
-
-  point_t minCoordinates = coordinates_[0];
-  minCoordinates.x = std::min(minCoordinates.x, std::min(coordinates_[1].x, coordinates_[2].x));
-  minCoordinates.y = std::min(minCoordinates.y, std::min(coordinates_[1].y, coordinates_[2].y));
+  point_t maxCoordinates {
+    std::max(coordinates_[0].x, std::max(coordinates_[1].x, coordinates_[2].x)),
+    std::max(coordinates_[0].y, std::max(coordinates_[1].y, coordinates_[2].y))
+  };
+  point_t minCoordinates {
+    std::min(coordinates_[0].x, std::min(coordinates_[1].x, coordinates_[2].x)),
+    std::min(coordinates_[0].y, std::min(coordinates_[1].y, coordinates_[2].y))
+  };
 
   double width = maxCoordinates.x - minCoordinates.x;
   double height = maxCoordinates.y - minCoordinates.y;
