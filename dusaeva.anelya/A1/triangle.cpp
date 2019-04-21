@@ -13,7 +13,7 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
   b_(getSide(pointB, pointC)),
   c_(getSide(pointA, pointC))
 {
-  assert((a_ > 0.0) && (b_ > 0.0) && (c_ > 0.0) && (a_ + b_ > c_) && (a_ + c_ > b_) && (b_ + c_ > a_));
+  assert((a_ + b_ > c_) && (a_ + c_ > b_) && (b_ + c_ > a_));
 }
 
 double Triangle::getArea() const
@@ -24,17 +24,24 @@ double Triangle::getArea() const
   return square;
 }
 
-rectangle_t Triangle::getFrameRect()const
+rectangle_t Triangle::getFrameRect() const
 {
+  point_t min;
+  min.x = std::min(pointA_.x, std::min(pointB_.x, pointC_.x));
+  min.y = std::min(pointA_.y, std::min(pointB_.y, pointC_.y));
+
+  point_t max;
+  max.x = std::max(pointA_.x, std::max(pointB_.x, pointC_.x));
+  max.y = std::max(pointA_.y, std::max(pointB_.y, pointC_.y));
+
+  double width = max.x - min.x;
+  double height = max.y - min.y;
+
   point_t center;
+  center.x = min.x + width / 2;
+  center.y = min.y + height / 2;
 
-  double width = std::max(pointA_.x, std::max(pointB_.x, pointC_.x)) - std::min(pointA_.x, std::min(pointB_.x, pointC_.x));
-  double height = std::max(pointA_.y, std::max(pointB_.y, pointC_.y))- std::min(pointA_.y, std::min(pointB_.y, pointC_.y));
-
-  center.x = std::min(pointA_.x, std::min(pointB_.x, pointC_.x)) + width / 2;
-  center.y = std::min(pointA_.y, std::min(pointB_.y, pointC_.y)) + height / 2;
-
-  return {width, height, center};
+  return rectangle_t{width, height, center};
 }
 
 void Triangle::move(double dx, double dy)
@@ -65,8 +72,8 @@ void Triangle::move(const point_t &param)
   pointC_.y += dy;
 }
 
-void Triangle::printInfo() const
-{
+void Triangle::printInfo() const{
+
   rectangle_t info = getFrameRect();
   std::cout << "a = " << a_ << ", b = " << b_  << ", c = " << c_ << "\n";
   std::cout << "Area = " << getArea() << "\n";
