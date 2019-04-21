@@ -72,12 +72,12 @@ BOOST_AUTO_TEST_CASE(areaChanging)
 {
   troshev::Circle circle({ 10, 15 }, 1);
   const double areaBeforeScaling = circle.getArea();
-  circle.scale(3);
+  circle.scale(1.772);
   double areaAfterScaling = circle.getArea();
   BOOST_CHECK_CLOSE(areaBeforeScaling * areaBeforeScaling, areaAfterScaling, Epsilon);
 }
 
-BOOST_AUTO_TEST_CASE(availabilityAndProcessingOfIncorrectParameters)
+BOOST_AUTO_TEST_CASE(presenceAndProcessingOfIncorrectParameters)
 {
   BOOST_CHECK_THROW(troshev::Circle circle({ 10, 3 }, -3), std::invalid_argument);
   troshev::Circle circle({ 3, 3 }, 7);
