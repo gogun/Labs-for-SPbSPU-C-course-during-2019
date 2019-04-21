@@ -26,7 +26,7 @@ int main()
     element->print();
   }
 
-  const coefficient = 1.4;
+  const double coefficient = 1.4;
   std::cout << "\tScaling all figures by coefficient " << coefficient << ": \n";
   for (blyshchik::Shape* element:figures) {
     element->scale(coefficient);
