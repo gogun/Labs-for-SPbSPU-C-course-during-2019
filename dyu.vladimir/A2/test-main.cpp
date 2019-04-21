@@ -12,8 +12,8 @@ BOOST_AUTO_TEST_SUITE(test_A2)
 BOOST_AUTO_TEST_CASE(Test_rectangle_area)
 {
   dyu::Rectangle testRect (3.0, 6.0, {10.0, 10.0});
-  const double areaBeforeMoving = testRect.getArea ();
-  const dyu::rectangle_t frameBeforeMove = testRect.getFrameRect ();
+  const double areaBeforeMoving = testRect.getArea();
+  const dyu::rectangle_t frameBeforeMove = testRect.getFrameRect();
   
   testRect.move({0, 0});
   
@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(Test_rectangle_scale)
   dyu::Rectangle testRect (3.0, 6.0, {10.0, 10.0});
   const double areaBeforeScaling = testRect.getArea();
   
-  const double coeficient  = 2;
+  const double coeficient = 2;
   testRect.scale(coeficient);
   
   const double areaAfterScaling = testRect.getArea();
