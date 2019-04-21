@@ -1,6 +1,6 @@
 #include "triangle.hpp"
 #include <iostream>
-#include <stdexcept>
+#include <cassert>
 #include <cmath>
 #include <algorithm>
 
@@ -10,10 +10,7 @@ frolov::Triangle::Triangle(const point_t &point0, const point_t &point1, const p
   point2_(point2),
   center_({(point0_.x + point1_.x + point2_.x) / 3, (point0_.y + point1_.y + point2_.y) / 3})
 {
-  if (getArea() <= 0)
-  {
-    throw std::invalid_argument("invalid_argument point!");
-  }
+  assert(getArea() > 0.0);
 }
 
 static double findDistance(const frolov::point_t &point1, const frolov::point_t &point2)
@@ -75,7 +72,7 @@ void frolov::Triangle::scale(double factor)
   {
     throw std::invalid_argument("The Area can not be negative!");
   }
-  point0_={factor * point0_.x - (factor - 1) * center_.x, factor * point0_.y - (factor - 1) * center_.y};
-  point1_={factor * point1_.x - (factor - 1) * center_.x, factor * point1_.y - (factor - 1) * center_.y};
-  point2_={factor * point2_.x - (factor - 1) * center_.x, factor * point2_.y - (factor - 1) * center_.y};
+  point0_ = {factor * point0_.x - (factor - 1) * center_.x, factor * point0_.y - (factor - 1) * center_.y};
+  point1_ = {factor * point1_.x - (factor - 1) * center_.x, factor * point1_.y - (factor - 1) * center_.y};
+  point2_ = {factor * point2_.x - (factor - 1) * center_.x, factor * point2_.y - (factor - 1) * center_.y};
 }
