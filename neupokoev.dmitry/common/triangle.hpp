@@ -16,9 +16,9 @@ namespace neupokoev
     void scale(double scaleFactor) override;
 
   private:
-    point_t A;
-    point_t B;
-    point_t C;
+    point_t a_;
+    point_t b_;
+    point_t c_;
   };
 }
 
