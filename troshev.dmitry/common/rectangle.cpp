@@ -3,7 +3,7 @@
 #include <assert.h> 
 
 troshev::Rectangle::Rectangle(const point_t &pos, double w, double h) :
-	rectangle_({ pos, w, h })
+  rectangle_({ pos, w, h })
 {
   if ((rectangle_.height <= 0) || (rectangle_.width <= 0))
   {
@@ -16,7 +16,7 @@ double troshev::Rectangle::getArea() const
   return rectangle_.height * rectangle_.width;
 }
 
-troshev::rectangle_t Rectangle::getFrameRect() const
+troshev::rectangle_t troshev::Rectangle::getFrameRect() const
 {
   return rectangle_;
 }
