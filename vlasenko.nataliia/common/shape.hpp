@@ -18,4 +18,5 @@ namespace vlasenko
     virtual void scale(double) = 0;
     };
   }
+
 #endif
