@@ -1,7 +1,7 @@
 #include "rectangle.hpp"
 #include <iostream>
 
-prohorova::Rectangle::Rectangle(const point_t &pos, double width, double height):
+prohorova::Rectangle::Rectangle(const point_t& pos, double width, double height):
   rect_(rectangle_t{pos, width, height})
 {
   if ((rect_.width <= 0) || (rect_.height <= 0))
@@ -10,7 +10,7 @@ prohorova::Rectangle::Rectangle(const point_t &pos, double width, double height)
   }
 }
 prohorova::Rectangle::Rectangle(double posX, double posY, double width, double height):
-  Rectangle(point_t{posX,posY}, width, height)
+  Rectangle(point_t{posX, posY}, width, height)
 {
 }
 double prohorova::Rectangle::getArea() const
