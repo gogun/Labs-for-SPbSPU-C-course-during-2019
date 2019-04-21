@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(invariabilityAfterMovingRectangle)
 //Тест на неизменность площади кргуа после его масштабирования
 BOOST_AUTO_TEST_CASE(areaAfterScalingCircle)
 {
-  shahbazly::Circle testCircle({0, 0}, 4);
+  shahbazly::Circle testCircle(4, {0, 0});
   const double InitialArea = testCircle.getArea();
   const double scaleFactor = 6.8;
   testCircle.scale(scaleFactor);
@@ -61,9 +61,9 @@ BOOST_AUTO_TEST_CASE(areaAfterScalingRectangle)
 //Тест на неправильные аргументы круга
 BOOST_AUTO_TEST_CASE(invalidArgumentsCircle)
 {
-  BOOST_CHECK_THROW(shahbazly::Circle({3, 5}, -6), std::invalid_argument);
+  BOOST_CHECK_THROW(shahbazly::Circle(-6, {3, 5}), std::invalid_argument);
 
-  shahbazly::Circle testCircle({5, 3}, 2);
+  shahbazly::Circle testCircle(2, {5, 3});
   BOOST_CHECK_THROW(testCircle.scale(-9), std::invalid_argument);
 }
 
