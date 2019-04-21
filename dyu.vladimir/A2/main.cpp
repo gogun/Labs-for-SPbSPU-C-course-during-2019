@@ -28,7 +28,7 @@ void showPos(const dyu::Shape &shape)
   std::cout << std::endl;
 }
 
-int main_main()
+int main()
 {
   dyu::Rectangle rect(3.0, 6.0, {10.0, 10.0});
   std::cout << "Rectangle" << std::endl;
