@@ -11,7 +11,6 @@ troshev::Rectangle::Rectangle(const point_t &pos, double w, double h) :
   }
 }
 
-
 double troshev::Rectangle::getArea() const
 {
   return rectangle_.height * rectangle_.width;
