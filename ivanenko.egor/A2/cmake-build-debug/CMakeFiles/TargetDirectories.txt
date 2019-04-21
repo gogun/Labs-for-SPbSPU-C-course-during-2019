@@ -1,3 +1,0 @@
-/home/dark/SRC/labs/ivanenko.egor/A2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/dark/SRC/labs/ivanenko.egor/A2/cmake-build-debug/CMakeFiles/A2.dir
-/home/dark/SRC/labs/ivanenko.egor/A2/cmake-build-debug/CMakeFiles/edit_cache.dir
