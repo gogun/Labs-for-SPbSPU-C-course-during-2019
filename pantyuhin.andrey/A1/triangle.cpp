@@ -55,7 +55,7 @@ rectangle_t Triangle::getFrameRect() const
   double minX = std::min(std::min(vertex_[0].x, vertex_[1].x), vertex_[2].x);
   double minY = std::min(std::min(vertex_[0].y, vertex_[1].y), vertex_[2].y);
 
-  return {{(maxX - minX) / 2, (maxY - minY) / 2}, maxX - minX, maxY - minY};
+  return {{minX + (maxX - minX) / 2, min Y + (maxY - minY) / 2}, maxX - minX, maxY - minY};
 }
 
 void Triangle::move(double dx, double dy)
