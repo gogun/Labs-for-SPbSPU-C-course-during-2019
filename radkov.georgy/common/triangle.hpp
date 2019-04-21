@@ -9,6 +9,7 @@ namespace radkov
   {
   public:
     Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &pos_c);
+    point_t getCenter() const noexcept;
     double getArea() const noexcept override;
     rectangle_t getFrameRect() const noexcept override;
     void move(double dx, double dy) noexcept override;
@@ -17,7 +18,6 @@ namespace radkov
 
   private:
     point_t points_[3];
-    point_t getCenter() const noexcept;
   };
 }
 
