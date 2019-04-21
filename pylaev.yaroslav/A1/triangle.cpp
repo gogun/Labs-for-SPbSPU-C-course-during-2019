@@ -1,9 +1,23 @@
 #include "triangle.hpp"
 
 #include <stdexcept>
-#include <cassert>
 #include <math.h>
 #include <iostream>
+
+point_t operator+(const point_t & pos1, const point_t & pos2)
+{
+  return {pos1.x + pos2.x, pos1.y + pos2.y};
+}
+
+point_t operator-(const point_t & pos1, const point_t & pos2)
+{
+  return {pos1.x - pos2.x, pos1.y - pos2.y};
+}
+
+point_t operator/(const point_t & pos, double number)
+{
+  return {pos.x / number, pos.y / number};
+}
 
 Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t & pointC):
   coordinates_({pointA, pointB, pointC})
@@ -16,31 +30,20 @@ Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t
 
 point_t Triangle::getCenter() const
 {
-  double summX = coordinates_[0].x + coordinates_[1].x + coordinates_[2].x;
-  double summY = coordinates_[0].y + coordinates_[1].y + coordinates_[2].y;
-
-  return {summX / 3, summY / 3};
+  return {(coordinates_[0] + coordinates_[1] + coordinates_[2]) / 3};
 }
 
-double Triangle::getArea() const
+double Triangle::getArea() const //by coordinates
 {
-  point_t side0 = {coordinates_[1].x - coordinates_[0].x, coordinates_[1].y - coordinates_[0].y};
-  point_t side2 = {coordinates_[2].x - coordinates_[0].x, coordinates_[2].y - coordinates_[0].y};
+  point_t side0 = coordinates_[1] - coordinates_[0]; //like vectors
+  point_t side2 = coordinates_[2] - coordinates_[0];
 
-  return (0.5 * abs((side0.x * side2.y - side0.y * side2.x)));
-}
-
-double Triangle::getSide(const int i) const
-{
-  assert((i >= 0) && (i < nTops_));
-
-  return sqrt(pow(coordinates_[(i + 1) % nTops_].x - coordinates_[i].x, 2)
-      + pow(coordinates_[(i + 1) % nTops_].y - coordinates_[i].y, 2));
+  return (fabs((side0.x * side2.y - side0.y * side2.x)) / 2);
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  //it's not points of triangle, it's convenient way to save max/min coordinates of triangle
+  //max/min coordinates of triangle (left top and rigth bottom)
   point_t maxCoordinates = coordinates_[0];
   maxCoordinates.x = std::max(maxCoordinates.x, std::max(coordinates_[1].x, coordinates_[2].x));
   maxCoordinates.y = std::max(maxCoordinates.y, std::max(coordinates_[1].y, coordinates_[2].y));
@@ -75,7 +78,7 @@ void Triangle::printSpec() const
 {
   std::cout << "Area of our triangle is " << getArea() << " square units\n";
   rectangle_t frameRectangle = getFrameRect();
-  std::cout << "Center of the frame rectangle with width = " << frameRectangle.width;
-  std::cout << " and height = " << frameRectangle.height;
-  std::cout << " is located in point (" << frameRectangle.pos.x << "; " << frameRectangle.pos.y << ")\n";
+  std::cout << "Center of the frame rectangle with width = " << frameRectangle.width
+      << " and height = " << frameRectangle.height
+      << " is located in point (" << frameRectangle.pos.x << "; " << frameRectangle.pos.y << ")\n";
 }

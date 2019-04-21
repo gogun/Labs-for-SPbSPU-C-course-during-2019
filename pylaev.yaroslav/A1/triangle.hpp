@@ -21,4 +21,8 @@ private:
   point_t getCenter() const;
 };
 
+point_t operator+(const point_t &, const point_t &);
+point_t operator-(const point_t &, const point_t &);
+point_t operator/(const point_t &, double);
+
 #endif
