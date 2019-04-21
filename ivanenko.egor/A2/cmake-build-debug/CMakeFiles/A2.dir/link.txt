@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/A2.dir/main.cpp.o CMakeFiles/A2.dir/test-main.cpp.o CMakeFiles/A2.dir/rectangle.cpp.o CMakeFiles/A2.dir/circle.cpp.o  -o A2 
