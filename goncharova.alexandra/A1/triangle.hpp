@@ -15,8 +15,8 @@ public:
   void inform() const;
   
 private:
-  point_t center_;
   point_t pointA_, pointB_, pointC_;
+  point_t center_;
 };
 
 #endif
