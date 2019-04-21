@@ -5,26 +5,26 @@
 
 namespace kraynov
 {
-	class Circle : public Shape
-	{
-	public:
-		Circle(const point_t &pos, double radius);
+  class Circle : public Shape
+  {
+  public:
+    Circle(const point_t &pos, double radius);
 
-		point_t getPos() const override;
+    point_t getPos() const override;
 
-		double getArea() const override;
+    double getArea() const override;
 
-		rectangle_t getFrameRect() const override;
+    rectangle_t getFrameRect() const override;
 
-		void move(const point_t &dest) override;
+    void move(const point_t &dest) override;
 
-		void move(double shift_x, double shift_y) override;
+    void move(double shift_x, double shift_y) override;
 
-		void scale(double) override;
+    void scale(double) override;
 
-	private:
-		point_t center_;
-		double radius_;
-	};
+  private:
+    point_t center_;
+    double radius_;
+  };
 }
 #endif
