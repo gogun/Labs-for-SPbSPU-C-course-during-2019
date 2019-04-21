@@ -11,7 +11,7 @@ BOOST_AUTO_TEST_SUITE(rectangleTest)
 
 BOOST_AUTO_TEST_CASE(movementConstRect)
 {
-  ivanenko::Rectangle rectangle(5.0, 5.0, {5.0, 5.0});
+  ivanenko::Rectangle rectangle(1.0, 1.0, {1.0, 1.0});
   const ivanenko::rectangle_t beforeRectFrame = rectangle.getFrameRect();
   const double beforeRectArea = rectangle.getArea();
 
