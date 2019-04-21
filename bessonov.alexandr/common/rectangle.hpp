@@ -6,6 +6,7 @@
 
 namespace bessonov
 {
+
   class Rectangle : public Shape
   {
   public:

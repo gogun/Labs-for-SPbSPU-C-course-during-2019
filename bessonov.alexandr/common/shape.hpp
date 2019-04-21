@@ -5,6 +5,7 @@
 
 namespace bessonov
 {
+
   class Shape
   {
   public:
