@@ -8,9 +8,9 @@ Triangle::Triangle(point_t point1, point_t point2, point_t point3):
   point2_(point2),
   point3_(point3),
   pos_({(point1.x + point2.x + point3.x) / 3, (point1.y + point2.y + point3.y) / 3}),
-  a_(sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y))),
-  b_(sqrt((point2.x - point3.x) * (point2.x - point3.x) + (point2.y - point3.y) * (point2.y - point3.y))),
-  c_(sqrt((point3.x - point1.x) * (point3.x - point1.x) + (point3.y - point1.y) * (point3.y - point1.y)))
+  a_(sqrt(std::pow(point1.x - point2.x, 2) + std::pow(point1.y - point2.y, 2))),
+  b_(sqrt(std::pow(point2.x - point3.x, 2) + std::pow(point2.y - point3.y, 2))),
+  c_(sqrt(std::pow(point3.x - point1.x, 2) + std::pow(point3.y - point1.y, 2)))
 {
   assert((a_ > 0) && (b_ > 0) && (c_ > 0) && ((a_ + b_) > c_) && ((c_ + b_) > a_) && ((a_ + c_) > b_));
 }
@@ -27,17 +27,21 @@ rectangle_t Triangle::getFrameRect() const
   const double xMin = std::min({point1_.x, point2_.x, point3_.x});
   const double yMax = std::max({point1_.y, point2_.y, point3_.y});
   const double yMin = std::min({point1_.y, point2_.y, point3_.y});
-  return {xMax - xMin, yMax - yMin, {xMax - (xMax - xMin) / 2, yMax - (yMax - yMin) / 2}};
+  const double rectWidth = xMax - xMin;
+  const double rectHeight = yMax - yMin;
+  return {rectWidth, rectHeight, {xMax - rectWidth / 2, yMax - rectHeight / 2}};
 }
 
 void Triangle::move(point_t point)
 {
-  point1_.x -= (pos_.x - point.x);
-  point1_.y -= (pos_.y - point.y);
-  point2_.x -= (pos_.x - point.x);
-  point2_.y -= (pos_.y - point.y);
-  point3_.x -= (pos_.x - point.x);
-  point3_.y -= (pos_.y - point.y);
+  const double xDiff = pos_.x - point.x;
+  const double yDiff = pos_.y - point.y;
+  point1_.x -= xDiff;
+  point1_.y -= yDiff;
+  point2_.x -= xDiff;
+  point2_.y -= yDiff;
+  point3_.x -= xDiff;
+  point3_.y -= yDiff;
   pos_ = point;
 }
 
