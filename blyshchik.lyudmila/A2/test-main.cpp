@@ -15,8 +15,8 @@ BOOST_AUTO_TEST_CASE(testRectMove) {
 
   testRect.move(7, 3);
 
-  BOOST_CHECK_CLOSE(testRect.getWidth(), testRect.getFidth(), accuracy);
-  BOOST_CHECK_CLOSE(testRect.getHeight(), testRect.getHeight(), accuracy);
+  BOOST_CHECK_CLOSE(testRect.getWidth(), rectFrameBeforeMove.getWidth(), accuracy);
+  BOOST_CHECK_CLOSE(testRect.getHeight(), rectFrameBeforeMove.getHeight(), accuracy);
   BOOST_CHECK_CLOSE(testRect.getArea(), area, accuracy);
 }
 
