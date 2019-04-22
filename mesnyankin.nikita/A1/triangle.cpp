@@ -1,8 +1,8 @@
 #include "triangle.hpp"
-#include <algorithm>
-#include <cassert>
-#include <cmath>
 #include <iostream>
+#include <algorithm>
+#include <cmath>
+#include <cassert>
 
 
 Triangle::Triangle(const point_t &a, const point_t &b, const point_t &c):
@@ -11,9 +11,7 @@ Triangle::Triangle(const point_t &a, const point_t &b, const point_t &c):
   c_(c),
   pos_({((a.x + b.x + c.x) / 3), ((a.y + b.y + c.y) / 3)})
 {
-  assert((getAB() + getBC() > getCA()) && (getBC() + getCA() > getAB()) && (getAB() + getCA() > getBC()));
   assert(((getAB() != 0) && (getBC() != 0) && (getCA() != 0)));
-  assert(c.y != (a.y - b.y) / (a.x - b.x) * c.x + a.y - (a.y - b.y) / (a.x - b.x) * a.x);
 }
 
 double Triangle::getArea() const
@@ -23,7 +21,7 @@ double Triangle::getArea() const
   return sqrt(p * (p - getAB()) * (p - getBC()) * (p - getCA()));
 }
 
-void Triangle::move(const double x, const double y)
+void Triangle::move(const double &x, const double &y)
 {
   a_.x += x;
   b_.x += x;
@@ -31,18 +29,22 @@ void Triangle::move(const double x, const double y)
   a_.y += y;
   b_.y += y;
   c_.y += y;
-  pos_ = {((a_.x + b_.x + c_.x) / 3), ((a_.y + b_.y + c_.y) / 3)};
+  pos_.x += x;
+  pos_.y += y;
 }
 
 void Triangle::move(const point_t &point)
 {
-  pos_ = point;
-  a_.x += point.x - pos_.x;
-  b_.x += point.x - pos_.x;
-  c_.x += point.x - pos_.x;
-  a_.y += point.y - pos_.y;
-  b_.y += point.y - pos_.y;
-  c_.y += point.y - pos_.y;
+  const double x = point.x - pos_.x;
+  const double y = point.y - pos_.y;
+  move(x, y);
+}
+
+void Triangle::showCoordinates() const
+{
+  std::cout << "x: " << getA().x << "," << getA().y << "\n";
+  std::cout << "y: " << getB().x << "," << getB().y << "\n";
+  std::cout << "z: " << getC().x << "," << getC().y << "\n";
 }
 
 point_t Triangle::getA() const
