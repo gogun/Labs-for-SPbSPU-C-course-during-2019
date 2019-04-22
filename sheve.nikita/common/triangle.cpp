@@ -10,7 +10,7 @@ sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p
   m_b(p2),
   m_c(p3)
 {
-  if (getArea() == 0.0)
+  if (getArea() <= 0.0)
   {
     throw std::invalid_argument("Triangle's argument is invalid.");
   }
