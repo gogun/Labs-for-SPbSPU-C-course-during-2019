@@ -10,6 +10,13 @@ void moveFigure(Shape * shape, const double &x, const double &y)
   std::cout << "After movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
 }
 
+void moveFigure(Shape * shape, const point_t &point)
+{
+  std::cout << "Before movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
+  shape->move(point);
+  std::cout << "After movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
+}
+
 void showStatus(const Shape * shape)
 {
   std::cout << "Current shape area is: " << shape->getArea() << "\n";
@@ -24,12 +31,16 @@ int main()
   showStatus(&rectangle_object);
   moveFigure(&rectangle_object, 5, 5);
   showStatus(&rectangle_object);
+  moveFigure(&rectangle_object, {10, 10});
+  showStatus(&rectangle_object);
   std::cout << "======================================" << "\n";
 
   Circle circle_object(5, 5, 5);
 
   showStatus(&circle_object);
   moveFigure(&circle_object, 3, 2);
+  showStatus(&circle_object);
+  moveFigure(&circle_object, {10, 10});
   showStatus(&circle_object);
   std::cout << "======================================" << "\n";
 
@@ -38,6 +49,9 @@ int main()
   showStatus(&triangle_object);
   triangle_object.showCoordinates();
   moveFigure(&triangle_object, 7, 8);
+  showStatus(&triangle_object);
+  triangle_object.showCoordinates();
+  moveFigure(&triangle_object, {4, 4});
   showStatus(&triangle_object);
   triangle_object.showCoordinates();
 
