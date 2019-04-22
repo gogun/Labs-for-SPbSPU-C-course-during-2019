@@ -1,14 +1,30 @@
 #include "rectangle.hpp"
-#include <cassert>
 #include <iostream>
+#include <cassert>
 
 
-Rectangle::Rectangle(const double width, const double height, const point_t &pos):
+Rectangle::Rectangle(const rectangle_t &rect) :
+  width_(rect.width),
+  height_(rect.height),
+  pos_(rect.pos)
+{
+  assert((width_ > 0.0) && (height_ > 0.0));
+}
+
+Rectangle::Rectangle(const double &width, const double &height, const point_t &pos) :
   width_(width),
   height_(height),
   pos_(pos)
 {
-  assert((width > 0) && (height > 0));
+  assert((width_ > 0.0) && (height_ > 0.0));
+}
+
+Rectangle::Rectangle(const double &width, const double &height, const double &posx, const double &posy) :
+  width_(width),
+  height_(height),
+  pos_({posx, posy})
+{
+  assert((width_ > 0.0) && (height_ > 0.0));
 }
 
 double Rectangle::getArea() const
@@ -16,7 +32,7 @@ double Rectangle::getArea() const
   return width_ * height_;
 }
 
-void Rectangle::move(const double x, const double y)
+void Rectangle::move(const double &x, const double &y)
 {
   pos_.x += x;
   pos_.y += y;
@@ -27,17 +43,17 @@ void Rectangle::move(const point_t &point)
   pos_ = point;
 }
 
-double Rectangle::getWidth()
+const double Rectangle::getWidth()
 {
   return width_;
 }
 
-double Rectangle::getHeight()
+const double Rectangle::getHeight()
 {
   return height_;
 }
 
-point_t Rectangle::getPos()
+const point_t Rectangle::getPos()
 {
   return pos_;
 }
