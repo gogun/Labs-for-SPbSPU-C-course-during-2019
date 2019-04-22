@@ -1,5 +1,4 @@
-#define BOOST_TEST_MODULE testA2
-
+#define BOOST_TEST_MODULE A2
 #include <stdexcept>
 #include <boost/test/included/unit_test.hpp>
 #include "rectangle.hpp"

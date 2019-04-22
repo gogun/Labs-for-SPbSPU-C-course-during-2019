@@ -1,5 +1,4 @@
 #include "triangle.hpp"
-
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
@@ -80,13 +79,15 @@ void sheve::Triangle::scale(double coefficient)
 }
 
 void sheve::Rectangle::printInfo() const
-std::cout << "Center: " << m_pos.x << ", " << m_pos.y << std::endl;
-std::cout << "A: " << m_a << std::endl;
-std::cout << "B: " << m_b << std::endl;
-std::cout << "C: " << m_c << std::endl;
-std::cout << "Triangle area: " << getArea() << std::endl;
-std::cout << "Frame rectangle:" << std::endl;
-std::cout << "-Center: " << getFrameRect().pos.x << ", " << getFrameRect().pos.y << std::endl;
-std::cout << "-Width: " << getFrameRect().width << std::endl;
-std::cout << "-Height: " << getFrameRect().height << std::endl;
-std::cout << std::endl;
+{
+  std::cout << "Center: " << m_pos.x << ", " << m_pos.y << std::endl;
+  std::cout << "A: " << m_a << std::endl;
+  std::cout << "B: " << m_b << std::endl;
+  std::cout << "C: " << m_c << std::endl;
+  std::cout << "Triangle area: " << getArea() << std::endl;
+  std::cout << "Frame rectangle:" << std::endl;
+  std::cout << "-Center: " << getFrameRect().pos.x << ", " << getFrameRect().pos.y << std::endl;
+  std::cout << "-Width: " << getFrameRect().width << std::endl;
+  std::cout << "-Height: " << getFrameRect().height << std::endl;
+  std::cout << std::endl;
+}
