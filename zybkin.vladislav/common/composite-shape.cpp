@@ -152,7 +152,7 @@ void zybkin::CompositeShape::addShape(Shape &shape)
 
 
   zybkin::Shape ** temporaryArray = new zybkin::Shape*[count_ + 1];
-  for (int i = 0; i < count_ + 1; ++i)
+  for (int i = 0; i < count_; ++i)
   {
     temporaryArray[i] = shapeArray_[i];
   }
