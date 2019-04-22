@@ -6,7 +6,7 @@
 #include <iostream>
 
 pylaev::Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t & pointC):
-  coordinates_({pointA, pointB, pointC}),
+  coordinates_({pointA, pointB, pointC})
 {
   if (getArea() == 0) {
     throw std::invalid_argument("It's a stright line, coordinates of tops can't be on one line");
