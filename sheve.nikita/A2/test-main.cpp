@@ -11,7 +11,7 @@ BOOST_AUTO_TEST_SUITE(rectangle)
 
 BOOST_AUTO_TEST_CASE(create_rectangle)
 {
-  BOOST_CHECK_THROW(Rectangle({ -23, -5 }, 2, -35), std::invalid_argument);
+  BOOST_CHECK_THROW(sheve::Rectangle({ -23, -5 }, 2, -35), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(changing_Scale)
@@ -60,7 +60,7 @@ BOOST_AUTO_TEST_SUITE(circle)
 
 BOOST_AUTO_TEST_CASE(invalid_Initialisation)
 {
-  BOOST_CHECK_THROW(Circle({ 23, -5 }, -7), std::invalid_argument);
+  BOOST_CHECK_THROW(sheve::Circle({ 23, -5 }, -7), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(invalid_Scale)
@@ -108,14 +108,14 @@ BOOST_AUTO_TEST_SUITE(triangle)
 
 BOOST_AUTO_TEST_CASE(invalid_Initialisation)
 {
-  BOOST_CHECK_THROW(Triangle({ 1, -12 }, { -13, 2 }, { 1, 3 }), std::invalid_argument);
+  BOOST_CHECK_THROW(sheve::Triangle({ 1, -12 }, { -13, 2 }, { 1, 3 }), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(invalid_Scale)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
   const double T = -19;
-  BOOST_CHECK_THROW(tria.scale(T), std::invalid_argument);
+  BOOST_CHECK_THROW(tri.scale(T), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(Move_dx_dy)
