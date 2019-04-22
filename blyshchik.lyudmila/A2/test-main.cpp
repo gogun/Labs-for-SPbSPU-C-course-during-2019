@@ -8,7 +8,8 @@ const double accuracy = 0.01;
 
 BOOST_AUTO_TEST_SUITE(testRectangle)
 
-BOOST_AUTO_TEST_CASE(testRectMove) {
+BOOST_AUTO_TEST_CASE(testRectMove)
+{
   blyshchik::Rectangle testRect({{1, 2}, 3, 4});
   const blyshchik::rectangle_t rectFrameBeforeMove = testRect.getFrameRect();
   const double area = testRect.getArea();
@@ -20,7 +21,8 @@ BOOST_AUTO_TEST_CASE(testRectMove) {
   BOOST_CHECK_CLOSE(testRect.getArea(), area, accuracy);
 }
 
-BOOST_AUTO_TEST_CASE(testRectScale) {
+BOOST_AUTO_TEST_CASE(testRectScale)
+{
   blyshchik::Rectangle testRect({{1, 2}, 3, 4});
   const double coefficient = 2;
   const double newArea = testRect.getArea() * coefficient * coefficient;
@@ -30,7 +32,8 @@ BOOST_AUTO_TEST_CASE(testRectScale) {
   BOOST_CHECK_CLOSE(testRect.getArea(), newArea, accuracy);
 }
 
-BOOST_AUTO_TEST_CASE(testRectParameters) {
+BOOST_AUTO_TEST_CASE(testRectParameters)
+{
   const blyshchik::point_t pos{1, 2};
   const double corWidth = 3;
   const double incorWidth = -3;
@@ -51,7 +54,8 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(testCircle)
 
-BOOST_AUTO_TEST_CASE(testCircMove) {
+BOOST_AUTO_TEST_CASE(testCircMove)
+{
   const blyshchik::point_t pos{1, 2};
   const double radius = 3;
   const double newX = 1;
@@ -66,7 +70,8 @@ BOOST_AUTO_TEST_CASE(testCircMove) {
   BOOST_CHECK_CLOSE(testCirc.getArea(), area, accuracy);
 }
 
-BOOST_AUTO_TEST_CASE(testCircScale) {
+BOOST_AUTO_TEST_CASE(testCircScale)
+{
   blyshchik::Circle testCirc{{1, 2}, 3};
   const double coefficient = 1.3;
   const double newArea = testCirc.getArea() * coefficient * coefficient;
@@ -76,7 +81,8 @@ BOOST_AUTO_TEST_CASE(testCircScale) {
   BOOST_CHECK_CLOSE(testCirc.getArea(), newArea, accuracy);
 }
 
-BOOST_AUTO_TEST_CASE(testCircParameters) {
+BOOST_AUTO_TEST_CASE(testCircParameters)
+{
   BOOST_CHECK_THROW(blyshchik::Circle testCirc({1, 2}, 0), std::invalid_argument);
   blyshchik::Circle testCircScale({1, 2}, 3);
   BOOST_CHECK_THROW(testCircScale.scale(-4), std::invalid_argument);
