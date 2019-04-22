@@ -7,11 +7,11 @@ krinkina::Rectangle::Rectangle(const point_t &centre, double width, double heigh
   width_(width),
   height_(height)
 {
-  if (rectangle.width <= 0)
+  if (width_ <= 0)
   {
     throw std::invalid_argument("Width must be greater than 0");
   }
-  if (rectangle.height <= 0)
+  if (height_ <= 0)
   {
     throw std::invalid_argument("Height must be greater than 0");
   }
@@ -55,7 +55,6 @@ void krinkina::Rectangle::scale(double coefficient)
     width_ *= coefficient;
     height_ *= coefficient;
   }
-
 }
 
 void krinkina::Rectangle::printInfo() const
