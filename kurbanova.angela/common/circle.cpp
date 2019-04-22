@@ -1,14 +1,17 @@
 #define _USE_MATH_DEFINES
 #include "circle.hpp"
 #include <cmath>
-#include <cassert>
 #include <iostream>
+#include <stdexcept>
 
 kurbanova::Circle::Circle(const point_t &center, double rad):
   pos_(center),
   radius_(rad)
 {
-  assert(rad > 0); 
+  if (radius_ <= 0)
+  {
+    throw std::invalid_argument("Invalid radius");
+  }
 }
 
 double kurbanova::Circle::getArea() const

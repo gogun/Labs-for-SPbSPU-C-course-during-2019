@@ -83,12 +83,12 @@ BOOST_AUTO_TEST_CASE(scaleTest)
 
 BOOST_AUTO_TEST_CASE(throwExceptionWidth)
 {
-  BOOST_CHECK_THROW(kurbanova::Rectangle test_rec({5, 5}, 8, 2), std::invalid_argument);
+  BOOST_CHECK_THROW(kurbanova::Rectangle test_rec({5, 5}, -8, 2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(throwExceptionHeight)
 {
-  BOOST_CHECK_THROW(kurbanova::Rectangle test_rec({5, 5}, 8, 2), std::invalid_argument);
+  BOOST_CHECK_THROW(kurbanova::Rectangle test_rec({5, 5}, 8, -2), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

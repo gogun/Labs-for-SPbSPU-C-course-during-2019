@@ -1,13 +1,16 @@
 #include "rectangle.hpp"
-#include <cassert>
 #include <iostream>
+#include <stdexcept>
 
 kurbanova::Rectangle::Rectangle(const point_t &center, double width1, double height1):
   pos_(center),
   width_(width1),
   height_(height1)
 {
-  assert((width1 > 0) && (height1 > 0));
+  if ((width1 <= 0) || (height1 <= 0))
+  {
+    throw std::invalid_argument("Invalid height or width");
+  }
 }
 
 double kurbanova::Rectangle::getArea() const
