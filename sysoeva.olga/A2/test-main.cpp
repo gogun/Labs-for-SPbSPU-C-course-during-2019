@@ -122,7 +122,7 @@ BOOST_AUTO_TEST_SUITE(triangleTest)
 BOOST_AUTO_TEST_CASE(invarianceRectParametersAfterMovingTo)
 {
   sysoeva::Triangle tempTriangle({2.3, 6.7}, {7.8, 3.4}, {4.5, 5.6});
-  const double initialArea = tempTringle.getArea();
+  const double initialArea = tempTriangle.getArea();
   const sysoeva::rectangle_t initialRectangle = tempTriangle.getFrameRect();
 
   tempTriangle.move({4.2,5.4});
@@ -134,7 +134,7 @@ BOOST_AUTO_TEST_CASE(invarianceRectParametersAfterMovingTo)
 
 BOOST_AUTO_TEST_CASE(invarianceRectParametersAfterMovingBy)
 {
-  sysoeva::Triangle tempCircle({2.3, 6.7}, {7.8, 3.4}, {4.5, 5.6});
+  sysoeva::Triangle tempTriangle({2.3, 6.7}, {7.8, 3.4}, {4.5, 5.6});
   const double initialArea = tempTriangle.getArea();
   const sysoeva::rectangle_t initialRectangle = tempTriangle.getFrameRect();
 
@@ -164,7 +164,7 @@ BOOST_AUTO_TEST_CASE(invalidValues)
 
   sysoeva::Triangle tempTriangle({3.4, 4.5}, {2.3, 7.8}, {14.5, 3.4});
 
-  BOOST_CHECK_THROW(tempTrinagle.scale(0), std::invalid_argument);
+  BOOST_CHECK_THROW(tempTriangle.scale(0), std::invalid_argument);
   BOOST_CHECK_THROW(tempTriangle.scale(-1.5), std::invalid_argument);
 }
 
