@@ -5,10 +5,10 @@
 #include <stdexcept>
 
 sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
-m_pos({ (p1.x + p2.x + p3.x) / 3, (p1.y + p2.y + p3.y) / 3 }),
-m_a(p1),
-m_b(p2),
-m_c(p3)
+  m_pos({ (p1.x + p2.x + p3.x) / 3, (p1.y + p2.y + p3.y) / 3 }),
+  m_a(p1),
+  m_b(p2),
+  m_c(p3)
 {
   const double areaTriangle = getArea();
   if (areaTriangle <= 0.0) {
