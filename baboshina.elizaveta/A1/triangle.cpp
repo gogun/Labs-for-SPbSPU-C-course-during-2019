@@ -40,7 +40,7 @@ void Triangle::move(const double x, const double y)
   pointA_.x += x;
   pointB_.x += x;
   pointC_.x += x;
-  pointA_.x += y;
+  pointA_.y += y;
   pointB_.y += y;
   pointC_.y += y;
 }
