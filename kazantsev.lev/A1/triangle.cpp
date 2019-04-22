@@ -10,11 +10,8 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
   point2_(pointB),
   point3_(pointC)
 {
-  if ((point1_.x == point2_.x && point1_.y == point2_.y) || (point2_.x == point3_.x
-    && point2_.y == point3_.y) || (point1_.x == point3_.x && point1_.y == point3_.y))
-  {
-    throw std::invalid_argument("Two point are matching");
-  }
+  assert(((point1_.x == point2_.x) && (point1_.y == point2_.y)) || ((point2_.x == point3_.x)
+    && (point2_.y == point3_.y)) || ((point1_.x == point3_.x) && (point1_.y == point3_.y)))
 }
 
 double Triangle::getArea() const
@@ -32,9 +29,9 @@ rectangle_t Triangle::getFrameRect() const
   const double  minY = std::min(std::min(point1_.y, point2_.y), point3_.y);
   const double width = maxX - minX;
   const double height = maxY - minY;
-  const point_t position = { minX + width / 2, minY + height / 2 };
+  const point_t position = {minX + width / 2, minY + height / 2};
 
-  return { position, width, height };
+  return {position, width, height};
 }
 
 void Triangle::move(const point_t &newPos)
@@ -44,7 +41,7 @@ void Triangle::move(const point_t &newPos)
   move(difference.x, difference.y);
 }
 
-void Triangle::move(const double dx, const double dy)
+void Triangle::move(double dx, double dy)
 {
   pos_.x += dx;
   pos_.y += dy;

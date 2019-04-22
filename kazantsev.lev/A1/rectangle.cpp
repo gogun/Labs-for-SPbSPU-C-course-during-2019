@@ -23,7 +23,7 @@ void Rectangle::move(const point_t &pos)
   rect_.pos = pos;
 }
 
-void Rectangle::move(const double dx, const double dy)
+void Rectangle::move(double dx, double dy)
 {
   rect_.pos.x += dx;
   rect_.pos.y += dy;
@@ -33,8 +33,8 @@ void Rectangle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << "Rectangle centre is (" << rect_.pos.x << ","
-      << rect_.pos.y << ")\n"
-      << "Frame rectangle width = " << rectangle.width
-      << ", height = " << rectangle.height << "\n"
-      << "Area = " << getArea() << "\n\n";
+            << rect_.pos.y << ")\n"
+            << "Frame rectangle width = " << rectangle.width
+            << ", height = " << rectangle.height << "\n"
+            << "Area = " << getArea() << "\n\n";
 }
