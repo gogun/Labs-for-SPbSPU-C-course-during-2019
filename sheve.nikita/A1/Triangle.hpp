@@ -12,10 +12,10 @@ public:
   void move(const double dx, const double dy) override;
 
 private:
-  point_t pos;
-  point_t a;
-  point_t b;
-  point_t c;
+  point_t m_pos;
+  point_t m_a;
+  point_t m_b;
+  point_t m_c;
 };
 
 #endif
