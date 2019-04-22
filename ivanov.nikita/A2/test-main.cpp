@@ -56,7 +56,7 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(circleTest)
 
-BOOST_AUTO_TEST_CASE(Òircle—onstantParametersAfterMovingCircleToPoint)
+BOOST_AUTO_TEST_CASE(circleConstantParametersAfterMovingCircleToPoint)
 {
   ivanov::Circle testCircle(4, { 2, 3 });
   const double testCircleArea = testCircle.getArea();
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(Òircle—onstantParametersAfterMovingCircleToPoint)
   BOOST_CHECK_CLOSE(testCircle.getArea(), testCircleArea, tolerance);
 }
 
-BOOST_AUTO_TEST_CASE(Òircle—onstantParametersAfterMovingByDistance)
+BOOST_AUTO_TEST_CASE(circleConstantParametersAfterMovingByDistance)
 {
   ivanov::Circle testCircle(8.2, { 2.4, 3.6 });
   const double testCircleArea = testCircle.getArea();
