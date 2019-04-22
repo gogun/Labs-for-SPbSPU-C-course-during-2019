@@ -82,9 +82,9 @@ void sheve::Triangle::scale(double coefficient)
 void sheve::Triangle::printInfo() const
 {
   std::cout << "Center: " << m_pos.x << ", " << m_pos.y << std::endl;
-  std::cout << "A: " << m_a << std::endl;
-  std::cout << "B: " << m_b << std::endl;
-  std::cout << "C: " << m_c << std::endl;
+  std::cout << "A: " << m_a.x << m_a.y << std::endl;
+  std::cout << "B: " << m_b.x << m_a.y << std::endl;
+  std::cout << "C: " << m_c.x << m_a.y << std::endl;
   std::cout << "Triangle area: " << getArea() << std::endl;
   std::cout << "Frame rectangle:" << std::endl;
   std::cout << "-Center: " << getFrameRect().pos.x << ", " << getFrameRect().pos.y << std::endl;
