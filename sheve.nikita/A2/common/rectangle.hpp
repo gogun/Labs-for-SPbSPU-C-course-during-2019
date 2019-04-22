@@ -17,7 +17,7 @@ namespace sheve
     void printInfo() const override;
 
   private:
-    point_t m_center;
+    point_t m_pos;
     double m_width;
     double m_height;
   };
