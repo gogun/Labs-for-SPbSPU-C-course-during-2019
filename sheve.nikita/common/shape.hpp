@@ -1,6 +1,5 @@
 #ifndef ShapeHPP_A2
 #define ShapeHPP_A2
-
 #include "base-types.hpp"
 
 namespace sheve
