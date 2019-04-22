@@ -1,15 +1,15 @@
 #ifndef BASETYPES_H
 #define BASETYPES_H
 
-struct point_t {
-  double x;
-  double y;
+struct point_t
+{
+  double x, y;
 };
 
-struct rectangle_t {
+struct rectangle_t
+{
   point_t pos;
-  double width;
-  double height;
+  double width, height;
 };
 
 #endif
