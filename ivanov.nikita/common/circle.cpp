@@ -9,7 +9,7 @@ ivanov::Circle::Circle(const double radius, const point_t &center) :
 {
   if (radius_ <= 0)
   {
-	throw std::invalid_argument("Error. Incorrect radius of circle");
+    throw std::invalid_argument("Error. Incorrect radius of circle");
   }
 }
 
