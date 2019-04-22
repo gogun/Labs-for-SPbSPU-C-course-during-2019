@@ -15,10 +15,8 @@ Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t
 
 point_t Triangle::getCenter() const
 {
-  return {
-    (coordinates_[0].x + coordinates_[1].x + coordinates_[2].x) / 3,
-    (coordinates_[0].y + coordinates_[1].y + coordinates_[2].y) / 3
-  };
+  return {(coordinates_[0].x + coordinates_[1].x + coordinates_[2].x) / 3,
+      (coordinates_[0].y + coordinates_[1].y + coordinates_[2].y) / 3};
 }
 
 double Triangle::getArea() const //by coordinates
