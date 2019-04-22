@@ -1,6 +1,5 @@
 #ifndef RectangleHPP_A2
 #define RectangleHPP_A2
-
 #include "shape.hpp"
 
 namespace sheve
