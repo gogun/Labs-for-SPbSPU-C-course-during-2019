@@ -1,8 +1,6 @@
 #ifndef CircleHPP_A2
 #define CircleHPP_A2
-
 #include "shape.hpp"
-
 
 namespace sheve
 {
