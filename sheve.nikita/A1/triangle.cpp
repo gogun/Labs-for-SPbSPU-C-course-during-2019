@@ -15,15 +15,15 @@ Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
 
 double Triangle::getArea() const
 {
-  const double area =((m_b.x - m_a.x) * (m_c.y - m_a.y) - (m_c.x - m_a.x) * (m_b.y - m_a.y)) / 2;
+  const double area = ((m_b.x - m_a.x) * (m_c.y - m_a.y) - (m_c.x - m_a.x) * (m_b.y - m_a.y)) / 2;
   return area;
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
   const double maxX = std::max(std::max(m_a.x, m_b.x), m_c.x);
-  const double maxY = std::max(std::max(m_a.y, m_b.y), m_c.y);
-  const double minX = std::min(std::min(m_a.x, m_b.x), m_c.x);
+  const double maxY = std::max(std::max(m_a.y, m_b.y), m_c.y); 
+  const double minX = std::min(std::min(m_a.x, m_b.x), m_c.x); 
   const double minY = std::min(std::min(m_a.y, m_b.y), m_c.y);
   const double width = maxX - minX;
   const double height = maxY - minY;
