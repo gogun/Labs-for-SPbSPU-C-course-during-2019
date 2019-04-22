@@ -3,9 +3,9 @@
 #include <stdexcept>
 #include <cmath>
 
-gusarov::Circle::Circle(const point_t &center,const double radius):
-  radius_(radius),
-  center_(center)
+gusarov::Circle::Circle(const point_t &center, const double radius):
+  center_(center),
+  radius_(radius)
 {
   if(radius <= 0)
   {
@@ -20,7 +20,7 @@ gusarov::rectangle_t gusarov::Circle::getFrameRect() const
 {
   return {radius_ * 2, radius_ * 2, center_};
 }
-void gusarov::Circle::move(const double shiftX,const double shiftY)
+void gusarov::Circle::move(const double shiftX, const double shiftY)
 {
   center_.x += shiftX;
   center_.y += shiftY;

@@ -2,10 +2,10 @@
 #include <iostream>
 #include <stdexcept>
 
-gusarov::Rectangle::Rectangle(const point_t &center,const double width,const double height):
+gusarov::Rectangle::Rectangle(const point_t &center, const double width, const double height):
+  center_(center),
   width_(width),
-  height_(height),
-  center_(center)
+  height_(height)
 {
   if(width <= 0 || height <= 0)
   {
@@ -20,7 +20,7 @@ gusarov::rectangle_t gusarov::Rectangle::getFrameRect() const
 {
   return {width_, height_, center_};
 }
-void gusarov::Rectangle::move(const double shiftX,const double shiftY)
+void gusarov::Rectangle::move(const double shiftX, const double shiftY)
 {
   center_.x += shiftX;
   center_.y += shiftY;
@@ -33,7 +33,7 @@ void gusarov::Rectangle::printInfo() const
 {
   std::cout << "Width of rectangle is " << width_ <<'\n'
             << "Height of rectangle is " << height_ <<'\n'
-            << "Center of rectangle is a point: (" << center_.x << ";" << center_.y << ")" <<'\n';
+            << "Center of rectangle is a point: (" << center_.x << ";" << center_.y << ")" << '\n';
 }
 void gusarov::Rectangle::scale(const double scale)
 {
