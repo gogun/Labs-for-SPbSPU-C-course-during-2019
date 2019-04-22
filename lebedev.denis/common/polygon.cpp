@@ -30,7 +30,7 @@ lebedev::Polygon::~Polygon()
 
 void lebedev::calcCentoid()
 {
-  lebedev::poin_t temp_point = {0.0, 0.0};
+  lebedev::point_t temp_point = {0.0, 0.0};
   for (std::size_t index = 0; index < m_qtyVetex; index++)
   {
     temp_point.x += m_vertex[index].x;
@@ -57,7 +57,7 @@ double lebedev::Polygon::getArea() const
 
 lebedev::rectangle_t lebedev::Polygon::getFrameRect() const
 {
-  point_t max,min;
+  point_t max, min;
   max = min = {0.0, 0.0};
 
   for (index = 0; index < m_qtyVetex; index++)
@@ -93,7 +93,7 @@ void lebedev::Polygon::scale(const double multiplier)
   }
   else
   {
-    for (std::size_t index = 0; index < m_qtyVetex; index++)
+    for (std::size_t index = 0; index < m_qtyVertex; index++)
     {
       const double distanceX = (m_centroid.x - m_vertex[index].x) * multiplier;
       const double distanceY = (m_centroid.y - m_vertex[index].y) * multiplier;
@@ -101,4 +101,36 @@ void lebedev::Polygon::scale(const double multiplier)
       m_vertex[index].y += distanceY;
     }
   }
+}
+
+double lebedev::Polygon::checkBump() const
+{
+  int status = 0;
+  point_t side_1, side_2;
+  side_1 = side_2 = {0.0, 0.0};
+
+  for (index = m_qtyVertex; index < 1; indexe--)
+  {
+    if (index = 1)
+    {
+      side_1.x = m_vertex[index].x - m_vertex[index - 1].x;
+      side_2.y = m_vertex[index].y - m_vertex[index - 1].y;
+      side_2.x = m_vertex[index-1].x - m_vertex[m_qtyVertex].x;
+      side_2.y = m_vertex[index-1].y - m_vertex[m_qtyVertex].y;
+    }
+    else
+    {
+      side_1.x = m_vertex[index].x - m_vertex[index - 1].x;
+      side_2.y = m_vertex[index].y - m_vertex[index - 1].y;
+      side_2.x = m_vertex[index-1].x - m_vertex[index - 2].x;
+      side_2.y = m_vertex[index-1].y - m_vertex[index - 2].y;
+    }
+    double flag = ((side_1.x * side_2.y) - (side_1.y * side_2.x));
+    if (flag < 0)
+    {
+      status += 1;
+      break;
+    }
+  }
+  return (status);
 }
