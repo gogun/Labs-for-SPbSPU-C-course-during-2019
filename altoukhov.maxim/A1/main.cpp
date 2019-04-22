@@ -3,20 +3,20 @@
 #include "circle.hpp"
 #include "triangle.hpp"
 
-void printArea(const Shape& sh)
+void printArea(const Shape& shape)
 {
-  std::cout << "Area - " << sh.getArea() << '\n';
+  std::cout << "Area - " << shape.getArea() << '\n';
 }
 
-void printFrameRect(const Shape& sh)
+void printFrameRect(const Shape& shape)
 {
-  std::cout << "Frame rectangle width - " << sh.getFrameRect().width << '\n';
-  std::cout << "Frame rectangle height - " << sh.getFrameRect().height << '\n';
+  std::cout << "Frame rectangle width - " << shape.getFrameRect().width << '\n';
+  std::cout << "Frame rectangle height - " << shape.getFrameRect().height << '\n';
 }
 
-void printPosition(const Shape& sh)
+void printPosition(const Shape& shape)
 {
-  std::cout << "Position - " << sh.getFrameRect().pos.x << ',' << sh.getFrameRect().pos.y << '\n';
+  std::cout << "Position - " << shape.getFrameRect().pos.x << ',' << shape.getFrameRect().pos.y << '\n';
 }
 
 int main()

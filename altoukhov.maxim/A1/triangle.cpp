@@ -1,4 +1,5 @@
 #include "triangle.hpp"
+
 #include <cassert>
 #include <cmath>
 
