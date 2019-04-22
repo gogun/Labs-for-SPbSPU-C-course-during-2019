@@ -19,10 +19,7 @@ public:
 private:
 
   point_t vertex_[3];
-
-  double getSide(int vertex1, int vertex2) const;
   point_t getCentre() const;
-  double getPerimeter() const;
 };
 
 #endif //A_TRIANGLE_HPP

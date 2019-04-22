@@ -19,16 +19,6 @@ point_t Triangle::getCentre() const
   return {(vertex_[0].x + vertex_[1].x + vertex_[2].x) / 3, ((vertex_[0].y + vertex_[1].y + vertex_[2].y) / 3)};
 }
 
-double Triangle::getSide(int vertex1, int vertex2) const
-{
-  return (sqrt(pow((vertex_[vertex1].x - vertex_[vertex2].x), 2) + pow((vertex_[vertex1].y - vertex_[vertex2].y), 2)));
-}
-
-double Triangle::getPerimeter() const
-{
-  return (getSide(0, 1) + getSide(1, 2) + getSide(0, 2));
-}
-
 void Triangle::printParameters() const
 {
   for (int i = 0; i <= 2; i++)
@@ -40,12 +30,8 @@ void Triangle::printParameters() const
 
 double Triangle::getArea() const
 {
-  double semiPerimeter = getPerimeter() / 2;
-  double side1 = getSide(0, 1);
-  double side2 = getSide(1, 2);
-  double side3 = getSide(2, 0);
-
-  return (sqrt(semiPerimeter * (semiPerimeter - side1) * (semiPerimeter - side2) * (semiPerimeter - side3)));
+  return fabs((vertex_[0].x - vertex_[2].x) * (vertex_[1].y - vertex_[2].y)
+      - (vertex_[1].x - vertex_[2].x) * (vertex_[0].y - vertex_[2].y)) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
