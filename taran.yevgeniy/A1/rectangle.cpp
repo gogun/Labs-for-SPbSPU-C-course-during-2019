@@ -10,7 +10,7 @@ Rectangle::Rectangle(const rectangle_t& figure):
 
 double Rectangle::getArea() const
 {
-  return m_figure.width* m_figure.height;
+  return m_figure.width * m_figure.height;
 }
 
 rectangle_t Rectangle::getFrameRect() const
@@ -32,7 +32,7 @@ void Rectangle::move(double dx, double dy)
 void Rectangle::showParams() const
 {
   std::cout << "Rectangle: center - {" << m_figure.pos.x << ","
-      << m_figure.pos.y << "}\n" << "Width - " << m_figure.width
-      << '\n' << "Height - " << m_figure.height << '\n'
-      << "Area - " << getArea() << '\n';
+            << m_figure.pos.y << "}\n" << "Width - " << m_figure.width
+            << '\n' << "Height - " << m_figure.height << '\n'
+            << "Area - " << getArea() << '\n';
 }
