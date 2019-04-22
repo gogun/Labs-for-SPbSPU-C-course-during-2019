@@ -102,6 +102,7 @@ BOOST_AUTO_TEST_CASE(Scaling)
   cir.scale(C);
   BOOST_CHECK_CLOSE(area_original * C * C, cir.getArea(), EPSILON);
 }
+
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(triangle)
