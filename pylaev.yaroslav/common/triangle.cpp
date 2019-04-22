@@ -16,7 +16,7 @@ pylaev::Triangle::Triangle(const point_t & pointA, const point_t & pointB, const
 
 pylaev::point_t pylaev::Triangle::getCenter() const
 {
-  return {(coordinates_[0].x + coordinates_[1].x + coordinates_[2].x) / 3
+  return {(coordinates_[0].x + coordinates_[1].x + coordinates_[2].x) / 3,
       (coordinates_[0].y + coordinates_[1].y + coordinates_[2].y) / 3};
 }
 
@@ -73,7 +73,8 @@ void pylaev::Triangle::scale(const double kScaling)
   }
 
   for (int i = 0; i < nTops_; i++) {
-    coordinates_[i] = coordinates_[i] * kScaling;
+    coordinates_[i].x = coordinates_[i].x * kScaling;
+    coordinates_[i].y = coordinates_[i].y * kScaling;
   }
   point_t pos = center_; //Now tops' coordinates are located in one place
   center_ = getCenter(); //but basic center in the other,
