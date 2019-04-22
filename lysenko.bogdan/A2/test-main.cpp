@@ -74,7 +74,7 @@ BOOST_AUTO_TEST_CASE(constParametersAfterMovingByDistance)
 
 BOOST_AUTO_TEST_CASE(constParametersAfterMovingToPoint)
 {
-  lysenko::Rectangle testRectangle({4, 2, { 2, 3 }});
+  lysenko::Rectangle testRectangle({4, 2, {2, 3}});
   const double testRectangleArea = testRectangle.getArea();
   const lysenko::rectangle_t testFrameRect = testRectangle.getFrameRect();
 
@@ -86,7 +86,7 @@ BOOST_AUTO_TEST_CASE(constParametersAfterMovingToPoint)
 
 BOOST_AUTO_TEST_CASE(squareChangeAfterScale)
 {
-  lysenko::Rectangle testRectangle({1, 4, { 2, 7 }});
+  lysenko::Rectangle testRectangle({1, 4, {2, 7}});
   const double testArea = testRectangle.getArea();
   const double coefficient = 3.5;
 
@@ -97,9 +97,9 @@ BOOST_AUTO_TEST_CASE(squareChangeAfterScale)
 
 BOOST_AUTO_TEST_CASE(invalidValues)
 {
-  BOOST_CHECK_THROW(lysenko::Rectangle testRectangle({1, 0, {2, 4 }}), std::invalid_argument);
+  BOOST_CHECK_THROW(lysenko::Rectangle testRectangle({1, 0, {2, 4}}), std::invalid_argument);
   BOOST_CHECK_THROW(lysenko::Rectangle testRectangle({0, 2, {3, 4.1}}), std::invalid_argument);
-  BOOST_CHECK_THROW(lysenko::Rectangle testRectangle({-4, 7, {2, 4 }}), std::invalid_argument);
+  BOOST_CHECK_THROW(lysenko::Rectangle testRectangle({-4, 7, {2, 4}}), std::invalid_argument);
   BOOST_CHECK_THROW(lysenko::Rectangle testRectangle({3, -1, {3, 4.1}}), std::invalid_argument);
 
   lysenko::Rectangle testRectangle({2, 1, {1, 8.2}});
