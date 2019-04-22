@@ -24,5 +24,4 @@ namespace krinkina
   };
 } 
 
-#endif //CIRCLE_HPP
-  
+#endif //CIRCLE_HP
