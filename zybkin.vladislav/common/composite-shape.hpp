@@ -15,7 +15,7 @@ namespace zybkin
 
     CompositeShape &operator =(const CompositeShape &);
     CompositeShape &operator =(CompositeShape &&);
-    Shape *operator [](int index) const;
+    Shape *operator [](int) const;
 
     double getArea() const;
     rectangle_t getFrameRect() const;
@@ -25,7 +25,7 @@ namespace zybkin
     void move(double, double);
     void scale(double);
     void addShape(Shape &);
-    void deleteShape(int index);
+    void deleteShape(int);
 
   private:
     Shape ** shapeArray_;

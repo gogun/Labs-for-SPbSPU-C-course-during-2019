@@ -151,7 +151,7 @@ void zybkin::CompositeShape::addShape(Shape &shape)
   }
 
 
-  zybkin::Shape ** temporaryArray = new zybkin::Shape*[count_ + 1];
+  zybkin::Shape ** temporaryArray = new zybkin::Shape *[count_ + 1];
   for (int i = 0; i < count_; ++i)
   {
     temporaryArray[i] = shapeArray_[i];
@@ -176,7 +176,7 @@ void zybkin::CompositeShape::deleteShape(int index)
   count_--;
   for (int i = index; i < count_; ++i)
   {
-    shapeArray_[i] = shapeArray_[i+1];
+    shapeArray_[i] = shapeArray_[i + 1];
   }
 
   shapeArray_[count_] = nullptr;
