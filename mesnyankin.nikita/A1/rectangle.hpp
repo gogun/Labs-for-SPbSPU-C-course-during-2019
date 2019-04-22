@@ -10,9 +10,9 @@ public:
   Rectangle(const double &width, const double &height, const point_t &pos);
   Rectangle(const double &width, const double &height, const double &posx, const double &posy);
 
-  const double getWidth();
-  const double getHeight();
-  const point_t getPos();
+  double getWidth();
+  double getHeight();
+  point_t getPos();
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
