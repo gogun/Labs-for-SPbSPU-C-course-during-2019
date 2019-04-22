@@ -49,4 +49,4 @@ int main()
   triangle.printTriang();
 
   return 0;
-};
+}
