@@ -43,9 +43,6 @@ void malinovskaya::Rectangle::scale(const double coeff)
   {
     throw std::invalid_argument("Scale coefficient should be positive");
   }
-  else
-  {
-    rectangle_.width *= coeff;
-    rectangle_.height *= coeff;
-  }
+  rectangle_.width *= coeff;
+  rectangle_.height *= coeff;
 }

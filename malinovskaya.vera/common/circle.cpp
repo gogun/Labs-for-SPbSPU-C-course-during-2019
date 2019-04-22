@@ -44,8 +44,5 @@ void malinovskaya::Circle::scale(const double coeff)
   {
     throw std::invalid_argument("Scale coefficient should be positive");
   }
-  else
-  {
-    radius_ *= coeff;
-  }
+  radius_ *= coeff;
 }
