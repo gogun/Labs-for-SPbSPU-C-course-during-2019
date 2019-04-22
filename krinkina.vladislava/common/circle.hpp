@@ -15,8 +15,8 @@ namespace krinkina
     void move(const point_t &centre) override;
     void move(double dx, double dy) override;
     void scale(double coefficient) override;
-    void printInfo() const override;
     double getRadius() const;
+    void printInfo() const override;
 
   private:
     point_t centre_;
