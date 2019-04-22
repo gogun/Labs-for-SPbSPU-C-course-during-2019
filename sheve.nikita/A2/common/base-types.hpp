@@ -1,5 +1,5 @@
-#ifndef BASETYPES_HPP
-#define BASETYPES_HPP
+#ifndef BaseTypes_A2
+#define BaseTypes_A2
 
 namespace sheve
 {

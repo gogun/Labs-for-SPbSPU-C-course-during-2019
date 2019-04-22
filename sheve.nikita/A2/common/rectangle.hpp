@@ -1,25 +1,25 @@
-#ifndef CircleHPP_A2
-#define CircleHPP_A2
+#ifndef RectangleHPP_A2
+#define RectangleHPP_A2
 
 #include "shape.hpp"
 
-
 namespace sheve
 {
-  class Circle : public Shape
+  class Rectangle : public Shape
   {
   public:
-    Circle(const point_t &center, double radius);
+    Rectangle(const point_t &center, double width, double height);
     double getArea() const override;
     rectangle_t getFrameRect() const override;
-    void move(const point_t &p) override;
     void move(double dx, double dy) override;
+    void move(const point_t &newPoint) override;
     void scale(double coefficient) override;
     void printInfo() const override;
 
   private:
-    point_t m_pos;
-    double m_radius;
+    point_t m_center;
+    double m_width;
+    double m_height;
   };
 }
 
