@@ -56,7 +56,7 @@ void pylaev::Circle::printSpec() const
 {
   std::cout << "Area of our circle with radius = " << radius_ << " is " << getArea() << " square units\n";
   rectangle_t frameRectangle = getFrameRect();
-  std::cout << "Center of the frame rectangle with width = " << frameRectangle.width;
-      << " and height = " << frameRectangle.height;
+  std::cout << "Center of the frame rectangle with width = " << frameRectangle.width
+      << " and height = " << frameRectangle.height
       << " is located in point (" << frameRectangle.pos.x << "; " << frameRectangle.pos.y << ")\n";
 }
