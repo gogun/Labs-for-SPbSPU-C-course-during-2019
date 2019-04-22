@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 #include <boost/test/included/unit_test.hpp>
-#include "rectangle.hpp"
+#include "Rectangle.hpp"
 #include "circle.hpp"
 #include "triangle.hpp"
 
