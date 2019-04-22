@@ -2,21 +2,20 @@
 #include "circle.hpp"
 #include <cassert>
 #include <cmath>
-#include <iostream>
 
 
-Circle::Circle(const double radius, const point_t &pos):
+Circle::Circle(const double &radius, const point_t &pos) :
   radius_(radius),
   pos_(pos)
 {
-  assert(radius > 0);
+  assert(radius_ >= 0.0);
 }
 
-Circle::Circle(const double radius, const double posx, const double posy):
+Circle::Circle(const double &radius, const double &posx, const double &posy):
   radius_(radius),
   pos_({posx, posy})
 {
-  assert(radius > 0);
+  assert(radius_ >= 0.0);
 }
 
 double Circle::getArea() const
@@ -24,7 +23,7 @@ double Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-void Circle::move(const double x, const double y)
+void Circle::move(const double &x, const double &y)
 {
   pos_.x += x;
   pos_.y += y;
