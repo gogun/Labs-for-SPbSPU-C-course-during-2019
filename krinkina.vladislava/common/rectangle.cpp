@@ -47,9 +47,8 @@ void krinkina::Rectangle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-    {
-      throw std::invalid_argument("Scaling coefficient must be positive.");
-    }
+    throw std::invalid_argument("Scaling coefficient must be positive.");
+  }
   else
   {
     width_ *= coefficient;
