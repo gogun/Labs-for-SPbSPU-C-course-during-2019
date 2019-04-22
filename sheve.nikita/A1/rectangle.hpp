@@ -12,9 +12,9 @@ public:
   void move(double dx, double dy) override;
 
 private:
-  point_t pos;
-  double width;
-  double height;
+  point_t m_pos;
+  double m_width;
+  double m_height;
 };
 
 #endif

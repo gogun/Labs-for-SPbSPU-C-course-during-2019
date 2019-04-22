@@ -4,35 +4,30 @@
 #include <cassert>
 
 Rectangle::Rectangle(const point_t &p, double w, double h):
-  pos(p),
-  width(w),
-  height(h)
+  m_pos(p),
+  m_width(w),
+  m_height(h)
 {
-  assert((width > 0.0) && (height > 0.0));
+  assert((m_width > 0.0) && (m_height > 0.0));
 }
 
 double Rectangle::getArea() const
 {
-  return (width * height);
+  return (m_width * m_height);
 }
 
 rectangle_t Rectangle::getFrameRect() const
 {
-  rectangle_t localRect;
-  localRect.pos.x = pos.x;
-  localRect.pos.y = pos.y;
-  localRect.width  = width;
-  localRect.height = height;
-  return localRect;
+  return { m_pos, m_width, m_height};
 }
 
 void Rectangle::move(const point_t &p)
 {
-  pos = p;
+  m_pos = p;
 }
 
 void Rectangle::move(double dx, double dy)
 {
-  pos.x += dx;
-  pos.y += dy;
+  m_pos.x += dx;
+  m_pos.y += dy;
 }
