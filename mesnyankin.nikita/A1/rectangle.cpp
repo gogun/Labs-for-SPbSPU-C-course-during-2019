@@ -43,17 +43,17 @@ void Rectangle::move(const point_t &point)
   pos_ = point;
 }
 
-const double Rectangle::getWidth()
+double Rectangle::getWidth() const
 {
   return width_;
 }
 
-const double Rectangle::getHeight()
+double Rectangle::getHeight() const
 {
   return height_;
 }
 
-const point_t Rectangle::getPos()
+point_t Rectangle::getPos() const
 {
   return pos_;
 }
