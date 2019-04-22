@@ -53,7 +53,7 @@ void sheve::Triangle::move(const double dx, const double dy)
   m_c.y += dy;
 }
 
-sheve::triangle_t sheve::Triangle::getSides() const
+sheve::rectangle_t sheve::Triangle::getSides() const
 {
    const double sideAB = std::abs(
            std::sqrt(std::pow(m_a.x - m_b.x, 2) + std::pow(m_a.y - m_b.y, 2)));
