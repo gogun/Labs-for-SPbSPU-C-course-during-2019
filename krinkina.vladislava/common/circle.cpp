@@ -46,7 +46,10 @@ void krinkina::Circle::scale(double coefficient)
   {
     throw std::invalid_argument("Coefficient must be positive ");
   }
-  radius_ *= coefficient;
+  else
+  {
+    radius_ *= coefficient;
+  }
 }
 
 double krinkina::Circle::getRadius() const
