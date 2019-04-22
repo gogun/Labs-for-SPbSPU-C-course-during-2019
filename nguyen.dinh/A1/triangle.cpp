@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <cassert>
 
-Triangle::Triangle(const point_t &corner_1,const point_t &corner_2,const point_t &corner_3):
+Triangle::Triangle(const point_t &corner_1, const point_t &corner_2, const point_t &corner_3):
 m_corner_1(corner_1),
 m_corner_2(corner_2),
 m_corner_3(corner_3),
@@ -15,22 +15,19 @@ m_center({(m_corner_1.x + m_corner_2.x + m_corner_3.x) / 3, (m_corner_1.y + m_co
 
 double Triangle::getArea() const
 {
-  const double side1 = sqrt(pow(m_corner_1.x - m_corner_2.x, 2) + pow(m_corner_1.y - m_corner_2.y, 2));
-  const double side2 = sqrt(pow(m_corner_1.x - m_corner_3.x, 2) + pow(m_corner_1.y - m_corner_3.y, 2));
-  const double side3 = sqrt(pow(m_corner_2.x - m_corner_3.x, 2) + pow(m_corner_2.y - m_corner_3.y, 2));
-  const double perimeter = side1 + side2 + side3;
-  const double radius = sqrt(((perimeter / 2 - side1) * (perimeter / 2 - side2) * (perimeter / 2 - side3)) / (perimeter / 2));
-  return radius * perimeter  / 2;
+  return (std::fabs(m_corner_1.x - m_corner_3.x) * (m_corner_2.y - m_corner_3.y) - std::fabs(m_corner_2.x - m_corner_3.x) * (m_corner_1.y - m_corner_3.y)) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  const double minheight = std::min(std::min(m_corner_1.y, m_corner_2.y), m_corner_3.y);
-  const double minwidth = std::min(std::min(m_corner_1.x, m_corner_2.x), m_corner_3.x);
-  const double maxheight = std::max(std::min(m_corner_1.y, m_corner_2.y), m_corner_3.y);
-  const double maxwidth = std::max(std::min(m_corner_1.x, m_corner_2.x),m_corner_3.x);
-  point_t center{ minwidth + (maxwidth - minwidth) / 2 , minheight + (maxheight - minheight) / 2 };
-  return {maxwidth - minwidth, maxheight - minheight, center};
+  const double maxX = std::max(std::max(m_corner_1.x, m_corner_2.x), m_corner_3.x);
+  const double minX = std::min(std::min(m_corner_1.x, m_corner_2.x), m_corner_3.x);
+  const double maxY = std::max(std::max(m_corner_1.y, m_corner_2.y), m_corner_3.y);
+  const double minY = std::min(std::min(m_corner_1.y, m_corner_2.y), m_corner_3.y);
+  const double width = maxX - minX;
+  const double height = maxY - minY;
+  const point_t position = {minX + width / 2, minY + height / 2};
+  return {width, height, position};
 }
 
 void Triangle::move(const point_t &point)
