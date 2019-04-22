@@ -17,9 +17,9 @@ namespace gusarov
     double getHeight() const;
     double getWidth() const;
   private:
+    point_t center_;
     double width_;
     double height_;
-    point_t center_;
   };
 }
 

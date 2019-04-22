@@ -16,8 +16,8 @@ namespace gusarov
     void scale(const double) override;
     double getRadius() const;
   private:
-    double radius_;
     point_t center_;
+    double radius_;
   };
 }
 #endif
