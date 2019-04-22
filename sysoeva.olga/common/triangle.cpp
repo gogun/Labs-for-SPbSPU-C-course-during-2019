@@ -43,7 +43,7 @@ sysoeva::rectangle_t sysoeva::Triangle::getFrameRect() const
   double max_y = std::max({vertex_1.y, vertex_2.y, vertex_3.y});
   double width = max_x - min_x;
   double height = max_y - min_y;
-  point_t center = {min_x + (width/2), min_y + (height/2)};
+  point_t center = {min_x + (width / 2), min_y + (height / 2)};
   return {width, height, center};
 }
 
