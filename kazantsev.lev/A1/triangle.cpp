@@ -11,7 +11,7 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
   point3_(pointC)
 {
   assert(((point1_.x == point2_.x) && (point1_.y == point2_.y)) || ((point2_.x == point3_.x)
-    && (point2_.y == point3_.y)) || ((point1_.x == point3_.x) && (point1_.y == point3_.y)))
+    && (point2_.y == point3_.y)) || ((point1_.x == point3_.x) && (point1_.y == point3_.y)));
 }
 
 double Triangle::getArea() const
@@ -36,7 +36,7 @@ rectangle_t Triangle::getFrameRect() const
 
 void Triangle::move(const point_t &newPos)
 {
-  const point_t difference = { newPos.x - pos_.x, newPos.y - pos_.y };
+  const point_t difference = {newPos.x - pos_.x, newPos.y - pos_.y};
 
   move(difference.x, difference.y);
 }
