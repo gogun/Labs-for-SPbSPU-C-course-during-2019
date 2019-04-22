@@ -1,6 +1,5 @@
 #ifndef TriangleHPP_A2
 #define TriangleHPP_A2
-
 #include "shape.hpp"
 
 namespace sheve
