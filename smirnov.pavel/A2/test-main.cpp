@@ -15,12 +15,12 @@ BOOST_AUTO_TEST_CASE(testOfRectangleMoving)
   const double areaBeforeMoving = rect.getArea();
   const smirnov::rectangle_t rectBeforeMoving = rect.getFrameRect();
   rect.move({-4, 7});
-  BOOST_CHECK_CLOSE(rect.getFrameRect().width, rectBeforeMoving.width, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(rect.getFrameRect().height, rectBeforeMoving.height, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rectBeforeMoving.width, rect.getFrameRect().width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rectBeforeMoving.height, rect.getFrameRect().height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, rect.getArea(), ERROR_CHANCE);
   rect.move(15, -3);
-  BOOST_CHECK_CLOSE(rect.getFrameRect().width, rectBeforeMoving.width, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(rect.getFrameRect().height, rectBeforeMoving.height, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rectBeforeMoving.width, rect.getFrameRect().width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(rectBeforeMoving.height, rect.getFrameRect().height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, rect.getArea(), ERROR_CHANCE);
 }
 
@@ -30,12 +30,12 @@ BOOST_AUTO_TEST_CASE(testOfCircleMoving)
   const double areaBeforeMoving = circ.getArea();
   const smirnov::rectangle_t circBeforeMoving = circ.getFrameRect();
   circ.move({-4, 7});
-  BOOST_CHECK_CLOSE(circ.getFrameRect().width, circBeforeMoving.width, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(circ.getFrameRect().height, circBeforeMoving.height, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circBeforeMoving.width, circ.getFrameRect().width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circBeforeMoving.height, circ.getFrameRect().height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, circ.getArea(), ERROR_CHANCE);
   circ.move(15, -3);
-  BOOST_CHECK_CLOSE(circ.getFrameRect().width, circBeforeMoving.width, ERROR_CHANCE);
-  BOOST_CHECK_CLOSE(circ.getFrameRect().height, circBeforeMoving.height, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circBeforeMoving.width, circ.getFrameRect().width, ERROR_CHANCE);
+  BOOST_CHECK_CLOSE(circBeforeMoving.height, circ.getFrameRect().height, ERROR_CHANCE);
   BOOST_CHECK_CLOSE(areaBeforeMoving, circ.getArea(), ERROR_CHANCE);
 }
 

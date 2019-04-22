@@ -1,5 +1,4 @@
 #include "rectangle.hpp"
-#include <cassert>
 #include <iostream>
 #include <stdexcept>
 
