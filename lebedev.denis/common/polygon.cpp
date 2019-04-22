@@ -115,7 +115,7 @@ void lebedev::Polygon::scale(const double multiplier)
   }
 }
 
-double lebedev::Polygon::checkBump() const
+int lebedev::Polygon::checkBump() const
 {
   int status = 0;
   point_t side_1, side_2;
