@@ -1,5 +1,4 @@
 #include "triangle.hpp"
-
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
@@ -11,8 +10,8 @@ sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p
   m_b(p2),
   m_c(p3)
 {
-  const double areaTriangle = getArea();
-  if (areaTriangle <= 0.0) {
+  if (getArea() <= 0.0)
+  {
     throw std::invalid_argument("Triangle's argument is invalid.");
   }
 }
@@ -55,14 +54,10 @@ void sheve::Triangle::move(const double dx, const double dy)
 
 sheve::rectangle_t sheve::Triangle::getSides() const
 {
-   const double sideAB = std::abs(
-           std::sqrt(std::pow(m_a.x - m_b.x, 2) + std::pow(m_a.y - m_b.y, 2)));
-   const double sideBC = std::abs(
-           std::sqrt(std::pow(m_b.x - m_c.x, 2) + std::pow(m_b.y - m_c.y, 2)));
-   const double sideCA = std::abs(
-           std::sqrt(std::pow(m_c.x - m_a.x, 2) + std::pow(m_c.y - m_a.y, 2)));
-
-   return {sideAB, sideBC, sideCA};
+   const double sideAB = std::abs(std::sqrt(std::pow(m_a.x - m_b.x, 2) + std::pow(m_a.y - m_b.y, 2)));
+   const double sideBC = std::abs(std::sqrt(std::pow(m_b.x - m_c.x, 2) + std::pow(m_b.y - m_c.y, 2)));
+   const double sideCA = std::abs(std::sqrt(std::pow(m_c.x - m_a.x, 2) + std::pow(m_c.y - m_a.y, 2)));
+   return { sideAB, sideBC, sideCA };
 }
 
 void sheve::Triangle::scale(double coefficient)
@@ -83,8 +78,8 @@ void sheve::Triangle::printInfo() const
 {
   std::cout << "Center: " << m_pos.x << ", " << m_pos.y << std::endl;
   std::cout << "A: " << m_a.x << m_a.y << std::endl;
-  std::cout << "B: " << m_b.x << m_a.y << std::endl;
-  std::cout << "C: " << m_c.x << m_a.y << std::endl;
+  std::cout << "B: " << m_b.x << m_b.y << std::endl;
+  std::cout << "C: " << m_c.x << m_c.y << std::endl;
   std::cout << "Triangle area: " << getArea() << std::endl;
   std::cout << "Frame rectangle:" << std::endl;
   std::cout << "-Center: " << getFrameRect().pos.x << ", " << getFrameRect().pos.y << std::endl;
