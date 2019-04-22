@@ -8,8 +8,9 @@ krinkina::Circle::Circle(const point_t &centre, double radius) :
   centre_(centre),
   radius_(radius)
 {
-  if (radius <= 0.0) {
-    throw (std::invalid_argument("radius must be positive number"));
+  if (radius_ <= 0) 
+  {
+    throw std::invalid_argument("radius  must be greater than 0 ");
   }
 }
 
@@ -41,10 +42,10 @@ void krinkina::Circle::move(double dx, double dy)
 
 void krinkina::Circle::scale(double coefficient)
 {
-  if (coefficient <= 0) {
-    throw (std::invalid_argument("Coefficient must be positive number"));
+  if (coefficient <= 0) 
+  {
+    throw std::invalid_argument("Coefficient must be positive ");
   }
-  //assert(coefficient > 0);
   radius_ *= coefficient;
 }
 
@@ -52,7 +53,6 @@ double krinkina::Circle::getRadius() const
 {
   return radius_;
 }
-
 
 void krinkina::Circle::printInfo() const
 {
