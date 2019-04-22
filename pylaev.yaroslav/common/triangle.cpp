@@ -7,7 +7,6 @@
 
 pylaev::Triangle::Triangle(const point_t & pointA, const point_t & pointB, const point_t & pointC):
   coordinates_({pointA, pointB, pointC}),
-  center_(getCenter())
 {
   if (getArea() == 0) {
     throw std::invalid_argument("It's a stright line, coordinates of tops can't be on one line");
@@ -53,8 +52,6 @@ pylaev::rectangle_t pylaev::Triangle::getFrameRect() const
 
 void pylaev::Triangle::move(const double dx, const double dy)
 {
-  center_.x += dx;
-  center_.y += dy;
   for (int i = 0; i < nTops_; i++) {
     coordinates_[i].x += dx;
     coordinates_[i].y += dy;
@@ -63,7 +60,8 @@ void pylaev::Triangle::move(const double dx, const double dy)
 
 void pylaev::Triangle::move(const point_t & pos)
 {
-  move(pos.x - center_.x, pos.y - center_.y);
+  point_t center = getCenter();
+  move(pos.x - center.x, pos.y - center.y);
 }
 
 void pylaev::Triangle::scale(const double kScaling)
@@ -72,13 +70,13 @@ void pylaev::Triangle::scale(const double kScaling)
     throw std::invalid_argument("Coefficient of scaling must be positive");
   }
 
+  point_t pos = getCenter();
   for (int i = 0; i < nTops_; i++) {
-    coordinates_[i].x = coordinates_[i].x * kScaling;
-    coordinates_[i].y = coordinates_[i].y * kScaling;
+    coordinates_[i] = {coordinates_[i].x * kScaling, coordinates_[i].y * kScaling};
   }
-  point_t pos = center_; //Now tops' coordinates are located in one place
-  center_ = getCenter(); //but basic center in the other,
-  move(pos); //that's why we should move the whole triangle back to the basic center
+  //Now tops' coordinates are located in one place, but basic center in the other,
+  //that's why we should move the whole triangle back to the basic center
+  move(pos);
 }
 
 void pylaev::Triangle::printSpec() const
