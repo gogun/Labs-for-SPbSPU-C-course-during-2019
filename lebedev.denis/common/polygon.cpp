@@ -55,4 +55,50 @@ double lebedev::Polygon::getArea() const
   return (0.5 * std::fabs(summa));
 }
 
-l
+lebedev::rectangle_t lebedev::Polygon::getFrameRect() const
+{
+  point_t max,min;
+  max = min = {0.0, 0.0};
+
+  for (index = 0; index < m_qtyVetex; index++)
+  {
+    if (max.x < m_vertex[index].x)
+    {
+      max.x = m_vertex[index].x;
+    }
+    if (max.y < m_vertex[index])
+    {
+      max.y = m_vertex;
+    }
+    if (min.x > m_vertex[index].x)
+    {
+      min.x = m_vertex[index].x;
+    }
+    if (mon.y < m_vertex[index])
+    {
+      min.y = m_vertex;
+    }
+  }
+  const poin_t = posFrameRect = {(max.x + min.x) / 2, (max.y / min.y) / 2};
+  const double width = (max.y - min.y);
+  const double height = (max.x - min.x);
+  return {width, height, posFrameRect};
+}
+
+void lebedev::Polygon::scale(const double multiplier)
+{
+  if (multiplier <= 0.0)
+  {
+    throw std::invalid_argument("Multiplier must be more then 0.0");
+  }
+  else
+  {
+    for (std::size_t index = 0; index < m_qtyVetex; index++)
+    {
+      const double distanceX = (m_centroid.x - m_vertex[index].x) * multiplier;
+      const double distanceY = (m_centroid.y - m_vertex[index].y) * multiplier;
+      m_vertex[index].x += distanceX;
+      m_vertex[index].y += distanceY;
+    }
+  }
+}
