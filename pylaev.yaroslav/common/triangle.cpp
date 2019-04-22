@@ -72,11 +72,9 @@ void pylaev::Triangle::scale(const double kScaling)
 
   point_t pos = getCenter();
   for (int i = 0; i < nTops_; i++) {
-    coordinates_[i] = {coordinates_[i].x * kScaling, coordinates_[i].y * kScaling};
+    coordinates_[i] = {coordinates_[i].x * kScaling + pos.x * (kScaling - 1), 
+        coordinates_[i].y * kScaling + pos.y * (kScaling - 1)};
   }
-  //Now tops' coordinates are located in one place, but basic center in the other,
-  //that's why we should move the whole triangle back to the basic center
-  move(pos);
 }
 
 void pylaev::Triangle::printSpec() const
