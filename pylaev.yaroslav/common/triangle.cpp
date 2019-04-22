@@ -72,8 +72,8 @@ void pylaev::Triangle::scale(const double kScaling)
 
   point_t pos = getCenter();
   for (int i = 0; i < nTops_; i++) {
-    coordinates_[i] = {coordinates_[i].x * kScaling + pos.x * (kScaling - 1), 
-        coordinates_[i].y * kScaling + pos.y * (kScaling - 1)};
+    coordinates_[i] = {coordinates_[i].x * kScaling + pos.x * (1 - kScaling), 
+        coordinates_[i].y * kScaling + pos.y * (1 - kScaling)};
   }
 }
 
