@@ -15,8 +15,8 @@ BOOST_AUTO_TEST_CASE(testRectMove) {
 
   testRect.move(7, 3);
 
-  BOOST_CHECK_CLOSE(testRect.getWidth(), width, accuracy);
-  BOOST_CHECK_CLOSE(testRect.getHeight(), height, accuracy);
+  BOOST_CHECK_CLOSE(testRect.getWidth(), testRect.rectCl_.width, accuracy);
+  BOOST_CHECK_CLOSE(testRect.getHeight(), testRect.rectCl_.height, accuracy);
   BOOST_CHECK_CLOSE(testRect.getArea(), area, accuracy);
 }
 
@@ -27,11 +27,11 @@ BOOST_AUTO_TEST_CASE(testRectScale) {
 
   testRect.scale(coefficient);
 
-  BOOST_CHECK_CLOSE(testRect.getArea(), area, accuracy);
+  BOOST_CHECK_CLOSE(testRect.getArea(), newArea, accuracy);
 }
 
 BOOST_AUTO_TEST_CASE(testRectParameters) {
-  const blyshchik::point_t {1, 2};
+  const blyshchik::point_t pos{1, 2};
   const double corWidth = 3;
   const double incorWidth = -3;
   const double corHeight = 4;
@@ -43,7 +43,7 @@ BOOST_AUTO_TEST_CASE(testRectParameters) {
   BOOST_CHECK_THROW(blyshchik::Rectangle incorWidthRect(pos, incorWidth, corHeight), std::invalid_argument);
   BOOST_CHECK_THROW(blyshchik::Rectangle incorHeightRect(pos, corWidth, incorHeight), std::invalid_argument);
   BOOST_CHECK_THROW(blyshchik::Rectangle incorWidthAndHeightRect(pos, incorWidth, incorHeight), std::invalid_argument);
-  BOOST_CHECK_THROW(blyshchik::Rectangle testRect.scale(incorCoefficient), std::invalid_argument);
+  BOOST_CHECK_THROW(testRect.scale(incorCoefficient), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE(testCircMove) {
   const blyshchik::point_t pos{1, 2};
   const double radius = 3;
   const double newX = 1;
-  const double = newY = 2;
+  const double newY = 2;
 
   blyshchik::Circle testCirc{pos, radius};
   const double area = testCirc.getArea();
