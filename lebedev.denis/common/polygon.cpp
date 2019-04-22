@@ -39,6 +39,18 @@ void lebedev::calcCentoid()
   m_centroid = {temp_point.x / m_qtyVetex, temp_point.y / m_qtyVetex};
 }
 
+
+void lebedev::Polygon::printData() const
+{
+  for (std::size_t index = 1; index < m_qtyVertex + 1; index ++)
+  {
+    std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<vertex_[index - 1].x<<";";
+    std::cout<<"Y="<<vertex_[index - 1].x <<")"<<'\n';
+  }
+}
+
+
+
 double lebedev::Polygon::getArea() const
 {
   double summa = 0.0;
