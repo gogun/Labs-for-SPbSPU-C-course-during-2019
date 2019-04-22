@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cassert>
 
-Rectangle::Rectangle(const rectangle_t& figure) :
+Rectangle::Rectangle(const rectangle_t& figure):
   m_figure(figure)
 {
   assert((figure.width > 0) && (figure.height > 0));

@@ -8,7 +8,6 @@ int main()
   Rectangle myrectangle(mycircle.getFrameRect()); // sozdat' ob"yekt klassa Rectangle
 
   Shape* figures[] = {&mycircle, &myrectangle};
-  int size = sizeof(figures) / sizeof(Shape);
 
   for (Shape* shape : figures)
   {
