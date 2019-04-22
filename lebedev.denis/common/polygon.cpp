@@ -134,3 +134,14 @@ double lebedev::Polygon::checkBump() const
   }
   return (status);
 }
+
+lebedev::Polygon::move(const double x, const double y)
+{
+  for (std::size_t index = 0; index < m_qtyVetex; index++)
+  {
+    m_vertex[index].x += x;
+    m_vertex[index].y += y;
+  }
+  m_centroid += x;
+  m_centroid += y;
+}
