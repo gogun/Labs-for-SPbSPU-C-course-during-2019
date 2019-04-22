@@ -145,3 +145,9 @@ lebedev::Polygon::move(const double x, const double y)
   m_centroid += x;
   m_centroid += y;
 }
+
+void lebedev::Polygon::move(const point_t &new_point)
+{
+  const point_t differens = {new_point.x - m_centroid.x, new_point.y - m_centroid};
+  move(differens.x, differens.y);
+}
