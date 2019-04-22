@@ -32,7 +32,6 @@ void Circle::move(double dx, double dy)
   pos_.y += dy;
 }
 
-
 void Circle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
