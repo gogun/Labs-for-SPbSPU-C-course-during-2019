@@ -19,7 +19,7 @@ BOOST_AUTO_TEST_CASE(invarianceRectParametersAfterMovingTo)
   const double initialArea = tempRectangle.getArea();
   const sysoeva::rectangle_t initialRectangle = tempRectangle.getFrameRect();
 
-  tempRectangle.move({14.3,5.2});
+  tempRectangle.move({14.3, 5.2});
 
   BOOST_CHECK_CLOSE(initialRectangle.width, tempRectangle.getFrameRect().width, fault);
   BOOST_CHECK_CLOSE(initialRectangle.height, tempRectangle.getFrameRect().height, fault);
@@ -73,7 +73,7 @@ BOOST_AUTO_TEST_CASE(invarianceRectParametersAfterMovingTo)
   const double initialArea = tempCircle.getArea();
   const sysoeva::rectangle_t initialRectangle = tempCircle.getFrameRect();
 
-  tempCircle.move({4.2,5.2});
+  tempCircle.move({4.2, 5.2});
 
   BOOST_CHECK_CLOSE(initialRectangle.width, tempCircle.getFrameRect().width, fault);
   BOOST_CHECK_CLOSE(initialRectangle.height, tempCircle.getFrameRect().height, fault);
@@ -125,7 +125,7 @@ BOOST_AUTO_TEST_CASE(invarianceRectParametersAfterMovingTo)
   const double initialArea = tempTriangle.getArea();
   const sysoeva::rectangle_t initialRectangle = tempTriangle.getFrameRect();
 
-  tempTriangle.move({4.2,5.4});
+  tempTriangle.move({4.2, 5.4});
 
   BOOST_CHECK_CLOSE(initialRectangle.width, tempTriangle.getFrameRect().width, fault);
   BOOST_CHECK_CLOSE(initialRectangle.height, tempTriangle.getFrameRect().height, fault);
