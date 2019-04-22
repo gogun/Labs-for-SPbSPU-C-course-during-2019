@@ -38,6 +38,7 @@ int main()
   std::cout << "Get shape which has index 0 and print information about it:\n";
   zybkin::Shape * shape = compositeShape[0];
   shape->printInfo();
+  delete shape;
 
   std::cout << "Scale composite shape in 0,8 times\n";
   compositeShape.scale(0.8);
