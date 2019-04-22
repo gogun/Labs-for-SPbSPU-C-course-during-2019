@@ -23,14 +23,14 @@ BOOST_AUTO_TEST_CASE(changing_Scale)
 
 BOOST_AUTO_TEST_CASE(Moving_by_dx_dy)
 {
-  sheve::Rectangle rec({ -20, 10 }, 15, 50);
+  sheve::Rectangle rec({ 20, 10 }, 15, 50);
   const double width_original_d = rec.getFrameRect().width;
   const double height_original_d = rec.getFrameRect().height;
   const double area_original_d = rec.getArea();
   rec.move(10, -30);
   BOOST_CHECK_EQUAL(width_original_d, rec.getFrameRect().width);
   BOOST_CHECK_EQUAL(height_original_d, rec.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original_d, rec.getArea() ,EPSILON);
+  BOOST_CHECK_CLOSE(area_original_d, rec.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Moving_by_point)
@@ -42,7 +42,7 @@ BOOST_AUTO_TEST_CASE(Moving_by_point)
   rec.move({ -27, 52 });
   BOOST_CHECK_EQUAL(width_original, rec.getFrameRect().width);
   BOOST_CHECK_EQUAL(height_original, rec.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, rec.getArea(),EPSILON);
+  BOOST_CHECK_CLOSE(area_original, rec.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
@@ -79,7 +79,7 @@ BOOST_AUTO_TEST_CASE(Move_dx_dy)
   cir.move(-12, 9);
   BOOST_CHECK_EQUAL(width_original, cir.getFrameRect().width);
   BOOST_CHECK_EQUAL(height_original, cir.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, cir.getArea(),EPSILON);
+  BOOST_CHECK_CLOSE(area_original, cir.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(move_point)
@@ -91,7 +91,7 @@ BOOST_AUTO_TEST_CASE(move_point)
   cir.move({ 32, -6 });
   BOOST_CHECK_EQUAL(width_original, cir.getFrameRect().width);
   BOOST_CHECK_EQUAL(height_original, cir.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, cir.getArea(),EPSILON);
+  BOOST_CHECK_CLOSE(area_original, cir.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE(Scaling)
   const double area_original = cir.getArea();
   const double C = 0.9;
   cir.scale(C);
-  BOOST_CHECK_CLOSE(area_original * C * C, cir.getArea(),EPSILON);
+  BOOST_CHECK_CLOSE(area_original * C * C, cir.getArea(), EPSILON);
 }
 BOOST_AUTO_TEST_SUITE_END()
 
