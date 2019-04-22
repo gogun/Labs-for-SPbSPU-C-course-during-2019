@@ -36,7 +36,7 @@ void blyshchik::Rectangle::move(double newX, double newY)
   rectCl_.pos.y += newY;
 }
 
-point_t blyshchik::Rectangle::getPosition() const
+blyshchik::point_t blyshchik::Rectangle::getPosition() const
 {
   return rectCl_.pos;
 }
@@ -66,6 +66,6 @@ void blyshchik::Rectangle::scale(double coefficient)
   if (coefficient <= 0.0) {
     throw std::invalid_argument("Coefficient must be positive number. ");
   }
-  rectCl.width_ *= coefficient;
-  rectCl.height_ *= coefficient;
+  rectCl_.width *= coefficient;
+  rectCl_.height *= coefficient;
 }
