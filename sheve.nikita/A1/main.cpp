@@ -5,7 +5,7 @@
 
 void printParams(const Shape &s)
 {
-  rectangle_t outFrRect = s.getFrameRect();
+  const rectangle_t outFrRect = s.getFrameRect();
   std::cout << "Its area is " << s.getArea() << std::endl;
   std::cout << "Frame centre position is point (" << outFrRect.pos.x << ";" << outFrRect.pos.y << ")." << std::endl;
   std::cout << "Its width is " << outFrRect.width << " and height is " << outFrRect.height << std::endl << std::endl;
@@ -36,7 +36,7 @@ int main()
   printParams(circ);
 
   std::cout << "Creating triangle with points A(12,-22), B(-13,3) ,C(1,23)" << std::endl;
-  Triangle tria({ 12, -12 },{ 13, 3 },{ 1, 23 });
+  Triangle tria({ 12, -12 }, { 13, 3 }, { 1, 23 });
   Shape *triap = &tria;
   printParams(tria);
   std::cout << "Moving triangle to point x=-7, y=4" << std::endl;

@@ -1,9 +1,7 @@
-#define BOOST_TEST_MAIN A2
+#define BOOST_TEST_MODULE testA2
 
-#include <boost/test/included/unit_test.hpp>
-#include <boost/test/floating_point_comparison.hpp>
 #include <stdexcept>
-
+#include <boost/test/included/unit_test.hpp>
 #include "rectangle.hpp"
 #include "circle.hpp"
 #include "triangle.hpp"
@@ -19,42 +17,42 @@ BOOST_AUTO_TEST_CASE(create_rectangle)
 
 BOOST_AUTO_TEST_CASE(changing_Scale)
 {
-  Rectangle rect({ 11, 23 }, 5, 50);
+  sheve::Rectangle rec({ 11, 23 }, 5, 50);
   const double R = -12;
-  BOOST_CHECK_THROW(rect.scale(R), std::invalid_argument);
+  BOOST_CHECK_THROW(rec.scale(R), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(Moving_by_dx_dy)
 {
-  Rectangle rect({ 20, 10 }, 15, 50);
-  const double width_original_d = rect.getFrameRect().width;
-  const double height_original_d = rect.getFrameRect().height;
-  const double area_original_d = rect.getArea();
-  rect.move(10, -30);
-  BOOST_CHECK_EQUAL(width_original_d, rect.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original_d, rect.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original_d, rect.getArea() ,EPSILON);
+  sheve::Rectangle rec({ -20, 10 }, 15, 50);
+  const double width_original_d = rec.getFrameRect().width;
+  const double height_original_d = rec.getFrameRect().height;
+  const double area_original_d = rec.getArea();
+  rec.move(10, -30);
+  BOOST_CHECK_EQUAL(width_original_d, rec.getFrameRect().width);
+  BOOST_CHECK_EQUAL(height_original_d, rec.getFrameRect().height);
+  BOOST_CHECK_CLOSE(area_original_d, rec.getArea() ,EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Moving_by_point)
 {
-  Rectangle rect({ 20, 10 }, 15, 50);
-  const double width_original = rect.getFrameRect().width;
-  const double height_original = rect.getFrameRect().height;
-  const double area_original = rect.getArea();
-  rect.move({ -27, 52 });
-  BOOST_CHECK_EQUAL(width_original, rect.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, rect.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, rect.getArea(),EPSILON);
+  sheve::Rectangle rec({ 20, 10 }, 15, 50);
+  const double width_original = rec.getFrameRect().width;
+  const double height_original = rec.getFrameRect().height;
+  const double area_original = rec.getArea();
+  rec.move({ -27, 52 });
+  BOOST_CHECK_EQUAL(width_original, rec.getFrameRect().width);
+  BOOST_CHECK_EQUAL(height_original, rec.getFrameRect().height);
+  BOOST_CHECK_CLOSE(area_original, rec.getArea(),EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
 {
-  Rectangle rect({ 20, 10 }, 15, 50);
-  const double area_original = rect.getArea();
+  sheve::Rectangle rec({ 20, 10 }, 15, 50);
+  const double area_original = rec.getArea();
   const double R = 1.2;
-  rect.scale(R);
-  BOOST_CHECK_CLOSE(area_original * R * R, rect.getArea(), EPSILON);
+  rec.scale(R);
+  BOOST_CHECK_CLOSE(area_original * R * R, rec.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -68,42 +66,42 @@ BOOST_AUTO_TEST_CASE(invalid_Initialisation)
 
 BOOST_AUTO_TEST_CASE(invalid_Scale)
 {
-  Circle circ({ 1, 1 }, 5);
+  sheve::Circle cir({ 1, 1 }, 5);
   const double C = -15;
-  BOOST_CHECK_THROW(circ.scale(C), std::invalid_argument);
+  BOOST_CHECK_THROW(cir.scale(C), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(Move_dx_dy)
 {
-  Circle circ({ 20, 30 }, 13);
-  const double width_original = circ.getFrameRect().width;
-  const double height_original = circ.getFrameRect().height;
-  const double area_original = circ.getArea();
-  circ.move(-12, 9);
-  BOOST_CHECK_EQUAL(width_original, circ.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, circ.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, circ.getArea(),EPSILON);
+  sheve::Circle cir({ 20, 30 }, 13);
+  const double width_original = cir.getFrameRect().width;
+  const double height_original = cir.getFrameRect().height;
+  const double area_original = cir.getArea();
+  cir.move(-12, 9);
+  BOOST_CHECK_EQUAL(width_original, cir.getFrameRect().width);
+  BOOST_CHECK_EQUAL(height_original, cir.getFrameRect().height);
+  BOOST_CHECK_CLOSE(area_original, cir.getArea(),EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(move_point)
 {
-  Circle circ({ 20, 30 }, 13);
-  const double width_original = circ.getFrameRect().width;
-  const double height_original = circ.getFrameRect().height;
-  const double area_original = circ.getArea();
-  circ.move({ 32, -6 });
-  BOOST_CHECK_EQUAL(width_original, circ.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, circ.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, circ.getArea(),EPSILON);
+  sheve::Circle cir({ 20, 30 }, 13);
+  const double width_original = cir.getFrameRect().width;
+  const double height_original = cir.getFrameRect().height;
+  const double area_original = cir.getArea();
+  cir.move({ 32, -6 });
+  BOOST_CHECK_EQUAL(width_original, cir.getFrameRect().width);
+  BOOST_CHECK_EQUAL(height_original, cir.getFrameRect().height);
+  BOOST_CHECK_CLOSE(area_original, cir.getArea(),EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
 {
-  Circle circ({ 20, 30 }, 13);
-  const double area_original = circ.getArea();
-  const double C = 4.0;
-  circ.scale(C);
-  BOOST_CHECK_CLOSE(area_original * C * C, circ.getArea(),EPSILON);
+  sheve::Circle cir({ 20, 30 }, 13);
+  const double area_original = cir.getArea();
+  const double C = 0.9;
+  cir.scale(C);
+  BOOST_CHECK_CLOSE(area_original * C * C, cir.getArea(),EPSILON);
 }
 BOOST_AUTO_TEST_SUITE_END()
 
@@ -116,42 +114,42 @@ BOOST_AUTO_TEST_CASE(invalid_Initialisation)
 
 BOOST_AUTO_TEST_CASE(invalid_Scale)
 {
-  Triangle tria ({ 12, -12 }, { 13, 3 }, { 1, 23 });
+  sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
   const double T = -19;
   BOOST_CHECK_THROW(tria.scale(T), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(Move_dx_dy)
 {
-  Triangle tria({ 12, -12 }, { 13, 3 }, { 1, 23 });
-  const double width_original = tria.getFrameRect().width;
-  const double height_original = tria.getFrameRect().height;
-  const double area_original = tria.getArea();
-  tria.move(10, 20);
-  BOOST_CHECK_EQUAL(width_original, tria.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, tria.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, tria.getArea(), EPSILON);
+  sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
+  const double width_original = tri.getFrameRect().width;
+  const double height_original = tri.getFrameRect().height;
+  const double area_original = tri.getArea();
+  tri.move(10, 20);
+  BOOST_CHECK_EQUAL(width_original, tri.getFrameRect().width);
+  BOOST_CHECK_EQUAL(height_original, tri.getFrameRect().height);
+  BOOST_CHECK_CLOSE(area_original, tri.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(move_point)
 {
-  Triangle tria({ 12, -12 }, { 13, 5 }, { 1, 23 });
-  const double width_original = tria.getFrameRect().width;
-  const double height_original = tria.getFrameRect().height;
-  const double area_original = tria.getArea();
-  tria.move({ -7, 4 });
-  BOOST_CHECK_EQUAL(width_original, tria.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, tria.getFrameRect().height);
-  BOOST_CHECK_CLOSE(area_original, tria.getArea(), EPSILON);
+  sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
+  const double width_original = tri.getFrameRect().width;
+  const double height_original = tri.getFrameRect().height;
+  const double area_original = tri.getArea();
+  tri.move({ -7, 4 });
+  BOOST_CHECK_EQUAL(width_original, tri.getFrameRect().width);
+  BOOST_CHECK_EQUAL(height_original, tri.getFrameRect().height);
+  BOOST_CHECK_CLOSE(area_original, tri.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
 {
-  Triangle tria({ 12, -12 }, { 13, 3 }, { 1, 23 });
-  const double area_original = tria.getArea();
+  sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
+  const double area_original = tri.getArea();
   const double T = 1.63;
-  tria.scale(T);
-  BOOST_CHECK_CLOSE(area_original * T * T, tria.getArea(), EPSILON);
+  tri.scale(T);
+  BOOST_CHECK_CLOSE(area_original * T * T, tri.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
