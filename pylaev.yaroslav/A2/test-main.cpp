@@ -131,7 +131,7 @@ BOOST_AUTO_TEST_CASE(testSquareChangeAreaAfterScaling)
 
 BOOST_AUTO_TEST_CASE(testIncorrectValues)
 {
-  BOOST_CHECK_THROW(pylaev::Triangle testTriangle({0.0, 0.0}, -1.0, 0.0, 5.0), std::invalid_argument);
+  BOOST_CHECK_THROW(pylaev::Triangle testTriangle({0.0, 0.0}, {0.0, 0.0}, {0.0, 5.0}), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
