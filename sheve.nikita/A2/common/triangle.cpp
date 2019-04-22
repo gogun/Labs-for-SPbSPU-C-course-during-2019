@@ -1,4 +1,5 @@
 #include "triangle.hpp"
+
 #include <stdlib.h>
 #include <iostream>
 #include <math.h>
@@ -78,7 +79,7 @@ void sheve::Triangle::scale(double coefficient)
   }
 }
 
-void sheve::Rectangle::printInfo() const
+void sheve::Triangle::printInfo() const
 {
   std::cout << "Center: " << m_pos.x << ", " << m_pos.y << std::endl;
   std::cout << "A: " << m_a << std::endl;

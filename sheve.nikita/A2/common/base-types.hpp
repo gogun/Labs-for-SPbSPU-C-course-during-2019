@@ -1,5 +1,6 @@
 #ifndef BASETYPES_HPP
 #define BASETYPES_HPP
+
 namespace sheve
 {
   struct point_t
