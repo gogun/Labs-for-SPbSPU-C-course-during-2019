@@ -15,6 +15,7 @@ Triangle::Triangle(const point_t &vertexA, const point_t &vertexB, const point_t
   assert((vertexA_.x != vertexC_.x) || (vertexA_.y != vertexC_.y));
   assert((vertexB_.x != vertexC_.x) || (vertexB_.y != vertexC_.y));
   assert((vertexA_.y != vertexB_.y) || (vertexA_.y != vertexC_.y));
+  assert(getArea() != 0.0);
 }
 
 double Triangle::getArea() const
