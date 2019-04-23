@@ -13,14 +13,14 @@ namespace lebedev
       Polygon(std::size_t qtyVertex, lebedev::point_t *vertex);
       virtual ~Polygon();
 
-      void printData() const override;
+      void printData() const ;
       double getArea() const override;
       rectangle_t getFrameRect() const override;
       void scale(const double multiplier) override;
-      int checkBump() const override;
+      bool checkBump() const ;
 
       void move(const double x, const double y) override;
-      void move(const point_t &new_point);
+      void move(const point_t &new_point) override;
 
       void calcCentroid();
 
