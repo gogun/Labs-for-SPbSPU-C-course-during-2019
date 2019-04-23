@@ -6,9 +6,10 @@
 #include "composite-shape.hpp"
 #include "circle.hpp"
 #include "rectangle.hpp"
-#define INACCURACY 0.001
 
 BOOST_AUTO_TEST_SUITE(testImplementationOfCompositeShape)
+
+const double INACCURACY = 0.001;
 
 BOOST_AUTO_TEST_CASE(testWorkingConstructor)
 {
