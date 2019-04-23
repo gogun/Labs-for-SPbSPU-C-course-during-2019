@@ -7,11 +7,12 @@ namespace kozhin
   class Circle : public Shape
   {
   public:
-    Circle(const point_t &, double);
+    Circle(const point_t&, double);
     double getArea() const override;
     rectangle_t getFrameRect() const override;
+    point_t getCenter() const override;
     void move(double x, double y) override;
-    void move(const point_t &) override;
+    void move(const point_t&) override;
     void scale(double) override;
 
   private:

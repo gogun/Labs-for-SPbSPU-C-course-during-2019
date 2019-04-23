@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <cmath>
 
-kozhin::Circle::Circle(const kozhin::point_t &center, double radius) :
+kozhin::Circle::Circle(const kozhin::point_t& center, double radius) :
   center_(center),
   radius_(radius)
 {
@@ -22,20 +22,25 @@ kozhin::rectangle_t kozhin::Circle::getFrameRect() const
   return {2 * radius_, 2 * radius_, center_};
 }
 
+kozhin::point_t kozhin::Circle::getCenter() const
+{
+  return center_;
+}
+
 void kozhin::Circle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
 }
 
-void kozhin::Circle::move(const kozhin::point_t &point)
+void kozhin::Circle::move(const kozhin::point_t& point)
 {
   center_ = point;
 }
 
 void kozhin::Circle::scale(double rate)
 {
-  if(rate <= 0.0)
+  if (rate <= 0.0)
   {
     throw std::invalid_argument("Scale rate must be positive.");
   }
