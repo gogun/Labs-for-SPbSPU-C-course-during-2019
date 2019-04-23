@@ -22,7 +22,7 @@ namespace lebedev
       void move(const double x, const double y) override;
       void move(const point_t &new_point) override;
 
-      void calcCentroid();
+      point calcCentroid() const;
 
     private:
       std::size_t m_qtyVertex;
