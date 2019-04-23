@@ -113,6 +113,7 @@ BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionAfterDelete)
   testComposite.addShape(testCircle);
   //check that method throw exception if we send index which more than real count of shapes in composite
   BOOST_CHECK_THROW(testComposite.deleteShape(5), std::out_of_range);
+  BOOST_CHECK_THROW(testComposite.deleteShape(-8), std::out_of_range);
 }
 
 BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionAfterUsingOperator)
@@ -124,6 +125,7 @@ BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionAfterUsingOperator)
 
   //check that operator throw exception about out of range if we send index which more than max index in composite
   BOOST_CHECK_THROW(testComposite[5], std::out_of_range);
+  BOOST_CHECK_THROW(testComposite[-7], std::out_of_range);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

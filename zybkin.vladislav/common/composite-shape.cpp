@@ -18,7 +18,7 @@ zybkin::CompositeShape::CompositeShape(CompositeShape &&movedCompositeShape) :
   count_(movedCompositeShape.count_)
 {
   movedCompositeShape.shapeArray_ = nullptr;
-  count_ = 0;
+  movedCompositeShape.count_ = 0;
 }
 
 zybkin::CompositeShape::CompositeShape(zybkin::Shape &shape) :
@@ -53,7 +53,7 @@ zybkin::CompositeShape &zybkin::CompositeShape::operator =(CompositeShape &&move
 
 zybkin::Shape *zybkin::CompositeShape::operator [](int index) const
 {
-  if (index >= count_)
+  if ((index >= count_) || (index < 0))
   {
     throw std::out_of_range("Index out of range");
   }
@@ -164,7 +164,7 @@ void zybkin::CompositeShape::addShape(Shape &shape)
 
 void zybkin::CompositeShape::deleteShape(int index)
 {
-  if (index >= count_)
+  if ((index >= count_) || (index < 0))
   {
     throw std::out_of_range("Index out of range");
   }
