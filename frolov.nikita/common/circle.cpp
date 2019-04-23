@@ -42,7 +42,7 @@ void frolov::Circle::showPoint() const
 
 void frolov::Circle::scale(double factor)
 {
-  if (factor < 0)
+  if (factor <= 0)
   {
     throw std::invalid_argument("Area can't be negative");
   }

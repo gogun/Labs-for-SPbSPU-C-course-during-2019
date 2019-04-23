@@ -42,7 +42,7 @@ void frolov::Rectangle::showPoint() const
 
 void frolov::Rectangle::scale(double factor)
 {
-  if (factor < 0)
+  if (factor <= 0)
   {
     throw std::invalid_argument("Area can't be negativ");
   }

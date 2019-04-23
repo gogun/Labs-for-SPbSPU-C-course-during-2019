@@ -71,7 +71,7 @@ void frolov::Triangle::showPoint() const
 
 void frolov::Triangle::scale(double factor)
 {
-  if (factor < 0)
+  if (factor <= 0)
   {
     throw std::invalid_argument("The Area can not be negative!");
   }
