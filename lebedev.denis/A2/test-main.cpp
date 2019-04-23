@@ -109,7 +109,7 @@ BOOST_AUTO_TEST_CASE(TestRectangleInvalidParametrs)
 BOOST_AUTO_TEST_CASE(TestRectangleInvalidCoefficient)
 {
   lebedev::Rectangle r1(3.00, 4.00, {5.00, 4.00 });
-  BOOST_CHECK_THROW(r1.scale(-1), std::invalid_argument);
+  BOOST_CHECK_THROW(r1.scale(-1.0), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
@@ -173,7 +173,7 @@ BOOST_AUTO_TEST_CASE(TestPolygonInvalidCoefficient)
   lebedev::point_t shape[] = {{4.0, 1.0}, {7.0, 3.0}, {6.0, 8.0}, {2.0, 4.0}};
   size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
   lebedev::Polygon poly(qtyVertex, shape);
-  BOOST_CHECK_THROW(poly.scale(0), std::invalid_argument);
+  BOOST_CHECK_THROW(poly.scale(-5.0), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
