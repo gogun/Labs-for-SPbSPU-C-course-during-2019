@@ -2,7 +2,7 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
 #include "polygon.hpp"
-#include <boost\test\included\unit_test.hpp>
+#include <boost/test/included/unit_test.hpp>
 #include <stdexcept>
 
 BOOST_AUTO_TEST_SUITE(TestCircle)
