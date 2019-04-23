@@ -6,8 +6,8 @@
 #include <algorithm>
 #include <cmath>
 
-lebedev::Polygon::Polygon(std::size_t qtyDots, lebedev::point_t *vertex):
-  m_qtyVertex(qtyDots)
+lebedev::Polygon::Polygon(std::size_t qtyVertex, lebedev::point_t *vertex):
+  m_qtyVertex(qtyVertex)
 {
   if (m_qtyVertex <= 2)
   {
@@ -15,13 +15,12 @@ lebedev::Polygon::Polygon(std::size_t qtyDots, lebedev::point_t *vertex):
   }
 
   m_vertex = new point_t[m_qtyVertex];
-  for (std::size_t index = 0; index < m_qtyVertex; ++index)
+  for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
-    m_vertex[index].x = vertex[index].x;
-    m_vertex[index].y = vertex[index].y;
+    m_vertex[index] = vertex[index];
   }
 
-  calcCentroid();
+  m_centroid = calcCentroid();
   }
 
 lebedev::Polygon::~Polygon()
@@ -29,7 +28,7 @@ lebedev::Polygon::~Polygon()
   delete [] m_vertex;
 }
 
-void lebedev::Polygon::calcCentroid()
+lebedev::point_t lebedev::Polygon::calcCentroid() const
 {
   lebedev::point_t temp_point = {0.0, 0.0};
   for (std::size_t index = 0; index < m_qtyVertex; index++)
@@ -37,7 +36,7 @@ void lebedev::Polygon::calcCentroid()
     temp_point.x += m_vertex[index].x;
     temp_point.y += m_vertex[index].y;
   }
-  m_centroid = {temp_point.x / m_qtyVertex, temp_point.y / m_qtyVertex};
+  return {temp_point.x / m_qtyVertex, temp_point.y / m_qtyVertex};
 }
 
 
@@ -46,30 +45,31 @@ void lebedev::Polygon::printData() const
   for (std::size_t index = 1; index < m_qtyVertex + 1; index ++)
   {
     std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index - 1].x<<";";
-    std::cout<<"Y="<<m_vertex[index - 1].x <<")"<<'\n';
+    std::cout<<"Y="<<m_vertex[index - 1].y <<")"<<'\n';
   }
+  //std::cout<<"centroid:"<<"(X="<<m_centroid.x;
+//  std::cout<<";Y="<<m_centroid.y<<")"<<'\n';
 }
 
 double lebedev::Polygon::getArea() const
 {
   double summa = 0.0;
 
-  for (std::size_t index = 0; index + 1 < m_qtyVertex; index++)
+  for (std::size_t index = 0; index < m_qtyVertex - 1;   index ++ )
   {
-    summa += m_vertex[index].x + m_vertex[index + 1].y;
-    summa -= m_vertex[index + 1].x + m_vertex[index].y;
+    summa += m_vertex[index].x * m_vertex[index + 1].y;
+    summa -= m_vertex[index + 1].x * m_vertex[index].y;
   }
-
-  summa += m_vertex[m_qtyVertex - 1].x + m_vertex[0].y;
-  summa -= m_vertex[0].x + m_vertex[m_qtyVertex - 1].y;
+  summa += m_vertex[m_qtyVertex-1].x * m_vertex[0].y;
+  summa -= m_vertex[0].x * m_vertex[m_qtyVertex-1].y;
 
   return (0.5 * std::fabs(summa));
 }
 
 lebedev::rectangle_t lebedev::Polygon::getFrameRect() const
 {
-  point_t max, min;
-  max = min = {0.0, 0.0};
+  point_t max = {m_vertex[1].x, m_vertex[1].y};
+  point_t min = {m_vertex[1].x, m_vertex[1].y};
 
   for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
@@ -85,12 +85,12 @@ lebedev::rectangle_t lebedev::Polygon::getFrameRect() const
     {
       min.x = m_vertex[index].x;
     }
-    if (min.y < m_vertex[index].y)
+    if (min.y > m_vertex[index].y)
     {
       min.y = m_vertex[index].y;
     }
   }
-  const point_t posFrameRect = {(max.x + min.x) / 2, (max.y / min.y) / 2};
+  const point_t posFrameRect = calcCentroid();
   const double width = (max.y - min.y);
   const double height = (max.x - min.x);
   return {width, height, posFrameRect};
@@ -106,10 +106,8 @@ void lebedev::Polygon::scale(const double multiplier)
   {
     for (std::size_t index = 0; index < m_qtyVertex; index++)
     {
-      const double distanceX = (m_centroid.x - m_vertex[index].x) * multiplier;
-      const double distanceY = (m_centroid.y - m_vertex[index].y) * multiplier;
-      m_vertex[index].x += distanceX;
-      m_vertex[index].y += distanceY;
+      m_vertex[index].x = m_centroid.x + (m_vertex[index].x - m_centroid.x) * multiplier;
+      m_vertex[index].y = m_centroid.y + (m_vertex[index].y - m_centroid.y) * multiplier;
     }
   }
 }
