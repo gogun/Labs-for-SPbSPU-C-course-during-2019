@@ -15,7 +15,6 @@ void showProgramWork(Shape &shape)
   std::cout << "Rectangle frame: ";
   printRect(shape);
   std::cout << "Area = " << shape.getArea() << std::endl;
-  printRect(shape);
   shape.move({2, 1});
   std::cout << "After moving to a point: " << std::endl;
   printRect(shape);
