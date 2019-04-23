@@ -12,19 +12,15 @@ Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
 
 double Triangle::getArea() const
 {
-  double length12 = std::sqrt((p1_.x - p2_.x)*(p1_.x - p2_.x) + (p1_.y - p2_.y)*(p1_.y - p2_.y));
-  double length13 = std::sqrt((p1_.x - p3_.x)*(p1_.x - p3_.x) + (p1_.y - p3_.y)*(p1_.y - p3_.y));
-  double length23 = std::sqrt((p3_.x - p2_.x)*(p3_.x - p2_.x) + (p3_.y - p2_.y)*(p3_.y - p2_.y));
-  double p = (length12 + length23 + length13) / 2;
-  return sqrt(p * (p - length12) * (p - length23) * (p - length13));
+  return fabs(((p1_.x - p3_.x) * (p2_.y - p3_.y) - (p2_.x - p3_.x) * (p1_.y - p3_.y))) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double left = std::fmin(p1_.x, std::fmin(p2_.x, p3_.x));
-  double right = std::fmax(p1_.x, std::fmax(p2_.x, p3_.x));
-  double top = std::fmin(p1_.y, std::fmin(p2_.y, p3_.y));
-  double bottom = std::fmax(p1_.y, std::fmax(p2_.y, p3_.y));
+  double left = fmin(p1_.x, fmin(p2_.x, p3_.x));
+  double right = fmax(p1_.x, fmax(p2_.x, p3_.x));
+  double top = fmin(p1_.y, fmin(p2_.y, p3_.y));
+  double bottom = fmax(p1_.y, fmax(p2_.y, p3_.y));
   double width = right - left;
   double height = bottom - top;
   double x0 = (left + right) / 2;
