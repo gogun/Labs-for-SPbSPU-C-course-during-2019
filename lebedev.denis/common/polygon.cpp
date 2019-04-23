@@ -66,31 +66,22 @@ double lebedev::Polygon::getArea() const
 
 lebedev::rectangle_t lebedev::Polygon::getFrameRect() const
 {
-  point_t max = {m_vertex[1].x, m_vertex[1].y};
-  point_t min = {m_vertex[1].x, m_vertex[1].y};
+  double maxX = m_vertex[0].x;
+  double minX = m_vertex[0].x;
+  double maxY = m_vertex[0].y;
+  double minY = m_vertex[0].y;
 
   for (std::size_t index = 0; index < m_qtyVertex; index ++)
   {
-    if (max.x < m_vertex[index].x)
-    {
-      max.x = m_vertex[index].x;
-    }
-    if (max.y < m_vertex[index].y)
-    {
-      max.y = m_vertex[index].y;
-    }
-    if (min.x > m_vertex[index].x)
-    {
-      min.x = m_vertex[index].x;
-    }
-    if (min.y > m_vertex[index].y)
-    {
-      min.y = m_vertex[index].y;
-    }
+    maxX = std::max(maxX, m_vertex[index].x);
+    minX = std::min(minX, m_vertex[index].x);
+    maxY = std::max(maxY, m_vertex[index].y);
+    minY = std::min(minY, m_vertex[index].y);
   }
-  const point_t posFrameRect = calcCentroid();
-  const double width = (max.y - min.y);
-  const double height = (max.x - min.x);
+  const double width = (maxY - minY);
+  const double height = (maxX - minX);
+  const point_t posFrameRect = {minX + (width / 2), minY + (height / 2)};
+
   return {width, height, posFrameRect};
 }
 
