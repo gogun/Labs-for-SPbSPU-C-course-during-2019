@@ -63,13 +63,7 @@ void Triangle::move(const point_t &param)
   double dx = param.x - center.x;
   double dy = param.y - center.y;
 
-  pointA_.x += dx;
-  pointB_.x += dx;
-  pointC_.x += dx;
-
-  pointA_.y += dy;
-  pointB_.y += dy;
-  pointC_.y += dy;
+  move(dx, dy);
 }
 
 void Triangle::printInfo() const{
