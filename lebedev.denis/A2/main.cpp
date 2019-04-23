@@ -13,35 +13,35 @@ void showRectangle_t(lebedev::rectangle_t data)
   std::cout<<"Y = "<<data.pos.y<<")"<<"\n";
 }
 
-void showAll(const lebedev::Shape * shape)
+void showAll(const lebedev::Shape *shape)
 {
   assert(shape != nullptr);
   std::cout<<"Area = "<<shape->getArea()<<"\n";
   showRectangle_t(shape->getFrameRect());
 }
 
-void PrintDataPolygon(const lebedev::Shape *shape)
+void PrintDataPolygon(const lebedev::Polygon *polygon)
 {
-  if (shape != nullptr)
+  if (polygon != nullptr)
   {
-    double unconvex = shape->checkBump();
-    if (unconvex = 0)
+    bool unconvex = polygon->checkBump();
+    if (unconvex != true)
     {
-      double ZeroArea = shape->getArea();
-      if (ZeroArea !=0)
+      //double ZeroArea = polygon->getArea();
+      //if (ZeroArea > 0)
       {
-        shape->printData();
-        std::std::cout<<"Area = "<<shape->getArea() <<'\n';
-        lebedev::rectangle_t frameRect = shape->getFrameRect();
-        std::cout<<"Width = "<< frameRect.widht<<'\n';
+        polygon->printData();
+        std::cout<<"Area = "<<polygon->getArea() <<'\n';
+        lebedev::rectangle_t frameRect = polygon->getFrameRect();
+        std::cout<<"Width = "<< frameRect.width<<'\n';
         std::cout<<"Height = "<<frameRect.height<<'\n';
         std::cout<<"(X = "<<frameRect.pos.x<<";";
         std::cout<<"Y = "<<frameRect.pos.y<<")"<<"\n";
       }
-      else
-      {
-        throw std::invalid_argument("Area must be more then 0");
-      }
+      //else
+      //{
+      //  throw std::invalid_argument("Area must be more then 0");
+      //}
     }
     else
     {
@@ -74,7 +74,7 @@ int main()
   c1.move(3.00, -1.5);
   std::cout<<"After move"<<"\n";
   showAll(&c1);
-  lebedev::point_t shape[] = {{4.0, 1.0}, {7.0, 3.0}, {11.0, 3.0}, {6.0, 8.0}, {2.0, 4.0}};
+  lebedev::point_t shape[] = {{4.0, 1.0}, {7.0, 3.0}, {6.0, 8.0}, {2.0, 4.0}};
   size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
   lebedev::Polygon poly(qtyVertex, shape);
   std::cout <<"Polygon."<<'\n';
@@ -82,11 +82,11 @@ int main()
   std::cout<<"After scale"<<'\n';
   poly.scale(2.0);
   PrintDataPolygon(&poly);
-  std::cout<<"After move(dx, dy)"<<"\n";
+  std::cout<<"After move(3.0, -1.0)"<<"\n";
   poly.move(3.00, -1.0);
   PrintDataPolygon(&poly);
-  std::cout<<"After move(Position)"<<"\n";
-  poly.move({.x = 7.00, .y = 8.00 });
+  std::cout<<"After move(1.00, 2.0)"<<"\n";
+  poly.move({.x = 1.00, .y = 2.0});
   PrintDataPolygon(&poly);
 
   return 0;
