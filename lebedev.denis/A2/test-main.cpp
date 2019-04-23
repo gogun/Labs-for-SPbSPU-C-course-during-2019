@@ -109,7 +109,7 @@ BOOST_AUTO_TEST_CASE(TestRectangleInvalidParametrs)
 BOOST_AUTO_TEST_CASE(TestRectangleInvalidCoefficient)
 {
   lebedev::Rectangle r1(3.00, 4.00, {5.00, 4.00 });
-  BOOST_CHECK_THROW(r1.scale(0), std::invalid_argument);
+  BOOST_CHECK_THROW(r1.scale(-1), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END();
