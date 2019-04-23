@@ -13,14 +13,20 @@ lebedev::Polygon::Polygon(std::size_t qtyVertex, lebedev::point_t *vertex):
   {
     throw std::invalid_argument("Quantity of vertex must be more then 2");
   }
-
-  m_vertex = new point_t[m_qtyVertex];
-  for (std::size_t index = 0; index < m_qtyVertex; index ++)
+  if (vertex == nullptr)
   {
-    m_vertex[index] = vertex[index];
+    throw std::invalid_argument("Pointer to vertex is null!!!");
   }
+  else
+  {
+    m_vertex = new point_t[m_qtyVertex];
+    for (std::size_t index = 0; index < m_qtyVertex; index ++)
+    {
+      m_vertex[index] = vertex[index];
+    }
 
-  m_centroid = calcCentroid();
+    m_centroid = calcCentroid();
+  }
 }
 
 lebedev::Polygon::~Polygon()
@@ -78,6 +84,7 @@ lebedev::rectangle_t lebedev::Polygon::getFrameRect() const
     maxY = std::max(maxY, m_vertex[index].y);
     minY = std::min(minY, m_vertex[index].y);
   }
+
   const double width = (maxY - minY);
   const double height = (maxX - minX);
   const point_t posFrameRect = {minX + (width / 2), minY + (height / 2)};
