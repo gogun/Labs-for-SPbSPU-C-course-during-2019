@@ -60,7 +60,7 @@ BOOST_AUTO_TEST_CASE(areaChangeAfterShapeScaling)
   BOOST_CHECK_CLOSE(testComposite.getArea(), initialArea * scaleRate * scaleRate, DIFF);
 }
 
-BOOST_AUTO_TEST_CASE(farmeRectChangeAfterShapeScaling)
+BOOST_AUTO_TEST_CASE(frameRectChangeAfterShapeScaling)
 {
   kozhin::Circle testCircle({-7, 8}, 3);
   kozhin::Rectangle testRectangle({8, -3}, 3, 7);
