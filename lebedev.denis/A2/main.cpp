@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 #include "circle.hpp"
 #include "rectangle.hpp"
 #include "polygon.hpp"
@@ -15,9 +14,15 @@ void showRectangle_t(lebedev::rectangle_t data)
 
 void showAll(const lebedev::Shape *shape)
 {
-  assert(shape != nullptr);
-  std::cout<<"Area = "<<shape->getArea()<<"\n";
-  showRectangle_t(shape->getFrameRect());
+  if (shape != nullptr)
+  {
+    std::cout<<"Area = "<<shape->getArea()<<"\n";
+    showRectangle_t(shape->getFrameRect());
+  }
+  else
+  {
+    throw std::invalid_argument("Shape's pointer is null!!!");
+  }
 }
 
 void PrintDataPolygon(const lebedev::Polygon *polygon)
@@ -27,8 +32,8 @@ void PrintDataPolygon(const lebedev::Polygon *polygon)
     bool unconvex = polygon->checkBump();
     if (unconvex != true)
     {
-      //double ZeroArea = polygon->getArea();
-      //if (ZeroArea > 0)
+      double ZeroArea = polygon->getArea();
+      if (ZeroArea > 0)
       {
         polygon->printData();
         std::cout<<"Area = "<<polygon->getArea() <<'\n';
@@ -38,10 +43,10 @@ void PrintDataPolygon(const lebedev::Polygon *polygon)
         std::cout<<"(X = "<<frameRect.pos.x<<";";
         std::cout<<"Y = "<<frameRect.pos.y<<")"<<"\n";
       }
-      //else
-      //{
-      //  throw std::invalid_argument("Area must be more then 0");
-      //}
+      else
+      {
+        throw std::invalid_argument("Area must be more then 0");
+      }
     }
     else
     {
