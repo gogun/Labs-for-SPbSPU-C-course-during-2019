@@ -11,7 +11,7 @@ namespace lebedev
   {
   public:
     Polygon(std::size_t qtyVertex, lebedev::point_t *vertex);
-    virtual ~Polygon();
+    ~Polygon();
 
     void printData() const ;
     double getArea() const override;
