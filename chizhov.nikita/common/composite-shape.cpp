@@ -22,7 +22,7 @@ chizhov::CompositeShape::CompositeShape(chizhov::CompositeShape&& source) :
   source.shapes_ = nullptr;
 }
 
-chizhov::CompositeShape::CompositeShape(Shape& shape) :
+chizhov::CompositeShape::CompositeShape(chizhov::Shape& shape) :
     shapes_(new Shape*[1]),
     count_(1)
 {
@@ -139,7 +139,7 @@ void chizhov::CompositeShape::scale(double scale)
   }
 }
 
-void chizhov::CompositeShape::addShape(Shape& shape)
+void chizhov::CompositeShape::addShape(chizhov::Shape& shape)
 {
   for (int i = 0; i < count_; i++) {
     if (shapes_[i] == &shape) {
@@ -158,7 +158,7 @@ void chizhov::CompositeShape::addShape(Shape& shape)
   shapes_ = shapesArr;
 }
 
-void chizhov::CompositeShape::deleteShape(const Shape& shape)
+void chizhov::CompositeShape::deleteShape(const chizhov::Shape& shape)
 {
   int j = 0;
   bool removed = false;
