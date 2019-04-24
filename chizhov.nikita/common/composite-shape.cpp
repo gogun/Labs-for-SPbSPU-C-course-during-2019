@@ -3,22 +3,28 @@
 #include <stdexcept>
 #include <algorithm>
 
+chizhov::CompositeShape::CompositeShape() :
+    shapes_(),
+    count_(0)
+{ }
+
 chizhov::CompositeShape::CompositeShape(const chizhov::CompositeShape& source) :
-    quantity_(source.quantity_)
+    shapes_(new Shape*[source.count_]),
+    count_(source.count_)
 {
   copyFromSource(source);
 }
 
 chizhov::CompositeShape::CompositeShape(chizhov::CompositeShape&& source) :
     shapes_(source.shapes_),
-    quantity_(source.quantity_)
+    count_(source.count_)
 {
   source.shapes_ = nullptr;
 }
 
 chizhov::CompositeShape::CompositeShape(Shape& shape) :
     shapes_(new Shape*[1]),
-    quantity_(1)
+    count_(1)
 {
   shapes_[0] = &shape;
 }
@@ -31,7 +37,8 @@ chizhov::CompositeShape::~CompositeShape()
 chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::CompositeShape& rhs)
 {
   if (this != &rhs) {
-    quantity_ = rhs.quantity_;
+    shapes_ = new Shape*[count_];
+    count_ = rhs.count_;
     copyFromSource(rhs);
   }
 
@@ -42,7 +49,7 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeS
 {
   if (this != &rhs) {
     shapes_ = rhs.shapes_;
-    quantity_ = rhs.quantity_;
+    count_ = rhs.count_;
     rhs.shapes_ = nullptr;
   }
 
@@ -52,7 +59,7 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeS
 double chizhov::CompositeShape::getArea() const
 {
   double area = 0;
-  for (int i = 0; i < quantity_; i++) {
+  for (int i = 0; i < count_; i++) {
     area += shapes_[i]->getArea();
   }
 
@@ -61,13 +68,17 @@ double chizhov::CompositeShape::getArea() const
 
 chizhov::rectangle_t chizhov::CompositeShape::getFrameRect() const
 {
+  if (count_ == 0) {
+    throw std::logic_error("Composite shape is empty!");
+  }
+
   rectangle_t rectTmp = shapes_[0]->getFrameRect();
   double minX = rectTmp.pos.x - rectTmp.width / 2;
   double maxX = rectTmp.pos.x + rectTmp.width / 2;
   double minY = rectTmp.pos.y - rectTmp.height / 2;
   double maxY = rectTmp.pos.y + rectTmp.height / 2;
 
-  for (int i = 1; i < quantity_; i++) {
+  for (int i = 1; i < count_; i++) {
     rectTmp = shapes_[i]->getFrameRect();
 
     double tmp = rectTmp.pos.x - rectTmp.width / 2;
@@ -83,12 +94,16 @@ chizhov::rectangle_t chizhov::CompositeShape::getFrameRect() const
     maxY = std::max(tmp, maxY);
   }
 
-  return  rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
+  return rectangle_t{maxX - minX, maxY - minY, point_t{(maxX + minX) / 2, (maxY + minY) / 2}};
 }
 
 void chizhov::CompositeShape::move(double dx, double dy)
 {
-  for (int i = 0; i < quantity_; i++) {
+  if (count_ == 0) {
+    throw std::logic_error("Composite shape is empty!");
+  }
+
+  for (int i = 0; i < count_; i++) {
     shapes_[i]->move(dx, dy);
   }
 }
@@ -99,7 +114,7 @@ void chizhov::CompositeShape::move(chizhov::point_t position)
   double dx = position.x - frameRect.pos.x;
   double dy = position.y - frameRect.pos.y;
 
-  for (int i = 0; i < quantity_; i++) {
+  for (int i = 0; i < count_; i++) {
     shapes_[i]->move(dx, dy);
   }
 }
@@ -110,9 +125,13 @@ void chizhov::CompositeShape::scale(double scale)
     throw std::invalid_argument("You cannot scale by non-positive multiplier");
   }
 
+  if (count_ == 0) {
+    throw std::logic_error("Composite shape is empty!");
+  }
+
   rectangle_t frameRect = getFrameRect();
 
-  for (int i = 0; i < quantity_; i++) {
+  for (int i = 0; i < count_; i++) {
     double dx = shapes_[i]->getFrameRect().pos.x - frameRect.pos.x;
     double dy = shapes_[i]->getFrameRect().pos.y - frameRect.pos.y;
     shapes_[i]->move(point_t{frameRect.pos.x + dx * scale, frameRect.pos.y + dy * scale});
@@ -122,32 +141,28 @@ void chizhov::CompositeShape::scale(double scale)
 
 void chizhov::CompositeShape::addShape(Shape& shape)
 {
-  for (int i = 0; i < quantity_; i++) {
+  for (int i = 0; i < count_; i++) {
     if (shapes_[i] == &shape) {
       return;
     }
   }
 
-  Shape** shapesArr = new Shape* [++quantity_];
+  Shape** shapesArr = new Shape*[++count_];
 
-  for (int i = 0; i < quantity_ - 1; i++) {
+  for (int i = 0; i < count_ - 1; i++) {
     shapesArr[i] = shapes_[i];
   }
 
-  shapesArr[quantity_ - 1] = &shape;
+  shapesArr[count_ - 1] = &shape;
   delete [] shapes_;
   shapes_ = shapesArr;
 }
 
 void chizhov::CompositeShape::deleteShape(const Shape& shape)
 {
-  if (quantity_ == 1) {
-    throw std::invalid_argument("You cannot destroy Composite Shape by deleting last figure");
-  }
-
   int j = 0;
   bool removed = false;
-  for (int i = 0; i < quantity_; i++) {
+  for (int i = 0; i < count_; i++) {
     if (shapes_[i] == &shape) {
       removed = true;
       continue;
@@ -158,15 +173,13 @@ void chizhov::CompositeShape::deleteShape(const Shape& shape)
   }
 
   if (removed) {
-    shapes_[--quantity_] = nullptr;
+    shapes_[--count_] = nullptr;
   }
 }
 
 void chizhov::CompositeShape::copyFromSource(const chizhov::CompositeShape& source)
 {
-  shapes_ = new Shape* [quantity_];
-
-  for (int i = 0; i < quantity_; i++) {
+  for (int i = 0; i < count_; i++) {
     shapes_[i] = source.shapes_[i];
   }
 }

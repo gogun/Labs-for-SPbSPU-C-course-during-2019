@@ -23,7 +23,8 @@ int main()
 
   chizhov::Rectangle r1({2, 1}, 2);
 
-  chizhov::CompositeShape cs1(c1);
+  chizhov::CompositeShape cs1;
+  cs1.addShape(c1);
   cs1.addShape(r1);
   printInfo(cs1, "Composite shape");
 

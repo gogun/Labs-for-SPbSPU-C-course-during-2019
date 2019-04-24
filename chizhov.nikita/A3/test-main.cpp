@@ -53,7 +53,11 @@ BOOST_AUTO_TEST_CASE(compositeScale)
 BOOST_AUTO_TEST_CASE(throwingExceptions)
 {
   chizhov::Circle dummyCircle({1, 2}, 1);
-  chizhov::CompositeShape dummyComposite(dummyCircle);
+  chizhov::CompositeShape dummyComposite;
+  BOOST_CHECK_THROW(dummyComposite.scale(2), std::logic_error);
+  BOOST_CHECK_THROW(dummyComposite.move({1, 1}), std::logic_error);
+
+  dummyComposite.addShape(dummyCircle);
   BOOST_CHECK_THROW(dummyComposite.scale(0), std::invalid_argument);
 }
 

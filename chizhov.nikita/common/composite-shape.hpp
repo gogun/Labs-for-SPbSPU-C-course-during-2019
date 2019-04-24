@@ -7,6 +7,7 @@ namespace chizhov
 {
   class CompositeShape : public Shape {
   public:
+    CompositeShape();
     CompositeShape(const CompositeShape&);
     CompositeShape(CompositeShape&&);
     CompositeShape(Shape&);
@@ -26,7 +27,7 @@ namespace chizhov
 
   private:
     Shape** shapes_;
-    int quantity_;
+    int count_;
 
     inline void copyFromSource(const CompositeShape&);
   };
