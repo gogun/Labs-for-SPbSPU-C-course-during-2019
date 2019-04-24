@@ -5,10 +5,10 @@
 #include <cassert>
 
 Triangle::Triangle(const point_t &corner_1, const point_t &corner_2, const point_t &corner_3):
-m_corner_1(corner_1),
-m_corner_2(corner_2),
-m_corner_3(corner_3),
-m_center({(m_corner_1.x + m_corner_2.x + m_corner_3.x) / 3, (m_corner_1.y + m_corner_2.y + m_corner_3.y) / 3})
+  m_corner_1(corner_1),
+  m_corner_2(corner_2),
+  m_corner_3(corner_3),
+  m_center({(m_corner_1.x + m_corner_2.x + m_corner_3.x) / 3, (m_corner_1.y + m_corner_2.y + m_corner_3.y) / 3})
 {
   assert(getArea() > 0);
 }
