@@ -3,21 +3,21 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle (double Rcircle, const point_t &cpoint):
-  Rcircle_(Rcircle),
+Circle::Circle (double rCircle, const point_t &cpoint):
+  rCircle_(rCircle),
   pos_(cpoint)
 {
-  assert(Rcircle > 0);
+  assert(rCircle > 0);
 }
 
 double Circle::getArea() const
 {
-  return M_PI * Rcircle_* Rcircle_;
+  return M_PI * rCircle_* rCircle_;
 }
 
 rectangle_t Circle::getFrameRect() const
 {
-  return {2 * Rcircle_, 2 * Rcircle_, pos_};
+  return {2 * rCircle_, 2 * rCircle_, pos_};
 }
 
 void Circle::move(double mX, double mY)
@@ -34,7 +34,7 @@ void Circle::move(const point_t &point)
 void Circle::printInfo() const
 {
   std::cout << "area_of_circle_=" << getArea()
-  << "\n  Radius: " << Rcircle_
-  << "position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
+    << "\n  Radius: " << rCircle_
+    << "position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
 }
 

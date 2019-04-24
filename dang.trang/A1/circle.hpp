@@ -6,7 +6,7 @@
 class Circle : public Shape
 {
 public:
-  Circle(double Rcircle, const point_t &cpoint);
+  Circle(double rCircle, const point_t &cpoint);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(double mX, double mY) override;
@@ -14,11 +14,12 @@ public:
   void printInfo() const override;
 
 private:
-  double Rcircle_;
+  double rCircle_;
   point_t pos_;
 };
 
 #endif //CIRCLE_HPP
+
 
 
 
