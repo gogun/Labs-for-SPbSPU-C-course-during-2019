@@ -22,9 +22,9 @@ point_t Triangle::getCentre() const
   return {(point1_.x + point2_.x + point3_.x)/3, (point1_.y + point2_.y + point3_.y)/3};
 }
 
-double Triangle::getSide(point_t vertex1, point_t vertex2) const
+double Triangle::getSide(const point_t &point1, const point_t &point2)
 {
-  return sqrt((vertex1.x - vertex2.x) * (vertex1.x - vertex2.x) + (vertex1.y - vertex2.y) * (vertex1.y - vertex2.y));
+  return sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y));
 }
 
 double Triangle::getArea() const
