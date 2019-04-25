@@ -22,9 +22,6 @@ private:
   double width_;
   double height_;
 
-  point_t getPos() const;
-  double getWidth() const;
-  double getHeight() const;
 };
 
 #endif //RECTANGLE_HPP

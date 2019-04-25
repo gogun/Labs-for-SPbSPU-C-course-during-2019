@@ -21,9 +21,6 @@ private:
   point_t centre_;
   double radius_;
 
-  point_t getPos() const;
-  double getRadius() const;
-
 };
 
 #endif //CIRCLE_HPP

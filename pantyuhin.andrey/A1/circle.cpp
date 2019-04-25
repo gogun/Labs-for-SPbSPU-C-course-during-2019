@@ -14,21 +14,10 @@ Circle::Circle(double x, double y, double radius):
   Circle({x, y}, radius)
 { }
 
-point_t Circle::getPos() const
-{
-  return centre_;
-}
-
-double Circle::getRadius() const
-{
-  return radius_;
-}
-
 void Circle::printParameters() const
 {
-  point_t point = getPos();
-  std::cout << "circle: x=" << point.x << ", y=" << point.y << ", rad="
-      << getRadius() << std::endl << std::endl;
+  std::cout << "circle: x=" << centre_.x << ", y=" << centre_.y << ", rad="
+      << radius_ << std::endl << std::endl;
 }
 
 double Circle::getArea() const

@@ -15,26 +15,10 @@ Rectangle::Rectangle(double x, double y, double width, double height):
   Rectangle({x, y}, width, height)
 { }
 
-point_t Rectangle::getPos() const
-{
-  return centre_;
-}
-
-double Rectangle::getWidth() const
-{
-  return width_;
-}
-
-double Rectangle::getHeight() const
-{
-  return height_;
-}
-
 void Rectangle::printParameters() const
 {
-  point_t point = getPos();
-  std::cout << "rectangle: x = " << point.x << ", y = " << point.y << ", width = "
-      << getWidth() << ", height = " << getHeight() << std::endl << std::endl;
+  std::cout << "rectangle: x = " << centre_.x << ", y = " << centre_.y << ", width = "
+      << width_ << ", height = " << height_ << std::endl << std::endl;
 }
 
 double Rectangle::getArea() const
