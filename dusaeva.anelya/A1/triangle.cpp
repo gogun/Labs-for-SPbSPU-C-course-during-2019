@@ -14,9 +14,9 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
 
 double Triangle::getArea() const
 {
-  double a = getSide(pointA_, pointB_);
-  double b = getSide(pointB_, pointC_);
-  double c = getSide(pointA_, pointC_);
+  double a(getSide(pointA_, pointB_));
+  double b(getSide(pointB_, pointC_));
+  double c(getSide(pointA_, pointC_));
   double p = (a + b + c) / 2;
   double square = sqrt(p * (p - a) * (p - b) * (p - c));
 
