@@ -37,3 +37,4 @@ void Circle::printInfo() const
   std::cout << "\n Radius is :  " << rCircle_ << std::endl;
   std::cout << "\n Position_X_Y_" << pos_.x << " " << pos_.y << std::endl;
 }
+
