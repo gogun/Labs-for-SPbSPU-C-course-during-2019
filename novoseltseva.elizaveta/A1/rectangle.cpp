@@ -32,7 +32,7 @@ void Rectangle::move(double dx, double dy)
 void Rectangle::showParams() const
 {
   std::cout << "Rectangle: center - {" << m_figure.pos.x << ","
-      << m_figure.pos.y << "}\n" << "Width - " << m_figure.width
-      << '\n' << "Height - " << m_figure.height << '\n'
+      << m_figure.pos.y << "}\nWidth - " << m_figure.width
+      << "\nHeight - " << m_figure.height << '\n'
       << "Area - " << getArea() << '\n';
 }

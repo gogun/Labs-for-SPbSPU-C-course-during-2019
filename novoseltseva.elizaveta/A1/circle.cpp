@@ -1,3 +1,4 @@
+#define _USE_MATH_DEFINES
 #include "circle.hpp"
 #include <iostream>
 #include <cmath>
@@ -38,6 +39,6 @@ void Circle::move(double dx, double dy)
 void Circle::showParams() const
 {
   std::cout << "Circle: center - {" << m_center.x << ","
-      << m_center.y << "}\n" << "Radius - " << m_radius
-      << '\n' << "Area - " << getArea() << '\n';
+      << m_center.y << "}\nRadius - " << m_radius
+      << "\nArea - " << getArea() << '\n';
 }

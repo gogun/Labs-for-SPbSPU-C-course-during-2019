@@ -1,5 +1,6 @@
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "triangle.hpp"
 
 int main()
 {
@@ -7,18 +8,19 @@ int main()
 
   Rectangle myrectangle(mycircle.getFrameRect());
 
-  Shape* figures[] = {&mycircle, &myrectangle};
-  int size = sizeof(figures) / sizeof(Shape);
+	Triangle mytriangle(point_t{1, 1}, point_t{1, 3}, point_t{3, 2});
 
-  for (int i = 0; i < size; i++)
-  {
-    figures[i]->showParams();
-  }
+  Shape* figures[]= {&mycircle, &myrectangle, &mytriangle};
 
-  for (int i = 0; i < size; i++)
-  {
-    figures[i]->move(5.0, 5.0);
-    figures[i]->showParams();
+	for (Shape* shape : figures)
+	{
+		shape->showParams();
+	}
+
+	for (Shape* shape : figures)
+	{
+    shape->move(5.0, 5.0);
+    shape->showParams();
   }
 
   return 0;
