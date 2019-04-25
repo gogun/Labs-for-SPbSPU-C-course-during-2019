@@ -3,7 +3,7 @@
 
 shestakova::CompositeShape::CompositeShape(Shape &shape) :
   count_(1),
-  figures_(new Shape*[0])
+  figures_(new Shape*[1])
 {
   figures_[0] = &shape;
 }
