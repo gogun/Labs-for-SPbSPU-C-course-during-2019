@@ -38,12 +38,3 @@ void Rectangle::printInfo() const
   std::cout << "\n X center is:" << pos_.x << std::endl;
   std::cout << "\n Y center is:" << pos_.y << std::endl;
 }
-
-
-
-
-
-
-
-
-

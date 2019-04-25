@@ -11,8 +11,8 @@ public:
   void move(double mX, double mY) override;
   void move(const point_t &point) override;
   void printInfo() const override;
-
-private: 
+  
+private:
   double width_;
   double height_;
   point_t pos_;

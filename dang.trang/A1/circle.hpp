@@ -12,7 +12,7 @@ public:
   void move(double mX, double mY) override;
   void move(const point_t &point) override;
   void printInfo() const override;
-
+  
 private:
   double rCircle_;
   point_t pos_;

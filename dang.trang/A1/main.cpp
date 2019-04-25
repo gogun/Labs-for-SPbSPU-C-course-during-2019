@@ -21,6 +21,6 @@ int main()
   
   actions(&circle);
   actions(&rectangle);
-
+  
   return 0;
 }
