@@ -8,7 +8,6 @@ class Triangle :
 {
 public:
 	Triangle(const point_t a, const point_t b, const point_t c);
-
 	point_t getCenter() const;
 	double getArea() const  override;
 	rectangle_t getFrameRect() const  override;
