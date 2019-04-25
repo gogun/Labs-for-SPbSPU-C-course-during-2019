@@ -14,9 +14,9 @@ public:
   void move(double dx, double dy) override;
 
 private:
+  point_t centre_;
   double width_;
   double height_;
-  point_t centre_;
 };
 
 #endif
