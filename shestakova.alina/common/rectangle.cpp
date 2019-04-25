@@ -42,7 +42,7 @@ void shestakova::Rectangle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
-	throw std::invalid_argument("Coefficient can't be negative.");
+    throw std::invalid_argument("Coefficient can't be negative.");
   }
   width_ *= coefficient;
   height_ *= coefficient;
