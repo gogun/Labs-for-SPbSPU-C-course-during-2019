@@ -8,17 +8,17 @@ int main()
 
   Rectangle myrectangle(mycircle.getFrameRect());
 
-	Triangle mytriangle(point_t{1, 1}, point_t{1, 3}, point_t{3, 2});
+  Triangle mytriangle(point_t{1, 1}, point_t{1, 3}, point_t{3, 2});
 
   Shape* figures[] = {&mycircle, &myrectangle, &mytriangle};
 
-	for (Shape* shape : figures)
-	{
-		shape->showParams();
-	}
+  for (Shape* shape : figures)
+  {
+    shape->showParams();
+  }
 
-	for (Shape* shape : figures)
-	{
+  for (Shape* shape : figures)
+  {
     shape->move(5.0, 5.0);
     shape->showParams();
   }
