@@ -17,7 +17,7 @@ namespace maschenko
     void move(const maschenko::point_t &center) override;
     void scale(double coefficient) override;
     void writeInfo() const override;
-    int getShapeQuantity() const;
+    int getShapeCount() const;
     void addShape(Shape *shape);
     void removeShape(Shape *shape);
     void removeShape(int index);

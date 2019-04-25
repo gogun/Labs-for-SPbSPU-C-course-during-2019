@@ -4,7 +4,6 @@
 #include <cmath>
 
 maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
-  //присваиваю здесь центр с координатами (0;0) так как shape может быть null
   shape_count_(1),
   shape_array_(new maschenko::Shape*[1])
 {
@@ -100,7 +99,7 @@ void maschenko::CompositeShape::writeInfo() const
             << temp_rect.pos.y << ") " << std::endl << std::endl;
 }
 
-int maschenko::CompositeShape::getShapeQuantity() const
+int maschenko::CompositeShape::getShapeCount() const
 {
   return shape_count_;
 }
