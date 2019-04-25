@@ -13,8 +13,7 @@ public:
   void move (double,  double) override;
   void printInfo() const override;
 
-  double getSide(const point_t &, const point_t &);
-
+  double getSide(const point_t &, const point_t &) const;
 private:
   point_t pointA_, pointB_, pointC_;
   double a_, b_, c_;
