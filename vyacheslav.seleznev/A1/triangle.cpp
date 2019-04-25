@@ -4,30 +4,19 @@
 #include <cassert>
 #include <algorithm>
 
-Triangle::Triangle(point_t pA, point_t pB, point_t pC):
-  Shape({(pA.x + pB.x + pC.x) / 3, (pA.y + pB.y + pC.y) / 3}),
+Triangle::Triangle(const point_t& pA, const point_t& pB, const point_t& pC):
+  centre_({(pA.x + pB.x + pC.x) / 3, (pA.y + pB.y + pC.y) / 3}),
   pointA_(pA),
   pointB_(pB),
   pointC_(pC)
 {
-  lengthA_ = getLength(pA, pB);
-  lengthB_ = getLength(pB, pC);
-  lengthC_ = getLength(pC, pA);
-
   assert(getArea() > 0);
-}
-
-double Triangle::getLength(point_t a, point_t b)
-{
-  return sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2));
 }
 
 double Triangle::getArea() const
 {
-  double halfPer = (lengthA_ + lengthB_ + lengthC_) / 2;
-  double area = sqrt(halfPer * (halfPer - lengthA_) * (halfPer - lengthB_) * (halfPer - lengthC_));
-
-  return area;
+  return std::abs((pointC_.x - pointA_.x) * (pointC_.y - pointB_.y)
+      - (pointC_.y - pointA_.y) * (pointC_.x - pointB_.x)) / 2;
 }
 
 rectangle_t Triangle::getFrameRect() const
@@ -38,4 +27,21 @@ rectangle_t Triangle::getFrameRect() const
   double maxY = std::max(pointA_.y, std::max(pointB_.y, pointC_.y));
 
   return {maxX - minX, maxY - minY, {(minX + maxX) / 2, (minY + maxY) / 2}};
+}
+
+void Triangle::move(const point_t& point)
+{
+  move(point.x - centre_.x, point.y - centre_.y);
+}
+
+void Triangle::move(const double dx, const double dy)
+{
+  pointA_.x += dx;
+  pointB_.x += dx;
+  pointC_.x += dx;
+  pointA_.y += dy;
+  pointB_.y += dy;
+  pointC_.y += dy;
+  centre_.x += dx;
+  centre_.y += dy;
 }
