@@ -6,8 +6,7 @@
 Triangle::Triangle(point_t point1, point_t point2, point_t point3):
   point1_(point1),
   point2_(point2),
-  point3_(point3),
-  pos_({(point1.x + point2.x + point3.x) / 3, (point1.y + point2.y + point3.y) / 3})
+  point3_(point3)
 {
   assert(getArea() > 0);
 }
@@ -30,15 +29,10 @@ rectangle_t Triangle::getFrameRect() const
 
 void Triangle::move(point_t point)
 {
-  const double xDiff = pos_.x - point.x;
-  const double yDiff = pos_.y - point.y;
-  point1_.x -= xDiff;
-  point1_.y -= yDiff;
-  point2_.x -= xDiff;
-  point2_.y -= yDiff;
-  point3_.x -= xDiff;
-  point3_.y -= yDiff;
-  pos_ = point;
+  const point_t center = {(point1_.x + point2_.x + point3_.x) / 3, (point1_.y + point2_.y + point3_.y) / 3};
+  const double xDiff = point.x - center.x;
+  const double yDiff = point.y - center.y;
+  move(xDiff, yDiff);
 }
 
 void Triangle::move(double dx, double dy)
@@ -49,6 +43,4 @@ void Triangle::move(double dx, double dy)
   point2_.y += dy;
   point3_.x += dx;
   point3_.y += dy;
-  pos_.x += dx;
-  pos_.y += dy;
 }
