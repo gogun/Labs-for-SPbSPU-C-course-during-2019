@@ -67,17 +67,17 @@ BOOST_AUTO_TEST_CASE(correctWorkingRemove)
   composite_shape.addShape(p_rect1);
   composite_shape.addShape(p_rect2);
   composite_shape.addShape(p_rect3);
-  const int quantity_shape = composite_shape.getShapeQuantity();
+  const int quantity_shape = composite_shape.getShapeCount();
 
   composite_shape.removeShape(p_rect1);
-  const int quantity_shape_after_remove1 = composite_shape.getShapeQuantity();
+  const int quantity_shape_after_remove1 = composite_shape.getShapeCount();
 
   BOOST_CHECK_EQUAL(quantity_shape - 1, quantity_shape_after_remove1);
   BOOST_CHECK_THROW(composite_shape.removeShape(p_rect1), std::invalid_argument);
   BOOST_CHECK_THROW(composite_shape.removeShape(quantity_shape), std::out_of_range);
 
   composite_shape.removeShape(p_rect2);
-  const int quantity_shape_after_remove2 = composite_shape.getShapeQuantity();
+  const int quantity_shape_after_remove2 = composite_shape.getShapeCount();
 
   BOOST_CHECK_EQUAL(quantity_shape_after_remove1 - 1, quantity_shape_after_remove2);
   BOOST_CHECK_THROW(composite_shape.removeShape(p_rect2), std::invalid_argument);

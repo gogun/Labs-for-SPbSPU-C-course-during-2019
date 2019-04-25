@@ -9,6 +9,7 @@ namespace maschenko
   class CompositeShape : public Shape
   {
   public:
+    CompositeShape();
     CompositeShape(maschenko::Shape *shape);
 
     double getArea() const override;
@@ -21,7 +22,7 @@ namespace maschenko
     void addShape(Shape *shape);
     void removeShape(Shape *shape);
     void removeShape(int index);
-    Shape* getShape(int index) const;
+    Shape* getShapeAt(int index) const;
 
   private:
     int shape_count_;

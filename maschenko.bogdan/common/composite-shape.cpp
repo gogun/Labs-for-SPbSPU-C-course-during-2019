@@ -3,6 +3,11 @@
 #include <stdexcept>
 #include <cmath>
 
+maschenko::CompositeShape::CompositeShape() :
+  shape_count_(0),
+  shape_array_()
+{}
+
 maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
   shape_count_(1),
   shape_array_(new maschenko::Shape*[1])
@@ -159,12 +164,11 @@ void maschenko::CompositeShape::removeShape(maschenko::Shape *shape)
   throw std::invalid_argument("This shape doesn't exist");
 }
 
-maschenko::Shape* maschenko::CompositeShape::getShape(int index) const
+maschenko::Shape* maschenko::CompositeShape::getShapeAt(int index) const
 {
   if (index > shape_count_)
   {
     throw std::out_of_range("Index out of range");
   }
-
   return shape_array_[index];
 }
