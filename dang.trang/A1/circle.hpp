@@ -19,11 +19,3 @@ private:
 };
 
 #endif //CIRCLE_HPP
-
-
-
-
-
-
-
-
