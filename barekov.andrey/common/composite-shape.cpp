@@ -136,8 +136,8 @@ void barekov::CompositeShape::showScalableParameters() const
 
 void barekov::CompositeShape::move(const point_t& centre)
 {
-  double deltaX = centre.x - getFrameRect().pos.x;
-  double deltaY = centre.y - getFrameRect().pos.y;
+  const double deltaX = centre.x - getFrameRect().pos.x;
+  const double deltaY = centre.y - getFrameRect().pos.y;
   for (int i = 0; i < count_; i++)
   {
     arrayOfShapes_[i]->move(deltaX, deltaY);
@@ -159,7 +159,7 @@ void barekov::CompositeShape::scale(double scaleFactor)
     throw std::invalid_argument("Composite shape scale factor must be a positive number");
   }
 
-  point_t centre = getFrameRect().pos;
+  const point_t centre = getFrameRect().pos;
   for (int i = 0; i < count_; i++)
   {
     double deltaX = arrayOfShapes_[i]->getFrameRect().pos.x - centre.x;
