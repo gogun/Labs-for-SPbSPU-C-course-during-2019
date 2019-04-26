@@ -41,7 +41,7 @@ void bogdanov::Circle::writeInfo() const
   std::cout << "Center: (" << center_.x << "," << center_.y << ") \n";
   std::cout << "Area: " << getArea() << "\n";
   std::cout << "Frame Rectangle: width = " << rectangleExp.width << ", height = " << rectangleExp.height << "\n"
-            << std::endl;
+      << std::endl;
 }
 
 void bogdanov::Circle::scale(double scalingFactor)
