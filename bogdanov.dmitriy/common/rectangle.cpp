@@ -40,7 +40,7 @@ void bogdanov::Rectangle::writeInfo() const
   std::cout << "Center: (" << rectangle.pos.x << "," << rectangle.pos.y << ") \n";
   std::cout << "Area: " << getArea() << "\n";
   std::cout << "Frame Rectangle: width = " << rectangle.width << " ,height = " << rectangle.height << "\n"
-            << std::endl;
+      << std::endl;
 }
 
 void bogdanov::Rectangle::scale(double scalingFactor)
