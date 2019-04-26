@@ -35,7 +35,7 @@ rectangle_t Triangle::getFrameRect() const
   return {trCenter, width, height};
 }
 
-void Triangle::move(const double dx, const double dy)
+void Triangle::shift(const double dx, const double dy)
 {
   pointA_.x += dx;
   pointB_.x += dx;
@@ -44,6 +44,11 @@ void Triangle::move(const double dx, const double dy)
   pointA_.y += dy;
   pointB_.y += dy;
   pointC_.y += dy;
+}
+
+void Triangle::move(const double dx, const double dy)
+{
+  shift(dx, dy);
 
   center_.x += dx;
   center_.y += dy;
@@ -55,13 +60,7 @@ void Triangle::move(const point_t &newPoint)
   double dy = newPoint.y - center_.y;
   center_  = newPoint;
 
-  pointA_.x += dx;
-  pointB_.x += dx;
-  pointC_.x += dx;
-
-  pointA_.y += dy;
-  pointB_.y += dy;
-  pointC_.y += dy;
+  shift(dx, dy);
 }
 
 void Triangle::inform() const
