@@ -3,21 +3,19 @@
 
 #include "base-types.hpp"
 
-namespace bogdanov {
-
-class Shape
+namespace bogdanov
 {
+  class Shape {
   public:
-  virtual ~Shape() = default;
+    virtual ~Shape() = default;
 
-  virtual void move(const point_t &newCenter) = 0;
-  virtual void move(double dx, double dy) = 0;
-  virtual double getArea() const = 0;
-  virtual rectangle_t getFrameRect() const = 0;
-  virtual void writeInfo() const = 0;
-  virtual void scale(double scalingFactor) = 0;
-};
-
+    virtual void move(const point_t &newCenter) = 0;
+    virtual void move(double dx, double dy) = 0;
+    virtual double getArea() const = 0;
+    virtual rectangle_t getFrameRect() const = 0;
+    virtual void writeInfo() const = 0;
+    virtual void scale(double scalingFactor) = 0;
+  };
 } // namespace bogdanov
 
 #endif
