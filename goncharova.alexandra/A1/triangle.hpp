@@ -10,7 +10,7 @@ public:
   Triangle(const point_t &, const point_t &, const point_t &);
   double getArea() const;
   rectangle_t getFrameRect() const;
-  void shift(const point_t &, const point_t &, const point_t &);
+  void shift(double dx, double dy);
   void move(const point_t &newPoint);
   void move(double dx, double dy);
   void inform() const;
