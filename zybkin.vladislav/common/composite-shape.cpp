@@ -74,26 +74,19 @@ double zybkin::CompositeShape::getArea() const
 
 zybkin::rectangle_t zybkin::CompositeShape::getFrameRect() const
 {
-  zybkin::rectangle_t currentRectangle = shapeArray_[0]->getFrameRect();
-  double max_X = currentRectangle.pos.x + currentRectangle.width / 2.0;
-  double min_X = currentRectangle.pos.x - currentRectangle.width / 2.0;
-  double max_Y = currentRectangle.pos.y + currentRectangle.height / 2.0;
-  double min_Y = currentRectangle.pos.y - currentRectangle.height / 2.0;
+  zybkin::rectangle_t currRectangle = shapeArray_[0]->getFrameRect();
+  double max_X = currRectangle.pos.x + currRectangle.width / 2.0;
+  double min_X = currRectangle.pos.x - currRectangle.width / 2.0;
+  double max_Y = currRectangle.pos.y + currRectangle.height / 2.0;
+  double min_Y = currRectangle.pos.y - currRectangle.height / 2.0;
 
   for (int i = 1; i < count_; ++i)
   {
-    currentRectangle = shapeArray_[i]->getFrameRect();
-    double temporaryValue = currentRectangle.pos.x + currentRectangle.width / 2.0;
-    max_X = std::max(temporaryValue, max_X);
-
-    temporaryValue = currentRectangle.pos.x - currentRectangle.width / 2.0;
-    min_X = std::min(temporaryValue, min_X);
-
-    temporaryValue = currentRectangle.pos.y + currentRectangle.height / 2.0;
-    max_Y = std::max(temporaryValue, max_Y);
-
-    temporaryValue = currentRectangle.pos.y - currentRectangle.height / 2.0;
-    min_Y = std::min(temporaryValue, min_Y);
+    currRectangle = shapeArray_[i]->getFrameRect();
+    max_X = std::max(currRectangle.pos.x + currRectangle.width / 2.0, max_X);
+    min_X = std::min(currRectangle.pos.x - currRectangle.width / 2.0, min_X);
+    max_Y = std::max(currRectangle.pos.y + currRectangle.height / 2.0, max_Y);
+    min_Y = std::min(currRectangle.pos.y - currRectangle.height / 2.0, min_Y);
   }
 
   return {(max_X - min_X), (max_Y - min_Y), {(max_X + min_X) / 2, (max_Y + min_Y) / 2}};
