@@ -1,6 +1,11 @@
 #include <stdexcept>
 #include "composite-shape.hpp"
 
+shestakova::CompositeShape::CompositeShape() :
+  count_(0),
+  figures_()
+{}
+
 shestakova::CompositeShape::CompositeShape(Shape &shape) :
   count_(1),
   figures_(new Shape*[1])
@@ -102,7 +107,7 @@ void shestakova::CompositeShape::deleteShape(int index)
 {
   if ((index < 0) || (index >= count_))
   {
-    throw std::invalid_argument("Incorrect index");
+    throw std::invalid_argument("Index out of range");
   }
   count_--;
   for (int i = index; i < count_; i++)

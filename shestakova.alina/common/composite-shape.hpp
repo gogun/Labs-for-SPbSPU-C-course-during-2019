@@ -8,6 +8,7 @@ namespace shestakova
   class CompositeShape : public Shape
   {
   public:
+    CompositeShape();
     CompositeShape(Shape &shape);
     ~CompositeShape() override;
 
