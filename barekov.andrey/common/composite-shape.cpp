@@ -162,8 +162,8 @@ void barekov::CompositeShape::scale(double scaleFactor)
   const point_t centre = getFrameRect().pos;
   for (int i = 0; i < count_; i++)
   {
-    double deltaX = arrayOfShapes_[i]->getFrameRect().pos.x - centre.x;
-    double deltaY = arrayOfShapes_[i]->getFrameRect().pos.y - centre.y;
+    const double deltaX = arrayOfShapes_[i]->getFrameRect().pos.x - centre.x;
+    const double deltaY = arrayOfShapes_[i]->getFrameRect().pos.y - centre.y;
     arrayOfShapes_[i]->move({centre.x + deltaX * scaleFactor, centre.y + deltaY * scaleFactor});
     arrayOfShapes_[i]->scale(scaleFactor);
   }
