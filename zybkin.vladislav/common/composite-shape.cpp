@@ -89,7 +89,7 @@ zybkin::rectangle_t zybkin::CompositeShape::getFrameRect() const
     min_Y = std::min(currRectangle.pos.y - currRectangle.height / 2.0, min_Y);
   }
 
-  return {(max_X - min_X), (max_Y - min_Y), {(max_X + min_X) / 2, (max_Y + min_Y) / 2}};
+  return {(max_X - min_X), (max_Y - min_Y), {(max_X + min_X) / 2.0, (max_Y + min_Y) / 2.0}};
 }
 
 int zybkin::CompositeShape::getCount() const
