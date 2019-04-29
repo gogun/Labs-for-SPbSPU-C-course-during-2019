@@ -8,7 +8,7 @@ neupokoev::Circle::Circle(const point_t &pos, double radius) :
   pos_(pos),
   radius_(radius)
 {
-  if (radius_ <= 0.0) 
+  if (radius_ <= 0.0)
   {
     throw std::invalid_argument("Radius must be a positive number");
   }
@@ -21,7 +21,7 @@ double neupokoev::Circle::getArea() const
 
 neupokoev::rectangle_t neupokoev::Circle::getFrameRect() const
 {
-  return {pos_, radius_ * 2, radius_ * 2};
+  return { pos_, radius_ * 2, radius_ * 2 };
 }
 
 void neupokoev::Circle::move(const point_t &pos)

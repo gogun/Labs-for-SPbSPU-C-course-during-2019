@@ -32,7 +32,7 @@ BOOST_AUTO_TEST_CASE(moveCircleTest)
 
 BOOST_AUTO_TEST_CASE(moveRectangleTest)
 {
-  neupokoev::Rectangle testRectangle({{ 3, 4 }, 5, 6});
+  neupokoev::Rectangle testRectangle({ { 3, 4 }, 5, 6 });
   const neupokoev::rectangle_t InitialFrameRect = testRectangle.getFrameRect();
   const double InitialArea = testRectangle.getArea();
 
@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_CASE(moveRectangleTest)
 
 BOOST_AUTO_TEST_CASE(moveTriangleTest)
 {
-  neupokoev::Triangle testTriangle({0, 0}, {4, 1}, {3, 7});
+  neupokoev::Triangle testTriangle({ 0, 0 }, { 4, 1 }, { 3, 7 });
   const neupokoev::rectangle_t InitialFrameRect = testTriangle.getFrameRect();
   const double InitialArea = testTriangle.getArea();
 
@@ -76,7 +76,7 @@ BOOST_AUTO_TEST_CASE(areaAfterScalingCircleTest)
 
 BOOST_AUTO_TEST_CASE(areaAfterScalingRectangleTest)
 {
-  neupokoev::Rectangle testRectangle({{ 4, 5 }, 6, 7});
+  neupokoev::Rectangle testRectangle({ { 4, 5 }, 6, 7 });
   const double InitialArea = testRectangle.getArea();
   const double scaleFactor = 3;
 
@@ -104,10 +104,10 @@ BOOST_AUTO_TEST_CASE(invalidScaleArgumentsCircle)
 
 BOOST_AUTO_TEST_CASE(invalidScaleArgumentsRectangle)
 {
-  BOOST_CHECK_THROW(neupokoev::Rectangle({{ 1, 2 }, 3, -4}), std::invalid_argument);
-  BOOST_CHECK_THROW(neupokoev::Rectangle({{ 1, 2 }, -3, 4}), std::invalid_argument);
+  BOOST_CHECK_THROW(neupokoev::Rectangle({ { 1, 2 }, 3, -4 }), std::invalid_argument);
+  BOOST_CHECK_THROW(neupokoev::Rectangle({ { 1, 2 }, -3, 4 }), std::invalid_argument);
 
-  neupokoev::Rectangle testRectangle({{ 1, 2 }, 3, 4});
+  neupokoev::Rectangle testRectangle({ { 1, 2 }, 3, 4 });
   BOOST_CHECK_THROW(testRectangle.scale(-5), std::invalid_argument);
 }
 

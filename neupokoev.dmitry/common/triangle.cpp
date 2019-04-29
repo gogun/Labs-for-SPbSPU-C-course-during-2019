@@ -22,10 +22,10 @@ double neupokoev::Triangle::getArea() const
 
 neupokoev::rectangle_t neupokoev::Triangle::getFrameRect() const
 {
-  double maxX = std::max(std::max(a_.x, b_.x), c_.x);
-  double maxY = std::max(std::max(a_.y, b_.y), c_.y);
-  double minX = std::min(std::max(a_.x, b_.x), c_.x);
-  double minY = std::min(std::max(a_.y, b_.y), c_.y);
+  double maxX = std::fmax(std::fmax(a_.x, b_.x), c_.x);
+  double maxY = std::fmax(std::fmax(a_.y, b_.y), c_.y);
+  double minX = std::fmin(std::fmax(a_.x, b_.x), c_.x);
+  double minY = std::fmin(std::fmax(a_.y, b_.y), c_.y);
   return { {(minX + maxX) / 2, (minY + maxY) / 2}, maxX - minX, maxY - minY };
 }
 

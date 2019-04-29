@@ -12,8 +12,8 @@ namespace neupokoev
     rectangle_t getFrameRect() const override;
     void move(const point_t &pos) override;
     void move(const double dx, const double dy) override;
-    void writeParameters() const override;
     void scale(double scaleFactor) override;
+    void writeParameters() const override;
 
   private:
     rectangle_t rect_;
