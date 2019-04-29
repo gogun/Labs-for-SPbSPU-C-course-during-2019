@@ -18,29 +18,29 @@ sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p
 
 double sheve::Triangle::getArea() const
 {
-  double area = ((m_b.x - m_a.x) * (m_c.y - m_a.y) - (m_c.x - m_a.x) * (m_b.y - m_a.y)) / 2;
+  const double area = ((m_b.x - m_a.x) * (m_c.y - m_a.y) - (m_c.x - m_a.x) * (m_b.y - m_a.y)) / 2;
   return area;
 }
 
 sheve::rectangle_t sheve::Triangle::getFrameRect() const
 {
-  double maxX = std::max(std::max(m_a.x, m_b.x), m_c.x);
-  double maxY = std::max(std::max(m_a.y, m_b.y), m_c.y);
-  double minX = std::min(std::min(m_a.x, m_b.x), m_c.x);
-  double minY = std::min(std::min(m_a.y, m_b.y), m_c.y);
-  double width = maxX - minX;
-  double height = maxY - minY;
+  const double maxX = std::max(std::max(m_a.x, m_b.x), m_c.x);
+  const double maxY = std::max(std::max(m_a.y, m_b.y), m_c.y);
+  const double minX = std::min(std::min(m_a.x, m_b.x), m_c.x);
+  const double minY = std::min(std::min(m_a.y, m_b.y), m_c.y);
+  const double width = maxX - minX;
+  const double height = maxY - minY;
   return { { minX + width / 2, minY + height / 2 }, width, height };
 }
 
 void sheve::Triangle::move(const point_t &p)
 {
-  double dx = p.x - m_pos.x;
-  double dy = p.y - m_pos.y;
+  const double dx = p.x - m_pos.x;
+  const double dy = p.y - m_pos.y;
   move(dx, dy);
 }
 
-void sheve::Triangle::move(const double dx, const double dy)
+void sheve::Triangle::move(double dx, double dy)
 {
   m_pos.x += dx;
   m_a.x += dx;
