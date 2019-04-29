@@ -60,6 +60,7 @@ BOOST_AUTO_TEST_CASE(throwingExceptions)
   composite.addShape(&circle);
   BOOST_CHECK_THROW(composite.scale(0), std::invalid_argument);
 
+  composite = chizhov::CompositeShape();
   BOOST_CHECK_THROW(composite.addShape(nullptr), std::invalid_argument);
   BOOST_CHECK_THROW(chizhov::CompositeShape(nullptr), std::invalid_argument);
 }
