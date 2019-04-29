@@ -13,7 +13,7 @@ rodchenkov::CompositeShape::CompositeShape(const CompositeShape& cs) :
   shapes_(std::make_unique<std::unique_ptr<Shape>[]>(count_))
 {
   for (std::size_t i = 0; i < count_; i++) {
-    shapes_[i] = cs.shapes_[i]->cloneUnique();
+    shapes_[i] = cs.shapes_[i]->clone();
   }
 }
 
@@ -125,7 +125,7 @@ void rodchenkov::CompositeShape::add(const Shape& newShape)
   for (std::size_t i = 0; i < count_; i++) {
     newShapes[i].swap(shapes_[i]);
   }
-  newShapes[count_++] = newShape.cloneUnique();
+  newShapes[count_++] = newShape.clone();
   shapes_.swap(newShapes);
 }
 
@@ -145,7 +145,7 @@ std::size_t rodchenkov::CompositeShape::getSize() const noexcept
   return count_;
 }
 
-std::unique_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::cloneUnique() const
+std::unique_ptr<rodchenkov::Shape> rodchenkov::CompositeShape::clone() const
 {
   return std::make_unique<CompositeShape>(*this);
 }
