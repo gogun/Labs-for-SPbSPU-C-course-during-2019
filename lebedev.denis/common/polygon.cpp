@@ -111,6 +111,7 @@ void lebedev::Polygon::scale(const double multiplier)
 bool lebedev::Polygon::checkBump() const
 {
   std::size_t status = m_qtyVertex;
+  std::size_t checkStatus = 1;
   point_t side_1, side_2;
   side_1 = side_2 = {0.0, 0.0};
 
@@ -129,7 +130,6 @@ bool lebedev::Polygon::checkBump() const
       side_1.y = m_vertex[index].y - m_vertex[index - 1].y;
       side_2.x = m_vertex[index - 1].x - m_vertex[index - 2].x;
       side_2.y = m_vertex[index - 1].y - m_vertex[index - 2].y;
-      status += 1;
     }
     double flag = ((side_1.x * side_2.y) - (side_1.y * side_2.x));
     if (flag < 0)
@@ -137,7 +137,7 @@ bool lebedev::Polygon::checkBump() const
       status -= 1;
     }
   }
-  if (status != 1)
+  if ((status != checkStatus) || (status != m_qtyVertex))
   {
     return false;
   }
