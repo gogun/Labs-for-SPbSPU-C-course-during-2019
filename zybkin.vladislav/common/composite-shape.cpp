@@ -3,7 +3,7 @@
 #include <iostream>
 #include <algorithm>
 
-zybkin::CompositeShape::CompositeShape(const CompositeShape &copyCompositeShape) :
+zybkin::CompositeShape::CompositeShape(const zybkin::CompositeShape &copyCompositeShape) :
   shapeArray_(new zybkin::Shape *[copyCompositeShape.count_]),
   count_(copyCompositeShape.count_)
 {
@@ -13,7 +13,7 @@ zybkin::CompositeShape::CompositeShape(const CompositeShape &copyCompositeShape)
   }
 }
 
-zybkin::CompositeShape::CompositeShape(CompositeShape &&movedCompositeShape) :
+zybkin::CompositeShape::CompositeShape(zybkin::CompositeShape &&movedCompositeShape) :
   shapeArray_(movedCompositeShape.shapeArray_),
   count_(movedCompositeShape.count_)
 {
@@ -32,7 +32,7 @@ zybkin::CompositeShape::~CompositeShape()
   delete [] shapeArray_;
 }
 
-zybkin::CompositeShape &zybkin::CompositeShape::operator =(const CompositeShape &copyCompositeShape)
+zybkin::CompositeShape &zybkin::CompositeShape::operator =(const zybkin::CompositeShape &copyCompositeShape)
 {
   if (this != &copyCompositeShape)
   {
@@ -41,7 +41,7 @@ zybkin::CompositeShape &zybkin::CompositeShape::operator =(const CompositeShape 
   return *this;
 }
 
-zybkin::CompositeShape &zybkin::CompositeShape::operator =(CompositeShape &&movedCompositeShape)
+zybkin::CompositeShape &zybkin::CompositeShape::operator =(zybkin::CompositeShape &&movedCompositeShape)
 {
   if (this != &movedCompositeShape)
   {
@@ -105,7 +105,7 @@ void zybkin::CompositeShape::move(double shift_x, double shift_y)
   }
 }
 
-void zybkin::CompositeShape::move(const point_t &position)
+void zybkin::CompositeShape::move(const zybkin::point_t &position)
 {
   const zybkin::rectangle_t frameRect = getFrameRect();
   double shift_x = position.x - frameRect.pos.x;
@@ -131,7 +131,7 @@ void zybkin::CompositeShape::scale(double coef)
   }
 }
 
-void zybkin::CompositeShape::addShape(Shape &shape)
+void zybkin::CompositeShape::addShape(zybkin::Shape &shape)
 {
   //check that we have empty cell
   for (int i = 1; i < count_; ++i)
@@ -186,7 +186,7 @@ void zybkin::CompositeShape::printInfo() const
   std::cout << "Height: " << frameRect.height << "\n\n";
 }
 
-void zybkin::CompositeShape::swap(CompositeShape &swappingShape)
+void zybkin::CompositeShape::swap(zybkin::CompositeShape &swappingShape)
 {
   std::swap(shapeArray_, swappingShape.shapeArray_);
   std::swap(count_, swappingShape.count_);
