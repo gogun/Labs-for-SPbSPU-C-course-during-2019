@@ -73,8 +73,9 @@ BOOST_AUTO_TEST_CASE(compositeShapeIncorrectParameters)
   compSh.addShape(circ);
 
   BOOST_CHECK_THROW(compSh.scale(-3), std::invalid_argument);
+  shestakova::Shape * nullShape = nullptr;
 
-  BOOST_CHECK_THROW(compSh.addShape(nullptr), std::invalid_argument);
+  BOOST_CHECK_THROW(compSh.addShape(nullShape), std::invalid_argument);
   BOOST_CHECK_THROW(compSh.deleteShape(10), std::out_of_range);
   BOOST_CHECK_THROW(compSh.deleteShape(-1), std::out_of_range);
 
