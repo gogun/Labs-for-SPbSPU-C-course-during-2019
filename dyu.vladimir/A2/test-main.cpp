@@ -11,7 +11,7 @@ BOOST_AUTO_TEST_SUITE(test_A2)
 
 BOOST_AUTO_TEST_CASE(Test_rectangle_area)
 {
-  dyu::Rectangle testRect (3.0, 6.0, {10.0, 10.0});
+  dyu::Rectangle testRect(3.0, 6.0, {10.0, 10.0});
   const double areaBeforeMoving = testRect.getArea();
   const dyu::rectangle_t frameBeforeMove = testRect.getFrameRect();
   
@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(Test_rectangle_area)
 
 BOOST_AUTO_TEST_CASE(Test_rectangle_scale)
 {
-  dyu::Rectangle testRect (3.0, 6.0, {10.0, 10.0});
+  dyu::Rectangle testRect(3.0, 6.0, {10.0, 10.0});
   const double areaBeforeScaling = testRect.getArea();
   
   const double coeficient = 2;
@@ -62,7 +62,7 @@ BOOST_AUTO_TEST_CASE(Test_scale_rectangle_negativer_fail_throw)
 
 BOOST_AUTO_TEST_CASE(Test_circle_area)
 {
-  dyu::Circle testCircle (3.0, {10.0, 10.0});
+  dyu::Circle testCircle(3.0, {10.0, 10.0});
   const double areaBeforeMoving = testCircle.getArea ();
   const dyu::rectangle_t frameBeforeMoving = testCircle.getFrameRect ();
   
@@ -87,7 +87,7 @@ BOOST_AUTO_TEST_CASE(Test_circle_area)
 
 BOOST_AUTO_TEST_CASE(Test_circle_scale)
 {
-  dyu::Circle testCircle (3.0, {10.0, 10.0});
+  dyu::Circle testCircle(3.0, {10.0, 10.0});
   const double areaBeforeScaling = testCircle.getArea();
   
   const double coeficient = 2;
