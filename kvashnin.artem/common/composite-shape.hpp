@@ -2,7 +2,6 @@
 #define COMPOSITE_SHAPE_HPP
 
 #include <memory>
-#include <iostream>
 #include "shape.hpp"
 
 namespace kvashnin
@@ -11,10 +10,13 @@ namespace kvashnin
   {
   public:
     CompositeShape();
+    CompositeShape(const CompositeShape& cs);
+    CompositeShape(CompositeShape&& cs);
     CompositeShape(Shape *shape);
+
+    CompositeShape& operator =(const CompositeShape& rh);
+    CompositeShape& operator =(CompositeShape&& rh);
     Shape* operator [](int i);
-    void operator +=(Shape *shape);
-    void operator -=(int index);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
@@ -22,11 +24,11 @@ namespace kvashnin
     void move(const double dx, const double dy) override;
     void scale(double coefficient) override;
     void printInfo() const override;
+
     point_t getCentre() const;
     int length() const;
     void add(Shape *shape);
     void remove(int index);
-    Shape* getShape(int index) const;
 
   private:
     int counter_;

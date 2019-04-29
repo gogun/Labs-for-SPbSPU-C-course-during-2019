@@ -54,7 +54,7 @@ int main()
   std::cout << std::endl;
 
   std::cout << "Create an empty object and see this." << std::endl;
-  kvashnin::CompositeShape comShp = kvashnin::CompositeShape();
+  kvashnin::CompositeShape comShp;
   comShp.printInfo();
   std::cout << std::endl;
 
@@ -64,12 +64,12 @@ int main()
   std::cout << std::endl;
 
   std::cout << "Add rectangle." << std::endl;
-  comShp+=(&rec);
+  comShp.add(&rec);
   comShp.printInfo();
   std::cout << std::endl;
 
   std::cout << "Get circle." << std::endl;
-  comShp.getShape(0)->printInfo();
+  comShp[0]->printInfo();
   std::cout << std::endl;
 
   std::cout << "Scale object." << std::endl;
@@ -81,6 +81,7 @@ int main()
   comShp.remove(1);
   comShp.printInfo();
   std::cout << std::endl;
+
 
   return 0;
 }

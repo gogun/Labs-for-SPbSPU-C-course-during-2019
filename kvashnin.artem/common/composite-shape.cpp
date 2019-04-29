@@ -9,6 +9,21 @@ kvashnin::CompositeShape::CompositeShape():
   array_(new Shape*[0])
 {}
 
+kvashnin::CompositeShape::CompositeShape(const CompositeShape& cs):
+  counter_(cs.counter_),
+  array_(new Shape*[cs.counter_])
+{
+  for (int i = 0; i < counter_; i++)
+  {
+    array_[i] = cs.array_[i];
+  }
+}
+
+kvashnin::CompositeShape::CompositeShape(CompositeShape&& cs):
+  counter_(cs.counter_),
+  array_(std::move(cs.array_))
+{}
+
 kvashnin::CompositeShape::CompositeShape(Shape *shape):
   counter_(1),
   array_(new Shape*[1])
@@ -20,20 +35,36 @@ kvashnin::CompositeShape::CompositeShape(Shape *shape):
   array_[0] = shape;
 }
 
+kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeShape& rh)
+{
+  if (this == &rh)
+  {
+    return *this;
+  }
+
+  std::unique_ptr<Shape*[]> newArray(new Shape*[rh.counter_]);
+  for (int i = 0; i < rh.counter_; i++)
+  {
+    newArray[i] = rh.array_[i];
+  }
+  array_.swap(newArray);
+}
+
+kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(CompositeShape&& rh)
+{
+  array_ = std::move(rh.array_);
+  return *this;
+}
+
 kvashnin::Shape* kvashnin::CompositeShape::operator [](int index)
 {
-  return getShape(index);
+  if ((index > counter_) || (index < 0))
+  {
+    throw std::out_of_range("Invalid index");
+  }
+  return array_[index];
 }
 
-void kvashnin::CompositeShape::operator +=(Shape *shape)
-{
-  add(shape);
-}
-
-void kvashnin::CompositeShape::operator -=(int index)
-{
-  remove(index);
-}
 
 double kvashnin::CompositeShape::getArea() const
 {
@@ -137,7 +168,7 @@ void kvashnin::CompositeShape::add(kvashnin::Shape *shape)
     throw std::invalid_argument("null ptr");
   }
 
-  std::unique_ptr<Shape*[]> newArray(new Shape *[counter_ + 1]);
+  std::unique_ptr<Shape*[]> newArray(new Shape*[counter_ + 1]);
   for (int i = 0; i < counter_; i++)
   {
     newArray[i] = array_[i];
@@ -154,7 +185,7 @@ void kvashnin::CompositeShape::remove(int index)
     throw std::out_of_range("Invalid index");
   }
 
-  std::unique_ptr<Shape *[]> newArray(new Shape *[counter_ - 1]);
+  std::unique_ptr<Shape*[]> newArray(new Shape*[counter_ - 1]);
 
   for (int i = 0; i < index; i++)
   {
@@ -167,13 +198,4 @@ void kvashnin::CompositeShape::remove(int index)
   }
 
   array_.swap(newArray);
-}
-
-kvashnin::Shape* kvashnin::CompositeShape::getShape(int index) const
-{
-  if ((index > counter_) || (index < 0))
-  {
-    throw std::out_of_range("Invalid index");
-  }
-  return array_[index];
 }

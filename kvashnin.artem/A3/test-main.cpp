@@ -176,7 +176,7 @@ BOOST_AUTO_TEST_SUITE(testSuiteKvashninArtem)
     BOOST_CHECK_THROW(comShp.scale(-2), std::invalid_argument);
     BOOST_CHECK_THROW(comShp.add(nullptr), std::invalid_argument);
     BOOST_CHECK_THROW(comShp.remove(-2), std::out_of_range);
-    BOOST_CHECK_THROW(comShp.getShape(-2), std::out_of_range);
+    BOOST_CHECK_THROW(comShp[-2], std::out_of_range);
     BOOST_CHECK_THROW(kvashnin::CompositeShape(nullptr), std::invalid_argument);
   }
 
