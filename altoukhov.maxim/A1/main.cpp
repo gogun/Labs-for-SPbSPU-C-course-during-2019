@@ -21,56 +21,31 @@ void printPosition(const Shape& shape)
 
 int main()
 {
-  point_t centerPoint{0, 0};
-  Rectangle rect(centerPoint, 2, 2);
-  Circle cir(centerPoint, 2);
-  Triangle tri(centerPoint, 1, 1);
+  point_t center{0, 0};
 
+  Rectangle rectangle(center, 2, 4);
   std::cout << "RECTANGLE:\n";
-  printArea(rect);
-  printFrameRect(rect);
-  printPosition(rect);
+  printArea(rectangle);
+  printFrameRect(rectangle);
+  rectangle.move({1, 1});
+  rectangle.move(2, 2);
+  printPosition(rectangle);
   std::cout << '\n';
 
-  centerPoint = {1, 1};
-  rect.move(centerPoint);
-  std::cout << "Moved rectangle to (1, 1)\n";
-  printPosition(rect);
-
-  rect.move(1, 0);
-  std::cout << "Moved rectangle by (1, 0)\n";
-  printPosition(rect);
-  std::cout << '\n';
-
+  Circle circle(center, 3);
   std::cout << "CIRCLE:\n";
-  printArea(cir);
-  printFrameRect(cir);
-  printPosition(cir);
+  printArea(circle);
+  printFrameRect(circle);
+  circle.move({1, 1});
+  circle.move(2, 2);
+  printPosition(circle);
   std::cout << '\n';
 
-  centerPoint = {2, 2};
-  cir.move(centerPoint);
-  std::cout << "Moved circle to (2, 2)\n";
-  printPosition(cir);
-
-  cir.move(0, 2);
-  std::cout << "Moved circle by (0, 2)\n";
-  printPosition(cir);
-  std::cout << '\n';
-
+  Triangle triangle(center, 2, 4);
   std::cout << "TRIANGLE:\n";
-  printArea(tri);
-  printFrameRect(tri);
-  printPosition(tri);
-  std::cout << '\n';
-
-  centerPoint = {1, -1};
-  tri.move(centerPoint);
-  std::cout << "Moved triangle to (1, -1)\n";
-  printPosition(tri);
-
-  tri.move(-1, 1);
-  std::cout << "Moved triangle by (-1, 1)\n";
-  printPosition(tri);
-  std::cout << '\n';
+  printArea(triangle);
+  printFrameRect(triangle);
+  triangle.move({1, 1});
+  triangle.move(2, 2);
+  printPosition(triangle);
 }

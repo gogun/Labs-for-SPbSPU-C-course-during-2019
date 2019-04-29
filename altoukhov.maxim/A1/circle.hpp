@@ -10,9 +10,8 @@ public:
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  
-  void move(const point_t&) override;
-  void move(double, double) override;
+  void move(const point_t& point) override;
+  void move(double x, double y) override;
 
 private:
   point_t pos_;

@@ -1,5 +1,4 @@
 #include "triangle.hpp"
-
 #include <cassert>
 #include <cmath>
 
@@ -8,7 +7,7 @@ Triangle::Triangle(const point_t& pos, double base, double height):
   base_{base},
   height_{height}
 {
-  assert(base > 0 && height > 0);
+  assert((base > 0) && (height > 0));
 }
   
 double Triangle::getArea() const
