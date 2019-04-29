@@ -54,10 +54,10 @@ void sheve::Triangle::move(double dx, double dy)
 
 sheve::rectangle_t sheve::Triangle::getSides() const
 {
-   const double sideAB = std::abs(std::sqrt(std::pow(m_a.x - m_b.x, 2) + std::pow(m_a.y - m_b.y, 2)));
-   const double sideBC = std::abs(std::sqrt(std::pow(m_b.x - m_c.x, 2) + std::pow(m_b.y - m_c.y, 2)));
-   const double sideCA = std::abs(std::sqrt(std::pow(m_c.x - m_a.x, 2) + std::pow(m_c.y - m_a.y, 2)));
-   return { sideAB, sideBC, sideCA };
+  const double sideAB = std::abs(std::sqrt(std::pow(m_a.x - m_b.x, 2) + std::pow(m_a.y - m_b.y, 2)));
+  const double sideBC = std::abs(std::sqrt(std::pow(m_b.x - m_c.x, 2) + std::pow(m_b.y - m_c.y, 2)));
+  const double sideCA = std::abs(std::sqrt(std::pow(m_c.x - m_a.x, 2) + std::pow(m_c.y - m_a.y, 2)));
+  return { sideAB, sideBC, sideCA };
 }
 
 void sheve::Triangle::scale(double coefficient)
