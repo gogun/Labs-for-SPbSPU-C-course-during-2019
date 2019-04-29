@@ -24,8 +24,8 @@ int main()
   chizhov::Rectangle r1({2, 1}, 2);
 
   chizhov::CompositeShape cs1;
-  cs1.addShape(c1);
-  cs1.addShape(r1);
+  cs1.addShape(&c1);
+  cs1.addShape(&r1);
   printInfo(cs1, "Composite shape");
 
   cs1.move(1, 1);
@@ -34,8 +34,9 @@ int main()
   cs1.scale(2);
   printInfo(cs1, "Composite shape");
 
-  cs1.deleteShape(c1);
+  cs1.deleteShape(&c1);
   cs1.move({1.5, 1.5});
+  printInfo(cs1, "Composite shape");
 
   chizhov::Circle c2(4, 7, 2);
   c2.scale(1.5);

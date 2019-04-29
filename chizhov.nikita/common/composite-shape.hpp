@@ -10,7 +10,7 @@ namespace chizhov
     CompositeShape();
     CompositeShape(const CompositeShape&);
     CompositeShape(CompositeShape&&);
-    CompositeShape(Shape&);
+    CompositeShape(Shape*);
     ~CompositeShape();
 
     CompositeShape& operator =(const CompositeShape&);
@@ -22,8 +22,8 @@ namespace chizhov
     void move(point_t) override;
     void scale(double) override;
 
-    void addShape(Shape&);
-    void deleteShape(const Shape&);
+    void addShape(Shape*);
+    void deleteShape(const Shape*);
 
   private:
     Shape** shapes_;

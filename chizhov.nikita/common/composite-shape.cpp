@@ -22,11 +22,15 @@ chizhov::CompositeShape::CompositeShape(chizhov::CompositeShape&& source) :
   source.shapes_ = nullptr;
 }
 
-chizhov::CompositeShape::CompositeShape(chizhov::Shape& shape) :
+chizhov::CompositeShape::CompositeShape(chizhov::Shape* shape) :
     shapes_(new Shape*[1]),
     count_(1)
 {
-  shapes_[0] = &shape;
+  if (shape == nullptr) {
+    throw std::invalid_argument("Shape cannot be null!");
+  }
+
+  shapes_[0] = shape;
 }
 
 chizhov::CompositeShape::~CompositeShape()
@@ -139,10 +143,14 @@ void chizhov::CompositeShape::scale(double scale)
   }
 }
 
-void chizhov::CompositeShape::addShape(chizhov::Shape& shape)
+void chizhov::CompositeShape::addShape(chizhov::Shape* shape)
 {
+  if (shape == nullptr) {
+    throw std::invalid_argument("Shape cannot be null!");
+  }
+
   for (int i = 0; i < count_; i++) {
-    if (shapes_[i] == &shape) {
+    if (shapes_[i] == shape) {
       return;
     }
   }
@@ -153,17 +161,21 @@ void chizhov::CompositeShape::addShape(chizhov::Shape& shape)
     shapesArr[i] = shapes_[i];
   }
 
-  shapesArr[count_ - 1] = &shape;
+  shapesArr[count_ - 1] = shape;
   delete [] shapes_;
   shapes_ = shapesArr;
 }
 
-void chizhov::CompositeShape::deleteShape(const chizhov::Shape& shape)
+void chizhov::CompositeShape::deleteShape(const chizhov::Shape* shape)
 {
+  if (shape == nullptr) {
+    return;
+  }
+
   int j = 0;
   bool removed = false;
   for (int i = 0; i < count_; i++) {
-    if (shapes_[i] == &shape) {
+    if (shapes_[i] == shape) {
       removed = true;
       continue;
     }

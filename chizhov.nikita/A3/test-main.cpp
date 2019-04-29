@@ -16,8 +16,8 @@ BOOST_AUTO_TEST_CASE(compositeConstantAfterMove)
 {
   chizhov::Circle dummyCircle({1, 2}, 1);
   chizhov::Rectangle dummyRectangle({2 ,1}, 2);
-  chizhov::CompositeShape dummyComposite(dummyCircle);
-  dummyComposite.addShape(dummyRectangle);
+  chizhov::CompositeShape dummyComposite(&dummyCircle);
+  dummyComposite.addShape(&dummyRectangle);
   const chizhov::rectangle_t frameBefore = dummyComposite.getFrameRect();
   const double areaBefore = dummyComposite.getArea();
 
@@ -40,8 +40,8 @@ BOOST_AUTO_TEST_CASE(compositeScale)
 {
   chizhov::Circle dummyCircle({1, 2}, 1);
   chizhov::Rectangle dummyRectangle({2 ,1}, 2);
-  chizhov::CompositeShape dummyComposite(dummyCircle);
-  dummyComposite.addShape(dummyRectangle);
+  chizhov::CompositeShape dummyComposite(&dummyCircle);
+  dummyComposite.addShape(&dummyRectangle);
   const double areaBefore = dummyComposite.getArea();
 
   const int scaleMultiplier = 2;
@@ -57,8 +57,11 @@ BOOST_AUTO_TEST_CASE(throwingExceptions)
   BOOST_CHECK_THROW(dummyComposite.scale(2), std::logic_error);
   BOOST_CHECK_THROW(dummyComposite.move({1, 1}), std::logic_error);
 
-  dummyComposite.addShape(dummyCircle);
+  dummyComposite.addShape(&dummyCircle);
   BOOST_CHECK_THROW(dummyComposite.scale(0), std::invalid_argument);
+
+  BOOST_CHECK_THROW(dummyComposite.addShape(nullptr), std::invalid_argument);
+  BOOST_CHECK_THROW(chizhov::CompositeShape(nullptr), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
