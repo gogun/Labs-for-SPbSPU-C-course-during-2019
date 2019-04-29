@@ -18,8 +18,7 @@ double kurbanova::Rectangle::getArea() const
   return(width_ * height_);
 }
 
-kurbanova::rectangle_t 
-kurbanova::Rectangle::getFrameRect() const
+kurbanova::rectangle_t kurbanova::Rectangle::getFrameRect() const
 {
   return{pos_, width_, height_};
 }
