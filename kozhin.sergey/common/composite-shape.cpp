@@ -12,7 +12,7 @@ kozhin::CompositeShape::CompositeShape() :
 kozhin::CompositeShape::CompositeShape(kozhin::Shape& newShape) :
   CompositeShape()
 {
-  addShape(newShape);
+  add(newShape);
 }
 
 kozhin::CompositeShape::CompositeShape(const kozhin::CompositeShape& rhs) :
@@ -70,10 +70,10 @@ kozhin::CompositeShape& kozhin::CompositeShape::operator=(kozhin::CompositeShape
 
 kozhin::Shape& kozhin::CompositeShape::operator[](int ind) const
 {
-  return getShape(ind);
+  return get(ind);
 }
 
-void kozhin::CompositeShape::addShape(kozhin::Shape& newShape)
+void kozhin::CompositeShape::add(kozhin::Shape& newShape)
 {
   ++count_;
   if (count_ > size_)
@@ -88,7 +88,7 @@ void kozhin::CompositeShape::addShape(kozhin::Shape& newShape)
   shapeList_[count_ - 1] = &newShape;
 }
 
-void kozhin::CompositeShape::deleteShape(int ind)
+void kozhin::CompositeShape::remove(int ind)
 {
   if (ind < 0 || ind + 1 > count_)
   {
@@ -103,7 +103,7 @@ void kozhin::CompositeShape::deleteShape(int ind)
   --count_;
 }
 
-kozhin::Shape& kozhin::CompositeShape::getShape(int ind) const
+kozhin::Shape& kozhin::CompositeShape::get(int ind) const
 {
   if (ind < 0 || ind + 1 > count_)
   {
@@ -158,7 +158,7 @@ kozhin::point_t kozhin::CompositeShape::getCenter() const
   return getFrameRect().pos;
 }
 
-int kozhin::CompositeShape::getShapeCount() const
+int kozhin::CompositeShape::size() const
 {
   return count_;
 }

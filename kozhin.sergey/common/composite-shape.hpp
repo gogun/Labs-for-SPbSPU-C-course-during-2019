@@ -15,13 +15,13 @@ namespace kozhin
     CompositeShape& operator=(const CompositeShape&);
     CompositeShape& operator=(CompositeShape&&);
     Shape& operator[](int) const;
-    void addShape(Shape&);
-    void deleteShape(int);
-    Shape& getShape(int) const;
+    void add(Shape&);
+    void remove(int);
+    Shape& get(int) const;
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     point_t getCenter() const override;
-    int getShapeCount() const;
+    int size() const;
     void move(double, double) override;
     void move(const point_t&) override;
     void scale(double) override;

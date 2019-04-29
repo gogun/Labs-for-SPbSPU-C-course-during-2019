@@ -53,7 +53,7 @@ int main()
 
   // Creating composite shape based on previously used shapes
   kozhin::CompositeShape testComposite(testCircle);
-  testComposite.addShape(testRect);
+  testComposite.add(testRect);
 
   std::cout << "Initial composite shape params: \n";
   printShapeInfo(testComposite);
@@ -73,7 +73,7 @@ int main()
   printShapeInfo(testComposite[0]);
 
   // Deleting memeber shape
-  testComposite.deleteShape(0);
+  testComposite.remove(0);
   std::cout << "Composite after deleting circle: \n";
   printShapeInfo(testComposite);
   return 0;

@@ -17,7 +17,7 @@ BOOST_AUTO_TEST_CASE(sameParamsAfterMovingShapeRelatively)
   kozhin::Rectangle testRectangle({-10, 6}, 3, 7);
 
   kozhin::CompositeShape testComposite(testCircle);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
   const double initialArea = testComposite.getArea();
   const kozhin::rectangle_t initialFrameRect = testComposite.getFrameRect();
 
@@ -34,7 +34,7 @@ BOOST_AUTO_TEST_CASE(sameParamsAfterMovingShapeAbsolutely)
   kozhin::Rectangle testRectangle({-10, 6}, 3, 7);
 
   kozhin::CompositeShape testComposite(testCircle);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
   const double initialArea = testComposite.getArea();
   const kozhin::rectangle_t initialFrameRect = testComposite.getFrameRect();
 
@@ -51,7 +51,7 @@ BOOST_AUTO_TEST_CASE(areaChangeAfterShapeScaling)
   kozhin::Rectangle testRectangle({8, -3}, 3, 7);
 
   kozhin::CompositeShape testComposite(testCircle);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
 
   const double scaleRate = 3.2;
   const double initialArea = testComposite.getArea();
@@ -66,7 +66,7 @@ BOOST_AUTO_TEST_CASE(frameRectChangeAfterShapeScaling)
   kozhin::Rectangle testRectangle({8, -3}, 3, 7);
 
   kozhin::CompositeShape testComposite(testCircle);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
 
   const double scaleRate = 3.2;
   const kozhin::rectangle_t initialFrame = testComposite.getFrameRect();
@@ -87,7 +87,7 @@ BOOST_AUTO_TEST_CASE(areaChangeAfterAdding)
   const double initialArea = testComposite.getArea();
 
   kozhin::Rectangle testRectangle({-7, 6}, 5, 4);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
   const double newArea = testComposite.getArea();
 
   BOOST_CHECK_CLOSE(initialArea + testRectangle.getArea(), newArea, DIFF);
@@ -98,10 +98,10 @@ BOOST_AUTO_TEST_CASE(areaChangeAfterDeleting)
   kozhin::Circle testCircle({10, -5}, 5);
   kozhin::CompositeShape testComposite(testCircle);
   kozhin::Rectangle testRectangle({-7, 6}, 5, 4);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
   const double initialArea = testComposite.getArea();
 
-  testComposite.deleteShape(0);
+  testComposite.remove(0);
   const double newArea = testComposite.getArea();
 
   BOOST_CHECK_CLOSE(initialArea - testCircle.getArea(), newArea, DIFF);
@@ -134,7 +134,7 @@ BOOST_AUTO_TEST_CASE(nonPositiveScaleRateHandling)
   kozhin::Circle testCircle({5, -6}, 4);
   kozhin::Rectangle testRectangle({-10, 6}, 3, 7);
   kozhin::CompositeShape testComposite(testCircle);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
 
   BOOST_CHECK_THROW(testComposite.scale(-3), std::invalid_argument);
 }
@@ -144,9 +144,9 @@ BOOST_AUTO_TEST_CASE(accesingOutOfRangeHandling)
   kozhin::Circle testCircle({5, -6}, 4);
   kozhin::Rectangle testRectangle({-10, 6}, 3, 7);
   kozhin::CompositeShape testComposite(testCircle);
-  testComposite.addShape(testRectangle);
+  testComposite.add(testRectangle);
 
-  BOOST_CHECK_THROW(testComposite.getShape(5), std::out_of_range);
+  BOOST_CHECK_THROW(testComposite.get(5), std::out_of_range);
   BOOST_CHECK_THROW(testComposite[-1], std::out_of_range);
 }
 
