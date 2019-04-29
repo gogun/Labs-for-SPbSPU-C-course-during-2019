@@ -12,7 +12,6 @@ namespace sheve
     rectangle_t getFrameRect() const override;
     void move(const point_t &p) override;
     void move(double dx, double dy) override;
-    rectangle_t getSides() const;
     void scale(double coefficient) override;
     void printInfo() const override;
 
