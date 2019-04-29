@@ -58,7 +58,7 @@ maschenko::CompositeShape& maschenko::CompositeShape::operator =(CompositeShape&
   if (this != &rhs)
   {
     shape_count_ = rhs.shape_count_;
-    shape_array__.swap(rhs.shape_array_);
+    shape_array_.swap(rhs.shape_array_);
     rhs.shape_array_.reset();
     rhs.shape_count_ = 0;
   }
@@ -128,7 +128,7 @@ void maschenko::CompositeShape::scale(double coefficient)
     throw std::invalid_argument("Invalid coefficient for CompositeShape");
   }
 
-  const point_t pos = getFrameRect().pos
+  const point_t pos = getFrameRect().pos;
   for (int i = 0; i < shape_count_; ++i)
   {
     double dx = shape_array_[i]->getFrameRect().pos.x - pos.x;
