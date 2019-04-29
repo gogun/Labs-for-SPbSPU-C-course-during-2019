@@ -31,8 +31,8 @@ void gusarov::Circle::move(const gusarov::point_t &newPoint)
 }
 void gusarov::Circle::printInfo() const
 {
-  std::cout << "Radius of circle is " << radius_ <<'\n'
-            << "Center of circle is a point: (" << center_.x << ";" << center_.y << ")" << '\n';
+  std::cout << "Radius of circle is " << radius_ << '\n';
+  std::cout << "Center of circle is a point: (" << center_.x << ";" << center_.y << ")" << '\n';
 }
 void gusarov::Circle::scale(const double scale)
 {
