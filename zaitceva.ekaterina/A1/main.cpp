@@ -23,7 +23,6 @@ void showProgramWork(Shape &shape)
   printRect(shape);
 }
 
-
 int main()
 {
   std::cout << "Rectangle" << std::endl;

@@ -8,23 +8,14 @@ Triangle::Triangle(const point_t &point1, const point_t &point2, const point_t &
   point1_(point1),
   point2_(point2),
   point3_(point3),
-  centre_(getCentre()),
-  side1_(getSide(point1, point2)),
-  side2_(getSide(point2, point3)),
-  side3_(getSide(point1, point3))
+  centre_(getCentre())
 {
-  assert(((side1_ > 0) && (side2_ > 0) && (side3_ > 0))
-      && (2 * std::max({side1_, side2_, side3_}) < (side1_ + side2_ + side3_)));
+  assert(getArea() > 0.0);
 }
 
 point_t Triangle::getCentre() const
 {
   return {(point1_.x + point2_.x + point3_.x)/3, (point1_.y + point2_.y + point3_.y)/3};
-}
-
-double Triangle::getSide(const point_t &point1, const point_t &point2)
-{
-  return sqrt((point1.x - point2.x) * (point1.x - point2.x) + (point1.y - point2.y) * (point1.y - point2.y));
 }
 
 double Triangle::getArea() const
@@ -64,6 +55,5 @@ void Triangle::move(double dx, double dy)
 
 void Triangle::printTriang() const
 {
-  std::cout << "Sides: " << side1_ << ", " << side2_ << ", " << side3_ << std::endl;
   std::cout << "Centre of gravity:" << " (" << centre_.x << "," << centre_.y << ")" << std::endl;
 }
