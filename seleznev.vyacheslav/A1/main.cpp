@@ -1,11 +1,12 @@
 #include <iostream>
+#include <cassert>
 
 #include "base-types.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
 #include "triangle.hpp"
 
-std::ostream & operator <<(std::ostream & out , const rectangle_t rect)
+std::ostream & operator <<(std::ostream & out, const rectangle_t rect)
 {
   out << "Frame rect width = " << rect.width << " " <<
     "height = " << rect.height << " " <<
@@ -17,12 +18,14 @@ std::ostream & operator <<(std::ostream & out , const rectangle_t rect)
 
 void printShape(Shape *shape)
 {
+  assert(shape != nullptr);
   std::cout << "Area = " << shape->getArea() << std::endl;
   std::cout << "Frame rect " << shape->getFrameRect();
 }
 
 void demonstrateShapeCapabilities(Shape *shape, std::string figure)
 {
+  assert(shape != nullptr);
   std::cout << figure << std::endl;
   printShape(shape);
   std::cout << "Set new centre point" << std::endl;
