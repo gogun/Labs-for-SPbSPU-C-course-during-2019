@@ -35,14 +35,7 @@ void tagiev::Triangle::move(const tagiev::point_t &newPoint)
   const double dx = newPoint.x - center_.x;
   const double dy = newPoint.y - center_.y;
 
-  pointA_.x += dx;
-  pointA_.y += dy;
-
-  pointB_.x += dx;
-  pointB_.y += dy;
-
-  pointC_.x += dx;
-  pointC_.y += dy;
+  move(dx, dy);
 
   center_ = newPoint;
 }
