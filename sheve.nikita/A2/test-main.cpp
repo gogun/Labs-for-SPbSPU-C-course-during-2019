@@ -28,8 +28,8 @@ BOOST_AUTO_TEST_CASE(Moving_by_dx_dy)
   const double height_original_d = rec.getFrameRect().height;
   const double area_original_d = rec.getArea();
   rec.move(10, -30);
-  BOOST_CHECK_EQUAL(width_original_d, rec.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original_d, rec.getFrameRect().height);
+  BOOST_CHECK_CLOSE(width_original_d, rec.getFrameRect().width);
+  BOOST_CHECK_CLOSE(height_original_d, rec.getFrameRect().height);
   BOOST_CHECK_CLOSE(area_original_d, rec.getArea(), EPSILON);
 }
 
@@ -40,8 +40,8 @@ BOOST_AUTO_TEST_CASE(Moving_by_point)
   const double height_original = rec.getFrameRect().height;
   const double area_original = rec.getArea();
   rec.move({ -27, 52 });
-  BOOST_CHECK_EQUAL(width_original, rec.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, rec.getFrameRect().height);
+  BOOST_CHECK_CLOSE(width_original, rec.getFrameRect().width);
+  BOOST_CHECK_CLOSE(height_original, rec.getFrameRect().height);
   BOOST_CHECK_CLOSE(area_original, rec.getArea(), EPSILON);
 }
 
@@ -77,8 +77,8 @@ BOOST_AUTO_TEST_CASE(Move_dx_dy)
   const double height_original = cir.getFrameRect().height;
   const double area_original = cir.getArea();
   cir.move(-12, 9);
-  BOOST_CHECK_EQUAL(width_original, cir.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, cir.getFrameRect().height);
+  BOOST_CHECK_CLOSE(width_original, cir.getFrameRect().width);
+  BOOST_CHECK_CLOSE(height_original, cir.getFrameRect().height);
   BOOST_CHECK_CLOSE(area_original, cir.getArea(), EPSILON);
 }
 
@@ -89,8 +89,8 @@ BOOST_AUTO_TEST_CASE(move_point)
   const double height_original = cir.getFrameRect().height;
   const double area_original = cir.getArea();
   cir.move({ 32, -6 });
-  BOOST_CHECK_EQUAL(width_original, cir.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, cir.getFrameRect().height);
+  BOOST_CHECK_CLOSE(width_original, cir.getFrameRect().width);
+  BOOST_CHECK_CLOSE(height_original, cir.getFrameRect().height);
   BOOST_CHECK_CLOSE(area_original, cir.getArea(), EPSILON);
 }
 
@@ -126,8 +126,8 @@ BOOST_AUTO_TEST_CASE(Move_dx_dy)
   const double height_original = tri.getFrameRect().height;
   const double area_original = tri.getArea();
   tri.move(10, 20);
-  BOOST_CHECK_EQUAL(width_original, tri.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, tri.getFrameRect().height);
+  BOOST_CHECK_CLOSE(width_original, tri.getFrameRect().width);
+  BOOST_CHECK_CLOSE(height_original, tri.getFrameRect().height);
   BOOST_CHECK_CLOSE(area_original, tri.getArea(), EPSILON);
 }
 
@@ -138,8 +138,8 @@ BOOST_AUTO_TEST_CASE(move_point)
   const double height_original = tri.getFrameRect().height;
   const double area_original = tri.getArea();
   tri.move({ -7, 4 });
-  BOOST_CHECK_EQUAL(width_original, tri.getFrameRect().width);
-  BOOST_CHECK_EQUAL(height_original, tri.getFrameRect().height);
+  BOOST_CHECK_CLOSE(width_original, tri.getFrameRect().width);
+  BOOST_CHECK_CLOSE(height_original, tri.getFrameRect().height);
   BOOST_CHECK_CLOSE(area_original, tri.getArea(), EPSILON);
 }
 
