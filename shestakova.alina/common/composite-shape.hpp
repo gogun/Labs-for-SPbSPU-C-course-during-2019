@@ -9,8 +9,14 @@ namespace shestakova
   {
   public:
     CompositeShape();
-    CompositeShape(Shape &shape);
-    ~CompositeShape() override;
+    CompositeShape(const CompositeShape& copiedCompositeShape);
+    CompositeShape(CompositeShape&& movedCompositeShape);
+    CompositeShape(Shape& shape);
+    ~CompositeShape();
+
+    CompositeShape &operator =(const CompositeShape &copiedCompositeShape);
+    CompositeShape &operator =(CompositeShape &&movedCompositeShape);
+    //Shape *operator [](int) const;
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;

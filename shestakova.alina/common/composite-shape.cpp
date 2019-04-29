@@ -6,11 +6,53 @@ shestakova::CompositeShape::CompositeShape() :
   figures_()
 {}
 
-shestakova::CompositeShape::CompositeShape(Shape &shape) :
+shestakova::CompositeShape::CompositeShape(const CompositeShape& copiedCompositeShape) :
+  count_(copiedCompositeShape.count_),
+  figures_(new Shape *[copiedCompositeShape.count_])
+{
+  for (int i = 0; i < count_; ++i)
+  {
+    figures_[i] = copiedCompositeShape.figures_[i];
+  }
+}
+
+shestakova::CompositeShape::CompositeShape(CompositeShape&& movedCompositeShape) :
+  count_(movedCompositeShape.count_),
+  figures_(movedCompositeShape.figures_)
+{}
+
+shestakova::CompositeShape::CompositeShape(Shape& shape) :
   count_(1),
   figures_(new Shape*[1])
 {
-  figures_[0] = &shape;
+   figures_[0] = &shape;
+}
+
+shestakova::CompositeShape &shestakova::CompositeShape::operator =(const CompositeShape &copiedCompositeShape)
+{
+  if (this != &copiedCompositeShape)
+  {
+    delete [] figures_;
+    count_ = copiedCompositeShape.count_;
+    figures_ = new Shape*[copiedCompositeShape.count_];
+    for (int i = 0; i < count_; i++)
+    {
+      figures_[i] = copiedCompositeShape.figures_[i];
+    }
+  }
+  return *this;
+}
+
+shestakova::CompositeShape &shestakova::CompositeShape::operator =(CompositeShape &&movedCompositeShape)
+{
+  if (this != &movedCompositeShape)
+  {
+    count_ = movedCompositeShape.count_;
+    figures_ = movedCompositeShape.figures_;
+    movedCompositeShape.figures_ = nullptr;
+    movedCompositeShape.count_ = 0;
+  }
+  return *this;
 }
 
 shestakova::CompositeShape::~CompositeShape()
