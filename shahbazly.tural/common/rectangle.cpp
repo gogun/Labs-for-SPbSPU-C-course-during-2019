@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-shahbazly::Rectangle::Rectangle(const point_t &pos, const double &width, const double &height):
+shahbazly::Rectangle::Rectangle(const point_t & pos, const double & width, const double & height):
   m_height(height),
   m_width(width),
   m_center(pos)
