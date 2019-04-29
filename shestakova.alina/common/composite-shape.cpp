@@ -19,7 +19,10 @@ shestakova::CompositeShape::CompositeShape(const CompositeShape& copiedComposite
 shestakova::CompositeShape::CompositeShape(CompositeShape&& movedCompositeShape) :
   count_(movedCompositeShape.count_),
   figures_(movedCompositeShape.figures_)
-{}
+{
+    movedCompositeShape.figures_ = nullptr;
+    movedCompositeShape.count_ = 0;
+}
 
 shestakova::CompositeShape::CompositeShape(Shape& shape) :
   count_(1),
