@@ -11,11 +11,11 @@
 BOOST_AUTO_TEST_SUITE(chizhovA3TestSuite)
 
 const double EPSILON = 0.01;
+chizhov::Circle circle({1, 2}, 1);
+chizhov::Rectangle rectangle({2 ,1}, 2);
 
 BOOST_AUTO_TEST_CASE(compositeConstantAfterMove)
 {
-  chizhov::Circle circle({1, 2}, 1);
-  chizhov::Rectangle rectangle({2 ,1}, 2);
   chizhov::CompositeShape composite(&circle);
   composite.addShape(&rectangle);
   const chizhov::rectangle_t frameBefore = composite.getFrameRect();
@@ -38,8 +38,6 @@ BOOST_AUTO_TEST_CASE(compositeConstantAfterMove)
 
 BOOST_AUTO_TEST_CASE(compositeScale)
 {
-  chizhov::Circle circle({1, 2}, 1);
-  chizhov::Rectangle rectangle({2 ,1}, 2);
   chizhov::CompositeShape composite(&circle);
   composite.addShape(&rectangle);
   const double areaBefore = composite.getArea();
@@ -50,18 +48,28 @@ BOOST_AUTO_TEST_CASE(compositeScale)
   BOOST_CHECK_CLOSE(areaBefore * scaleMultiplier * scaleMultiplier, areaAfter, EPSILON);
 }
 
-BOOST_AUTO_TEST_CASE(throwingExceptions)
+BOOST_AUTO_TEST_CASE(scaleEmptyException)
 {
-  chizhov::Circle circle({1, 2}, 1);
-  chizhov::CompositeShape composite;
-  BOOST_CHECK_THROW(composite.scale(2), std::logic_error);
-  BOOST_CHECK_THROW(composite.move({1, 1}), std::logic_error);
+  chizhov::CompositeShape emptyComposite;
+  BOOST_CHECK_THROW(emptyComposite.scale(2), std::logic_error);
+}
 
-  composite.addShape(&circle);
+BOOST_AUTO_TEST_CASE(moveEmptyException)
+{
+  chizhov::CompositeShape emptyComposite;
+  BOOST_CHECK_THROW(emptyComposite.move({1, 1}), std::logic_error);
+}
+
+BOOST_AUTO_TEST_CASE(scaleZeroException)
+{
+  chizhov::CompositeShape composite(&circle);
   BOOST_CHECK_THROW(composite.scale(0), std::invalid_argument);
+}
 
-  composite = chizhov::CompositeShape();
-  BOOST_CHECK_THROW(composite.addShape(nullptr), std::invalid_argument);
+BOOST_AUTO_TEST_CASE(nullShapeException)
+{
+  chizhov::CompositeShape emptyComposite;
+  BOOST_CHECK_THROW(emptyComposite.addShape(nullptr), std::invalid_argument);
   BOOST_CHECK_THROW(chizhov::CompositeShape(nullptr), std::invalid_argument);
 }
 

@@ -30,7 +30,6 @@ namespace chizhov
     int count_;
 
     inline void copyFromSource(const CompositeShape&);
-    inline void selfDestruct();
   };
 }
 

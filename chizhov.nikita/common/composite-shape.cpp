@@ -27,7 +27,7 @@ chizhov::CompositeShape::CompositeShape(chizhov::Shape* shape) :
     count_(1)
 {
   if (shape == nullptr) {
-    selfDestruct();
+    delete [] shapes_;
     throw std::invalid_argument("Shape cannot be null!");
   }
 
@@ -36,7 +36,7 @@ chizhov::CompositeShape::CompositeShape(chizhov::Shape* shape) :
 
 chizhov::CompositeShape::~CompositeShape()
 {
-  selfDestruct();
+  delete [] shapes_;
 }
 
 chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::CompositeShape& rhs)
@@ -127,7 +127,6 @@ void chizhov::CompositeShape::move(chizhov::point_t position)
 void chizhov::CompositeShape::scale(double scale)
 {
   if (scale <= 0) {
-    selfDestruct();
     throw std::invalid_argument("You cannot scale by non-positive multiplier");
   }
 
@@ -148,7 +147,6 @@ void chizhov::CompositeShape::scale(double scale)
 void chizhov::CompositeShape::addShape(chizhov::Shape* shape)
 {
   if (shape == nullptr) {
-    selfDestruct();
     throw std::invalid_argument("Shape cannot be null!");
   }
 
@@ -196,12 +194,5 @@ void chizhov::CompositeShape::copyFromSource(const chizhov::CompositeShape& sour
 {
   for (int i = 0; i < count_; i++) {
     shapes_[i] = source.shapes_[i];
-  }
-}
-
-void chizhov::CompositeShape::selfDestruct()
-{
-  if (count_ > 0) {
-    delete [] shapes_;
   }
 }
