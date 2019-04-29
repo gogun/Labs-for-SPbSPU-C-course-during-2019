@@ -32,7 +32,6 @@ BOOST_AUTO_TEST_CASE(compositeShapeConstancyOfParameters)
   BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, fault);
   BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, fault);
   BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, fault);
-
 }
 
 BOOST_AUTO_TEST_CASE(compositeShapeScale)
