@@ -18,7 +18,7 @@ double dyu::Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-  dyu::rectangle_t dyu::Circle::getFrameRect() const
+dyu::rectangle_t dyu::Circle::getFrameRect() const
 {
   return rectangle_t {2 * radius_, 2 * radius_, pos_};
 }
