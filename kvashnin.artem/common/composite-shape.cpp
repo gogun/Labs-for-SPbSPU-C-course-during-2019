@@ -48,6 +48,7 @@ kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeSh
     newArray[i] = rh.array_[i];
   }
   array_.swap(newArray);
+  return *this;
 }
 
 kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(CompositeShape&& rh)
