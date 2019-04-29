@@ -14,9 +14,11 @@ public:
   void printInfo() const override;
 
   double getSide(const point_t &, const point_t &) const;
+
 private:
-  point_t pointA_, pointB_, pointC_;
-  double a_, b_, c_;
+  point_t pointA_;
+  point_t pointB_;
+  point_t pointC_;
 };
 
 #endif
