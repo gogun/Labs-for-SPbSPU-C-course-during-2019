@@ -31,7 +31,8 @@ void gusarov::Rectangle::move(const gusarov::point_t &newPoint)
 }
 void gusarov::Rectangle::printInfo() const
 {
-  std::cout << "Width of rectangle is " << width_ << "Height of rectangle is " << height_ << '\n';
+  std::cout << "Width of rectangle is " << width_ << '\n';
+  std::cout << "Height of rectangle is " << height_ << '\n';
   std::cout << "Center of rectangle is a point: (" << center_.x << ";" << center_.y << ")" << '\n';
 }
 void gusarov::Rectangle::scale(const double scale)
