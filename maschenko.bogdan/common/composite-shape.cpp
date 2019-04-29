@@ -8,6 +8,21 @@ maschenko::CompositeShape::CompositeShape() :
   shape_array_()
 {}
 
+maschenko::CompositeShape::CompositeShape(const maschenko::CompositeShape &cs) :
+  shape_count_(cs.shape_count_),
+  shape_array_(new maschenko::Shape*[cs.shape_count_])
+{
+  for (int i = 0; i < shape_count_; ++i)
+  {
+    shape_array_[i] = cs.shape_array_[i];
+  }
+}
+
+maschenko::CompositeShape::CompositeShape(maschenko::CompositeShape &&cs) :
+  shape_count_(cs.shape_count_),
+  shape_array_(std::move(cs.shape_array_))
+{}
+
 maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
   shape_count_(1),
   shape_array_(new maschenko::Shape*[1])
@@ -17,6 +32,38 @@ maschenko::CompositeShape::CompositeShape(maschenko::Shape *shape) :
     throw std::invalid_argument("shape equals null. It can't be");
   }
   shape_array_[0] = shape;
+}
+
+maschenko::CompositeShape::~CompositeShape()
+{}
+
+maschenko::CompositeShape& maschenko::CompositeShape::operator =(const CompositeShape& rhs)
+{
+  if (this != &rhs)
+  {
+    shape_count_ = rhs.shape_count_;
+    std::unique_ptr<Shape*[]> new_shape_array(new Shape*[rhs.shape_count_]);
+    for (int i = 0; i < shape_count_; i++)
+    {
+      new_shape_array[i] = rhs.shape_array_[i];
+    }
+    shape_array_.swap(new_shape_array);
+  }
+
+  return *this;
+}
+
+maschenko::CompositeShape& maschenko::CompositeShape::operator =(CompositeShape&& rhs)
+{
+  if (this != &rhs)
+  {
+    shape_count_ = rhs.shape_count_;
+    shape_array__.swap(rhs.shape_array_);
+    rhs.shape_array_.reset();
+    rhs.shape_count_ = 0;
+  }
+
+  return *this;
 }
 
 double maschenko::CompositeShape::getArea() const
@@ -76,19 +123,18 @@ void maschenko::CompositeShape::move(const maschenko::point_t &center)
 
 void maschenko::CompositeShape::scale(double coefficient)
 {
-  if (coefficient > 0)
-  {
-    for (int i = 0; i < shape_count_; ++i)
-    {
-      double dx = shape_array_[i]->getFrameRect().pos.x - getFrameRect().pos.x;
-      double dy = shape_array_[i]->getFrameRect().pos.y - getFrameRect().pos.y;
-      shape_array_[i]->move((coefficient - 1) * dx, (coefficient - 1) * dy);
-      shape_array_[i]->scale(coefficient);
-    }
-  }
-  else
+  if (coefficient <= 0)
   {
     throw std::invalid_argument("Invalid coefficient for CompositeShape");
+  }
+
+  const point_t pos = getFrameRect().pos
+  for (int i = 0; i < shape_count_; ++i)
+  {
+    double dx = shape_array_[i]->getFrameRect().pos.x - pos.x;
+    double dy = shape_array_[i]->getFrameRect().pos.y - pos.y;
+    shape_array_[i]->move((coefficient - 1) * dx, (coefficient - 1) * dy);
+    shape_array_[i]->scale(coefficient);
   }
 }
 
@@ -164,7 +210,7 @@ void maschenko::CompositeShape::removeShape(maschenko::Shape *shape)
   throw std::invalid_argument("This shape doesn't exist");
 }
 
-maschenko::Shape* maschenko::CompositeShape::getShapeAt(int index) const
+maschenko::Shape* maschenko::CompositeShape::getPointerOnShapeByIndex(int index) const
 {
   if (index > shape_count_)
   {

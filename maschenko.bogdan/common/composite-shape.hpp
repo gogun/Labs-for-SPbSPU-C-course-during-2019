@@ -10,7 +10,13 @@ namespace maschenko
   {
   public:
     CompositeShape();
+    CompositeShape(const CompositeShape &cs);
+    CompositeShape(CompositeShape &&cs);
     CompositeShape(maschenko::Shape *shape);
+    ~CompositeShape();
+
+    CompositeShape& operator =(const CompositeShape& rhs);
+    CompositeShape& operator =(CompositeShape&& rhs);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
@@ -22,7 +28,7 @@ namespace maschenko
     void addShape(Shape *shape);
     void removeShape(Shape *shape);
     void removeShape(int index);
-    Shape* getShapeAt(int index) const;
+    Shape* getPointerOnShapeByIndex(int index) const;
 
   private:
     int shape_count_;
