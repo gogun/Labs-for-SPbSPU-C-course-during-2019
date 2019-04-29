@@ -58,7 +58,7 @@ double rodchenkov::Circle::getRadius() const noexcept
   return radius_;
 }
 
-std::unique_ptr<rodchenkov::Shape> rodchenkov::Circle::cloneUnique() const
+std::unique_ptr<rodchenkov::Shape> rodchenkov::Circle::clone() const
 {
   return std::make_unique<Circle>(*this);
 }

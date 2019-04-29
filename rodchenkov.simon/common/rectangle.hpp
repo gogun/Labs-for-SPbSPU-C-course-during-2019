@@ -12,7 +12,7 @@ public:
 
   double                 getArea()                const noexcept override;
   rectangle_t            getFrameRect()           const noexcept override;
-  std::unique_ptr<Shape> cloneUnique()            const          override;
+  std::unique_ptr<Shape> clone()                  const          override;
   void                   printData(std::ostream&) const          override;
   void                   move(const point_t&)           noexcept override;
   void                   move(double, double)           noexcept override;
