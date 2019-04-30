@@ -111,8 +111,8 @@ BOOST_AUTO_TEST_CASE(movingEmptyShapeHandling)
 {
   kozhin::CompositeShape testComposite;
 
-  BOOST_CHECK_THROW(testComposite.move(3,5), std::logic_error);
-  BOOST_CHECK_THROW(testComposite.move({5,6}), std::logic_error);
+  BOOST_CHECK_THROW(testComposite.move(3, 5), std::logic_error);
+  BOOST_CHECK_THROW(testComposite.move({5, 6}), std::logic_error);
 }
 
 BOOST_AUTO_TEST_CASE(gettingEmptyShapeAreaHandling)
@@ -146,7 +146,6 @@ BOOST_AUTO_TEST_CASE(accesingOutOfRangeHandling)
   kozhin::CompositeShape testComposite(testCircle);
   testComposite.add(testRectangle);
 
-  BOOST_CHECK_THROW(testComposite.get(5), std::out_of_range);
   BOOST_CHECK_THROW(testComposite[-1], std::out_of_range);
 }
 

@@ -20,7 +20,10 @@ kozhin::CompositeShape::CompositeShape(const kozhin::CompositeShape& rhs) :
   size_(rhs.size_),
   shapeList_(new kozhin::Shape*[rhs.size_])
 {
-  std::copy(rhs.shapeList_, rhs.shapeList_ + size_, shapeList_);
+  for (int i = 0; i < size_; ++i)
+  {
+    shapeList_[i] = rhs.shapeList_[i];
+  }
 }
 
 kozhin::CompositeShape::CompositeShape(kozhin::CompositeShape&& rhs) :
@@ -46,7 +49,10 @@ kozhin::CompositeShape& kozhin::CompositeShape::operator=(const kozhin::Composit
     size_ = rhs.size_;
     delete[] shapeList_;
     shapeList_ = new kozhin::Shape*[size_];
-    std::copy(rhs.shapeList_, rhs.shapeList_ + size_, shapeList_);
+    for (int i = 0; i < size_; ++i)
+    {
+      shapeList_[i] = rhs.shapeList_[i];
+    }
   }
   return *this;
 }
@@ -70,7 +76,11 @@ kozhin::CompositeShape& kozhin::CompositeShape::operator=(kozhin::CompositeShape
 
 kozhin::Shape& kozhin::CompositeShape::operator[](int ind) const
 {
-  return get(ind);
+  if ((ind < 0) || (ind + 1 > count_))
+  {
+    throw std::out_of_range("Index out of range.");
+  }
+  return *shapeList_[ind];
 }
 
 void kozhin::CompositeShape::add(kozhin::Shape& newShape)
@@ -79,7 +89,10 @@ void kozhin::CompositeShape::add(kozhin::Shape& newShape)
   if (count_ > size_)
   {
     kozhin::Shape** tmpList = new kozhin::Shape*[count_];
-    std::copy(shapeList_, shapeList_ + size_, tmpList);
+    for (int i = 0; i < size_; ++i)
+    {
+      tmpList[i] = shapeList_[i];
+    }
     delete[] shapeList_;
     shapeList_ = tmpList;
     tmpList = nullptr;
@@ -90,7 +103,7 @@ void kozhin::CompositeShape::add(kozhin::Shape& newShape)
 
 void kozhin::CompositeShape::remove(int ind)
 {
-  if (ind < 0 || ind + 1 > count_)
+  if ((ind < 0) || (ind + 1 > count_))
   {
     throw std::out_of_range("Index out of range.");
   }
@@ -101,15 +114,6 @@ void kozhin::CompositeShape::remove(int ind)
   }
   shapeList_[count_ - 1] = nullptr;
   --count_;
-}
-
-kozhin::Shape& kozhin::CompositeShape::get(int ind) const
-{
-  if (ind < 0 || ind + 1 > count_)
-  {
-    throw std::out_of_range("Index out of range.");
-  }
-  return *shapeList_[ind];
 }
 
 double kozhin::CompositeShape::getArea() const
@@ -192,8 +196,7 @@ void kozhin::CompositeShape::scale(double rate)
   for (int i = 0; i < count_; ++i)
   {
     kozhin::point_t shapeCenter = shapeList_[i]->getCenter();
-    shapeList_[i]->move((shapeCenter.x - center.x) * (rate - 1),
-                        (shapeCenter.y - center.y) * (rate - 1));
+    shapeList_[i]->move((shapeCenter.x - center.x) * (rate - 1), (shapeCenter.y - center.y) * (rate - 1));
     shapeList_[i]->scale(rate);
   }
 }

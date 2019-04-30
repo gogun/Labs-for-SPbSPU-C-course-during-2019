@@ -17,7 +17,6 @@ namespace kozhin
     Shape& operator[](int) const;
     void add(Shape&);
     void remove(int);
-    Shape& get(int) const;
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     point_t getCenter() const override;
