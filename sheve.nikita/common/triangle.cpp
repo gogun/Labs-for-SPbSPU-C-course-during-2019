@@ -18,8 +18,7 @@ sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p
 
 double sheve::Triangle::getArea() const
 {
-  const double area = ((m_b.x - m_a.x) * (m_c.y - m_a.y) - (m_c.x - m_a.x) * (m_b.y - m_a.y)) / 2;
-  return area;
+  return std::abs((m_b.x - m_a.x) * (m_c.y - m_a.y) - (m_c.x - m_a.x) * (m_b.y - m_a.y)) / 2;
 }
 
 sheve::rectangle_t sheve::Triangle::getFrameRect() const
@@ -60,9 +59,12 @@ void sheve::Triangle::scale(double coefficient)
   }
   else
   {
-    m_a = { m_pos.x + (m_a.x - m_pos.x) * coefficient, m_pos.y + (m_a.y - m_pos.y) * coefficient };
-    m_b = { m_pos.x + (m_b.x - m_pos.x) * coefficient, m_pos.y + (m_b.y - m_pos.y) * coefficient };
-    m_c = { m_pos.x + (m_c.x - m_pos.x) * coefficient, m_pos.y + (m_c.y - m_pos.y) * coefficient };
+    m_a.x = (m_a.x - m_pos.x) * coefficient + m_pos.x;
+    m_a.y = (m_a.y - m_pos.y) * coefficient + m_pos.y;
+    m_b.x = (m_b.x - m_pos.x) * coefficient + m_pos.x;
+    m_b.y = (m_b.y - m_pos.y) * coefficient + m_pos.y;
+    m_c.x = (m_c.x - m_pos.x) * coefficient + m_pos.x;
+    m_c.y = (m_c.y - m_pos.y) * coefficient + m_pos.y;
   }
 }
 
