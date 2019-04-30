@@ -20,7 +20,7 @@ public:
   Shape&                operator [] (std::size_t) const;
 
   double                 getArea()                const noexcept override;
-  rectangle_t            getFrameRect()           const noexcept override; 
+  rectangle_t            getFrameRect()           const noexcept override;
   std::unique_ptr<Shape> clone()                  const          override;
   void                   printData(std::ostream&) const          override;
   void                   move(const point_t&)           noexcept override;
