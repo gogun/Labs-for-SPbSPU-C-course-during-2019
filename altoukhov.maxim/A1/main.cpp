@@ -14,9 +14,9 @@ void printFrameRect(const Shape& shape)
   std::cout << "Frame rectangle height - " << shape.getFrameRect().height << '\n';
 }
 
-void printPosition(const Shape& shape)
+void printCenter(const Shape& shape)
 {
-  std::cout << "Position - " << shape.getFrameRect().pos.x << ',' << shape.getFrameRect().pos.y << '\n';
+  std::cout << "Center - " << shape.getCenter().x << ',' << shape.getCenter().y << '\n';
 }
 
 int main()
@@ -28,24 +28,24 @@ int main()
   printArea(rectangle);
   printFrameRect(rectangle);
   rectangle.move({1, 1});
-  rectangle.move(2, 2);
-  printPosition(rectangle);
+  rectangle.move(1, 1);
+  printCenter(rectangle);
   std::cout << '\n';
 
-  Circle circle(center, 3);
+  Circle circle(center, 2);
   std::cout << "CIRCLE:\n";
   printArea(circle);
   printFrameRect(circle);
   circle.move({1, 1});
-  circle.move(2, 2);
-  printPosition(circle);
+  circle.move(1, 1);
+  printCenter(circle);
   std::cout << '\n';
 
-  Triangle triangle(center, 2, 4);
+  Triangle triangle({ 0,0 }, { 2, 2 }, { 4, 0 });
   std::cout << "TRIANGLE:\n";
   printArea(triangle);
   printFrameRect(triangle);
   triangle.move({1, 1});
-  triangle.move(2, 2);
-  printPosition(triangle);
+  triangle.move(1, 1);
+  printCenter(triangle);
 }

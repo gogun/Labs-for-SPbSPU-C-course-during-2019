@@ -1,32 +1,44 @@
 #include "triangle.hpp"
+#include <algorithm>
 #include <cassert>
-#include <cmath>
 
-Triangle::Triangle(const point_t& pos, double base, double height):
-  pos_{pos},
-  base_{base},
-  height_{height}
+Triangle::Triangle(const point_t& a, const point_t& b, const point_t& c):
+  a_{a},
+  b_{b},
+  c_{c}
 {
-  assert((base > 0) && (height > 0));
+  assert(getArea() > 0);
 }
   
 double Triangle::getArea() const
 {
-  return (base_ * height_) / 2;
+  return (abs((a_.x - c_.x) * (b_.y - c_.y) - (b_.x - c_.x) * (a_.y - c_.y)) / 2);
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  return {pos_, base_, height_};
+  double width = std::max({a_.x, b_.x, c_.x}) - std::min({a_.x, b_.x, c_.x});
+  double height = std::max({a_.y, b_.y, c_.y}) - std::min({a_.y, b_.y, c_.y});
+  return {getCenter(), width, height};
 }
 
-void Triangle::move(const point_t& pos)
+point_t Triangle::getCenter() const
 {
-  pos_ = pos;
+  return {(a_.x + b_.x + c_.x) / 3, (a_.y + b_.y + c_.y) / 3};
+}
+
+void Triangle::move(const point_t& point)
+{
+  point_t center = getCenter();
+  move(point.x - center.x, point.y - center.y);
 }
 
 void Triangle::move(double x, double y)
 {
-  pos_.x += x;
-  pos_.y += y;
+  a_.x += x;
+  b_.x += x;
+  c_.x += x;
+  a_.y += y;
+  b_.y += y;
+  c_.y += y;
 }
