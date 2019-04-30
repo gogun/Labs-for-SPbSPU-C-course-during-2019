@@ -20,7 +20,7 @@ double ivanov::Circle::getArea() const
 
 ivanov::rectangle_t ivanov::Circle::getFrameRect() const
 {
-  return {radius_ * 2, radius_ * 2, center_};
+  return { radius_ * 2, radius_ * 2, center_ };
 }
 
 void ivanov::Circle::move(const point_t &point)
