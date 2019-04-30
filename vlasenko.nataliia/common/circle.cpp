@@ -6,11 +6,11 @@
 #include <stdexcept>
 #include <math.h>
 
-vlasenko::Circle::Circle(const vlasenko::point_t &position, const double &radius)://const double radius
+vlasenko::Circle::Circle(const vlasenko::point_t &position, const double &radius):
   radius_(radius),
   center_(position)
 {
-    if (radius_ <= 0)
+  if (radius_ <= 0)
     {
       throw std::invalid_argument("Need a positive value of radius");
     }
@@ -52,10 +52,10 @@ void vlasenko::Circle::move(const double &shift_x, const double &shift_y)
 }
 
 void vlasenko::Circle::scale(double value)
-{
-  if (value <= 0)
-  {
-    throw std::invalid_argument("Need a positive value");
-  }
+{ 
+ if (value <= 0)
+   {
+     throw std::invalid_argument("Need a positive value");
+   }
   radius_ *= value;
 }

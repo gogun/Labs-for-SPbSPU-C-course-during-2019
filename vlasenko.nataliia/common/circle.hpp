@@ -8,7 +8,7 @@ namespace vlasenko
   class Circle : public Shape
   {
   public:
-    Circle(const point_t &, const double &);//const double
+    Circle(const point_t &, const double &);
 
     double getArea() const;
     rectangle_t getFrameRect() const;
