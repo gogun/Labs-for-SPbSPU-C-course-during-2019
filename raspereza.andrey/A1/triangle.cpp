@@ -10,11 +10,6 @@ Triangle::Triangle(const point_t &vertexA, const point_t &vertexB, const point_t
   vertexC_(vertexC),
   center_ {(vertexA.x + vertexB.x + vertexC.x) / 3 , (vertexA.y + vertexB.y + vertexC.y) / 3}
 {
-  assert((vertexA_.x != vertexB_.x) || (vertexA_.x != vertexC_.x));
-  assert((vertexA_.x != vertexB_.x) || (vertexA_.y != vertexB_.y));
-  assert((vertexA_.x != vertexC_.x) || (vertexA_.y != vertexC_.y));
-  assert((vertexB_.x != vertexC_.x) || (vertexB_.y != vertexC_.y));
-  assert((vertexA_.y != vertexB_.y) || (vertexA_.y != vertexC_.y));
   assert(getArea() != 0.0);
 }
 
@@ -40,8 +35,7 @@ rectangle_t Triangle::getFrameRect() const
   const double height = maxY - minY;
   const point_t centerRect = {(minX + width) / 2, (minY + height) / 2};
 
-  std::cout << "Center = " << centerRect.x << ";" << centerRect.y;
-  return {height, width};
+  return {height, width, centerRect.y, centerRect.x};
 }
 
 void Triangle::move(const point_t &newCenter)

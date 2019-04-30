@@ -4,42 +4,45 @@
 #include "triangle.hpp"
 
 int main()
-{ 
+{
   Circle circ1({4.0, 2.2}, 5.0);
+  Shape *shapePointer = &circ1;
+
   std::cout << "Circle\n";
-  circ1.printInfo();
-  std::cout << "S = " << circ1.getArea() << "\n";
-  
-  circ1.move({2.3, 3.5});
+  shapePointer->printInfo();
+  std::cout << "S = " << shapePointer->getArea() << "\n";
 
-  Shape *circPointer = &circ1;
-  rectangle_t temp_rect1 = circPointer->getFrameRect();
-  std::cout << "Center = " << temp_rect1.pos.x << ";" << temp_rect1.pos.y
-      << " Width = " << temp_rect1.width << " Height = " << temp_rect1.height << "\n";
-  
+  rectangle_t temp_rect = shapePointer->getFrameRect();
+  std::cout << "Center = " << temp_rect.pos.x << ";" << temp_rect.pos.y
+      << " Width = " << temp_rect.width << " Height = " << temp_rect.height << "\n";
+
+  shapePointer->move({2.3, 3.5});
+  shapePointer->printInfo();
+
   Rectangle rect1({3.4, 3.4}, 6.2, 6.2);
+  shapePointer = &rect1;
+
   std::cout << "Rectangle\n";
-  rect1.printInfo();
-  std::cout << "S = " << rect1.getArea() << "\n";
-
-  rect1.move(2.1, 4.0);
-
-  Shape *rectPointer = &rect1;
-  rectPointer->printInfo();
+  shapePointer->printInfo();
+  std::cout << "S = " << shapePointer->getArea() << "\n";
+  shapePointer->move(2.1, 4.0);
+  shapePointer->printInfo();
 
   Triangle trian1({2.2, 3.3}, {1.8, 3.7}, {5.0, 5.0});
+  shapePointer = &trian1;
+
   std::cout << "Triangle\n";
-  trian1.printInfo();
-  std::cout << "S = " << trian1.getArea() << "\n";
-  
-  trian1.move(2.1, 4.2);
-  trian1.printInfo();
-  trian1.move({6.0, 6.0});
-  trian1.printInfo();
-  
-  Shape *trianPointer = &trian1;
-  rectangle_t temp_rect2 = trianPointer->getFrameRect();
-  std::cout  << " Width = " << temp_rect2.width << " Height = " << temp_rect2.height << "\n";
+  shapePointer->printInfo();
+  std::cout << "S = " << shapePointer->getArea() << "\n";
+
+  temp_rect = shapePointer->getFrameRect();
+  std::cout << "Center = " << temp_rect.pos.x << ";" << temp_rect.pos.y
+      << " Width = " << temp_rect.width << " Height = " << temp_rect.height << "\n";
+
+  shapePointer->move(2.1, 4.2);
+  shapePointer->printInfo();
+  shapePointer->move({6.0, 6.0});
+  shapePointer->printInfo();
 
   return 0;
 }
