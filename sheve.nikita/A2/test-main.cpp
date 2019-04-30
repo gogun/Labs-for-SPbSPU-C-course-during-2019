@@ -17,7 +17,7 @@ BOOST_AUTO_TEST_CASE(create_rectangle)
 BOOST_AUTO_TEST_CASE(changing_Scale)
 {
   sheve::Rectangle rec({ 11, 23 }, 5, 50);
-  const double R = -12;
+  double R = -12;
   BOOST_CHECK_THROW(rec.scale(R), std::invalid_argument);
 }
 
@@ -49,7 +49,7 @@ BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
   const double area_original = rec.getArea();
-  const double R = 1.2;
+  double R = 1.2;
   rec.scale(R);
   BOOST_CHECK_CLOSE(area_original * R * R, rec.getArea(), EPSILON);
 }
@@ -66,7 +66,7 @@ BOOST_AUTO_TEST_CASE(invalid_Initialisation)
 BOOST_AUTO_TEST_CASE(invalid_Scale)
 {
   sheve::Circle cir({ 1, 1 }, 5);
-  const double C = -15;
+  double C = -15;
   BOOST_CHECK_THROW(cir.scale(C), std::invalid_argument);
 }
 
@@ -98,7 +98,7 @@ BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Circle cir({ 20, 30 }, 13);
   const double area_original = cir.getArea();
-  const double C = 0.9;
+  double C = 0.9;
   cir.scale(C);
   BOOST_CHECK_CLOSE(area_original * C * C, cir.getArea(), EPSILON);
 }
@@ -115,7 +115,7 @@ BOOST_AUTO_TEST_CASE(invalid_Initialisation)
 BOOST_AUTO_TEST_CASE(invalid_Scale)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
-  const double T = -19;
+  double T = -19;
   BOOST_CHECK_THROW(tri.scale(T), std::invalid_argument);
 }
 
@@ -147,7 +147,7 @@ BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
   const double area_original = tri.getArea();
-  const double T = 1.63;
+  double T = 1.63;
   tri.scale(T);
   BOOST_CHECK_CLOSE(area_original * T * T, tri.getArea(), EPSILON);
 }
