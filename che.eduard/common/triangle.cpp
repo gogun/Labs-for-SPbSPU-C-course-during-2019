@@ -10,7 +10,7 @@ che::Triangle::Triangle(const point_t& pointA, const point_t& pointB, const poin
   pointC_(pointC)
 {
   if (std::abs((pointB.x - pointA.x) * (pointC.y - pointA.y)
-	- (pointC.x - pointA.x) * (pointB.y - pointA.y)) < 0.0000001)
+	  - (pointC.x - pointA.x) * (pointB.y - pointA.y)) < 0.0000001)
   {
 	throw std::invalid_argument("Points can't lie on the same line");
   }
