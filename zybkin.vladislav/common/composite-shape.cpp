@@ -21,10 +21,14 @@ zybkin::CompositeShape::CompositeShape(zybkin::CompositeShape &&movedCompositeSh
   movedCompositeShape.count_ = 0;
 }
 
-zybkin::CompositeShape::CompositeShape(zybkin::Shape &shape) :
-  shapeArray_(new zybkin::Shape *[1]{&shape}),
+zybkin::CompositeShape::CompositeShape(zybkin::Shape * shape) :
+  shapeArray_(new zybkin::Shape *[1]{shape}),
   count_(1)
 {
+  if (shape == nullptr)
+  {
+    throw std::invalid_argument("Initial shape pointer must to be not null");
+  }
 }
 
 zybkin::CompositeShape::~CompositeShape()
@@ -45,7 +49,12 @@ zybkin::CompositeShape &zybkin::CompositeShape::operator =(zybkin::CompositeShap
 {
   if (this != &movedCompositeShape)
   {
-    CompositeShape(std::move(movedCompositeShape)).swap(*this);
+    count_ = movedCompositeShape.count_;
+    movedCompositeShape.count_ = 0;
+
+    delete [] shapeArray_;
+    shapeArray_ = movedCompositeShape.shapeArray_;
+    movedCompositeShape.shapeArray_ = nullptr;
   }
 
   return *this;
@@ -131,14 +140,19 @@ void zybkin::CompositeShape::scale(double coef)
   }
 }
 
-void zybkin::CompositeShape::addShape(zybkin::Shape &shape)
+void zybkin::CompositeShape::add(zybkin::Shape * shape)
 {
+  if (shape == nullptr)
+  {
+    throw std::invalid_argument("Added shape pointer must be not null");
+  }
+
   //check that we have empty cell
   for (int i = 1; i < count_; ++i)
   {
     if (shapeArray_[i] == nullptr)
     {
-      shapeArray_[i] = &shape;
+      shapeArray_[i] = shape;
       return;
     }
   }
@@ -149,13 +163,13 @@ void zybkin::CompositeShape::addShape(zybkin::Shape &shape)
   {
     temporaryArray[i] = shapeArray_[i];
   }
-  temporaryArray[count_] = &shape;
+  temporaryArray[count_] = shape;
   count_++;
   delete [] shapeArray_;
   shapeArray_ = temporaryArray;
 }
 
-void zybkin::CompositeShape::deleteShape(int index)
+void zybkin::CompositeShape::remove(int index)
 {
   if ((index >= count_) || (index < 0))
   {

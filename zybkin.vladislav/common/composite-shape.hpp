@@ -10,7 +10,7 @@ namespace zybkin
   public:
     CompositeShape(const CompositeShape &);
     CompositeShape(CompositeShape &&);
-    CompositeShape(Shape &);
+    CompositeShape(Shape *);
     ~CompositeShape();
 
     CompositeShape &operator =(const CompositeShape &);
@@ -24,14 +24,13 @@ namespace zybkin
     void move(const point_t &);
     void move(double, double);
     void scale(double);
-    void addShape(Shape &);
-    void deleteShape(int);
+    void add(Shape *);
+    void remove(int);
+    void swap(CompositeShape &);
 
   private:
     Shape ** shapeArray_;
     int count_;
-
-    void swap(CompositeShape &);
   };
 }
 

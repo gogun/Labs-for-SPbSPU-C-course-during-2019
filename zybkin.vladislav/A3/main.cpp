@@ -12,14 +12,14 @@ int main()
   zybkin::Rectangle rect2({-7.3, 2.6}, 8.2, 5.3);
 
   std::cout << "Create composite shape:\n";
-  zybkin::CompositeShape compositeShape(circle1);
+  zybkin::CompositeShape compositeShape(&circle1);
 
   compositeShape.printInfo();
 
   std::cout << "Add other shapes in composite:\n";
-  compositeShape.addShape(rect1);
-  compositeShape.addShape(rect2);
-  compositeShape.addShape(circle2);
+  compositeShape.add(&rect1);
+  compositeShape.add(&rect2);
+  compositeShape.add(&circle2);
   compositeShape.printInfo();
 
   std::cout << "Shift at (3,3)\n";
@@ -27,8 +27,8 @@ int main()
   compositeShape.printInfo();
 
   std::cout << "Remove shapes which have index 2 and 3\n";
-  compositeShape.deleteShape(3);
-  compositeShape.deleteShape(2);
+  compositeShape.remove(3);
+  compositeShape.remove(2);
   compositeShape.printInfo();
 
   std::cout << "Move to {-4,7}\n";

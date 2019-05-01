@@ -17,8 +17,8 @@ BOOST_AUTO_TEST_CASE(compositeTestSavedAfterShiftMoving)
 {
   zybkin::Circle testCircle({3.5, 6.1}, 3.2);
   zybkin::Rectangle testRectangle({2.2, 5.5}, 3.5, 7.8);
-  zybkin::CompositeShape testComposite(testRectangle);
-  testComposite.addShape(testCircle);
+  zybkin::CompositeShape testComposite(&testRectangle);
+  testComposite.add(&testCircle);
 
   const double areaBeforeMoving = testComposite.getArea();
   const zybkin::rectangle_t frameRectBeforeMoving = testComposite.getFrameRect();
@@ -36,8 +36,8 @@ BOOST_AUTO_TEST_CASE(compositeTestSavedAfterMovingTo)
 {
   zybkin::Circle testCircle({3.5, 6.1}, 3.2);
   zybkin::Rectangle testRectangle({2.2, 5.5}, 3.5, 7.8);
-  zybkin::CompositeShape testComposite(testRectangle);
-  testComposite.addShape(testCircle);
+  zybkin::CompositeShape testComposite(&testRectangle);
+  testComposite.add(&testCircle);
 
   const double areaBeforeMoving = testComposite.getArea();
   const zybkin::rectangle_t frameRectBeforeMoving = testComposite.getFrameRect();
@@ -55,8 +55,8 @@ BOOST_AUTO_TEST_CASE(compositeTestScale)
 {
   zybkin::Circle testCircle({3.5, 6.1}, 3.2);
   zybkin::Rectangle testRectangle({2.2, 5.5}, 3.5, 7.8);
-  zybkin::CompositeShape testComposite(testRectangle);
-  testComposite.addShape(testCircle);
+  zybkin::CompositeShape testComposite(&testRectangle);
+  testComposite.add(&testCircle);
 
   const double areaBeforeMoving = testComposite.getArea();
   const double testScale = 1.5;
@@ -72,15 +72,15 @@ BOOST_AUTO_TEST_CASE(compositeTestChangingAreaAfterAddAndDelete)
   zybkin::Circle testCircle({-5.1, 3.4}, 2.0);
   zybkin::Rectangle testRectangle({2.2, 5.5}, 3.5, 7.8);
   zybkin::Rectangle testRectangle2({-8.1, -3.2}, 5.6, 7.8);
-  zybkin::CompositeShape testComposite(testRectangle);
+  zybkin::CompositeShape testComposite(&testRectangle);
   const double compositeAreaBeforeAdd = testComposite.getArea();
   const int countOfShapesBeforeAdd = testComposite.getCount();
   const int testIndex = 2;
   const double circleArea = testCircle.getArea();
   const double rect2Area = testRectangle2.getArea();
 
-  testComposite.addShape(testCircle);
-  testComposite.addShape(testRectangle2);
+  testComposite.add(&testCircle);
+  testComposite.add(&testRectangle2);
   double compositeAreaAfterAdd = testComposite.getArea();
   const int countOfShapesAfterAdd = testComposite.getCount();
   //check that area increase after adding of element and check count of shapes
@@ -88,7 +88,7 @@ BOOST_AUTO_TEST_CASE(compositeTestChangingAreaAfterAddAndDelete)
   BOOST_CHECK_EQUAL(countOfShapesBeforeAdd + 2, countOfShapesAfterAdd);
 
   const double areaOfDeletingShape = testComposite[testIndex]->getArea();
-  testComposite.deleteShape(testIndex);
+  testComposite.remove(testIndex);
   //check that area decrease after adding of element and check count of shapes
   BOOST_CHECK_CLOSE(compositeAreaAfterAdd - areaOfDeletingShape, testComposite.getArea(), FAULT);
   BOOST_CHECK_EQUAL(countOfShapesAfterAdd - 1, testComposite.getCount());
@@ -97,7 +97,7 @@ BOOST_AUTO_TEST_CASE(compositeTestChangingAreaAfterAddAndDelete)
 BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionAfterScale)
 {
   zybkin::Rectangle testRectangle({-7.8, 3.4}, 5.4, 7.9);
-  zybkin::CompositeShape testComposite(testRectangle);
+  zybkin::CompositeShape testComposite(&testRectangle);
   //check that if put in function invalid scale argument function will throw exception
   BOOST_CHECK_THROW(testComposite.scale(-4.5), std::invalid_argument);
 }
@@ -106,26 +106,36 @@ BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionAfterDelete)
 {
   zybkin::Circle testCircle({3.5, 6.1}, 3.2);
   zybkin::Rectangle testRectangle({2.2, 5.5}, 3.5, 7.8);
-  zybkin::CompositeShape testComposite(testRectangle);
+  zybkin::CompositeShape testComposite(&testRectangle);
   //check that method throw exception if we try to delete last shape in composite
-  BOOST_CHECK_THROW(testComposite.deleteShape(0), std::invalid_argument);
+  BOOST_CHECK_THROW(testComposite.remove(0), std::invalid_argument);
 
-  testComposite.addShape(testCircle);
+  testComposite.add(&testCircle);
   //check that method throw exception if we send index which more than real count of shapes in composite
-  BOOST_CHECK_THROW(testComposite.deleteShape(5), std::out_of_range);
-  BOOST_CHECK_THROW(testComposite.deleteShape(-8), std::out_of_range);
+  BOOST_CHECK_THROW(testComposite.remove(5), std::out_of_range);
+  BOOST_CHECK_THROW(testComposite.remove(-8), std::out_of_range);
 }
 
 BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionAfterUsingOperator)
 {
   zybkin::Circle testCircle({-5.9, 9.1}, 5.2);
   zybkin::Rectangle testRectangle({3.1, 9.2}, 5.1, 2.8);
-  zybkin::CompositeShape testComposite(testRectangle);
-  testComposite.addShape(testCircle);
+  zybkin::CompositeShape testComposite(&testRectangle);
+  testComposite.add(&testCircle);
 
   //check that operator throw exception about out of range if we send index which more than max index in composite
   BOOST_CHECK_THROW(testComposite[5], std::out_of_range);
   BOOST_CHECK_THROW(testComposite[-7], std::out_of_range);
+}
+
+BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionNullPtr)
+{
+  BOOST_CHECK_THROW(zybkin::CompositeShape(nullptr), std::invalid_argument);
+
+  zybkin::Rectangle testRectangle({-7.1, 13.2}, 0.1, 2.8);
+  zybkin::CompositeShape testComposite(&testRectangle);
+
+  BOOST_CHECK_THROW(testComposite.add(nullptr), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
