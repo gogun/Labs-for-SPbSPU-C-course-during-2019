@@ -22,15 +22,14 @@ zybkin::CompositeShape::CompositeShape(zybkin::CompositeShape &&movedCompositeSh
 }
 
 zybkin::CompositeShape::CompositeShape(zybkin::Shape * shape) :
-  shapeArray_(new zybkin::Shape *[1]),
+  shapeArray_(new zybkin::Shape *[1]{shape}),
   count_(1)
 {
   if (shape == nullptr)
   {
+    delete [] shapeArray_;
     throw std::invalid_argument("Initial shape pointer must to be not null");
   }
-
-  shapeArray_[0] = shape;
 }
 
 zybkin::CompositeShape::~CompositeShape()
