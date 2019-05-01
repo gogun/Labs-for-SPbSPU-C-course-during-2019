@@ -4,6 +4,7 @@
 #include "rectangle.hpp"
 #include "polygon.hpp"
 
+
 void showRectangle_t(lebedev::rectangle_t data)
 {
   std::cout<<"Width = "<<data.width<<'\n';
@@ -29,6 +30,7 @@ void PrintDataPolygon(const lebedev::Polygon *polygon)
 {
   if (polygon != nullptr)
   {
+    polygon->printData();
     bool unconvex = polygon->checkBump();
     if (unconvex != true)
     {
@@ -78,11 +80,13 @@ int main()
   showAll(&c1);
   c1.move(3.00, -1.5);
   std::cout<<"After move"<<'\n';
-  showAll(&c1);
-  lebedev::point_t shape[] = {{4.0, 1.0}, {7.0, 3.0}, {6.0, 8.0}, {2.0, 4.0}};
+  showAll(&c1);*/
+  lebedev::point_t shape[] = {{3.0, 2.0}, {9.0, 2.0}, {4.0, 3.0}, {4.0, 6.0}};
   size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
   lebedev::Polygon poly(qtyVertex, shape);
+  PrintDataPolygon(&poly);
   std::cout <<"Polygon."<<'\n';
+  std::cout<<"qtyVertex"<<qtyVertex<<'\n';
   PrintDataPolygon(&poly);
   std::cout<<"After scale"<<'\n';
   poly.scale(2.0);
