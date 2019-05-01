@@ -3,7 +3,6 @@
 #include <stdexcept>
 #include <cmath>
 
-
 che::Triangle::Triangle(const point_t& pointA, const point_t& pointB, const point_t& pointC) :
   centre_({ (pointA.x + pointB.x + pointC.x) / 3, (pointA.y + pointB.y + pointC.y) / 3 }),
   pointA_(pointA),
@@ -19,8 +18,8 @@ che::Triangle::Triangle(const point_t& pointA, const point_t& pointB, const poin
 
 double che::Triangle::getArea() const
 {
-	return std::abs((pointB_.x - pointA_.x) * (pointC_.y - pointA_.y)
-		- (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
+  return std::abs((pointB_.x - pointA_.x) * (pointC_.y - pointA_.y)
+      - (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
 }
 
 che::rectangle_t che::Triangle::getFrameRect() const
@@ -39,35 +38,34 @@ void che::Triangle::move(const point_t& centre)
 
 void che::Triangle::move(double deltaX, double deltaY)
 {
-	centre_ = { centre_.x + deltaX, centre_.y + deltaY };
-	pointA_ = { pointA_.x + deltaX, pointA_.y + deltaY };
-	pointB_ = { pointB_.x + deltaX, pointB_.y + deltaY };
-	pointC_ = { pointC_.x + deltaX, pointC_.y + deltaY };
+  centre_ = { centre_.x + deltaX, centre_.y + deltaY };
+  pointA_ = { pointA_.x + deltaX, pointA_.y + deltaY };
+  pointB_ = { pointB_.x + deltaX, pointB_.y + deltaY };
+  pointC_ = { pointC_.x + deltaX, pointC_.y + deltaY };
 }
 
 void che::Triangle::scale(double coef)
 {
-	if (coef <= 0)
-	{
-		throw std::invalid_argument("Triangle scale coefficient must be positive");
-	}
-	pointA_ = { centre_.x + coef * (pointA_.x - centre_.x),
-	  centre_.y + coef * (pointA_.y - centre_.y) };
-	pointB_ = { centre_.x + coef * (pointB_.x - centre_.x),
-	  centre_.y + coef * (pointB_.y - centre_.y) };
-	pointC_ = { centre_.x + coef * (pointC_.x - centre_.x),
-	  centre_.y + coef * (pointC_.y - centre_.y) };
+  if (coef <= 0)
+  {
+	throw std::invalid_argument("Triangle scale coefficient must be positive");
+  }
+  pointA_ = { centre_.x + coef * (pointA_.x - centre_.x),
+  centre_.y + coef * (pointA_.y - centre_.y) };
+  pointB_ = { centre_.x + coef * (pointB_.x - centre_.x),
+  centre_.y + coef * (pointB_.y - centre_.y) };
+  pointC_ = { centre_.x + coef * (pointC_.x - centre_.x),
+  centre_.y + coef * (pointC_.y - centre_.y) };
 }
 
 void che::Triangle::showInfo1() const
 {
-	std::cout << "Coordinates:" << "\n";
-	std::cout << "A: (" << pointA_.x << "; " << pointA_.y << ")" << "\n";
-	std::cout << "B: (" << pointB_.x << "; " << pointB_.y << ")" << "\n";
-	std::cout << "C: (" << pointC_.x << "; " << pointC_.y << ")" << "\n";
-	std::cout << "Area: " << getArea() << "\n";
-	std::cout << "frame rect centre: (" << getFrameRect().pos.x << "; " << getFrameRect().pos.y << ")" << "\n";
-	std::cout << "frame rect width: " << getFrameRect().width << "\n";
-	std::cout << "frame rect height: " << getFrameRect().height << "\n";
-
+  std::cout << "Coordinates:" << "\n";
+  std::cout << "A: (" << pointA_.x << "; " << pointA_.y << ")" << "\n";
+  std::cout << "B: (" << pointB_.x << "; " << pointB_.y << ")" << "\n";
+  std::cout << "C: (" << pointC_.x << "; " << pointC_.y << ")" << "\n";
+  std::cout << "Area: " << getArea() << "\n";
+  std::cout << "frame rect centre: (" << getFrameRect().pos.x << "; " << getFrameRect().pos.y << ")" << "\n";
+  std::cout << "frame rect width: " << getFrameRect().width << "\n";
+  std::cout << "frame rect height: " << getFrameRect().height << "\n";
 }

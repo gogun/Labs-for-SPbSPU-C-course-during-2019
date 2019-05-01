@@ -3,6 +3,7 @@
 
 #include "shape.hpp"
 #include "base-types.hpp"
+
 namespace che
 {
   class Triangle : public Shape
