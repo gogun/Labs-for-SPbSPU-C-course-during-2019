@@ -10,7 +10,7 @@ che::Triangle::Triangle(const point_t& pointA, const point_t& pointB, const poin
   pointC_(pointC)
 {
   if (std::abs((pointB.x - pointA.x) * (pointC.y - pointA.y)
-	  - (pointC.x - pointA.x) * (pointB.y - pointA.y)) < 0.0000001)
+    - (pointC.x - pointA.x) * (pointB.y - pointA.y)) < 0.0000001)
   {
 	throw std::invalid_argument("Points can't lie on the same line");
   }
@@ -19,7 +19,7 @@ che::Triangle::Triangle(const point_t& pointA, const point_t& pointB, const poin
 double che::Triangle::getArea() const
 {
   return std::abs((pointB_.x - pointA_.x) * (pointC_.y - pointA_.y)
-      - (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
+	- (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
 }
 
 che::rectangle_t che::Triangle::getFrameRect() const
@@ -65,7 +65,7 @@ void che::Triangle::showInfo1() const
   std::cout << "B: (" << pointB_.x << "; " << pointB_.y << ")" << "\n";
   std::cout << "C: (" << pointC_.x << "; " << pointC_.y << ")" << "\n";
   std::cout << "Area: " << getArea() << "\n";
-  std::cout << "frame rect centre: (" << getFrameRect().pos.x << "; " << getFrameRect().pos.y << ")" << "\n";
+  std::cout << "frame rect centre:" << getFrameRect().pos.x << "; " << getFrameRect().pos.y << "\n";
   std::cout << "frame rect width: " << getFrameRect().width << "\n";
   std::cout << "frame rect height: " << getFrameRect().height << "\n";
 }
