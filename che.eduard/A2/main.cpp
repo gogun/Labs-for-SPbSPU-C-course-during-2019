@@ -1,8 +1,7 @@
 #include <iostream>
 #include "circle.hpp"
 #include "rectangle.hpp"
-
-using namespace che;
+#include "triangle.hpp"
 
 void showInfo (Shape & shape1)
 {
@@ -28,6 +27,13 @@ int main()
   std::cout << "Scaling by 1.5: " << std::endl;
   rectangle.scale(1.5);
   showInfo(rectangle);
-  
+
+  std::cout << "Triangle:" << std::endl;
+  triangle triangle{ {4, 8}, {6, 12}, {30, 5} };
+  showInfo1(triangle)
+  std::cout << "Scaling by 3: " << std::endl;
+  rectangle.scale(3);
+  showInfo1(triangle);
+
   return 0;
 }
