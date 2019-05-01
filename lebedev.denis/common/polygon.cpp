@@ -47,10 +47,10 @@ lebedev::point_t lebedev::Polygon::calcCentroid() const
 
 void lebedev::Polygon::printData() const
 {
-  for (std::size_t index = 1; index < m_qtyVertex + 1; index ++)
+  for (std::size_t index = 0; index < m_qtyVertex ; index ++)
   {
-    std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index - 1].x<<";";
-    std::cout<<"Y="<<m_vertex[index - 1].y <<")"<<'\n';
+    std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index].x<<";";
+    std::cout<<"Y="<<m_vertex[index].y <<")"<<'\n';
   }
 }
 
@@ -110,41 +110,33 @@ void lebedev::Polygon::scale(const double multiplier)
 
 bool lebedev::Polygon::checkBump() const
 {
-  std::size_t status = m_qtyVertex;
-  std::size_t checkStatus = 1;
+  bool status = false;
   point_t side_1, side_2;
   side_1 = side_2 = {0.0, 0.0};
 
-  for (std::size_t index = m_qtyVertex; index < 1; index --)
+  for (std::size_t index = 0; index < m_qtyVertex - 2 ; index++)
   {
-    if (index == 1)
+    if (index == m_qtyVertex - 2)
     {
-      side_1.x = m_vertex[index].x - m_vertex[index - 1].x;
-      side_1.y = m_vertex[index].y - m_vertex[index - 1].y;
-      side_2.x = m_vertex[index - 1].x - m_vertex[m_qtyVertex].x;
-      side_2.y = m_vertex[index - 1].y - m_vertex[m_qtyVertex].y;
+      side_1.x = m_vertex[index + 1].x - m_vertex[index].x;
+      side_1.y = m_vertex[index + 1].y - m_vertex[index].y;
+      side_2.x = m_vertex[0].x - m_vertex[index + 1].x;
+      side_2.y = m_vertex[0].y - m_vertex[index + 1].y;
     }
     else
     {
-      side_1.x = m_vertex[index].x - m_vertex[index - 1].x;
-      side_1.y = m_vertex[index].y - m_vertex[index - 1].y;
-      side_2.x = m_vertex[index - 1].x - m_vertex[index - 2].x;
-      side_2.y = m_vertex[index - 1].y - m_vertex[index - 2].y;
+      side_1.x = m_vertex[index + 1].x - m_vertex[index].x;
+      side_1.y = m_vertex[index + 1].y - m_vertex[index].y;
+      side_2.x = m_vertex[index + 2].x - m_vertex[index + 1].x;
+      side_2.y = m_vertex[index + 2].y - m_vertex[index + 1].y;
     }
     double flag = ((side_1.x * side_2.y) - (side_1.y * side_2.x));
-    if (flag < 0)
+    if (flag < 0.0)
     {
-      status -= 1;
+      status = true;
     }
   }
-  if ((status != checkStatus) || (status != m_qtyVertex))
-  {
-    return false;
-  }
-  else
-  {
-    return true;
-  }
+  return status;
 }
 
 void lebedev::Polygon::move(const double x, const double y)
