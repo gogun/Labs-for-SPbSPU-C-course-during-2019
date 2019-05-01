@@ -20,7 +20,7 @@ lebedev::Polygon::Polygon(std::size_t qtyVertex, lebedev::point_t *vertex):
   else
   {
     m_vertex = new point_t[m_qtyVertex];
-    for (std::size_t index = 0; index < m_qtyVertex; index ++)
+    for (std::size_t index = 0; index < m_qtyVertex; index++)
     {
       m_vertex[index] = vertex[index];
     }
@@ -37,7 +37,7 @@ lebedev::Polygon::~Polygon()
 lebedev::point_t lebedev::Polygon::calcCentroid() const
 {
   lebedev::point_t temp_point = {0.0, 0.0};
-  for (std::size_t index = 0; index < m_qtyVertex; index ++)
+  for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
     temp_point.x += m_vertex[index].x;
     temp_point.y += m_vertex[index].y;
@@ -47,7 +47,7 @@ lebedev::point_t lebedev::Polygon::calcCentroid() const
 
 void lebedev::Polygon::printData() const
 {
-  for (std::size_t index = 0; index < m_qtyVertex ; index ++)
+  for (std::size_t index = 0; index < m_qtyVertex ; index++)
   {
     std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index].x<<";";
     std::cout<<"Y="<<m_vertex[index].y <<")"<<'\n';
@@ -58,7 +58,7 @@ double lebedev::Polygon::getArea() const
 {
   double summa = 0.0;
 
-  for (std::size_t index = 0; index < m_qtyVertex - 1; index ++)
+  for (std::size_t index = 0; index < m_qtyVertex - 1; index++)
   {
     summa += m_vertex[index].x * m_vertex[index + 1].y;
     summa -= m_vertex[index + 1].x * m_vertex[index].y;
@@ -77,7 +77,7 @@ lebedev::rectangle_t lebedev::Polygon::getFrameRect() const
   double maxY = m_vertex[0].y;
   double minY = m_vertex[0].y;
 
-  for (std::size_t index = 0; index < m_qtyVertex; index ++)
+  for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
     maxX = std::max(maxX, m_vertex[index].x);
     minX = std::min(minX, m_vertex[index].x);
@@ -110,11 +110,10 @@ void lebedev::Polygon::scale(const double multiplier)
 
 bool lebedev::Polygon::checkBump() const
 {
-  bool status = false;
-  point_t side_1, side_2;
-  side_1 = side_2 = {0.0, 0.0};
+  point_t side_1 = {0.0, 0.0};
+  point_t side_2 = {0.0, 0.0};
 
-  for (std::size_t index = 0; index < m_qtyVertex - 2 ; index++)
+  for (std::size_t index = 0; index <= m_qtyVertex - 2 ; index++)
   {
     if (index == m_qtyVertex - 2)
     {
@@ -130,18 +129,17 @@ bool lebedev::Polygon::checkBump() const
       side_2.x = m_vertex[index + 2].x - m_vertex[index + 1].x;
       side_2.y = m_vertex[index + 2].y - m_vertex[index + 1].y;
     }
-    double flag = ((side_1.x * side_2.y) - (side_1.y * side_2.x));
-    if (flag < 0.0)
+    if (((side_1.x * side_2.y) - (side_1.y * side_2.x)) < 0.0)
     {
-      status = true;
+      return true;
     }
   }
-  return status;
+  return false;
 }
 
 void lebedev::Polygon::move(const double x, const double y)
 {
-  for (std::size_t index = 0; index < m_qtyVertex; index ++)
+  for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
     m_vertex[index].x += x;
     m_vertex[index].y += y;
