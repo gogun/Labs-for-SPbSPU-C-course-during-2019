@@ -80,7 +80,7 @@ int main()
   showAll(&c1);
   c1.move(3.00, -1.5);
   std::cout<<"After move"<<'\n';
-  showAll(&c1);*/
+  showAll(&c1);
   lebedev::point_t shape[] = {{3.0, 2.0}, {9.0, 2.0}, {4.0, 3.0}, {4.0, 6.0}};
   size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
   lebedev::Polygon poly(qtyVertex, shape);
