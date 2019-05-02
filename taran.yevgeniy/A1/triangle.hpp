@@ -1,20 +1,21 @@
-#ifndef RECTANGLE_HPP
-#define RECTANGLE_HPP
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 
 #include "shape.hpp"
 
-class Rectangle:
+class Triangle:
     public Shape
 {
 public:
-  Rectangle(const rectangle_t & figure);
+  Triangle(const point_t a, const point_t b, const point_t c);
+  point_t getCenter() const;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
+  void move(const double dx, const double dy) override;
   void move(const point_t & pos) override;
-  void move(double dx, double dy) override;
   void showParams() const override;
 private:
-  rectangle_t m_figure;
+  point_t a_, b_, c_;
 };
 
 #endif
