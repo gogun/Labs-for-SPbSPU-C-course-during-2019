@@ -1,4 +1,5 @@
 #include "rectangle.hpp"
+#include<iostream>
 #include <stdexcept>
 
 che::Rectangle::Rectangle(const rectangle_t & rect):
