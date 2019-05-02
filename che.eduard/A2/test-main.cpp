@@ -117,6 +117,5 @@ BOOST_AUTO_TEST_CASE(invalidArguments)
   BOOST_CHECK_THROW(testTriangle.scale(-2.0), std::invalid_argument);
 }
 
-
 BOOST_AUTO_TEST_SUITE_END()
 

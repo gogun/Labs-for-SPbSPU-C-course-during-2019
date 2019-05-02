@@ -10,16 +10,16 @@ che::Triangle::Triangle(const point_t& pointA, const point_t& pointB, const poin
   pointC_(pointC)
 {
   if (std::abs((pointB.x - pointA.x) * (pointC.y - pointA.y)
-    - (pointC.x - pointA.x) * (pointB.y - pointA.y)) < 0.0000001)
+      - (pointC.x - pointA.x) * (pointB.y - pointA.y)) < 0.0000001)
   {
-	throw std::invalid_argument("Points can't lie on the same line");
+	  throw std::invalid_argument("Points can't lie on the same line");
   }
 }
 
 double che::Triangle::getArea() const
 {
   return std::abs((pointB_.x - pointA_.x) * (pointC_.y - pointA_.y) 
-	- (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
+      - (pointC_.x - pointA_.x) * (pointB_.y - pointA_.y)) / 2;
 }
 
 che::rectangle_t che::Triangle::getFrameRect() const
@@ -49,14 +49,14 @@ void che::Triangle::scale(double coef)
 {
   if (coef <= 0)
   {
-	throw std::invalid_argument("Triangle scale coef can't be negativ");
+	  throw std::invalid_argument("Triangle scale coef can't be negativ");
   }
-  pointA_ = { centre_.x + coef * (pointA_.x - centre_.x),
-    centre_.y + coef * (pointA_.y - centre_.y) };
-  pointB_ = { centre_.x + coef * (pointB_.x - centre_.x),
-    centre_.y + coef * (pointB_.y - centre_.y) };
-  pointC_ = { centre_.x + coef * (pointC_.x - centre_.x),
-    centre_.y + coef * (pointC_.y - centre_.y) };
+  pointA_ = {centre_.x + coef * (pointA_.x - centre_.x),
+    centre_.y + coef * (pointA_.y - centre_.y)};
+  pointB_ = {centre_.x + coef * (pointB_.x - centre_.x),
+    centre_.y + coef * (pointB_.y - centre_.y)};
+  pointC_ = {centre_.x + coef * (pointC_.x - centre_.x),
+    centre_.y + coef * (pointC_.y - centre_.y)};
 }
 
 void che::Triangle::showInfo1() const
