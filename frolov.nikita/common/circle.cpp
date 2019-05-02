@@ -7,7 +7,7 @@ frolov::Circle::Circle(const point_t &center, double radius) :
   center_(center),
   radius_(radius)
 {
-  if (radius_ <= 0)
+  if (radius_ < 0)
   {
     throw std::invalid_argument("Invalid radius!");
   }
@@ -44,7 +44,7 @@ void frolov::Circle::scale(double factor)
 {
   if (factor <= 0)
   {
-    throw std::invalid_argument("Area can't be negative");
+    throw std::invalid_argument("Radius can't be negative");
   }
   radius_ *= factor;
 }

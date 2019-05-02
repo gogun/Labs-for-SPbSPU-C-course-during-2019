@@ -1,6 +1,6 @@
 #include "triangle.hpp"
 #include <iostream>
-#include <cassert>
+#include <stdexcept>
 #include <cmath>
 #include <algorithm>
 
@@ -69,13 +69,23 @@ void frolov::Triangle::showPoint() const
   std::cout << "the point on the y-axis= " << center_.y << "\n";
 }
 
+double scaleOneCoordinates(double point, double center, const double factor)
+{
+  //Чтобы правильно сместить точку в треугольнике необходимо сначала прибавить к ней центер, чтобы попасть
+  //в область координат отновительно центра, потом умножить точку и вычесть центер помноженный на коэфицент
+  return (center + point * factor - factor * center);
+}
+
 void frolov::Triangle::scale(double factor)
 {
   if (factor <= 0)
   {
-    throw std::invalid_argument("The Area can not be negative!");
+    throw std::invalid_argument("Factor must be positive!");
   }
-  point0_ = {factor * point0_.x - (factor - 1) * center_.x, factor * point0_.y - (factor - 1) * center_.y};
-  point1_ = {factor * point1_.x - (factor - 1) * center_.x, factor * point1_.y - (factor - 1) * center_.y};
-  point2_ = {factor * point2_.x - (factor - 1) * center_.x, factor * point2_.y - (factor - 1) * center_.y};
+  point0_.x = scaleOneCoordinates(point0_.x, center_.x, factor);
+  point0_.y = scaleOneCoordinates(point0_.y, center_.y, factor);
+  point1_.x = scaleOneCoordinates(point1_.x, center_.x, factor);
+  point1_.y = scaleOneCoordinates(point1_.y, center_.y, factor);
+  point2_.x = scaleOneCoordinates(point2_.x, center_.x, factor);
+  point2_.y = scaleOneCoordinates(point2_.y, center_.y, factor);
 }
