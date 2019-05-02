@@ -15,13 +15,13 @@ namespace che
    void move(const point_t &pos) override;
    void move(double dx, double dy) override;
    void scale(double factor) override;
-   void showInfo1() const override;
+   void showInfo() const override;
 
  private:
+   point_t centre_;
    point_t pointA_;
    point_t pointB_;
    point_t pointC_;
-   point_t centre_;
  };
 }
 #endif

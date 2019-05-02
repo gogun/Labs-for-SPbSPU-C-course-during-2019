@@ -32,17 +32,24 @@ che::rectangle_t che::Triangle::getFrameRect() const
   return {max_x - min_x, max_y - min_y, {(max_x + min_x) / 2, (max_y + min_y) / 2}};
 }
 
-void che::Triangle::move(const point_t& centre)
+
+void che::Triangle::move(const point_t& point)
 {
-  move(centre.x - centre_.x, centre.y - centre_.y);
+  double dx = point.x - centre_.x;
+  double dy = point.y - centre_.y;
+  move(dx, dy);
 }
 
-void che::Triangle::move(double deltaX, double deltaY)
+void mullagalieva::Triangle::move(double dx, double dy)
 {
-  centre_ = {centre_.x + deltaX, centre_.y + deltaY};
-  pointA_ = {pointA_.x + deltaX, pointA_.y + deltaY};
-  pointB_ = {pointB_.x + deltaX, pointB_.y + deltaY};
-  pointC_ = {pointC_.x + deltaX, pointC_.y + deltaY};
+  centre_.x += dx;
+  centre_.y += dy;
+  pointA_.x += dx;
+  pointB_.x += dx;
+  pointC_.x += dx;
+  pointA_.y += dy;
+  pointB_.y += dy;
+  pointC_.y += dy;
 }
 
 void che::Triangle::scale(double coef)
@@ -59,7 +66,7 @@ void che::Triangle::scale(double coef)
     centre_.y + coef * (pointC_.y - centre_.y)};
 }
 
-void che::Triangle::showInfo1() const
+void che::Triangle::showInfo() const
 {
   std::cout << "Coordinates:" << "\n";
   std::cout << "A: (" << pointA_.x << "; " << pointA_.y << ")" << "\n";

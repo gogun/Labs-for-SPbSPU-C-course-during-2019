@@ -29,11 +29,11 @@ int main()
   showInfo(rectangle);
 
   std::cout << "Triangle:" << std::endl;
-  triangle triangle{ {4, 8}, {6, 12}, {30, 5} };
-  showInfo1(triangle)
+  Triangle triangle{{4, 8}, {6, 12}, {30, 5}};
+  showInfo(triangle);
   std::cout << "Scaling by 3: " << std::endl;
   rectangle.scale(3);
-  showInfo1(triangle);
+  showInfo(triangle);
 
   return 0;
 }
