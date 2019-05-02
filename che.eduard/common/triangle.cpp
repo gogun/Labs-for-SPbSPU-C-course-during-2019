@@ -40,7 +40,7 @@ void che::Triangle::move(const point_t& point)
   move(dx, dy);
 }
 
-void mullagalieva::Triangle::move(double dx, double dy)
+void che::Triangle::move(double dx, double dy)
 {
   centre_.x += dx;
   centre_.y += dy;
@@ -73,7 +73,7 @@ void che::Triangle::showInfo() const
   std::cout << "B: (" << pointB_.x << "; " << pointB_.y << ")" << "\n";
   std::cout << "C: (" << pointC_.x << "; " << pointC_.y << ")" << "\n";
   std::cout << "Area: " << getArea() << "\n";
-  std::cout << "frame rect centre:" << getFrameRect().point.x << "; " << getFrameRect().point.y << "\n";
+  std::cout << "frame rect centre:" << getFrameRect().pos.x << "; " << getFrameRect().pos.y << "\n";
   std::cout << "frame rect width: " << getFrameRect().width << "\n";
   std::cout << "frame rect height: " << getFrameRect().height << "\n";
 }
