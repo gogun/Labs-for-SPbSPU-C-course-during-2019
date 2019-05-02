@@ -19,7 +19,7 @@ int main()
 
   std::cout << "Rectangle:" << std::endl;
   che::Rectangle rectangle({2,2,{10,10}});
-  che::Shape *figure = &circle;
+  che::Shape *figure = &rectangle;
   figure->Info();
   std::cout << "Scaling by 1.5: " << std::endl;
   figure->scale(1.5);
