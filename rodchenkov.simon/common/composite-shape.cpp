@@ -58,10 +58,10 @@ rodchenkov::rectangle_t rodchenkov::CompositeShape::getFrameRect() const noexcep
 {
   if (count_ > 0) {
     rectangle_t currRect = shapes_[0]->getFrameRect();
-    double      left     = shapes_[0]->getFrameRect().pos.x - currRect.width / 2;
-    double      right    = shapes_[0]->getFrameRect().pos.x + currRect.width / 2;
-    double      top      = shapes_[0]->getFrameRect().pos.y + currRect.height / 2;
-    double      bottom   = shapes_[0]->getFrameRect().pos.y - currRect.height / 2;
+    double      left     = currRect.pos.x - currRect.width / 2;
+    double      right    = currRect.pos.x + currRect.width / 2;
+    double      top      = currRect.pos.y + currRect.height / 2;
+    double      bottom   = currRect.pos.y - currRect.height / 2;
     for (std::size_t i = 1; i < count_; i++) {
       currRect = shapes_[i]->getFrameRect();
       double currLeft   = currRect.pos.x - currRect.width / 2;
