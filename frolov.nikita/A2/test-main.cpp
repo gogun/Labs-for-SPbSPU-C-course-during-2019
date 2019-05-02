@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfRectangle)
   BOOST_CHECK_CLOSE(areaBeforeScale * testScale * testScale, rectangle.getArea(), Inaccuracy);
  }
 
-BOOST_AUTO_TEST_CASE(invalidArgumentsInRectangle)
+BOOST_AUTO_TEST_CASE(wrongArgumentsInRectangle)
 {
   BOOST_CHECK_THROW(frolov::Rectangle rectangle({1, 6}, 5, -9), std::invalid_argument);
   BOOST_CHECK_THROW(frolov::Rectangle rectangle({1, 6}, -9, 6), std::invalid_argument);
@@ -82,7 +82,7 @@ BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfCircle)
   BOOST_CHECK_CLOSE(areaBeforeScale * testScale * testScale, circle.getArea(), Inaccuracy);
  }
 
-BOOST_AUTO_TEST_CASE(invalidArgumentsInCircle)
+BOOST_AUTO_TEST_CASE(wrongArgumentsInCircle)
 {
   BOOST_CHECK_THROW(frolov::Circle circle({6, 5}, -9), std::invalid_argument);
   frolov::Circle circle({4, 3}, 4);
@@ -123,7 +123,7 @@ BOOST_AUTO_TEST_CASE(areaCheckAfterScalingOfTriangle)
   BOOST_CHECK_CLOSE(areaBeforScaling * testScale * testScale, triangle.getArea(), Inaccuracy);
  }
 
-BOOST_AUTO_TEST_CASE(invalidArgumentsInTriangle)
+BOOST_AUTO_TEST_CASE(wrongArgumentsInTriangle)
 {
   BOOST_CHECK_THROW(frolov::Triangle triangle({4, 5}, {4, 6}, {4, 7}), std::invalid_argument);
   BOOST_CHECK_THROW(frolov::Triangle triangle({5, 6}, {1, 6}, {4, 6}), std::invalid_argument);
