@@ -3,12 +3,12 @@
 
 #include "shape.hpp"
 
-class Rectangle: public Shape {
-
+class Rectangle: public Shape
+{
 public:
   Rectangle(const rectangle_t &rect);
-  Rectangle(const double &width, const double &height, const point_t &pos);
-  Rectangle(const double &width, const double &height, const double &posx, const double &posy);
+  Rectangle(double width, double height, const point_t &pos);
+  Rectangle(double width, double height, double posx, double posy);
 
   double getWidth() const;
   double getHeight() const;
@@ -16,7 +16,7 @@ public:
 
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  void move(const double &x, const double &y) override;
+  void move(double x, double y) override;
   void move(const point_t &point) override;
 
 private:
