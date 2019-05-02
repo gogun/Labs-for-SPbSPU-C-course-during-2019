@@ -13,7 +13,7 @@ namespace che
    virtual void move(const point_t & point) = 0;
    virtual void move(double dx, double dy) = 0;
    virtual void scale(double coef) = 0;
-   virtual void showInfo() const = 0;
+   virtual void Info() const = 0;
  };
 }
 #endif 

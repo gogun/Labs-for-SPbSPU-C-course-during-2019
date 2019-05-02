@@ -66,7 +66,7 @@ void che::Triangle::scale(double coef)
     centre_.y + coef * (pointC_.y - centre_.y)};
 }
 
-void che::Triangle::showInfo() const
+void che::Triangle::Info() const
 {
   std::cout << "Coordinates:" << "\n";
   std::cout << "A: (" << pointA_.x << "; " << pointA_.y << ")" << "\n";
