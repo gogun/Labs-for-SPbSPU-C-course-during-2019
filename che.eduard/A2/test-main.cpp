@@ -90,12 +90,12 @@ BOOST_AUTO_TEST_CASE(Triangle_Immutability)
   const double  AreaBeforeMoving = testTriangle.getArea();
 
   testTriangle.move({ 3.4, 4.3 });
-  BOOST_CHECK_CLOSE(FrameBeforMoving.width, testTriangle.getFrameRect().width, ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving.width, testTriangle.getFrameRect().width, ACCURACY);
   BOOST_CHECK_CLOSE(FrameBeforeMoving.height, testTriangle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving, testTriangle.getArea(), ACCURACY);
 
   testTriangle.move(6, -2.1);
-  BOOST_CHECK_CLOSE(FrameBeforMoving.width, testTriangle.getFrameRect().width, ACCURACY);
+  BOOST_CHECK_CLOSE(FrameBeforeMoving.width, testTriangle.getFrameRect().width, ACCURACY);
   BOOST_CHECK_CLOSE(FrameBeforeMoving.height, testTriangle.getFrameRect().height, ACCURACY);
   BOOST_CHECK_CLOSE(AreaBeforeMoving, testTriangle.getArea(), ACCURACY);
 }
@@ -106,7 +106,7 @@ BOOST_AUTO_TEST_CASE(Scale_Testing)
   const double AreaBeforeScaling = testTriangle.getArea();
   const double coef = 6.7;
 
-  testTriangle.scale(multiplier);
+  testTriangle.scale(coef);
   BOOST_CHECK_CLOSE(AreaBeforeScaling * coef * coef, testTriangle.getArea(), ACCURACY);
 }
 
