@@ -3,22 +3,23 @@
 
 #include "shape.hpp"
 
-class Circle: public Shape {
-  public:
-    Circle(const double &radius, const point_t &pos);
-    Circle(const double &radius, const double &posx, const double &posy);
+class Circle: public Shape
+{
+public:
+  Circle(double radius, const point_t &pos);
+  Circle(double radius, double posx, double posy);
 
-    double getArea() const override;
-    rectangle_t getFrameRect() const override;
-    void move(const double &x, const double &y) override;
-    void move(const point_t &point) override;
+  double getArea() const override;
+  rectangle_t getFrameRect() const override;
+  void move(double x, double y) override;
+  void move(const point_t &point) override;
 
-    double getRadius() const;
-    point_t getPos() const;
+  double getRadius() const;
+  point_t getPos() const;
 
-  private:
-    double radius_;
-    point_t pos_;
+private:
+  double radius_;
+  point_t pos_;
 };
 
 #endif
