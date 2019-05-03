@@ -38,7 +38,7 @@ shestakova::CompositeShape &shestakova::CompositeShape::operator =(const Composi
     delete [] figures_;
     count_ = copiedCompositeShape.count_;
     figures_ = new Shape*[copiedCompositeShape.count_];
-    for (int i = 0; i < count_; i++)
+    for (unsigned int i = 0; i < count_; i++)
     {
       figures_[i] = copiedCompositeShape.figures_[i];
     }
@@ -81,7 +81,7 @@ shestakova::rectangle_t shestakova::CompositeShape::getFrameRect() const
   double maxX = tmpShape.pos.x + tmpShape.width / 2;
   double maxY = tmpShape.pos.y + tmpShape.height / 2;
 
-  for (int i = 0; i < count_; i++)
+  for (unsigned int i = 0; i < count_; i++)
   {
     tmpShape = figures_[i]->getFrameRect();
     double tmpValue = tmpShape.pos.x - tmpShape.width / 2;
