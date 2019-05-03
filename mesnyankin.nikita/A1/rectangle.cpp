@@ -11,7 +11,7 @@ Rectangle::Rectangle(const rectangle_t &rect) :
   assert((width_ > 0.0) && (height_ > 0.0));
 }
 
-Rectangle::Rectangle(const double &width, const double &height, const point_t &pos) :
+Rectangle::Rectangle(double width, double height, const point_t &pos) :
   width_(width),
   height_(height),
   pos_(pos)
@@ -19,7 +19,7 @@ Rectangle::Rectangle(const double &width, const double &height, const point_t &p
   assert((width_ > 0.0) && (height_ > 0.0));
 }
 
-Rectangle::Rectangle(const double &width, const double &height, const double &posx, const double &posy) :
+Rectangle::Rectangle(double width, double height, double posx, double posy) :
   width_(width),
   height_(height),
   pos_({posx, posy})
@@ -32,7 +32,7 @@ double Rectangle::getArea() const
   return width_ * height_;
 }
 
-void Rectangle::move(const double &x, const double &y)
+void Rectangle::move(double x, double y)
 {
   pos_.x += x;
   pos_.y += y;

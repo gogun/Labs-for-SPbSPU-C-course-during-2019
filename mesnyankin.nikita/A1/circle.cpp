@@ -4,18 +4,18 @@
 #include <cmath>
 
 
-Circle::Circle(const double &radius, const point_t &pos) :
+Circle::Circle(double radius, const point_t &pos) :
   radius_(radius),
   pos_(pos)
 {
-  assert(radius_ > 0.0);
+  assert(radius_ >= 0.0);
 }
 
-Circle::Circle(const double &radius, const double &posx, const double &posy):
+Circle::Circle(double radius, double posx, double posy) :
   radius_(radius),
   pos_({posx, posy})
 {
-  assert(radius_ > 0.0);
+  assert(radius_ >= 0.0);
 }
 
 double Circle::getArea() const
@@ -23,7 +23,7 @@ double Circle::getArea() const
   return M_PI * radius_ * radius_;
 }
 
-void Circle::move(const double &x, const double &y)
+void Circle::move(double x, double y)
 {
   pos_.x += x;
   pos_.y += y;
