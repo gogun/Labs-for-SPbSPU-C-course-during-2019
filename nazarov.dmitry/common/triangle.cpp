@@ -1,6 +1,7 @@
 #include "triangle.hpp"
 #include <iostream>
 #include <stdexcept>
+#include <cmath>
 #include <algorithm>
 
 nazarov::Triangle::Triangle(const point_t &A, const point_t &B, const point_t &C) :
