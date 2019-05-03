@@ -26,7 +26,7 @@ namespace shestakova
     void deleteShape(unsigned int index);
 
   private:
-    int count_;
+    unsigned int count_;
     Shape** figures_;
   };
 }

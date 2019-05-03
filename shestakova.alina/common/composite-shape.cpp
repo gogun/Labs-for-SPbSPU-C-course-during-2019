@@ -10,7 +10,7 @@ shestakova::CompositeShape::CompositeShape(const CompositeShape& copiedComposite
   count_(copiedCompositeShape.count_),
   figures_(new Shape *[copiedCompositeShape.count_])
 {
-  for (int i = 0; i < count_; ++i)
+  for (unsigned int i = 0; i < count_; ++i)
   {
     figures_[i] = copiedCompositeShape.figures_[i];
   }
@@ -66,7 +66,7 @@ shestakova::CompositeShape::~CompositeShape()
 double shestakova::CompositeShape::getArea() const
 {
   double area = 0;
-  for (int i = 0; i < count_; i++)
+  for (unsigned int i = 0; i < count_; i++)
   {
     area += figures_[i]->getArea();
   }
@@ -108,7 +108,7 @@ void shestakova::CompositeShape::move(const point_t &point)
 
 void shestakova::CompositeShape::move(double dx, double dy)
 {
-  for (int i = 0; i < count_; i++)
+  for (unsigned int i = 0; i < count_; i++)
   {
     figures_[i]->move(dx, dy);
   }
@@ -122,7 +122,7 @@ void shestakova::CompositeShape::scale(double coefficient)
   }
 
   shestakova::point_t frameRectPos = getFrameRect().pos;
-  for (int i = 0; i < count_; i++)
+  for (unsigned int i = 0; i < count_; i++)
   {
     shestakova::point_t shapeCenter = figures_[i]->getFrameRect().pos;
     double dx = (shapeCenter.x - frameRectPos.x) * (coefficient - 1);
@@ -135,7 +135,7 @@ void shestakova::CompositeShape::scale(double coefficient)
 void shestakova::CompositeShape::addShape(Shape &shape)
 {
   Shape** shapesArray = new Shape *[count_ + 1];
-  for(int i = 0; i < count_; i++)
+  for(unsigned int i = 0; i < count_; i++)
   {
     shapesArray[i] = figures_[i];
   }
