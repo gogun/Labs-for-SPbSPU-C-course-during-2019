@@ -8,6 +8,7 @@ namespace lebedev
   {
   public:
     Circle(double radius, const point_t &pos);
+
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void move(const double x, const double y) override;
