@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rectangle.hpp"
 #include "circle.hpp"
+#include "triangle.hpp"
 
 int main()
 {
@@ -22,7 +23,7 @@ int main()
   nazarov::Shape *circlePointer = &circle;
 
   circlePointer->printFeatures();
-  circlePointerr->move(10, 20);
+  circlePointer->move(10, 20);
   std::cout << "Circle has been moved by dx and dy\n\n";
   circlePointer->printFeatures();
   circlePointer->move({10, 20});
