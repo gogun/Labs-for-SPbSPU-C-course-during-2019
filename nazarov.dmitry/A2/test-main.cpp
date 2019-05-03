@@ -7,7 +7,7 @@
 
 BOOST_AUTO_TEST_SUITE(suiteTest)
 
-const double EPSILON = 0.01;
+const double EPS = 0.01;
 
 BOOST_AUTO_TEST_CASE(moveRectangleConstant)
 {
@@ -16,14 +16,14 @@ BOOST_AUTO_TEST_CASE(moveRectangleConstant)
   const double beforeArea = rectangleTest.getArea();
 
   rectangleTest.move(5, 5);
-  BOOST_CHECK_CLOSE(beforeFrame.width, rectangleTest.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(beforeFrame.height, rectangleTest.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(beforeArea, rectangleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeFrame.width, rectangleTest.getFrameRect().width, EPS);
+  BOOST_CHECK_CLOSE(beforeFrame.height, rectangleTest.getFrameRect().height, EPS);
+  BOOST_CHECK_CLOSE(beforeArea, rectangleTest.getArea(), EPS);
 
   rectangleTest.move({ 20, 20 });
-  BOOST_CHECK_CLOSE(beforeFrame.width, rectangleTest.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(beforeFrame.height, rectangleTest.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(beforeArea, rectangleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeFrame.width, rectangleTest.getFrameRect().width, EPS);
+  BOOST_CHECK_CLOSE(beforeFrame.height, rectangleTest.getFrameRect().height, EPS);
+  BOOST_CHECK_CLOSE(beforeArea, rectangleTest.getArea(), EPS);
 }
 
 BOOST_AUTO_TEST_CASE(scaleRectangle)
@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_CASE(scaleRectangle)
   const double scaleFactor = 3;
 
   rectangleTest.scale(scaleFactor);
-  BOOST_CHECK_CLOSE(beforeArea * scaleFactor * scaleFactor, rectangleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeArea * scaleFactor * scaleFactor, rectangleTest.getArea(), EPS);
 }
 
 BOOST_AUTO_TEST_CASE(invalidRectArguments)
@@ -52,14 +52,14 @@ BOOST_AUTO_TEST_CASE(moveCircleConstant)
   const double beforeArea = circleTest.getArea();
 
   circleTest.move(5, 5);
-  BOOST_CHECK_CLOSE(beforeFrame.width, circleTest.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(beforeFrame.height, circleTest.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(beforeArea, circleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeFrame.width, circleTest.getFrameRect().width, EPS);
+  BOOST_CHECK_CLOSE(beforeFrame.height, circleTest.getFrameRect().height, EPS);
+  BOOST_CHECK_CLOSE(beforeArea, circleTest.getArea(), EPS);
 
   circleTest.move({ 20, 20 });
-  BOOST_CHECK_CLOSE(beforeFrame.width, circleTest.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(beforeFrame.height, circleTest.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(beforeArea, circleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeFrame.width, circleTest.getFrameRect().width, EPS);
+  BOOST_CHECK_CLOSE(beforeFrame.height, circleTest.getFrameRect().height, EPS);
+  BOOST_CHECK_CLOSE(beforeArea, circleTest.getArea(), EPS);
 }
 
 BOOST_AUTO_TEST_CASE(scaleCircle)
@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_CASE(scaleCircle)
   const double scaleFactor = 3;
 
   circleTest.scale(scaleFactor);
-  BOOST_CHECK_CLOSE(beforeArea * scaleFactor * scaleFactor, circleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeArea * scaleFactor * scaleFactor, circleTest.getArea(), EPS);
 }
 
 BOOST_AUTO_TEST_CASE(invalidCircleArguments)
@@ -87,14 +87,14 @@ BOOST_AUTO_TEST_CASE(moveTriangleConstant)
   const double beforeArea = triangleTest.getArea();
 
   triangleTest.move(5, 5);
-  BOOST_CHECK_CLOSE(beforeFrame.width, triangleTest.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(beforeFrame.height, triangleTest.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(beforeArea, triangleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeFrame.width, triangleTest.getFrameRect().width, EPS);
+  BOOST_CHECK_CLOSE(beforeFrame.height, triangleTest.getFrameRect().height, EPS);
+  BOOST_CHECK_CLOSE(beforeArea, triangleTest.getArea(), EPS);
 
   triangleTest.move({ 20, 20 });
-  BOOST_CHECK_CLOSE(beforeFrame.width, triangleTest.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(beforeFrame.height, triangleTest.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(beforeArea, triangleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeFrame.width, triangleTest.getFrameRect().width, EPS);
+  BOOST_CHECK_CLOSE(beforeFrame.height, triangleTest.getFrameRect().height, EPS);
+  BOOST_CHECK_CLOSE(beforeArea, triangleTest.getArea(), EPS);
 }
 
 BOOST_AUTO_TEST_CASE(scaleTriangle)
@@ -104,7 +104,7 @@ BOOST_AUTO_TEST_CASE(scaleTriangle)
   const double scaleFactor = 3;
 
   triangleTest.scale(scaleFactor);
-  BOOST_CHECK_CLOSE(beforeArea * scaleFactor * scaleFactor, triangleTest.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(beforeArea * scaleFactor * scaleFactor, triangleTest.getArea(), EPS);
 }
 
 BOOST_AUTO_TEST_CASE(invalidTriangleArguments)
