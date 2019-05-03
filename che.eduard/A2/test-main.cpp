@@ -81,6 +81,8 @@ BOOST_AUTO_TEST_CASE(Invalid_Values)
   BOOST_CHECK_THROW(testRectangle.scale(0), std::invalid_argument);
 }
 
+BOOST_AUTO_TEST_SUITE_END()
+
 BOOST_AUTO_TEST_SUITE(Triangle_Testing)
 
 BOOST_AUTO_TEST_CASE(Triangle_Immutability)
