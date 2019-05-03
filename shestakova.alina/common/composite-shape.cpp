@@ -103,10 +103,7 @@ void shestakova::CompositeShape::move(const point_t &point)
   double dx = point.x - frameRectPos.x;
   double dy = point.y - frameRectPos.y;
 
-  for (int i = 0; i < count_; i++)
-  {
-    figures_[i]->move(dx, dy);
-  }
+  move(dx, dy);
 }
 
 void shestakova::CompositeShape::move(double dx, double dy)
@@ -148,9 +145,9 @@ void shestakova::CompositeShape::addShape(Shape &shape)
   figures_ = shapesArray;
 }
 
-void shestakova::CompositeShape::deleteShape(int index)
+void shestakova::CompositeShape::deleteShape(unsigned int index)
 {
-  if ((index < 0) || (index >= count_))
+  if (index >= count_)
   {
     throw std::invalid_argument("Index out of range");
   }

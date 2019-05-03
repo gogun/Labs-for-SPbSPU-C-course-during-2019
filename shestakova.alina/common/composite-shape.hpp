@@ -23,7 +23,7 @@ namespace shestakova
     void move(double dx, double dy) override;
     void scale(double coefficient) override;
     void addShape(Shape &shape);
-    void deleteShape(int index);
+    void deleteShape(unsigned int index);
 
   private:
     int count_;
