@@ -1,5 +1,5 @@
 #include <boost/test/auto_unit_test.hpp>
-
+#include <cmath>
 #include "rectangle.hpp"
 
 const double INACCURACY = 1e-6;

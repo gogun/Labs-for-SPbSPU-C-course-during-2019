@@ -1,4 +1,5 @@
 #include <boost/test/auto_unit_test.hpp>
+#include <cmath>
 #include "composite-shape.hpp"
 #include "rectangle.hpp"
 #include "circle.hpp"
