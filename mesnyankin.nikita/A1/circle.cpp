@@ -8,14 +8,14 @@ Circle::Circle(const double &radius, const point_t &pos) :
   radius_(radius),
   pos_(pos)
 {
-  assert(radius_ >= 0.0);
+  assert(radius_ > 0.0);
 }
 
 Circle::Circle(const double &radius, const double &posx, const double &posy):
   radius_(radius),
   pos_({posx, posy})
 {
-  assert(radius_ >= 0.0);
+  assert(radius_ > 0.0);
 }
 
 double Circle::getArea() const
