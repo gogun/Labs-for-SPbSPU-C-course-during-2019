@@ -152,7 +152,7 @@ void shestakova::CompositeShape::deleteShape(unsigned int index)
     throw std::invalid_argument("Index out of range");
   }
   count_--;
-  for (int i = index; i < count_; i++)
+  for (unsigned int i = index; i < count_; i++)
   {
     figures_[i] = figures_[i + 1];
   }
