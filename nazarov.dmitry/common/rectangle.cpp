@@ -2,7 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 
-nazarov::Rectangle::Rectangle(const point_t &pos, const double &width, const double &height) :
+nazarov::Rectangle::Rectangle(const point_t &pos, const double width, const double height) :
   pos_(pos),
   width_(width),
   height_(height)
@@ -23,30 +23,13 @@ nazarov::rectangle_t nazarov::Rectangle::getFrameRect() const
   return { pos_, width_, height_ };
 }
 
-nazarov::point_t nazarov::Rectangle::getPos() const
-{
-  return pos_;
-}
-
-double nazarov::Rectangle::getWidth() const
-{
-  return width_;
-}
-
-double nazarov::Rectangle::getHeight() const
-{
-  return height_;
-}
-
 void nazarov::Rectangle::printFeatures() const
 {
   rectangle_t framingRectangle = getFrameRect();
-  std::cout << "Rectangle information: \n" << "Width:" << width_ << "\n"
-    << "Height: " << height_ << "\n" << "Area: " << getArea() << "\n\n"
-    << "Rectangle is at point: { " << "x: " << pos_.x << ", y: " << pos_.y << " }\n\n"
-    << "Framing rectangle information:\n" << "Width:" << framingRectangle.width << "\n"
-    << "Height: " << framingRectangle.height << "\n" << "Center : { " << "x: " << framingRectangle.pos.x
-    << ", y: " << framingRectangle.pos.y << " }\n\n";
+  std::cout << "\n Rectangle frame width is " << framingRectangle.width;
+  std::cout << "\n Rectangle frame height is " << framingRectangle.height;
+  std::cout << "\n Rectangle position is ( " << "x: " << pos_.x << ", y: " << pos_.y << " )";
+  std::cout << "\n Rectangle area is " << getArea() << "\n\n";
 }
 
 void nazarov::Rectangle::move(double dx, double dy)

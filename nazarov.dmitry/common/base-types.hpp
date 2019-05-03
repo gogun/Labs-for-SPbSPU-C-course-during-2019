@@ -10,7 +10,8 @@ namespace nazarov
   struct rectangle_t
   {
     point_t pos;
-    double width, height;
+    double width;
+    double height;
   };
-};
+}
 #endif

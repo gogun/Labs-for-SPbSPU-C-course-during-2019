@@ -1,25 +1,26 @@
-#ifndef RECTANGLE_HPP_INCLUDED
-#define RECTANGLE_HPP_INCLUDED
+#ifndef TRIANGLE_HPP_INCLUDED
+#define TRIANGLE_HPP_INCLUDED
 #include "shape.hpp"
 
-namespace nazarov
+namespace nazarov 
 {
-  class Rectangle : public Shape
+  class Triangle : public Shape
   {
   public:
-    Rectangle(const point_t &pos, const double width, const double height);
+    Triangle(const point_t &A, const point_t &B, const point_t &C);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void printFeatures() const override;
     void scale(double times) override;
-    void move(double dx, double dy) override;
     void move(const point_t &pos) override;
+    void move(double dx, double dy) override;
 
   private:
     point_t pos_;
-    double width_;
-    double height_;
+    point_t point1_;
+    point_t point2_;
+    point_t point3_;
   };
 }
 #endif

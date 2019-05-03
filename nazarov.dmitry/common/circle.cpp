@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <cmath>
 
-nazarov::Circle::Circle(const point_t &pos, const double &radius) :
+nazarov::Circle::Circle(const point_t &pos, const double radius) :
   pos_(pos),
   radius_(radius)
 {
@@ -24,25 +24,13 @@ nazarov::rectangle_t nazarov::Circle::getFrameRect() const
   return { pos_, 2 * radius_, 2 * radius_ };
 }
 
-nazarov::point_t nazarov::Circle::getPos() const
-{
-  return pos_;
-}
-
-double nazarov::Circle::getRadius() const
-{
-  return radius_;
-}
-
 void nazarov::Circle::printFeatures() const
 {
   rectangle_t framingRectangle = getFrameRect();
-  std::cout << "Circle information: \n" << "Radius: " << radius_ << "\n"
-            << "Area: " << getArea() << "\n\n"
-            << "Circle is at point: { " << "x: " << pos_.x << ", y: " << pos_.y << " }\n\n"
-            << "Information about framing rectangle:\n" << "Width:" << framingRectangle.width << "\n"
-            << "Height: " << framingRectangle.height << "\n" << "Center : { " << "x: " << framingRectangle.pos.x
-            << ", y: " << framingRectangle.pos.y << " }\n\n";
+  std::cout << "\n Circle frame width is " << framingRectangle.width;
+  std::cout << "\n Circle frame height is " << framingRectangle.height;
+  std::cout << "\n Circle position is ( " << "x: " << pos_.x << ", y: " << pos_.y << " )";
+  std::cout << "\n Circle area is " << getArea() << "\n\n";
 }
 
 void nazarov::Circle::move(double dx, double dy)
