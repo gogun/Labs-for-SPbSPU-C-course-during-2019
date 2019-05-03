@@ -9,11 +9,11 @@ lebedev::Rectangle::Rectangle(double height, double width, const point_t &pos):
 {
   if (height <= 0)
   {
-    throw std::invalid_argument("Invalid heigt, height must be more then 0");
+    throw std::invalid_argument("Invalid parametr, height must be more then 0.0");
   }
   if (width <= 0)
   {
-    throw std::invalid_argument("Invalid width, width must be more then 0");
+    throw std::invalid_argument("Invalid parametr, width must be more then 0.0");
   }
 }
 
@@ -42,7 +42,7 @@ void lebedev::Rectangle::scale(const double multiplier)
 {
   if (multiplier <= 0)
   {
-    throw std::invalid_argument("Invalid multiplier, multiplier must be more then 0");
+    throw std::invalid_argument("Invalid parametr, multiplier must be more then 0");
   }
   m_height *= multiplier;
   m_width *= multiplier;
