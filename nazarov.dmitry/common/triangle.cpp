@@ -75,7 +75,14 @@ void nazarov::Triangle::printFeatures() const
 
 void nazarov::Triangle::scale(double times)
 {
-  point1_ = { pos_.x + (point1_.x - pos_.x) * times, pos_.y + (point1_.y - pos_.y) * times };
-  point2_ = { pos_.x + (point2_.x - pos_.x) * times, pos_.y + (point2_.y - pos_.y) * times };
-  point3_ = { pos_.x + (point3_.x - pos_.x) * times, pos_.y + (point3_.y - pos_.y) * times };
+  if (times <= 0)
+  {
+    throw std::invalid_argument("Enter correct 'times'");
+  }
+  else
+  {
+    point1_ = { pos_.x + (point1_.x - pos_.x) * times, pos_.y + (point1_.y - pos_.y) * times };
+    point2_ = { pos_.x + (point2_.x - pos_.x) * times, pos_.y + (point2_.y - pos_.y) * times };
+    point3_ = { pos_.x + (point3_.x - pos_.x) * times, pos_.y + (point3_.y - pos_.y) * times };
+  }
 }
