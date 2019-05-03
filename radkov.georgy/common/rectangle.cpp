@@ -5,7 +5,7 @@
 
 using namespace radkov;
 
-Rectangle::Rectangle(const point_t &pos, double width, double height):
+Rectangle::Rectangle(const point_t &pos, double width, double height) :
   points_{{pos.x - width / 2, pos.y + height / 2},
     {pos.x + width / 2, pos.y + height / 2},
     {pos.x + width / 2, pos.y - height / 2},

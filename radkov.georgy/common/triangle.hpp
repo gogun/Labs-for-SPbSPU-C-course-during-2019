@@ -4,8 +4,7 @@
 
 namespace radkov
 {
-  class Triangle:
-    public Shape
+  class Triangle : public Shape
   {
   public:
     Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &pos_c);

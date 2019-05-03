@@ -4,8 +4,7 @@
 
 namespace radkov
 {
-  class Rectangle:
-    public Shape
+  class Rectangle : public Shape
   {
   public:
     Rectangle(const point_t &pos, double width, double height);

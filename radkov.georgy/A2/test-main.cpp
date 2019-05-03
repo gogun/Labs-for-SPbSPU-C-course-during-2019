@@ -25,13 +25,15 @@ BOOST_AUTO_TEST_CASE(move)
 BOOST_AUTO_TEST_CASE(scale)
 {
   Rectangle rectangle({0, 0}, 2, 3);
-  rectangle.scale(2);
+
+  double k = 2;
+  rectangle.scale(k);
 
   BOOST_CHECK_CLOSE(rectangle.getFrameRect().pos.x, 0, TOLERANCE);
   BOOST_CHECK_CLOSE(rectangle.getFrameRect().pos.y, 0, TOLERANCE);
   BOOST_CHECK_CLOSE(rectangle.getWidth(), 4, TOLERANCE);
   BOOST_CHECK_CLOSE(rectangle.getHeight(), 6, TOLERANCE);
-  BOOST_CHECK_CLOSE(rectangle.getArea(), 24, TOLERANCE);
+  BOOST_CHECK_CLOSE(rectangle.getArea(), 6 * k * k, TOLERANCE);
 }
 
 BOOST_AUTO_TEST_CASE(invalid_width)
@@ -68,12 +70,14 @@ BOOST_AUTO_TEST_CASE(move)
 BOOST_AUTO_TEST_CASE(scale)
 {
   Circle circle({-10, 2}, 5);
-  circle.scale(2);
+
+  double k = 2;
+  circle.scale(k);
 
   BOOST_CHECK_CLOSE(circle.getFrameRect().pos.x, -10, TOLERANCE);
   BOOST_CHECK_CLOSE(circle.getFrameRect().pos.y, 2, TOLERANCE);
   BOOST_CHECK_CLOSE(circle.getRadius(), 10, TOLERANCE);
-  BOOST_CHECK_CLOSE(circle.getArea(), M_PI * 100, TOLERANCE);
+  BOOST_CHECK_CLOSE(circle.getArea(), M_PI * 25 * k * k, TOLERANCE);
 }
 
 BOOST_AUTO_TEST_CASE(invalid_radius)
@@ -91,38 +95,31 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(testTriangle)
 
-BOOST_AUTO_TEST_CASE(move_center)
+BOOST_AUTO_TEST_CASE(move)
 {
   Triangle triangle({-3, 0}, {0, 9}, {3, 0});
   triangle.move(5, 6);
 
   BOOST_CHECK_CLOSE(triangle.getCenter().x, 5, TOLERANCE);
   BOOST_CHECK_CLOSE(triangle.getCenter().y, 9, TOLERANCE);
+  BOOST_CHECK_CLOSE(triangle.getArea(), 27, TOLERANCE);
 }
 
-BOOST_AUTO_TEST_CASE(move_area)
+BOOST_AUTO_TEST_CASE(scale)
 {
-  Triangle triangle({0, 0}, {0, 2}, {3, 0});
-  triangle.move({7, 3});
+  point_t pos_a = {1, 0};
+  point_t pos_b = {2, 3};
+  point_t pos_c = {3, 0};
 
-  BOOST_CHECK_CLOSE(triangle.getArea(), 3, TOLERANCE);
-}
+  Triangle triangle(pos_a, pos_b, pos_c);
 
-BOOST_AUTO_TEST_CASE(scale_center)
-{
-  Triangle triangle({1, 0}, {2, 3}, {3, 0});
-  triangle.scale(3);
+  double k = 3;
+  triangle.scale(k);
 
   BOOST_CHECK_CLOSE(triangle.getCenter().x, 2, TOLERANCE);
   BOOST_CHECK_CLOSE(triangle.getCenter().y, 1, TOLERANCE);
-}
-
-BOOST_AUTO_TEST_CASE(scale_area)
-{
-  Triangle triangle({1, -1}, {3, -1}, {1, -3});
-  triangle.scale(2);
-
-  BOOST_CHECK_CLOSE(triangle.getArea(), 8, TOLERANCE);
+  BOOST_CHECK_CLOSE(triangle.getArea(), (fabs(((pos_a.x - pos_c.x) * (pos_b.y - pos_c.y)
+      - (pos_b.x - pos_c.x) * (pos_a.y - pos_c.y))) / 2) * k * k, TOLERANCE);
 }
 
 BOOST_AUTO_TEST_CASE(invalid_constructor)

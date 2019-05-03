@@ -5,7 +5,7 @@
 
 using namespace radkov;
 
-Triangle::Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &pos_c):
+Triangle::Triangle(const point_t &pos_a, const point_t &pos_b, const point_t &pos_c) :
   points_{pos_a, pos_b, pos_c}
 {
   if (getArea() == 0)
