@@ -3,7 +3,7 @@
 #include "rectangle.hpp"
 #include "triangle.hpp"
 
-void moveFigure(Shape * shape, double x, double y)
+void moveFigure(Shape * shape, const double &x, const double &y)
 {
   std::cout << "Before movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
   shape->move(x, y);

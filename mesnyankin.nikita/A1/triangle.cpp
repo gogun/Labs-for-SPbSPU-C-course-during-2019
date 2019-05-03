@@ -21,7 +21,7 @@ double Triangle::getArea() const
   return sqrt(p * (p - getAB()) * (p - getBC()) * (p - getCA()));
 }
 
-void Triangle::move(double x, double y)
+void Triangle::move(const double &x, const double &y)
 {
   a_.x += x;
   b_.x += x;
