@@ -1,10 +1,12 @@
 #include <iostream>
+#include <cassert>
 #include "circle.hpp"
 #include "rectangle.hpp"
 #include "triangle.hpp"
 
 void moveFigure(Shape * shape, double x, double y)
 {
+  assert(shape != nullptr);
   std::cout << "Before movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
   shape->move(x, y);
   std::cout << "After movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
@@ -12,6 +14,7 @@ void moveFigure(Shape * shape, double x, double y)
 
 void moveFigure(Shape * shape, const point_t &point)
 {
+  assert(shape != nullptr);
   std::cout << "Before movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
   shape->move(point);
   std::cout << "After movement: " << shape->getFrameRect().pos.x << " | " << shape->getFrameRect().pos.y << "\n";
@@ -19,6 +22,7 @@ void moveFigure(Shape * shape, const point_t &point)
 
 void showStatus(const Shape * shape)
 {
+  assert(shape != nullptr);
   std::cout << "Current shape area is: " << shape->getArea() << "\n";
   std::cout << "Current shape centre is in: "
       << shape->getFrameRect().pos.x << "," << shape->getFrameRect().pos.y << "\n";

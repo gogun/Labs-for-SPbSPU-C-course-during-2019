@@ -11,9 +11,9 @@ Circle::Circle(double radius, const point_t &pos) :
   assert(radius_ >= 0.0);
 }
 
-Circle::Circle(double radius, double posx, double posy) :
+Circle::Circle(double radius, double posX, double posY) :
   radius_(radius),
-  pos_({posx, posy})
+  pos_({posX, posY})
 {
   assert(radius_ >= 0.0);
 }

@@ -16,8 +16,7 @@ Triangle::Triangle(const point_t &a, const point_t &b, const point_t &c):
 
 double Triangle::getArea() const
 {
-  double p;
-  p = (getAB() + getBC() + getCA()) * 0.5;
+  double p = (getAB() + getBC() + getCA()) * 0.5;
   return sqrt(p * (p - getAB()) * (p - getBC()) * (p - getCA()));
 }
 
@@ -35,8 +34,8 @@ void Triangle::move(double x, double y)
 
 void Triangle::move(const point_t &point)
 {
-  const double x = point.x - pos_.x;
-  const double y = point.y - pos_.y;
+  double x = point.x - pos_.x;
+  double y = point.y - pos_.y;
   move(x, y);
 }
 
@@ -69,14 +68,11 @@ point_t Triangle::getPos() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double rMinX, rMinY, rMaxX, rMaxY;
-  point_t rectangle_centre;
-  rMaxX = std::max({a_.x, b_.x, c_.x});
-  rMaxY = std::max({a_.y, b_.y, c_.y});
-  rMinX = std::min({a_.x, b_.x, c_.x});
-  rMinY = std::min({a_.y, b_.y, c_.y});
-  rectangle_centre.x = (rMaxX + rMinX) / 2;
-  rectangle_centre.y = (rMaxY + rMinY) / 2;
+  double rMinX = std::min({ a_.x, b_.x, c_.x });
+  double rMinY = std::min({ a_.y, b_.y, c_.y });
+  double rMaxX = std::max({ a_.x, b_.x, c_.x });
+  double rMaxY = std::max({ a_.y, b_.y, c_.y });
+  point_t rectangle_centre = {(rMaxX + rMinX) / 2, (rMaxY + rMinY) / 2};
   return {rectangle_centre, rMaxX - rMinX, rMaxY - rMinY};
 }
 
