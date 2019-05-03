@@ -35,6 +35,11 @@ kvashnin::CompositeShape::CompositeShape(Shape *shape):
   array_[0] = shape;
 }
 
+kvashnin::CompositeShape::~CompositeShape()
+{
+  array_.reset();
+}
+
 kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeShape& rh)
 {
   if (this == &rh)

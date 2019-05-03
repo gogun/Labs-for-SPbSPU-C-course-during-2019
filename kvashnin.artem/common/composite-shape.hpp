@@ -13,7 +13,7 @@ namespace kvashnin
     CompositeShape(const CompositeShape& cs);
     CompositeShape(CompositeShape&& cs);
     CompositeShape(Shape *shape);
-    ~CompositeShape() = default;
+    ~CompositeShape();
 
     CompositeShape& operator =(const CompositeShape& rh);
     CompositeShape& operator =(CompositeShape&& rh);
