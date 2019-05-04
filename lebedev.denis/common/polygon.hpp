@@ -24,7 +24,7 @@ namespace lebedev
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void scale(const double multiplier) override;
-    bool checkBump() const ;
+    bool checkBump() const;
     void move(const double x, const double y) override;
     void move(const point_t &new_point) override;
 

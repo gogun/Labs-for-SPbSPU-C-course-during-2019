@@ -61,28 +61,29 @@ lebedev::Polygon::Polygon(Polygon &&other):
     m_vertex = other.m_vertex;
     other.m_vertex = nullptr;
   }
-}
+};
 
 lebedev::Polygon & lebedev::Polygon::operator =(const Polygon &other)
 {
   if (this == &other)
   {
-    return *this
+    return *this;
   }
+
   m_qtyVertex = other.m_qtyVertex;
   m_centroid = other.m_centroid;
 
   delete [] m_vertex;
 
-  m_vertex = new lebedev::point_t [other.m_qtyVertex];
-  for (std:: index = 0; index < m_qtyVertex; index++)
+  m_vertex = new point_t [m_qtyVertex];
+  for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
     m_vertex[index] = other.m_vertex[index];
   }
   return *this;
 }
 
-lebedev::Polygon & lebedev::Polygon::operator =(const Polygon &&other)
+lebedev::Polygon & lebedev::Polygon::operator =(Polygon &&other)
 {
   if (this == &other)
   {
@@ -117,11 +118,11 @@ lebedev::point_t lebedev::Polygon::calcCentroid() const
   return {temp_point.x / m_qtyVertex, temp_point.y / m_qtyVertex};
 }
 
-void printData() const
+void lebedev::Polygon::printData() const
 {
-  for (std::size_t index = 0; index < m_qtyVertex ; index++)
+  for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
-    std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index].x<<";";
+    std::cout<<"Polygon's vertex №"<<index + 1<< ".Position of vertex (X="<<m_vertex[index].x<<";";
     std::cout<<"Y="<<m_vertex[index].y <<")"<<'\n';
   }
 }
