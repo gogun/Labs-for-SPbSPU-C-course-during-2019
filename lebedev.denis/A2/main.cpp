@@ -4,7 +4,6 @@
 #include "rectangle.hpp"
 #include "polygon.hpp"
 
-
 void showRectangle_t(lebedev::rectangle_t data)
 {
   std::cout<<"Width = "<<data.width<<'\n';
@@ -58,60 +57,56 @@ void PrintDataPolygon(const lebedev::Polygon *polygon)
 
 int main()
 {
-  lebedev::Rectangle r1(3.00, 4.00, { 5.00, 4.00 });
+  lebedev::Rectangle rectangle1(3.00, 4.00, { 5.00, 4.00 });
   std::cout<<"Rectangle."<<'\n';
-  showAll(&r1);
+  showAll(&rectangle1);
   std::cout<<"After scale"<<'\n';
-  r1.scale(3.0);
-  showAll(&r1);
-  r1.move({.x = 7.00, .y = 8.00 });
+  rectangle1.scale(3.0);
+  showAll(&rectangle1);
+  rectangle1.move({.x = 7.00, .y = 8.00 });
   std::cout<<"After move"<<'\n';
-  showAll(&r1);
-  lebedev::Circle c1(3.00, { 1.00, 3.00 });
+  showAll(&rectangle1);
+  lebedev::Circle circle1(3.00, { 1.00, 3.00 });
   std::cout<<"Circle."<<'\n';
-  showAll(&c1);
+  showAll(&circle1);
   std::cout<<"After scale"<<'\n';
-  c1.scale(4.00);
-  showAll(&c1);
-  c1.move(3.00, -1.5);
+  circle1.scale(4.00);
+  showAll(&circle1);
+  circle1.move(3.00, -1.5);
   std::cout<<"After move"<<'\n';
-  showAll(&c1);
-  lebedev::point_t shape[] = {{3.0, 2.0}, {9.0, 2.0}, {4.0, 3.0}, {4.0, 6.0}};
+  showAll(&circle1);
+  lebedev::point_t shape[] = {{3.0, 2.0}, {9.0, 2.0}, {9.0, 5.0}, {3.0, 5.0}};
   size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
-  lebedev::Polygon poly(qtyVertex, shape);
+  lebedev::Polygon polygon1(qtyVertex, shape);
   std::cout <<"Polygon."<<'\n';
-  PrintDataPolygon(&poly);
+  PrintDataPolygon(&polygon1);
   std::cout<<"After scale"<<'\n';
-  poly.scale(2.0);
-  PrintDataPolygon(&poly);
+  polygon1.scale(2.0);
+  PrintDataPolygon(&polygon1);
   std::cout<<"After move(3.0, -1.0)"<<'\n';
-  poly.move(3.00, -1.0);
-  PrintDataPolygon(&poly);
+  polygon1.move(3.00, -1.0);
+  PrintDataPolygon(&polygon1);
   std::cout<<"After move(1.00, 2.0)"<<'\n';
-  poly.move({.x = 1.00, .y = 2.0});
-  PrintDataPolygon(&poly);
+  polygon1.move({.x = 1.00, .y = 2.0});
+  PrintDataPolygon(&polygon1);
 
-  std::cout<<"Demo copy constructor of polygon"<<'\n';
-  lebedev::Polygon polygonCopyConstructor(poly);
-  PrintDataPolygon(&polygonCopyConstructor);
+  std::cout<<"~ Copy constructor ~"<<'\n';
+  lebedev::Polygon polygonCopyConstructor(polygon1);
+  polygonCopyConstructor.printData();
 
-  std::cout<<"Demo copy assignment of polygon"<<'\n';
+  std::cout<<"~ Copy assignment ~"<<'\n';
   lebedev::Polygon polygonCopyAssignment;
-  polygonCopyAssignment = poly;
-  PrintDataPolygon(&polygonCopyAssignment);
-  std::cout <<"Is source polygon alive ?"<<'\n';
-  poly.printData();
+  polygonCopyAssignment = polygon1;
+  polygonCopyAssignment.printData();
 
-  std::cout <<"Demo move constructor of polygon"<<'\n';
+  std::cout <<"~ Move constructor of polygon ~"<<'\n';
   lebedev::Polygon polygonMoveConstructor(std::move(polygonCopyAssignment));
-  PrintDataPolygon(&polygonMoveConstructor);
+  polygonMoveConstructor.printData();
 
-  std::cout <<"Demo move assignment of polygon"<<'\n';
+  std::cout <<"~ Move assignment of polygon ~"<<'\n';
   lebedev::Polygon polygonMoveAssignment;
-  polygonMoveAssignment = (std::move(poly));
-  PrintDataPolygon(&polygonMoveAssignment);
-  std::cout<<"Is moved polygon alive ?"<<'\n';
-  poly.printData();
+  polygonMoveAssignment = (std::move(polygon1));
+  polygonMoveAssignment.printData();
 
   return 0;
 }
