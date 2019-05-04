@@ -118,6 +118,11 @@ lebedev::point_t lebedev::Polygon::calcCentroid() const
   return {temp_point.x / m_qtyVertex, temp_point.y / m_qtyVertex};
 }
 
+std::size_t lebedev::Polygon::getQuantity() const
+{
+  return m_qtyVertex;
+}
+
 void lebedev::Polygon::printData() const
 {
   for (std::size_t index = 0; index < m_qtyVertex; index++)
