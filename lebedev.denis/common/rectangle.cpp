@@ -11,6 +11,7 @@ lebedev::Rectangle::Rectangle(double height, double width, const point_t &pos):
   {
     throw std::invalid_argument("Invalid parametr, height must be more then 0.0");
   }
+
   if (width <= 0)
   {
     throw std::invalid_argument("Invalid parametr, width must be more then 0.0");
