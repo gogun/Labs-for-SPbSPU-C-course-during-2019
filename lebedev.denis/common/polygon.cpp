@@ -38,8 +38,8 @@ lebedev::Polygon::Polygon(std::size_t qtyVertex, lebedev::point_t *vertex):
 
 lebedev::Polygon::Polygon(const Polygon &other):
   m_qtyVertex(other.m_qtyVertex),
-  m_centroid(oter.m_centroid),
-  m_vertex(new lebedev::point_t *[m_qtyVertex])
+  m_centroid(other.m_centroid),
+  m_vertex(new lebedev::point_t [m_qtyVertex])
 {
   for (std::size_t index = 0; index < m_qtyVertex; index++)
   {
@@ -74,7 +74,7 @@ lebedev::Polygon & lebedev::Polygon::operator =(const Polygon &other)
 
   delete [] m_vertex;
 
-  m_vertex = new lebedev::point_t [other.m_qtyVertex]
+  m_vertex = new lebedev::point_t [other.m_qtyVertex];
   for (std:: index = 0; index < m_qtyVertex; index++)
   {
     m_vertex[index] = other.m_vertex[index];
