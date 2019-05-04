@@ -71,6 +71,32 @@ BOOST_AUTO_TEST_CASE(nullShapeException)
   BOOST_CHECK_THROW(chizhov::CompositeShape(nullptr), std::invalid_argument);
 }
 
+BOOST_AUTO_TEST_CASE(outOfRangeException)
+{
+  chizhov::CompositeShape emptyComposite;
+  BOOST_CHECK_THROW(emptyComposite[-1], std::out_of_range);
+  BOOST_CHECK_THROW(emptyComposite[0], std::out_of_range);
+}
+
+BOOST_AUTO_TEST_CASE(CompositeGetAndDelete)
+{
+  chizhov::CompositeShape composite(&circle);
+  const chizhov::rectangle_t frameBefore = composite.getFrameRect();
+  const double areaBefore = composite.getArea();
+
+  composite.addShape(&rectangle);
+
+  int count = composite.getCount();
+  chizhov::Shape* shapeToDelete = composite[count - 1];
+  composite.deleteShape(shapeToDelete);
+
+  chizhov::rectangle_t frameAfter = composite.getFrameRect();
+  double areaAfter = composite.getArea();
+  BOOST_CHECK_CLOSE(frameBefore.width, frameAfter.width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBefore.height, frameAfter.height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBefore, areaAfter, EPSILON);
+}
+
 BOOST_AUTO_TEST_CASE(moveSemanticsComposite)
 {
   chizhov::CompositeShape compositeFrom(&circle);

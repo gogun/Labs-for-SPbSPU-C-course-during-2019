@@ -63,6 +63,15 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeS
   return *this;
 }
 
+chizhov::Shape* chizhov::CompositeShape::operator [](int n)
+{
+  if ((n < 0) || (n > count_ - 1)) {
+    throw std::out_of_range("Index out of range!");
+  }
+
+  return shapes_[n];
+}
+
 double chizhov::CompositeShape::getArea() const
 {
   double area = 0;
@@ -141,7 +150,7 @@ void chizhov::CompositeShape::scale(double scale)
   for (int i = 0; i < count_; i++) {
     double dx = shapes_[i]->getFrameRect().pos.x - frameRect.pos.x;
     double dy = shapes_[i]->getFrameRect().pos.y - frameRect.pos.y;
-    shapes_[i]->move(point_t{frameRect.pos.x + dx * scale, frameRect.pos.y + dy * scale});
+    shapes_[i]->move(dx * (scale - 1), dy * (scale - 1));
     shapes_[i]->scale(scale);
   }
 }

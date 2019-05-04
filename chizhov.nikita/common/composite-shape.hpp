@@ -15,6 +15,7 @@ namespace chizhov
 
     CompositeShape& operator =(const CompositeShape&);
     CompositeShape& operator =(CompositeShape&&);
+    Shape* operator [](int i);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
@@ -24,6 +25,10 @@ namespace chizhov
 
     void addShape(Shape*);
     void deleteShape(const Shape*);
+    int getCount() const
+    {
+      return count_;
+    }
 
   private:
     Shape** shapes_;
