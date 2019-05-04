@@ -50,7 +50,7 @@ lebedev::Polygon::Polygon(const Polygon &other):
 
 lebedev::Polygon::Polygon(Polygon &&other):
   m_qtyVertex(other.m_qtyVertex),
-  m_centroid(other.m_centroid)
+  m_centroid(other.m_centroid),
   m_vertex(other.m_vertex)
 {
   if (this != &other)
