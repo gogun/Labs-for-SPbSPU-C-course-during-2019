@@ -99,18 +99,18 @@ int main()
   lebedev::Polygon polygonCopyAssignment;
   polygonCopyAssignment = poly;
   PrintDataPolygon(&polygonCopyAssignment);
-  std::cout << "Is source polygon alive ?" << std::endl;
+  std::cout <<"Is source polygon alive ?"<<'\n';
   poly.printData();
 
-  std::cout << "Demo move constructor of polygon" << std::endl;
+  std::cout <<"Demo move constructor of polygon"<<'\n';
   lebedev::Polygon polygonMoveConstructor(std::move(polygonCopyAssignment));
   PrintDataPolygon(&polygonMoveConstructor);
 
-  std::cout << "Demo move assignment of polygon" << std::endl;
+  std::cout <<"Demo move assignment of polygon"<<'\n';
   lebedev::Polygon polygonMoveAssignment;
   polygonMoveAssignment = (std::move(poly));
   PrintDataPolygon(&polygonMoveAssignment);
-  std::cout << "Is moved polygon alive ?" << std::endl;
+  std::cout<<"Is moved polygon alive ?"<<'\n';
   poly.printData();
 
   return 0;
