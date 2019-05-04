@@ -19,8 +19,7 @@ double kurbanova::Circle::getArea() const
   return (M_PI * radius_ * radius_);
 }
 
-kurbanova::rectangle_t 
-kurbanova::Circle::getFrameRect() const
+kurbanova::rectangle_t kurbanova::Circle::getFrameRect() const
 {
   return {pos_, 2 * radius_, 2 * radius_};
 }
