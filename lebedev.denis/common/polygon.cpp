@@ -6,6 +6,13 @@
 #include <algorithm>
 #include <cmath>
 
+lebedev::Polygon::Polygon():
+  m_qtyVertex(0),
+  m_centroid({0.0, 0.0}),
+  m_vertex(nullptr)
+{
+}
+
 lebedev::Polygon::Polygon(std::size_t qtyVertex, lebedev::point_t *vertex):
   m_qtyVertex(qtyVertex)
 {
@@ -43,15 +50,6 @@ lebedev::point_t lebedev::Polygon::calcCentroid() const
     temp_point.y += m_vertex[index].y;
   }
   return {temp_point.x / m_qtyVertex, temp_point.y / m_qtyVertex};
-}
-
-void lebedev::Polygon::printData() const
-{
-  for (std::size_t index = 0; index < m_qtyVertex ; index++)
-  {
-    std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index].x<<";";
-    std::cout<<"Y="<<m_vertex[index].y <<")"<<'\n';
-  }
 }
 
 double lebedev::Polygon::getArea() const
