@@ -3,7 +3,7 @@
 #include <cmath>
 #include <algorithm>
 
-Triangle::Triangle(const point_t& A, const point_t& B, const point_t& C):
+Triangle::Triangle(const point_t & A, const point_t & B, const point_t & C):
   pos_({(A.x + B.x + C.x) / 3, (A.y + B.y + C.y) / 3}),
   point1_(A),
   point2_(B),

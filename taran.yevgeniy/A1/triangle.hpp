@@ -7,7 +7,7 @@ class Triangle:
     public Shape
 {
 public:
-  Triangle(const point_t& A, const point_t& B, const point_t& C);
+  Triangle(const point_t & A, const point_t & B, const point_t & C);
   double getArea() const override;
   rectangle_t getFrameRect() const override;
   void move(const point_t & pos) override;
