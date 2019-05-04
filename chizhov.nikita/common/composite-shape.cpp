@@ -43,6 +43,7 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::Comp
 {
   if (this != &rhs) {
     count_ = rhs.count_;
+    delete [] shapes_;
     shapes_ = new Shape*[count_];
     copyFromSource(rhs);
   }
@@ -53,6 +54,7 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(const chizhov::Comp
 chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeShape&& rhs)
 {
   if (this != &rhs) {
+    delete [] shapes_;
     shapes_ = rhs.shapes_;
     count_ = rhs.count_;
     rhs.shapes_ = nullptr;
