@@ -64,7 +64,7 @@ BOOST_AUTO_TEST_CASE(compositeShapeAreaAfterAddAndDelete)
   BOOST_CHECK_CLOSE(compShAreaAfterAdd - rectArea, compSh.getArea(), fault);
 }
 
-BOOST_AUTO_TEST_CASE(compositeShapeIncorrectParameters)
+BOOST_AUTO_TEST_CASE(compositeShapeIncorrectScaleParameter)
 {
   shestakova::Rectangle rect({4, 7}, 2, 12);
   shestakova::Circle circ({2, 1}, 10);
@@ -72,6 +72,20 @@ BOOST_AUTO_TEST_CASE(compositeShapeIncorrectParameters)
   compSh.addShape(circ);
 
   BOOST_CHECK_THROW(compSh.scale(-3), std::invalid_argument);
+}
+
+BOOST_AUTO_TEST_CASE(compositeShapeThrowingExeptions)
+{
+  shestakova::Rectangle rect({4, 7}, 2, 12);
+  shestakova::Circle circ({2, 1}, 10);
+  shestakova::CompositeShape compSh(rect);
+  compSh.addShape(circ);
+
+  BOOST_CHECK_THROW(compSh.deleteShape(-2), std::invalid_argument);
+  BOOST_CHECK_THROW(compSh.deleteShape(2), std::invalid_argument);
+
+  compSh.deleteShape(1);
+  BOOST_CHECK_THROW(compSh.deleteShape(1), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
