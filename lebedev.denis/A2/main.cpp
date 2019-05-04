@@ -92,7 +92,7 @@ int main()
   PrintDataPolygon(&poly);
 
   std::cout<<"Demo copy constructor of polygon"<<'\n';
-  lebedev::Polygon polygonCopyConstructor(polygon);
+  lebedev::Polygon polygonCopyConstructor(poly);
   PrintDataPolygon(&polygonCopyConstructor);
 
   std::cout<<"Demo copy assignment of polygon"<<'\n';
