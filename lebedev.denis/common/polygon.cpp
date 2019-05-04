@@ -36,6 +36,71 @@ lebedev::Polygon::Polygon(std::size_t qtyVertex, lebedev::point_t *vertex):
   }
 }
 
+lebedev::Polygon::Polygon(const Polygon &other):
+  m_qtyVertex(other.m_qtyVertex),
+  m_centroid(oter.m_centroid),
+  m_vertex(new lebedev::point_t *[m_qtyVertex])
+{
+  for (std::size_t index = 0; index < m_qtyVertex; index++)
+  {
+    m_vertex[index] = other.m_vertex[index];
+  }
+}
+
+lebedev::Polygon::Polygon(Polygon &&other):
+  m_qtyVertex(other.m_qtyVertex),
+  m_centroid(other.m_centroid)
+{
+  if (this != &other)
+  {
+    other.m_qtyVertex = 0;
+    other.m_centroid = {0.0, 0.0};
+
+    delete [] m_vertex;
+
+    m_vertex = other.m_vertex;
+    other.m_vertex = nullptr;
+  }
+}
+
+lebedev::Polygon & lebedev::Polygon::operator =(const Polygon &other)
+{
+  if (this == &other)
+  {
+    return *this
+  }
+  m_qtyVertex = other.m_qtyVertex;
+  m_centroid = other.m_centroid;
+
+  delete [] m_vertex;
+
+  m_vertex = new lebedev::point_t [other.m_qtyVertex]
+  for (std:: index = 0; index < m_qtyVertex; index++)
+  {
+    m_vertex[index] = other.m_vertex[index];
+  }
+  return *this;
+}
+
+lebedev::Polygon & lebedev::Polygon::operator =(const Polygon &&other)
+{
+  if (this == &other)
+  {
+    return *this;
+  }
+  m_qtyVertex = other.m_qtyVertex;
+  m_centroid = other.m_centroid;
+
+  other.m_qtyVertex = 0;
+  other.m_centroid = {0.0, 0.0};
+
+  delete [] m_vertex;
+
+  m_vertex = other.m_vertex;
+  other.m_vertex = nullptr;
+  return *this;
+}
+
 lebedev::Polygon::~Polygon()
 {
   delete [] m_vertex;
