@@ -1,6 +1,6 @@
 #include <boost/test/auto_unit_test.hpp>
 #include <stdexcept>
-#inclede "rectangle.hpp"
+#include "rectangle.hpp"
 
 const double FAULT = 0.001;
 const double INCORRECT_ARG = -47.0;
