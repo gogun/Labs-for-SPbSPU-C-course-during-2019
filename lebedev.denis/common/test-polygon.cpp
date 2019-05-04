@@ -17,8 +17,8 @@ BOOST_AUTO_TEST_SUITE(A2TestPolygon)
     testPolygon.move(2.00, 5.4);
     const double areaAfterMove = testPolygon.getArea();
     const lebedev::rectangle_t frameAfterMove = testPolygon.getFrameRect();
-    BOOST_CHECK_CLOSE(frameBefore.height, frameAfterMove.height, fault);
-    BOOST_CHECK_CLOSE(frameBefore.width, frameAfterMove.width, fault);
+    BOOST_CHECK_CLOSE(frameBefore.height, frameAfterMove.height, FAULT);
+    BOOST_CHECK_CLOSE(frameBefore.width, frameAfterMove.width, FAULT);
     BOOST_CHECK_CLOSE(areaBefore, areaAfterMove, FAULT);
   }
 
@@ -29,7 +29,7 @@ BOOST_AUTO_TEST_SUITE(A2TestPolygon)
     lebedev::Polygon testPolygon(qtyVertex, shape);
     const double areaBefore = testPolygon.getArea();
     const lebedev::rectangle_t frameBefore = testPolygon.getFrameRect();
-    poly.move({3.00, 4.00});
+    testPolygon.move({3.00, 4.00});
     const double areaAfterMove = testPolygon.getArea();
     const lebedev::rectangle_t frameAfterMove = testPolygon.getFrameRect();
     BOOST_CHECK_CLOSE(frameBefore.height, frameAfterMove.height, FAULT);
@@ -42,7 +42,7 @@ BOOST_AUTO_TEST_SUITE(A2TestPolygon)
     lebedev::point_t shape[] = {{2.0, 1.0}, {5.0, 1.0}, {5.0, 4.0}, {2.0, 4.0}};
     size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
     lebedev::Polygon testPolygon(qtyVertex, shape);
-    const double AreaBeforeScale = testPolygon.getArea();
+    const double areaBeforeScale = testPolygon.getArea();
     const double multiplier = 2.0;
     testPolygon.scale(multiplier);
     const double areaAfterScale = testPolygon.getArea();
@@ -61,7 +61,7 @@ BOOST_AUTO_TEST_SUITE(A2TestPolygon)
     lebedev::point_t shape[] = {{2.0, 1.0}, {5.0, 1.0}, {5.0, 4.0}, {2.0, 4.0}};
     size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
     lebedev::Polygon testPolygon(qtyVertex, shape);
-    BOOST_CHECK_THROW(poly.scale(INCORRECT_ARG), std::invalid_argument);
+    BOOST_CHECK_THROW(testPolygon.scale(INCORRECT_ARG), std::invalid_argument);
   }
 
   BOOST_AUTO_TEST_CASE(TestPolygonConstructors)

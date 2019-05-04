@@ -10,27 +10,27 @@ BOOST_AUTO_TEST_SUITE(A2TestCircle)
   BOOST_AUTO_TEST_CASE(TestCircleAfterMove)
   {
     lebedev::Circle testCircle(3.00, {1.00, 3.00 });
-    const double areaBefore = testCircle.getArea();
+    const double areaBeforeMove = testCircle.getArea();
     const lebedev::rectangle_t frameBefore = testCircle.getFrameRect();
-    c1.move(2.00, 5.4);
-    const double AreaAfterMove = testCircle.getArea();
+    testCircle.move(2.00, 5.4);
+    const double areaAfterMove = testCircle.getArea();
     const lebedev::rectangle_t frameAfterMove = testCircle.getFrameRect();
     BOOST_CHECK_CLOSE(frameBefore.height, frameAfterMove.height, FAULT);
     BOOST_CHECK_CLOSE(frameBefore.width, frameAfterMove.width, FAULT);
-    BOOST_CHECK_CLOSE(AreaBefore, AreaAfterMove, FAULT);
+    BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, FAULT);
   }
 
   BOOST_AUTO_TEST_CASE(TestCiecleAfterMovePos)
   {
     lebedev::Circle testCircle(3.00, {1.00, 3.00 });
-    const double areaBefore = testCircle.getArea();
+    const double areaBeforeMove = testCircle.getArea();
     const lebedev::rectangle_t frameBefore = testCircle.getFrameRect();
-    c1.move({3.00, 4.00});
+    testCircle.move({3.00, 4.00});
     const double areaAfterMove = testCircle.getArea();
     const lebedev::rectangle_t frameAfterMove = testCircle.getFrameRect();
     BOOST_CHECK_CLOSE(frameBefore.height, frameAfterMove.height, FAULT);
     BOOST_CHECK_CLOSE(frameBefore.width, frameAfterMove.width, FAULT);
-    BOOST_CHECK_CLOSE(areaBefore, areaAfterMove, FAULT);
+    BOOST_CHECK_CLOSE(areaBeforeMove, areaAfterMove, FAULT);
   }
 
   BOOST_AUTO_TEST_CASE(TestCircleScale)
