@@ -50,18 +50,15 @@ lebedev::Polygon::Polygon(const Polygon &other):
 lebedev::Polygon::Polygon(Polygon &&other):
   m_qtyVertex(other.m_qtyVertex),
   m_centroid(other.m_centroid)
+  m_vertex(other.m_vertex)
 {
   if (this != &other)
   {
     other.m_qtyVertex = 0;
     other.m_centroid = {0.0, 0.0};
-
-    delete [] m_vertex;
-
-    m_vertex = other.m_vertex;
     other.m_vertex = nullptr;
   }
-};
+}
 
 lebedev::Polygon & lebedev::Polygon::operator =(const Polygon &other)
 {
@@ -73,7 +70,10 @@ lebedev::Polygon & lebedev::Polygon::operator =(const Polygon &other)
   m_qtyVertex = other.m_qtyVertex;
   m_centroid = other.m_centroid;
 
-  delete [] m_vertex;
+  if (m_vertex != nullptr)
+  {
+    delete [] m_vertex;
+  }
 
   m_vertex = new point_t [m_qtyVertex];
   for (std::size_t index = 0; index < m_qtyVertex; index++)
@@ -95,7 +95,10 @@ lebedev::Polygon & lebedev::Polygon::operator =(Polygon &&other)
   other.m_qtyVertex = 0;
   other.m_centroid = {0.0, 0.0};
 
-  delete [] m_vertex;
+  if (m_vertex != nullptr)
+  {
+    delete [] m_vertex;
+  }
 
   m_vertex = other.m_vertex;
   other.m_vertex = nullptr;
