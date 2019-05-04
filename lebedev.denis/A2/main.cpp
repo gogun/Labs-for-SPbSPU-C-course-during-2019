@@ -26,24 +26,35 @@ void showAll(const lebedev::Shape *shape)
   }
 }
 
+void printData(lebedev::Polygon *polygon) const
+{
+  if (polygon = nullptr)
+  {
+    throw std::invalid_argument("Polygon pointer is null");
+  }
+  else
+  {
+    for (std::size_t index = 0; index < m_qtyVertex ; index++)
+    {
+      std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index].x<<";";
+      std::cout<<"Y="<<m_vertex[index].y <<")"<<'\n';
+    }
+  }
+}
+
 void PrintDataPolygon(const lebedev::Polygon *polygon)
 {
   if (polygon != nullptr)
   {
-    polygon->printData();
     bool unconvex = polygon->checkBump();
     if (unconvex != true)
     {
       double ZeroArea = polygon->getArea();
       if (ZeroArea > 0)
       {
-        polygon->printData();
+        printData(&polygon);
         std::cout<<"Area = "<<polygon->getArea()<<'\n';
-        lebedev::rectangle_t frameRect = polygon->getFrameRect();
-        std::cout<<"Width = "<< frameRect.width<<'\n';
-        std::cout<<"Height = "<<frameRect.height<<'\n';
-        std::cout<<"(X = "<<frameRect.pos.x<<";";
-        std::cout<<"Y = "<<frameRect.pos.y<<")"<<'\n';
+        showRectangle_t(polygon->getFrameRect());
       }
       else
       {
@@ -84,9 +95,7 @@ int main()
   lebedev::point_t shape[] = {{3.0, 2.0}, {9.0, 2.0}, {4.0, 3.0}, {4.0, 6.0}};
   size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
   lebedev::Polygon poly(qtyVertex, shape);
-  PrintDataPolygon(&poly);
   std::cout <<"Polygon."<<'\n';
-  std::cout<<"qtyVertex"<<qtyVertex<<'\n';
   PrintDataPolygon(&poly);
   std::cout<<"After scale"<<'\n';
   poly.scale(2.0);
@@ -96,6 +105,28 @@ int main()
   PrintDataPolygon(&poly);
   std::cout<<"After move(1.00, 2.0)"<<'\n';
   poly.move({.x = 1.00, .y = 2.0});
+  PrintDataPolygon(&poly);
+
+  std::cout<<"Demo copy constructor of polygon"<<'\n';
+  lebedev::Polygon polygonCopyConstructor(polygon);
+  PrintDataPolygon(&polygonCopyConstructor);
+
+  std::cout<<"Demo copy assignment of polygon"<<'\n';
+  lebedev::Polygon polygonCopyAssignment;
+  polygonCopyAssignment = poly;
+  PrintDataPolygon(&polygonCopyAssignment);
+  std::cout << "Is source polygon alive ?" << std::endl;
+  PrintDataPolygon(&poly);
+
+  std::cout << "Demo move constructor of polygon" << std::endl;
+  lebedev::Polygon polygonMoveConstructor(std::move(polygonCopyAssignment));
+  PrintDataPolygon(&polygonMoveConstructor);
+
+  std::cout << "Demo move assignment of polygon" << std::endl;
+  lebedev::Polygon polygonMoveAssignment;
+  polygonMoveAssignment = (std::move(poly));
+  polygonMoveAssignment.printInfo();
+  std::cout << "Is moved polygon alive ?" << std::endl;
   PrintDataPolygon(&poly);
 
   return 0;
