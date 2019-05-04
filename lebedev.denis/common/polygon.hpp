@@ -10,6 +10,7 @@ namespace lebedev
   class Polygon: public Shape
   {
   public:
+    Polygon();
     Polygon(std::size_t qtyVertex, point_t *vertex);
 
     Polygon(const Polygon &other);
@@ -18,15 +19,13 @@ namespace lebedev
     Polygon &operator =(Polygon &&other)
     virtual ~Polygon();
 
-    void printData() const ;
+    point_t calcCentroid() const;
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void scale(const double multiplier) override;
     bool checkBump() const ;
     void move(const double x, const double y) override;
     void move(const point_t &new_point) override;
-
-    point_t calcCentroid() const;
 
   private:
     std::size_t m_qtyVertex;
