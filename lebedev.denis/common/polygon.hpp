@@ -16,9 +16,10 @@ namespace lebedev
     Polygon(const Polygon &other);
     Polygon(Polygon &&other);
     Polygon &operator =(const Polygon &other);
-    Polygon &operator =(Polygon &&other)
+    Polygon &operator =(Polygon &&other);
     virtual ~Polygon();
 
+    void printData() const;
     point_t calcCentroid() const;
     double getArea() const override;
     rectangle_t getFrameRect() const override;
