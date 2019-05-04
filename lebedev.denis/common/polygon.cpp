@@ -117,6 +117,15 @@ lebedev::point_t lebedev::Polygon::calcCentroid() const
   return {temp_point.x / m_qtyVertex, temp_point.y / m_qtyVertex};
 }
 
+void printData() const
+{
+  for (std::size_t index = 0; index < m_qtyVertex ; index++)
+  {
+    std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index].x<<";";
+    std::cout<<"Y="<<m_vertex[index].y <<")"<<'\n';
+  }
+}
+
 double lebedev::Polygon::getArea() const
 {
   double summa = 0.0;
