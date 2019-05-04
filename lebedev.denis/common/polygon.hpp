@@ -10,7 +10,7 @@ namespace lebedev
   class Polygon: public Shape
   {
   public:
-    Polygon(std::size_t qtyVertex, lebedev::point_t *vertex);
+    Polygon(std::size_t qtyVertex, point_t *vertex);
 
     Polygon(const Polygon &other);
     Polygon(Polygon &&other);
