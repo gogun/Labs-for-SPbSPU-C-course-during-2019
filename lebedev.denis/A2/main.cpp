@@ -26,22 +26,6 @@ void showAll(const lebedev::Shape *shape)
   }
 }
 
-void printData(lebedev::Polygon *polygon) const
-{
-  if (polygon = nullptr)
-  {
-    throw std::invalid_argument("Polygon pointer is null");
-  }
-  else
-  {
-    for (std::size_t index = 0; index < m_qtyVertex ; index++)
-    {
-      std::cout<<"Polygon's vertex №"<<index<< ".Position of vertex (X="<<m_vertex[index].x<<";";
-      std::cout<<"Y="<<m_vertex[index].y <<")"<<'\n';
-    }
-  }
-}
-
 void PrintDataPolygon(const lebedev::Polygon *polygon)
 {
   if (polygon != nullptr)
@@ -52,7 +36,7 @@ void PrintDataPolygon(const lebedev::Polygon *polygon)
       double ZeroArea = polygon->getArea();
       if (ZeroArea > 0)
       {
-        printData(&polygon);
+        polygon->printData();
         std::cout<<"Area = "<<polygon->getArea()<<'\n';
         showRectangle_t(polygon->getFrameRect());
       }
@@ -116,7 +100,7 @@ int main()
   polygonCopyAssignment = poly;
   PrintDataPolygon(&polygonCopyAssignment);
   std::cout << "Is source polygon alive ?" << std::endl;
-  PrintDataPolygon(&poly);
+  poly.printData();
 
   std::cout << "Demo move constructor of polygon" << std::endl;
   lebedev::Polygon polygonMoveConstructor(std::move(polygonCopyAssignment));
@@ -125,9 +109,9 @@ int main()
   std::cout << "Demo move assignment of polygon" << std::endl;
   lebedev::Polygon polygonMoveAssignment;
   polygonMoveAssignment = (std::move(poly));
-  polygonMoveAssignment.printInfo();
+  PrintDataPolygon(&polygonMoveAssignment);
   std::cout << "Is moved polygon alive ?" << std::endl;
-  PrintDataPolygon(&poly);
+  poly.printData();
 
   return 0;
 }
