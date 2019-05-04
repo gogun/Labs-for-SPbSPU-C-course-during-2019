@@ -43,7 +43,11 @@ void lebedev::Rectangle::scale(const double multiplier)
 {
   if (multiplier <= 0)
   {
+<<<<<<< HEAD
     throw std::invalid_argument("Invalid parametr, multiplier must be more then 0");
+=======
+    throw std::invalid_argument("Invalid multiplier, multiplier must be more then 0");
+>>>>>>> 37b9a7f2577abf14254bf43200a997f269b34af7
   }
   m_height *= multiplier;
   m_width *= multiplier;
