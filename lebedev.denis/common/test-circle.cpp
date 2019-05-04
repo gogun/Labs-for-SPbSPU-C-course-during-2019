@@ -1,6 +1,6 @@
 #include <boost/test/auto_unit_test.hpp>
-#inclede "circle.hpp"
 #include <stdexcept>
+#inclede "circle.hpp"
 
 const double FAULT = 0.001;
 const double INCORRECT_ARG = -47.0;
