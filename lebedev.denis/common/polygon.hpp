@@ -11,6 +11,11 @@ namespace lebedev
   {
   public:
     Polygon(std::size_t qtyVertex, lebedev::point_t *vertex);
+
+    Polygon(const Polygon &other);
+    Polygon(Polygon &&other);
+    Polygon &operator =(const Polygon &other);
+    Polygon &operator =(Polygon &&other)
     virtual ~Polygon();
 
     void printData() const ;
@@ -18,11 +23,10 @@ namespace lebedev
     rectangle_t getFrameRect() const override;
     void scale(const double multiplier) override;
     bool checkBump() const ;
-
     void move(const double x, const double y) override;
     void move(const point_t &new_point) override;
 
-    lebedev::point_t calcCentroid() const;
+    point_t calcCentroid() const;
 
   private:
     std::size_t m_qtyVertex;
