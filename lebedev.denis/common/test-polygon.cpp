@@ -66,7 +66,7 @@ BOOST_AUTO_TEST_SUITE(A2TestPolygon)
 
   BOOST_AUTO_TEST_CASE(TestPolygonConstructors)
   {
-    lebedev::point_t shape[] = {{4.0, 1.0}, {7.0, 3.0}, {6.0, 8.0}, {2.0, 4.0}};
+    lebedev::point_t shape[] = {{2.0, 1.0}, {5.0, 1.0}, {5.0, 4.0}, {2.0, 4.0}};
     size_t qtyVertex = sizeof(shape) / sizeof(shape[0]);
     size_t zeroQty = 0;
     lebedev::Polygon testPolygon(qtyVertex, shape);
