@@ -34,7 +34,7 @@ namespace chizhov
     Shape** shapes_;
     int count_;
 
-    inline void copyFromSource(const CompositeShape&);
+    void copyFromSource(const CompositeShape&);
   };
 }
 

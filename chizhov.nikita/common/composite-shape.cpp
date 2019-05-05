@@ -65,7 +65,7 @@ chizhov::CompositeShape& chizhov::CompositeShape::operator =(chizhov::CompositeS
 
 chizhov::Shape* chizhov::CompositeShape::operator [](int n)
 {
-  if ((n < 0) || (n > count_ - 1)) {
+  if ((n < 0) || (n >= count_)) {
     throw std::out_of_range("Index out of range!");
   }
 
@@ -201,7 +201,7 @@ void chizhov::CompositeShape::deleteShape(const chizhov::Shape* shape)
   }
 }
 
-void chizhov::CompositeShape::copyFromSource(const chizhov::CompositeShape& source)
+inline void chizhov::CompositeShape::copyFromSource(const chizhov::CompositeShape& source)
 {
   for (int i = 0; i < count_; i++) {
     shapes_[i] = source.shapes_[i];

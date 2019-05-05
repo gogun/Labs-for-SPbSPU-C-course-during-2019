@@ -4,10 +4,10 @@
 #include "rectangle.hpp"
 #include "composite-shape.hpp"
 
-void printInfo(const chizhov::Shape& shape, const char* name = "Shape")
+void printInfo(const chizhov::Shape& shape)
 {
   chizhov::rectangle_t rectTmp = shape.getFrameRect();
-  std::cout << name << ":\nPos: ("
+  std::cout << "Pos: ("
       << rectTmp.pos.x << ";" << rectTmp.pos.y << ")\nDim: "
       << rectTmp.width << "x" << rectTmp.height << '\n'
       << "Area: " << shape.getArea() << "\n\n";
@@ -23,20 +23,21 @@ int main()
 
   chizhov::Rectangle r1({2, 1}, 2);
 
+  std::cout << " ----- Composite Shape -----\n";
   chizhov::CompositeShape cs1;
   cs1.addShape(&c1);
   cs1.addShape(&r1);
-  printInfo(cs1, "Composite shape");
+  printInfo(cs1);
 
   cs1.move(1, 1);
-  printInfo(cs1, "Composite shape");
+  printInfo(cs1);
 
   cs1.scale(2);
-  printInfo(cs1, "Composite shape");
+  printInfo(cs1);
 
   cs1.deleteShape(&c1);
   cs1.move({1.5, 1.5});
-  printInfo(cs1, "Composite shape");
+  printInfo(cs1);
 
   chizhov::Circle c2(4, 7, 2);
   c2.scale(1.5);
@@ -52,6 +53,7 @@ int main()
   chizhov::Circle c3(rect_r2.pos, rect_r2.width / 2);
 
   // Выводим информацию о фигурах
+  std::cout << " ----- Shape loop -----\n";
   chizhov::Shape* shapes[] = {&c1, &c2, &c3, &r1, &r2, &r3, &cs1,};
   for (chizhov::Shape * shape : shapes) {
     printInfo(*shape);
