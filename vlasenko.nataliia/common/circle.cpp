@@ -11,9 +11,9 @@ vlasenko::Circle::Circle(const vlasenko::point_t &position, const double &radius
   center_(position)
 {
   if (radius_ <= 0)
-    {
-      throw std::invalid_argument("Need a positive value of radius");
-    }
+  {
+    throw std::invalid_argument("Need a positive value of radius");
+  }
 }
 
 double vlasenko::Circle::getArea() const
@@ -54,8 +54,8 @@ void vlasenko::Circle::move(const double &shift_x, const double &shift_y)
 void vlasenko::Circle::scale(double value)
 { 
  if (value <= 0)
-   {
-     throw std::invalid_argument("Need a positive value");
-   }
+ {
+   throw std::invalid_argument("Need a positive value");
+ }
   radius_ *= value;
 }

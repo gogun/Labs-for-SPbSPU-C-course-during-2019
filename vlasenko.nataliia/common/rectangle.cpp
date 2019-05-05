@@ -8,16 +8,15 @@ vlasenko::Rectangle::Rectangle(const vlasenko::point_t &position, double width, 
   width_(width),
   center_(position)
 {
-
   if (height_ <= 0.0)
-    {
-      throw std::invalid_argument("Need a positive value of height");
-    }
+  {
+    throw std::invalid_argument("Need a positive value of height");
+  }
 
   if (width_ <= 0.0)
-    {
-      throw std::invalid_argument("Need a positive value of Width");
-    }
+  {
+    throw std::invalid_argument("Need a positive value of Width");
+  }
 }
 
 double vlasenko::Rectangle::getArea() const
