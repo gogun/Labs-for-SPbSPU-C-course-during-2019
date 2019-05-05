@@ -1,3 +1,5 @@
+# Version 2.0
+
 .PHONY: all labs clean
 .SECONDEXPANSION:
 .SECONDARY:
@@ -36,11 +38,12 @@ all_files          := $(shell find . -type f -a \( -name '*.cpp' -o -name '*.h*'
 lab_test_sources   = $(filter $(1)/test-%.cpp,$(all_files))
 lab_sources        = $(filter-out $(1)/test-%,$(filter $(1)/%.cpp,$(all_files)))
 lab_headers        = $(filter $(1)/%.h,$(all_files)) $(filter $(1)/%.hpp,$(all_files)) $(filter $(1)/%.hxx,$(all_files))
-lab_common_sources = $(if $(wildcard $(1)/common),$(filter $(1)/common/%.cpp,$(all_files)))
+lab_common_sources = $(if $(wildcard $(1)/common),$(filter-out $(1)/common/test-%.cpp,$(filter $(1)/common/%.cpp,$(all_files))))
+lab_common_tests   = $(if $(wildcard $(1)/common),$(filter $(1)/common/test-%.cpp,$(all_files)))
 lab_common_headers = $(if $(wildcard $(1)/common),$(filter $(1)/common/%.h,$(all_files)) $(filter $(1)/common/%.hpp,$(all_files)) $(filter $(1)/common/%.hxx,$(all_files)))
 
 lab_objects        = $(patsubst %.cpp,out/%.o,$(call lab_sources,$(1)) $(call lab_common_sources,$(call student,$(1))))
-lab_test_objects   = $(patsubst %.cpp,out/%.o,$(call lab_test_sources,$(1)))
+lab_test_objects   = $(patsubst %.cpp,out/%.o,$(call lab_test_sources,$(1)) $(call lab_common_tests,$(call student,$(1))))
 lab_header_checks  = $(addprefix out/,$(addsuffix .header,$(call lab_headers,$(1)) $(call lab_common_headers,$(call student,$(1)))))
 
 objects           := $(sort $(foreach lab,$(labs),$(call lab_objects,$(lab))))
