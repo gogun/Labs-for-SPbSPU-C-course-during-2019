@@ -7,7 +7,7 @@ gusarov::Rectangle::Rectangle(const point_t &center, const double width, const d
   width_(width),
   height_(height)
 {
-  if(width <= 0 || height <= 0)
+  if((width <= 0) || (height <= 0))
   {
     throw std::invalid_argument("Invalid width or height value");
   }
