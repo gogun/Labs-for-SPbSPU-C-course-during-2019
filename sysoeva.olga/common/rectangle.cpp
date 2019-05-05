@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-sysoeva::Rectangle::Rectangle(double width, double height, const point_t & center):
+sysoeva::Rectangle::Rectangle(double width, double height, const point_t &center):
   width_(width),
   height_(height),
   center_(center)
@@ -27,7 +27,7 @@ sysoeva::rectangle_t sysoeva::Rectangle::getFrameRect() const
   return {width_, height_, center_};
 }
 
-void sysoeva::Rectangle::move(const point_t & point)
+void sysoeva::Rectangle::move(const point_t &point)
 {
   center_ = point;
 }

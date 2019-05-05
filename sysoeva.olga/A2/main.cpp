@@ -3,7 +3,7 @@
 #include "rectangle.hpp"
 #include "triangle.hpp"
 
-void printRect(const sysoeva::Shape & shape)
+void printRect(const sysoeva::Shape &shape)
 {
   std::cout << "Frame rectangle: x = " << shape.getFrameRect().pos.x;
   std::cout << " y = " << shape.getFrameRect().pos.y;
@@ -11,7 +11,7 @@ void printRect(const sysoeva::Shape & shape)
   std::cout << " height = " << shape.getFrameRect().height << '\n';
 }
 
-void showProgramWork(sysoeva::Shape & shape)
+void showProgramWork(sysoeva::Shape &shape)
 {
   std::cout << "Area = " << shape.getArea() << '\n';
   printRect(shape);

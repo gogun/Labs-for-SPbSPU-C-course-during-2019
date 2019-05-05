@@ -21,7 +21,7 @@ sysoeva::point_t sysoeva::Triangle::getCenter() const
   return {(vertex_1.x + vertex_2.x + vertex_3.x) / 3, (vertex_1.y + vertex_2.y + vertex_3.y) / 3};
 }
 
-double getDistance(const sysoeva::point_t & vertex1, const sysoeva::point_t & vertex2)
+double getDistance(const sysoeva::point_t &vertex1, const sysoeva::point_t &vertex2)
 {
   return sqrt(pow(vertex2.x - vertex1.x, 2) + pow(vertex2.y - vertex1.y, 2));
 }
@@ -47,7 +47,7 @@ sysoeva::rectangle_t sysoeva::Triangle::getFrameRect() const
   return {width, height, center};
 }
 
-void sysoeva::Triangle::move(const point_t & point)
+void sysoeva::Triangle::move(const point_t &point)
 {
   move(point.x - center_.x, point.y - center_.y);
 }
@@ -64,21 +64,24 @@ void sysoeva::Triangle::move(double dx, double dy)
   vertex_3.y += dy;
 }
 
+sysoeva::point_t getNewVertex(sysoeva::point_t vertex, const sysoeva::point_t &center, double coef)
+{
+	sysoeva::point_t vector = {(vertex.x - center.x) * coef, (vertex.y - center.y) * coef};
+	return {center.x + vector.x, center.y + vector.y};
+}
+
 void sysoeva::Triangle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
     throw std::invalid_argument("Coefficient has invalid value");
   }
-  point_t vector_1 = {(vertex_1.x - center_.x) * coefficient, (vertex_1.y - center_.y) * coefficient};
-  point_t vector_2 = {(vertex_2.x - center_.x) * coefficient, (vertex_2.y - center_.y) * coefficient};
-  point_t vector_3 = {(vertex_3.x - center_.x) * coefficient, (vertex_3.y - center_.y) * coefficient};
-  vertex_1 = {center_.x + vector_1.x, center_.y + vector_1.y};
-  vertex_2 = {center_.x + vector_2.x, center_.y + vector_2.y};
-  vertex_3 = {center_.x + vector_3.x, center_.y + vector_3.y};
+  vertex_1 = getNewVertex(vertex_1, center_, coefficient);
+  vertex_2 = getNewVertex(vertex_2, center_, coefficient);
+  vertex_3 = getNewVertex(vertex_3, center_, coefficient);
 }
 
-  void sysoeva::Triangle::showCoord()
+void sysoeva::Triangle::showCoord()
 {
   std::cout << "New coordinates of triangle: A(" << vertex_1.x << "," << vertex_1.y << ")";
   std::cout << " B(" << vertex_2.x << "," << vertex_2.y << ")";

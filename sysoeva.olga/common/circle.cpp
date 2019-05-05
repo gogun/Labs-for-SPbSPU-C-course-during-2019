@@ -6,7 +6,7 @@
 #include <iostream>
 #include <stdexcept>
 
-sysoeva::Circle::Circle(double radius, const point_t & center):
+sysoeva::Circle::Circle(double radius, const point_t &center):
   radius_(radius),
   center_(center)
 {
@@ -26,7 +26,7 @@ sysoeva::rectangle_t sysoeva::Circle::getFrameRect() const
   return {radius_ * 2, radius_ * 2, center_};
 }
 
-void sysoeva::Circle::move(const point_t & center)
+void sysoeva::Circle::move(const point_t &center)
 {
   center_ = center;
 }
