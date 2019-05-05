@@ -26,7 +26,7 @@ neupokoev::rectangle_t neupokoev::Triangle::getFrameRect() const
   double maxY = std::max(std::max(a_.y, b_.y), c_.y);
   double minX = std::min(std::max(a_.x, b_.x), c_.x);
   double minY = std::min(std::max(a_.y, b_.y), c_.y);
-  return { {(minX + maxX) / 2, (minY + maxY) / 2}, maxX - minX, maxY - minY };
+  return { { (minX + maxX) / 2, (minY + maxY) / 2 }, maxX - minX, maxY - minY };
 }
 
 void neupokoev::Triangle::move(const point_t &pos)
@@ -65,9 +65,9 @@ void neupokoev::Triangle::scale(double scaleFactor)
 void neupokoev::Triangle::writeParameters() const
 {
   rectangle_t rectangle = getFrameRect();
-  std::cout << "Triangle corners are {" << a_.x << ", " << a_.y << "}, {"
-      << b_.x << ", " << b_.y << "}, { "
-      << c_.x << ", " << c_.y << "}. \n"
+  std::cout << "Triangle corners are { " << a_.x << ", " << a_.y << " }, { "
+      << b_.x << ", " << b_.y << " }, { "
+      << c_.x << ", " << c_.y << " }. \n"
       << "Triangle centre is (" << (a_.x + b_.x + c_.x) / 3 << ","
       << (a_.y + b_.y + c_.y) / 3 << ")\n"
       << "Frame rectangle width = " << rectangle.width

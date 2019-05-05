@@ -17,7 +17,7 @@ int main()
   myShape->scale(2);
   myShape->writeParameters();
 
-  neupokoev::Rectangle myRectangle({ {9.0, 10.0}, 5.0, 4.0 });
+  neupokoev::Rectangle myRectangle({ { 9.0, 10.0 }, 5.0, 4.0 });
   myShape = &myRectangle;
   myShape->writeParameters();
   myShape->move({ 7.0, -7.0 });
