@@ -17,7 +17,7 @@ namespace kvashnin
 
     CompositeShape& operator =(const CompositeShape& rh);
     CompositeShape& operator =(CompositeShape&& rh);
-    Shape* operator [](int i);
+    Shape* operator [](int i) const;
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;

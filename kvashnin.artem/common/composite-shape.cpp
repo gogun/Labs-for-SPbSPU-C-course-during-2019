@@ -6,7 +6,7 @@
 
 kvashnin::CompositeShape::CompositeShape():
   counter_(0),
-  array_(new Shape*[0])
+  array_()
 {}
 
 kvashnin::CompositeShape::CompositeShape(const CompositeShape& cs):
@@ -36,9 +36,7 @@ kvashnin::CompositeShape::CompositeShape(Shape *shape):
 }
 
 kvashnin::CompositeShape::~CompositeShape()
-{
-  array_.reset();
-}
+{}
 
 kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeShape& rh)
 {
@@ -46,9 +44,9 @@ kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeSh
   {
     return *this;
   }
-
-  std::unique_ptr<Shape*[]> newArray(new Shape*[rh.counter_]);
-  for (int i = 0; i < rh.counter_; i++)
+  counter_ = rh.counter_;
+  std::unique_ptr<Shape*[]> newArray(new Shape*[counter_]);
+  for (int i = 0; i < counter_; i++)
   {
     newArray[i] = rh.array_[i];
   }
@@ -66,7 +64,7 @@ kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(CompositeShape&& 
   return *this;
 }
 
-kvashnin::Shape* kvashnin::CompositeShape::operator [](int index)
+kvashnin::Shape* kvashnin::CompositeShape::operator [](int index) const
 {
   if ((index > counter_) || (index < 0))
   {
@@ -90,12 +88,12 @@ kvashnin::rectangle_t kvashnin::CompositeShape::getFrameRect() const
 {
   if (counter_ != 0)
   {
-    double left = std::numeric_limits<double>::max();
-    double right = std::numeric_limits<double>::min();
-    double top = std::numeric_limits<double>::min();
-    double bottom = std::numeric_limits<double>::max();
+    double left = array_[0]->getFrameRect().pos.x - array_[0]->getFrameRect().width / 2;
+    double right = array_[0]->getFrameRect().pos.x + array_[0]->getFrameRect().width / 2;
+    double top = array_[0]->getFrameRect().pos.y + array_[0]->getFrameRect().height / 2;
+    double bottom = array_[0]->getFrameRect().pos.y - array_[0]->getFrameRect().height / 2;
 
-    for (int i = 0; i < counter_; i++)
+    for (int i = 1; i < counter_; i++)
     {
       rectangle_t curFrameRect = array_[i]->getFrameRect();
 
