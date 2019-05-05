@@ -3,7 +3,7 @@
 #include <cmath>
 #include <cassert>
 
-Circle::Circle(double radius, const point_t& pos):
+Circle::Circle(const double radius, const point_t& pos):
   centre_(pos),
   radius_(radius)
 {
@@ -30,4 +30,9 @@ void Circle::move(const double dx, const double dy)
 {
   centre_.x += dx;
   centre_.y += dy;
+}
+
+std::string Circle::getName() const
+{
+  return "Circle";
 }

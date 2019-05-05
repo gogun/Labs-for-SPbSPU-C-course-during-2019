@@ -16,17 +16,17 @@ std::ostream & operator <<(std::ostream & out, const rectangle_t rect)
   return out;
 }
 
-void printShape(Shape *shape)
+void printShape(const Shape *shape)
 {
   assert(shape != nullptr);
   std::cout << "Area = " << shape->getArea() << std::endl;
-  std::cout << "Frame rect " << shape->getFrameRect();
+  std::cout << shape->getFrameRect();
 }
 
-void demonstrateShapeCapabilities(Shape *shape, std::string figure)
+void demonstrateShapeCapabilities(Shape *shape)
 {
   assert(shape != nullptr);
-  std::cout << figure << std::endl;
+  std::cout << "=== " << shape->getName() << " ===" << std::endl;
   printShape(shape);
   std::cout << "Set new centre point" << std::endl;
   shape->move({100, 50});
@@ -54,9 +54,9 @@ int main()
   Rectangle rectangle(rectangleWidth, rectangleHeight, rectangleCentre);
   Triangle triangle(trianglePointA, trianglePointB, trianglePointC);
 
-  demonstrateShapeCapabilities(&circle, "=== Circle ===");
-  demonstrateShapeCapabilities(&rectangle, "=== Rectangle ===");
-  demonstrateShapeCapabilities(&triangle, "=== Triangle ===");
+  demonstrateShapeCapabilities(&circle);
+  demonstrateShapeCapabilities(&rectangle);
+  demonstrateShapeCapabilities(&triangle);
 
   return 0;
 }

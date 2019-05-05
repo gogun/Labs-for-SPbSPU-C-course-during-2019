@@ -45,3 +45,8 @@ void Triangle::move(const double dx, const double dy)
   centre_.x += dx;
   centre_.y += dy;
 }
+
+std::string Triangle::getName() const
+{
+  return "Triangle";
+}

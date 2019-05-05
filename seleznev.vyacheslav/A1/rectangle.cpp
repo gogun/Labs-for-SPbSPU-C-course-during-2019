@@ -2,7 +2,7 @@
 
 #include <cassert>
 
-Rectangle::Rectangle(double w, double h, const point_t& pos):
+Rectangle::Rectangle(const double w, const double h, const point_t& pos):
   centre_(pos),
   width_(w),
   height_(h)
@@ -29,4 +29,9 @@ void Rectangle::move(const double dx, const double dy)
 {
   centre_.x += dx;
   centre_.y += dy;
+}
+
+std::string Rectangle::getName() const
+{
+  return "Rectangle";
 }
