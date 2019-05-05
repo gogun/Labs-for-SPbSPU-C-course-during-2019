@@ -45,7 +45,7 @@ che::rectangle_t che::Circle::getFrameRect() const
   return { radius_ * 2, radius_ * 2, center_ };
 }
 
-void che::Circle::Info() const
+void che::Circle::info() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << "Rectangle height = " << rectangle.height << std::endl;

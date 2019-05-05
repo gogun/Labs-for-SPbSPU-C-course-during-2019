@@ -43,7 +43,7 @@ void che::Rectangle::scale(double coef)
   rectangle_.width *= coef;
 }
 
-void che::Rectangle::Info() const
+void che::Rectangle::info() const
 {
   rectangle_t rectangle = getFrameRect();
   std::cout << "Rectangle height = " << rectangle.height << std::endl;

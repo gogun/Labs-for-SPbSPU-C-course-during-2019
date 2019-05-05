@@ -14,7 +14,7 @@ namespace che
    void move(const point_t & point) override;
    void move(double dx, double dy) override;
    void scale(double coef) override;
-   void Info() const override;
+   void info() const override;
 
  private:
    rectangle_t rectangle_;
