@@ -16,7 +16,7 @@ double Triangle::getArea() const
 {
   double square = fabs(((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y) -
       (pointA_.y - pointC_.y) * (pointB_.x - pointC_.x)) / 2);
-	  
+	
   return square;
 }
 
@@ -44,7 +44,7 @@ void Triangle::move(double dx, double dy)
 {
   center_.x += dx;
   center_.y += dy;
-  
+
   pointA_.x += dx;
   pointB_.x += dx;
   pointC_.x += dx;
@@ -65,10 +65,9 @@ void Triangle::move(const point_t &param)
 void Triangle::printInfo() const
 {
   rectangle_t info = getFrameRect();
-  
+
   std::cout << "Center: (" << center_.x << ", " << center_.y << ")\n";
   std::cout << "Area = " << getArea() << "\n";
   std::cout << "Central coordinates of frame: (" << info.pos.x << ", " << info.pos.y << ")\n";
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << "\n\n";
 }
-
