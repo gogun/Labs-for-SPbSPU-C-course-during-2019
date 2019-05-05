@@ -12,7 +12,7 @@ Triangle::Triangle(const point_t & A, const point_t & B, const point_t & C):
   if (((point1_.x == point2_.x) && (point1_.y == point2_.y)) || ((point2_.x == point3_.x)
     && (point2_.y == point3_.y)) || ((point1_.x == point3_.x) && (point1_.y == point3_.y)))
   {
-    throw std::invalid_argument("Tochki treugol'nika ne dolzhny imet' odinakovyye koordinaty");
+    throw std::invalid_argument("Triangle points should not have the same coordinates.");
   }
 }
 

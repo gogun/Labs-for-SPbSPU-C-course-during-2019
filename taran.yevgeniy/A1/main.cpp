@@ -4,11 +4,11 @@
 
 int main()
 {
-  Circle mycircle(5.0, {3.0, 3.0}); // sozdat' ob"yekt klassa Circle
+  Circle mycircle(5.0, {3.0, 3.0}); // Create class object Circle
 
-  Rectangle myrectangle(mycircle.getFrameRect()); // sozdat' ob"yekt klassa Rectangle
+  Rectangle myrectangle(mycircle.getFrameRect()); // Create class object Rectangle
 
-  Triangle mytriangle(point_t{1, 1}, point_t{1, 3}, point_t{3, 2}); // sozdat' ob"yekt klassa Triangle
+  Triangle mytriangle(point_t{1, 1}, point_t{1, 3}, point_t{3, 2}); // Create class object Triangle
 
   Shape * figures[] = {&mycircle, &myrectangle, &mytriangle};
 
