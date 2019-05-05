@@ -58,8 +58,12 @@ kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeSh
 
 kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(CompositeShape&& rh)
 {
-  array_ = std::move(rh.array_);
-  return *this;
+  if(this != &rh)
+  {
+    array_ = std::move(rh.array_);
+    counter_ = rh.counter_;
+    return *this;
+  }
 }
 
 kvashnin::Shape* kvashnin::CompositeShape::operator [](int index)
