@@ -62,3 +62,8 @@ double rodchenkov::Rectangle::getHeight() const noexcept
 {
   return height_;
 }
+
+std::unique_ptr<rodchenkov::Shape> rodchenkov::Rectangle::clone() const
+{
+  return std::make_unique<Rectangle>(*this);
+}
