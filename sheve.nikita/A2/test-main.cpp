@@ -48,9 +48,9 @@ BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
   const double area_original = rec.getArea();
-  const double R = 1.2;
-  rec.scale(R);
-  BOOST_CHECK_CLOSE(area_original * R * R, rec.getArea(), EPSILON);
+  const double scaleFactor = 1.2;
+  rec.scale(scaleFactor);
+  BOOST_CHECK_CLOSE(area_original * scaleFactor * scaleFactor, rec.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -96,9 +96,9 @@ BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Circle cir({ 20, 30 }, 13);
   const double area_original = cir.getArea();
-  const double C = 0.9;
-  cir.scale(C);
-  BOOST_CHECK_CLOSE(area_original * C * C, cir.getArea(), EPSILON);
+  const double scaleFactor = 0.9;
+  cir.scale(scaleFactor);
+  BOOST_CHECK_CLOSE(area_original * scaleFactor * scaleFactor, cir.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -144,9 +144,9 @@ BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
   const double area_original = tri.getArea();
-  const double T = 1.63;
-  tri.scale(T);
-  BOOST_CHECK_CLOSE(area_original * T * T, tri.getArea(), EPSILON);
+  const double scaleFactor = 1.63;
+  tri.scale(scaleFactor);
+  BOOST_CHECK_CLOSE(area_original * scaleFactor * scaleFactor, tri.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
