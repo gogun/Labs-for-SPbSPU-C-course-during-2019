@@ -2,6 +2,7 @@
 #define SHAPE_HPP
 
 #include <ostream>
+#include <memory>
 
 #include "base-types.hpp"
 
@@ -12,12 +13,13 @@ class Shape
 public:
   virtual ~Shape() = default;
 
-  virtual double      getArea()                const noexcept = 0;
-  virtual rectangle_t getFrameRect()           const noexcept = 0;
-  virtual void        printData(std::ostream&) const          = 0;
-  virtual void        move(const point_t&)           noexcept = 0;
-  virtual void        move(double, double)           noexcept = 0;
-  virtual void        scale(double)                           = 0;
+  virtual double                 getArea()                const noexcept = 0;
+  virtual rectangle_t            getFrameRect()           const noexcept = 0;
+  virtual std::unique_ptr<Shape> clone()                  const          = 0;
+  virtual void                   printData(std::ostream&) const          = 0;
+  virtual void                   move(const point_t&)           noexcept = 0;
+  virtual void                   move(double, double)           noexcept = 0;
+  virtual void                   scale(double)                           = 0;
 };
 
 } // namespace rodchenkov
