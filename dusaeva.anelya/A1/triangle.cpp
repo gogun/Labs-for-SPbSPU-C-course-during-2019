@@ -72,3 +72,4 @@ void Triangle::printInfo() const
   std::cout << "Central coordinates of frame: (" << info.pos.x << ", " << info.pos.y << ")\n";
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << "\n\n";
 }
+
