@@ -7,19 +7,16 @@
 Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC) :
   pointA_(pointA),
   pointB_(pointB),
-  pointC_(pointC)
+  pointC_(pointC),
+  center_{(pointA_.x + pointB_.x + pointC_.x) / 3, (pointA_.y + pointB_.y + pointC_.y) / 3}
 {
   assert(getArea() > 0.0);
 }
 
 double Triangle::getArea() const
 {
-  double a(getSide(pointA_, pointB_));
-  double b(getSide(pointB_, pointC_));
-  double c(getSide(pointA_, pointC_));
-  double p = (a + b + c) / 2;
-  double square = sqrt(p * (p - a) * (p - b) * (p - c));
-
+  double square = fabs(((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y) -
+      (pointA_.y - pointC_.y) * (pointB_.x - pointC_.x)) / 2);
   return square;
 }
 
@@ -36,15 +33,18 @@ rectangle_t Triangle::getFrameRect() const
   double width = maxSide.x - minSide.x;
   double height = maxSide.y - minSide.y;
 
-  point_t center;
-  center.x = minSide.x + width / 2;
-  center.y = minSide.y + height / 2;
+  point_t frameCenter;
+  frameCenter.x = minSide.x + width / 2;
+  frameCenter.y = minSide.y + height / 2;
 
-  return rectangle_t{width, height, center};
+  return rectangle_t{width, height, frameCenter};
 }
 
 void Triangle::move(double dx, double dy)
 {
+  center_.x += dx;
+  center_.y += dy;
+  
   pointA_.x += dx;
   pointB_.x += dx;
   pointC_.x += dx;
@@ -56,11 +56,8 @@ void Triangle::move(double dx, double dy)
 
 void Triangle::move(const point_t &param)
 {
-  rectangle_t frameRect(getFrameRect());
-  point_t center = frameRect.pos;
-
-  double dx = param.x - center.x;
-  double dy = param.y - center.y;
+  double dx = param.x - center_.x;
+  double dy = param.y - center_.y;
 
   move(dx, dy);
 }
@@ -68,14 +65,9 @@ void Triangle::move(const point_t &param)
 void Triangle::printInfo() const
 {
   rectangle_t info = getFrameRect();
+  
+  std::cout << "Center: (" << center_.x << ", " << center_.y << ")\n";
   std::cout << "Area = " << getArea() << "\n";
   std::cout << "Central coordinates of frame: (" << info.pos.x << ", " << info.pos.y << ")\n";
   std::cout << "Frame width = " << info.width <<", frame height = " << info.height << "\n\n";
-}
-
-double Triangle::getSide(const point_t &point1, const point_t &point2) const
-{
-  double side = sqrt(pow((point1.x - point2.x), 2) + pow((point1.y - point2.y), 2));
-
-  return side;
 }
