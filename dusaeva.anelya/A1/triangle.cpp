@@ -16,7 +16,7 @@ double Triangle::getArea() const
 {
   double square = fabs(((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y) -
       (pointA_.y - pointC_.y) * (pointB_.x - pointC_.x)) / 2);
-	
+
   return square;
 }
 
