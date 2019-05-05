@@ -10,13 +10,15 @@ class Circle : public Shape
 public:
   Circle(const point_t&, double);
 
-  double      getArea()                const noexcept override;
-  rectangle_t getFrameRect()           const noexcept  override;
-  void        printData(std::ostream&) const           override;
-  void        move(const point_t&)           noexcept  override;
-  void        move(double, double)           noexcept  override;
-  void        scale(double)                            override;
-  double      getRadius()              const noexcept;
+  double                 getArea()                const noexcept override;
+  rectangle_t            getFrameRect()           const noexcept override; 
+  std::unique_ptr<Shape> clone()                  const          override;
+  void                   printData(std::ostream&) const          override;
+  void                   move(const point_t&)           noexcept override;
+  void                   move(double, double)           noexcept override;
+  void                   scale(double)                           override;
+
+  double getRadius() const noexcept;
 
 private:
   double      radius_;
