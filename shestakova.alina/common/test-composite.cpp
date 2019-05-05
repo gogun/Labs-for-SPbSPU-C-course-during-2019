@@ -81,11 +81,24 @@ BOOST_AUTO_TEST_CASE(compositeShapeThrowingExeptions)
   shestakova::CompositeShape compSh(rect);
   compSh.addShape(circ);
 
-  BOOST_CHECK_THROW(compSh.deleteShape(-2), std::invalid_argument);
-  BOOST_CHECK_THROW(compSh.deleteShape(2), std::invalid_argument);
+  BOOST_CHECK_THROW(compSh.deleteShape(10), std::invalid_argument);
+  BOOST_CHECK_THROW(compSh.deleteShape(-10), std::invalid_argument);
+
+  BOOST_CHECK_THROW(compSh[2], std::out_of_range);
+  BOOST_CHECK_THROW(compSh[-2], std::out_of_range);
 
   compSh.deleteShape(1);
-  BOOST_CHECK_THROW(compSh.deleteShape(1), std::invalid_argument);
+  BOOST_CHECK_THROW(compSh[1], std::out_of_range);
+}
+
+BOOST_AUTO_TEST_CASE(emptyCompositeShapeThrowingExeptions)
+{
+  shestakova::CompositeShape emptyCompSh;
+
+  BOOST_CHECK_THROW(emptyCompSh.move(3, 5), std::logic_error);
+  BOOST_CHECK_THROW(emptyCompSh.move({1, 1}), std::logic_error);
+  BOOST_CHECK_THROW(emptyCompSh.getFrameRect(), std::logic_error);
+  BOOST_CHECK_THROW(emptyCompSh.scale(2), std::logic_error);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

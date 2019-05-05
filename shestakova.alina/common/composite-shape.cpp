@@ -31,6 +31,11 @@ shestakova::CompositeShape::CompositeShape(Shape& shape) :
    figures_[0] = &shape;
 }
 
+shestakova::CompositeShape::~CompositeShape()
+{
+  delete [] figures_;
+}
+
 shestakova::CompositeShape &shestakova::CompositeShape::operator =(const CompositeShape &copiedCompositeShape)
 {
   if (this != &copiedCompositeShape)
@@ -58,9 +63,14 @@ shestakova::CompositeShape &shestakova::CompositeShape::operator =(CompositeShap
   return *this;
 }
 
-shestakova::CompositeShape::~CompositeShape()
+shestakova::Shape *shestakova::CompositeShape::operator [](unsigned int index) const
 {
-  delete [] figures_;
+  if (index >= count_)
+  {
+    throw std::out_of_range("Index out of range");
+  }
+
+  return figures_[index];
 }
 
 double shestakova::CompositeShape::getArea() const
@@ -75,6 +85,11 @@ double shestakova::CompositeShape::getArea() const
 
 shestakova::rectangle_t shestakova::CompositeShape::getFrameRect() const
 {
+  if (count_ == 0)
+  {
+    throw std::logic_error("Composite shape is empty!");
+  }
+
   shestakova::rectangle_t tmpShape = figures_[0]->getFrameRect();
   double minX = tmpShape.pos.x - tmpShape.width / 2;
   double minY = tmpShape.pos.y - tmpShape.height / 2;
@@ -108,6 +123,11 @@ void shestakova::CompositeShape::move(const point_t &point)
 
 void shestakova::CompositeShape::move(double dx, double dy)
 {
+  if (count_ == 0)
+  {
+    throw std::logic_error("Composite shape is empty!");
+  }
+
   for (unsigned int i = 0; i < count_; i++)
   {
     figures_[i]->move(dx, dy);

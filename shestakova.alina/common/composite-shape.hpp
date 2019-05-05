@@ -16,6 +16,7 @@ namespace shestakova
 
     CompositeShape &operator =(const CompositeShape &copiedCompositeShape);
     CompositeShape &operator =(CompositeShape &&movedCompositeShape);
+    Shape *operator [](unsigned int) const;
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
