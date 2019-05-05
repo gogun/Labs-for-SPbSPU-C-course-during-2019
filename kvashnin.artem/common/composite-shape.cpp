@@ -58,7 +58,7 @@ kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeSh
 
 kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(CompositeShape&& rh)
 {
-  if(this != &rh)
+  if (this != &rh)
   {
     array_ = std::move(rh.array_);
     counter_ = rh.counter_;
