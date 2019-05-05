@@ -1,13 +1,13 @@
 #include "rectangle.hpp"
-#include <iostream>
 #include <stdexcept>
+#include <iostream>
 
-nazarov::Rectangle::Rectangle(const point_t &pos, const double width, const double height) :
+nazarov::Rectangle::Rectangle(const point_t &pos, double width, double height) :
   pos_(pos),
   width_(width),
   height_(height)
 {
-  if (width_ <= 0 || height_ <= 0)
+  if ((width_ <= 0) || (height_ <= 0))
   {
     throw std::invalid_argument("Width and height must be more than 0");
   }
@@ -20,7 +20,7 @@ double nazarov::Rectangle::getArea() const
 
 nazarov::rectangle_t nazarov::Rectangle::getFrameRect() const
 {
-  return { pos_, width_, height_ };
+  return {pos_, width_, height_};
 }
 
 void nazarov::Rectangle::printFeatures() const
@@ -47,7 +47,7 @@ void nazarov::Rectangle::scale(double times)
 {
   if (times <= 0)
   {
-    throw std::invalid_argument("Enter correct 'times'");
+    throw std::invalid_argument("times should be positive");
   }
   else
   {

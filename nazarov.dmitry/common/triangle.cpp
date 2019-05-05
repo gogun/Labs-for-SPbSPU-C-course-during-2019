@@ -1,11 +1,11 @@
 #include "triangle.hpp"
-#include <iostream>
 #include <stdexcept>
 #include <cmath>
 #include <algorithm>
+#include <iostream>
 
 nazarov::Triangle::Triangle(const point_t &A, const point_t &B, const point_t &C) :
-  pos_({ (A.x + B.x + C.x) / 3, (A.y + B.y + C.y) / 3 }),
+  pos_({(A.x + B.x + C.x) / 3, (A.y + B.y + C.y) / 3}),
   point1_(A),
   point2_(B),
   point3_(C)
@@ -33,9 +33,9 @@ nazarov::rectangle_t nazarov::Triangle::getFrameRect() const
 
   const double width = maxX - minX;
   const double height = maxY - minY;
-  const point_t pos = { minX + width / 2, minY + height / 2 };
+  const point_t pos = {minX + width / 2, minY + height / 2};
 
-  return { pos, width, height };
+  return {pos, width, height};
 }
 
 void nazarov::Triangle::move(const point_t &newPos)
@@ -77,12 +77,12 @@ void nazarov::Triangle::scale(double times)
 {
   if (times <= 0)
   {
-    throw std::invalid_argument("Enter correct 'times'");
+    throw std::invalid_argument("'times' should be positive");
   }
   else
   {
-    point1_ = { pos_.x + (point1_.x - pos_.x) * times, pos_.y + (point1_.y - pos_.y) * times };
-    point2_ = { pos_.x + (point2_.x - pos_.x) * times, pos_.y + (point2_.y - pos_.y) * times };
-    point3_ = { pos_.x + (point3_.x - pos_.x) * times, pos_.y + (point3_.y - pos_.y) * times };
+    point1_ = {pos_.x + (point1_.x - pos_.x) * times, pos_.y + (point1_.y - pos_.y) * times};
+    point2_ = {pos_.x + (point2_.x - pos_.x) * times, pos_.y + (point2_.y - pos_.y) * times};
+    point3_ = {pos_.x + (point3_.x - pos_.x) * times, pos_.y + (point3_.y - pos_.y) * times};
   }
 }

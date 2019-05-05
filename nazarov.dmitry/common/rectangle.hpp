@@ -7,11 +7,12 @@ namespace nazarov
   class Rectangle : public Shape
   {
   public:
-    Rectangle(const point_t &pos, const double width, const double height);
+    Rectangle(const point_t &pos, double width, double height);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void printFeatures() const override;
+
     void scale(double times) override;
     void move(double dx, double dy) override;
     void move(const point_t &pos) override;

@@ -1,9 +1,9 @@
 #include "circle.hpp"
-#include <iostream>
 #include <stdexcept>
 #include <cmath>
+#include <iostream>
 
-nazarov::Circle::Circle(const point_t &pos, const double radius) :
+nazarov::Circle::Circle(const point_t &pos, double radius) :
   pos_(pos),
   radius_(radius)
 {
@@ -13,7 +13,6 @@ nazarov::Circle::Circle(const point_t &pos, const double radius) :
   }
 }
 
-
 double nazarov::Circle::getArea() const
 {
   return M_PI * radius_ * radius_;
@@ -21,7 +20,7 @@ double nazarov::Circle::getArea() const
 
 nazarov::rectangle_t nazarov::Circle::getFrameRect() const
 {
-  return { pos_, 2 * radius_, 2 * radius_ };
+  return {pos_, 2 * radius_, 2 * radius_};
 }
 
 void nazarov::Circle::printFeatures() const

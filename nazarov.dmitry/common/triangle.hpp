@@ -12,6 +12,7 @@ namespace nazarov
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void printFeatures() const override;
+
     void scale(double times) override;
     void move(const point_t &pos) override;
     void move(double dx, double dy) override;

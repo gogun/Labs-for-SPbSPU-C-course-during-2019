@@ -7,11 +7,12 @@ namespace nazarov
   class Circle : public Shape
   {
   public:
-    Circle(const point_t &pos, const double radius);
+    Circle(const point_t &pos, double radius);
 
     double getArea() const override;
     rectangle_t getFrameRect() const override;
     void printFeatures() const override;
+
     void scale(double times) override;
     void move(double dx, double dy) override;
     void move(const point_t &pos) override;
