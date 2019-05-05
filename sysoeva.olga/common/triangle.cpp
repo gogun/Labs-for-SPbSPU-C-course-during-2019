@@ -66,8 +66,8 @@ void sysoeva::Triangle::move(double dx, double dy)
 
 sysoeva::point_t getNewVertex(sysoeva::point_t vertex, const sysoeva::point_t &center, double coef)
 {
-	sysoeva::point_t vector = {(vertex.x - center.x) * coef, (vertex.y - center.y) * coef};
-	return {center.x + vector.x, center.y + vector.y};
+  sysoeva::point_t vector = {(vertex.x - center.x) * coef, (vertex.y - center.y) * coef};
+  return {center.x + vector.x, center.y + vector.y};
 }
 
 void sysoeva::Triangle::scale(double coefficient)
