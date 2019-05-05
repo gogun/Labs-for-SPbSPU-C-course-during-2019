@@ -12,7 +12,7 @@ Triangle::Triangle(const point_t& a, const point_t& b, const point_t& c):
   
 double Triangle::getArea() const
 {
-  return (std::abs((a_.x - c_.x) * (b_.y - c_.y) - (b_.x - c_.x) * (a_.y - c_.y)) / 2);
+  return (fabs((a_.x - c_.x) * (b_.y - c_.y) - (b_.x - c_.x) * (a_.y - c_.y)) / 2);
 }
 
 rectangle_t Triangle::getFrameRect() const
