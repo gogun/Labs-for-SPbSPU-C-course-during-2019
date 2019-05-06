@@ -22,20 +22,16 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  point_t minSide;
-  minSide.x = std::min(pointA_.x, std::min(pointB_.x, pointC_.x));
-  minSide.y = std::min(pointA_.y, std::min(pointB_.y, pointC_.y));
+  point_t minPoint{std::min(pointA_.x, std::min(pointB_.x, pointC_.x)),
+      std::min(pointA_.y, std::min(pointB_.y, pointC_.y))};
 
-  point_t maxSide;
-  maxSide.x = std::max(pointA_.x, std::max(pointB_.x, pointC_.x));
-  maxSide.y = std::max(pointA_.y, std::max(pointB_.y, pointC_.y));
+  point_t maxPoint{maxSide.x = std::max(pointA_.x, std::max(pointB_.x, pointC_.x)),
+      std::max(pointA_.y, std::max(pointB_.y, pointC_.y))};
 
-  double width = maxSide.x - minSide.x;
-  double height = maxSide.y - minSide.y;
+  double width = maxPoint.x - minPoint.x;
+  double height = maxPoint.y - minPoint.y;
 
-  point_t frameCenter;
-  frameCenter.x = minSide.x + width / 2;
-  frameCenter.y = minSide.y + height / 2;
+  point_t frameCenter{minPoint.x + width / 2, minPoint.y + height / 2};
 
   return rectangle_t{width, height, frameCenter};
 }
