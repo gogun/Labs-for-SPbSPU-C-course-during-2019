@@ -1,77 +1,61 @@
 #include "triangle.hpp"
-#include <iostream>
-#include <cassert>
 #include <cmath>
 #include <algorithm>
 
-
-Triangle::Triangle(const point_t & point1, const point_t & point2, const point_t & point3):
-  p1_(point1),
-  p2_(point2),
-  p3_(point3)
+Triangle::Triangle(const point_t &top1, const point_t &top2, const point_t &top3):
+  tops_({top1, top2, top3}),
+  center_({(top1.x + top2.x + top3.x) / 3, (top1.y + top2.y + top3.y) / 3})
 {
-  double area = getArea();
-
-  assert((area != 0.0) && ("The area of triangle is zero, it means the points are collinear"));
-
-  center_.x = (p1_.x + p2_.x + p3_.x) / 3;
-  center_.y = (p1_.y + p2_.y + p3_.y) / 3;
-}
-
-double Triangle::getArea() const
-{
-  double area = (std::abs((p1_.x * (p2_.y - p3_.y)) + (p2_.x * (p3_.y - p1_.y)) + (p3_.x * (p1_.y - p2_.y)))) / 2;
-  return area;
-}
-
-rectangle_t Triangle::getFrameRect() const
-{
-  double min_x = std::min(std::min(p1_.x, p2_.x), p3_.x);
-  double max_x = std::max(std::max(p1_.x, p2_.x), p3_.x);
-  double min_y = std::min(std::min(p1_.y, p2_.y), p3_.y);
-  double max_y = std::max(std::max(p1_.y, p2_.y), p3_.y);
-
-  rectangle_t rect;
-  rect.width = max_x - min_x;
-  rect.height = max_y - min_y;
-  rect.pos.x = min_x + (rect.width / 2);
-  rect.pos.y = min_y + (rect.height / 2);
-
-  return rect;
-}
-
-void Triangle::move(const point_t & pos)
-{
-  double dx = pos.x - p1_.x;
-  double dy = pos.y - p1_.y;
-
-  move(dx, dy);
-}
-
-void Triangle::move(const double &x, const double &y)
-{
-  p1_.x += x;
-  p1_.y += y;
-
-  p2_.x += x;
-  p2_.y += y;
-
-  p3_.x += x;
-  p3_.y += y;
-
-  center_.x += x;
-  center_.y += y;
+  if (getArea() <= 0.0) {
+    throw std::invalid_argument("The specified triangle's tops is not valid.");
+  }
 }
 
 void Triangle::printInfo() const
 {
-  std::cout << "Triangle: " << std::endl;
-  std::cout << "point 1: " << "x: " << p1_.x << " y: " << p1_.y << std::endl;
-  std::cout << "point 2: " << "x: " << p2_.x << " y: " << p2_.y << std::endl;
-  std::cout << "point 3: " << "x: " << p3_.x << " y: " << p3_.y << std::endl;
+  std::cout << "\nTriangle";
+  for (int index = 0; index < 3; index++)
+  {
+    std::cout << "\nTops №" << index + 1 << " coordinates: " << tops_[index].x << "; " << tops_[index].y;
+  }
+  std::cout << "\nCenter: " << center_.x << "; " << center_.y;
 }
 
-void Triangle::getCenterInfo() const
+double Triangle::getArea() const
 {
-  std::cout << "Center X: " << center_.x << "Center Y: " << center_.y;
+  return (0.5 * (fabs(tops_[0].x - tops_[2].x) * (tops_[1].y - tops_[2].y)
+            - fabs(tops_[1].x - tops_[2].x) * (tops_[0].y - tops_[2].y)));
+}
+
+rectangle_t Triangle::getFrameRect() const
+{
+  const double minX = std::min(std::min(tops_[0].x, tops_[1].x), tops_[2].x);
+  const double maxX = std::max(std::max(tops_[0].x, tops_[1].x), tops_[2].x);
+  const double minY = std::min(std::min(tops_[0].y, tops_[1].y), tops_[2].y);
+  const double maxY = std::max(std::max(tops_[0].y, tops_[1].y), tops_[2].y);
+
+  const double width = (maxX - minX);
+  const double height = (maxY - minY);
+  const point_t pos = {minX + width / 2, minY + height / 2};
+
+  return {width, height, pos};
+}
+
+void Triangle::move(const point_t &newPos)
+{
+  const point_t offset = {newPos.x - center_.x, newPos.y - center_.y};
+
+  move(offset.x, offset.y);
+}
+
+void Triangle::move(double dx, double dy)
+{
+  for (int index = 0; index < 3; index++)
+  {
+    tops_[index].x += dx;
+    tops_[index].y += dy;
+  }
+
+  center_.x += dx;
+  center_.y += dy;
 }

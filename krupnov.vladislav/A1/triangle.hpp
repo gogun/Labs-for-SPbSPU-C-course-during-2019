@@ -1,25 +1,19 @@
-#ifndef TRIANGLE_H
-#define TRIANGLE_H
+#ifndef TRIANGLE_HPP
+#define TRIANGLE_HPP
 
 #include "shape.hpp"
 
-
-
-class Triangle : public Shape
-{
+class Triangle:
+    public Shape {
 public:
-  Triangle(const point_t & point1, const point_t & point2, const point_t & point3);
+  Triangle(const point_t &top1, const point_t &top2, const point_t &top3);
+  void printInfo() const override;
   double getArea() const override;
   rectangle_t getFrameRect() const override;
-  virtual void move(const point_t & pos) override;
-  void move(const double &x, const double &y) override;
-  void printInfo() const;
-  void getCenterInfo() const override;
-
+  void move(const point_t &newPos) override;
+  void move(double dx, double dy) override;
 private:
-  point_t p1_;
-  point_t p2_;
-  point_t p3_;
+  point_t tops_[3];
   point_t center_;
 };
-#endif
+#endif //TRIANGLE_HPP
