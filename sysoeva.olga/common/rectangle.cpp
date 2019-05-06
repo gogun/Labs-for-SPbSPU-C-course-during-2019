@@ -1,6 +1,6 @@
 #include "rectangle.hpp"
-#include <cassert>
 #include <iostream>
+#include <stdexcept>
 
 sysoeva::Rectangle::Rectangle(double width, double height, const point_t &center):
   width_(width),

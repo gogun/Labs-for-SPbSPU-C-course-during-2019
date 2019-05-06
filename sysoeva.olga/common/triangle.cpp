@@ -1,8 +1,19 @@
 #include "triangle.hpp"
 #include <algorithm>
-#include <cassert>
 #include <cmath>
 #include <iostream>
+#include <stdexcept>
+
+static double getDistance(const sysoeva::point_t &vertex1, const sysoeva::point_t &vertex2)
+{
+  return sqrt(pow(vertex2.x - vertex1.x, 2) + pow(vertex2.y - vertex1.y, 2));
+}
+
+static sysoeva::point_t scalePoint(const sysoeva::point_t &vertex, const sysoeva::point_t &center, double coef)
+{
+  sysoeva::point_t vector = {(vertex.x - center.x) * coef, (vertex.y - center.y) * coef};
+  return {center.x + vector.x, center.y + vector.y};
+}
 
 sysoeva::Triangle::Triangle(point_t vertex1, point_t vertex2, point_t vertex3):
   vertex_1(vertex1),
@@ -12,18 +23,13 @@ sysoeva::Triangle::Triangle(point_t vertex1, point_t vertex2, point_t vertex3):
 {
   if ((vertex_1.x - vertex_2.x) * (vertex_3.y - vertex_2.y) == (vertex_1.y - vertex_2.y) * (vertex_3.x - vertex_2.x))
   {
-    throw std::invalid_argument("Vertices lie on one line");
+    throw std::invalid_argument("Vertices lie on the same line");
   }
 }
 
 sysoeva::point_t sysoeva::Triangle::getCenter() const
 {
   return {(vertex_1.x + vertex_2.x + vertex_3.x) / 3, (vertex_1.y + vertex_2.y + vertex_3.y) / 3};
-}
-
-double getDistance(const sysoeva::point_t &vertex1, const sysoeva::point_t &vertex2)
-{
-  return sqrt(pow(vertex2.x - vertex1.x, 2) + pow(vertex2.y - vertex1.y, 2));
 }
 
 double sysoeva::Triangle::getArea() const
@@ -64,21 +70,15 @@ void sysoeva::Triangle::move(double dx, double dy)
   vertex_3.y += dy;
 }
 
-sysoeva::point_t getNewVertex(sysoeva::point_t vertex, const sysoeva::point_t &center, double coef)
-{
-  sysoeva::point_t vector = {(vertex.x - center.x) * coef, (vertex.y - center.y) * coef};
-  return {center.x + vector.x, center.y + vector.y};
-}
-
 void sysoeva::Triangle::scale(double coefficient)
 {
   if (coefficient <= 0)
   {
     throw std::invalid_argument("Coefficient has invalid value");
   }
-  vertex_1 = getNewVertex(vertex_1, center_, coefficient);
-  vertex_2 = getNewVertex(vertex_2, center_, coefficient);
-  vertex_3 = getNewVertex(vertex_3, center_, coefficient);
+  vertex_1 = scalePoint(vertex_1, center_, coefficient);
+  vertex_2 = scalePoint(vertex_2, center_, coefficient);
+  vertex_3 = scalePoint(vertex_3, center_, coefficient);
 }
 
 void sysoeva::Triangle::showCoord()
