@@ -26,6 +26,9 @@ namespace shestakova
     void add(Shape &shape);
     void remove(unsigned int index);
 	unsigned int getCount() const;
+    void addShape(Shape &shape);
+    void deleteShape(unsigned int index);
+    unsigned int getCount() const;
 
   private:
     unsigned int count_;
