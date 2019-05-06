@@ -39,7 +39,7 @@ void sheve::Circle::scale(double coefficient)
 {
   if (coefficient <= 0.0)
   {
-      throw std::invalid_argument("Coefficient should be positive!");
+    throw std::invalid_argument("Coefficient should be positive!");
   }
   else
   {
