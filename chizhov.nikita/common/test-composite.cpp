@@ -9,11 +9,12 @@
 BOOST_AUTO_TEST_SUITE(chizhovCompositeTestSuite)
 
 const double EPSILON = 0.01;
-chizhov::Circle circle({1, 2}, 1);
-chizhov::Rectangle rectangle({2 ,1}, 2);
 
 BOOST_AUTO_TEST_CASE(compositeConstantAfterMove)
 {
+  chizhov::Circle circle({1, 2}, 1);
+  chizhov::Rectangle rectangle({2 ,1}, 2);
+
   chizhov::CompositeShape composite(&circle);
   composite.addShape(&rectangle);
   const chizhov::rectangle_t frameBefore = composite.getFrameRect();
@@ -36,6 +37,9 @@ BOOST_AUTO_TEST_CASE(compositeConstantAfterMove)
 
 BOOST_AUTO_TEST_CASE(compositeScale)
 {
+  chizhov::Circle circle({1, 2}, 1);
+  chizhov::Rectangle rectangle({2 ,1}, 2);
+
   chizhov::CompositeShape composite(&circle);
   composite.addShape(&rectangle);
   const double areaBefore = composite.getArea();
@@ -60,6 +64,7 @@ BOOST_AUTO_TEST_CASE(moveEmptyException)
 
 BOOST_AUTO_TEST_CASE(scaleZeroException)
 {
+  chizhov::Circle circle({1, 2}, 1);
   chizhov::CompositeShape composite(&circle);
   BOOST_CHECK_THROW(composite.scale(0), std::invalid_argument);
 }
@@ -80,6 +85,9 @@ BOOST_AUTO_TEST_CASE(outOfRangeException)
 
 BOOST_AUTO_TEST_CASE(CompositeGetAndDelete)
 {
+  chizhov::Circle circle({1, 2}, 1);
+  chizhov::Rectangle rectangle({2 ,1}, 2);
+
   chizhov::CompositeShape composite(&circle);
   const chizhov::rectangle_t frameBefore = composite.getFrameRect();
   const double areaBefore = composite.getArea();
@@ -99,6 +107,9 @@ BOOST_AUTO_TEST_CASE(CompositeGetAndDelete)
 
 BOOST_AUTO_TEST_CASE(moveSemanticsComposite)
 {
+  chizhov::Circle circle({1, 2}, 1);
+  chizhov::Rectangle rectangle({2 ,1}, 2);
+
   chizhov::CompositeShape compositeFrom(&circle);
   chizhov::CompositeShape compositeTo(&rectangle);
 
@@ -116,6 +127,9 @@ BOOST_AUTO_TEST_CASE(moveSemanticsComposite)
 
 BOOST_AUTO_TEST_CASE(copySemanticsComposite)
 {
+  chizhov::Circle circle({1, 2}, 1);
+  chizhov::Rectangle rectangle({2 ,1}, 2);
+
   chizhov::CompositeShape compositeFrom(&circle);
   chizhov::CompositeShape compositeTo(&rectangle);
 
