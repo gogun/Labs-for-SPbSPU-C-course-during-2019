@@ -1,5 +1,6 @@
-#ifndef COMPOSITE_SHAPE_HPP define COMPOSITE_SHAPE_HPP include 
-#"base-types.hpp" include "shape.hpp"
+#define COMPOSITE_SHAPE_HPP
+#include "base-types.hpp"
+#include "shape.hpp"
 
 namespace shestakova
 {
