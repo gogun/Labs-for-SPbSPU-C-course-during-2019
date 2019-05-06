@@ -25,7 +25,7 @@ rectangle_t Triangle::getFrameRect() const
   point_t minPoint{std::min(pointA_.x, std::min(pointB_.x, pointC_.x)),
       std::min(pointA_.y, std::min(pointB_.y, pointC_.y))};
 
-  point_t maxPoint{maxSide.x = std::max(pointA_.x, std::max(pointB_.x, pointC_.x)),
+  point_t maxPoint{std::max(pointA_.x, std::max(pointB_.x, pointC_.x)),
       std::max(pointA_.y, std::max(pointB_.y, pointC_.y))};
 
   double width = maxPoint.x - minPoint.x;
