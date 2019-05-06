@@ -107,7 +107,7 @@ BOOST_AUTO_TEST_SUITE(triangle)
 
 BOOST_AUTO_TEST_CASE(invalid_Initialisation)
 {
-  BOOST_CHECK_THROW(sheve::Triangle({1, 2}, {-13, 2}, {1, 2}), std::invalid_argument);
+  BOOST_CHECK_THROW(sheve::Triangle({ 1, 2 }, { -13, 2 }, { 1, 2 }), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(invalid_Scale)
