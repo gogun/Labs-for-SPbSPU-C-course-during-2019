@@ -1,7 +1,5 @@
-#ifndef COMPOSITE_SHAPE_HPP
-#define COMPOSITE_SHAPE_HPP
-#include "base-types.hpp"
-#include "shape.hpp"
+#ifndef COMPOSITE_SHAPE_HPP define COMPOSITE_SHAPE_HPP include 
+#"base-types.hpp" include "shape.hpp"
 
 namespace shestakova
 {
@@ -25,7 +23,6 @@ namespace shestakova
     void scale(double coefficient) override;
     void add(Shape &shape);
     void remove(unsigned int index);
-	unsigned int getCount() const;
     void addShape(Shape &shape);
     void deleteShape(unsigned int index);
     unsigned int getCount() const;
