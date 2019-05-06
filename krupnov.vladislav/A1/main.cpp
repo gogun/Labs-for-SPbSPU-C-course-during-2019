@@ -1,56 +1,59 @@
-﻿#include "rectangle.hpp"
+﻿#include <iostream>
+#include <stdexcept>
 #include "circle.hpp"
 #include "triangle.hpp"
-#include <iostream>
-#include <cassert>
+#include "rectangle.hpp"
 
-
-
-void getInfo(const Shape *shape1)
-{
-  shape1->getCenterInfo();
-}
-
-void showArea(const Shape *shape)
-{
-  assert((shape != nullptr) && ("shape parameter is invalid, nullptr"));
-  std::cout << "Area: " << shape->getArea() << std::endl;
-}
-
-void showRectangle(rectangle_t rect)
-{
-  std::cout << "Rectangle:" << std::endl;
-  std::cout << "width: " << rect.width << ", height: " << rect.height;
-  std::cout << ", x: " << rect.pos.x << ", y: " << rect.pos.y;
-  std::cout << std::endl;
-}
+void printShapeInfo(const Shape *shape);
+void printFrameRectangle(rectangle_t frameRect);
 
 int main()
 {
-  Circle circle({1, 1}, 9);
+  Circle circle(9.0, {1.0, 1.0});
+  printShapeInfo(&circle);
+
+  double dx = 12.0;
+  double dy = -10.0;
+  circle.move(dx, dy);
+  std::cout << "\nChange after shifting the circle to (" << dx << "; "<< dy << ").";
   circle.printInfo();
-  circle.setRadius(7);
 
-  point_t p = {-10, 2};
-  circle.move(p);
-  circle.move(12, -10);
-  getInfo(&circle);
+  Rectangle rectangle(2.0, 9.0, {-1.0, 3.0});
+  printShapeInfo(&rectangle);
 
-  Rectangle rect(p, 2, 9);
-  rect.printInfo();
-  rect.setWidth(12);
-  rect.setHeight(0.5);
-  rect.move({-9, 7});
-  rect.move(3, -4);
-  getInfo(&rect);
+  dx = 3.0;
+  dy = 4.0;
+  rectangle.move(dx, dy);
+  std::cout << "\nChange after shifting the rectangle to (" << dx << "; "<< dy << ").";
+  circle.printInfo();
 
-  Triangle triangle({1, 1}, {10, 2}, {3, 5});
+  Triangle triangle({1.0, 1.0}, {10.0, 2.0}, {3.0, 5.0});
+  printShapeInfo(&triangle);
+
+  const point_t newPos = {3.0, 2.0};
+  triangle.move(newPos);
+  std::cout << "\nChanges after moving the triangle to a new position (" << newPos.x << "; "<< newPos.y << ").";
   triangle.printInfo();
-  showRectangle(triangle.getFrameRect());
-  showArea(&triangle);
-  triangle.move({5, 5});
-  triangle.printInfo();
-  showRectangle(triangle.getFrameRect());
-  showArea(&triangle);
+
   return 0;
+}
+
+void printFrameRectangle(rectangle_t frameRect)
+{
+  std::cout << "\nFrame Rectangle";
+  std::cout << "\nWidth: " << frameRect.width;
+  std::cout << "\nHeight: " << frameRect.height;
+  std::cout << "\nCenter: " << frameRect.pos.x << "; " << frameRect.pos.y;
+}
+
+void printShapeInfo(const Shape *shape)
+{
+  if (shape == nullptr) {
+    throw std::invalid_argument("The specified shape's pointer is not valid.");
+  }
+  shape->printInfo();
+  std::cout << "\nArea: " << shape->getArea() << std::endl;
+
+  const rectangle_t frameRect = shape->getFrameRect();
+  printFrameRectangle(frameRect);
 }
