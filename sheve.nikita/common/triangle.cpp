@@ -10,7 +10,7 @@ sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p
   m_b(p2),
   m_c(p3)
 {
-  if (getArea() <= 0.0)
+  if (getArea() == 0.0)
   {
     throw std::invalid_argument("Triangle's argument is invalid.");
   }
@@ -18,7 +18,7 @@ sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p
 
 double sheve::Triangle::getArea() const
 {
-  return ((m_a.x - m_c.x) * (m_b.y - m_c.y) - (m_b.x - m_c.x) * (m_a.y - m_c.y)) / 2;
+  return std::abc((m_a.x - m_c.x) * (m_b.y - m_c.y) - (m_b.x - m_c.x) * (m_a.y - m_c.y)) / 2;
 }
 
 sheve::rectangle_t sheve::Triangle::getFrameRect() const
