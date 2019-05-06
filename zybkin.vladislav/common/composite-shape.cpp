@@ -152,7 +152,7 @@ void zybkin::CompositeShape::add(zybkin::Shape * shape)
 {
   if (shape == nullptr)
   {
-    throw std::invalid_argument("Added shape pointer must be not null");
+    throw std::invalid_argument("Shape pointer must be not null");
   }
   ++count_;
   //if we don't have empty cells we will allocate memory for new shape
