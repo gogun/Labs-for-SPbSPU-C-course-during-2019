@@ -20,15 +20,15 @@ shestakova::CompositeShape::CompositeShape(CompositeShape&& movedCompositeShape)
   count_(movedCompositeShape.count_),
   figures_(movedCompositeShape.figures_)
 {
-    movedCompositeShape.figures_ = nullptr;
-    movedCompositeShape.count_ = 0;
+  movedCompositeShape.figures_ = nullptr;
+  movedCompositeShape.count_ = 0;
 }
 
 shestakova::CompositeShape::CompositeShape(Shape& shape) :
   count_(1),
   figures_(new Shape*[1])
 {
-   figures_[0] = &shape;
+  figures_[0] = &shape;
 }
 
 shestakova::CompositeShape::~CompositeShape()
@@ -176,5 +176,10 @@ void shestakova::CompositeShape::deleteShape(unsigned int index)
   {
     figures_[i] = figures_[i + 1];
   }
+}
+
+unsigned int shestakova::CompositeShape::getCount() const
+{
+  return count_;
 }
 

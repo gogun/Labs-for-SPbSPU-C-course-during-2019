@@ -8,6 +8,89 @@ const double fault = 0.01;
 
 BOOST_AUTO_TEST_SUITE(compositeTests)
 
+BOOST_AUTO_TEST_CASE(compositeShapeCopyConstructor)
+{
+  shestakova::Rectangle rect({4, 7}, 2, 12);
+  shestakova::Circle circ({2, 1}, 10);
+  shestakova::CompositeShape compSh(rect);
+  compSh.addShape(circ);
+  const shestakova::rectangle_t frameRect = compSh.getFrameRect();
+
+  shestakova::CompositeShape copyCompSh(compSh);
+  const shestakova::rectangle_t copyFrameRect = copyCompSh.getFrameRect();
+  BOOST_CHECK_CLOSE(frameRect.height, copyFrameRect.height, fault);
+  BOOST_CHECK_CLOSE(frameRect.width, copyFrameRect.width, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, copyFrameRect.pos.x, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, copyFrameRect.pos.y, fault);
+  BOOST_CHECK_CLOSE(compSh.getArea(), copyCompSh.getArea(), fault);
+  BOOST_CHECK_EQUAL(compSh.getCount(), copyCompSh.getCount());
+}
+
+BOOST_AUTO_TEST_CASE(compositeShapeCopyOperator)
+{
+  shestakova::Rectangle rect({4, 7}, 2, 12);
+  shestakova::Circle circ({2, 1}, 10);
+  shestakova::CompositeShape compSh(rect);
+  compSh.addShape(circ);
+  const shestakova::rectangle_t frameRect = compSh.getFrameRect();
+
+  shestakova::CompositeShape copyCompSh(rect);
+  copyCompSh = compSh;
+  const shestakova::rectangle_t copyFrameRect = copyCompSh.getFrameRect();
+  BOOST_CHECK_CLOSE(frameRect.height, copyFrameRect.height, fault);
+  BOOST_CHECK_CLOSE(frameRect.width, copyFrameRect.width, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, copyFrameRect.pos.x, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, copyFrameRect.pos.y, fault);
+  BOOST_CHECK_CLOSE(compSh.getArea(), copyCompSh.getArea(), fault);
+  BOOST_CHECK_EQUAL(compSh.getCount(), copyCompSh.getCount());
+}
+
+BOOST_AUTO_TEST_CASE(compositeShapeMoveConstructor)
+{
+  shestakova::Rectangle rect({4, 7}, 2, 12);
+  shestakova::Circle circ({2, 1}, 10);
+  shestakova::CompositeShape compSh(rect);
+  compSh.addShape(circ);
+  const shestakova::rectangle_t frameRect = compSh.getFrameRect();
+  const double compShArea = compSh.getArea();
+  const int compShCount = compSh.getCount();
+
+  shestakova::CompositeShape moveCompSh(std::move(compSh));
+  const shestakova::rectangle_t moveFrameRect = moveCompSh.getFrameRect();
+
+  BOOST_CHECK_CLOSE(frameRect.height, moveFrameRect.height, fault);
+  BOOST_CHECK_CLOSE(frameRect.width, moveFrameRect.width, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, moveFrameRect.pos.x, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, moveFrameRect.pos.y, fault);
+  BOOST_CHECK_CLOSE(compShArea, moveCompSh.getArea(), fault);
+  BOOST_CHECK_EQUAL(compShCount, moveCompSh.getCount());
+  BOOST_CHECK_CLOSE(compSh.getArea(), 0, fault);
+  BOOST_CHECK_EQUAL(compSh.getCount(), 0);
+}
+
+BOOST_AUTO_TEST_CASE(compositeShapeMoveOperator)
+{
+  shestakova::Rectangle rect({4, 7}, 2, 12);
+  shestakova::Circle circ({2, 1}, 10);
+  shestakova::CompositeShape compSh(rect);
+  compSh.addShape(circ);
+  const shestakova::rectangle_t frameRect = compSh.getFrameRect();
+  const double compShArea = compSh.getArea();
+  const int compShCount = compSh.getCount();
+
+  shestakova::CompositeShape moveCompSh(rect);
+  moveCompSh = std::move(compSh);
+  const shestakova::rectangle_t moveFrameRect = moveCompSh.getFrameRect();
+  BOOST_CHECK_CLOSE(frameRect.height, moveFrameRect.height, fault);
+  BOOST_CHECK_CLOSE(frameRect.width, moveFrameRect.width, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, moveFrameRect.pos.x, fault);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, moveFrameRect.pos.y, fault);
+  BOOST_CHECK_CLOSE(compShArea, moveCompSh.getArea(), fault);
+  BOOST_CHECK_EQUAL(compShCount, moveCompSh.getCount());
+  BOOST_CHECK_EQUAL(compSh.getCount(), 0);
+  BOOST_CHECK_CLOSE(compSh.getArea(), 0, fault);
+}
+
 BOOST_AUTO_TEST_CASE(compositeShapeConstancyOfParameters)
 {
   shestakova::Rectangle rect({4, 7}, 2, 12);
@@ -33,18 +116,52 @@ BOOST_AUTO_TEST_CASE(compositeShapeConstancyOfParameters)
   BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, fault);
 }
 
-BOOST_AUTO_TEST_CASE(compositeShapeScale)
+BOOST_AUTO_TEST_CASE(compositeShapeScaleCoefficientMoreThanOne)
 {
   shestakova::Rectangle rect({4, 7}, 2, 12);
   shestakova::Circle circ({2, 1}, 10);
   shestakova::CompositeShape compSh(rect);
   compSh.addShape(circ);
-  const double areaBeforeScale = compSh.getArea();
-  const int scaleCoefficient = 3;
-  compSh.scale(scaleCoefficient);
-  double areaAfterScale = compSh.getArea();
+  const shestakova::rectangle_t frameBeforeScale = compSh.getFrameRect();
+  const int coefMoreThanOne = 3;
+  compSh.scale(coefMoreThanOne);
+  shestakova::rectangle_t frameAfterScale = compSh.getFrameRect();
 
-  BOOST_CHECK_CLOSE(areaBeforeScale * scaleCoefficient * scaleCoefficient, areaAfterScale, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.height * coefMoreThanOne, frameAfterScale.height, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.width * coefMoreThanOne, frameAfterScale.width, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.x, frameAfterScale.pos.x, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.y, frameAfterScale.pos.y, fault);
+  BOOST_CHECK(frameBeforeScale.height < frameAfterScale.height);
+  BOOST_CHECK(frameBeforeScale.width < frameAfterScale.width);
+}
+
+BOOST_AUTO_TEST_CASE(compositeShapeScaleCoefficientLessThanOne)
+{
+  shestakova::Rectangle rect({4, 7}, 2, 12);
+  shestakova::Circle circ({2, 1}, 10);
+  shestakova::CompositeShape compSh(rect);
+  compSh.addShape(circ);
+  const shestakova::rectangle_t frameBeforeScale = compSh.getFrameRect();
+  const double coefLessThanOne = 0.3;
+  compSh.scale(coefLessThanOne);
+  shestakova::rectangle_t frameAfterScale = compSh.getFrameRect();
+
+  BOOST_CHECK_CLOSE(frameBeforeScale.height * coefLessThanOne, frameAfterScale.height, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.width * coefLessThanOne, frameAfterScale.width, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.x, frameAfterScale.pos.x, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.y, frameAfterScale.pos.y, fault);
+  BOOST_CHECK(frameBeforeScale.width > frameAfterScale.width);
+  BOOST_CHECK(frameBeforeScale.height > frameAfterScale.height);
+}
+
+BOOST_AUTO_TEST_CASE(compositeShapeIncorrectScaleParameter)
+{
+  shestakova::Rectangle rect({4, 7}, 2, 12);
+  shestakova::Circle circ({2, 1}, 10);
+  shestakova::CompositeShape compSh(rect);
+  compSh.addShape(circ);
+
+  BOOST_CHECK_THROW(compSh.scale(-3), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(compositeShapeAreaAfterAddAndDelete)
@@ -62,16 +179,6 @@ BOOST_AUTO_TEST_CASE(compositeShapeAreaAfterAddAndDelete)
 
   compSh.deleteShape(0);
   BOOST_CHECK_CLOSE(compShAreaAfterAdd - rectArea, compSh.getArea(), fault);
-}
-
-BOOST_AUTO_TEST_CASE(compositeShapeIncorrectScaleParameter)
-{
-  shestakova::Rectangle rect({4, 7}, 2, 12);
-  shestakova::Circle circ({2, 1}, 10);
-  shestakova::CompositeShape compSh(rect);
-  compSh.addShape(circ);
-
-  BOOST_CHECK_THROW(compSh.scale(-3), std::invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(compositeShapeThrowingExeptions)
