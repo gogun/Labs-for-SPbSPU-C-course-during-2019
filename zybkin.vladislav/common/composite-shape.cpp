@@ -5,7 +5,8 @@
 
 zybkin::CompositeShape::CompositeShape(const zybkin::CompositeShape &copyCompositeShape) :
   shapeArray_(new zybkin::Shape *[copyCompositeShape.count_]),
-  count_(copyCompositeShape.count_)
+  count_(copyCompositeShape.count_),
+  size_(copyCompositeShape.size_)
 {
   for (int i = 0; i < count_; ++i)
   {
@@ -15,15 +16,18 @@ zybkin::CompositeShape::CompositeShape(const zybkin::CompositeShape &copyComposi
 
 zybkin::CompositeShape::CompositeShape(zybkin::CompositeShape &&movedCompositeShape) :
   shapeArray_(movedCompositeShape.shapeArray_),
-  count_(movedCompositeShape.count_)
+  count_(movedCompositeShape.count_),
+  size_(movedCompositeShape.size_)
 {
   movedCompositeShape.shapeArray_ = nullptr;
   movedCompositeShape.count_ = 0;
+  movedCompositeShape.size_ = 0;
 }
 
 zybkin::CompositeShape::CompositeShape(zybkin::Shape * shape) :
   shapeArray_(new zybkin::Shape *[1]{shape}),
-  count_(1)
+  count_(1),
+  size_(1)
 {
   if (shape == nullptr)
   {
@@ -50,6 +54,9 @@ zybkin::CompositeShape &zybkin::CompositeShape::operator =(zybkin::CompositeShap
 {
   if (this != &movedCompositeShape)
   {
+    size_ = movedCompositeShape.size_;
+    movedCompositeShape.size_ = 0;
+
     count_ = movedCompositeShape.count_;
     movedCompositeShape.count_ = 0;
 
@@ -147,27 +154,22 @@ void zybkin::CompositeShape::add(zybkin::Shape * shape)
   {
     throw std::invalid_argument("Added shape pointer must be not null");
   }
-
-  //check that we have empty cell
-  for (int i = 1; i < count_; ++i)
+  ++count_;
+  //if we don't have empty cells we will allocate memory for new shape
+  if (size_ < count_)
   {
-    if (shapeArray_[i] == nullptr)
+    zybkin::Shape ** temporaryArray = new zybkin::Shape *[count_];
+    for (int i = 0; i < size_; ++i)
     {
-      shapeArray_[i] = shape;
-      return;
+      temporaryArray[i] = shapeArray_[i];
     }
+
+    ++size_;
+    delete [] shapeArray_;
+    shapeArray_ = temporaryArray;
   }
 
-
-  zybkin::Shape ** temporaryArray = new zybkin::Shape *[count_ + 1];
-  for (int i = 0; i < count_; ++i)
-  {
-    temporaryArray[i] = shapeArray_[i];
-  }
-  temporaryArray[count_] = shape;
-  count_++;
-  delete [] shapeArray_;
-  shapeArray_ = temporaryArray;
+  shapeArray_[count_ - 1] = shape;
 }
 
 void zybkin::CompositeShape::remove(int index)
@@ -205,4 +207,5 @@ void zybkin::CompositeShape::swap(zybkin::CompositeShape &swappingShape)
 {
   std::swap(shapeArray_, swappingShape.shapeArray_);
   std::swap(count_, swappingShape.count_);
+  std::swap(size_, swappingShape.size_);
 }

@@ -31,6 +31,7 @@ namespace zybkin
   private:
     Shape ** shapeArray_;
     int count_;
+    int size_;
   };
 }
 
