@@ -150,8 +150,8 @@ BOOST_AUTO_TEST_CASE(compositeShapeScaleCoefficientLessThanOne)
   BOOST_CHECK_CLOSE(frameBeforeScale.width * coefLessThanOne, frameAfterScale.width, fault);
   BOOST_CHECK_CLOSE(frameBeforeScale.pos.x, frameAfterScale.pos.x, fault);
   BOOST_CHECK_CLOSE(frameBeforeScale.pos.y, frameAfterScale.pos.y, fault);
-  BOOST_CHECK(frameBeforeScale.width > frameAfterScale.width);
   BOOST_CHECK(frameBeforeScale.height > frameAfterScale.height);
+  BOOST_CHECK(frameBeforeScale.width > frameAfterScale.width);
 }
 
 BOOST_AUTO_TEST_CASE(compositeShapeIncorrectScaleParameter)

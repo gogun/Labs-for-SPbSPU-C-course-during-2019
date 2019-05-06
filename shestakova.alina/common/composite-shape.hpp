@@ -9,9 +9,9 @@ namespace shestakova
   {
   public:
     CompositeShape();
-    CompositeShape(const CompositeShape& copiedCompositeShape);
-    CompositeShape(CompositeShape&& movedCompositeShape);
-    CompositeShape(Shape& shape);
+    CompositeShape(const CompositeShape &copiedCompositeShape);
+    CompositeShape(CompositeShape &&movedCompositeShape);
+    CompositeShape(Shape &shape);
     ~CompositeShape();
 
     CompositeShape &operator =(const CompositeShape &copiedCompositeShape);
@@ -31,7 +31,7 @@ namespace shestakova
 
   private:
     unsigned int count_;
-    Shape** figures_;
+    Shape ** figures_;
   };
 }
 

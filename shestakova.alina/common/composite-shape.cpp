@@ -6,7 +6,7 @@ shestakova::CompositeShape::CompositeShape() :
   figures_()
 {}
 
-shestakova::CompositeShape::CompositeShape(const CompositeShape& copiedCompositeShape) :
+shestakova::CompositeShape::CompositeShape(const CompositeShape &copiedCompositeShape) :
   count_(copiedCompositeShape.count_),
   figures_(new Shape *[copiedCompositeShape.count_])
 {
@@ -16,7 +16,7 @@ shestakova::CompositeShape::CompositeShape(const CompositeShape& copiedComposite
   }
 }
 
-shestakova::CompositeShape::CompositeShape(CompositeShape&& movedCompositeShape) :
+shestakova::CompositeShape::CompositeShape(CompositeShape &&movedCompositeShape) :
   count_(movedCompositeShape.count_),
   figures_(movedCompositeShape.figures_)
 {
@@ -182,4 +182,3 @@ unsigned int shestakova::CompositeShape::getCount() const
 {
   return count_;
 }
-
