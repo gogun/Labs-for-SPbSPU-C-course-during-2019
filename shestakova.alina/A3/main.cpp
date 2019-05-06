@@ -43,7 +43,7 @@ int main()
 
   shestakova::CompositeShape compSh(rect);
   std::cout << "\nCreated composite shape's parameters after adding figures:\n";
-  compSh.addShape(circ);
+  compSh.add(circ);
   printInfo(compSh);
   std::cout << "\nComposite shape with a new center at (2, -3):\n";
   compSh.move({2, -3});
@@ -52,7 +52,7 @@ int main()
   compSh.scale(3);
   printInfo(compSh);
   std::cout << "\nDelete composite shape's 1st component:\n";
-  compSh.deleteShape(0);
+  compSh.remove(0);
   printInfo(compSh);
 
   return 0;

@@ -23,8 +23,8 @@ namespace shestakova
     void move(const point_t &point) override;
     void move(double dx, double dy) override;
     void scale(double coefficient) override;
-    void addShape(Shape &shape);
-    void deleteShape(unsigned int index);
+    void add(Shape &shape);
+    void remove(unsigned int index);
 	unsigned int getCount() const;
 
   private:

@@ -152,7 +152,7 @@ void shestakova::CompositeShape::scale(double coefficient)
   }
 }
 
-void shestakova::CompositeShape::addShape(Shape &shape)
+void shestakova::CompositeShape::add(Shape &shape)
 {
   Shape** shapesArray = new Shape *[count_ + 1];
   for(unsigned int i = 0; i < count_; i++)
@@ -165,7 +165,7 @@ void shestakova::CompositeShape::addShape(Shape &shape)
   figures_ = shapesArray;
 }
 
-void shestakova::CompositeShape::deleteShape(unsigned int index)
+void shestakova::CompositeShape::remove(unsigned int index)
 {
   if (index >= count_)
   {
