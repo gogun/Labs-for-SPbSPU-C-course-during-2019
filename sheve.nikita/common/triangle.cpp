@@ -4,11 +4,11 @@
 #include <math.h>
 #include <stdexcept>
 
-sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p3) :
-  m_pos({ (p1.x + p2.x + p3.x) / 3, (p1.y + p2.y + p3.y) / 3 }),
-  m_a(p1),
-  m_b(p2),
-  m_c(p3)
+sheve::Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC) :
+  center_({ (pointA.x + pointB.x + pointC.x) / 3, (pointA.y + pointB.y + pointC.y) / 3 }),
+  pointA_(pointA),
+  pointB_(pointB),
+  pointC_(pointC)
 {
   if (getArea() == 0.0)
   {
@@ -18,15 +18,15 @@ sheve::Triangle::Triangle(const point_t &p1, const point_t &p2, const point_t &p
 
 double sheve::Triangle::getArea() const
 {
-  return fabs((m_a.x - m_c.x) * (m_b.y - m_c.y) - (m_b.x - m_c.x) * (m_a.y - m_c.y)) / 2;
+  return fabs((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y) - (pointB_.x - pointC_.x) * (pointA_.y - pointC_.y)) / 2;
 }
 
 sheve::rectangle_t sheve::Triangle::getFrameRect() const
 {
-  const double maxX = std::max(std::max(m_a.x, m_b.x), m_c.x);
-  const double maxY = std::max(std::max(m_a.y, m_b.y), m_c.y);
-  const double minX = std::min(std::min(m_a.x, m_b.x), m_c.x);
-  const double minY = std::min(std::min(m_a.y, m_b.y), m_c.y);
+  const double maxX = std::max(std::max(pointA_.x, pointB_.x), pointC_.x);
+  const double maxY = std::max(std::max(pointA_.y, pointB_.y), pointC_.y);
+  const double minX = std::min(std::min(pointA_.x, pointB_.x), pointC_.x);
+  const double minY = std::min(std::min(pointA_.y, pointB_.y), pointC_.y);
   const double width = maxX - minX;
   const double height = maxY - minY;
   return { { minX + width / 2, minY + height / 2 }, width, height };
@@ -34,21 +34,21 @@ sheve::rectangle_t sheve::Triangle::getFrameRect() const
 
 void sheve::Triangle::move(const point_t &p)
 {
-  const double dx = p.x - m_pos.x;
-  const double dy = p.y - m_pos.y;
+  const double dx = p.x - center_.x;
+  const double dy = p.y - center_.y;
   move(dx, dy);
 }
 
 void sheve::Triangle::move(double dx, double dy)
 {
-  m_pos.x += dx;
-  m_a.x += dx;
-  m_b.x += dx;
-  m_c.x += dx;
-  m_pos.y += dy;
-  m_a.y += dy;
-  m_b.y += dy;
-  m_c.y += dy;
+  center_.x += dx;
+  pointA_.x += dx;
+  pointB_.x += dx;
+  pointC_.x += dx;
+  center_.y += dy;
+  pointA_.y += dy;
+  pointB_.y += dy;
+  pointC_.y += dy;
 }
 
 void sheve::Triangle::scale(double coefficient)
@@ -59,21 +59,21 @@ void sheve::Triangle::scale(double coefficient)
   }
   else
   {
-    m_a.x = (m_a.x - m_pos.x) * coefficient + m_pos.x;
-    m_a.y = (m_a.y - m_pos.y) * coefficient + m_pos.y;
-    m_b.x = (m_b.x - m_pos.x) * coefficient + m_pos.x;
-    m_b.y = (m_b.y - m_pos.y) * coefficient + m_pos.y;
-    m_c.x = (m_c.x - m_pos.x) * coefficient + m_pos.x;
-    m_c.y = (m_c.y - m_pos.y) * coefficient + m_pos.y;
+    pointA_.x = (pointA_.x - center_.x) * coefficient + center_.x;
+    pointA_.y = (pointA_.y - center_.y) * coefficient + center_.y;
+    pointB_.x = (pointB_.x - center_.x) * coefficient + center_.x;
+    pointB_.y = (pointB_.y - center_.y) * coefficient + center_.y;
+    pointC_.x = (pointC_.x - center_.x) * coefficient + center_.x;
+    pointC_.y = (pointC_.y - center_.y) * coefficient + center_.y;
   }
 }
 
 void sheve::Triangle::printInfo() const
 {
-  std::cout << "Center: " << m_pos.x << ", " << m_pos.y << std::endl;
-  std::cout << "A: " << m_a.x << ", " << m_a.y << std::endl;
-  std::cout << "B: " << m_b.x << ", " << m_b.y << std::endl;
-  std::cout << "C: " << m_c.x << ", " << m_c.y << std::endl;
+  std::cout << "Center: " << center_.x << ", " << center_.y << std::endl;
+  std::cout << "A: " << pointA_.x << ", " << pointA_.y << std::endl;
+  std::cout << "B: " << pointB_.x << ", " << pointB_.y << std::endl;
+  std::cout << "C: " << pointC_.x << ", " << pointC_.y << std::endl;
   std::cout << "Triangle area: " << getArea() << std::endl;
   std::cout << "Frame rectangle:" << std::endl;
   std::cout << "-Center: " << getFrameRect().pos.x << ", " << getFrameRect().pos.y << std::endl;
