@@ -16,10 +16,10 @@ namespace sheve
     void printInfo() const override;
 
   private:
-    point_t m_pos;
-    point_t m_a;
-    point_t m_b;
-    point_t m_c;
+    point_t center_;
+    point_t pointA_;
+    point_t pointB_;
+    point_t pointC_;
   };
 }
 
