@@ -23,8 +23,8 @@ BOOST_AUTO_TEST_CASE(changing_Scale)
 BOOST_AUTO_TEST_CASE(Moving_by_dx_dy)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
-  const double frameBeforeMove = rec.getFrameRect().width;
-  const double frameBeforeMove = rec.getFrameRect().height;
+  const double frameBeforeMove.width = rec.getFrameRect().width;
+  const double frameBeforeMoveheight.height = rec.getFrameRect().height;
   const double areaBeforeMoving = rec.getArea();
   rec.move(10, -30);
   BOOST_CHECK_CLOSE(frameBeforeMove.width, rec.getFrameRect().width, EPSILON);
@@ -35,8 +35,8 @@ BOOST_AUTO_TEST_CASE(Moving_by_dx_dy)
 BOOST_AUTO_TEST_CASE(Moving_by_point)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
-  const double frameBeforeMove = rec.getFrameRect().width;
-  const double frameBeforeMove = rec.getFrameRect().height;
+  const double frameBeforeMove.width = rec.getFrameRect().width;
+  const double frameBeforeMove.height = rec.getFrameRect().height;
   const double areaBeforeMoving = rec.getArea();
   rec.move({ -27, 52 });
   BOOST_CHECK_CLOSE(frameBeforeMove.width, rec.getFrameRect().width, EPSILON);
@@ -71,8 +71,8 @@ BOOST_AUTO_TEST_CASE(invalid_Scale)
 BOOST_AUTO_TEST_CASE(Move_dx_dy)
 {
   sheve::Circle cir({ 20, 30 }, 13);
-  const double frameBeforeMove = cir.getFrameRect().width;
-  const double frameBeforeMove = cir.getFrameRect().height;
+  const double frameBeforeMove.width = cir.getFrameRect().width;
+  const double frameBeforeMove.height = cir.getFrameRect().height;
   const double areaBeforeMoving = cir.getArea();
   cir.move(-12, 9);
   BOOST_CHECK_CLOSE(frameBeforeMove.width, cir.getFrameRect().width, EPSILON);
@@ -83,8 +83,8 @@ BOOST_AUTO_TEST_CASE(Move_dx_dy)
 BOOST_AUTO_TEST_CASE(move_point)
 {
   sheve::Circle cir({ 20, 30 }, 13);
-  const double frameBeforeMove = cir.getFrameRect().width;
-  const double frameBeforeMove = cir.getFrameRect().height;
+  const double frameBeforeMove.width = cir.getFrameRect().width;
+  const double frameBeforeMove.height = cir.getFrameRect().height;
   const double areaBeforeMoving = cir.getArea();
   cir.move({ 32, -6 });
   BOOST_CHECK_CLOSE(frameBeforeMove.width, cir.getFrameRect().width, EPSILON);
@@ -119,8 +119,8 @@ BOOST_AUTO_TEST_CASE(invalid_Scale)
 BOOST_AUTO_TEST_CASE(Move_dx_dy)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
-  const double frameBeforeMove = tri.getFrameRect().width;
-  const double frameBeforeMove = tri.getFrameRect().height;
+  const double frameBeforeMove.width = tri.getFrameRect().width;
+  const double frameBeforeMove.height = tri.getFrameRect().height;
   const double areaBeforeMoving = tri.getArea();
   tri.move(10, 20);
   BOOST_CHECK_CLOSE(frameBeforeMove.width, tri.getFrameRect().width, EPSILON);
@@ -131,8 +131,8 @@ BOOST_AUTO_TEST_CASE(Move_dx_dy)
 BOOST_AUTO_TEST_CASE(move_point)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
-  const double frameBeforeMove = tri.getFrameRect().width;
-  const double frameBeforeMove = tri.getFrameRect().height;
+  const double frameBeforeMove.width = tri.getFrameRect().width;
+  const double frameBeforeMove.height = tri.getFrameRect().height;
   const double areaBeforeMoving = tri.getArea();
   tri.move({ -7, 4 });
   BOOST_CHECK_CLOSE(frameBeforeMove.width, tri.getFrameRect().width, EPSILON);
