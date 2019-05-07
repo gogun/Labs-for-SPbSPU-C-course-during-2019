@@ -8,7 +8,7 @@ zybkin::CompositeShape::CompositeShape(const zybkin::CompositeShape &copyComposi
   count_(copyCompositeShape.count_),
   size_(copyCompositeShape.size_)
 {
-  for (int i = 0; i < count_; ++i)
+  for (int i = 0; i < size_; ++i)
   {
     shapeArray_[i] = copyCompositeShape.shapeArray_[i];
   }
