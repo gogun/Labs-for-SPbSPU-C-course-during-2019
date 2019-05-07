@@ -59,18 +59,18 @@ BOOST_AUTO_TEST_CASE(changingAreAfterScaleAnIncrease)
 {
   kurbanova::Rectangle test_rec({ 5, 5 }, 8, 2);
   const double area = test_rec.getArea();
-  const double number_one = 2;
-  test_rec.scale(number_one);
-  BOOST_CHECK_CLOSE(test_rec.getArea(), number_one * number_one * area, INACCURACY);
+  const double increase_coef = 2;
+  test_rec.scale(increase_coef);
+  BOOST_CHECK_CLOSE(test_rec.getArea(), increase_coef * increase_coef * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(changingAreAfterScaleAnDecrease)
 {
   kurbanova::Rectangle test_rec({ 5, 5 }, 8, 2);
   const double area = test_rec.getArea();
-  const double number_two = 0.5;
-  test_rec.scale(number_two);
-  BOOST_CHECK_CLOSE(test_rec.getArea(), number_two * number_two * area, INACCURACY);
+  const double decrease_coef = 0.5;
+  test_rec.scale(decrease_coef);
+  BOOST_CHECK_CLOSE(test_rec.getArea(), decrease_coef * decrease_coef * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(scaleTest)
