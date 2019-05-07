@@ -98,7 +98,7 @@ BOOST_AUTO_TEST_CASE(Scaling)
   const double areaBeforeMoving = cir.getArea();
   const double scalefactor = 0.9;
   cir.scale(scalefactor);
-  BOOST_CHECK_CLOSE(area_original * scalefactor * scalefactor, cir.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving * scalefactor * scalefactor, cir.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
