@@ -43,18 +43,18 @@ BOOST_AUTO_TEST_CASE(changingAreaAfterScaleAnIncrease)
 {
   kurbanova::Circle test_circle({ 10, 10 }, 4);
   const double area = test_circle.getArea();
-  const double numeric_one = 2;
-  test_circle.scale(numeric_one);
-  BOOST_CHECK_CLOSE(test_circle.getArea(), numeric_one * numeric_one * area, INACCURACY);
+  const double increase_coef = 2;
+  test_circle.scale(increase_coef);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), increase_coef * increase_coef * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(changingAreaAfterScaleAnDecrease)
 {
   kurbanova::Circle test_circle({ 10, 10 }, 4);
   const double area = test_circle.getArea();
-  const double numeric_two = 0.5;
-  test_circle.scale(numeric_two);
-  BOOST_CHECK_CLOSE(test_circle.getArea(), numeric_two * numeric_two * area, INACCURACY);
+  const double decrease_coef = 0.5;
+  test_circle.scale(decrease_coef);
+  BOOST_CHECK_CLOSE(test_circle.getArea(), decrease_coef * decrease_coef * area, INACCURACY);
 }
 
 BOOST_AUTO_TEST_CASE(throwExceptionRad)
