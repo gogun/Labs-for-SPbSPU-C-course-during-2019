@@ -23,34 +23,34 @@ BOOST_AUTO_TEST_CASE(changing_Scale)
 BOOST_AUTO_TEST_CASE(Moving_by_dx_dy)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
-  const double width_original_d = rec.getFrameRect().width;
-  const double height_original_d = rec.getFrameRect().height;
-  const double area_original_d = rec.getArea();
+  const double frameBeforeMove = rec.getFrameRect().width;
+  const double frameBeforeMove = rec.getFrameRect().height;
+  const double areaBeforeMoving = rec.getArea();
   rec.move(10, -30);
-  BOOST_CHECK_CLOSE(width_original_d, rec.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(height_original_d, rec.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(area_original_d, rec.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, rec.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, rec.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving, rec.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Moving_by_point)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
-  const double width_original = rec.getFrameRect().width;
-  const double height_original = rec.getFrameRect().height;
-  const double area_original = rec.getArea();
+  const double frameBeforeMove = rec.getFrameRect().width;
+  const double frameBeforeMove = rec.getFrameRect().height;
+  const double areaBeforeMoving = rec.getArea();
   rec.move({ -27, 52 });
-  BOOST_CHECK_CLOSE(width_original, rec.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(height_original, rec.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(area_original, rec.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, rec.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, rec.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving, rec.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
-  const double area_original = rec.getArea();
+  const double areaBeforeMoving = rec.getArea();
   const double scalefactor = 1.2;
   rec.scale(scalefactor);
-  BOOST_CHECK_CLOSE(area_original * scalefactor * scalefactor, rec.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving * scalefactor * scalefactor, rec.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
@@ -71,31 +71,31 @@ BOOST_AUTO_TEST_CASE(invalid_Scale)
 BOOST_AUTO_TEST_CASE(Move_dx_dy)
 {
   sheve::Circle cir({ 20, 30 }, 13);
-  const double width_original = cir.getFrameRect().width;
-  const double height_original = cir.getFrameRect().height;
-  const double area_original = cir.getArea();
+  const double frameBeforeMove = cir.getFrameRect().width;
+  const double frameBeforeMove = cir.getFrameRect().height;
+  const double areaBeforeMoving = cir.getArea();
   cir.move(-12, 9);
-  BOOST_CHECK_CLOSE(width_original, cir.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(height_original, cir.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(area_original, cir.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, cir.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, cir.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving, cir.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(move_point)
 {
   sheve::Circle cir({ 20, 30 }, 13);
-  const double width_original = cir.getFrameRect().width;
-  const double height_original = cir.getFrameRect().height;
-  const double area_original = cir.getArea();
+  const double frameBeforeMove = cir.getFrameRect().width;
+  const double frameBeforeMove = cir.getFrameRect().height;
+  const double areaBeforeMoving = cir.getArea();
   cir.move({ 32, -6 });
-  BOOST_CHECK_CLOSE(width_original, cir.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(height_original, cir.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(area_original, cir.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, cir.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, cir.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving, cir.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Circle cir({ 20, 30 }, 13);
-  const double area_original = cir.getArea();
+  const double areaBeforeMoving = cir.getArea();
   const double scalefactor = 0.9;
   cir.scale(scalefactor);
   BOOST_CHECK_CLOSE(area_original * scalefactor * scalefactor, cir.getArea(), EPSILON);
@@ -119,34 +119,34 @@ BOOST_AUTO_TEST_CASE(invalid_Scale)
 BOOST_AUTO_TEST_CASE(Move_dx_dy)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
-  const double width_original = tri.getFrameRect().width;
-  const double height_original = tri.getFrameRect().height;
-  const double area_original = tri.getArea();
+  const double frameBeforeMove = tri.getFrameRect().width;
+  const double frameBeforeMove = tri.getFrameRect().height;
+  const double areaBeforeMoving = tri.getArea();
   tri.move(10, 20);
-  BOOST_CHECK_CLOSE(width_original, tri.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(height_original, tri.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(area_original, tri.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, tri.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, tri.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving, tri.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(move_point)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
-  const double width_original = tri.getFrameRect().width;
-  const double height_original = tri.getFrameRect().height;
-  const double area_original = tri.getArea();
+  const double frameBeforeMove = tri.getFrameRect().width;
+  const double frameBeforeMove = tri.getFrameRect().height;
+  const double areaBeforeMoving = tri.getArea();
   tri.move({ -7, 4 });
-  BOOST_CHECK_CLOSE(width_original, tri.getFrameRect().width, EPSILON);
-  BOOST_CHECK_CLOSE(height_original, tri.getFrameRect().height, EPSILON);
-  BOOST_CHECK_CLOSE(area_original, tri.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.width, tri.getFrameRect().width, EPSILON);
+  BOOST_CHECK_CLOSE(frameBeforeMove.height, tri.getFrameRect().height, EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving, tri.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_CASE(Scaling)
 {
   sheve::Triangle tri({ 12, -12 }, { 13, 5 }, { 1, 23 });
-  const double area_original = tri.getArea();
+  const double areaBeforeMoving = tri.getArea();
   const double scalefactor = 1.63;
   tri.scale(scalefactor);
-  BOOST_CHECK_CLOSE(area_original * scalefactor * scalefactor, tri.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(areaBeforeMoving * scalefactor * scalefactor, tri.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
