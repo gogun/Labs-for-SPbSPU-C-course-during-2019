@@ -25,8 +25,6 @@ namespace shestakova
     void scale(double coefficient) override;
     void add(Shape &shape);
     void remove(unsigned int index);
-    void addShape(Shape &shape);
-    void deleteShape(unsigned int index);
     unsigned int getCount() const;
 
   private:
