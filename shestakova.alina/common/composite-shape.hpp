@@ -29,7 +29,7 @@ namespace shestakova
 
   private:
     unsigned int count_;
-    Shape ** figures_;
+    Shape **figures_;
   };
 }
 
