@@ -13,7 +13,9 @@ Circle::Circle(double radius, const point_t & center):
 
 Circle::Circle(double radius, double center_x, double center_y):
   Circle(radius, {center_x, center_y})
-{ }
+{
+  assert(radius > 0);
+}
 
 double Circle::getArea() const
 {
@@ -39,6 +41,6 @@ void Circle::move(double dx, double dy)
 void Circle::showParams() const
 {
   std::cout << "Circle: center - {" << m_center.x << ","
-      << m_center.y << "}\nRadius - " << m_radius
-      << "\nArea - " << getArea() << '\n';
+            << m_center.y << "}\nRadius - " << m_radius
+            << "\nArea - " << getArea() << '\n';
 }
