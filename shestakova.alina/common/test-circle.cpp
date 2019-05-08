@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include "circle.hpp"
 
-const double fault = 0.01;
+const double FAULT = 0.01;
 
 BOOST_AUTO_TEST_SUITE(circleTests)
 
@@ -15,9 +15,9 @@ BOOST_AUTO_TEST_CASE(circleConstancyOfParameters)
   shestakova::rectangle_t frameRectAfterMoving = circ.getFrameRect();
   double areaAfterMoving = circ.getArea();
 
-  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, fault);
+  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(circleScale)
@@ -28,7 +28,7 @@ BOOST_AUTO_TEST_CASE(circleScale)
   circ.scale(scaleCoefficient);
   double areaAfterScale = circ.getArea();
 
-  BOOST_CHECK_CLOSE(areaBeforeScale * scaleCoefficient * scaleCoefficient, areaAfterScale, fault);
+  BOOST_CHECK_CLOSE(areaBeforeScale * scaleCoefficient * scaleCoefficient, areaAfterScale, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(circleIncorrectParameters)

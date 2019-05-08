@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include "rectangle.hpp"
 
-const double fault = 0.01;
+const double FAULT = 0.01;
 
 BOOST_AUTO_TEST_SUITE(rectangleTests)
 
@@ -15,17 +15,17 @@ BOOST_AUTO_TEST_CASE(rectangleConstancyOfParameters)
   shestakova::rectangle_t frameRectAfterMoving = rect.getFrameRect();
   double areaAfterMoving = rect.getArea();
 
-  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, fault);
+  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, FAULT);
 
   rect.move({3, 4});
   frameRectAfterMoving = rect.getFrameRect();
   areaAfterMoving = rect.getArea();
 
-  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, fault);
+  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleScale)
@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(rectangleScale)
   rect.scale(scaleCoefficient);
   double areaAfterScale = rect.getArea();
 
-  BOOST_CHECK_CLOSE(areaBeforeScale * scaleCoefficient * scaleCoefficient, areaAfterScale, fault);
+  BOOST_CHECK_CLOSE(areaBeforeScale * scaleCoefficient * scaleCoefficient, areaAfterScale, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(rectangleIncorrectParameters)

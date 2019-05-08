@@ -4,7 +4,7 @@
 #include "rectangle.hpp"
 #include "composite-shape.hpp"
 
-const double fault = 0.01;
+const double FAULT = 0.01;
 
 BOOST_AUTO_TEST_SUITE(compositeTests)
 
@@ -20,17 +20,17 @@ BOOST_AUTO_TEST_CASE(compositeShapeConstancyOfParameters)
   shestakova::rectangle_t frameRectAfterMoving = compSh.getFrameRect();
   double areaAfterMoving = compSh.getArea();
 
-  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, fault);
+  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, FAULT);
 
   compSh.move({3, 4});
   frameRectAfterMoving = compSh.getFrameRect();
   areaAfterMoving = compSh.getArea();
 
-  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, fault);
-  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, fault);
+  BOOST_CHECK_CLOSE(areaAfterMoving, areaBeforeMoving, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.height, frameRectAfterMoving.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRectBeforeMoving.width, frameRectAfterMoving.width, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(compositeShapeScaleCoefficientMoreThanOne)
@@ -44,10 +44,10 @@ BOOST_AUTO_TEST_CASE(compositeShapeScaleCoefficientMoreThanOne)
   compSh.scale(coefMoreThanOne);
   shestakova::rectangle_t frameAfterScale = compSh.getFrameRect();
 
-  BOOST_CHECK_CLOSE(frameBeforeScale.height * coefMoreThanOne, frameAfterScale.height, fault);
-  BOOST_CHECK_CLOSE(frameBeforeScale.width * coefMoreThanOne, frameAfterScale.width, fault);
-  BOOST_CHECK_CLOSE(frameBeforeScale.pos.x, frameAfterScale.pos.x, fault);
-  BOOST_CHECK_CLOSE(frameBeforeScale.pos.y, frameAfterScale.pos.y, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.height * coefMoreThanOne, frameAfterScale.height, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeScale.width * coefMoreThanOne, frameAfterScale.width, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.x, frameAfterScale.pos.x, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.y, frameAfterScale.pos.y, FAULT);
   BOOST_CHECK(frameBeforeScale.height < frameAfterScale.height);
   BOOST_CHECK(frameBeforeScale.width < frameAfterScale.width);
 }
@@ -63,10 +63,10 @@ BOOST_AUTO_TEST_CASE(compositeShapeScaleCoefficientLessThanOne)
   compSh.scale(coefLessThanOne);
   shestakova::rectangle_t frameAfterScale = compSh.getFrameRect();
 
-  BOOST_CHECK_CLOSE(frameBeforeScale.height * coefLessThanOne, frameAfterScale.height, fault);
-  BOOST_CHECK_CLOSE(frameBeforeScale.width * coefLessThanOne, frameAfterScale.width, fault);
-  BOOST_CHECK_CLOSE(frameBeforeScale.pos.x, frameAfterScale.pos.x, fault);
-  BOOST_CHECK_CLOSE(frameBeforeScale.pos.y, frameAfterScale.pos.y, fault);
+  BOOST_CHECK_CLOSE(frameBeforeScale.height * coefLessThanOne, frameAfterScale.height, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeScale.width * coefLessThanOne, frameAfterScale.width, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.x, frameAfterScale.pos.x, FAULT);
+  BOOST_CHECK_CLOSE(frameBeforeScale.pos.y, frameAfterScale.pos.y, FAULT);
   BOOST_CHECK(frameBeforeScale.height > frameAfterScale.height);
   BOOST_CHECK(frameBeforeScale.width > frameAfterScale.width);
 }
@@ -92,10 +92,10 @@ BOOST_AUTO_TEST_CASE(compositeShapeAreaAfterAddAndDelete)
 
   compSh.add(circ);
   double compShAreaAfterAdd = compSh.getArea();
-  BOOST_CHECK_CLOSE(compShAreaBeforeAdd + circArea, compShAreaAfterAdd, fault);
+  BOOST_CHECK_CLOSE(compShAreaBeforeAdd + circArea, compShAreaAfterAdd, FAULT);
 
   compSh.remove(0);
-  BOOST_CHECK_CLOSE(compShAreaAfterAdd - rectArea, compSh.getArea(), fault);
+  BOOST_CHECK_CLOSE(compShAreaAfterAdd - rectArea, compSh.getArea(), FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(compositeShapeThrowingExeptions)
