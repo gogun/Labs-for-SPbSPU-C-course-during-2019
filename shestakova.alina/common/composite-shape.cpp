@@ -10,7 +10,7 @@ shestakova::CompositeShape::CompositeShape(const CompositeShape &copiedComposite
   count_(copiedCompositeShape.count_),
   figures_(new Shape *[copiedCompositeShape.count_])
 {
-  for (unsigned int i = 0; i < count_; ++i)
+  for (unsigned int i = 0; i < count_; i++)
   {
     figures_[i] = copiedCompositeShape.figures_[i];
   }
