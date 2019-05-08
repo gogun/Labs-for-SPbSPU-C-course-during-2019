@@ -24,7 +24,7 @@ BOOST_AUTO_TEST_CASE(Moving_by_dx_dy)
 {
   sheve::Rectangle rec({ 20, 10 }, 15, 50);
   const double framebeforemove_w = rec.getFrameRect().width;
-  const double frameBeforemove_h = rec.getFrameRect().height;
+  const double framebeforemove_h = rec.getFrameRect().height;
   const double areabeforemoving = rec.getArea();
   rec.move(10, -30);
   BOOST_CHECK_CLOSE(framebeforemove_w, rec.getFrameRect().width, EPSILON);
@@ -98,7 +98,7 @@ BOOST_AUTO_TEST_CASE(Scaling)
   const double areabeforemoving = cir.getArea();
   const double scalefactor = 0.9;
   cir.scale(scalefactor);
-  BOOST_CHECK_CLOSE(areameforemoving * scalefactor * scalefactor, cir.getArea(), EPSILON);
+  BOOST_CHECK_CLOSE(areabeforemoving * scalefactor * scalefactor, cir.getArea(), EPSILON);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
