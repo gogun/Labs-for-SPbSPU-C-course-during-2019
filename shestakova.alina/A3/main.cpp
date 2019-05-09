@@ -41,9 +41,9 @@ int main()
   circ.scale(0.5);
   printInfo(circ);
 
-  shestakova::CompositeShape compSh(rect);
+  shestakova::CompositeShape compSh(&rect);
   std::cout << "\nCreated composite shape's parameters after adding figures:\n";
-  compSh.add(circ);
+  compSh.add(&circ);
   printInfo(compSh);
   std::cout << "\nComposite shape with a new center at (2, -3):\n";
   compSh.move({2, -3});

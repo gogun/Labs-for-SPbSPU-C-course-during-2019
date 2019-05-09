@@ -11,7 +11,7 @@ namespace shestakova
     CompositeShape();
     CompositeShape(const CompositeShape &copiedCompositeShape);
     CompositeShape(CompositeShape &&movedCompositeShape);
-    CompositeShape(Shape &shape);
+    CompositeShape(Shape *shape);
     ~CompositeShape();
 
     CompositeShape &operator =(const CompositeShape &copiedCompositeShape);
@@ -23,7 +23,7 @@ namespace shestakova
     void move(const point_t &point) override;
     void move(double dx, double dy) override;
     void scale(double coefficient) override;
-    void add(Shape &shape);
+    void add(Shape *shape);
     void remove(unsigned int index);
     unsigned int getCount() const;
 

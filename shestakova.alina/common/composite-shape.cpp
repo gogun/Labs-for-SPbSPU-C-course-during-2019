@@ -24,11 +24,16 @@ shestakova::CompositeShape::CompositeShape(CompositeShape &&movedCompositeShape)
   movedCompositeShape.count_ = 0;
 }
 
-shestakova::CompositeShape::CompositeShape(Shape& shape) :
+shestakova::CompositeShape::CompositeShape(Shape *shape) :
   count_(1),
   figures_(new Shape*[1])
 {
-  figures_[0] = &shape;
+  if (shape == nullptr)
+  {
+    throw std::invalid_argument("Shape pointer can't be null");
+  }
+
+  figures_[0] = shape;
 }
 
 shestakova::CompositeShape::~CompositeShape()
@@ -152,14 +157,19 @@ void shestakova::CompositeShape::scale(double coefficient)
   }
 }
 
-void shestakova::CompositeShape::add(Shape &shape)
+void shestakova::CompositeShape::add(Shape *shape)
 {
+  if (shape == nullptr)
+  {
+    throw std::invalid_argument("Shape pointer can't be null");
+  }
+  
   Shape** shapesArray = new Shape *[count_ + 1];
   for(unsigned int i = 0; i < count_; i++)
   {
     shapesArray[i] = figures_[i];
   }
-  shapesArray[count_] = &shape;
+  shapesArray[count_] = shape;
   count_++;
   delete[] figures_;
   figures_ = shapesArray;
@@ -171,11 +181,13 @@ void shestakova::CompositeShape::remove(unsigned int index)
   {
     throw std::invalid_argument("Index out of range");
   }
+  
   count_--;
   for (unsigned int i = index; i < count_; i++)
   {
     figures_[i] = figures_[i + 1];
   }
+  figures_[count_] = nullptr;
 }
 
 unsigned int shestakova::CompositeShape::getCount() const
