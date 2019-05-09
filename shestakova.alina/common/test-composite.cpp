@@ -18,11 +18,11 @@ BOOST_AUTO_TEST_CASE(compositeShapeCopyConstructor)
 
   shestakova::CompositeShape copyCompSh(compSh);
   const shestakova::rectangle_t copyFrameRect = copyCompSh.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRect.height, copyFrameRect.height, fault);
-  BOOST_CHECK_CLOSE(frameRect.width, copyFrameRect.width, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.x, copyFrameRect.pos.x, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.y, copyFrameRect.pos.y, fault);
-  BOOST_CHECK_CLOSE(compSh.getArea(), copyCompSh.getArea(), fault);
+  BOOST_CHECK_CLOSE(frameRect.height, copyFrameRect.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.width, copyFrameRect.width, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, copyFrameRect.pos.x, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, copyFrameRect.pos.y, FAULT);
+  BOOST_CHECK_CLOSE(compSh.getArea(), copyCompSh.getArea(), FAULT);
   BOOST_CHECK_EQUAL(compSh.getCount(), copyCompSh.getCount());
 }
 
@@ -37,11 +37,11 @@ BOOST_AUTO_TEST_CASE(compositeShapeCopyOperator)
   shestakova::CompositeShape copyCompSh(&rect);
   copyCompSh = compSh;
   const shestakova::rectangle_t copyFrameRect = copyCompSh.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRect.height, copyFrameRect.height, fault);
-  BOOST_CHECK_CLOSE(frameRect.width, copyFrameRect.width, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.x, copyFrameRect.pos.x, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.y, copyFrameRect.pos.y, fault);
-  BOOST_CHECK_CLOSE(compSh.getArea(), copyCompSh.getArea(), fault);
+  BOOST_CHECK_CLOSE(frameRect.height, copyFrameRect.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.width, copyFrameRect.width, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, copyFrameRect.pos.x, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, copyFrameRect.pos.y, FAULT);
+  BOOST_CHECK_CLOSE(compSh.getArea(), copyCompSh.getArea(), FAULT);
   BOOST_CHECK_EQUAL(compSh.getCount(), copyCompSh.getCount());
 }
 
@@ -58,13 +58,13 @@ BOOST_AUTO_TEST_CASE(compositeShapeMoveConstructor)
   shestakova::CompositeShape moveCompSh(std::move(compSh));
   const shestakova::rectangle_t moveFrameRect = moveCompSh.getFrameRect();
 
-  BOOST_CHECK_CLOSE(frameRect.height, moveFrameRect.height, fault);
-  BOOST_CHECK_CLOSE(frameRect.width, moveFrameRect.width, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.x, moveFrameRect.pos.x, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.y, moveFrameRect.pos.y, fault);
-  BOOST_CHECK_CLOSE(compShArea, moveCompSh.getArea(), fault);
+  BOOST_CHECK_CLOSE(frameRect.height, moveFrameRect.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.width, moveFrameRect.width, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, moveFrameRect.pos.x, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, moveFrameRect.pos.y, FAULT);
+  BOOST_CHECK_CLOSE(compShArea, moveCompSh.getArea(), FAULT);
   BOOST_CHECK_EQUAL(compShCount, moveCompSh.getCount());
-  BOOST_CHECK_CLOSE(compSh.getArea(), 0, fault);
+  BOOST_CHECK_CLOSE(compSh.getArea(), 0, FAULT);
   BOOST_CHECK_EQUAL(compSh.getCount(), 0);
 }
 
@@ -81,14 +81,14 @@ BOOST_AUTO_TEST_CASE(compositeShapeMoveOperator)
   shestakova::CompositeShape moveCompSh(&rect);
   moveCompSh = std::move(compSh);
   const shestakova::rectangle_t moveFrameRect = moveCompSh.getFrameRect();
-  BOOST_CHECK_CLOSE(frameRect.height, moveFrameRect.height, fault);
-  BOOST_CHECK_CLOSE(frameRect.width, moveFrameRect.width, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.x, moveFrameRect.pos.x, fault);
-  BOOST_CHECK_CLOSE(frameRect.pos.y, moveFrameRect.pos.y, fault);
-  BOOST_CHECK_CLOSE(compShArea, moveCompSh.getArea(), fault);
+  BOOST_CHECK_CLOSE(frameRect.height, moveFrameRect.height, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.width, moveFrameRect.width, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.x, moveFrameRect.pos.x, FAULT);
+  BOOST_CHECK_CLOSE(frameRect.pos.y, moveFrameRect.pos.y, FAULT);
+  BOOST_CHECK_CLOSE(compShArea, moveCompSh.getArea(), FAULT);
   BOOST_CHECK_EQUAL(compShCount, moveCompSh.getCount());
   BOOST_CHECK_EQUAL(compSh.getCount(), 0);
-  BOOST_CHECK_CLOSE(compSh.getArea(), 0, fault);
+  BOOST_CHECK_CLOSE(compSh.getArea(), 0, FAULT);
 }
 
 BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionAfterUseingOfOperator)
