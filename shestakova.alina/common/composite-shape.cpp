@@ -30,6 +30,7 @@ shestakova::CompositeShape::CompositeShape(Shape *shape) :
 {
   if (shape == nullptr)
   {
+    delete [] figures_;
     throw std::invalid_argument("Shape pointer can't be null");
   }
 

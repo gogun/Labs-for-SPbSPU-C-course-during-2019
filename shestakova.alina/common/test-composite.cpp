@@ -115,16 +115,6 @@ BOOST_AUTO_TEST_CASE(compositeShapeThrowingExeptions)
   BOOST_CHECK_THROW(compSh[1], std::out_of_range);
 }
 
-BOOST_AUTO_TEST_CASE(compositeTestThrowExceptionNullPtr)
-{
-  BOOST_CHECK_THROW(shestakova::CompositeShape(nullptr), std::invalid_argument);
-
-  shestakova::Rectangle rect({-7.1, 13.2}, 0.1, 2.8);
-  shestakova::CompositeShape testComposite(&rect);
-
-  BOOST_CHECK_THROW(testComposite.add(nullptr), std::invalid_argument);
-}
-
 BOOST_AUTO_TEST_CASE(emptyCompositeShapeThrowingExeptions)
 {
   shestakova::CompositeShape emptyCompSh;
