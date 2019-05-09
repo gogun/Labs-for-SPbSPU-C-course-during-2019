@@ -20,8 +20,8 @@ shestakova::CompositeShape::CompositeShape(CompositeShape &&movedCompositeShape)
   count_(movedCompositeShape.count_),
   figures_(movedCompositeShape.figures_)
 {
-  movedCompositeShape.figures_ = nullptr;
   movedCompositeShape.count_ = 0;
+  movedCompositeShape.figures_ = nullptr;
 }
 
 shestakova::CompositeShape::CompositeShape(Shape *shape) :
