@@ -1,5 +1,6 @@
 #include "triangle.hpp"
 #include <iostream>
+#include <cmath>
 #include <cassert>
 
 Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &pointC) :
@@ -13,7 +14,7 @@ Triangle::Triangle(const point_t &pointA, const point_t &pointB, const point_t &
 
 double Triangle::getArea() const
 {
-  double square = std::fabs(((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y)
+  double square = fabs(((pointA_.x - pointC_.x) * (pointB_.y - pointC_.y)
       - (pointA_.y - pointC_.y) * (pointB_.x - pointC_.x)) / 2);
 
   return square;
