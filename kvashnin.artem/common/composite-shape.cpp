@@ -117,10 +117,7 @@ kvashnin::rectangle_t kvashnin::CompositeShape::getFrameRect() const
 void kvashnin::CompositeShape::move(const point_t &pos)
 {
   point_t cenData = getCentre();
-  for (int i = 0; i < counter_; i++)
-  {
-    array_[i]->move(pos.x - cenData.x, pos.y - cenData.y);
-  }
+  move(pos.x - cenData.x, pos.y - cenData.y);
 }
 
 void kvashnin::CompositeShape::move(const double dx, const double dy)
