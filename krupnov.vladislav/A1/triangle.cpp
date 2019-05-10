@@ -1,10 +1,14 @@
 #include "triangle.hpp"
-#include <cmath>
 #include <algorithm>
+#include <iostream>
+#include <stdexcept>
+#include <cmath>
 
-Triangle::Triangle(const point_t &top1, const point_t &top2, const point_t &top3):
-  tops_({top1, top2, top3}),
-  center_({(top1.x + top2.x + top3.x) / 3, (top1.y + top2.y + top3.y) / 3})
+const int QTY_VERTEX = 3;
+
+Triangle::Triangle(const point_t &vertex1, const point_t &vertex2, const point_t &vertex3):
+  vertices_({vertex1, vertex2, vertex3}),
+  center_({(vertex1.x + vertex2.x + vertex3.x) / 3, (vertex1.y + vertex2.y + vertex3.y) / 3})
 {
   if (getArea() <= 0.0) {
     throw std::invalid_argument("The specified triangle's tops is not valid.");
@@ -14,25 +18,25 @@ Triangle::Triangle(const point_t &top1, const point_t &top2, const point_t &top3
 void Triangle::printInfo() const
 {
   std::cout << "\nTriangle";
-  for (int index = 0; index < 3; index++)
+  for (int index = 0; index < QTY_VERTEX; index++)
   {
-    std::cout << "\nTops №" << index + 1 << " coordinates: " << tops_[index].x << "; " << tops_[index].y;
+    std::cout << "\nTops №" << index + 1 << " coordinates: " << vertices_[index].x << "; " << vertices_[index].y;
   }
   std::cout << "\nCenter: " << center_.x << "; " << center_.y;
 }
 
 double Triangle::getArea() const
 {
-  return (0.5 * (fabs(tops_[0].x - tops_[2].x) * (tops_[1].y - tops_[2].y)
-            - fabs(tops_[1].x - tops_[2].x) * (tops_[0].y - tops_[2].y)));
+  return (0.5 * (fabs(vertices_[0].x - vertices_[2].x) * (vertices_[1].y - vertices_[2].y)
+            - fabs(vertices_[1].x - vertices_[2].x) * (vertices_[0].y - vertices_[2].y)));
 }
 
 rectangle_t Triangle::getFrameRect() const
 {
-  const double minX = std::min(std::min(tops_[0].x, tops_[1].x), tops_[2].x);
-  const double maxX = std::max(std::max(tops_[0].x, tops_[1].x), tops_[2].x);
-  const double minY = std::min(std::min(tops_[0].y, tops_[1].y), tops_[2].y);
-  const double maxY = std::max(std::max(tops_[0].y, tops_[1].y), tops_[2].y);
+  const double minX = std::min(std::min(vertices_[0].x, vertices_[1].x), vertices_[2].x);
+  const double maxX = std::max(std::max(vertices_[0].x, vertices_[1].x), vertices_[2].x);
+  const double minY = std::min(std::min(vertices_[0].y, vertices_[1].y), vertices_[2].y);
+  const double maxY = std::max(std::max(vertices_[0].y, vertices_[1].y), vertices_[2].y);
 
   const double width = (maxX - minX);
   const double height = (maxY - minY);
@@ -50,10 +54,10 @@ void Triangle::move(const point_t &newPos)
 
 void Triangle::move(double dx, double dy)
 {
-  for (int index = 0; index < 3; index++)
+  for (int index = 0; index < QTY_VERTEX; index++)
   {
-    tops_[index].x += dx;
-    tops_[index].y += dy;
+    vertices_[index].x += dx;
+    vertices_[index].y += dy;
   }
 
   center_.x += dx;
