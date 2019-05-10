@@ -13,7 +13,7 @@ namespace kvashnin
     CompositeShape(const CompositeShape& cs);
     CompositeShape(CompositeShape&& cs);
     CompositeShape(Shape *shape);
-    ~CompositeShape();
+    ~CompositeShape() = default;
 
     CompositeShape& operator =(const CompositeShape& rh);
     CompositeShape& operator =(CompositeShape&& rh);
@@ -27,7 +27,7 @@ namespace kvashnin
     void printInfo() const override;
 
     point_t getCentre() const;
-    int length() const;
+    int size() const;
     void add(Shape *shape);
     void remove(int index);
 

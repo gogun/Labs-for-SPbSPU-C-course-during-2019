@@ -35,9 +35,6 @@ kvashnin::CompositeShape::CompositeShape(Shape *shape):
   array_[0] = shape;
 }
 
-kvashnin::CompositeShape::~CompositeShape()
-{}
-
 kvashnin::CompositeShape& kvashnin::CompositeShape::operator =(const CompositeShape& rh)
 {
   if (this == &rh)
@@ -88,10 +85,12 @@ kvashnin::rectangle_t kvashnin::CompositeShape::getFrameRect() const
 {
   if (counter_ != 0)
   {
-    double left = array_[0]->getFrameRect().pos.x - array_[0]->getFrameRect().width / 2;
-    double right = array_[0]->getFrameRect().pos.x + array_[0]->getFrameRect().width / 2;
-    double top = array_[0]->getFrameRect().pos.y + array_[0]->getFrameRect().height / 2;
-    double bottom = array_[0]->getFrameRect().pos.y - array_[0]->getFrameRect().height / 2;
+    rectangle_t firstFrameRect = array_[0]->getFrameRect();
+
+    double left = firstFrameRect.pos.x - firstFrameRect.width / 2;
+    double right = firstFrameRect.pos.x + firstFrameRect.width / 2;
+    double top = firstFrameRect.pos.y + firstFrameRect.height / 2;
+    double bottom = firstFrameRect.pos.y - firstFrameRect.height / 2;
 
     for (int i = 1; i < counter_; i++)
     {
@@ -111,7 +110,7 @@ kvashnin::rectangle_t kvashnin::CompositeShape::getFrameRect() const
   }
   else
   {
-    throw std::invalid_argument("empty array");
+    throw std::invalid_argument("empty size");
   }
 }
 
@@ -156,7 +155,7 @@ void kvashnin::CompositeShape::printInfo() const
       << "CompositeShape area: " << getArea() << std::endl
       << "Rectangle frame width: " << frameRectData.width
       << "; height: " << frameRectData.height << std::endl
-      << "Length: " << length() << std::endl;
+      << "Size: " << size() << std::endl;
 }
 
 kvashnin::point_t kvashnin::CompositeShape::getCentre() const
@@ -164,7 +163,7 @@ kvashnin::point_t kvashnin::CompositeShape::getCentre() const
   return getFrameRect().pos;
 }
 
-int kvashnin::CompositeShape::length() const
+int kvashnin::CompositeShape::size() const
 {
   return counter_;
 }
