@@ -9,7 +9,8 @@ gusarov::Triangle::Triangle(const point_t & pointA, const point_t & pointB, cons
   pointB_(pointB),
   pointC_(pointC)
 {
-  if (getArea() == 0.0) {
+  if (getArea() == 0.0)
+  {
     throw std::invalid_argument("It is not a triangle");
   }
 }

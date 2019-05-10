@@ -7,7 +7,7 @@ gusarov::Circle::Circle(const point_t &center, const double radius):
   center_(center),
   radius_(radius)
 {
-  if(radius <= 0)
+  if (radius <= 0)
   {
     throw std::invalid_argument("Invalid radius value");
   }
@@ -36,7 +36,7 @@ void gusarov::Circle::printInfo() const
 }
 void gusarov::Circle::scale(const double scale)
 {
-  if(scale <= 0)
+  if (scale <= 0)
   {
     throw std::invalid_argument("Invalid scale value");
   }
