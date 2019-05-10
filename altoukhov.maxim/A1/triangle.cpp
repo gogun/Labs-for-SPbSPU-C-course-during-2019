@@ -18,9 +18,15 @@ double Triangle::getArea() const
 
 rectangle_t Triangle::getFrameRect() const
 {
-  double width = std::max({a_.x, b_.x, c_.x}) - std::min({a_.x, b_.x, c_.x});
-  double height = std::max({a_.y, b_.y, c_.y}) - std::min({a_.y, b_.y, c_.y});
-  return {getCenter(), width, height};
+  double left = std::min({a_.x, b_.x, c_.x});
+  double right = std::max({a_.x, b_.x, c_.x});
+  double top = std::min({a_.y, b_.y, c_.y});
+  double bottom = std::max({a_.y, b_.y, c_.y});
+  double width = right - left;
+  double height = bottom - top;
+  double x0 = (left + right) / 2;
+  double y0 = (top + bottom) / 2;
+  return {{x0, y0}, width, height};
 }
 
 point_t Triangle::getCenter() const
