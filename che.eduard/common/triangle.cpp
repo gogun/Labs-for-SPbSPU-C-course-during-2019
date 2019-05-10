@@ -54,7 +54,7 @@ void che::Triangle::move(double dx, double dy)
 
 void che::Triangle::scale(double coef)
 {
-  if (coef <= 0)
+  if (coef <= 0.0)
   {
     throw std::invalid_argument("Triangle scale coef can't be negativ");
   }
