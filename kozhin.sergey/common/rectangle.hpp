@@ -7,11 +7,12 @@ namespace kozhin
   class Rectangle : public Shape
   {
   public:
-    Rectangle(const point_t &, double, double);
+    Rectangle(const point_t&, double, double);
     double getArea() const override;
     rectangle_t getFrameRect() const override;
+    point_t getCenter() const override;
     void move(double, double) override;
-    void move(const point_t &) override;
+    void move(const point_t&) override;
     void scale(double) override;
 
   private:

@@ -1,2 +1,2 @@
-#define BOOST_TEST_MODULE A2_TEST
+#define BOOST_TEST_MODULE A3_TEST
 #include <boost/test/included/unit_test.hpp>
