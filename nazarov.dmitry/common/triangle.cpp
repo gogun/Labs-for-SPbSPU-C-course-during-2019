@@ -19,8 +19,8 @@ nazarov::Triangle::Triangle(const point_t &A, const point_t &B, const point_t &C
 
 double nazarov::Triangle::getArea() const
 {
-  return (std::fabs(point1_.x - point3_.x) * (point2_.y - point3_.y)
-    - std::fabs(point2_.x - point3_.x) * (point1_.y - point3_.y)) / 2;
+  return (std::fabs((point1_.x - point3_.x) * (point2_.y - point3_.y)
+    - (point2_.x - point3_.x) * (point1_.y - point3_.y)) / 2);
 }
 
 nazarov::rectangle_t nazarov::Triangle::getFrameRect() const
@@ -81,8 +81,13 @@ void nazarov::Triangle::scale(double times)
   }
   else
   {
-    point1_ = {pos_.x + (point1_.x - pos_.x) * times, pos_.y + (point1_.y - pos_.y) * times};
-    point2_ = {pos_.x + (point2_.x - pos_.x) * times, pos_.y + (point2_.y - pos_.y) * times};
-    point3_ = {pos_.x + (point3_.x - pos_.x) * times, pos_.y + (point3_.y - pos_.y) * times};
+    point1_.x = pos_.x + (point1_.x - pos_.x) * times;
+    point1_.y = pos_.y + (point1_.y - pos_.y) * times;
+
+    point2_.x = pos_.x + (point2_.x - pos_.x) * times;
+    point2_.y = pos_.y + (point2_.y - pos_.y) * times;
+
+    point3_.x = pos_.x + (point3_.x - pos_.x) * times;
+    point3_.y = pos_.y + (point3_.y - pos_.y) * times;
   }
 }
