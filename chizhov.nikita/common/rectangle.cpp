@@ -50,8 +50,8 @@ void chizhov::Rectangle::scale(double scale)
 {
   if (scale <= 0) {
     throw std::invalid_argument("You cannot scale by non-positive multiplier");
-  } else {
-    width_ *= scale;
-    height_ *= scale;
   }
+
+  width_ *= scale;
+  height_ *= scale;
 }
