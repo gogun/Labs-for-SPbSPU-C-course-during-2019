@@ -3,9 +3,9 @@
 #include "circle.hpp"
 #include "triangle.hpp"
 
-void printRect(Shape &shape)
+void printRect(const Shape &shape)
 {
-  rectangle_t rectangle1 = shape.getFrameRect();
+  const rectangle_t rectangle1 = shape.getFrameRect();
   std::cout << rectangle1.width << " " << rectangle1.height;
   std::cout << " " << "(" << rectangle1.pos.x << "," <<rectangle1.pos.y << ")" << std::endl;
 }
@@ -35,16 +35,16 @@ int main()
 
   std::cout << "Triangle" << std::endl;
   Triangle triangle({-1, -1},{-1, -4},{-5, -1});
-  triangle.printTriang();
+  triangle.printTriangle();
   std::cout << "Rectangle frame: ";
   printRect(triangle);
   std::cout << "Area = " << triangle.getArea() << std::endl;
   triangle.move({1, 1});
   std::cout << "After moving to a point: " << std::endl;
-  triangle.printTriang();
+  triangle.printTriangle();
   triangle.move(2, 8);
   std::cout << "After axial movement: " << std::endl;
-  triangle.printTriang();
+  triangle.printTriangle();
 
   return 0;
 }

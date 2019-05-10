@@ -15,13 +15,13 @@ Triangle::Triangle(const point_t &point1, const point_t &point2, const point_t &
 
 point_t Triangle::getCentre() const
 {
-  return {(point1_.x + point2_.x + point3_.x)/3, (point1_.y + point2_.y + point3_.y)/3};
+  return {(point1_.x + point2_.x + point3_.x) / 3, (point1_.y + point2_.y + point3_.y) / 3};
 }
 
 double Triangle::getArea() const
 {
   return std::fabs(0.5 * (point1_.x * (point2_.y - point3_.y)
-      + point2_.x * (point3_.y - point1_.y) + point3_.x * (point1_.y - point2_.y)));
+    + point2_.x * (point3_.y - point1_.y) + point3_.x * (point1_.y - point2_.y)));
 }
 
 rectangle_t Triangle::getFrameRect() const
@@ -53,7 +53,7 @@ void Triangle::move(double dx, double dy)
   point3_.x += dx;
 }
 
-void Triangle::printTriang() const
+void Triangle::printTriangle() const
 {
   std::cout << "Centre of gravity:" << " (" << centre_.x << "," << centre_.y << ")" << std::endl;
 }
