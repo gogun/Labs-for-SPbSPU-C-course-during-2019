@@ -56,16 +56,19 @@ void che::Triangle::scale(double coef)
 {
   if (coef <= 0)
   {
-    throw std::invalid_argument("Triangle scale coef can't be negativ");
+	throw std::invalid_argument("Triangle scale coef can't be negativ");
   }
-  pointA_.x = centre_.x + coef * (pointA_.x - centre_.x);
-  pointA_.y = centre_.y + coef * (pointA_.y - centre_.y);
+  else
+  {
+	pointA_.x = centre_.x + coef * (pointA_.x - centre_.x);
+	pointA_.y = centre_.y + coef * (pointA_.y - centre_.y);
 
-  pointB_.x = centre_.x + coef * (pointB_.x - centre_.x);
-  pointB_.y = centre_.y + coef * (pointB_.y - centre_.y);
+	pointB_.x = centre_.x + coef * (pointB_.x - centre_.x);
+	pointB_.y = centre_.y + coef * (pointB_.y - centre_.y);
 
-  pointC_.x = centre_.x + coef * (pointC_.x - centre_.x);
-  pointC_.y = centre_.y + coef * (pointC_.y - centre_.y);
+	pointC_.x = centre_.x + coef * (pointC_.x - centre_.x);
+	pointC_.y = centre_.y + coef * (pointC_.y - centre_.y);
+  }
 }
 
 void che::Triangle::info() const
