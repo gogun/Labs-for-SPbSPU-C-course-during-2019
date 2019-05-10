@@ -2,8 +2,6 @@
 #define SHAPE_HPP
 
 #include "base-types.hpp"
-#include <iostream>
-#include <stdexcept>
 
 class Shape
 {
