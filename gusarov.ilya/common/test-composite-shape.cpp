@@ -60,7 +60,7 @@ BOOST_AUTO_TEST_CASE(testInvalidValues)
   BOOST_CHECK_THROW(testingNewCompShape.getFrameRect(), std::logic_error);
   BOOST_CHECK_THROW(testingNewCompShape.getArea(), std::logic_error);
 }
-BOOST_AUTO_TEST_CASE(TestCopyConstructor)
+BOOST_AUTO_TEST_CASE(testCopyConstructor)
 {
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
@@ -78,7 +78,7 @@ BOOST_AUTO_TEST_CASE(TestCopyConstructor)
   BOOST_CHECK_CLOSE(frameRect.pos.x, copyFrameRect.pos.x, EPSILON);
   BOOST_CHECK_CLOSE(frameRect.pos.y, copyFrameRect.pos.y, EPSILON);
 }
-BOOST_AUTO_TEST_CASE(TestMoveConstructor)
+BOOST_AUTO_TEST_CASE(testMoveConstructor)
 {
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
@@ -99,7 +99,7 @@ BOOST_AUTO_TEST_CASE(TestMoveConstructor)
   BOOST_CHECK_EQUAL(testingCompShape.getSize(), 0);
 
 }
-BOOST_AUTO_TEST_CASE(TestMoveOperator)
+BOOST_AUTO_TEST_CASE(testMoveOperator)
 {
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
@@ -121,7 +121,7 @@ BOOST_AUTO_TEST_CASE(TestMoveOperator)
   BOOST_CHECK_EQUAL(compositeSize, moveCompShape.getSize());
   BOOST_CHECK_EQUAL(testingCompShape.getSize(), 0);
 }
-BOOST_AUTO_TEST_CASE(TestCopyOperator)
+BOOST_AUTO_TEST_CASE(testCopyOperator)
 {
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
