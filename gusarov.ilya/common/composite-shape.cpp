@@ -9,7 +9,7 @@ gusarov::CompositeShape::CompositeShape():
 }
 gusarov::CompositeShape::CompositeShape(const gusarov::CompositeShape& newShape):
   size_(newShape.size_),
-  shapes_(newShape.shapes_)
+  shapes_(new gusarov::Shape* [size_])
 {
   for (size_t i = 0; i < size_; ++i)
   {
