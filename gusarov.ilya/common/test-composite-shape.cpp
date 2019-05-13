@@ -15,7 +15,7 @@ BOOST_AUTO_TEST_CASE(testOfImmutability)
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
   gusarov::CompositeShape testingCompShape(testingRect);
-  testingCompShape.addNewShape(testingCirc);
+  testingCompShape.add(testingCirc);
 
   const gusarov::rectangle_t testingFrameRect = testingCompShape.getFrameRect();
   const double testingArea = testingCompShape.getArea();
@@ -38,7 +38,7 @@ BOOST_AUTO_TEST_CASE(testOfCorrectScaling)
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
   gusarov::CompositeShape testingCompShape(testingRect);
-  testingCompShape.addNewShape(testingCirc);
+  testingCompShape.add(testingCirc);
 
   const double area = testingCompShape.getArea();
   const double scale = 3.0;
@@ -50,10 +50,10 @@ BOOST_AUTO_TEST_CASE(testInvalidValues)
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
   gusarov::CompositeShape testingCompShape(testingRect);
-  testingCompShape.addNewShape(testingCirc);
+  testingCompShape.add(testingCirc);
 
   BOOST_CHECK_THROW(testingCompShape.scale(-2), std::invalid_argument);
-  BOOST_CHECK_THROW(testingCompShape.deleteShape(5), std::out_of_range);
+  BOOST_CHECK_THROW(testingCompShape.remove(5), std::out_of_range);
   BOOST_CHECK_THROW(testingCompShape[3], std::out_of_range);
 
   gusarov::CompositeShape testingNewCompShape;
@@ -65,7 +65,7 @@ BOOST_AUTO_TEST_CASE(testCopyConstructor)
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
   gusarov::CompositeShape testingCompShape(testingRect);
-  testingCompShape.addNewShape(testingCirc);
+  testingCompShape.add(testingCirc);
   const gusarov::rectangle_t frameRect = testingCompShape.getFrameRect();
 
   gusarov::CompositeShape copyCompShape(testingCompShape);
@@ -83,7 +83,7 @@ BOOST_AUTO_TEST_CASE(testMoveConstructor)
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
   gusarov::CompositeShape testingCompShape(testingRect);
-  testingCompShape.addNewShape(testingCirc);
+  testingCompShape.add(testingCirc);
   const gusarov::rectangle_t frameRect = testingCompShape.getFrameRect();
   const double compositeArea = testingCompShape.getArea();
   const size_t compositeSize = testingCompShape.getSize();
@@ -104,7 +104,7 @@ BOOST_AUTO_TEST_CASE(testMoveOperator)
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
   gusarov::CompositeShape testingCompShape(testingRect);
-  testingCompShape.addNewShape(testingCirc);
+  testingCompShape.add(testingCirc);
   const gusarov::rectangle_t frameRect = testingCompShape.getFrameRect();
   const double compositeArea = testingCompShape.getArea();
   const size_t compositeSize = testingCompShape.getSize();
@@ -126,7 +126,7 @@ BOOST_AUTO_TEST_CASE(testCopyOperator)
   gusarov::Rectangle testingRect({4.0, 6.0}, 2.0, 4.0);
   gusarov::Circle testingCirc({1.0, 2.0}, 1.0);
   gusarov::CompositeShape testingCompShape(testingRect);
-  testingCompShape.addNewShape(testingCirc);
+  testingCompShape.add(testingCirc);
   const gusarov::rectangle_t frameRect = testingCompShape.getFrameRect();
 
   gusarov::Triangle testingTri({1.0, 0.0}, {2.0, 1.0}, {3.0, 0.0});

@@ -14,17 +14,17 @@ namespace gusarov
     CompositeShape(Shape&);
     ~CompositeShape();
 
-    CompositeShape& operator=(const CompositeShape&);
-    CompositeShape& operator=(CompositeShape&&);
-    Shape& operator[](const size_t) const;
+    CompositeShape& operator =(const CompositeShape&);
+    CompositeShape& operator =(CompositeShape&&);
+    Shape& operator [](const size_t) const;
 
     size_t getSize() const;
-    void addNewShape(Shape&);
-    void deleteShape(const size_t);
+    void add(Shape&);
+    void remove(const size_t);
     rectangle_t getFrameRect() const override;
     double getArea() const override;
     void move(const double, const double) override;
-    void move(const point_t &) override;
+    void move(const point_t&) override;
     void printInfo() const override;
     void scale(const double) override;
 

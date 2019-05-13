@@ -39,8 +39,8 @@ int main()
   std::cout << '\n';
   //создание составной фигуры
   gusarov::CompositeShape compShape(rec);
-  compShape.addNewShape(cir);
-  compShape.addNewShape(tri);
+  compShape.add(cir);
+  compShape.add(tri);
   std::cout << "Area of composite shape is " << compShape.getArea() << '\n';
   compShape.printInfo();
   std::cout << '\n';
@@ -51,7 +51,8 @@ int main()
   compShape.printInfo();
   std::cout << '\n';
   //демонстрация удаления элемента составной фигуры
-  compShape.deleteShape(2);
+  compShape.remove(0);
   compShape.printInfo();
+
   return 0;
 }

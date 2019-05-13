@@ -27,18 +27,18 @@ gusarov::CompositeShape::CompositeShape(gusarov::CompositeShape&& newShape):
 gusarov::CompositeShape::CompositeShape(gusarov::Shape& newShape):
   CompositeShape()
 {
-  addNewShape(newShape);
+  add(newShape);
 }
 gusarov::CompositeShape::~CompositeShape()
 {
-  delete[] shapes_;
+  delete [] shapes_;
 }
 
-gusarov::CompositeShape& gusarov::CompositeShape::operator = (const gusarov::CompositeShape& newShape)
+gusarov::CompositeShape& gusarov::CompositeShape::operator =(const gusarov::CompositeShape& newShape)
 {
   if (&newShape == this)
   {
-    return *this;
+    return* this;
   }
   size_ = newShape.size_;
   delete [] shapes_;
@@ -47,40 +47,40 @@ gusarov::CompositeShape& gusarov::CompositeShape::operator = (const gusarov::Com
   {
     shapes_[i] = newShape.shapes_[i];
   }
-  return *this;
+  return* this;
 }
-gusarov::CompositeShape& gusarov::CompositeShape::operator = (gusarov::CompositeShape&& newShape)
+gusarov::CompositeShape& gusarov::CompositeShape::operator =(gusarov::CompositeShape&& newShape)
 {
 
   if (&newShape == this)
   {
-    return *this;
+    return* this;
   }
   size_ = newShape.size_;
   newShape.size_ = 0;
 
-  delete[] shapes_;
+  delete [] shapes_;
   shapes_ = newShape.shapes_;
   newShape.shapes_ = nullptr;
 
-  return *this;
+  return* this;
 }
-gusarov::Shape& gusarov::CompositeShape::operator [] (const size_t index) const
+gusarov::Shape& gusarov::CompositeShape::operator [](const size_t index) const
 {
   if (index + 1 > size_)
   {
      throw std::out_of_range("Index is out of range");
   }
-  return *shapes_[index];
+  return* shapes_[index];
 }
 size_t gusarov::CompositeShape::getSize() const
 {
   return size_;
 }
-void gusarov::CompositeShape::addNewShape(gusarov::Shape& newShape)
+void gusarov::CompositeShape::add(gusarov::Shape& newShape)
 {
   ++size_;
-  gusarov::Shape** tmpShapes = new gusarov::Shape*[size_];
+  gusarov::Shape** tmpShapes = new gusarov::Shape* [size_];
   for (size_t i = 0; i < size_ - 1; ++i)
   {
     tmpShapes[i] = shapes_[i];
@@ -90,18 +90,25 @@ void gusarov::CompositeShape::addNewShape(gusarov::Shape& newShape)
   tmpShapes = nullptr;
   shapes_[size_ - 1] = &newShape;
 }
-void gusarov::CompositeShape::deleteShape(size_t index)
+void gusarov::CompositeShape::remove(size_t index)
 {
   if (index + 1 > size_)
   {
     throw std::out_of_range("Index is out of range");
   }
-  for (size_t i = index; i < size_ - 1; ++i)
-  {
-    shapes_[i] = shapes_[i + 1];
-  }
-  shapes_[size_ - 1] = nullptr;
   --size_;
+  gusarov::Shape** tmpShapes = new gusarov::Shape* [size_];
+  for (size_t i = 0; i < index; ++i)
+  {
+    tmpShapes[i] = shapes_[i];
+  }
+  for (size_t i = index + 1; i < size_ + 1; ++i)
+  {
+    tmpShapes[i - 1] = shapes_[i];
+  }
+  delete [] shapes_;
+  shapes_ = tmpShapes;
+  tmpShapes = nullptr;
 }
 double gusarov::CompositeShape::getArea() const
 {
@@ -146,7 +153,7 @@ void gusarov::CompositeShape::move(const double shiftX, const double shiftY)
     shapes_[i]->move(shiftX, shiftY);
   }
 }
-void gusarov::CompositeShape::move(const gusarov::point_t &newPoint)
+void gusarov::CompositeShape::move(const gusarov::point_t& newPoint)
 {
   gusarov::rectangle_t frameRect = getFrameRect();
   double shiftX = newPoint.x - frameRect.pos.x;
@@ -170,10 +177,13 @@ void gusarov::CompositeShape::scale(const double scale)
     throw std::invalid_argument("Invalid scale value");
   }
   gusarov::point_t frameRectPos = getFrameRect().pos;
+  double centerScaleX = 0.0;
+  double centerScaleY = 0.0;
+
   for (size_t i = 0; i < size_; ++i)
   {
-    double centerScaleX = shapes_[i]->getFrameRect().pos.x - frameRectPos.x;
-    double centerScaleY = shapes_[i]->getFrameRect().pos.y - frameRectPos.y;
+    centerScaleX = shapes_[i]->getFrameRect().pos.x - frameRectPos.x;
+    centerScaleY = shapes_[i]->getFrameRect().pos.y - frameRectPos.y;
     shapes_[i]->move({centerScaleX * scale + frameRectPos.x, centerScaleY * scale + frameRectPos.y});
     shapes_[i]->scale(scale);
   }
