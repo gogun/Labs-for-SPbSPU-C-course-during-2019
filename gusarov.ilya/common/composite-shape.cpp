@@ -158,10 +158,7 @@ void gusarov::CompositeShape::move(const gusarov::point_t& newPoint)
   gusarov::rectangle_t frameRect = getFrameRect();
   double shiftX = newPoint.x - frameRect.pos.x;
   double shiftY = newPoint.y - frameRect.pos.y;
-  for (size_t i = 0; i < size_; ++i)
-  {
-    shapes_[i]->move(shiftX, shiftY);
-  }
+  move(shiftX, shiftY);
 }
 void gusarov::CompositeShape::printInfo() const
 {
