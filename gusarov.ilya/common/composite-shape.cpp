@@ -7,6 +7,7 @@ gusarov::CompositeShape::CompositeShape():
   shapes_(nullptr)
 {
 }
+
 gusarov::CompositeShape::CompositeShape(const gusarov::CompositeShape& newShape):
   size_(newShape.size_),
   shapes_(new gusarov::Shape* [size_])
@@ -17,6 +18,7 @@ gusarov::CompositeShape::CompositeShape(const gusarov::CompositeShape& newShape)
   }
 
 }
+
 gusarov::CompositeShape::CompositeShape(gusarov::CompositeShape&& newShape):
   size_(newShape.size_),
   shapes_(newShape.shapes_)
@@ -24,11 +26,13 @@ gusarov::CompositeShape::CompositeShape(gusarov::CompositeShape&& newShape):
   newShape.size_ = 0;
   newShape.shapes_ = nullptr;
 }
+
 gusarov::CompositeShape::CompositeShape(gusarov::Shape& newShape):
   CompositeShape()
 {
   add(newShape);
 }
+
 gusarov::CompositeShape::~CompositeShape()
 {
   delete [] shapes_;
@@ -49,9 +53,9 @@ gusarov::CompositeShape& gusarov::CompositeShape::operator =(const gusarov::Comp
   }
   return* this;
 }
+
 gusarov::CompositeShape& gusarov::CompositeShape::operator =(gusarov::CompositeShape&& newShape)
 {
-
   if (&newShape == this)
   {
     return* this;
@@ -65,6 +69,7 @@ gusarov::CompositeShape& gusarov::CompositeShape::operator =(gusarov::CompositeS
 
   return* this;
 }
+
 gusarov::Shape& gusarov::CompositeShape::operator [](const size_t index) const
 {
   if (index + 1 > size_)
@@ -77,6 +82,7 @@ size_t gusarov::CompositeShape::getSize() const
 {
   return size_;
 }
+
 void gusarov::CompositeShape::add(gusarov::Shape& newShape)
 {
   ++size_;
@@ -90,6 +96,7 @@ void gusarov::CompositeShape::add(gusarov::Shape& newShape)
   tmpShapes = nullptr;
   shapes_[size_ - 1] = &newShape;
 }
+
 void gusarov::CompositeShape::remove(size_t index)
 {
   if (index + 1 > size_)
@@ -110,6 +117,7 @@ void gusarov::CompositeShape::remove(size_t index)
   shapes_ = tmpShapes;
   tmpShapes = nullptr;
 }
+
 double gusarov::CompositeShape::getArea() const
 {
   if (size_ == 0)
@@ -123,6 +131,7 @@ double gusarov::CompositeShape::getArea() const
   }
   return area;
 }
+
 gusarov::rectangle_t gusarov::CompositeShape::getFrameRect() const
 {
   if (size_ == 0)
@@ -146,6 +155,7 @@ gusarov::rectangle_t gusarov::CompositeShape::getFrameRect() const
   }
   return {(maxX - minX), (maxY - minY), {(maxX + minX) / 2, (maxY + minY) / 2}};
 }
+
 void gusarov::CompositeShape::move(const double shiftX, const double shiftY)
 {
   for (size_t i = 0; i < size_; ++i)
@@ -153,6 +163,7 @@ void gusarov::CompositeShape::move(const double shiftX, const double shiftY)
     shapes_[i]->move(shiftX, shiftY);
   }
 }
+
 void gusarov::CompositeShape::move(const gusarov::point_t& newPoint)
 {
   gusarov::rectangle_t frameRect = getFrameRect();
@@ -160,6 +171,7 @@ void gusarov::CompositeShape::move(const gusarov::point_t& newPoint)
   double shiftY = newPoint.y - frameRect.pos.y;
   move(shiftX, shiftY);
 }
+
 void gusarov::CompositeShape::printInfo() const
 {
   std::cout << "Width of composite shape is " << getFrameRect().width << '\n';
