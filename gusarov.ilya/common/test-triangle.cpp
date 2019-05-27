@@ -41,4 +41,17 @@ BOOST_AUTO_TEST_CASE(testInvalidValues)
   BOOST_CHECK_THROW(gusarov::Triangle testTriangle({0.0, 0.0}, {0.0, 0.0}, {3.0, 4.0}), std::invalid_argument);
 }
 
+BOOST_AUTO_TEST_CASE(testTriangleRotate)
+{
+  gusarov::Triangle testTri({0.0, 0.0}, {8.0, 4.0}, {2.0, 6.0});
+  double areaBefore = testTri.getArea();
+
+  double angle = -50.0;
+  BOOST_CHECK_NO_THROW(testTri.rotate(angle));
+
+  angle = 90.0;
+  testTri.rotate(angle);
+  BOOST_CHECK_CLOSE(testTri.getArea(), areaBefore, EPSILON);
+}
+
 BOOST_AUTO_TEST_SUITE_END();

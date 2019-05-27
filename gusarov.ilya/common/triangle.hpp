@@ -16,10 +16,12 @@ namespace gusarov
     void move(const point_t &) override;
     void scale(const double) override;
     void printInfo() const override;
+    void rotate(double) override;
   private:
     point_t pointA_;
     point_t pointB_;
     point_t pointC_;
+    double angle_;
   };
 }
 

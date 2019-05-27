@@ -12,28 +12,34 @@ gusarov::Circle::Circle(const point_t &center, const double radius):
     throw std::invalid_argument("Invalid radius value");
   }
 }
+
 double gusarov::Circle::getArea() const
 {
   return M_PI * pow(radius_, 2);
 }
+
 gusarov::rectangle_t gusarov::Circle::getFrameRect() const
 {
   return {radius_ * 2, radius_ * 2, center_};
 }
+
 void gusarov::Circle::move(const double shiftX, const double shiftY)
 {
   center_.x += shiftX;
   center_.y += shiftY;
 }
+
 void gusarov::Circle::move(const gusarov::point_t &newPoint)
 {
   center_ = newPoint;
 }
+
 void gusarov::Circle::printInfo() const
 {
   std::cout << "Radius of circle is " << radius_ << '\n';
   std::cout << "Center of circle is a point: (" << center_.x << ";" << center_.y << ")" << '\n';
 }
+
 void gusarov::Circle::scale(const double scale)
 {
   if (scale <= 0)
@@ -42,7 +48,12 @@ void gusarov::Circle::scale(const double scale)
   }
   radius_ *= scale;
 }
+
 double gusarov::Circle::getRadius() const
 {
   return radius_;
+}
+
+void gusarov::Circle::rotate(double)
+{
 }

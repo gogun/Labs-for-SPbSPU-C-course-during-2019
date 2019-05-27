@@ -37,4 +37,17 @@ BOOST_AUTO_TEST_CASE(testInvalidValues)
   BOOST_CHECK_THROW(gusarov::Circle testingCircle({-1.0, -1.0}, -2.0), std::invalid_argument);
 }
 
+BOOST_AUTO_TEST_CASE(testCircleRotate)
+{
+  gusarov::Circle testCircle({0, 1}, 5);
+  double areaBefore = testCircle.getArea();
+
+  double angle = -50.0;
+  BOOST_CHECK_NO_THROW(testCircle.rotate(angle));
+
+  angle = 90.0;
+  testCircle.rotate(angle);
+  BOOST_CHECK_CLOSE(testCircle.getArea(), areaBefore, EPSILON);
+}
+
 BOOST_AUTO_TEST_SUITE_END();

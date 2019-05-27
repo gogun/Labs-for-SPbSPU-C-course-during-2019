@@ -15,6 +15,7 @@ namespace gusarov
     void printInfo() const override;
     void scale(const double) override;
     double getRadius() const;
+    void rotate(double) override;
   private:
     point_t center_;
     double radius_;

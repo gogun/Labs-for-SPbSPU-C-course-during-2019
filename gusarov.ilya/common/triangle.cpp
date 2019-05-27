@@ -14,10 +14,12 @@ gusarov::Triangle::Triangle(const point_t & pointA, const point_t & pointB, cons
     throw std::invalid_argument("It is not a triangle");
   }
 }
+
 gusarov::point_t gusarov::Triangle::getCenter() const
 {
   return {(pointA_.x + pointB_.x + pointC_.x) / 3, (pointA_.y + pointB_.y + pointC_.y) / 3};
 }
+
 double gusarov::Triangle::getArea() const
 {
   point_t side1 = {pointB_.x - pointA_.x, pointB_.y - pointA_.y};
@@ -25,6 +27,7 @@ double gusarov::Triangle::getArea() const
 
   return (fabs((side1.x * side2.y - side1.y * side2.x)) / 2);
 }
+
 gusarov::rectangle_t gusarov::Triangle::getFrameRect() const
 {
   point_t max {std::max(pointA_.x, std::max(pointB_.x, pointC_.x)),
@@ -38,6 +41,7 @@ gusarov::rectangle_t gusarov::Triangle::getFrameRect() const
 
   return {width, height, pos};
 }
+
 void gusarov::Triangle::move(const double shiftX, const double shiftY)
 {
   pointA_.x += shiftX;
@@ -49,6 +53,7 @@ void gusarov::Triangle::move(const double shiftX, const double shiftY)
   pointC_.x += shiftX;
   pointC_.y += shiftY;
 }
+
 void gusarov::Triangle::move(const point_t& point)
 {
   point_t center = getCenter();
@@ -70,9 +75,16 @@ void gusarov::Triangle::scale(const double scale)
   pointC_.x = center.x * (1 - scale) + pointC_.x * scale;
   pointC_.y = center.y * (1 - scale) + pointC_.y * scale;
 }
+
 void gusarov::Triangle::printInfo() const
 {
   std::cout << "Width of framed rectangle is " << getFrameRect().width << '\n';
   std::cout << "Height of framed rectangle is " << getFrameRect().height << '\n';
   std::cout << "Center of triangle is a point: (" << getCenter().x << ";" << getCenter().y << ")" << '\n';
+  std::cout << "Angle of rotation is " << angle_ << '\n';
+}
+
+void gusarov::Triangle::rotate(double angle)
+{
+  angle_ += angle;
 }

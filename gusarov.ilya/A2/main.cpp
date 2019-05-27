@@ -7,7 +7,7 @@
 int main()
 {
   //прямоугольник
-  gusarov::Rectangle rec({3, 5}, 1, 4);
+  gusarov::Rectangle rec({3, 5}, 1, 4, 0);
   gusarov::Shape *shape = &rec;
   shape->printInfo();
   std::cout << "Area of rectangle is " << shape->getArea() << '\n';

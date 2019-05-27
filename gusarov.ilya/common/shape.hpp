@@ -14,6 +14,7 @@ namespace gusarov
     virtual void move(const point_t &) = 0;
     virtual void printInfo() const = 0;
     virtual void scale(double) = 0;
+    virtual void rotate(double) = 0;
   };
 }
 #endif

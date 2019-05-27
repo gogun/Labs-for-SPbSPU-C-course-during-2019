@@ -2,6 +2,25 @@
 #include "circle.hpp"
 #include "triangle.hpp"
 #include "composite-shape.hpp"
+#include "matrix.hpp"
+#include "separation.hpp"
+
+void printMatrix(const gusarov::Matrix<gusarov::Shape> matrix)
+{
+  for (size_t i = 0; i < matrix.getRows(); i++)
+   {
+     for (size_t j = 0; j < matrix.getColumns(); j++)
+     {
+       if (matrix[i][j] != nullptr)
+       {
+         std::cout << "Layer number " << i + 1 << "\n" << "Figure number " << j + 1 << "\n";
+         std::cout << "Area is " << matrix[i][j]->getArea() << "\n";
+         const gusarov::rectangle_t frameRect = matrix[i][j]->getFrameRect();
+         std::cout << "Center is (" << frameRect.pos.x << "," << frameRect.pos.y << ")\n";
+       }
+     }
+   }
+}
 
 int main()
 {
@@ -13,6 +32,7 @@ int main()
   rec.move(2, 3);
   rec.move({-2, -3});
   rec.scale(2);
+  //rec.rotate(60);
   //Вывод данных после смещения и масштабирования
   rec.printInfo();
   std::cout << '\n';
@@ -34,6 +54,8 @@ int main()
   tri.move(2, 3);
   tri.move({-2, -3});
   tri.scale(2);
+  //tri.rotate(30);
+  std::cout << '\n';
   //Вывод данных после смещения и масштабирования
   tri.printInfo();
   std::cout << '\n';
@@ -47,12 +69,24 @@ int main()
   //сдвиг и масштабирование составной фигуры
   compShape.move(2, 3);
   compShape.scale(3);
+  //compShape.rotate(90);
   std::cout << "Area of composite shape is " << compShape.getArea() << '\n';
   compShape.printInfo();
   std::cout << '\n';
   //демонстрация удаления элемента составной фигуры
   compShape.remove(0);
   compShape.printInfo();
+  //создание матрицы из составной фигуры
+  gusarov::Matrix<gusarov::Shape> matrix = gusarov::section(compShape);
+  std::cout << '\n';
+  //вывод информации о слоях и фигурах
+  printMatrix(matrix);
+  //добавление еще одной фигуры в составную фигуру и далее в матрицу
+  compShape.add(std::make_shared<gusarov::Rectangle>(rec));
+  matrix = gusarov::section(compShape);
+  std::cout << '\n';
+  //сравненеи результатов
+  printMatrix(matrix);
 
   return 0;
 }
