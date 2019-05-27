@@ -105,7 +105,6 @@ namespace gusarov
     {
       tmpArray[i] = data_[i + row * columns_];
     }
-    
     return tmpArray;
   }
 
