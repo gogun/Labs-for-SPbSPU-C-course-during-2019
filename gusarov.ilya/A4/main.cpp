@@ -32,7 +32,7 @@ int main()
   rec.move(2, 3);
   rec.move({-2, -3});
   rec.scale(2);
-  //rec.rotate(60);
+  rec.rotate(60);
   //Вывод данных после смещения и масштабирования
   rec.printInfo();
   std::cout << '\n';
@@ -54,7 +54,6 @@ int main()
   tri.move(2, 3);
   tri.move({-2, -3});
   tri.scale(2);
-  //tri.rotate(30);
   std::cout << '\n';
   //Вывод данных после смещения и масштабирования
   tri.printInfo();
@@ -69,7 +68,7 @@ int main()
   //сдвиг и масштабирование составной фигуры
   compShape.move(2, 3);
   compShape.scale(3);
-  //compShape.rotate(90);
+  compShape.rotate(90);
   std::cout << "Area of composite shape is " << compShape.getArea() << '\n';
   compShape.printInfo();
   std::cout << '\n';
