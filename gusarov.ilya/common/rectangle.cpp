@@ -1,6 +1,7 @@
 #include "rectangle.hpp"
 #include <iostream>
 #include <stdexcept>
+#include <cmath>
 
 gusarov::Rectangle::Rectangle(const gusarov::point_t &center, const double width, const double height, const double angle):
   center_(center),
@@ -21,7 +22,12 @@ double gusarov::Rectangle::getArea() const
 
 gusarov::rectangle_t gusarov::Rectangle::getFrameRect() const
 {
-  return {width_, height_, center_};
+  const double cos = std::abs(std::cos(angle_ * M_PI / 180));
+  const double sin = std::abs(std::sin(angle_ * M_PI / 180));
+  const double width = fabs(cos * width_) + fabs(sin * height_);
+  const double height = fabs(cos * height_) + fabs(sin * width_);
+
+  return {width, height, center_};
 }
 
 void gusarov::Rectangle::move(const double shiftX, const double shiftY)
