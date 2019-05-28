@@ -21,7 +21,6 @@ namespace gusarov
     point_t pointA_;
     point_t pointB_;
     point_t pointC_;
-    double angle_;
   };
 }
 

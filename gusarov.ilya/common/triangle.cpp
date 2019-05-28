@@ -86,5 +86,18 @@ void gusarov::Triangle::printInfo() const
 
 void gusarov::Triangle::rotate(double angle)
 {
-  angle_ += angle;
+  const double cos = std::abs(std::cos(angle * M_PI / 180));
+  const double sin = std::abs(std::sin(angle * M_PI / 180));
+  const double Ax = (pointA_.x - center_.x) * cos - (pointA_.y - center_.y) * sin;
+  const double Ay = (pointA_.x - center_.x) * sin + (pointA_.y - center_.y) * cos;
+  const double Bx = (pointB_.x - center_.x) * cos - (pointB_.y - center_.y) * sin;
+  const double By = (pointB_.x - center_.x) * sin + (pointB_.y - center_.y) * cos;
+  const double Cx = (pointC_.x - center_.x) * cos - (pointC_.y - center_.y) * sin;
+  const double Cy = (pointC_.x - center_.x) * sin + (pointC_.y - center_.y) * cos;
+  pointA_.x = Ax + center_.x;
+  pointA_.y = Ay + center_.y;
+  pointB_.x = Bx + center_.x;
+  pointB_.y = By + center_.y;
+  pointC_.x = Cx + center_.x;
+  pointC_.y = Cy + center_.y;
 }
