@@ -85,18 +85,19 @@ void gusarov::Triangle::printInfo() const
 
 void gusarov::Triangle::rotate(double angle)
 {
+  point_t center = getCenter();
   const double cos = std::abs(std::cos(angle * M_PI / 180));
   const double sin = std::abs(std::sin(angle * M_PI / 180));
-  const double Ax = (pointA_.x - getCenter().x) * cos - (pointA_.y - getCenter().y) * sin;
-  const double Ay = (pointA_.x - getCenter().x) * sin + (pointA_.y - getCenter().y) * cos;
-  const double Bx = (pointB_.x - getCenter().x) * cos - (pointB_.y - getCenter().y) * sin;
-  const double By = (pointB_.x - getCenter().x) * sin + (pointB_.y - getCenter().y) * cos;
-  const double Cx = (pointC_.x - getCenter().x) * cos - (pointC_.y - getCenter().y) * sin;
-  const double Cy = (pointC_.x - getCenter().x) * sin + (pointC_.y - getCenter().y) * cos;
-  pointA_.x = Ax + getCenter().x;
-  pointA_.y = Ay + getCenter().y;
-  pointB_.x = Bx + getCenter().x;
-  pointB_.y = By + getCenter().y;
-  pointC_.x = Cx + getCenter().x;
-  pointC_.y = Cy + getCenter().y;
+  const double Ax = (pointA_.x - center.x) * cos - (pointA_.y - center.y) * sin;
+  const double Ay = (pointA_.x - center.x) * sin + (pointA_.y - center.y) * cos;
+  const double Bx = (pointB_.x - center.x) * cos - (pointB_.y - center.y) * sin;
+  const double By = (pointB_.x - center.x) * sin + (pointB_.y - center.y) * cos;
+  const double Cx = (pointC_.x - center.x) * cos - (pointC_.y - center.y) * sin;
+  const double Cy = (pointC_.x - center.x) * sin + (pointC_.y - center.y) * cos;
+  pointA_.x = Ax + center.x;
+  pointA_.y = Ay + center.y;
+  pointB_.x = Bx + center.x;
+  pointB_.y = By + center.y;
+  pointC_.x = Cx + center.x;
+  pointC_.y = Cy + center.y;
 }
