@@ -7,19 +7,24 @@
 
 void printMatrix(const gusarov::Matrix<gusarov::Shape> matrix)
 {
-  for (size_t i = 0; i < matrix.getRows(); i++)
-   {
-     for (size_t j = 0; j < matrix.getColumns(); j++)
-     {
-       if (matrix[i][j] != nullptr)
-       {
-         std::cout << "Layer number " << i + 1 << "\n" << "Figure number " << j + 1 << "\n";
-         std::cout << "Area is " << matrix[i][j]->getArea() << "\n";
-         const gusarov::rectangle_t frameRect = matrix[i][j]->getFrameRect();
-         std::cout << "Center is (" << frameRect.pos.x << "," << frameRect.pos.y << ")\n";
-       }
-     }
-   }
+  size_t layer = matrix.getRows();
+  for (size_t i = 0; i < layer; ++i)
+    {
+      std::cout << "Layer: " << i + 1 << "\n";
+      std::cout << "Shapes in the layer:\n";
+      std::size_t columns = matrix[i].size();
+      for (size_t j = 0; j < columns; ++j)
+      {
+        if (matrix[i][j] != nullptr)
+        {
+          std::cout << j + 1 << ":\n";
+          std::cout << "Area: " << matrix[i][j]->getArea() << "\n";
+          const gusarov::rectangle_t frameRect = matrix[i][j]->getFrameRect();
+          std::cout << "Position: (" << frameRect.pos.x << "," << frameRect.pos.y << ")\n";
+        }
+      }
+    }
+
 }
 
 int main()
@@ -81,6 +86,7 @@ int main()
   //вывод информации о слоях и фигурах
   printMatrix(matrix);
   //добавление еще одной фигуры в составную фигуру и далее в матрицу
+  rec.scale(100);
   compShape.add(std::make_shared<gusarov::Rectangle>(rec));
   matrix = gusarov::section(compShape);
   std::cout << '\n';

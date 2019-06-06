@@ -15,39 +15,36 @@ bool gusarov::intersect(const rectangle_t &frameRect1, const rectangle_t &frameR
   return true;
 }
 
-gusarov::Matrix<gusarov::Shape> gusarov::section(const gusarov::CompositeShape &compShape)
+gusarov::Matrix<gusarov::Shape> gusarov::section(const gusarov::CompositeShape comShape)
 {
   gusarov::Matrix<gusarov::Shape> matrix;
 
-  for (size_t i = 0; i < compShape.getSize(); ++i)
+  size_t count = comShape.getSize();
+  for (size_t i = 0; i < count; i++)
   {
-    size_t layerCount = 0;
-    size_t layerIndex = 0;
-
-    for (size_t j = 0; j < matrix.getRows(); ++j)
+    size_t layer = 0;
+    size_t matrixRows = matrix.getRows();
+    for (size_t j = matrixRows; j-- > 0;)
     {
-      for (size_t k = 0; k < matrix.getColumns(); ++k)
+      size_t matrixColumns = matrix[j].size();
+      for (size_t k = 0; k < matrixColumns; k++)
       {
-        if (matrix[j][k] == nullptr)
+        if (intersect(matrix[j][k]->getFrameRect(), comShape[i]->getFrameRect()))
         {
-          layerCount = j;
-          layerIndex = k;
+          layer = j + 1;
           break;
-        }
-        if (intersect(compShape[i]->getFrameRect(), matrix[j][k]->getFrameRect()))
-        {
-          layerCount = j + 1;
-          layerIndex = 0;
-          break;
-        }
-        if (k == matrix.getColumns() - 1)
-        {
-          layerIndex = k + 1;
         }
       }
+
+      if (layer > j)
+      {
+        break;
+      }
     }
-    matrix.add(compShape[i], layerCount, layerIndex);
+
+    matrix.add(comShape[i], layer);
   }
 
   return matrix;
 }
+

@@ -6,7 +6,7 @@
 
 namespace gusarov
 {
-  Matrix<Shape> section(const CompositeShape &);
+  Matrix<Shape> section(const CompositeShape);
   bool intersect(const rectangle_t &, const rectangle_t &);
 }
 

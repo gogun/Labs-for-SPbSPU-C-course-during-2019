@@ -43,7 +43,7 @@ gusarov::CompositeShape &gusarov::CompositeShape::operator =(const gusarov::Comp
     shapes_[i] = newShape.shapes_[i];
   }
 
-  return* this;
+  return *this;
 }
 gusarov::CompositeShape &gusarov::CompositeShape::operator =(gusarov::CompositeShape &&newShape)
 {

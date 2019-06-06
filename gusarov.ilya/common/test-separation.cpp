@@ -27,7 +27,6 @@ BOOST_AUTO_TEST_CASE(testSection)
 
   gusarov::Matrix<gusarov::Shape> testingMatrix = gusarov::section(testingComp);
   BOOST_CHECK_EQUAL(testingMatrix.getRows(), 2);
-  BOOST_CHECK_EQUAL(testingMatrix.getColumns(), 2);
   BOOST_CHECK_EQUAL(testingMatrix[0][0], testingComp[0]);
   BOOST_CHECK_EQUAL(testingMatrix[0][1], testingComp[1]);
   BOOST_CHECK_EQUAL(testingMatrix[1][0], testingComp[2]);
